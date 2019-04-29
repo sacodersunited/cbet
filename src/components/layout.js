@@ -11,6 +11,7 @@ import { StaticQuery, graphql } from "gatsby"
 
 import Header from "./header"
 import Accreditations from "./accreditations"
+import Footer from "./footer"
 
 const Layout = ({ children }) => (
   <StaticQuery
@@ -25,7 +26,7 @@ const Layout = ({ children }) => (
     `}
     render={data => (
       <>
-      {/* TODO: Not sure where to place this link to css */}
+        {/* TODO: Not sure where to place this link to css */}
         <link
           rel="stylesheet"
           href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -36,11 +37,7 @@ const Layout = ({ children }) => (
 
         <main>{children}</main>
         <Accreditations />
-        <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer>
+        <Footer />
       </>
     )}
   />

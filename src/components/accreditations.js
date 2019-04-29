@@ -1,6 +1,9 @@
 import React from "react"
-import { Container, Row, Col } from "react-bootstrap"
+import { Container, Row, Col, Image } from "react-bootstrap"
 import styled from "styled-components"
+import AccImg from "../images/accet.svg"
+import twcImg from "../images/twc-logo.jpg"
+import TXHigherImg from "../images/TXHigherEd.png"
 
 const AccredSection = styled.section`
   min-height: 500px;
@@ -8,7 +11,7 @@ const AccredSection = styled.section`
 `
 
 const Accreditations = () => (
-  <AccredSection className="bg-light">
+  <AccredSection>
     <Container>
       <Row>
         <Col md={4}>
@@ -22,7 +25,17 @@ const Accreditations = () => (
           </p>
         </Col>
         <Col>
-          <h2>LOGOS</h2>
+          <Row>
+            <Col md={4} style={{ alignSelf: "center", textAlign: "center" }}>
+              <Image src={AccImg} alt="acc logo" />
+            </Col>
+            <Col md={4} style={{ alignSelf: "center", textAlign: "center" }}>
+              <Image src={twcImg} alt="twc logo" height="140" />
+            </Col>
+            <Col md={4} style={{ alignSelf: "center", textAlign: "center" }}>
+              <Image src={TXHigherImg} alt="twc logo" />
+            </Col>
+          </Row>
         </Col>
       </Row>
     </Container>

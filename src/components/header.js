@@ -73,7 +73,7 @@ const Header = ({ siteTitle }) => (
             </a>
             <Link to="/" className="nav-link">
               <FaUserLock
-                style={{ verticalAlign: "text-bottom", fontSize: "20px" }}
+                style={{ verticalAlign: "text-bottom", fontSize: "20px", marginRight: "4px" }}
               />
               Admin
             </Link>
