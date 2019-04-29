@@ -10,6 +10,7 @@ import PropTypes from "prop-types"
 import { StaticQuery, graphql } from "gatsby"
 
 import Header from "./header"
+import Accreditations from "./accreditations"
 
 const Layout = ({ children }) => (
   <StaticQuery
@@ -24,6 +25,7 @@ const Layout = ({ children }) => (
     `}
     render={data => (
       <>
+      {/* TODO: Not sure where to place this link to css */}
         <link
           rel="stylesheet"
           href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -33,6 +35,7 @@ const Layout = ({ children }) => (
         <Header siteTitle={data.site.siteMetadata.title} />
 
         <main>{children}</main>
+        <Accreditations />
         <footer>
           © {new Date().getFullYear()}, Built with
           {` `}

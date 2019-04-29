@@ -53,20 +53,29 @@ const Header = ({ siteTitle }) => (
           </Nav>
           <Nav className="social-nav">
             <a href="https://facebook.com" target="_blank" className="nav-link">
-              <FaFacebookSquare />
+              <FaFacebookSquare
+                style={{ verticalAlign: "text-bottom", fontSize: "20px" }}
+              />
             </a>
             <a href="https://twitter.com" target="_blank" className="nav-link">
-              <FaTwitterSquare />
+              <FaTwitterSquare
+                style={{ verticalAlign: "text-bottom", fontSize: "20px" }}
+              />
             </a>
             <a
               href="https://www.linkedin.com/"
               target="_blank"
               className="nav-link"
             >
-              <FaLinkedin />
+              <FaLinkedin
+                style={{ verticalAlign: "text-bottom", fontSize: "20px" }}
+              />
             </a>
             <Link to="/" className="nav-link">
-              <FaUserLock />
+              <FaUserLock
+                style={{ verticalAlign: "text-bottom", fontSize: "20px" }}
+              />
+              Admin
             </Link>
           </Nav>
         </Navbar.Collapse>
