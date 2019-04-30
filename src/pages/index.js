@@ -4,6 +4,7 @@ import { Container } from "react-bootstrap"
 import Layout from "../components/layout"
 import Image from "../components/image"
 import SEO from "../components/seo"
+import HomeCarousel from "../components/homeCarousel"
 
 const IndexPage = () => (
   <Layout>
@@ -11,6 +12,7 @@ const IndexPage = () => (
       title="Home"
       keywords={[`biomedical equipment`, `education`, `technology`]}
     />
+    <HomeCarousel />
     <Container>
       <h1>Hi people</h1>
       <p>Welcome to your new Gatsby site.</p>
