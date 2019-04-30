@@ -1,0 +1,10 @@
+#wrapper {
+  width: 600px;
+  margin: 20px auto;
+}
+
+path {
+  fill: #aaa;
+  stroke: #ddd;
+  stroke-width: 0.5;
+}
