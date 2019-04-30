@@ -16,7 +16,7 @@ _Have another more specific idea? You may want to check out our vibrant collecti
 
 [Netlify Staging Site](https://dazzling-darwin-78f815.netlify.com/)
 
-## 🚀 Quick start
+
 
 1.  **Create a Gatsby site.**
 
