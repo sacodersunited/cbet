@@ -1,9 +1,9 @@
 import React from "react"
-import { Container, Row, Col, Image } from "react-bootstrap"
+import { Container, Row, Col } from "react-bootstrap"
 import styled from "styled-components"
 
 const FooterSection = styled.footer`
-  color: whitesmoke
+  color: whitesmoke;
   min-height: 400px;
   padding: 96px 0;
 `
