@@ -1,8 +1,16 @@
 import React from "react"
 import { Container, Row, Col, Button } from "react-bootstrap"
+import styled from "styled-components"
+import { FaBriefcaseMedical, FaRocket } from "react-icons/fa"
+
+const ProgramBG = styled.section`
+  background-color: #2c3e50;
+  background: linear-gradient(90deg, #1cb5e0 0%, #000851 100%);
+  padding: 96px 0;
+`
 
 const Programs = () => (
-  <section className="bg-info text-light" style={{ padding: "46px 0" }}>
+  <ProgramBG className="text-light">
     <Container>
       <h2 className="mb-5" style={{ textTransform: "uppercase" }}>
         Programs
@@ -10,7 +18,7 @@ const Programs = () => (
       <Row>
         <Col md={6}>
           <h5 style={{ textTransform: "uppercase" }}>
-            Biomedical Equipment Tech
+            <FaBriefcaseMedical size={24} style={{ verticalAlign: "baseline" }}/> Biomedical Equipment Tech
           </h5>
           <p className="display-4">
             Lorem ipsum dolor sit, amet consectetur adipisicing elit
@@ -19,7 +27,7 @@ const Programs = () => (
         </Col>
         <Col md={6}>
           <h5 style={{ textTransform: "uppercase" }}>
-            INFORMATION TECHNOLOGY & NETWORKING
+            <FaRocket size={24} style={{verticalAlign: "text-bottom"}}/> INFORMATION TECHNOLOGY & NETWORKING
           </h5>
           <p className="display-4">
             Lorem ipsum dolor sit, amet consectetur adipisicing elit
@@ -28,7 +36,7 @@ const Programs = () => (
         </Col>
       </Row>
     </Container>
-  </section>
+  </ProgramBG>
 )
 
 export default Programs
