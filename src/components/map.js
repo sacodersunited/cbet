@@ -4,10 +4,10 @@ import {
   ZoomableGlobe,
   Geographies,
   Geography,
-  Markers,
-  Marker,
+  // Markers,
+  // Marker,
 } from "react-simple-maps"
-import { geoConicEqualArea } from "d3-geo"
+import worldmap from "../geography/110m.json"
 
 const mapStyles = {
   width: "90%",
@@ -16,16 +16,16 @@ const mapStyles = {
   height: "auto",
 }
 
-const markers = [
-  { markerOffset: -15, name: "Buenos Aires", coordinates: [3.3792, 6.5244] },
-  { markerOffset: -15, name: "Tokyo", coordinates: [139.6917, 35.6895] },
-  { markerOffset: -15, name: "Buenos Aires", coordinates: [-74.0721, 4.711] },
-  {
-    markerOffset: -15,
-    name: "Buenos Aires",
-    coordinates: [-118.2437, 34.0522],
-  },
-]
+// const markers = [
+//   { markerOffset: -15, name: "Buenos Aires", coordinates: [3.3792, 6.5244] },
+//   { markerOffset: -15, name: "Tokyo", coordinates: [139.6917, 35.6895] },
+//   { markerOffset: -15, name: "Buenos Aires", coordinates: [-74.0721, 4.711] },
+//   {
+//     markerOffset: -15,
+//     name: "Buenos Aires",
+//     coordinates: [-118.2437, 34.0522],
+//   },
+// ]
 
 class Map extends React.Component {
   constructor(props) {
@@ -55,7 +55,7 @@ class Map extends React.Component {
           projection="orthographic"
           projectionConfig={{
             scale: 100,
-            // rotation: [this.state.rotation, 0, 0],
+            rotation: [-10, 0, 0],
           }}
           style={mapStyles}
         >
@@ -67,10 +67,7 @@ class Map extends React.Component {
               fill="transparent"
               stroke="#CFD8DC"
             />
-            <Geographies
-              disableOptimization
-              geography="https://unpkg.com/world-atlas@1.1.4/world/110m.json"
-            >
+            <Geographies disableOptimization geography={worldmap}>
               {(geos, proj) =>
                 geos.map((geo, i) => (
                   <Geography
