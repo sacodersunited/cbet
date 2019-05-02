@@ -7,7 +7,7 @@ const HomeCarousel = () => (
     <Carousel.Item>
       <img
         className="d-block w-100"
-        src="https://picsum.photos/id/1057/1440/300"
+        src="https://picsum.photos/id/249/1440/340"
         alt="First slide"
       />
       <Carousel.Caption style={{ textAlign: "left" }}>
@@ -20,7 +20,7 @@ const HomeCarousel = () => (
     <Carousel.Item>
       <img
         className="d-block w-100"
-        src="https://picsum.photos/id/1060/1440/300"
+        src="https://picsum.photos/id/1060/1440/340"
         alt="Third slide"
       />
 
@@ -34,7 +34,7 @@ const HomeCarousel = () => (
     <Carousel.Item>
       <img
         className="d-block w-100"
-        src="https://picsum.photos/id/122/1440/300"
+        src="https://picsum.photos/id/3/1440/340"
         alt="Third slide"
       />
 

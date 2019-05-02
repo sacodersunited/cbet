@@ -16,7 +16,7 @@ const Testimonials = () => (
     </Container>
     <CardGroup>
       <Card>
-        <Card.Img variant="top" src="http://i.pravatar.cc/400?img=1" />
+        <Card.Img variant="top" src="http://i.pravatar.cc/400?img=34" />
         <Card.Body>
           <Card.Title>Awesome</Card.Title>
           <Card.Text>
@@ -27,7 +27,7 @@ const Testimonials = () => (
         </Card.Body>
       </Card>
       <Card>
-        <Card.Img variant="top" src="http://i.pravatar.cc/400?img=7" />
+        <Card.Img variant="top" src="http://i.pravatar.cc/400?img=59" />
         <Card.Body>
           <Card.Title>Graduated</Card.Title>
           <Card.Text>
@@ -38,7 +38,7 @@ const Testimonials = () => (
         </Card.Body>
       </Card>
       <Card>
-        <Card.Img variant="top" src="http://i.pravatar.cc/400?img=12" />
+        <Card.Img variant="top" src="http://i.pravatar.cc/400?img=13" />
         <Card.Body>
           <Card.Title>Success</Card.Title>
           <Card.Text>
@@ -49,7 +49,7 @@ const Testimonials = () => (
         </Card.Body>
       </Card>
       <Card>
-        <Card.Img variant="top" src="http://i.pravatar.cc/400?img=9" />
+        <Card.Img variant="top" src="http://i.pravatar.cc/400?img=12" />
         <Card.Body>
           <Card.Title>Future is Bright</Card.Title>
           <Card.Text>
@@ -60,7 +60,7 @@ const Testimonials = () => (
         </Card.Body>
       </Card>
       <Card>
-        <Card.Img variant="top" src="http://i.pravatar.cc/400?img=11" />
+        <Card.Img variant="top" src="http://i.pravatar.cc/400?img=32" />
         <Card.Body>
           <Card.Title>Career Move</Card.Title>
           <Card.Text>
