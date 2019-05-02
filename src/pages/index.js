@@ -1,5 +1,6 @@
 import React from "react"
 import { Container } from "react-bootstrap"
+import Slide from "react-reveal/Slide"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Map from "../components/map"
@@ -19,7 +20,9 @@ const IndexPage = () => (
       <Map />
     </Container>
     <Programs />
-    <Classes />
+    <Slide right>
+      <Classes />
+    </Slide>
     <Testimonials />
   </Layout>
 )
