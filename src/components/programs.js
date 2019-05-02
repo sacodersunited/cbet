@@ -2,6 +2,7 @@ import React from "react"
 import { Container, Row, Col, Button } from "react-bootstrap"
 import styled from "styled-components"
 import { FaBriefcaseMedical, FaRocket } from "react-icons/fa"
+import Slide from "react-reveal/Slide"
 
 const ProgramBG = styled.section`
   background-color: #2c3e50;
@@ -17,22 +18,31 @@ const Programs = () => (
       </h2>
       <Row>
         <Col md={6}>
-          <h5 style={{ textTransform: "uppercase" }}>
-            <FaBriefcaseMedical size={24} style={{ verticalAlign: "baseline" }}/> Biomedical Equipment Tech
-          </h5>
-          <p className="display-4">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit
-          </p>
-          <Button>LEARN MORE</Button>
+          <Slide left>
+            <h5 style={{ textTransform: "uppercase" }}>
+              <FaBriefcaseMedical
+                size={24}
+                style={{ verticalAlign: "baseline" }}
+              />{" "}
+              Biomedical Equipment Tech
+            </h5>
+            <p className="display-4">
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit
+            </p>
+            <Button>LEARN MORE</Button>
+          </Slide>
         </Col>
         <Col md={6}>
-          <h5 style={{ textTransform: "uppercase" }}>
-            <FaRocket size={24} style={{verticalAlign: "text-bottom"}}/> INFORMATION TECHNOLOGY & NETWORKING
-          </h5>
-          <p className="display-4">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit
-          </p>
-          <Button>LEARN MORE</Button>
+          <Slide right>
+            <h5 style={{ textTransform: "uppercase" }}>
+              <FaRocket size={24} style={{ verticalAlign: "text-bottom" }} />{" "}
+              INFORMATION TECHNOLOGY & NETWORKING
+            </h5>
+            <p className="display-4">
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit
+            </p>
+            <Button>LEARN MORE</Button>
+          </Slide>
         </Col>
       </Row>
     </Container>
