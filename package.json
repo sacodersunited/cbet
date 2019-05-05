@@ -9,6 +9,7 @@
     "gatsby": "^2.3.32",
     "gatsby-image": "^2.0.40",
     "gatsby-plugin-catch-links": "^2.0.13",
+    "gatsby-plugin-google-analytics": "^2.0.19",
     "gatsby-plugin-manifest": "^2.0.29",
     "gatsby-plugin-offline": "^2.0.25",
     "gatsby-plugin-react-helmet": "^3.0.12",
@@ -21,7 +22,6 @@
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.0",
     "react-reveal": "^1.2.2",
-    "react-router-bootstrap": "^0.25.0",
     "react-router-dom": "^5.0.0",
     "react-simple-maps": "^0.12.1"
   },
