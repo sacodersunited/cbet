@@ -32,9 +32,6 @@ const Header = ({ siteTitle }) => (
                 IT / Networking
               </Link>
             </NavDropdown>
-            <Link to="/programs" className="nav-link" activeClassName="active">
-              Programs
-            </Link>
             <Link to="/schedule/" className="nav-link" activeClassName="active">
               Schedule
             </Link>
