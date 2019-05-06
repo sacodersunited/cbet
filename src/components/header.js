@@ -48,6 +48,9 @@ const Header = ({ siteTitle }) => (
             >
               Financial Aid
             </Link>
+            <Link to="/faq/" className="nav-link" activeClassName="active">
+              F.A.Q.
+            </Link>
           </Nav>
           <Nav className="social-nav">
             <a href="https://facebook.com" target="_blank" className="nav-link">
