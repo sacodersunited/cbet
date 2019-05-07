@@ -15,9 +15,9 @@ const AccredSection = styled.section`
 
 const Accreditations = () => (
   <AccredSection>
-    <Container>
+    <Container fluid>
       <Row className="mb-5">
-        <Col md={4}>
+        <Col md={{ span: 2, offset: 2 }}>
           <h2 style={{ textTransform: "uppercase" }}>Accreditations</h2>
           <Fade left cascade>
             <p className="text-justify">
@@ -29,18 +29,23 @@ const Accreditations = () => (
             </p>
           </Fade>
         </Col>
-        <Col>
+        <Col md={7}>
           <Row>
             <Col md={4} style={{ alignSelf: "center", textAlign: "center" }}>
               <Pulse>
-                <Image src={AccImg} alt="acc logo" fluid/>
+                <Image src={AccImg} alt="acc logo" fluid />
               </Pulse>
             </Col>
             <Col md={4} style={{ alignSelf: "center", textAlign: "center" }}>
-              <Image src={twcImg} alt="twc logo" height="140" fluid/>
+              <Image
+                src={twcImg}
+                alt="twc logo"
+                style={{ maxHeight: "250px" }}
+                fluid
+              />
             </Col>
             <Col md={4} style={{ alignSelf: "center", textAlign: "center" }}>
-              <Image src={TXHigherImg} alt="twc logo" fluid/>
+              <Image src={TXHigherImg} alt="twc logo" fluid />
             </Col>
           </Row>
         </Col>

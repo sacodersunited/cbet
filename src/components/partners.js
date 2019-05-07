@@ -8,7 +8,7 @@ import TFCImg from "../images/tfc_logo.png"
 
 const Partners = () => (
   <Row>
-    <Col md={4}>
+    <Col md={{ span: 2, offset: 2 }}>
       <h2 style={{ textTransform: "uppercase" }}>Strategic Partners</h2>
       <Fade left cascade>
         <p className="text-justify">
@@ -20,14 +20,14 @@ const Partners = () => (
         </p>
       </Fade>
     </Col>
-    <Col>
+    <Col md={7}>
       <Row>
-        <Col md={6} style={{ alignSelf: "center", textAlign: "center" }}>
+        <Col md={4} style={{ alignSelf: "center", textAlign: "center" }}>
           <Pulse>
             <Image src={TechNationImg} alt="Tech Nation logo" fluid />
           </Pulse>
         </Col>
-        <Col md={6} style={{ alignSelf: "center", textAlign: "center" }}>
+        <Col md={4} style={{ alignSelf: "center", textAlign: "center" }}>
           <Image src={TFCImg} alt="TFC logo" fluid />
         </Col>
       </Row>
