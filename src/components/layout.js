@@ -12,7 +12,6 @@ import { StaticQuery, graphql } from "gatsby"
 import Header from "./header"
 import Accreditations from "./accreditations"
 import Footer from "./footer"
-import Alliances from "./alliances"
 
 const Layout = ({ children }) => (
   <StaticQuery
@@ -38,7 +37,6 @@ const Layout = ({ children }) => (
 
         <main>{children}</main>
         <Accreditations />
-        <Alliances />
         <Footer />
       </>
     )}
