@@ -6,24 +6,25 @@ import twcImg from "../images/twc-logo.jpg"
 import TXHigherImg from "../images/TXHigherEd.png"
 import Pulse from "react-reveal/Pulse"
 import Fade from "react-reveal/Fade"
+
 const AccredSection = styled.section`
   min-height: 500px;
   padding: 96px 0;
 `
 
-const Accreditations = () => (
+const Alliances = () => (
   <AccredSection>
     <Container>
       <Row>
         <Col md={4}>
-          <h2 style={{ textTransform: "uppercase" }}>Accreditations</h2>
+          <h2 style={{ textTransform: "uppercase" }}>Alliances</h2>
           <Fade left cascade>
             <p className="text-justify">
-              CBET is Accredited by the Accrediting
-              Council for Continuing Education & Training (ACCET), a national
-              accrediting agency listed by the U.S. Department of Education. CIT
-              is also Approved and Regulated by the Texas Workforce Commission,
-              Career Schools and Colleges, Austin, Texas.
+              CBET has several nationwide originations that have partnered with
+              us to give our students externship options in an area close by.
+              The Program Director continues to explore new opportunities for
+              our students to achieve hands-on training with their program
+              through externships with current employers around the nation.
             </p>
           </Fade>
         </Col>
@@ -47,4 +48,4 @@ const Accreditations = () => (
   </AccredSection>
 )
 
-export default Accreditations
+export default Alliances
