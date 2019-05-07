@@ -19,12 +19,18 @@ const Header = ({ siteTitle }) => (
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
-            <Link to="/about/" className="nav-link" activeClassName="active">
-              About
-            </Link>
-            <Link to="/programs/" className="nav-link" activeClassName="active">
-              Programs
-            </Link>
+            <NavDropdown title="Programs" id="basic-nav-dropdown">
+              <Link className="dropdown-item" to="/programs/">
+                BMET Cert
+              </Link>
+              <Link className="dropdown-item" to="/programs/">
+                BMET Degree
+              </Link>
+              <NavDropdown.Divider />
+              <Link className="dropdown-item" to="/programs/">
+                IT / Networking
+              </Link>
+            </NavDropdown>
             <Link to="/schedule/" className="nav-link" activeClassName="active">
               Schedule
             </Link>
@@ -42,14 +48,9 @@ const Header = ({ siteTitle }) => (
             >
               Financial Aid
             </Link>
-            <NavDropdown title="Programs" id="basic-nav-dropdown">
-              <NavDropdown.Item href="/programs/">BMET Cert</NavDropdown.Item>
-              <NavDropdown.Item href="/programs/">BMET Degree</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="/programs/">
-                IT / Networking
-              </NavDropdown.Item>
-            </NavDropdown>
+            <Link to="/faq/" className="nav-link" activeClassName="active">
+              FAQs
+            </Link>
           </Nav>
           <Nav className="social-nav">
             <a href="https://facebook.com" target="_blank" className="nav-link">
@@ -73,7 +74,11 @@ const Header = ({ siteTitle }) => (
             </a>
             <Link to="/" className="nav-link">
               <FaUserLock
-                style={{ verticalAlign: "text-bottom", fontSize: "20px", marginRight: "4px" }}
+                style={{
+                  verticalAlign: "text-bottom",
+                  fontSize: "20px",
+                  marginRight: "4px",
+                }}
               />
               Admin
             </Link>
