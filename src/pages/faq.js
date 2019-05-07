@@ -12,7 +12,9 @@ const Faq = () => (
     <SEO title="Faq" />
     <div style={{ paddingLeft: "250px", marginTop: "50px" }}>
       <Fade left>
-        <h1>FAQ - Frequently Asked Questions</h1>
+        <h1 style={{ marginBottom: "15px" }}>
+          FAQ - Frequently Asked Questions
+        </h1>
       </Fade>
       <Tab.Container id="list-group-tabs-example" defaultActiveKey="#link1">
         <Row>

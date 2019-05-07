@@ -49,7 +49,7 @@ const Header = ({ siteTitle }) => (
               Financial Aid
             </Link>
             <Link to="/faq/" className="nav-link" activeClassName="active">
-              F.A.Q.
+              FAQs
             </Link>
           </Nav>
           <Nav className="social-nav">
