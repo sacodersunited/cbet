@@ -17,7 +17,7 @@ const Accreditations = () => (
   <AccredSection>
     <Container fluid>
       <Row className="mb-5">
-        <Col md={{ span: 2, offset: 2 }}>
+        <Col md={{ span: 3, offset: 1 }}>
           <h2 style={{ textTransform: "uppercase" }}>Accreditations</h2>
           <Fade left cascade>
             <p className="text-justify">
