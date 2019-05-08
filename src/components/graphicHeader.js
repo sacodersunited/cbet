@@ -5,7 +5,7 @@ import styled from "styled-components"
 
 const GraphicJumbotron = styled(Jumbotron)`
   background-image: url(${props => props.imgSrc || null});
-  border-radius: 0;
+  border-radius: 0 !important;
   background-size: cover;
 `
 
