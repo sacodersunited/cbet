@@ -6,14 +6,15 @@ import GraphicHeader from "../components/graphicHeader"
 import headerImg from "../images/bmet-bg.jpg"
 import { Container, Row, Col, Button, Image } from "react-bootstrap"
 import styled from "styled-components"
+import BMETImg from "../images/bmet-tech.jpg"
+import BMETImg1 from "../images/bmetDegree/bmet-1.jpg"
+import BMETImg2 from "../images/bmetDegree/bmet-2.jpg"
+import BMETImg4 from "../images/bmetDegree/bmet-4.jpg"
 
 const ProgramDetail = styled.div`
   background-color: #2699fb;
+  padding: 46px 0 46px 40px;
   color: white;
-`
-
-const ColOverview = styled(Col)`
-  padding: 46px 0 96px 40px;
 `
 
 const Programs = () => (
@@ -37,31 +38,35 @@ const Programs = () => (
           </p>
 
           <Link to="/">
-            <Button> Apply Today</Button>
+            <Button className="text-uppercase"> Apply Today</Button>
           </Link>
         </Col>
       </Row>
     </Container>
-    <ProgramDetail className="mb-5">
-      <Row className="no-gutters">
-        <Col md={6}>
-          <ColOverview>
-            <h2 className="text-uppercase mb-5">Program Overview</h2>
-            <h4>Program Length</h4>
-            <p>15 Months</p>
-            <h4>Program Composition</h4>
-            <p>Online</p>
-            <h4>Classes</h4>
-            <p>Classes 5 days a week(Monday - Friday)</p>
-            <p>Class Length: 3 hours</p>
-            <p>Class Times: 8am - 12am, 12pm-3pm, 4pm - 5pm</p>
-          </ColOverview>
-        </Col>
-        <Col md={6}>
-          <Image src="https://via.placeholder.com/1000x840" fluid />
-        </Col>
-      </Row>
-    </ProgramDetail>
+    <Row className="no-gutters">
+      <Col md={6}>
+        <ProgramDetail className="mb-5">
+          <h2 className="text-uppercase mb-5">Program Overview</h2>
+          <h4>Program Length</h4>
+          <p>15 Months</p>
+          <h4>Program Composition</h4>
+          <p>Online</p>
+          <h4>Classes</h4>
+          <p>Classes 5 days a week(Monday - Friday)</p>
+          <p>Class Length: 3 hours</p>
+          <p>Class Times: 8am - 12am, 12pm-3pm, 4pm - 5pm</p>
+        </ProgramDetail>
+      </Col>
+      <Col md={6}>
+        <Image
+          src={BMETImg}
+          style={{
+            minHeight: "486px",
+          }}
+          fluid
+        />
+      </Col>
+    </Row>
 
     <Container className="mb-5">
       <h2 className="text-uppercase mb-5">Curriculum</h2>
@@ -77,12 +82,12 @@ const Programs = () => (
           </ul>
         </Col>
         <Col md={6}>
-          <Image src="https://via.placeholder.com/600x360" fluid rounded />
+          <Image src={BMETImg1} fluid rounded />
         </Col>
       </Row>
       <Row className="mb-5">
         <Col md={6}>
-          <Image src="https://via.placeholder.com/600x360" fluid rounded />
+          <Image src={BMETImg2} fluid rounded />
         </Col>
         <Col md={{ span: 5, offset: 1 }}>
           <h4>Core Component I</h4>
@@ -112,7 +117,7 @@ const Programs = () => (
           </ul>
         </Col>
         <Col md={6}>
-          <Image src="https://via.placeholder.com/600x360" fluid rounded />
+          <Image src={BMETImg4} fluid rounded />
         </Col>
       </Row>
     </Container>
