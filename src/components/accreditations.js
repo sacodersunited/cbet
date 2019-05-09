@@ -16,7 +16,7 @@ const AccredSection = styled.section`
 const Accreditations = () => (
   <AccredSection>
     <Container fluid>
-      <Row className="mb-5">
+      <Row style={{marginBottom: "64px"}}>
         <Col md={{ span: 3, offset: 1 }}>
           <h2 style={{ textTransform: "uppercase" }}>Accreditations</h2>
           <Fade left cascade>
