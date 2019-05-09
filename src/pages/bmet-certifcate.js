@@ -14,14 +14,13 @@ import BMETImg2 from "../images/bmetDegree/bmet-2.jpg"
 import BMETImg4 from "../images/bmetDegree/bmet-4.jpg"
 
 const ProgramDetail = styled.div`
-  background-color: #2699fb;
   padding: 46px 0 46px 40px;
   color: white;
 `
 const Programs = () => (
   <LayoutDetail>
     <SEO title="Programs" />
-    <GraphicHeader imgSrc={headerImg} title="BMET Degree" />
+    <GraphicHeader imgSrc={headerImg} title="BMET Certificate" />
     <Container className="mb-5">
       <Row>
         <Col md={7}>
@@ -30,13 +29,11 @@ const Programs = () => (
               BioMedical Equipment Technician
             </h1>
             <p>
-              The Associate of Applied Science (AAS) Degree in Biomedical
-              Equipment Technology-IDL is an interactive distance learning
-              (online) program that provides a realistic and up-to-date overview
-              of the ever-changing career of Healthcare Technology Management.
-              The program is designed to prepare the student to seek a variety
-              of entry-level positions in the field, as well as advancing in a
-              current BMET career.
+              To ensure medical equipment operates smoothly when it’s needed the
+              most, medical professionals depend on biomedical equipment
+              technicians or BMETs. BMETs maintain patient care equipment and
+              also help other staff members understand how to properly operate
+              the equipment.
             </p>
 
             <Link to="/">
@@ -46,9 +43,9 @@ const Programs = () => (
         </Col>
       </Row>
     </Container>
-    <Row className="no-gutters">
-      <Col md={6}>
-        <ProgramDetail className="mb-5">
+    <Row className="no-gutters mb-5 ">
+      <Col md={6} style={{ backgroundColor: "#2699fb" }}>
+        <ProgramDetail>
           <h2 className="text-uppercase mb-5">Program Overview</h2>
           <Fade>
             <h4>Program Length</h4>
@@ -76,7 +73,7 @@ const Programs = () => (
 
     <Container className="mb-5">
       <h2 className="text-uppercase mb-5">Curriculum</h2>
-      <Row className="mb-5">
+      <Row className="mb-5 align-items-center">
         <Col md={6}>
           <Slide left>
             <h4>General Education</h4>
@@ -93,7 +90,7 @@ const Programs = () => (
           <Image src={BMETImg1} fluid rounded />
         </Col>
       </Row>
-      <Row className="mb-5">
+      <Row className="mb-5 align-items-center">
         <Col md={6}>
           <Image src={BMETImg2} fluid rounded />
         </Col>
@@ -111,7 +108,7 @@ const Programs = () => (
           </Slide>
         </Col>
       </Row>
-      <Row className="mb-5">
+      <Row className="mb-5 align-items-center">
         <Col md={6}>
           <Slide left>
             <h4>Core Component II</h4>

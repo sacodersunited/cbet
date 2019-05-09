@@ -20,14 +20,14 @@ const Header = ({ siteTitle }) => (
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
             <NavDropdown title="Programs" id="basic-nav-dropdown">
-              <Link className="dropdown-item" to="/programs/">
+              <Link className="dropdown-item" to="/bmet-certificate/">
                 BMET Cert
               </Link>
-              <Link className="dropdown-item" to="/programs/">
+              <Link className="dropdown-item" to="/bmet-degree/">
                 BMET Degree
               </Link>
               <NavDropdown.Divider />
-              <Link className="dropdown-item" to="/programs/">
+              <Link className="dropdown-item" to="/it-certificate/">
                 IT / Networking
               </Link>
             </NavDropdown>
