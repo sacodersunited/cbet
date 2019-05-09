@@ -1,8 +1,5 @@
 import React from "react"
 import { Container, Table } from "react-bootstrap"
-// import Slide from "react-reveal/Slide"
-// import Layout from "../components/layout"
-// import SEO from "../components/seo"
 
 const ClassScheduler = () => (
   <Container>
@@ -10,9 +7,9 @@ const ClassScheduler = () => (
     <Table striped bordered hover>
       <thead>
         <tr>
-          <th>#</th>
-          <th>First Name</th>
-          <th>Last Name</th>
+          <th>Class Program</th>
+          <th>Start Date</th>
+          <th>End Date</th>
           <th>Username</th>
         </tr>
       </thead>
