@@ -1,8 +1,17 @@
+// Initialize dotenv
+require("dotenv").config({
+  path: ".env",
+})
+
+// And then you can use the config in gatsby-config.js
+const config = require("gatsby-plugin-config").default
+
 module.exports = {
   siteMetadata: {
     title: `CBET`,
     description: `Biomedical Equipment and Health Care Technology`,
     author: `@gatsbyjs`,
+    codeFunc: config.code,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
