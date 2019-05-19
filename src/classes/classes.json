@@ -4,8 +4,17 @@
     "Title": "BMET Degree Program",
     "Format": "Complete 2 courses every 6 weeks",
     "Training": "Biomedical Service Company Practicum and/or Hospital Co-op.",
-    "StartDate": "2019-05-21T00:00:00",
-    "EndDate": "2019-08-13T00:00:00",
-    "RegistrationCloseDate": "2019-05-14T00:00:00"
+    "StartDate": "2019-05-21",
+    "EndDate": "2019-08-13",
+    "RegistrationCloseDate": "2019-05-14"
+  },
+  {
+    "Id": 2,
+    "Title": "BMET Certificate Program",
+    "Format": "Complete 16 hours weekly.",
+    "Training": "Biomedical Service Company Practicum and/or Hospital Co-op.",
+    "StartDate": "2019-05-21",
+    "EndDate": "2019-08-13",
+    "RegistrationCloseDate": "2019-05-14"
   }
 ]
