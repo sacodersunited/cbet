@@ -1,13 +1,24 @@
 import React from "react"
-import Layout from "../components/layout"
 import SEO from "../components/seo"
-import ClassStaticQuery from "../components/ClassStaticQuery"
+import { login, isAuthenticated, getProfile } from "../utils/auth"
+import Layout from "../components/layout"
 
-const Admin = () => (
-  <Layout>
-    <SEO title="Admin" />
-    <ClassStaticQuery />
-  </Layout>
-)
+const Admin = () => {
+  if (!isAuthenticated()) {
+    console.log("not authenticated")
+    login()
+    return <p>Redirecting to login...</p>
+  }
+
+  console.log("is Authenticated...")
+
+  const user = getProfile()
+  console.log("user", user)
+  return (
+    <Layout>
+      <SEO title="Admin" />
+    </Layout>
+  )
+}
 
 export default Admin
