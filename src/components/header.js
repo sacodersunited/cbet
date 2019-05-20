@@ -11,26 +11,53 @@ import {
   FaUserLock,
 } from "react-icons/fa"
 
-const Header = ({ siteTitle }) => (
-  <>
-    <Navbar bg="dark" variant="dark" expand="lg">
-      <Container>
-        <Link className="navbar-brand" to="/">
-          {siteTitle}
-        </Link>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="mr-auto">
-            <NavDropdown title="Programs" id="basic-nav-dropdown">
-              <Link className="dropdown-item" to="/bmet-certificate/">
-                BMET Cert
+const Header = ({ siteTitle }) => {
+  const user = getProfile()
+  return (
+    <>
+      <Navbar bg="dark" variant="dark" expand="lg">
+        <Container>
+          <Link className="navbar-brand" to="/">
+            {siteTitle}
+          </Link>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="mr-auto">
+              <NavDropdown title="Programs" id="basic-nav-dropdown">
+                <Link className="dropdown-item" to="/bmet-certificate/">
+                  BMET Cert
+                </Link>
+                <Link className="dropdown-item" to="/bmet-degree/">
+                  BMET Degree
+                </Link>
+                <NavDropdown.Divider />
+                <Link className="dropdown-item" to="/it-certificate/">
+                  IT / Networking
+                </Link>
+              </NavDropdown>
+              <Link
+                to="/schedule/"
+                className="nav-link"
+                activeClassName="active"
+              >
+                Schedule
               </Link>
-              <Link className="dropdown-item" to="/bmet-degree/">
-                BMET Degree
+              <Link
+                to="/admissions/"
+                className="nav-link"
+                activeClassName="active"
+              >
+                Admissions
               </Link>
-              <NavDropdown.Divider />
-              <Link className="dropdown-item" to="/it-certificate/">
-                IT / Networking
+              <Link
+                to="/financial-aid/"
+                className="nav-link"
+                activeClassName="active"
+              >
+                Financial Aid
+              </Link>
+              <Link to="/faq/" className="nav-link" activeClassName="active">
+                FAQs
               </Link>
             </Nav>
             <Nav className="social-nav">
