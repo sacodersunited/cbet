@@ -53,6 +53,8 @@ typings/
 
 # dotenv environment variables file
 .env
+.env.development:Zone.Identifier
+.env:Zone.Identifier
 
 # gatsby files
 .cache/

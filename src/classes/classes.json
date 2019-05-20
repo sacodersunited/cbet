@@ -16,5 +16,23 @@
     "StartDate": "2019-05-21",
     "EndDate": "2019-08-13",
     "RegistrationCloseDate": "2019-05-14"
+  },
+  {
+    "Id": 3,
+    "Title": "CompTIA A+ Certificate Program",
+    "Format": "Complete 16 hours weekly.",
+    "Training": "Biomedical Service Company Practicum and/or Hospital Co-op.",
+    "StartDate": "2019-05-21",
+    "EndDate": "2019-08-13",
+    "RegistrationCloseDate": "2019-05-14"
+  },
+  {
+    "Id": 4,
+    "Title": "CompTIA Network+ Program",
+    "Format": "Complete 16 hours weekly.",
+    "Training": "Biomedical Service Company Practicum and/or Hospital Co-op.",
+    "StartDate": "2019-05-21",
+    "EndDate": "2019-08-13",
+    "RegistrationCloseDate": "2019-05-14"
   }
 ]

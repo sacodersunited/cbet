@@ -1,15 +1,8 @@
 import React from "react"
 import { getProfile } from "../utils/auth"
 import { isEmpty } from "../utils/utility"
-import Form from "react-bootstrap/Form"
-import Container from "react-bootstrap/Container"
-import Button from "react-bootstrap/Button"
 import Layout from "../components/layout"
-import Collapse from "react-bootstrap/Collapse"
-import Card from "react-bootstrap/Card"
-import CardDeck from "react-bootstrap/CardDeck"
-import ButtonGroup from "react-bootstrap/ButtonGroup"
-import ButtonToolbar from "react-bootstrap/ButtonToolbar"
+import {Form, Container, Button, Collapse, Card, ButtonGroup, ButtonToolbar, Row, Col} from 'react-bootstrap'
 import SEO from "../components/seo"
 import {
   FaEdit,
@@ -240,6 +233,7 @@ class Schedule extends React.Component {
               </Form>
             </Collapse>
           ) : null}
+          <Row> 
 
           {this.state.classes.map((cbetClass, index) => (
             <>
@@ -278,7 +272,8 @@ class Schedule extends React.Component {
                   </ButtonGroup>
                 </ButtonToolbar>
               ) : null}
-              <CardDeck>
+                {/* TODO: FSP@sacoders frontend starts here */}
+              <Col md={3}>
                 <Card
                   border="primary"
                   style={{
@@ -286,15 +281,14 @@ class Schedule extends React.Component {
                       this.state.editModeClasses[index] === false
                         ? "solid"
                         : "dashed",
-                    padding: "10px",
                     borderWidth:
                       this.state.editModeClasses[index] === false
                         ? "thin"
                         : "medium",
-                    width: "18rem",
+                    width: "16rem",
                   }}
                 >
-                  <Card.Img variant="top" src={newDoc} height="300" />
+                  <Card.Img variant="top" src={newDoc}  />
                   <Card.Body>
                     <Card.Title style={{ color: "blue", textAlign: "center" }}>
                       {this.state.editModeClasses[index] === true ? (
@@ -303,8 +297,8 @@ class Schedule extends React.Component {
                           style={{ textAlign: "center" }}
                         />
                       ) : (
-                        cbetClass.Title
-                      )}
+                          cbetClass.Title
+                        )}
                     </Card.Title>
                     <Card.Text style={{ color: "blue", textAlign: "center" }}>
                       <FaRegCalendarAlt
@@ -317,8 +311,8 @@ class Schedule extends React.Component {
                           onChange={this.handleChange}
                         />
                       ) : (
-                        cbetClass.StartDate
-                      )}
+                          cbetClass.StartDate
+                        )}
                     </Card.Text>
                   </Card.Body>
                   <Card.Footer style={{ background: "#004085" }}>
@@ -330,8 +324,8 @@ class Schedule extends React.Component {
                           onChange={this.handleChange}
                         />
                       ) : (
-                        <>{cbetClass.registrationCloseDate}</>
-                      )}
+                          <>{cbetClass.registrationCloseDate}</>
+                        )}
                     </Card.Text>
                   </Card.Footer>
                   <Card.Body>
@@ -345,11 +339,11 @@ class Schedule extends React.Component {
                               <Form.Control
                                 input="text"
                                 value={cbetClass.Format}
-                                // style={{ width: "50%" }}
+                              // style={{ width: "50%" }}
                               />
                             ) : (
-                              cbetClass.Format
-                            )}
+                                cbetClass.Format
+                              )}
                           </Card.Text>
                         </Form.Group>
                       </li>
@@ -365,8 +359,8 @@ class Schedule extends React.Component {
                                 style={{ width: "75%", display: "inline" }}
                               />
                             ) : (
-                              cbetClass.Training
-                            )}
+                                cbetClass.Training
+                              )}
                           </Card.Text>
                         </Form.Group>
                       </li>
@@ -386,9 +380,11 @@ class Schedule extends React.Component {
                     ) : null}
                   </Card.Body>
                 </Card>
-              </CardDeck>
+              </Col>
+                
             </>
           ))}
+          </Row>
         </Container>
       </Layout>
     )
