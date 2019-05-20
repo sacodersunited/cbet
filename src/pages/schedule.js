@@ -1,10 +1,7 @@
 import React from "react"
-import { Link } from "gatsby"
 import { getProfile } from "../utils/auth"
 import { isEmpty } from "../utils/utility"
-import Row from "react-bootstrap/Row"
 import Form from "react-bootstrap/Form"
-import Col from "react-bootstrap/Col"
 import Container from "react-bootstrap/Container"
 import Button from "react-bootstrap/Button"
 import Layout from "../components/layout"
@@ -12,6 +9,7 @@ import Collapse from "react-bootstrap/Collapse"
 import Card from "react-bootstrap/Card"
 import CardDeck from "react-bootstrap/CardDeck"
 import ButtonGroup from "react-bootstrap/ButtonGroup"
+import ButtonToolbar from "react-bootstrap/ButtonToolbar"
 import SEO from "../components/seo"
 import {
   FaEdit,
@@ -73,11 +71,14 @@ class Schedule extends React.Component {
       case "format":
         add.Format = e.target.value
         break
-      case "start":
+      case "start date":
         add.StartDate = e.target.value
         break
-      case "end":
+      case "end date":
         add.EndDate = e.target.value
+        break
+      case "registration close date":
+        add.RegistrationCloseDate = e.target.value
         break
       default:
         break
@@ -167,7 +168,6 @@ class Schedule extends React.Component {
               </Button>
             ) : null}
           </h1>
-          {/* {isEmpty(user) === false ? <div>User is logged in</div> : null} */}
 
           {this.state.isAddMode === true && isEmpty(user) === false ? (
             <Collapse in={this.state.isAddMode}>
@@ -210,7 +210,7 @@ class Schedule extends React.Component {
                   <DatePicker
                     selected={this.state.newClass.StartDate}
                     onChange={this.onChangeAdd}
-                    placeholder="start"
+                    placeholder="start date"
                   />
                 </Form.Group>
                 <Form.Group>
@@ -220,7 +220,7 @@ class Schedule extends React.Component {
                   <DatePicker
                     selected={this.state.newClass.EndDate}
                     onChange={this.onChangeAdd}
-                    placeholder="end"
+                    placeholder="end date"
                   />
                 </Form.Group>
                 <Form.Group>
@@ -230,7 +230,7 @@ class Schedule extends React.Component {
                   <DatePicker
                     selected={this.state.newClass.RegistrationCloseDate}
                     onChange={this.onChangeAdd}
-                    placeholder="registration"
+                    placeholder="registration close date"
                   />
                 </Form.Group>
 
@@ -241,33 +241,28 @@ class Schedule extends React.Component {
             </Collapse>
           ) : null}
 
-          <CardDeck>
-            {this.state.classes.map((cbetClass, index) => (
-              <Card
-                border="primary"
-                style={{
-                  borderStyle:
-                    this.state.editModeClasses[index] === false
-                      ? "solid"
-                      : "dashed",
-                  padding: "10px",
-                  borderWidth:
-                    this.state.editModeClasses[index] === false
-                      ? "thin"
-                      : "medium",
-                }}
-              >
-                {isEmpty(user) === false ? (
+          {this.state.classes.map((cbetClass, index) => (
+            <>
+              {isEmpty(user) === false ? (
+                <ButtonToolbar
+                  aria-label="Toolbar with button groups"
+                  style={{ height: "40px" }}
+                >
                   <ButtonGroup
                     aria-label="Basic example"
-                    style={{ margin: "5px" }}
+                    className="mr-2"
+                    size="sm"
+                    style={{ margin: "5px", height: "40px" }}
+                    height={40}
                   >
                     <Button
                       variant={
                         this.state.editModeClasses[index]
                           ? "primary"
-                          : "outline-secondary"
+                          : "outline-primary"
                       }
+                      height={40}
+                      style={{ height: "40px" }}
                       onClick={e => this.onClickMode(e, index)}
                     >
                       <FaEdit />{" "}
@@ -275,179 +270,125 @@ class Schedule extends React.Component {
                         ? "Edit Class " + cbetClass.Id
                         : "Live Preview"}
                     </Button>
-                    <Button variant="outline-danger">
+
+                    <Button variant="outline-danger" style={{ height: "40px" }}>
                       <FaTrashAlt style={{ marginRight: "5px" }} />
                       Delete
                     </Button>
                   </ButtonGroup>
-                ) : null}
-                <Card.Img variant="top" src={newDoc} height="300" />
-                <Card.Body>
-                  <Card.Title style={{ color: "blue", textAlign: "center" }}>
-                    {this.state.editModeClasses[index] === true ? (
-                      <Form.Control
-                        value={cbetClass.Title}
-                        style={{ textAlign: "center" }}
+                </ButtonToolbar>
+              ) : null}
+              <CardDeck>
+                <Card
+                  border="primary"
+                  style={{
+                    borderStyle:
+                      this.state.editModeClasses[index] === false
+                        ? "solid"
+                        : "dashed",
+                    padding: "10px",
+                    borderWidth:
+                      this.state.editModeClasses[index] === false
+                        ? "thin"
+                        : "medium",
+                    width: "18rem",
+                  }}
+                >
+                  <Card.Img variant="top" src={newDoc} height="300" />
+                  <Card.Body>
+                    <Card.Title style={{ color: "blue", textAlign: "center" }}>
+                      {this.state.editModeClasses[index] === true ? (
+                        <Form.Control
+                          value={cbetClass.Title}
+                          style={{ textAlign: "center" }}
+                        />
+                      ) : (
+                        cbetClass.Title
+                      )}
+                    </Card.Title>
+                    <Card.Text style={{ color: "blue", textAlign: "center" }}>
+                      <FaRegCalendarAlt
+                        size={24}
+                        style={{ marginRight: "5px" }}
                       />
-                    ) : (
-                      cbetClass.Title
-                    )}
-                  </Card.Title>
-                  <Card.Text style={{ color: "blue", textAlign: "center" }}>
-                    <FaRegCalendarAlt />
-                    {this.state.editModeClasses[index] === true ? (
-                      <DatePicker
-                        selected={this.state.startDate}
-                        onChange={this.handleChange}
-                      />
-                    ) : (
-                      cbetClass.StartDate
-                    )}
-                  </Card.Text>
-                </Card.Body>
-                <Card.Footer style={{ background: "#004085" }}>
-                  <Card.Text style={{ color: "white", textAlign: "center" }}>
-                    Registration Deadline is 15 May
-                  </Card.Text>
-                </Card.Footer>
-                <Card.Body>
-                  <ul style={{ listStyle: "none", padding: "15px" }}>
-                    <li style={{ padding: "8px" }}>
-                      <Form.Group>
-                        <Card.Text>
-                          <FaCloudversify size={32} />
-                          <strong>Format</strong>:{" "}
-                          {this.state.editModeClasses[index] === true ? (
-                            <Form.Control
-                              input="text"
-                              value={cbetClass.Format}
-                              // style={{ width: "50%" }}
-                            />
-                          ) : (
-                            cbetClass.Format
-                          )}
-                        </Card.Text>
-                      </Form.Group>
-                    </li>
-                    <li style={{ padding: "8px" }}>
-                      <Form.Group>
-                        <Card.Text>
-                          <FaGraduationCap size={32} />
-                          <strong>Training</strong>:{" "}
-                          {this.state.editModeClasses[index] === true ? (
-                            <Form.Control
-                              input="text"
-                              value={cbetClass.Training}
-                              style={{ width: "75%", display: "inline" }}
-                            />
-                          ) : (
-                            cbetClass.Training
-                          )}
-                        </Card.Text>
-                      </Form.Group>
-                    </li>
-                  </ul>
-                  <Button variant="outline-primary" size="lg">
-                    Learn More
-                  </Button>
-                  {this.state.editModeClasses[index] === true ? (
-                    <Button
-                      variant="outline-primary"
-                      size="lg"
-                      onClick={e => this.onSaveClass(e, cbetClass.Id)}
-                      className="float-right"
-                    >
-                      Save
+                      {this.state.editModeClasses[index] === true ? (
+                        <DatePicker
+                          selected={this.state.startDate}
+                          onChange={this.handleChange}
+                        />
+                      ) : (
+                        cbetClass.StartDate
+                      )}
+                    </Card.Text>
+                  </Card.Body>
+                  <Card.Footer style={{ background: "#004085" }}>
+                    <Card.Text style={{ color: "white", textAlign: "center" }}>
+                      Registration Deadline is{" "}
+                      {this.state.editModeClasses[index] ? (
+                        <DatePicker
+                          selected={this.state.startDate}
+                          onChange={this.handleChange}
+                        />
+                      ) : (
+                        <>{cbetClass.registrationCloseDate}</>
+                      )}
+                    </Card.Text>
+                  </Card.Footer>
+                  <Card.Body>
+                    <ul style={{ listStyle: "none", padding: "15px" }}>
+                      <li style={{ padding: "8px" }}>
+                        <Form.Group>
+                          <Card.Text>
+                            <FaCloudversify size={32} />
+                            <strong>Format</strong>:{" "}
+                            {this.state.editModeClasses[index] === true ? (
+                              <Form.Control
+                                input="text"
+                                value={cbetClass.Format}
+                                // style={{ width: "50%" }}
+                              />
+                            ) : (
+                              cbetClass.Format
+                            )}
+                          </Card.Text>
+                        </Form.Group>
+                      </li>
+                      <li style={{ padding: "8px" }}>
+                        <Form.Group>
+                          <Card.Text>
+                            <FaGraduationCap size={32} />
+                            <strong>Training</strong>:{" "}
+                            {this.state.editModeClasses[index] === true ? (
+                              <Form.Control
+                                input="text"
+                                value={cbetClass.Training}
+                                style={{ width: "75%", display: "inline" }}
+                              />
+                            ) : (
+                              cbetClass.Training
+                            )}
+                          </Card.Text>
+                        </Form.Group>
+                      </li>
+                    </ul>
+                    <Button variant="outline-primary" size="lg">
+                      Learn More
                     </Button>
-                  ) : null}
-                </Card.Body>
-              </Card>
-
-              // <Row style={{ paddingTop: "5px" }}>
-              //   <Col>
-              //     {isEmpty(user) === false ? (
-              //       <>
-              //         <Button
-              //           variant={
-              //             this.state.editModeClasses[index]
-              //               ? "primary"
-              //               : "secondary"
-              //           }
-              //           onClick={e => this.onClickMode(e, index)}
-              //         >
-              //           <FaEdit />{" "}
-              //           {this.state.editModeClasses[index] === false
-              //             ? "Edit Class " + cbetClass.Id
-              //             : "Live Preview"}
-              //         </Button>
-              //         <Button variant="danger" style={{ marginLeft: "5px" }}>
-              //           <FaTrashAlt style={{ marginRight: "5px" }} />
-              //           Delete
-              //         </Button>
-              //       </>
-              //     ) : null}
-
-              //     <h2 style={{ marginTop: "5px" }}>
-              //       {this.state.editModeClasses[index] === true ? (
-              //         <input value={cbetClass.Title} style={{ width: "50%" }} />
-              //       ) : (
-              //         cbetClass.Title
-              //       )}
-              //     </h2>
-              //     <ul>
-              //       <li>
-              //         Online Format:{" "}
-              //         <span>
-              //           {this.state.editModeClasses[index] === true ? (
-              //             <input
-              //               value={cbetClass.Format}
-              //               style={{ width: "50%" }}
-              //             />
-              //           ) : (
-              //             cbetClass.Format
-              //           )}
-              //         </span>
-              //       </li>
-              //       <li>
-              //         Externship Hands-on Training:{" "}
-              //         <span>
-              //           {" "}
-              //           {this.state.editModeClasses[index] === true ? (
-              //             <input
-              //               value={cbetClass.Training}
-              //               style={{ width: "50%" }}
-              //             />
-              //           ) : (
-              //             cbetClass.Training
-              //           )}
-              //         </span>
-              //       </li>
-              //       <li>
-              //         Start Dates: Classes Forming now, secure your spot today!
-              //         <ul>
-              //           <li>
-              //             {this.state.editModeClasses[index] === true ? (
-              //               <DatePicker
-              //                 selected={this.state.startDate}
-              //                 onChange={this.handleChange}
-              //               />
-              //             ) : (
-              //               cbetClass.StartDate
-              //             )}
-              //           </li>
-              //           <li>{cbetClass.RegistrationCloseDate}</li>
-              //         </ul>
-              //       </li>
-              //     </ul>
-              //     {this.state.editModeClasses[index] === true ? (
-              //       <Button onClick={e => this.onSaveClass(e, cbetClass.Id)}>
-              //         Save
-              //       </Button>
-              //     ) : null}
-              //   </Col>
-              // </Row>
-            ))}
-          </CardDeck>
+                    {this.state.editModeClasses[index] === true ? (
+                      <Button
+                        variant="primary"
+                        size="lg"
+                        onClick={e => this.onSaveClass(e, cbetClass.Id)}
+                        className="float-right"
+                      >
+                        Save
+                      </Button>
+                    ) : null}
+                  </Card.Body>
+                </Card>
+              </CardDeck>
+            </>
+          ))}
         </Container>
       </Layout>
     )
