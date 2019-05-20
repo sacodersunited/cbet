@@ -14,7 +14,7 @@ const HomeCarousel = () => (
         <h1>Biomedical Equipment </h1>
         <h1>and Health Care Technology</h1>
         <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-        <Button>Apply Today</Button>
+        <Button className="text-uppercase">Apply Today</Button>
       </Carousel.Caption>
     </Carousel.Item>
     <Carousel.Item>
@@ -28,7 +28,7 @@ const HomeCarousel = () => (
         <h1>Biomedical Equipment </h1>
         <h1>and Health Care Technology</h1>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        <Button>Learn More</Button>
+        <Button className="text-uppercase">Learn More</Button>
       </Carousel.Caption>
     </Carousel.Item>
     <Carousel.Item>
@@ -42,7 +42,7 @@ const HomeCarousel = () => (
         <h1>Biomedical Equipment </h1>
         <h1>and Health Care Technology</h1>
         <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-        <Button>Learn More</Button>
+        <Button className="text-uppercase">Learn More</Button>
       </Carousel.Caption>
     </Carousel.Item>
   </Carousel>
