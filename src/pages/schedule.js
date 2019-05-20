@@ -16,6 +16,11 @@ import DatePicker from "react-datepicker"
 import cbetClasses from "../classes/classes.json"
 import "react-datepicker/dist/react-datepicker.css"
 import newDoc from "../images/jc-gellidon-1386352-unsplashnew.jpg"
+import styled from 'styled-components'
+
+const CardTitle = styled.section`
+    min-height: 90px;
+`
 
 class Schedule extends React.Component {
   constructor(props) {
@@ -233,7 +238,7 @@ class Schedule extends React.Component {
               </Form>
             </Collapse>
           ) : null}
-          <Row> 
+          <Row > 
 
           {this.state.classes.map((cbetClass, index) => (
             <>
@@ -273,7 +278,7 @@ class Schedule extends React.Component {
                 </ButtonToolbar>
               ) : null}
                 {/* TODO: FSP@sacoders frontend starts here */}
-              <Col md={3}>
+              <Col md={3} >
                 <Card
                   border="primary"
                   style={{
@@ -285,12 +290,17 @@ class Schedule extends React.Component {
                       this.state.editModeClasses[index] === false
                         ? "thin"
                         : "medium",
-                    width: "16rem",
+                    width: "17rem",
                   }}
+                  key={cbetClass.Id}
+                  className="mb-5"
+                  
                 >
                   <Card.Img variant="top" src={newDoc}  />
                   <Card.Body>
-                    <Card.Title style={{ color: "blue", textAlign: "center" }}>
+                    <CardTitle >
+
+                      <Card.Title className="text-uppercase" style={{ color: "#2699FB", textAlign: "center" }}>
                       {this.state.editModeClasses[index] === true ? (
                         <Form.Control
                           value={cbetClass.Title}
@@ -300,7 +310,7 @@ class Schedule extends React.Component {
                           cbetClass.Title
                         )}
                     </Card.Title>
-                    <Card.Text style={{ color: "blue", textAlign: "center" }}>
+                      <Card.Text style={{ color: "#2699FB", textAlign: "center" }}>
                       <FaRegCalendarAlt
                         size={24}
                         style={{ marginRight: "5px" }}
@@ -310,10 +320,11 @@ class Schedule extends React.Component {
                           selected={this.state.startDate}
                           onChange={this.handleChange}
                         />
-                      ) : (
+                        ) : (
                           cbetClass.StartDate
                         )}
                     </Card.Text>
+                    </CardTitle>
                   </Card.Body>
                   <Card.Footer style={{ background: "#004085" }}>
                     <Card.Text style={{ color: "white", textAlign: "center" }}>

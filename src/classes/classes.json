@@ -34,5 +34,41 @@
     "StartDate": "2019-05-21",
     "EndDate": "2019-08-13",
     "RegistrationCloseDate": "2019-05-14"
+  },
+  {
+    "Id": 5,
+    "Title": "BMET Degree Program",
+    "Format": "Complete 2 courses every 6 weeks",
+    "Training": "Biomedical Service Company Practicum and/or Hospital Co-op.",
+    "StartDate": "2019-05-21",
+    "EndDate": "2019-08-13",
+    "RegistrationCloseDate": "2019-05-14"
+  },
+  {
+    "Id": 6,
+    "Title": "BMET Certificate Program",
+    "Format": "Complete 16 hours weekly.",
+    "Training": "Biomedical Service Company Practicum and/or Hospital Co-op.",
+    "StartDate": "2019-05-21",
+    "EndDate": "2019-08-13",
+    "RegistrationCloseDate": "2019-05-14"
+  },
+  {
+    "Id": 7,
+    "Title": "CompTIA A+ Certificate Program",
+    "Format": "Complete 16 hours weekly.",
+    "Training": "Biomedical Service Company Practicum and/or Hospital Co-op.",
+    "StartDate": "2019-05-21",
+    "EndDate": "2019-08-13",
+    "RegistrationCloseDate": "2019-05-14"
+  },
+  {
+    "Id": 8,
+    "Title": "CompTIA Network+ Program",
+    "Format": "Complete 16 hours weekly.",
+    "Training": "Biomedical Service Company Practicum and/or Hospital Co-op.",
+    "StartDate": "2019-05-21",
+    "EndDate": "2019-08-13",
+    "RegistrationCloseDate": "2019-05-14"
   }
 ]
