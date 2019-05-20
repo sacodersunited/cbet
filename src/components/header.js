@@ -11,54 +11,26 @@ import {
   FaUserLock,
 } from "react-icons/fa"
 
-const Header = ({ siteTitle }) => {
-  const user = getProfile()
-  console.log("user", user)
-  return (
-    <>
-      <Navbar bg="dark" variant="dark" expand="lg">
-        <Container>
-          <Link className="navbar-brand" to="/">
-            {siteTitle}
-          </Link>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="mr-auto">
-              <NavDropdown title="Programs" id="basic-nav-dropdown">
-                <Link className="dropdown-item" to="/programs/">
-                  BMET Cert
-                </Link>
-                <Link className="dropdown-item" to="/programs/">
-                  BMET Degree
-                </Link>
-                <NavDropdown.Divider />
-                <Link className="dropdown-item" to="/programs/">
-                  IT / Networking
-                </Link>
-              </NavDropdown>
-              <Link
-                to="/schedule/"
-                className="nav-link"
-                activeClassName="active"
-              >
-                Schedule
+const Header = ({ siteTitle }) => (
+  <>
+    <Navbar bg="dark" variant="dark" expand="lg">
+      <Container>
+        <Link className="navbar-brand" to="/">
+          {siteTitle}
+        </Link>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="mr-auto">
+            <NavDropdown title="Programs" id="basic-nav-dropdown">
+              <Link className="dropdown-item" to="/bmet-certificate/">
+                BMET Cert
               </Link>
-              <Link
-                to="/admissions/"
-                className="nav-link"
-                activeClassName="active"
-              >
-                Admissions
+              <Link className="dropdown-item" to="/bmet-degree/">
+                BMET Degree
               </Link>
-              <Link
-                to="/financial-aid/"
-                className="nav-link"
-                activeClassName="active"
-              >
-                Financial Aid
-              </Link>
-              <Link to="/faq/" className="nav-link" activeClassName="active">
-                FAQs
+              <NavDropdown.Divider />
+              <Link className="dropdown-item" to="/it-certificate/">
+                IT / Networking
               </Link>
             </Nav>
             <Nav className="social-nav">
