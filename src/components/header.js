@@ -39,6 +39,9 @@ const Header = ({ siteTitle }) => {
                 to="/schedule/"
                 className="nav-link"
                 activeClassName="active"
+                style={{
+                  color: isAuthenticated() && user !== null ? "aqua" : "",
+                }}
               >
                 Schedule
               </Link>
