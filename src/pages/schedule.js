@@ -118,26 +118,12 @@ class Schedule extends React.Component {
     const { editModeClasses } = this.state
     editModeClasses[id] = !editModeClasses[id]
 
-    const { showClasses } = this.state
-
-    // let newShowClasses = []
-    // if (isSelected) {
-    //   newShowClasses = showClasses.map((shown, index) => {
-    //     return true
-    //   })
-    // } else {
-    //   newShowClasses = showClasses.map((shown, index) => {
-    //     if (id === index) {
-    //       return false
-    //     } else {
-    //       return true
-    //     }
-    //   })
-    // }
+    // console.log("current class", this.state.classes[id], id)
+    // const { showClasses } = this.state
 
     this.setState({
       editModeClasses: editModeClasses,
-      // showClasses: newShowClasses,
+      // startDate: this.state.classes[id].StartDate,
     })
   }
 
@@ -319,13 +305,10 @@ class Schedule extends React.Component {
                         aria-label="Toolbar with button groups"
                         style={{ height: "40px", marginBottom: "10px" }}
                       >
-                        {/* {this.state.editModeClasses[index] === true ? ( */}
                         <ButtonGroup
                           aria-label="Basic example"
-                          // className="mr-2"
                           size="sm"
                           style={{
-                            // margin: "5px",
                             height: "40px",
                             margin: "0 auto",
                           }}
@@ -368,7 +351,6 @@ class Schedule extends React.Component {
                             Delete
                           </Button>
                         </ButtonGroup>
-                        {/* ) : null} */}
                       </ButtonToolbar>
                     ) : null}
                     <Card.Img variant="top" src={newDoc} />
@@ -394,12 +376,13 @@ class Schedule extends React.Component {
                         >
                           <FaRegCalendarAlt
                             size={24}
-                            style={{ marginRight: "5px" }}
+                            style={{ marginRight: "5px", marginBottom: "5px" }}
                           />
                           {this.state.editModeClasses[index] === true ? (
                             <DatePicker
                               selected={this.state.startDate}
                               onChange={this.handleChange}
+                              placeholderText="start date"
                             />
                           ) : (
                             cbetClass.StartDate
@@ -416,6 +399,7 @@ class Schedule extends React.Component {
                           <DatePicker
                             selected={this.state.startDate}
                             onChange={this.handleChange}
+                            placeholderText="registration close date"
                           />
                         ) : (
                           <>{cbetClass.registrationCloseDate}</>
@@ -427,12 +411,16 @@ class Schedule extends React.Component {
                         <li style={{ padding: "8px" }}>
                           <Form.Group>
                             <Card.Text>
-                              <FaCloudversify size={32} />
+                              <FaCloudversify
+                                size={32}
+                                style={{ marginRight: "5px" }}
+                              />
                               <strong>Format</strong>:{" "}
                               {this.state.editModeClasses[index] === true ? (
                                 <Form.Control
                                   as="textarea"
                                   required
+                                  rows={4}
                                   value={cbetClass.Format}
                                   style={{ width: "100%" }}
                                 />
@@ -445,11 +433,15 @@ class Schedule extends React.Component {
                         <li style={{ padding: "8px" }}>
                           <Form.Group>
                             <Card.Text>
-                              <FaGraduationCap size={32} />
+                              <FaGraduationCap
+                                size={32}
+                                style={{ marginRight: "5px" }}
+                              />
                               <strong>Training</strong>:{" "}
                               {this.state.editModeClasses[index] === true ? (
                                 <Form.Control
                                   as="textarea"
+                                  rows={4}
                                   required
                                   value={cbetClass.Training}
                                   style={{ width: "100%", display: "inline" }}
@@ -461,7 +453,15 @@ class Schedule extends React.Component {
                           </Form.Group>
                         </li>
                       </ul>
-                      <Button variant="primary" size="sm">
+                      <Button
+                        variant="primary"
+                        size="sm"
+                        disabled={
+                          this.state.editModeClasses[index] === true
+                            ? true
+                            : false
+                        }
+                      >
                         Learn More
                       </Button>
                       {this.state.editModeClasses[index] === true ? (
