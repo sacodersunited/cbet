@@ -338,7 +338,7 @@ class ClassAdmin extends React.Component {
       const response = await fetch(
         `https://cbetclasses.azurewebsites.net/api/GetCbetClasses?code=${
           this.props.code
-        }l`,
+        }`,
         myInit
       )
       console.log("POST back resp", response)
