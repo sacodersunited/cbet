@@ -10,6 +10,7 @@ import {
   ButtonToolbar,
   Row,
   Col,
+  Alert,
 } from "react-bootstrap"
 import {
   FaEdit,
@@ -19,8 +20,12 @@ import {
   FaCloudversify,
   FaRegCalendarAlt,
   FaMinus,
+  FaDatabase,
+  FaRegThumbsUp,
 } from "react-icons/fa"
 import DatePicker from "react-datepicker"
+// Uncomment in Local dev
+// import cbetClasses from "../classes/classes.json"
 import "react-datepicker/dist/react-datepicker.css"
 import newDoc from "../images/jc-gellidon-1386352-unsplashnew.jpg"
 import styled from "styled-components"
@@ -33,10 +38,16 @@ class ClassAdmin extends React.Component {
   constructor(props) {
     super(props)
 
+    // uncheck for local dev
+    // const editModeClassesTest = cbetClasses.map(classcbet => false)
+
     this.state = {
-      classes: [],
-      editModeClasses: [],
+      // Local dev requires cbClasses from json file above
+      // Staging/Production leave as blank array
+      classes: [], // main classes pulled in from azure db
+      editModeClasses: [], // show/hide each card in UI
       newClass: {
+        // used for Adding a new class card
         Title: "",
         Training: "",
         Format: "",
@@ -46,6 +57,7 @@ class ClassAdmin extends React.Component {
         Type: "Insert",
       },
       editClass: {
+        // used for the current Edited class
         Id: 0,
         Title: "",
         Training: "",
@@ -53,11 +65,15 @@ class ClassAdmin extends React.Component {
         StartDate: "",
         EndDate: "",
         RegistrationCloseDate: "",
-        Type: "",
+        Type: "Update",
       },
-      isEditMode: false,
-      isAddMode: false,
-      validated: false,
+      isEditMode: false, // show Edit mode UI
+      isAddMode: false, // show Add Mode UI(hides all cards and only add form shows)
+      validated: false, // validation for the Add Mode
+      showAddMessage: false, // Show the Success alert Add message
+      showEditSaveMessage: false, // Show the Success alert Edit message
+      showDeleteMessage: false, // Show the Success alert Edit message
+      showErrorMessage: false, // Show the Error alert message
     }
 
     this.GetClasses = this.GetClasses.bind(this)
@@ -74,14 +90,40 @@ class ClassAdmin extends React.Component {
     this.onClickDelete = this.onClickDelete.bind(this)
     this.handleChangeEndDate = this.handleChangeEndDate.bind(this)
     this.onHandleEdit = this.onHandleEdit.bind(this)
+    this.handleError = this.handleError.bind(this)
   }
 
   componentDidMount() {
-    this.GetClasses()
+    // Comment this out in Local dev
+    this.GetClasses().then(() => {
+      this.setState({
+        editModeClasses: this.state.classes.map(elem => false),
+      })
+    })
   }
 
-  onClickDelete(e) {
-    console.log("click delete")
+  handleError() {
+    this.setState({
+      showErrorMessage: false,
+    })
+  }
+
+  onClickDelete(e, deleteClass) {
+    console.log("click delete", deleteClass)
+
+    let cloneDeleteClass = JSON.parse(JSON.stringify(deleteClass))
+    cloneDeleteClass["Type"] = "Delete"
+    console.log("clone", cloneDeleteClass)
+    this.setState({
+      showDeleteMessage: true,
+    })
+
+    setTimeout(() => {
+      this.setState({
+        showDeleteMessage: false,
+      })
+    }, 3000)
+    this.PostClasses(cloneDeleteClass)
   }
 
   onHandleEdit(e, inputType) {
@@ -115,10 +157,15 @@ class ClassAdmin extends React.Component {
     }
 
     // Call insert class POST
-    console.log("class", this.state.newClass)
+    console.log("insert class obj", this.state.newClass)
     this.PostClasses(this.state.newClass)
+    this.setState({
+      showAddMessage: true,
+    })
 
-    this.setState({ validated: true })
+    setTimeout(() => {
+      this.setState({ validated: true, isAddMode: false })
+    }, 2000)
   }
 
   onChangeAdd(e) {
@@ -147,21 +194,14 @@ class ClassAdmin extends React.Component {
     })
   }
 
-  onSaveClass(e, id) {
+  onSaveClass(e) {
     e.preventDefault()
 
-    let { editModeClasses } = this.state
-    editModeClasses = editModeClasses.map(elem => {
-      return false
-    })
-    console.log("emc on save", editModeClasses, this.state)
-
-    // Make call to POST with editClass from state
-    this.PostClasses(this.state.editClass)
-
     this.setState({
-      editModeClasses: editModeClasses,
+      showEditSaveMessage: true,
     })
+    // Make call to POST with editClass from state
+    this.PostClasses(this.state.editClass).then(() => this.GetClasses())
   }
 
   onChangeAddStartDate(startDate) {
@@ -195,49 +235,49 @@ class ClassAdmin extends React.Component {
   }
 
   handleChangeStartDate(classDate) {
-    let startDateState = this.state.startDate
+    let startDateStateClass = this.state.editClass
 
-    startDateState = classDate
+    startDateStateClass.StartDate = classDate
 
     this.setState({
-      startDate: startDateState,
+      editClass: startDateStateClass,
     })
   }
 
   handleChangeEndDate(endDate) {
-    let endDateState = this.state.endDate
+    let endDateStateClass = this.state.editClass
 
-    endDateState = endDate
+    endDateStateClass.EndDate = endDate
 
     this.setState({
-      endDate: endDateState,
+      editClass: endDateStateClass,
     })
   }
 
   handleChangeRegDate(regDate) {
-    let registrationDate = this.state.registrationCloseDate
+    let registrationDateClass = this.state.editClass
 
-    registrationDate = regDate
+    registrationDateClass.RegistrationCloseDate = regDate
 
     this.setState({
-      registrationCloseDate: registrationDate,
+      editClass: registrationDateClass,
     })
   }
 
-  onClickMode(e, id, isSelected) {
+  onClickMode(e, index) {
     e.preventDefault()
 
     const { editModeClasses, editClass } = this.state
-    editModeClasses[id] = !editModeClasses[id]
+    editModeClasses[index] = !editModeClasses[index]
 
-    editClass.Id = this.state.classes[id].Id
-    editClass.Title = this.state.classes[id].Title
-    editClass.Format = this.state.classes[id].Format
-    editClass.Training = this.state.classes[id].Training
-    editClass.StartDate = new Date(this.state.classes[id].StartDate)
-    editClass.EndDate = new Date(this.state.classes[id].EndDate)
+    editClass.Id = this.state.classes[index].Id
+    editClass.Title = this.state.classes[index].Title
+    editClass.Format = this.state.classes[index].Format
+    editClass.Training = this.state.classes[index].Training
+    editClass.StartDate = new Date(this.state.classes[index].StartDate)
+    editClass.EndDate = new Date(this.state.classes[index].EndDate)
     editClass.RegistrationCloseDate = new Date(
-      this.state.classes[id].RegistrationCloseDate
+      this.state.classes[index].RegistrationCloseDate
     )
     editClass.Type = "Update"
 
@@ -276,10 +316,8 @@ class ClassAdmin extends React.Component {
       const data = await response.json()
       console.log("classes", data)
 
-      const editModeClassesTest = data.map(classcbet => false)
       this.setState({
         classes: data,
-        editModeClasses: editModeClassesTest,
       })
     } catch (error) {
       console.log("error getClasses", error)
@@ -300,13 +338,62 @@ class ClassAdmin extends React.Component {
       const response = await fetch(
         `https://cbetclasses.azurewebsites.net/api/GetCbetClasses?code=${
           this.props.code
-        }`,
+        }l`,
         myInit
       )
-      const data = await response.json()
-      console.log("POST back resp", data)
+      console.log("POST back resp", response)
+
+      // Determine Post type
+      if (classObj.Type === "Update") {
+        console.log("Update POST")
+
+        setTimeout(() => {
+          console.log("timeout done update post")
+
+          if (response.status !== 200) {
+            this.setState({
+              showErrorMessage: true,
+            })
+          }
+
+          this.setState({
+            showEditSaveMessage: false,
+          })
+        }, 3000)
+      } else if (classObj.Type === "Delete") {
+        console.log("Delete POST")
+
+        setTimeout(() => {
+          console.log("timeout done delete post")
+
+          if (response.status !== 200) {
+            this.setState({
+              showErrorMessage: true,
+            })
+          }
+
+          this.setState({
+            showEditSaveMessage: false,
+          })
+        }, 6000)
+      } else if (classObj.Type === "Insert") {
+        console.log("Insert POST")
+
+        setTimeout(() => {
+          console.log("timeout done Insert post")
+
+          if (response.status !== 200) {
+            this.setState({
+              showErrorMessage: true,
+            })
+          }
+        }, 6000)
+      }
     } catch (error) {
-      console.log("error getClasses", error)
+      console.log("error PostClasses", error)
+      this.setState({
+        showErrorMessage: true,
+      })
     }
   }
 
@@ -335,6 +422,30 @@ class ClassAdmin extends React.Component {
           ) : null}
         </h1>
 
+        {/* Delete and Error Message Alerts */}
+        <Alert show={this.state.showDeleteMessage} variant="success">
+          <Alert.Heading>
+            <FaRegThumbsUp style={{ marginRight: "5px" }} />
+            Class deleted!
+          </Alert.Heading>
+        </Alert>
+        <Alert show={this.state.showErrorMessage} variant="danger">
+          <Alert.Heading>
+            <FaDatabase style={{ marginRight: "5px" }} />
+            Error occurred on CBET Database Save.
+          </Alert.Heading>
+          <p>
+            Please try again, if error continues contact CBET Admin for
+            assistance
+          </p>
+          <div className="d-flex justify-content-end">
+            <Button onClick={this.handleError} variant="danger">
+              Close me!
+            </Button>
+          </div>
+        </Alert>
+
+        {/* If isAddMode eq true AND there is a User present then show ADD mode */}
         {this.state.isAddMode === true && isEmpty(this.props.user) === false ? (
           <Collapse in={this.state.isAddMode}>
             <Form
@@ -412,17 +523,25 @@ class ClassAdmin extends React.Component {
                 />
               </Form.Group>
 
-              <Button
-                variant="primary"
-                type="submit"
-                style={{ marginBottom: "10px" }}
-              >
-                Submit
-              </Button>
+              <Form.Group>
+                <Button
+                  variant="primary"
+                  type="submit"
+                  style={{ marginBottom: "10px" }}
+                  inline
+                >
+                  Submit
+                </Button>
+                <Alert show={this.state.showAddMessage} variant="success">
+                  <Alert.Heading>Success!</Alert.Heading>
+                </Alert>
+              </Form.Group>
             </Form>
           </Collapse>
         ) : (
+          //If AddMode is turned off
           <Row>
+            {/* All Classes from Azure, Map over all */}
             {this.state.classes.map((cbetClass, index) => (
               <Col md={3}>
                 <Card
@@ -442,6 +561,7 @@ class ClassAdmin extends React.Component {
                   key={cbetClass.Id}
                   className="mb-5"
                 >
+                  {/* Edit and Delete Buttons */}
                   {isEmpty(this.props.user) === false ? (
                     <ButtonToolbar
                       aria-label="Toolbar with button groups"
@@ -465,13 +585,7 @@ class ClassAdmin extends React.Component {
                           height={40}
                           size="sm"
                           style={{ height: "40px" }}
-                          onClick={e =>
-                            this.onClickMode(
-                              e,
-                              index,
-                              this.state.editModeClasses[index]
-                            )
-                          }
+                          onClick={e => this.onClickMode(e, index)}
                         >
                           <FaEdit />{" "}
                           {this.state.editModeClasses[index] === false
@@ -483,7 +597,7 @@ class ClassAdmin extends React.Component {
                           variant="danger"
                           style={{ height: "40px" }}
                           size="sm"
-                          onClick={e => this.onClickDelete(e, index)}
+                          onClick={e => this.onClickDelete(e, cbetClass)}
                         >
                           <FaTrashAlt style={{ marginRight: "5px" }} />
                           Delete
@@ -519,7 +633,7 @@ class ClassAdmin extends React.Component {
                         />
                         {this.state.editModeClasses[index] === true ? (
                           <DatePicker
-                            selected={this.state.startDate}
+                            selected={this.state.editClass.StartDate}
                             onChange={this.handleChangeStartDate}
                             placeholderText="class start date"
                             required
@@ -540,7 +654,7 @@ class ClassAdmin extends React.Component {
                             }}
                           />
                           <DatePicker
-                            selected={this.state.endDate}
+                            selected={this.state.editClass.EndDate}
                             onChange={this.handleChangeEndDate}
                             placeholderText="class end date"
                             required
@@ -554,7 +668,7 @@ class ClassAdmin extends React.Component {
                       Registration Deadline{" "}
                       {this.state.editModeClasses[index] ? (
                         <DatePicker
-                          selected={this.state.registrationCloseDate}
+                          selected={this.state.editClass.RegistrationCloseDate}
                           onChange={this.handleChangeRegDate}
                           required
                           placeholderText="registration end date"
@@ -624,15 +738,32 @@ class ClassAdmin extends React.Component {
                     >
                       Learn More
                     </Button>
+
+                    {/* If Class is visible then show Save */}
                     {this.state.editModeClasses[index] === true ? (
-                      <Button
-                        variant="primary"
-                        size="sm"
-                        onClick={e => this.onSaveClass(e, cbetClass.Id)}
-                        className="float-right"
-                      >
-                        Save
-                      </Button>
+                      <>
+                        <Button
+                          variant="primary"
+                          size="sm"
+                          onClick={e => this.onSaveClass(e)}
+                          className="float-right"
+                        >
+                          Save
+                        </Button>
+                        <Alert
+                          show={this.state.showEditSaveMessage}
+                          variant="success"
+                          style={{ marginTop: "10px" }}
+                        >
+                          <Alert.Heading>
+                            <FaRegThumbsUp
+                              size={24}
+                              style={{ marginRight: "5px" }}
+                            />
+                            Success!
+                          </Alert.Heading>
+                        </Alert>
+                      </>
                     ) : null}
                   </Card.Body>
                 </Card>
