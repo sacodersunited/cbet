@@ -1,6 +1,6 @@
 import React from "react"
 import { getProfile } from "../utils/auth"
-import { isEmpty } from "../utils/utility"
+import { isEmpty, ToShortDate, ToStartDate } from "../utils/utility"
 import Layout from "../components/layout"
 import {
   Form,
@@ -57,14 +57,38 @@ class Schedule extends React.Component {
       startDate: "",
       endDate: "",
       registrationCloseDate: "",
+      validated: false,
     }
+
     this.GetClasses = this.GetClasses.bind(this)
     this.onClickMode = this.onClickMode.bind(this)
     this.onClickAddClass = this.onClickAddClass.bind(this)
+    this.onSaveClass = this.onSaveClass.bind(this)
+    this.handleChangeRegDate = this.handleChangeRegDate.bind(this)
+    this.handleChangeStartDate = this.handleChangeStartDate.bind(this)
+    this.handleAddNewClass = this.handleAddNewClass.bind(this)
+    this.onChangeAdd = this.onChangeAdd.bind(this)
+    this.onChangeAddStartDate = this.onChangeAddStartDate.bind(this)
+    this.onChangeAddEndDate = this.onChangeAddEndDate.bind(this)
+    this.onChangeAddRegDate = this.onChangeAddRegDate.bind(this)
+    this.onClickDelete = this.onClickDelete.bind(this)
   }
 
   componentDidMount() {
     // this.GetClasses()
+  }
+
+  handleAddNewClass(e) {
+    const form = e.currentTarget
+    console.log("add New validate", form.checkValidity())
+    if (form.checkValidity() === true) {
+      e.preventDefault()
+      e.stopPropagation()
+    }
+
+    // Call insert class POST
+
+    this.setState({ validated: true })
   }
 
   onChangeAdd(e) {
@@ -72,6 +96,7 @@ class Schedule extends React.Component {
 
     let add = this.state.newClass
 
+    console.log("onChangeAdd", e.target.placeholder)
     switch (e.target.placeholder) {
       case "title":
         add.Title = e.target.value
@@ -82,15 +107,7 @@ class Schedule extends React.Component {
       case "format":
         add.Format = e.target.value
         break
-      case "start date":
-        add.StartDate = e.target.value
-        break
-      case "end date":
-        add.EndDate = e.target.value
-        break
-      case "registration close date":
-        add.RegistrationCloseDate = e.target.value
-        break
+
       default:
         break
     }
@@ -100,14 +117,67 @@ class Schedule extends React.Component {
     })
   }
 
-  handleChange(e) {
+  onSaveClass(e, id) {
     e.preventDefault()
 
+    let { editModeClasses } = this.state
+    editModeClasses = editModeClasses.map(elem => {
+      return false
+    })
+    console.log("emc", editModeClasses)
+    console.log("on save class", id)
+    this.setState({
+      editModeClasses: editModeClasses,
+    })
+  }
+
+  onChangeAddStartDate(startDate) {
+    const startDtClass = this.state.newClass
+
+    startDtClass.StartDate = startDate
+
+    this.setState({
+      newClass: startDtClass,
+    })
+  }
+
+  onChangeAddEndDate(endDate) {
+    const endDtClass = this.state.newClass
+
+    endDtClass.EndDate = endDate
+
+    this.setState({
+      newClass: endDtClass,
+    })
+  }
+
+  onChangeAddRegDate(regDate) {
+    const regDtClass = this.state.newClass
+
+    regDtClass.RegistrationCloseDate = regDate
+
+    this.setState({
+      newClass: regDtClass,
+    })
+  }
+
+  handleChangeStartDate(classDate) {
     let startDateState = this.state.startDate
-    startDateState = e.target.value
+
+    startDateState = classDate
 
     this.setState({
       startDate: startDateState,
+    })
+  }
+
+  handleChangeRegDate(regDate) {
+    let registrationDate = this.state.registrationCloseDate
+
+    registrationDate = regDate
+
+    this.setState({
+      registrationCloseDate: registrationDate,
     })
   }
 
@@ -118,12 +188,12 @@ class Schedule extends React.Component {
     const { editModeClasses } = this.state
     editModeClasses[id] = !editModeClasses[id]
 
-    // console.log("current class", this.state.classes[id], id)
-    // const { showClasses } = this.state
-
     this.setState({
       editModeClasses: editModeClasses,
-      // startDate: this.state.classes[id].StartDate,
+      startDate: new Date(this.state.classes[id].StartDate),
+      registrationCloseDate: new Date(
+        this.state.classes[id].RegistrationCloseDate
+      ),
     })
   }
 
@@ -166,7 +236,7 @@ class Schedule extends React.Component {
 
   render() {
     const user = getProfile()
-    console.log("user", user)
+    console.log("user", this.state)
 
     return (
       <Layout>
@@ -198,7 +268,11 @@ class Schedule extends React.Component {
 
           {this.state.isAddMode === true && isEmpty(user) === false ? (
             <Collapse in={this.state.isAddMode}>
-              <Form style={{ marginTop: "5px" }}>
+              <Form
+                style={{ marginTop: "5px" }}
+                onSubmit={e => this.handleAddNewClass(e)}
+                validated={this.state.validated}
+              >
                 <h2>Add Class</h2>
                 <Form.Group controlId="exampleForm.ControlInput1">
                   <Form.Label>Title</Form.Label>
@@ -241,7 +315,7 @@ class Schedule extends React.Component {
 
                   <DatePicker
                     selected={this.state.newClass.StartDate}
-                    onChange={this.onChangeAdd}
+                    onChange={this.onChangeAddStartDate}
                     placeholderText="start date"
                   />
                 </Form.Group>
@@ -252,7 +326,7 @@ class Schedule extends React.Component {
                   <br />
                   <DatePicker
                     selected={this.state.newClass.EndDate}
-                    onChange={this.onChangeAdd}
+                    onChange={this.onChangeAddEndDate}
                     placeholderText="end date"
                   />
                 </Form.Group>
@@ -264,8 +338,8 @@ class Schedule extends React.Component {
 
                   <DatePicker
                     selected={this.state.newClass.RegistrationCloseDate}
-                    onChange={this.onChangeAdd}
-                    placeholder="registration close date"
+                    onChange={this.onChangeAddRegDate}
+                    placeholderText="registration close date"
                   />
                 </Form.Group>
 
@@ -280,7 +354,6 @@ class Schedule extends React.Component {
             </Collapse>
           ) : (
             <Row>
-              {/* TODO: FSP@sacoders frontend starts here */}
               {this.state.classes.map((cbetClass, index) => (
                 <Col md={3}>
                   <Card
@@ -322,11 +395,6 @@ class Schedule extends React.Component {
                             }
                             height={40}
                             size="sm"
-                            disabled={
-                              this.state.showClasses[index] === true
-                                ? false
-                                : true
-                            }
                             style={{ height: "40px" }}
                             onClick={e =>
                               this.onClickMode(
@@ -346,6 +414,7 @@ class Schedule extends React.Component {
                             variant="danger"
                             style={{ height: "40px" }}
                             size="sm"
+                            onClick={e => this.onClickDelete(e, index)}
                           >
                             <FaTrashAlt style={{ marginRight: "5px" }} />
                             Delete
@@ -381,11 +450,12 @@ class Schedule extends React.Component {
                           {this.state.editModeClasses[index] === true ? (
                             <DatePicker
                               selected={this.state.startDate}
-                              onChange={this.handleChange}
-                              placeholderText="start date"
+                              onChange={this.handleChangeStartDate}
+                              placeholderText="class start date"
+                              required
                             />
                           ) : (
-                            cbetClass.StartDate
+                            ToStartDate(new Date(cbetClass.StartDate))
                           )}
                         </Card.Text>
                       </CardTitle>
@@ -394,15 +464,16 @@ class Schedule extends React.Component {
                       <Card.Text
                         style={{ color: "white", textAlign: "center" }}
                       >
-                        Registration Deadline is{" "}
+                        Registration Deadline{" "}
                         {this.state.editModeClasses[index] ? (
                           <DatePicker
-                            selected={this.state.startDate}
-                            onChange={this.handleChange}
-                            placeholderText="registration close date"
+                            selected={this.state.registrationCloseDate}
+                            onChange={this.handleChangeRegDate}
+                            required
+                            placeholderText="registration end date"
                           />
                         ) : (
-                          <>{cbetClass.registrationCloseDate}</>
+                          ToShortDate(new Date(cbetClass.RegistrationCloseDate))
                         )}
                       </Card.Text>
                     </Card.Footer>

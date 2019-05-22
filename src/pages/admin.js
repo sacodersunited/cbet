@@ -4,6 +4,7 @@ import ListGroup from "react-bootstrap/ListGroup"
 import { login, isAuthenticated, getProfile } from "../utils/auth"
 import Layout from "../components/layout"
 import Container from "react-bootstrap/Container"
+import { navigate } from "gatsby"
 
 const Admin = () => {
   if (!isAuthenticated()) {
@@ -22,10 +23,14 @@ const Admin = () => {
       <Container>
         <h2 className="pt-5 pb-5">Cbet Administration</h2>
         <ListGroup style={{ height: "45vh" }}>
-          <ListGroup.Item variant="primary" action href="#link1">
+          <ListGroup.Item
+            variant="primary"
+            action
+            onClick={() => navigate("/schedule/")}
+          >
             Class Scheduler
           </ListGroup.Item>
-          <ListGroup.Item variant="secondary" action disabled href="#link2">
+          <ListGroup.Item action variant="secondary">
             Next Feature (Coming soon)
           </ListGroup.Item>
         </ListGroup>
