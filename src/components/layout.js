@@ -20,7 +20,6 @@ const Layout = ({ children }) => (
     render={data => (
       <>
         {/* TODO: Not sure where to place this link to css */}
-        {console.log("test", data)}
         <link
           rel="stylesheet"
           href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"

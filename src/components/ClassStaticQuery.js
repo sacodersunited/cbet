@@ -1,8 +1,8 @@
 import React from "react"
 import { StaticQuery, graphql } from "gatsby"
-import ClassScheduler from "./ClassScheduler"
+import ClassAdmin from "./ClassAdmin"
 
-const ClassStaticQuery = () => (
+const ClassStaticQuery = props => (
   <StaticQuery
     query={graphql`
       query CodeQuery {
@@ -13,7 +13,9 @@ const ClassStaticQuery = () => (
         }
       }
     `}
-    render={data => <ClassScheduler code={data.site.siteMetadata.codeFunc} />}
+    render={data => (
+      <ClassAdmin user={props.user} code={data.site.siteMetadata.codeFunc} />
+    )}
   />
 )
 export default ClassStaticQuery
