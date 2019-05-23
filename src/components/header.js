@@ -19,6 +19,9 @@ const Header = ({ siteTitle }) => (
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
+            <Link to="/about/" className="nav-link" activeClassName="active">
+              About
+            </Link>
             <NavDropdown title="Programs" id="basic-nav-dropdown">
               <Link className="dropdown-item" to="/bmet-certificate/">
                 BMET Cert
