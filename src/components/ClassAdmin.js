@@ -11,6 +11,11 @@ import {
   Row,
   Col,
   Alert,
+  Spinner,
+  DropdownButton,
+  Dropdown,
+  Badge,
+  ListGroup,
 } from "react-bootstrap"
 import {
   FaEdit,
@@ -25,7 +30,7 @@ import {
 } from "react-icons/fa"
 import DatePicker from "react-datepicker"
 // Uncomment in Local dev
-// import cbetClasses from "../classes/classes.json"
+import cbetClasses from "../classes/classes.json"
 import "react-datepicker/dist/react-datepicker.css"
 import newDoc from "../images/jc-gellidon-1386352-unsplashnew.jpg"
 import styled from "styled-components"
@@ -38,14 +43,19 @@ class ClassAdmin extends React.Component {
   constructor(props) {
     super(props)
 
-    // uncheck for local dev
-    // const editModeClassesTest = cbetClasses.map(classcbet => false)
+    // uncomment for local dev
+    const editModeClassesTest = Array.from(
+      Array(cbetClasses.length),
+      () => false
+    )
 
+    console.log("classes", cbetClasses)
     this.state = {
       // Local dev requires cbClasses from json file above
       // Staging/Production leave as blank array
-      classes: [], // main classes pulled in from azure db
-      editModeClasses: [], // show/hide each card in UI
+      classes: cbetClasses, // main classes pulled in from azure db
+      // editModeClasses: [], // used in PROD only, show/hide each card in UI
+      editModeClasses: editModeClassesTest, // Used in Local Dev only
       newClass: {
         // used for Adding a new class card
         Title: "",
@@ -66,6 +76,8 @@ class ClassAdmin extends React.Component {
         EndDate: "",
         RegistrationCloseDate: "",
         Type: "Update",
+        ProgramSelected: "",
+        IsActive: false,
       },
       isEditMode: false, // show Edit mode UI
       isAddMode: false, // show Add Mode UI(hides all cards and only add form shows)
@@ -74,6 +86,7 @@ class ClassAdmin extends React.Component {
       showEditSaveMessage: false, // Show the Success alert Edit message
       showDeleteMessage: false, // Show the Success alert Edit message
       showErrorMessage: false, // Show the Error alert message
+      programSelected: "",
     }
 
     this.GetClasses = this.GetClasses.bind(this)
@@ -91,15 +104,46 @@ class ClassAdmin extends React.Component {
     this.handleChangeEndDate = this.handleChangeEndDate.bind(this)
     this.onHandleEdit = this.onHandleEdit.bind(this)
     this.handleError = this.handleError.bind(this)
+    this.onDropdownProgram = this.onDropdownProgram.bind(this)
+    this.onClickActive = this.onClickActive.bind(this)
+    this.onClickListActive = this.onClickListActive.bind(this)
   }
 
   componentDidMount() {
     // Comment this out in Local dev
-    this.GetClasses().then(() => {
-      this.setState({
-        editModeClasses: this.state.classes.map(elem => false),
-      })
+    // this.GetClasses().then(() => {
+    //   this.setState({
+    //     editModeClasses: this.state.classes.map(elem => false),
+    //   })
+    // })
+  }
+
+  onClickListActive(e) {}
+
+  onClickActive(e) {
+    console.log("e", e.target.checked)
+    let newEditClass = this.state.editClass
+
+    newEditClass.isActive = e.target.checked
+
+    this.setState({
+      editClass: newEditClass,
     })
+  }
+
+  onDropdownProgram(e) {
+    console.log("e dropdown", e.target.text)
+    if (e.target.text) {
+      console.log("found text", e.target.text)
+      let program = this.state.programSelected
+
+      program = e.target.text
+      this.setState({
+        programSelected: program,
+      })
+    } else {
+      console.log("not found text")
+    }
   }
 
   handleError() {
@@ -118,12 +162,13 @@ class ClassAdmin extends React.Component {
       showDeleteMessage: true,
     })
 
-    setTimeout(() => {
-      this.setState({
-        showDeleteMessage: false,
-      })
-    }, 3000)
     this.PostClasses(cloneDeleteClass)
+      .then(() => this.GetClasses())
+      .then(() => {
+        this.setState({
+          editModeClasses: this.state.classes.map(elem => false),
+        })
+      })
   }
 
   onHandleEdit(e, inputType) {
@@ -156,16 +201,37 @@ class ClassAdmin extends React.Component {
       e.stopPropagation()
     }
 
-    // Call insert class POST
-    console.log("insert class obj", this.state.newClass)
-    this.PostClasses(this.state.newClass)
     this.setState({
       showAddMessage: true,
+      validated: true,
     })
 
     setTimeout(() => {
-      this.setState({ validated: true, isAddMode: false })
-    }, 2000)
+      this.setState({
+        isAddMode: false,
+      })
+    }, 3000)
+
+    // Call insert class POST
+    console.log("insert class obj", this.state.newClass)
+    this.PostClasses(this.state.newClass).then(() =>
+      this.GetClasses().then(() => {
+        this.setState({
+          editModeClasses: this.state.classes.map(elem => false),
+          validated: false,
+          showAddMessage: false,
+          newClass: {
+            Title: "",
+            Training: "",
+            Format: "",
+            RegistrationCloseDate: "",
+            EndDate: "",
+            StartDate: "",
+            Type: "Insert",
+          },
+        })
+      })
+    )
   }
 
   onChangeAdd(e) {
@@ -201,7 +267,13 @@ class ClassAdmin extends React.Component {
       showEditSaveMessage: true,
     })
     // Make call to POST with editClass from state
-    this.PostClasses(this.state.editClass).then(() => this.GetClasses())
+    this.PostClasses(this.state.editClass)
+      .then(() => this.GetClasses())
+      .then(() => {
+        this.setState({
+          showEditSaveMessage: false,
+        })
+      })
   }
 
   onChangeAddStartDate(startDate) {
@@ -299,7 +371,7 @@ class ClassAdmin extends React.Component {
 
   async GetClasses() {
     const myHeaders = new Headers()
-    myHeaders.append("Content-Type", "text/plain")
+    myHeaders.append("Content-Type", "application/json")
 
     const myInit = {
       method: "Get",
@@ -314,7 +386,7 @@ class ClassAdmin extends React.Component {
         myInit
       )
       const data = await response.json()
-      console.log("classes", data)
+      console.log("classes have been refreshed", data)
 
       this.setState({
         classes: data,
@@ -358,6 +430,7 @@ class ClassAdmin extends React.Component {
 
           this.setState({
             showEditSaveMessage: false,
+            editModeClasses: this.state.classes.map(elem => false),
           })
         }, 3000)
       } else if (classObj.Type === "Delete") {
@@ -371,10 +444,6 @@ class ClassAdmin extends React.Component {
               showErrorMessage: true,
             })
           }
-
-          this.setState({
-            showEditSaveMessage: false,
-          })
         }, 6000)
       } else if (classObj.Type === "Insert") {
         console.log("Insert POST")
@@ -382,6 +451,7 @@ class ClassAdmin extends React.Component {
         setTimeout(() => {
           console.log("timeout done Insert post")
 
+          // Check if POST failed and show error message
           if (response.status !== 200) {
             this.setState({
               showErrorMessage: true,
@@ -398,6 +468,16 @@ class ClassAdmin extends React.Component {
   }
 
   render() {
+    console.log(this.state)
+    if (this.state.classes.length === 0) {
+      return (
+        <div style={{ padding: "10px" }}>
+          <Spinner animation="border" variant="primary" />
+          <h4 style={{ display: "inline", marginLeft: "5px" }}>Loading...</h4>
+        </div>
+      )
+    }
+
     return (
       <Container>
         <h1 style={{ marginTop: "50px", marginBottom: "50px" }}>
@@ -533,7 +613,10 @@ class ClassAdmin extends React.Component {
                   Submit
                 </Button>
                 <Alert show={this.state.showAddMessage} variant="success">
-                  <Alert.Heading>Success!</Alert.Heading>
+                  <Alert.Heading>
+                    <FaRegThumbsUp size={24} style={{ marginRight: "5px" }} />
+                    Success!
+                  </Alert.Heading>
                 </Alert>
               </Form.Group>
             </Form>
@@ -543,7 +626,7 @@ class ClassAdmin extends React.Component {
           <Row>
             {/* All Classes from Azure, Map over all */}
             {this.state.classes.map((cbetClass, index) => (
-              <Col md={3}>
+              <Col md={3} key={cbetClass.Id + index}>
                 <Card
                   border="primary"
                   style={{
@@ -565,7 +648,11 @@ class ClassAdmin extends React.Component {
                   {isEmpty(this.props.user) === false ? (
                     <ButtonToolbar
                       aria-label="Toolbar with button groups"
-                      style={{ height: "40px", marginBottom: "10px" }}
+                      style={{
+                        height: "40px",
+                        marginBottom: "10px",
+                        marginTop: "5px",
+                      }}
                     >
                       <ButtonGroup
                         aria-label="Basic example"
@@ -607,6 +694,34 @@ class ClassAdmin extends React.Component {
                   ) : null}
                   <Card.Img variant="top" src={newDoc} />
                   <Card.Body>
+                    {/* Select Program type which enables different Image to load per program */}
+                    {this.state.editModeClasses[index] === true ? (
+                      <>
+                        <DropdownButton
+                          drop="right"
+                          variant="primary"
+                          title="Select Program"
+                          id={`dropdown-button-drop-${index}`}
+                          key={index}
+                          style={{ marginBottom: "10px", minWidth: "146px" }}
+                          width="142px"
+                          className="d-inline-block"
+                          onClick={e => this.onDropdownProgram(e)}
+                        >
+                          <Dropdown.Item eventKey="1">CBET</Dropdown.Item>
+                          <Dropdown.Item eventKey="2">I.T.</Dropdown.Item>
+                        </DropdownButton>
+                        <h4 style={{ display: "inline" }}>
+                          <Badge
+                            variant="light"
+                            className="float-right"
+                            style={{ marginTop: "5px" }}
+                          >
+                            {this.state.programSelected}
+                          </Badge>
+                        </h4>
+                      </>
+                    ) : null}
                     <CardTitle>
                       <Card.Title
                         className="text-uppercase"
@@ -725,6 +840,29 @@ class ClassAdmin extends React.Component {
                             )}
                           </Card.Text>
                         </Form.Group>
+                        {this.state.editModeClasses[index] === true ? (
+                          <ListGroup>
+                            <ListGroup.Item
+                              onClick={e => this.onClickListActive(e)}
+                              variant={
+                                this.state.editClass.isActive
+                                  ? "success"
+                                  : "danger"
+                              }
+                            >
+                              <Form.Check
+                                type="checkbox"
+                                label={
+                                  this.state.editClass.isActive
+                                    ? "Active"
+                                    : "Disabled"
+                                }
+                                size="lg"
+                                onClick={e => this.onClickActive(e)}
+                              />
+                            </ListGroup.Item>
+                          </ListGroup>
+                        ) : null}
                       </li>
                     </ul>
                     <Button
