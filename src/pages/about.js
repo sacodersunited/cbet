@@ -16,7 +16,9 @@ import {
   FaGlobeAmericas,
   FaCopy,
 } from "react-icons/fa"
-import Profile1 from "../images/profile-1.png"
+import Profile7 from "../images/profile-7.png"
+import Profile2 from "../images/profile-2.png"
+import Profile3 from "../images/profile-3.png"
 
 const About = () => (
   <LayoutDetail>
@@ -26,24 +28,17 @@ const About = () => (
       <Row className="mb-3">
         <Col md={7}>
           <Fade left>
-            <h1 className="display-5 text-uppercase">About Us</h1>
+            <h2 className="display-5 text-uppercase">MISSION STATEMENT</h2>
             <p>
-              College of Biomedical Equipment Technology (CBET) was founded in
-              Round Rock, Texas in 2010. Since opening its doors, CIT has
-              expanded to provide online career training worldwide. CIT offers a
-              variety of programs in the fields of healthcare and technology.
-              The mission of CIT is to engage the student in a quality learning
-              experience using progressive training and educational methods in
-              an expedient manner that will allow our graduates to achieve
-              career success.
+              The College of Biomedical Equipment Technology’s (CBET) mission is
+              to provide Healthcare Technology Management (HTM) education,
+              training and career services consistent with the evolving needs of
+              employers in the healthcare industry.
             </p>
-
-            <Link to="/">
-              <Button className="text-uppercase"> Apply Today</Button>
-            </Link>
           </Fade>
         </Col>
       </Row>
+
       <div class="embed-responsive embed-responsive-16by9 mb-5">
         <iframe
           className="embed-responsive-item"
@@ -56,7 +51,76 @@ const About = () => (
       <Row className="mb-3">
         <Col md={7}>
           <Fade left>
-            <h1 className="display-5 text-uppercase">Staff</h1>
+            <h2 className="display-5 text-uppercase">VISION</h2>
+            <p>
+              The College of Biomedical Equipment Technology will provide
+              nationally recognized biomedical equipment and healthcare
+              technology management educational and professional opportunities
+              that meet the needs of our students and are responsive to the
+              needs of the healthcare community.
+            </p>
+          </Fade>
+        </Col>
+      </Row>
+
+      <Row className="mb-3">
+        <Col md={7}>
+          <Fade left>
+            <h2 className="display-5 text-uppercase">Values</h2>
+            <p className="lead">
+              Our core values guide us to accomplish our mission and achieve our
+              vision.
+            </p>
+          </Fade>
+          <h5>Committed to Delivering a World-Class Education on Demand</h5>
+          <p>
+            We are committed to providing world-class education, training, and
+            career services in an online format, emphasizing applied instruction
+            focused on state of the art equipment, led by skilled faculty with
+            real-world experience.
+          </p>
+          <h5>
+            Committed to Lifelong Learning and the Professional Development of
+            our Students
+          </h5>
+          <p>
+            Our commitment to our student extends beyond the limits of the
+            classroom. Through continuing careers services, mentorship, and
+            support, we foster lifelong learning and professional development
+            designed to strengthen the relationship we share with our students,
+            alumni and partners in the healthcare industry.
+          </p>
+          <h5>Committed to our Strategic Partners</h5>
+          <p>
+            We partner with business and industry to keep pace and better
+            understand global healthcare technology and cyber security trends.
+            Through our strategic alliances we ensure our curriculum and
+            instruction prepare our graduates to compete successfully in a
+            rapidly evolving and increasingly technical healthcare environment.
+          </p>
+          <h5>Committed to Community</h5>
+          <p>
+            We believe in fostering a learning community in which the values,
+            goals, and learning styles of students are recognized and supported.
+            We are committed to the belief that diversity strengthens learning
+            and actively seek opportunities to leverage the experiences,
+            perspectives, and ideas of our students.
+          </p>
+          <h5>Committed to Integrity and Excellence in Education</h5>
+          <p>
+            We believe in the importance of maintaining the highest ethical
+            standards and integrity in all that we do. We also expect the same
+            in our students an incorporate professional business ethics and
+            communications in our courses of instruction. At the College of
+            Biomedical Equipment Technology, our word is our bond.
+          </p>
+        </Col>
+      </Row>
+
+      <Row className="mb-3">
+        <Col md={7}>
+          <Fade left>
+            <h2 className="display-5 text-uppercase">Staff</h2>
             <p>
               Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quos
               quas beatae accusantium blanditiis praesentium dicta, officia
@@ -73,21 +137,92 @@ const About = () => (
       <Row>
         <Col md={3}>
           <Card style={{ width: "18rem" }}>
-            <Card.Img variant="top" src={Profile1} />
+            <Card.Img variant="top" src={Profile7} />
             <Card.Body>
               <Card.Title>
                 Mr. William Bassuk, <small>MBA</small>
               </Card.Title>
               <Card.Subtitle className="mb-2 text-muted">
-                President and Owner
+                CEO CER, & CIT
               </Card.Subtitle>
               <Row className="mb-3">
                 <Col>
-                  <FaTag />
-                  Administration
+                  <FaTag /> Administration
                 </Col>
                 <Col>
                   <FaRegEnvelope /> bbassuk@cittx.edu
+                </Col>
+              </Row>
+              <Row>
+                <Col xs={2}>
+                  <FaTwitter size="20px" />
+                </Col>
+                <Col xs={2}>
+                  <FaFacebook size="20px" />
+                </Col>
+                <Col xs={2}>
+                  <FaLinkedin size="20px" />
+                </Col>
+                <Col xs={2} size="20px">
+                  <FaGlobeAmericas />
+                </Col>
+              </Row>
+            </Card.Body>
+          </Card>
+        </Col>
+
+        <Col md={3}>
+          <Card style={{ width: "18rem" }}>
+            <Card.Img variant="top" src={Profile3} />
+            <Card.Body>
+              <Card.Title>
+                Monty Gonzales, <small>MA</small>
+              </Card.Title>
+              <Card.Subtitle className="mb-2 text-muted">
+                School Director
+              </Card.Subtitle>
+              <Row className="mb-3">
+                <Col>
+                  <FaTag /> Administration
+                </Col>
+                <Col>
+                  <FaRegEnvelope /> rgonzales@cittx.edu
+                </Col>
+              </Row>
+              <Row>
+                <Col xs={2}>
+                  <FaTwitter size="20px" />
+                </Col>
+                <Col xs={2}>
+                  <FaFacebook size="20px" />
+                </Col>
+                <Col xs={2}>
+                  <FaLinkedin size="20px" />
+                </Col>
+                <Col xs={2} size="20px">
+                  <FaGlobeAmericas />
+                </Col>
+              </Row>
+            </Card.Body>
+          </Card>
+        </Col>
+
+        <Col md={3}>
+          <Card style={{ width: "18rem" }}>
+            <Card.Img variant="top" src={Profile2} />
+            <Card.Body>
+              <Card.Title>
+                Scott McKnight, <small>MSM</small>
+              </Card.Title>
+              <Card.Subtitle className="mb-2 text-muted">
+                Director of Education
+              </Card.Subtitle>
+              <Row className="mb-3">
+                <Col>
+                  <FaTag /> Administration
+                </Col>
+                <Col>
+                  <FaRegEnvelope /> smcknight@cittx.edu
                 </Col>
               </Row>
               <Row>
