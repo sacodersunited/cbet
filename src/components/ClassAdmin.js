@@ -196,7 +196,7 @@ class ClassAdmin extends React.Component {
       .then(() => this.GetClasses())
       .then(() => {
         this.setState({
-          editModeClasses: this.state.classes.map(elem => false),
+          editModeClasses: this.state.classes.map(() => false),
         })
       })
   }
@@ -253,22 +253,24 @@ class ClassAdmin extends React.Component {
 
     this.PostClasses(newClassMode).then(() =>
       this.GetClasses().then(() => {
-        this.setState({
-          editModeClasses: this.state.classes.map(() => false),
-          validated: false,
-          showAddMessage: false,
-          newClass: {
-            Title: "",
-            Training: "",
-            Format: "",
-            RegistrationCloseDate: "",
-            EndDate: "",
-            StartDate: "",
-            Type: "Insert",
-            IsActive: false,
-            ProgramSelected: "",
-          },
-        })
+        setTimeout(() => {
+          this.setState({
+            editModeClasses: this.state.classes.map(() => false),
+            validated: false,
+            showAddMessage: false,
+            newClass: {
+              Title: "",
+              Training: "",
+              Format: "",
+              RegistrationCloseDate: "",
+              EndDate: "",
+              StartDate: "",
+              Type: "Insert",
+              IsActive: false,
+              ProgramSelected: "",
+            },
+          })
+        }, 4000)
       })
     )
   }
@@ -320,9 +322,11 @@ class ClassAdmin extends React.Component {
     this.PostClasses(editClassMode)
       .then(() => this.GetClasses())
       .then(() => {
-        this.setState({
-          showEditSaveMessage: false,
-        })
+        setTimeout(() => {
+          this.setState({
+            showEditSaveMessage: false,
+          })
+        }, 3000)
       })
   }
 
@@ -489,7 +493,7 @@ class ClassAdmin extends React.Component {
             showEditSaveMessage: false,
             editModeClasses: this.state.classes.map(elem => false),
           })
-        }, 3000)
+        }, 6000)
       } else if (classObj.Type === "Delete") {
         console.log("Delete POST")
 
