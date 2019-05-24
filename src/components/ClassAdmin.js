@@ -126,7 +126,7 @@ class ClassAdmin extends React.Component {
     console.log("e", e.target.checked)
     let newAddClass = this.state.newClass
 
-    newAddClass.isActive = e.target.checked
+    newAddClass.IsActive = e.target.checked
 
     this.setState({
       newClass: newAddClass,
@@ -137,7 +137,7 @@ class ClassAdmin extends React.Component {
     console.log("e", e.target.checked)
     let newEditClass = this.state.editClass
 
-    newEditClass.isActive = e.target.checked
+    newEditClass.IsActive = e.target.checked
 
     this.setState({
       editClass: newEditClass,
@@ -244,7 +244,14 @@ class ClassAdmin extends React.Component {
 
     // Call insert class POST
     console.log("insert class obj", this.state.newClass)
-    this.PostClasses(this.state.newClass).then(() =>
+    const newClassMode = this.state.newClass
+    if (newClassMode.IsActive === true) {
+      newClassMode.IsActive = 1
+    } else {
+      newClassMode.IsActive = 0
+    }
+
+    this.PostClasses(newClassMode).then(() =>
       this.GetClasses().then(() => {
         this.setState({
           editModeClasses: this.state.classes.map(() => false),
@@ -301,8 +308,16 @@ class ClassAdmin extends React.Component {
     this.setState({
       showEditSaveMessage: true,
     })
+
+    let editClassMode = this.state.editClass
+    if (editClassMode.IsActive === true) {
+      editClassMode.IsActive = 1
+    } else {
+      editClassMode.IsActive = 0
+    }
+
     // Make call to POST with editClass from state
-    this.PostClasses(this.state.editClass)
+    this.PostClasses(editClassMode)
       .then(() => this.GetClasses())
       .then(() => {
         this.setState({
@@ -374,25 +389,30 @@ class ClassAdmin extends React.Component {
   onClickMode(e, index) {
     e.preventDefault()
 
-    const { editModeClasses, editClass } = this.state
+    const { editModeClasses } = this.state
+
+    const editModeClass = this.state.editClass
     // Toggle EditMode for picked class
     editModeClasses[index] = !editModeClasses[index]
 
     // Get Class information and put it in the EditClass
-    editClass.Id = this.state.classes[index].Id
-    editClass.Title = this.state.classes[index].Title
-    editClass.Format = this.state.classes[index].Format
-    editClass.Training = this.state.classes[index].Training
-    editClass.StartDate = new Date(this.state.classes[index].StartDate)
-    editClass.EndDate = new Date(this.state.classes[index].EndDate)
-    editClass.RegistrationCloseDate = new Date(
+    editModeClass.Id = this.state.classes[index].Id
+    editModeClass.Title = this.state.classes[index].Title
+    editModeClass.Format = this.state.classes[index].Format
+    editModeClass.Training = this.state.classes[index].Training
+    editModeClass.StartDate = new Date(this.state.classes[index].StartDate)
+    editModeClass.EndDate = new Date(this.state.classes[index].EndDate)
+    editModeClass.RegistrationCloseDate = new Date(
       this.state.classes[index].RegistrationCloseDate
     )
-    editClass.Type = "Update"
+    console.log("current class in clickMode", this.state.classes[index])
+    editModeClass.Type = "Update"
+    editModeClass.IsActive = this.state.classes[index].IsActive
+    editModeClass.ProgramSelected = this.state.classes[index].ProgramSelected
 
     this.setState({
       editModeClasses: editModeClasses,
-      editClass: editClass,
+      editClass: editModeClass,
     })
   }
 
@@ -683,13 +703,13 @@ class ClassAdmin extends React.Component {
                 <ListGroup style={{ width: "150px" }}>
                   <ListGroup.Item
                     variant={
-                      this.state.newClass.isActive ? "success" : "danger"
+                      this.state.newClass.IsActive ? "success" : "danger"
                     }
                   >
                     <Form.Check
                       type="checkbox"
                       label={
-                        this.state.newClass.isActive ? "Active" : "Disabled"
+                        this.state.newClass.IsActive ? "Active" : "Disabled"
                       }
                       size="lg"
                       onClick={e => this.onClickActiveAdd(e)}
@@ -963,7 +983,7 @@ class ClassAdmin extends React.Component {
                             <ListGroup>
                               <ListGroup.Item
                                 variant={
-                                  this.state.editClass.isActive
+                                  this.state.editClass.IsActive
                                     ? "success"
                                     : "danger"
                                 }
@@ -971,11 +991,16 @@ class ClassAdmin extends React.Component {
                                 <Form.Check
                                   type="checkbox"
                                   label={
-                                    this.state.editClass.isActive
+                                    this.state.editClass.IsActive
                                       ? "Active"
                                       : "Disabled"
                                   }
                                   size="lg"
+                                  checked={
+                                    this.state.editClass.IsActive === true
+                                      ? true
+                                      : false
+                                  }
                                   onClick={e => this.onClickActive(e)}
                                 />
                               </ListGroup.Item>
