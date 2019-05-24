@@ -6,7 +6,9 @@
     "Training": "Biomedical Service Company Practicum and/or Hospital Co-op.",
     "StartDate": "2019-05-21",
     "EndDate": "2019-08-13",
-    "RegistrationCloseDate": "2019-05-14"
+    "RegistrationCloseDate": "2019-05-14",
+    "ProgramSelected": "BMET",
+    "IsActive": false
   },
   {
     "Id": 2,
@@ -15,7 +17,9 @@
     "Training": "Biomedical Service Company Practicum and/or Hospital Co-op.",
     "StartDate": "2019-05-21",
     "EndDate": "2019-08-13",
-    "RegistrationCloseDate": "2019-05-14"
+    "RegistrationCloseDate": "2019-05-14",
+    "ProgramSelected": "I.T.",
+    "IsActive": true
   },
   {
     "Id": 3,
@@ -24,7 +28,9 @@
     "Training": "Biomedical Service Company Practicum and/or Hospital Co-op.",
     "StartDate": "2019-05-21",
     "EndDate": "2019-08-13",
-    "RegistrationCloseDate": "2019-05-14"
+    "RegistrationCloseDate": "2019-05-14",
+    "ProgramSelected": "BMET",
+    "IsActive": true
   },
   {
     "Id": 4,
@@ -33,7 +39,9 @@
     "Training": "Biomedical Service Company Practicum and/or Hospital Co-op.",
     "StartDate": "2019-05-21",
     "EndDate": "2019-08-13",
-    "RegistrationCloseDate": "2019-05-14"
+    "RegistrationCloseDate": "2019-05-14",
+    "ProgramSelected": "BMET",
+    "IsActive": true
   },
   {
     "Id": 5,
@@ -42,7 +50,9 @@
     "Training": "Biomedical Service Company Practicum and/or Hospital Co-op.",
     "StartDate": "2019-05-21",
     "EndDate": "2019-08-13",
-    "RegistrationCloseDate": "2019-05-14"
+    "RegistrationCloseDate": "2019-05-14",
+    "ProgramSelected": "BMET",
+    "IsActive": true
   },
   {
     "Id": 6,
@@ -51,7 +61,9 @@
     "Training": "Biomedical Service Company Practicum and/or Hospital Co-op.",
     "StartDate": "2019-05-21",
     "EndDate": "2019-08-13",
-    "RegistrationCloseDate": "2019-05-14"
+    "RegistrationCloseDate": "2019-05-14",
+    "ProgramSelected": "BMET",
+    "IsActive": true
   },
   {
     "Id": 7,
@@ -60,7 +72,9 @@
     "Training": "Biomedical Service Company Practicum and/or Hospital Co-op.",
     "StartDate": "2019-05-21",
     "EndDate": "2019-08-13",
-    "RegistrationCloseDate": "2019-05-14"
+    "RegistrationCloseDate": "2019-05-14",
+    "ProgramSelected": "BMET",
+    "IsActive": true
   },
   {
     "Id": 8,
@@ -69,6 +83,8 @@
     "Training": "Biomedical Service Company Practicum and/or Hospital Co-op.",
     "StartDate": "2019-05-21",
     "EndDate": "2019-08-13",
-    "RegistrationCloseDate": "2019-05-14"
+    "RegistrationCloseDate": "2019-05-14",
+    "ProgramSelected": "BMET",
+    "IsActive": true
   }
 ]

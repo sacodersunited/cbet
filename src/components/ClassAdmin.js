@@ -33,6 +33,7 @@ import DatePicker from "react-datepicker"
 import cbetClasses from "../classes/classes.json"
 import "react-datepicker/dist/react-datepicker.css"
 import newDoc from "../images/jc-gellidon-1386352-unsplashnew.jpg"
+import itDefaultImage from "../images/bmet-tech.jpg"
 import styled from "styled-components"
 
 const CardTitle = styled.section`
@@ -65,6 +66,8 @@ class ClassAdmin extends React.Component {
         EndDate: "",
         RegistrationCloseDate: "",
         Type: "Insert",
+        ProgramSelected: "",
+        IsActive: false,
       },
       editClass: {
         // used for the current Edited class
@@ -105,8 +108,8 @@ class ClassAdmin extends React.Component {
     this.onHandleEdit = this.onHandleEdit.bind(this)
     this.handleError = this.handleError.bind(this)
     this.onDropdownProgram = this.onDropdownProgram.bind(this)
-    this.onClickActive = this.onClickActive.bind(this)
-    this.onClickListActive = this.onClickListActive.bind(this)
+    this.onClickActive = this.onClickActive.bind(this) // Click on active | disabled in Edit mode
+    this.onDropdownProgramAdd = this.onDropdownProgramAdd.bind(this)
   }
 
   componentDidMount() {
@@ -117,8 +120,6 @@ class ClassAdmin extends React.Component {
     //   })
     // })
   }
-
-  onClickListActive(e) {}
 
   onClickActive(e) {
     console.log("e", e.target.checked)
@@ -131,18 +132,35 @@ class ClassAdmin extends React.Component {
     })
   }
 
-  onDropdownProgram(e) {
-    console.log("e dropdown", e.target.text)
-    if (e.target.text) {
-      console.log("found text", e.target.text)
-      let program = this.state.programSelected
+  onDropdownProgramAdd(e) {
+    console.log("add e dropdown", e.target.text)
+    // if (e.target.text) {
+    //   console.log("found text", e.target.text)
+    //   let program = this.state.newClass
+    //   program.IsActive = e.target.text
+    //   this.setState({
+    //     programSelected: program,
+    //   })
+    // } else {
+    //   console.log("not found text")
+    // }
+  }
 
-      program = e.target.text
+  // Edit Select Program
+  onDropdownProgram(e, currentClassIndexInStateClass) {
+    // If text is present then set the program selected
+    if (e.target.text) {
+      const editProgram = this.state.editClass
+      const stateClasses = this.state.classes
+
+      stateClasses[currentClassIndexInStateClass].ProgramSelected =
+        e.target.text
+
+      editProgram.ProgramSelected = e.target.text
       this.setState({
-        programSelected: program,
+        editClass: editProgram,
+        classes: stateClasses,
       })
-    } else {
-      console.log("not found text")
     }
   }
 
@@ -340,8 +358,10 @@ class ClassAdmin extends React.Component {
     e.preventDefault()
 
     const { editModeClasses, editClass } = this.state
+    // Toggle EditMode for picked class
     editModeClasses[index] = !editModeClasses[index]
 
+    // Get Class information and put it in the EditClass
     editClass.Id = this.state.classes[index].Id
     editClass.Title = this.state.classes[index].Title
     editClass.Format = this.state.classes[index].Format
@@ -604,6 +624,32 @@ class ClassAdmin extends React.Component {
               </Form.Group>
 
               <Form.Group>
+                <DropdownButton
+                  drop="right"
+                  variant="primary"
+                  title="Select Program"
+                  id={`dropdown-button-drop-add`}
+                  key={`dropdown-button-drop-add-key1`}
+                  style={{ marginBottom: "10px", minWidth: "146px" }}
+                  width="142px"
+                  className="d-inline-block"
+                  onClick={e => this.onDropdownProgramAdd(e)}
+                >
+                  <Dropdown.Item eventKey="1">CBET</Dropdown.Item>
+                  <Dropdown.Item eventKey="2">I.T.</Dropdown.Item>
+                </DropdownButton>
+                <h4 style={{ display: "inline" }}>
+                  <Badge
+                    variant="light"
+                    className="float-right"
+                    style={{ marginTop: "5px" }}
+                  >
+                    {this.state.newClass.IsActive}
+                  </Badge>
+                </h4>
+              </Form.Group>
+
+              <Form.Group>
                 <Button
                   variant="primary"
                   type="submit"
@@ -621,143 +667,139 @@ class ClassAdmin extends React.Component {
               </Form.Group>
             </Form>
           </Collapse>
-        ) : (
-          //If AddMode is turned off
-          <Row>
-            {/* All Classes from Azure, Map over all */}
-            {this.state.classes.map((cbetClass, index) => (
-              <Col md={3} key={cbetClass.Id + index}>
-                <Card
-                  border="primary"
-                  style={{
-                    borderStyle:
-                      this.state.editModeClasses[index] === false
-                        ? "solid"
-                        : "dashed",
-                    borderWidth:
-                      this.state.editModeClasses[index] === false
-                        ? "thin"
-                        : "medium",
-                    width: "17rem",
-                    padding: "4px",
-                  }}
-                  key={cbetClass.Id}
-                  className="mb-5"
-                >
-                  {/* Edit and Delete Buttons */}
-                  {isEmpty(this.props.user) === false ? (
-                    <ButtonToolbar
-                      aria-label="Toolbar with button groups"
-                      style={{
-                        height: "40px",
-                        marginBottom: "10px",
-                        marginTop: "5px",
-                      }}
-                    >
-                      <ButtonGroup
-                        aria-label="Basic example"
-                        size="sm"
+        ) : null}
+
+        <Row>
+          {/* All Classes from Azure, Map over all */}
+          {this.state.classes.map((cbetClass, index) => {
+            if (cbetClass.IsActive || isEmpty(this.props.user) === false) {
+              return (
+                <Col md={3} key={cbetClass.Id + index}>
+                  <Card
+                    border="primary"
+                    style={{
+                      borderStyle:
+                        this.state.editModeClasses[index] === false
+                          ? "solid"
+                          : "dashed",
+                      borderWidth:
+                        this.state.editModeClasses[index] === false
+                          ? "thin"
+                          : "medium",
+                      width: "17rem",
+                      padding: "4px",
+                    }}
+                    key={cbetClass.Id}
+                    className="mb-5"
+                  >
+                    {/* Edit and Delete Buttons */}
+                    {isEmpty(this.props.user) === false ? (
+                      <ButtonToolbar
+                        aria-label="Toolbar with button groups"
                         style={{
                           height: "40px",
-                          margin: "0 auto",
+                          marginBottom: "10px",
+                          marginTop: "5px",
                         }}
-                        height={40}
                       >
-                        <Button
-                          variant={
-                            this.state.editModeClasses[index]
-                              ? "primary"
-                              : "primary"
-                          }
+                        <ButtonGroup
+                          aria-label="Basic example"
+                          size="sm"
+                          style={{
+                            height: "40px",
+                            margin: "0 auto",
+                          }}
                           height={40}
-                          size="sm"
-                          style={{ height: "40px" }}
-                          onClick={e => this.onClickMode(e, index)}
                         >
-                          <FaEdit />{" "}
-                          {this.state.editModeClasses[index] === false
-                            ? "Edit"
-                            : "Live Preview"}
-                        </Button>
-
-                        <Button
-                          variant="danger"
-                          style={{ height: "40px" }}
-                          size="sm"
-                          onClick={e => this.onClickDelete(e, cbetClass)}
-                        >
-                          <FaTrashAlt style={{ marginRight: "5px" }} />
-                          Delete
-                        </Button>
-                      </ButtonGroup>
-                    </ButtonToolbar>
-                  ) : null}
-                  <Card.Img variant="top" src={newDoc} />
-                  <Card.Body>
-                    {/* Select Program type which enables different Image to load per program */}
-                    {this.state.editModeClasses[index] === true ? (
-                      <>
-                        <DropdownButton
-                          drop="right"
-                          variant="primary"
-                          title="Select Program"
-                          id={`dropdown-button-drop-${index}`}
-                          key={index}
-                          style={{ marginBottom: "10px", minWidth: "146px" }}
-                          width="142px"
-                          className="d-inline-block"
-                          onClick={e => this.onDropdownProgram(e)}
-                        >
-                          <Dropdown.Item eventKey="1">CBET</Dropdown.Item>
-                          <Dropdown.Item eventKey="2">I.T.</Dropdown.Item>
-                        </DropdownButton>
-                        <h4 style={{ display: "inline" }}>
-                          <Badge
-                            variant="light"
-                            className="float-right"
-                            style={{ marginTop: "5px" }}
+                          <Button
+                            variant={
+                              this.state.editModeClasses[index]
+                                ? "primary"
+                                : "primary"
+                            }
+                            height={40}
+                            size="sm"
+                            style={{ height: "40px" }}
+                            onClick={e => this.onClickMode(e, index)}
                           >
-                            {this.state.programSelected}
-                          </Badge>
-                        </h4>
-                      </>
+                            <FaEdit />{" "}
+                            {this.state.editModeClasses[index] === false
+                              ? "Edit"
+                              : "Live Preview"}
+                          </Button>
+
+                          <Button
+                            variant="danger"
+                            style={{ height: "40px" }}
+                            size="sm"
+                            onClick={e => this.onClickDelete(e, cbetClass)}
+                          >
+                            <FaTrashAlt style={{ marginRight: "5px" }} />
+                            Delete
+                          </Button>
+                        </ButtonGroup>
+                      </ButtonToolbar>
                     ) : null}
-                    <CardTitle>
-                      <Card.Title
-                        className="text-uppercase"
-                        style={{ color: "#2699FB", textAlign: "center" }}
-                      >
-                        {this.state.editModeClasses[index] === true ? (
-                          <Form.Control
-                            as="textarea"
-                            required
-                            value={this.state.editClass.Title}
-                            style={{ textAlign: "center" }}
-                            onChange={e => this.onHandleEdit(e, "title")}
-                          />
-                        ) : (
-                          cbetClass.Title
-                        )}
-                      </Card.Title>
-                      <Card.Text
-                        style={{ color: "#2699FB", textAlign: "center" }}
-                      >
-                        <FaRegCalendarAlt
-                          size={24}
-                          style={{ marginRight: "5px", marginBottom: "5px" }}
-                        />
-                        {this.state.editModeClasses[index] === true ? (
-                          <DatePicker
-                            selected={this.state.editClass.StartDate}
-                            onChange={this.handleChangeStartDate}
-                            placeholderText="class start date"
-                            required
-                          />
-                        ) : (
-                          ToStartDate(new Date(cbetClass.StartDate))
-                        )}
-                      </Card.Text>
+
+                    {cbetClass.ProgramSelected === "BMET" ? (
+                      <Card.Img variant="top" src={newDoc} />
+                    ) : (
+                      <Card.Img
+                        variant="top"
+                        src={itDefaultImage}
+                        style={{ minHeight: "207px" }}
+                      />
+                    )}
+
+                    <Card.Body>
+                      {/* Select Program type which enables different Image to load per program */}
                       {this.state.editModeClasses[index] === true ? (
+                        <>
+                          <DropdownButton
+                            drop="right"
+                            variant="primary"
+                            title="Select Program"
+                            id={`dropdown-button-drop-${index}`}
+                            key={index}
+                            style={{
+                              marginBottom: "10px",
+                              minWidth: "146px",
+                            }}
+                            width="142px"
+                            className="d-inline-block"
+                            onClick={e => this.onDropdownProgram(e, index)}
+                          >
+                            <Dropdown.Item eventKey="1">BMET</Dropdown.Item>
+                            <Dropdown.Item eventKey="2">I.T.</Dropdown.Item>
+                          </DropdownButton>
+                          <h4 style={{ display: "inline" }}>
+                            <Badge
+                              variant="dark"
+                              className="float-right"
+                              style={{ marginTop: "5px" }}
+                            >
+                              {cbetClass.ProgramSelected}
+                            </Badge>
+                          </h4>
+                        </>
+                      ) : null}
+                      <CardTitle>
+                        <Card.Title
+                          className="text-uppercase"
+                          style={{ color: "#2699FB", textAlign: "center" }}
+                        >
+                          {this.state.editModeClasses[index] === true ? (
+                            <Form.Control
+                              as="textarea"
+                              required
+                              value={this.state.editClass.Title}
+                              style={{ textAlign: "center" }}
+                              onChange={e => this.onHandleEdit(e, "title")}
+                            />
+                          ) : (
+                            cbetClass.Title
+                          )}
+                        </Card.Title>
                         <Card.Text
                           style={{ color: "#2699FB", textAlign: "center" }}
                         >
@@ -768,147 +810,176 @@ class ClassAdmin extends React.Component {
                               marginBottom: "5px",
                             }}
                           />
-                          <DatePicker
-                            selected={this.state.editClass.EndDate}
-                            onChange={this.handleChangeEndDate}
-                            placeholderText="class end date"
-                            required
-                          />
+                          {this.state.editModeClasses[index] === true ? (
+                            <DatePicker
+                              selected={this.state.editClass.StartDate}
+                              onChange={this.handleChangeStartDate}
+                              placeholderText="class start date"
+                              required
+                            />
+                          ) : (
+                            ToStartDate(new Date(cbetClass.StartDate))
+                          )}
                         </Card.Text>
-                      ) : null}
-                    </CardTitle>
-                  </Card.Body>
-                  <Card.Footer style={{ background: "#004085" }}>
-                    <Card.Text style={{ color: "white", textAlign: "center" }}>
-                      Registration Deadline{" "}
-                      {this.state.editModeClasses[index] ? (
-                        <DatePicker
-                          selected={this.state.editClass.RegistrationCloseDate}
-                          onChange={this.handleChangeRegDate}
-                          required
-                          placeholderText="registration end date"
-                        />
-                      ) : (
-                        ToShortDate(new Date(cbetClass.RegistrationCloseDate))
-                      )}
-                    </Card.Text>
-                  </Card.Footer>
-                  <Card.Body>
-                    <ul style={{ listStyle: "none", padding: "15px" }}>
-                      <li style={{ padding: "8px" }}>
-                        <Form.Group>
-                          <Card.Text>
-                            <FaCloudversify
-                              size={32}
-                              style={{ marginRight: "5px" }}
-                            />
-                            <strong>Format</strong>:{" "}
-                            {this.state.editModeClasses[index] === true ? (
-                              <Form.Control
-                                as="textarea"
-                                required
-                                rows={4}
-                                value={this.state.editClass.Format}
-                                onChange={e => this.onHandleEdit(e, "format")}
-                                style={{ width: "100%" }}
-                              />
-                            ) : (
-                              cbetClass.Format
-                            )}
-                          </Card.Text>
-                        </Form.Group>
-                      </li>
-                      <li style={{ padding: "8px" }}>
-                        <Form.Group>
-                          <Card.Text>
-                            <FaGraduationCap
-                              size={32}
-                              style={{ marginRight: "5px" }}
-                            />
-                            <strong>Training</strong>:{" "}
-                            {this.state.editModeClasses[index] === true ? (
-                              <Form.Control
-                                as="textarea"
-                                rows={4}
-                                required
-                                value={this.state.editClass.Training}
-                                onChange={e => this.onHandleEdit(e, "training")}
-                                style={{ width: "100%", display: "inline" }}
-                              />
-                            ) : (
-                              cbetClass.Training
-                            )}
-                          </Card.Text>
-                        </Form.Group>
                         {this.state.editModeClasses[index] === true ? (
-                          <ListGroup>
-                            <ListGroup.Item
-                              onClick={e => this.onClickListActive(e)}
-                              variant={
-                                this.state.editClass.isActive
-                                  ? "success"
-                                  : "danger"
-                              }
-                            >
-                              <Form.Check
-                                type="checkbox"
-                                label={
-                                  this.state.editClass.isActive
-                                    ? "Active"
-                                    : "Disabled"
-                                }
-                                size="lg"
-                                onClick={e => this.onClickActive(e)}
-                              />
-                            </ListGroup.Item>
-                          </ListGroup>
-                        ) : null}
-                      </li>
-                    </ul>
-                    <Button
-                      variant="primary"
-                      size="sm"
-                      disabled={
-                        this.state.editModeClasses[index] === true
-                          ? true
-                          : false
-                      }
-                    >
-                      Learn More
-                    </Button>
-
-                    {/* If Class is visible then show Save */}
-                    {this.state.editModeClasses[index] === true ? (
-                      <>
-                        <Button
-                          variant="primary"
-                          size="sm"
-                          onClick={e => this.onSaveClass(e)}
-                          className="float-right"
-                        >
-                          Save
-                        </Button>
-                        <Alert
-                          show={this.state.showEditSaveMessage}
-                          variant="success"
-                          style={{ marginTop: "10px" }}
-                        >
-                          <Alert.Heading>
-                            <FaRegThumbsUp
+                          <Card.Text
+                            style={{ color: "#2699FB", textAlign: "center" }}
+                          >
+                            <FaRegCalendarAlt
                               size={24}
-                              style={{ marginRight: "5px" }}
+                              style={{
+                                marginRight: "5px",
+                                marginBottom: "5px",
+                              }}
                             />
-                            Success!
-                          </Alert.Heading>
-                        </Alert>
-                      </>
-                    ) : null}
-                  </Card.Body>
-                </Card>
-              </Col>
-            ))}
-          </Row>
-        )}
+                            <DatePicker
+                              selected={this.state.editClass.EndDate}
+                              onChange={this.handleChangeEndDate}
+                              placeholderText="class end date"
+                              required
+                            />
+                          </Card.Text>
+                        ) : null}
+                      </CardTitle>
+                    </Card.Body>
+                    <Card.Footer style={{ background: "#004085" }}>
+                      <Card.Text
+                        style={{ color: "white", textAlign: "center" }}
+                      >
+                        Registration Deadline{" "}
+                        {this.state.editModeClasses[index] ? (
+                          <DatePicker
+                            selected={
+                              this.state.editClass.RegistrationCloseDate
+                            }
+                            onChange={this.handleChangeRegDate}
+                            required
+                            placeholderText="registration end date"
+                          />
+                        ) : (
+                          ToShortDate(new Date(cbetClass.RegistrationCloseDate))
+                        )}
+                      </Card.Text>
+                    </Card.Footer>
+                    <Card.Body>
+                      <ul style={{ listStyle: "none", padding: "15px" }}>
+                        <li style={{ padding: "8px" }}>
+                          <Form.Group>
+                            <Card.Text>
+                              <FaCloudversify
+                                size={32}
+                                style={{ marginRight: "5px" }}
+                              />
+                              <strong>Format</strong>:{" "}
+                              {this.state.editModeClasses[index] === true ? (
+                                <Form.Control
+                                  as="textarea"
+                                  required
+                                  rows={4}
+                                  value={this.state.editClass.Format}
+                                  onChange={e => this.onHandleEdit(e, "format")}
+                                  style={{ width: "100%" }}
+                                />
+                              ) : (
+                                cbetClass.Format
+                              )}
+                            </Card.Text>
+                          </Form.Group>
+                        </li>
+                        <li style={{ padding: "8px" }}>
+                          <Form.Group>
+                            <Card.Text>
+                              <FaGraduationCap
+                                size={32}
+                                style={{ marginRight: "5px" }}
+                              />
+                              <strong>Training</strong>:{" "}
+                              {this.state.editModeClasses[index] === true ? (
+                                <Form.Control
+                                  as="textarea"
+                                  rows={4}
+                                  required
+                                  value={this.state.editClass.Training}
+                                  onChange={e =>
+                                    this.onHandleEdit(e, "training")
+                                  }
+                                  style={{ width: "100%", display: "inline" }}
+                                />
+                              ) : (
+                                cbetClass.Training
+                              )}
+                            </Card.Text>
+                          </Form.Group>
+                          {this.state.editModeClasses[index] === true ? (
+                            <ListGroup>
+                              <ListGroup.Item
+                                // onClick={e => this.onClickListActive(e)}
+                                variant={
+                                  this.state.editClass.isActive
+                                    ? "success"
+                                    : "danger"
+                                }
+                              >
+                                <Form.Check
+                                  type="checkbox"
+                                  label={
+                                    this.state.editClass.isActive
+                                      ? "Active"
+                                      : "Disabled"
+                                  }
+                                  size="lg"
+                                  onClick={e => this.onClickActive(e)}
+                                />
+                              </ListGroup.Item>
+                            </ListGroup>
+                          ) : null}
+                        </li>
+                      </ul>
+                      <Button
+                        variant="primary"
+                        size="sm"
+                        disabled={
+                          this.state.editModeClasses[index] === true
+                            ? true
+                            : false
+                        }
+                      >
+                        Learn More
+                      </Button>
+
+                      {/* If Class is visible then show Save */}
+                      {this.state.editModeClasses[index] === true ? (
+                        <>
+                          <Button
+                            variant="primary"
+                            size="sm"
+                            onClick={e => this.onSaveClass(e)}
+                            className="float-right"
+                          >
+                            Save
+                          </Button>
+                          <Alert
+                            show={this.state.showEditSaveMessage}
+                            variant="success"
+                            style={{ marginTop: "10px" }}
+                          >
+                            <Alert.Heading>
+                              <FaRegThumbsUp
+                                size={24}
+                                style={{ marginRight: "5px" }}
+                              />
+                              Success!
+                            </Alert.Heading>
+                          </Alert>
+                        </>
+                      ) : null}
+                    </Card.Body>
+                  </Card>
+                </Col>
+              )
+            }
+          })}
+        </Row>
       </Container>
     )
   }
