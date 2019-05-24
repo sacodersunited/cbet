@@ -685,18 +685,13 @@ class ClassAdmin extends React.Component {
                   key={`dropdown-button-drop-add-key1`}
                   style={{ marginBottom: "10px", minWidth: "146px" }}
                   width="142px"
-                  // className="d-inline-block"
                   onClick={e => this.onDropdownProgramAdd(e)}
                 >
                   <Dropdown.Item eventKey="1">BMET</Dropdown.Item>
                   <Dropdown.Item eventKey="2">I.T.</Dropdown.Item>
                 </DropdownButton>
                 <h4 style={{ display: "inline" }}>
-                  <Badge
-                    variant="dark"
-                    // className="float-right"
-                    style={{ marginTop: "5px" }}
-                  >
+                  <Badge variant="dark" style={{ marginTop: "5px" }}>
                     {this.state.newClass.ProgramSelected}
                   </Badge>
                 </h4>
