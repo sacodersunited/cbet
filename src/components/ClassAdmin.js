@@ -745,7 +745,9 @@ class ClassAdmin extends React.Component {
               return (
                 <Col md={3} key={cbetClass.Id + index}>
                   <Card
-                    border="primary"
+                    border={cbetClass.IsActive ? "primary" : "light"}
+                    bg={cbetClass.IsActive === false ? "secondary" : ""}
+                    text={cbetClass.IsActive === false ? "dark" : ""}
                     style={{
                       borderStyle:
                         this.state.editModeClasses[index] === false
@@ -855,7 +857,7 @@ class ClassAdmin extends React.Component {
                       <CardTitle>
                         <Card.Title
                           className="text-uppercase"
-                          style={{ color: "#2699FB", textAlign: "center" }}
+                          style={{ textAlign: "center" }}
                         >
                           {this.state.editModeClasses[index] === true ? (
                             <Form.Control
