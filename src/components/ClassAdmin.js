@@ -936,7 +936,7 @@ class ClassAdmin extends React.Component {
                       <ul style={{ listStyle: "none", padding: "15px" }}>
                         <li style={{ padding: "8px" }}>
                           <Form.Group>
-                            <Card.Text>
+                            <Card.Text style={{ minHeight: "56px" }}>
                               <FaCloudversify
                                 size={32}
                                 style={{ marginRight: "5px" }}
@@ -959,7 +959,7 @@ class ClassAdmin extends React.Component {
                         </li>
                         <li style={{ padding: "8px" }}>
                           <Form.Group>
-                            <Card.Text>
+                            <Card.Text style={{ minHeight: "104px" }}>
                               <FaGraduationCap
                                 size={32}
                                 style={{ marginRight: "5px" }}
