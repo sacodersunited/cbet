@@ -1,16 +1,18 @@
 import React from "react"
-import { Link } from "gatsby"
-
+import { getProfile } from "../utils/auth"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import ClassStaticQuery from "../components/ClassStaticQuery"
 
-const Schedule = () => (
-  <Layout>
-    <SEO title="Schedule" />
-    <h1>Hi from the Schedule Page</h1>
-    <p>Welcome to Schedule</p>
-    <Link to="/">Go back to the homepage</Link>
-  </Layout>
-)
+const Schedule = () => {
+  const user = getProfile()
+
+  return (
+    <Layout>
+      <SEO title="Schedule" />
+      <ClassStaticQuery user={user} />
+    </Layout>
+  )
+}
 
 export default Schedule
