@@ -30,7 +30,7 @@ import {
 } from "react-icons/fa"
 import DatePicker from "react-datepicker"
 // Uncomment in Local dev
-import cbetClasses from "../classes/classes.json"
+// import cbetClasses from "../classes/classes.json"
 import "react-datepicker/dist/react-datepicker.css"
 import newDoc from "../images/jc-gellidon-1386352-unsplashnew.jpg"
 import itDefaultImage from "../images/bmet-tech.jpg"
@@ -45,18 +45,17 @@ class ClassAdmin extends React.Component {
     super(props)
 
     // uncomment for local dev
-    const editModeClassesTest = Array.from(
-      Array(cbetClasses.length),
-      () => false
-    )
+    // const editModeClassesTest = Array.from(
+    //   Array(cbetClasses.length),
+    //   () => false
+    // )
 
-    console.log("classes", cbetClasses)
     this.state = {
       // Local dev requires cbClasses from json file above
       // Staging/Production leave as blank array
-      classes: cbetClasses, // main classes pulled in from azure db
-      // editModeClasses: [], // used in PROD only, show/hide each card in UI
-      editModeClasses: editModeClassesTest, // Used in Local Dev only
+      classes: [], // main classes pulled in from azure db
+      editModeClasses: [], // used in PROD only, show/hide each card in UI
+      // editModeClasses: editModeClassesTest, // Used in Local Dev only
       newClass: {
         // used for Adding a new class card
         Title: "",
@@ -90,6 +89,7 @@ class ClassAdmin extends React.Component {
       showDeleteMessage: false, // Show the Success alert Edit message
       showErrorMessage: false, // Show the Error alert message
       programSelected: "",
+      addTitleCharsLeft: 35,
     }
 
     this.GetClasses = this.GetClasses.bind(this)
@@ -115,11 +115,11 @@ class ClassAdmin extends React.Component {
 
   componentDidMount() {
     // Comment this out in Local dev
-    // this.GetClasses().then(() => {
-    //   this.setState({
-    //     editModeClasses: this.state.classes.map(elem => false),
-    //   })
-    // })
+    this.GetClasses().then(() => {
+      this.setState({
+        editModeClasses: this.state.classes.map(elem => false),
+      })
+    })
   }
 
   onClickActiveAdd(e) {
@@ -149,7 +149,7 @@ class ClassAdmin extends React.Component {
     if (e.target.text) {
       console.log("found add text", e.target.text)
       let program = this.state.newClass
-      program.IsActive = e.target.text
+      program.ProgramSelected = e.target.text
       this.setState({
         newClass: program,
       })
@@ -247,7 +247,7 @@ class ClassAdmin extends React.Component {
     this.PostClasses(this.state.newClass).then(() =>
       this.GetClasses().then(() => {
         this.setState({
-          editModeClasses: this.state.classes.map(elem => false),
+          editModeClasses: this.state.classes.map(() => false),
           validated: false,
           showAddMessage: false,
           newClass: {
@@ -258,6 +258,8 @@ class ClassAdmin extends React.Component {
             EndDate: "",
             StartDate: "",
             Type: "Insert",
+            IsActive: false,
+            ProgramSelected: "",
           },
         })
       })
@@ -268,11 +270,14 @@ class ClassAdmin extends React.Component {
     e.preventDefault()
 
     let add = this.state.newClass
+    let charsLeftRT = this.state.addTitleCharsLeft
 
     console.log("onChangeAdd", e.target.placeholder)
     switch (e.target.placeholder) {
       case "title":
         add.Title = e.target.value
+        charsLeftRT = 35 - e.target.value.length
+        this.setState({ addTitleCharsLeft: charsLeftRT })
         break
       case "training":
         add.Training = e.target.value
@@ -575,7 +580,18 @@ class ClassAdmin extends React.Component {
                   value={this.state.newClass.Title}
                   onChange={this.onChangeAdd}
                   placeholder="title"
+                  maxLength="35"
                 />
+                <p>
+                  Characters Left:{" "}
+                  <Badge
+                    variant={
+                      this.state.addTitleCharsLeft <= 5 ? "danger" : "dark"
+                    }
+                  >
+                    {this.state.addTitleCharsLeft}
+                  </Badge>
+                </p>
               </Form.Group>
               <Form.Group>
                 <Form.Label>Training</Form.Label>
@@ -648,7 +664,7 @@ class ClassAdmin extends React.Component {
                   // className="d-inline-block"
                   onClick={e => this.onDropdownProgramAdd(e)}
                 >
-                  <Dropdown.Item eventKey="1">CBET</Dropdown.Item>
+                  <Dropdown.Item eventKey="1">BMET</Dropdown.Item>
                   <Dropdown.Item eventKey="2">I.T.</Dropdown.Item>
                 </DropdownButton>
                 <h4 style={{ display: "inline" }}>
@@ -657,7 +673,7 @@ class ClassAdmin extends React.Component {
                     // className="float-right"
                     style={{ marginTop: "5px" }}
                   >
-                    {this.state.newClass.IsActive}
+                    {this.state.newClass.ProgramSelected}
                   </Badge>
                 </h4>
               </Form.Group>
