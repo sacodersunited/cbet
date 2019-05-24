@@ -857,7 +857,11 @@ class ClassAdmin extends React.Component {
                       <CardTitle>
                         <Card.Title
                           className="text-uppercase"
-                          style={{ textAlign: "center" }}
+                          style={{
+                            textAlign: "center",
+                            color: "#2699FB",
+                            minHeight: "48px",
+                          }}
                         >
                           {this.state.editModeClasses[index] === true ? (
                             <Form.Control
