@@ -49,8 +49,7 @@ const Programs = () => (
           <h2 className="text-uppercase mb-5">Program Overview</h2>
           <Fade>
             <h4>Program Length</h4>
-
-            <p>15 Months</p>
+            <p> 80 Contact Hours</p>
             <h4>Program Composition</h4>
             <p>Online</p>
             <h4>Classes</h4>
