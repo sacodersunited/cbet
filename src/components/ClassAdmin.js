@@ -110,6 +110,7 @@ class ClassAdmin extends React.Component {
     this.onDropdownProgram = this.onDropdownProgram.bind(this)
     this.onClickActive = this.onClickActive.bind(this) // Click on active | disabled in Edit mode
     this.onDropdownProgramAdd = this.onDropdownProgramAdd.bind(this)
+    this.onClickActiveAdd = this.onClickActiveAdd.bind(this)
   }
 
   componentDidMount() {
@@ -119,6 +120,17 @@ class ClassAdmin extends React.Component {
     //     editModeClasses: this.state.classes.map(elem => false),
     //   })
     // })
+  }
+
+  onClickActiveAdd(e) {
+    console.log("e", e.target.checked)
+    let newAddClass = this.state.newClass
+
+    newAddClass.isActive = e.target.checked
+
+    this.setState({
+      newClass: newAddClass,
+    })
   }
 
   onClickActive(e) {
@@ -134,16 +146,16 @@ class ClassAdmin extends React.Component {
 
   onDropdownProgramAdd(e) {
     console.log("add e dropdown", e.target.text)
-    // if (e.target.text) {
-    //   console.log("found text", e.target.text)
-    //   let program = this.state.newClass
-    //   program.IsActive = e.target.text
-    //   this.setState({
-    //     programSelected: program,
-    //   })
-    // } else {
-    //   console.log("not found text")
-    // }
+    if (e.target.text) {
+      console.log("found add text", e.target.text)
+      let program = this.state.newClass
+      program.IsActive = e.target.text
+      this.setState({
+        newClass: program,
+      })
+    } else {
+      console.log("not found text")
+    }
   }
 
   // Edit Select Program
@@ -624,6 +636,7 @@ class ClassAdmin extends React.Component {
               </Form.Group>
 
               <Form.Group>
+                <Form.Label>Program Selected</Form.Label>
                 <DropdownButton
                   drop="right"
                   variant="primary"
@@ -632,7 +645,7 @@ class ClassAdmin extends React.Component {
                   key={`dropdown-button-drop-add-key1`}
                   style={{ marginBottom: "10px", minWidth: "146px" }}
                   width="142px"
-                  className="d-inline-block"
+                  // className="d-inline-block"
                   onClick={e => this.onDropdownProgramAdd(e)}
                 >
                   <Dropdown.Item eventKey="1">CBET</Dropdown.Item>
@@ -640,13 +653,33 @@ class ClassAdmin extends React.Component {
                 </DropdownButton>
                 <h4 style={{ display: "inline" }}>
                   <Badge
-                    variant="light"
-                    className="float-right"
+                    variant="dark"
+                    // className="float-right"
                     style={{ marginTop: "5px" }}
                   >
                     {this.state.newClass.IsActive}
                   </Badge>
                 </h4>
+              </Form.Group>
+
+              <Form.Group>
+                <Form.Label>Show Class</Form.Label>
+                <ListGroup style={{ width: "150px" }}>
+                  <ListGroup.Item
+                    variant={
+                      this.state.newClass.isActive ? "success" : "danger"
+                    }
+                  >
+                    <Form.Check
+                      type="checkbox"
+                      label={
+                        this.state.newClass.isActive ? "Active" : "Disabled"
+                      }
+                      size="lg"
+                      onClick={e => this.onClickActiveAdd(e)}
+                    />
+                  </ListGroup.Item>
+                </ListGroup>
               </Form.Group>
 
               <Form.Group>
@@ -913,7 +946,6 @@ class ClassAdmin extends React.Component {
                           {this.state.editModeClasses[index] === true ? (
                             <ListGroup>
                               <ListGroup.Item
-                                // onClick={e => this.onClickListActive(e)}
                                 variant={
                                   this.state.editClass.isActive
                                     ? "success"
