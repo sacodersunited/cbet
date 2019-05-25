@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "cbet-website",
   "private": true,
   "description": "A simple starter to get up and developing quickly with Gatsby",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "SA Coders United <support@sacodersunited.com>",
   "dependencies": {
     "auth0-js": "^9.10.2",
     "bootstrap": "^4.3.1",
