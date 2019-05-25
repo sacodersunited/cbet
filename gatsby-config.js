@@ -9,13 +9,14 @@ require("dotenv").config({
 
 // And then you can use the config in gatsby-config.js
 const config = require("gatsby-plugin-config").default
-console.log("code", process.env.NODE_ENV)
+console.log("code", process.env, config)
+
 module.exports = {
   siteMetadata: {
     title: `CBET`,
     description: `Biomedical Equipment and Health Care Technology`,
     author: `@gatsbyjs`,
-    codeFunc: config.code,
+    codeFunc: config.GATSBY_code,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
