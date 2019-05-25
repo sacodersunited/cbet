@@ -3,6 +3,7 @@ import auth0 from "auth0-js"
 import { navigate } from "gatsby"
 
 const isBrowser = typeof window !== "undefined"
+console.log("auth env", process.env)
 
 const auth = isBrowser
   ? new auth0.WebAuth({
