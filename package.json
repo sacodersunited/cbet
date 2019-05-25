@@ -46,6 +46,8 @@
     "format": "prettier --write src/**/*.{js,jsx}",
     "start": "npm run develop",
     "serve": "gatsby serve",
+    "debug": "node --inspect node_modules/gatsby/dist/bin/gatsby.js build",
+    "srv": "node --inspect node_modules/gatsby/dist/bin/gatsby.js serve",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
   },
   "repository": {
