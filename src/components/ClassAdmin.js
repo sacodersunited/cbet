@@ -114,6 +114,7 @@ class ClassAdmin extends React.Component {
   }
 
   componentDidMount() {
+    console.log("class admin comp loaded")
     // Comment this out in Local dev
     this.GetClasses().then(() => {
       this.setState({
@@ -529,7 +530,7 @@ class ClassAdmin extends React.Component {
   }
 
   render() {
-    console.log(this.state)
+    // console.log(this.state)
     if (this.state.classes.length === 0) {
       return (
         <div style={{ padding: "10px" }}>
