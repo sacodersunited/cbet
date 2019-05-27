@@ -114,7 +114,6 @@ class ClassAdmin extends React.Component {
   }
 
   componentDidMount() {
-    console.log("class admin comp loaded")
     // Comment this out in Local dev
     this.GetClasses().then(() => {
       this.setState({
@@ -184,8 +183,6 @@ class ClassAdmin extends React.Component {
   }
 
   onClickDelete(e, deleteClass) {
-    console.log("click delete", deleteClass)
-
     let cloneDeleteClass = JSON.parse(JSON.stringify(deleteClass))
     cloneDeleteClass["Type"] = "Delete"
     console.log("clone", cloneDeleteClass)
@@ -244,7 +241,6 @@ class ClassAdmin extends React.Component {
     }, 3000)
 
     // Call insert class POST
-    console.log("insert class obj", this.state.newClass)
     const newClassMode = this.state.newClass
     if (newClassMode.IsActive === true) {
       newClassMode.IsActive = 1
@@ -530,7 +526,6 @@ class ClassAdmin extends React.Component {
   }
 
   render() {
-    // console.log(this.state)
     if (this.state.classes.length === 0) {
       return (
         <div style={{ padding: "10px" }}>
@@ -544,6 +539,7 @@ class ClassAdmin extends React.Component {
       <Container>
         <h1 style={{ marginTop: "50px", marginBottom: "50px" }}>
           UPCOMING CLASSES
+          {/* Add Class button */}
           {isEmpty(this.props.user) === false ? (
             <Button
               variant={this.state.isAddMode === false ? "primary" : "secondary"}
