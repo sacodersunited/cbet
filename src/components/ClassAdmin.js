@@ -50,12 +50,23 @@ class ClassAdmin extends React.Component {
     //   () => false
     // )
 
+    const newCbetClassesStaticQuery = props.cbetClasses.map(cbet => {
+      return cbet.node
+    })
+
+    const editModeClassesTest = Array.from(
+      Array(props.cbetClasses.length),
+      () => false
+    )
+
+    console.log("new classes", newCbetClassesStaticQuery, editModeClassesTest)
+
     this.state = {
       // Local dev requires cbClasses from json file above
       // Staging/Production leave as blank array
-      classes: [], // main classes pulled in from azure db
-      editModeClasses: [], // used in PROD only, show/hide each card in UI
-      // editModeClasses: editModeClassesTest, // Used in Local Dev only
+      classes: newCbetClassesStaticQuery, // main classes pulled in from azure db
+      // editModeClasse s: [], // used in PROD only, show/hide each card in UI
+      editModeClasses: editModeClassesTest, // Used in Local Dev only
       newClass: {
         // used for Adding a new class card
         Title: "",
@@ -116,11 +127,11 @@ class ClassAdmin extends React.Component {
   componentDidMount() {
     console.log("class admin comp loaded")
     // Comment this out in Local dev
-    this.GetClasses().then(() => {
-      this.setState({
-        editModeClasses: this.state.classes.map(elem => false),
-      })
-    })
+    // this.GetClasses().then(() => {
+    //   this.setState({
+    //     editModeClasses: this.state.classes.map(elem => false),
+    //   })
+    // })
   }
 
   onClickActiveAdd(e) {

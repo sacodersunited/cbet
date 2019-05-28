@@ -1,15 +1,10 @@
-// Initialize dotenv
-// import dotenv from "dotenv"
-// import path from "path"
-// import config from "gatsby-plugin-config"
 require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 })
-// dotenv.config({ path: path.join(__dirname, ".env") })
 
 // And then you can use the config in gatsby-config.js
 const config = require("gatsby-plugin-config").default
-console.log("code", process.env, config)
+// console.log("code", process.env, config)
 
 module.exports = {
   siteMetadata: {
@@ -50,6 +45,12 @@ module.exports = {
       options: {
         trackingId: "UA-139625304-1",
         head: true,
+      },
+    },
+    {
+      resolve: "gatsby-source-cbet",
+      options: {
+        code: config.GATSBY_code,
       },
     },
   ],

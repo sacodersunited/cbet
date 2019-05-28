@@ -2,7 +2,8 @@ import React from "react"
 // import { getProfile } from "../utils/auth"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import ClassStaticQuery from "../components/ClassStaticQuery"
+// import ClassStaticQuery from "../components/ClassStaticQuery"
+import CbetClassesStaticQuery from "../components/CbetClassesStaticQuery"
 
 const Schedule = () => {
   const user = {}
@@ -10,7 +11,8 @@ const Schedule = () => {
   return (
     <Layout>
       <SEO title="Schedule" />
-      <ClassStaticQuery user={user} />
+      {/* <ClassStaticQuery user={user} /> */}
+      <CbetClassesStaticQuery user={user} />>
     </Layout>
   )
 }
