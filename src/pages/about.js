@@ -39,14 +39,18 @@ const About = () => (
         </Col>
       </Row>
 
-      <div class="embed-responsive embed-responsive-16by9 mb-5">
-        <iframe
-          className="embed-responsive-item"
-          src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0"
-          allowfullscreen
-          title="placeholder video"
-        />
-      </div>
+      <Row>
+        <Col md={7}>
+          <div class="embed-responsive embed-responsive-16by9 mb-5">
+            <iframe
+              className="embed-responsive-item"
+              src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0"
+              allowfullscreen
+              title="placeholder video"
+            />
+          </div>
+        </Col>
+      </Row>
 
       <Row className="mb-3">
         <Col md={7}>
