@@ -13,7 +13,6 @@ exports.sourceNodes = (
   const processCbetClass = cbetClass => {
     const nodeId = createNodeId(`cbet-class-${cbetClass.Id}`)
     const nodeContent = JSON.stringify(cbetClass)
-    // console.log("node content", nodeContent)
     const nodeData = Object.assign({}, cbetClass, {
       id: nodeId,
       parent: null,
@@ -27,7 +26,6 @@ exports.sourceNodes = (
     return nodeData
   }
 
-  // Join apiOptions with the Pixabay API URL
   const apiUrl = `https://cbetclasses.azurewebsites.net/api/GetCbetClasses?code=${
     configOptions.code
   }`
@@ -40,17 +38,8 @@ exports.sourceNodes = (
       .then(response => response.json())
       // Process the JSON data into a node
       .then(data => {
-        // For each query result (or 'hit')
-        const newData = data.filter(cbet => {
-          if (cbet.Id === 7) {
-            return false
-          } else {
-            return true
-          }
-        })
-        newData.forEach(classCbet => {
+        data.forEach(classCbet => {
           const nodeData = processCbetClass(classCbet)
-          //   console.log("node data", nodeData)
           createNode(nodeData)
         })
         return
