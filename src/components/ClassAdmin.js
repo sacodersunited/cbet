@@ -124,6 +124,7 @@ class ClassAdmin extends React.Component {
     this.onClickActive = this.onClickActive.bind(this) // Click on active | disabled in Edit mode
     this.onDropdownProgramAdd = this.onDropdownProgramAdd.bind(this)
     this.onClickActiveAdd = this.onClickActiveAdd.bind(this)
+    this.buildCbetSite = this.buildCbetSite.bind(this)
   }
 
   componentDidMount() {
@@ -300,26 +301,30 @@ class ClassAdmin extends React.Component {
     }
 
     this.PostClasses(newClassMode).then(() =>
-      this.GetClasses().then(() => {
-        setTimeout(() => {
-          this.setState({
-            editModeClasses: this.state.classes.map(() => false),
-            validated: false,
-            showAddMessage: false,
-            newClass: {
-              Title: "",
-              Training: "",
-              Format: "",
-              RegistrationCloseDate: "",
-              EndDate: "",
-              StartDate: "",
-              Type: "Insert",
-              IsActive: false,
-              ProgramSelected: "",
-            },
-          })
-        }, 4000)
-      })
+      this.GetClasses()
+        .then(() => {
+          setTimeout(() => {
+            this.setState({
+              editModeClasses: this.state.classes.map(() => false),
+              validated: false,
+              showAddMessage: false,
+              newClass: {
+                Title: "",
+                Training: "",
+                Format: "",
+                RegistrationCloseDate: "",
+                EndDate: "",
+                StartDate: "",
+                Type: "Insert",
+                IsActive: false,
+                ProgramSelected: "",
+              },
+            })
+          }, 4000)
+        })
+        .then(() => {
+          this.buildCbetSite()
+        })
     )
   }
 
@@ -502,6 +507,27 @@ class ClassAdmin extends React.Component {
       })
     } catch (error) {
       console.log("error getClasses", error)
+    }
+  }
+
+  buildCbetSite() {
+    const myHeaders = new Headers()
+    myHeaders.append("Content-Type", "text/plain")
+
+    const myInit = {
+      method: "POST",
+      headers: myHeaders,
+    }
+
+    console.log("cbet site build")
+    try {
+      fetch(
+        `https://api.netlify.com/build_hooks/5cf3ea316717989ed33fb674`,
+        myInit
+      )
+      console.log("build initiated")
+    } catch (ex) {
+      console.log("error build", ex)
     }
   }
 
