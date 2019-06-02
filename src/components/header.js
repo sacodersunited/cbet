@@ -65,6 +65,13 @@ const Header = ({ siteTitle }) => {
               <Link to="/faq/" className="nav-link" activeClassName="active">
                 FAQs
               </Link>
+              <Link
+                to="/contact/"
+                className="nav-link"
+                activeClassName="active"
+              >
+                Contact Us
+              </Link>
             </Nav>
             <Nav className="social-nav">
               <a
