@@ -248,6 +248,9 @@ class ClassAdmin extends React.Component {
           editModeClasses: this.state.classes.map(() => false),
         })
       })
+      .then(() => {
+        this.buildCbetSite()
+      })
   }
 
   onHandleEdit(e, inputType) {
@@ -380,6 +383,9 @@ class ClassAdmin extends React.Component {
             showEditSaveMessage: false,
           })
         }, 3000)
+      })
+      .then(() => {
+        this.buildCbetSite()
       })
   }
 
