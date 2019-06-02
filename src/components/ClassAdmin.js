@@ -34,6 +34,8 @@ import DatePicker from "react-datepicker"
 import "react-datepicker/dist/react-datepicker.css"
 import newDoc from "../images/jc-gellidon-1386352-unsplashnew.jpg"
 import itDefaultImage from "../images/bmet-tech.jpg"
+import nPlusDefaultImage from "../images/logoNetworkPlus.svg"
+import aPlusDefaultImage from "../images/logoAPlus.svg"
 import styled from "styled-components"
 
 const CardTitle = styled.section`
@@ -162,6 +164,40 @@ class ClassAdmin extends React.Component {
       console.log("found add text", e.target.text)
       let program = this.state.newClass
       program.ProgramSelected = e.target.text
+
+      // switch case
+      switch (e.target.text) {
+        case "BMET":
+          program.Title = "BMET"
+          program.Format = "Complete 2 courses every 6 weeks"
+          program.Training =
+            "Biomedical Service Company Practicum and/or Hospital Co-op."
+          break
+        case "Cert":
+          program.Title = "Cert"
+          program.Format = "Complete 16 online hours weekly."
+          program.Training =
+            "Biomedical Service Company Practicum and/or Hospital Co-op."
+
+          break
+        case "A_plus":
+          program.Title = "A Plus"
+          program.Format = "Complete 16 online hours weekly."
+          program.Training =
+            "Biomedical Service Company Practicum and/or Hospital Co-op."
+
+          break
+        case "N_plus":
+          program.Title = "N Plus"
+          program.Format = "Complete 16 online hours weekly."
+          program.Training =
+            "Biomedical Service Company Practicum and/or Hospital Co-op."
+
+          break
+        default:
+          return null
+      }
+
       this.setState({
         newClass: program,
       })
@@ -607,6 +643,29 @@ class ClassAdmin extends React.Component {
               validated={this.state.validated}
             >
               <h2>Add Class</h2>
+              <Form.Group>
+                <Form.Label>Program Selected</Form.Label>
+                <DropdownButton
+                  drop="right"
+                  variant="primary"
+                  title="Select Program"
+                  id={`dropdown-button-drop-add`}
+                  key={`dropdown-button-drop-add-key1`}
+                  style={{ marginBottom: "10px", minWidth: "146px" }}
+                  width="142px"
+                  onClick={e => this.onDropdownProgramAdd(e)}
+                >
+                  <Dropdown.Item eventKey="1">BMET</Dropdown.Item>
+                  <Dropdown.Item eventKey="2">Cert</Dropdown.Item>
+                  <Dropdown.Item eventKey="3">A_plus</Dropdown.Item>
+                  <Dropdown.Item eventKey="4">N_plus</Dropdown.Item>
+                </DropdownButton>
+                <h4 style={{ display: "inline" }}>
+                  <Badge variant="dark" style={{ marginTop: "5px" }}>
+                    {this.state.newClass.ProgramSelected}
+                  </Badge>
+                </h4>
+              </Form.Group>
               <Form.Group controlId="exampleForm.ControlInput1">
                 <Form.Label>Title</Form.Label>
                 <Form.Control
@@ -685,28 +744,6 @@ class ClassAdmin extends React.Component {
                   onChange={this.onChangeAddRegDate}
                   placeholderText="registration close date"
                 />
-              </Form.Group>
-
-              <Form.Group>
-                <Form.Label>Program Selected</Form.Label>
-                <DropdownButton
-                  drop="right"
-                  variant="primary"
-                  title="Select Program"
-                  id={`dropdown-button-drop-add`}
-                  key={`dropdown-button-drop-add-key1`}
-                  style={{ marginBottom: "10px", minWidth: "146px" }}
-                  width="142px"
-                  onClick={e => this.onDropdownProgramAdd(e)}
-                >
-                  <Dropdown.Item eventKey="1">BMET</Dropdown.Item>
-                  <Dropdown.Item eventKey="2">I.T.</Dropdown.Item>
-                </DropdownButton>
-                <h4 style={{ display: "inline" }}>
-                  <Badge variant="dark" style={{ marginTop: "5px" }}>
-                    {this.state.newClass.ProgramSelected}
-                  </Badge>
-                </h4>
               </Form.Group>
 
               <Form.Group>
@@ -823,15 +860,39 @@ class ClassAdmin extends React.Component {
                       </ButtonToolbar>
                     ) : null}
 
-                    {cbetClass.ProgramSelected === "BMET" ? (
-                      <Card.Img variant="top" src={newDoc} />
-                    ) : (
-                      <Card.Img
-                        variant="top"
-                        src={itDefaultImage}
-                        style={{ minHeight: "207px" }}
-                      />
-                    )}
+                    {/* render app image for selector */}
+                    {(() => {
+                      switch (cbetClass.ProgramSelected) {
+                        case "BMET":
+                          return <Card.Img variant="top" src={newDoc} />
+                        case "Cert":
+                          return (
+                            <Card.Img
+                              variant="top"
+                              src={itDefaultImage}
+                              style={{ minHeight: "207px" }}
+                            />
+                          )
+                        case "A_plus":
+                          return (
+                            <Card.Img
+                              variant="top"
+                              src={aPlusDefaultImage}
+                              style={{ minHeight: "207px", height: "207px" }}
+                            />
+                          )
+                        case "N_plus":
+                          return (
+                            <Card.Img
+                              variant="top"
+                              src={nPlusDefaultImage}
+                              style={{ minHeight: "207px", height: "207px" }}
+                            />
+                          )
+                        default:
+                          return null
+                      }
+                    })()}
 
                     <Card.Body>
                       {/* Select Program type which enables different Image to load per program */}
@@ -852,7 +913,9 @@ class ClassAdmin extends React.Component {
                             onClick={e => this.onDropdownProgram(e, index)}
                           >
                             <Dropdown.Item eventKey="1">BMET</Dropdown.Item>
-                            <Dropdown.Item eventKey="2">I.T.</Dropdown.Item>
+                            <Dropdown.Item eventKey="2">Cert</Dropdown.Item>
+                            <Dropdown.Item eventKey="3">A_plus</Dropdown.Item>
+                            <Dropdown.Item eventKey="4">N_plus</Dropdown.Item>
                           </DropdownButton>
                           <h4 style={{ display: "inline" }}>
                             <Badge

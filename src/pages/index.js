@@ -1,9 +1,9 @@
 import React from "react"
-import { Container } from "react-bootstrap"
+// import { Container } from "react-bootstrap"
 import Slide from "react-reveal/Slide"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import Map from "../components/map"
+// import Map from "../components/map"
 import HomeCarousel from "../components/homeCarousel"
 import Programs from "../components/programs"
 import Classes from "../components/classes"
@@ -19,7 +19,7 @@ const IndexPage = () => (
     {/* <Container style={{ minHeight: "300px" }}> */}
     {/* <Map /> */}
     {/* </Container> */}
-    <Map />
+    {/* <Map /> */}
     <Programs />
     <Slide right>
       <Classes />
