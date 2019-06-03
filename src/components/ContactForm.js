@@ -25,6 +25,8 @@ class ContactForm extends React.Component {
         email: "",
         hearAbout: "",
         programOfInterest: "",
+        callback: false,
+        comments: "",
       },
       validated: false,
     }
@@ -35,6 +37,7 @@ class ContactForm extends React.Component {
     this.onDropdownProgram = this.onDropdownProgram.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
     this.onChangeForm = this.onChangeForm.bind(this)
+    this.callGoogleScript = this.callGoogleScript.bind(this)
   }
 
   onChangeForm(e) {
@@ -86,8 +89,67 @@ class ContactForm extends React.Component {
       e.stopPropagation()
     }
 
+    this.callGoogleScript()
+
     this.setState({
       validated: true,
+    })
+  }
+
+  callGoogleScript() {
+    let eFirstName = `${encodeURIComponent("first")}=${encodeURIComponent(
+      this.state.contactForm.firstName
+    )}`
+
+    let eLastName = `${encodeURIComponent("last")}=${encodeURIComponent(
+      this.state.contactForm.lastName
+    )}`
+
+    let ePhone = `${encodeURIComponent("phone")}=${encodeURIComponent(
+      this.state.contactForm.phone
+    )}`
+
+    let eHearAboutUs = `${encodeURIComponent(
+      "hearaboutus"
+    )}=${encodeURIComponent(this.state.contactForm.hearAbout)}`
+
+    let eProgram = `${encodeURIComponent("program")}=${encodeURIComponent(
+      this.state.contactForm.programOfInterest
+    )}`
+
+    let eLocation = `${encodeURIComponent("location")}=${encodeURIComponent(
+      this.state.contactForm.country
+    )}`
+
+    let eEmail = `${encodeURIComponent("email")}=${encodeURIComponent(
+      this.state.contactForm.email
+    )}`
+
+    let eComments = `${encodeURIComponent("comments")}=${encodeURIComponent(
+      this.state.contactForm.comments
+    )}`
+
+    let eCallback = `${encodeURIComponent("callback")}=${encodeURIComponent(
+      this.state.contactForm.callback
+    )}`
+
+    const querystring = `${eFirstName}&${eEmail}&${eLastName}&${ePhone}&${eHearAboutUs}&${eProgram}&${eLocation}&${eComments}&${eCallback}&${eComments}formGoogleSheetName=responses`
+
+    console.log("gmaps query", querystring)
+
+    fetch(
+      "https://script.google.com/macros/s/AKfycbzSb7Dwtttgx_H6g7OtZgR2bSObstCnzZuQn1Oh4mvgoVjjCgye/exec?" +
+        querystring,
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      }
+    ).then(response => {
+      if (!response.ok) {
+        throw Error("Network request failed")
+      }
+      console.log(response)
+      return response
     })
   }
 
@@ -186,7 +248,10 @@ class ContactForm extends React.Component {
               <b>Toll-Free:</b> (866) 866-9027
             </li>
             <li>
-              <b>E-mail:</b> admissiondept@cittx.edu
+              <b>E-mail:</b>{" "}
+              <a href="mailto:admissiondept@cittx.edu">
+                admissiondept@cittx.edu
+              </a>
             </li>
           </ul>
         </Jumbotron>
@@ -231,6 +296,7 @@ class ContactForm extends React.Component {
                 <Form.Control.Feedback type="invalid">
                   Please enter phone number.
                 </Form.Control.Feedback>
+                <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
               </InputGroup>
             </Form.Group>
             <Form.Group as={Col} md="3">
@@ -241,6 +307,10 @@ class ContactForm extends React.Component {
                 value={this.state.contactForm.email}
                 onChange={e => this.onChangeForm(e)}
               />
+              <Form.Control.Feedback type="invalid">
+                Please enter a valid Email.
+              </Form.Control.Feedback>
+              <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
             </Form.Group>
           </Form.Row>
           <Form.Row>
@@ -338,11 +408,35 @@ class ContactForm extends React.Component {
                 placeholder="program"
                 required
                 value={this.state.contactForm.programOfInterest}
-                // onChange={e => this.onChangeForm(e)}
               />
             </Form.Group>
           </Form.Row>
-          <hr />
+          <Form.Row>
+            <Form.Group as={Col}>
+              <Form.Check
+                label="Would you like to receive a call back?"
+                feedback="You must agree before submitting."
+                checked={this.state.contactForm.callback}
+                onChange={e => {
+                  const conForm = this.state.contactForm
+                  conForm.callback = !conForm.callback
+                  this.setState({ contactForm: conForm })
+                }}
+              />
+            </Form.Group>
+          </Form.Row>
+          <Form.Row>
+            <Form.Group as={Col}>
+              <Form.Label>Comments</Form.Label>
+              <Form.Control
+                as="textarea"
+                value={this.state.contactForm.comments}
+                onChange={e => this.onChangeForm(e)}
+                size="lg"
+              />
+            </Form.Group>
+          </Form.Row>
+          {/* <hr /> */}
           <Button type="submit" className="float-right">
             Submit form
           </Button>
