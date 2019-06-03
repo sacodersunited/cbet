@@ -69,6 +69,9 @@ class ContactForm extends React.Component {
       case "State":
         contactInfo.state = e.target.value
         break
+      case "comments here":
+        contactInfo.comments = e.target.value
+        break
       default:
         break
     }
@@ -433,6 +436,7 @@ class ContactForm extends React.Component {
                 value={this.state.contactForm.comments}
                 onChange={e => this.onChangeForm(e)}
                 size="lg"
+                placeholder="comments here"
               />
             </Form.Group>
           </Form.Row>
