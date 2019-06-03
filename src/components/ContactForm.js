@@ -3,55 +3,65 @@ import {
   Form,
   Container,
   Button,
-  //   Collapse,
-  //   Card,
-  //   ButtonGroup,
-  //   ButtonToolbar,
-  //   Row,
   Col,
-  //   Alert,
-  //   Spinner,
   DropdownButton,
   Dropdown,
-  //   Badge,
-  //   ListGroup,
   InputGroup,
   Jumbotron,
 } from "react-bootstrap"
-
-// const config = require("gatsby-plugin-config").default
-// import {
-//   FaEdit,
-//   FaPlus,
-//   FaTrashAlt,
-//   FaGraduationCap,
-//   FaCloudversify,
-//   FaRegCalendarAlt,
-//   FaMinus,
-//   FaDatabase,
-//   FaRegThumbsUp,
-// } from "react-icons/fa"
-// import DatePicker from "react-datepicker"
 
 class ContactForm extends React.Component {
   constructor(props) {
     super(props)
 
     this.state = {
-      form: "",
       city: "",
       country: "",
       state: "",
+      firstName: "",
+      lastName: "",
+      phone: "",
+      email: "",
+      hearAbout: "",
+      programOfInterest: "",
     }
 
     this.getLocationToAddress = this.getLocationToAddress.bind(this)
     this.getLocation = this.getLocation.bind(this)
+    this.onDropdownHearAboutUs = this.onDropdownHearAboutUs.bind(this)
+    this.onDropdownProgram = this.onDropdownProgram.bind(this)
+  }
+
+  onDropdownProgram(e) {
+    e.preventDefault()
+    console.log("e dropdown Program", e.target.text)
+
+    if (e.target.text) {
+      let oldProgram = this.state.programOfInterest
+
+      oldProgram = e.target.text
+      this.setState({
+        programOfInterest: oldProgram,
+      })
+    }
+  }
+
+  onDropdownHearAboutUs(e) {
+    e.preventDefault()
+    console.log("e dropdown hear", e.target.text)
+    if (e.target.text) {
+      let oldAboutUs = this.state.hearAbout
+
+      oldAboutUs = e.target.text
+      this.setState({
+        hearAbout: oldAboutUs,
+      })
+    }
   }
 
   getLocation() {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(position => {
-        console.log("got to geo loc")
         this.getLocationToAddress(position.coords)
       })
     }
@@ -60,7 +70,7 @@ class ContactForm extends React.Component {
   //   https://stackoverflow.com/questions/52583277/get-user-city-and-country-in-react-native
   getLocationToAddress(location) {
     const locationToFind = `${location.latitude},${location.longitude}`
-    console.log("got to getloctoaddress", this.props.mapkey, locationToFind)
+    // console.log("got to getloctoaddress", this.props.mapkey, locationToFind)
     const url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${locationToFind}&sensor=true&key=${
       this.props.mapkey
     }`
@@ -69,7 +79,7 @@ class ContactForm extends React.Component {
       .then(resp => resp.json())
       .then(result => {
         const { results } = result
-        console.log("results", results)
+        // console.log("results", results)
 
         if (results) {
           for (var ac = 0; ac < results[0].address_components.length; ac++) {
@@ -120,118 +130,139 @@ class ContactForm extends React.Component {
           onSubmit={e => this.handleSubmit(e)}
         >
           <Form.Row>
-            <Form.Group as={Col} md="4" controlId="validationCustom01">
+            <Form.Group as={Col} md="3" controlId="validationCustom01">
               <Form.Label>First name</Form.Label>
               <Form.Control
                 required
                 type="text"
                 placeholder="First name"
-                defaultValue="Mark"
+                value={this.state.firstName}
               />
               <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
             </Form.Group>
-            <Form.Group as={Col} md="4" controlId="validationCustom02">
+            <Form.Group as={Col} md="3" controlId="validationCustom02">
               <Form.Label>Last name</Form.Label>
               <Form.Control
                 required
                 type="text"
                 placeholder="Last name"
                 defaultValue="Otto"
+                value={this.state.lastName}
               />
               <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
             </Form.Group>
-            <Form.Group as={Col} md="4" controlId="validationCustomPhone">
+            <Form.Group as={Col} md="3" controlId="validationCustomPhone">
               <Form.Label>Phone</Form.Label>
               <InputGroup>
-                <Form.Control type="tel" placeholder="210 221-1111" required />
+                <Form.Control
+                  type="tel"
+                  placeholder="210 221-1111"
+                  required
+                  value={this.state.firstName}
+                />
                 <Form.Control.Feedback type="invalid">
                   Please enter phone number.
                 </Form.Control.Feedback>
               </InputGroup>
             </Form.Group>
-          </Form.Row>
-          <Form.Row>
-            <Form.Group as={Col} md="4">
+            <Form.Group as={Col} md="3">
               <Form.Label>Email</Form.Label>
               <Form.Control type="email" placeholder="email" />
             </Form.Group>
-            <Form.Group as={Col} md="4">
-              <Form.Label>How did you hear about us?</Form.Label>
-              <DropdownButton
-                id="dropdown-howdidyouhearaboutus-button"
-                title="Select one"
-                className="alignMiddle"
-              >
-                <Dropdown.Item as="button">AAMI School List</Dropdown.Item>
-                <Dropdown.Item as="button">AAMI Web Banner</Dropdown.Item>
-                <Dropdown.Item as="button">
-                  Friend / Word of Mouth
-                </Dropdown.Item>
-                <Dropdown.Item as="button">Google Search</Dropdown.Item>
-                <Dropdown.Item as="button">Other Search Engine</Dropdown.Item>
-                <Dropdown.Item as="button">Other</Dropdown.Item>
-              </DropdownButton>
-            </Form.Group>
-            <Form.Group as={Col} md="4">
-              <Form.Label>Program of interest</Form.Label>
-              <DropdownButton
-                id="dropdown-programofinterest-button"
-                title="Select one"
-              >
-                <Dropdown.Item as="button">BMET Degree</Dropdown.Item>
-                <Dropdown.Item as="button">BMET Cert</Dropdown.Item>
-                <Dropdown.Item as="button">A+</Dropdown.Item>
-                <Dropdown.Item as="button">N+</Dropdown.Item>
-              </DropdownButton>
-            </Form.Group>
           </Form.Row>
           <Form.Row>
-            <Form.Group as={Col} md="3" controlId="validationCustom06">
+            <Form.Group as={Col} md="4" controlId="validationCustom06">
               <Form.Label>Country</Form.Label>
               <Form.Control type="text" placeholder="Country" required />
               <Form.Control.Feedback type="invalid">
-                Please provide a valid city.
+                Please provide a valid country.
               </Form.Control.Feedback>
             </Form.Group>
-            <Form.Group as={Col} md="3" controlId="validationCustom03">
+            <Form.Group as={Col} md="4" controlId="validationCustom03">
               <Form.Label>City</Form.Label>
               <Form.Control type="text" placeholder="City" required />
               <Form.Control.Feedback type="invalid">
                 Please provide a valid city.
               </Form.Control.Feedback>
             </Form.Group>
-            <Form.Group as={Col} md="3" controlId="validationCustom04">
+            <Form.Group as={Col} md="4" controlId="validationCustom04">
               <Form.Label>State</Form.Label>
               <Form.Control type="text" placeholder="State" required />
               <Form.Control.Feedback type="invalid">
                 Please provide a valid state.
               </Form.Control.Feedback>
             </Form.Group>
-            <Form.Group as={Col} md="3" controlId="validationCustom05">
-              <Form.Label>Zip</Form.Label>
-              <Form.Control type="text" placeholder="Zip" required />
-              <Form.Control.Feedback type="invalid">
-                Please provide a valid zip.
-              </Form.Control.Feedback>
+          </Form.Row>
+          <Form.Row>
+            <Form.Group as={Col} md="3">
+              <Form.Label>How did you hear about us?</Form.Label>
+              <DropdownButton
+                id="dropdown-howdidyouhearaboutus-button"
+                title="Select one"
+                drop="right"
+                variant="outline-primary"
+                onClick={e => this.onDropdownHearAboutUs(e)}
+                key="hearAboutUs1"
+              >
+                <Dropdown.Item eventKey="1">AAMI School List</Dropdown.Item>
+                <Dropdown.Item eventKey="2">AAMI Web Banner</Dropdown.Item>
+                <Dropdown.Item eventKey="3">
+                  Friend / Word of Mouth
+                </Dropdown.Item>
+                <Dropdown.Item eventKey="4">Google Search</Dropdown.Item>
+                <Dropdown.Item eventKey="5">Other Search Engine</Dropdown.Item>
+                <Dropdown.Item eventKey="6">Other</Dropdown.Item>
+              </DropdownButton>
+            </Form.Group>
+            <Form.Group as={Col} md="3">
+              <Form.Label>Hear answer</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="hear about us"
+                value={this.state.hearAbout}
+                required
+              />
+            </Form.Group>
+            <Form.Group as={Col} md="2">
+              <Form.Label>Program of interest</Form.Label>
+              <DropdownButton
+                id="dropdown-programofinterest-button"
+                title="Select one"
+                drop="right"
+                variant="outline-primary"
+                onClick={e => this.onDropdownProgram(e)}
+                key="programOfInterest1"
+              >
+                <Dropdown.Item eventKey="1">BMET Degree</Dropdown.Item>
+                <Dropdown.Item eventKey="2">BMET Cert</Dropdown.Item>
+                <Dropdown.Item eventKey="3">A+</Dropdown.Item>
+                <Dropdown.Item eventKey="4">N+</Dropdown.Item>
+              </DropdownButton>
+            </Form.Group>
+            <Form.Group as={Col} md="4">
+              <Form.Label>Program answer</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="program"
+                required
+                value={this.state.programOfInterest}
+              />
             </Form.Group>
           </Form.Row>
-          <Form.Group>
-            <Form.Check
-              required
-              label="Agree to terms and conditions"
-              feedback="You must agree before submitting."
-            />
-          </Form.Group>
-          <Button type="submit">Submit form</Button>
+          <hr />
+          <Button type="submit" className="float-right">
+            Submit form
+          </Button>
         </Form>
         <br />
-        <Button
+        {/* <Button
+          className="float-right"
           onClick={() => {
             this.getLocation()
           }}
         >
           Test location
-        </Button>
+        </Button> */}
       </Container>
     )
   }
