@@ -15,21 +15,80 @@ class ContactForm extends React.Component {
     super(props)
 
     this.state = {
-      city: "",
-      country: "",
-      state: "",
-      firstName: "",
-      lastName: "",
-      phone: "",
-      email: "",
-      hearAbout: "",
-      programOfInterest: "",
+      contactForm: {
+        city: "",
+        country: "",
+        state: "",
+        firstName: "",
+        lastName: "",
+        phone: "",
+        email: "",
+        hearAbout: "",
+        programOfInterest: "",
+      },
+      validated: false,
     }
 
     this.getLocationToAddress = this.getLocationToAddress.bind(this)
     this.getLocation = this.getLocation.bind(this)
     this.onDropdownHearAboutUs = this.onDropdownHearAboutUs.bind(this)
     this.onDropdownProgram = this.onDropdownProgram.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
+    this.onChangeForm = this.onChangeForm.bind(this)
+  }
+
+  onChangeForm(e) {
+    e.preventDefault()
+
+    console.log("onchangeform", e.target.value)
+
+    const contactInfo = this.state.contactForm
+
+    switch (e.target.placeholder) {
+      case "First name":
+        contactInfo.firstName = e.target.value
+        break
+      case "Last name":
+        contactInfo.lastName = e.target.value
+        break
+      case "210 221-1111":
+        contactInfo.phone = e.target.value
+        break
+      case "Email":
+        contactInfo.email = e.target.value
+        break
+      case "Country":
+        contactInfo.country = e.target.value
+        break
+      case "City":
+        contactInfo.city = e.target.value
+        break
+      case "State":
+        contactInfo.state = e.target.value
+        break
+      default:
+        break
+    }
+
+    this.setState({
+      contactForm: contactInfo,
+    })
+  }
+
+  handleSubmit(e) {
+    e.preventDefault()
+    console.log("fire submit", e)
+
+    const form = e.currentTarget
+    console.log("add New validate", form.checkValidity())
+    if (form.checkValidity() === true) {
+      e.preventDefault()
+      e.stopPropagation()
+    }
+
+    this.setState({
+      validated: true,
+    })
   }
 
   onDropdownProgram(e) {
@@ -37,11 +96,11 @@ class ContactForm extends React.Component {
     console.log("e dropdown Program", e.target.text)
 
     if (e.target.text) {
-      let oldProgram = this.state.programOfInterest
+      const oldProgram = this.state.contactForm
 
-      oldProgram = e.target.text
+      oldProgram.programOfInterest = e.target.text
       this.setState({
-        programOfInterest: oldProgram,
+        contactForm: oldProgram,
       })
     }
   }
@@ -50,11 +109,11 @@ class ContactForm extends React.Component {
     e.preventDefault()
     console.log("e dropdown hear", e.target.text)
     if (e.target.text) {
-      let oldAboutUs = this.state.hearAbout
+      const oldAboutUs = this.state.contactForm
 
-      oldAboutUs = e.target.text
+      oldAboutUs.hearAbout = e.target.text
       this.setState({
-        hearAbout: oldAboutUs,
+        contactForm: oldAboutUs,
       })
     }
   }
@@ -67,10 +126,9 @@ class ContactForm extends React.Component {
     }
   }
 
-  //   https://stackoverflow.com/questions/52583277/get-user-city-and-country-in-react-native
+  // https://stackoverflow.com/questions/52583277/get-user-city-and-country-in-react-native
   getLocationToAddress(location) {
     const locationToFind = `${location.latitude},${location.longitude}`
-    // console.log("got to getloctoaddress", this.props.mapkey, locationToFind)
     const url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${locationToFind}&sensor=true&key=${
       this.props.mapkey
     }`
@@ -79,7 +137,6 @@ class ContactForm extends React.Component {
       .then(resp => resp.json())
       .then(result => {
         const { results } = result
-        // console.log("results", results)
 
         if (results) {
           for (var ac = 0; ac < results[0].address_components.length; ac++) {
@@ -116,17 +173,26 @@ class ContactForm extends React.Component {
     return (
       <Container>
         <Jumbotron>
-          <h1>CBET - Contact Us</h1>
-          <ul>
-            <li>11550 IH-10 West, Suite 190, San Antonio, Texas 78230</li>
-            <li>Phone: (210) 233-1102</li>
-            <li>Toll-Free: (866) 866-9027</li>
-            <li>E-mail: admissiondept@cittx.edu</li>
+          <h1>Contact Us</h1>
+          <ul style={{ listStyleType: "none" }}>
+            <li>
+              <b>Address:</b> 11550 IH-10 West, Suite 190, San Antonio, Texas
+              78230
+            </li>
+            <li>
+              <b>Phone:</b> (210) 233-1102
+            </li>
+            <li>
+              <b>Toll-Free:</b> (866) 866-9027
+            </li>
+            <li>
+              <b>E-mail:</b> admissiondept@cittx.edu
+            </li>
           </ul>
         </Jumbotron>
         <Form
           noValidate
-          //   validated={validated}
+          validated={this.state.validated}
           onSubmit={e => this.handleSubmit(e)}
         >
           <Form.Row>
@@ -136,7 +202,8 @@ class ContactForm extends React.Component {
                 required
                 type="text"
                 placeholder="First name"
-                value={this.state.firstName}
+                value={this.state.contactForm.firstName}
+                onChange={e => this.onChangeForm(e)}
               />
               <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
             </Form.Group>
@@ -146,8 +213,8 @@ class ContactForm extends React.Component {
                 required
                 type="text"
                 placeholder="Last name"
-                defaultValue="Otto"
-                value={this.state.lastName}
+                value={this.state.contactForm.lastName}
+                onChange={e => this.onChangeForm(e)}
               />
               <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
             </Form.Group>
@@ -158,7 +225,8 @@ class ContactForm extends React.Component {
                   type="tel"
                   placeholder="210 221-1111"
                   required
-                  value={this.state.firstName}
+                  value={this.state.contactForm.phone}
+                  onChange={e => this.onChangeForm(e)}
                 />
                 <Form.Control.Feedback type="invalid">
                   Please enter phone number.
@@ -167,27 +235,50 @@ class ContactForm extends React.Component {
             </Form.Group>
             <Form.Group as={Col} md="3">
               <Form.Label>Email</Form.Label>
-              <Form.Control type="email" placeholder="email" />
+              <Form.Control
+                type="email"
+                placeholder="Email"
+                value={this.state.contactForm.email}
+                onChange={e => this.onChangeForm(e)}
+              />
             </Form.Group>
           </Form.Row>
           <Form.Row>
             <Form.Group as={Col} md="4" controlId="validationCustom06">
               <Form.Label>Country</Form.Label>
-              <Form.Control type="text" placeholder="Country" required />
+              <Form.Control
+                type="text"
+                placeholder="Country"
+                required
+                value={this.state.contactForm.country}
+                onChange={e => this.onChangeForm(e)}
+              />
               <Form.Control.Feedback type="invalid">
                 Please provide a valid country.
               </Form.Control.Feedback>
             </Form.Group>
             <Form.Group as={Col} md="4" controlId="validationCustom03">
               <Form.Label>City</Form.Label>
-              <Form.Control type="text" placeholder="City" required />
+              <Form.Control
+                type="text"
+                placeholder="City"
+                required
+                value={this.state.contactForm.city}
+                onChange={e => this.onChangeForm(e)}
+              />
               <Form.Control.Feedback type="invalid">
                 Please provide a valid city.
               </Form.Control.Feedback>
             </Form.Group>
             <Form.Group as={Col} md="4" controlId="validationCustom04">
               <Form.Label>State</Form.Label>
-              <Form.Control type="text" placeholder="State" required />
+              <Form.Control
+                type="text"
+                placeholder="State"
+                required
+                value={this.state.contactForm.state}
+                onChange={e => this.onChangeForm(e)}
+              />
               <Form.Control.Feedback type="invalid">
                 Please provide a valid state.
               </Form.Control.Feedback>
@@ -219,7 +310,8 @@ class ContactForm extends React.Component {
               <Form.Control
                 type="text"
                 placeholder="hear about us"
-                value={this.state.hearAbout}
+                value={this.state.contactForm.hearAbout}
+                onChange={e => this.onChangeForm(e)}
                 required
               />
             </Form.Group>
@@ -245,7 +337,8 @@ class ContactForm extends React.Component {
                 type="text"
                 placeholder="program"
                 required
-                value={this.state.programOfInterest}
+                value={this.state.contactForm.programOfInterest}
+                // onChange={e => this.onChangeForm(e)}
               />
             </Form.Group>
           </Form.Row>
