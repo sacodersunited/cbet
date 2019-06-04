@@ -8,7 +8,9 @@ import {
   Dropdown,
   InputGroup,
   Jumbotron,
+  Alert,
 } from "react-bootstrap"
+import { FaRegThumbsUp } from "react-icons/fa"
 
 class ContactForm extends React.Component {
   constructor(props) {
@@ -29,6 +31,7 @@ class ContactForm extends React.Component {
         comments: "",
       },
       validated: false,
+      isDone: false,
     }
 
     this.getLocationToAddress = this.getLocationToAddress.bind(this)
@@ -38,6 +41,10 @@ class ContactForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this)
     this.onChangeForm = this.onChangeForm.bind(this)
     this.callGoogleScript = this.callGoogleScript.bind(this)
+  }
+
+  componentDidMount() {
+    // getLocation
   }
 
   onChangeForm(e) {
@@ -120,8 +127,16 @@ class ContactForm extends React.Component {
       this.state.contactForm.programOfInterest
     )}`
 
-    let eLocation = `${encodeURIComponent("location")}=${encodeURIComponent(
+    let eCountry = `${encodeURIComponent("country")}=${encodeURIComponent(
       this.state.contactForm.country
+    )}`
+
+    let eState = `${encodeURIComponent("state")}=${encodeURIComponent(
+      this.state.contactForm.state
+    )}`
+
+    let eCity = `${encodeURIComponent("city")}=${encodeURIComponent(
+      this.state.contactForm.city
     )}`
 
     let eEmail = `${encodeURIComponent("email")}=${encodeURIComponent(
@@ -132,26 +147,50 @@ class ContactForm extends React.Component {
       this.state.contactForm.comments
     )}`
 
-    let eCallback = `${encodeURIComponent("callback")}=${encodeURIComponent(
+    let eCallback = `${encodeURIComponent("call")}=${encodeURIComponent(
       this.state.contactForm.callback
     )}`
 
-    const querystring = `${eFirstName}&${eEmail}&${eLastName}&${ePhone}&${eHearAboutUs}&${eProgram}&${eLocation}&${eComments}&${eCallback}&${eComments}formGoogleSheetName=responses`
-
-    console.log("gmaps query", querystring)
+    const querystring = `${eFirstName}&${eEmail}&${eLastName}&${ePhone}&${eHearAboutUs}&${eProgram}&${eCountry}&${eState}&${eCity}&${eCallback}&${eComments}&formGoogleSheetName=responses`
 
     fetch(
-      "https://script.google.com/macros/s/AKfycbzSb7Dwtttgx_H6g7OtZgR2bSObstCnzZuQn1Oh4mvgoVjjCgye/exec?" +
+      "https://script.google.com/macros/s/AKfycbxNSOmlR_Pswked2bRozsNPeFu_4JkN2y5_kcSUBc34rDHf0Yaq/exec?" +
         querystring,
       {
         method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
       }
     ).then(response => {
       if (!response.ok) {
         throw Error("Network request failed")
       }
       console.log(response)
+
+      this.setState({
+        isDone: true,
+        validated: false,
+        contactForm: {
+          city: "",
+          country: "",
+          state: "",
+          firstName: "",
+          lastName: "",
+          phone: "",
+          email: "",
+          hearAbout: "",
+          programOfInterest: "",
+          callback: false,
+          comments: "",
+        },
+      })
+
+      setTimeout(() => {
+        this.setState({
+          isDone: false,
+        })
+      }, 3500)
       return response
     })
   }
@@ -440,20 +479,20 @@ class ContactForm extends React.Component {
               />
             </Form.Group>
           </Form.Row>
-          {/* <hr /> */}
           <Button type="submit" className="float-right">
             Submit form
           </Button>
+          <Form.Row>
+            <Form.Group as={Col}>
+              <Alert show={this.state.isDone} variant="success">
+                <Alert.Heading>
+                  <FaRegThumbsUp style={{ marginRight: "5px" }} />
+                  Success! We will get back to you soon.
+                </Alert.Heading>
+              </Alert>
+            </Form.Group>
+          </Form.Row>
         </Form>
-        <br />
-        {/* <Button
-          className="float-right"
-          onClick={() => {
-            this.getLocation()
-          }}
-        >
-          Test location
-        </Button> */}
       </Container>
     )
   }
