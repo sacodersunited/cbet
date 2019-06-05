@@ -95,15 +95,16 @@ class ContactForm extends React.Component {
     const form = e.currentTarget
     console.log("add New validate", form.checkValidity())
     if (form.checkValidity() === true) {
+      console.log("check validity eq true")
       e.preventDefault()
       e.stopPropagation()
+
+      // this.callGoogleScript()
+
+      this.setState({
+        validated: true,
+      })
     }
-
-    this.callGoogleScript()
-
-    this.setState({
-      validated: true,
-    })
   }
 
   callGoogleScript() {
@@ -283,6 +284,7 @@ class ContactForm extends React.Component {
               <b>Address:</b> 11550 IH-10 West, Suite 190, San Antonio, Texas
               78230
             </li>
+            <li>{"        "}San Antonio, Texas 78230</li>
             <li>
               <b>Phone:</b> (210) 233-1102
             </li>
@@ -298,7 +300,6 @@ class ContactForm extends React.Component {
           </ul>
         </Jumbotron>
         <Form
-          noValidate
           validated={this.state.validated}
           onSubmit={e => this.handleSubmit(e)}
         >
