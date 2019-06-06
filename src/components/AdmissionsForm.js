@@ -1,5 +1,7 @@
 import React, { Component } from "react"
 import { Container, Form, Jumbotron, Button, Col, Row } from "react-bootstrap"
+import { FaMapMarkerAlt } from "react-icons/fa"
+// import { getLocationToAddress } from "../utils/utility"
 
 export default class AdmissionsForm extends Component {
   constructor(props) {
@@ -9,9 +11,11 @@ export default class AdmissionsForm extends Component {
       validated: false,
       admissionForm: {
         studentName: "",
+        ssn: "",
         address: "",
         city: "",
         state: "",
+        country: "",
         zip: "",
         phone: "",
         email: "",
@@ -21,6 +25,8 @@ export default class AdmissionsForm extends Component {
 
     this.handleSubmit = this.handleSubmit.bind(this)
     this.onChangeForm = this.onChangeForm.bind(this)
+    this.onLocationSearch = this.onLocationSearch.bind(this)
+    this.getLocationToAddress = this.getLocationToAddress.bind(this)
   }
 
   onChangeForm(e) {
@@ -83,6 +89,59 @@ export default class AdmissionsForm extends Component {
     }
   }
 
+  onLocationSearch(e) {
+    console.log("loc e", e)
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(position => {
+        this.getLocationToAddress(position.coords)
+      })
+    }
+  }
+
+  getLocationToAddress(location) {
+    const locationToFind = `${location.latitude},${location.longitude}`
+    const url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${locationToFind}&sensor=true&key=${
+      this.props.mapkey
+    }`
+
+    const adForm = this.state.admissionForm
+
+    fetch(url)
+      .then(resp => resp.json())
+      .then(result => {
+        const { results } = result
+
+        if (results) {
+          for (var ac = 0; ac < results[0].address_components.length; ac++) {
+            var component = results[0].address_components[ac]
+
+            switch (component.types[0]) {
+              case "locality":
+                adForm.city = component.long_name
+                break
+              case "administrative_area_level_1":
+                adForm.state = component.long_name
+                break
+              case "country":
+                adForm.country = component.long_name
+                break
+              case "postal_code":
+                adForm.zip = component.long_name
+                break
+              default:
+                break
+            }
+          }
+        }
+        this.setState({
+          admissionForm: adForm,
+        })
+      })
+      .catch(e => {
+        console.log(e)
+      })
+  }
+
   render() {
     return (
       <Container>
@@ -110,17 +169,20 @@ export default class AdmissionsForm extends Component {
                 required
                 type="text"
                 placeholder="Social Security"
+                value={this.state.admissionForm.ssn}
                 onChange={e => this.onChangeForm(e)}
               />
             </Form.Group>
           </Form.Row>
           <Form.Row>
             <Form.Group as={Col} md="6">
-              <Form.Label>Address:</Form.Label>
+              <Form.Label>Address: </Form.Label>
+
               <Form.Control
                 required
                 type="text"
                 placeholder="Address"
+                value={this.state.admissionForm.address}
                 onChange={e => this.onChangeForm(e)}
               />
             </Form.Group>
@@ -130,6 +192,7 @@ export default class AdmissionsForm extends Component {
                 required
                 type="tel"
                 placeholder="Phone"
+                value={this.state.admissionForm.phone}
                 onChange={e => this.onChangeForm(e)}
               />
               <Form.Control.Feedback type="invalid">
@@ -140,10 +203,19 @@ export default class AdmissionsForm extends Component {
           <Form.Row>
             <Form.Group as={Col} md="4">
               <Form.Label>City:</Form.Label>
+              <Button
+                size="sm"
+                style={{ marginLeft: "10px" }}
+                onClick={e => this.onLocationSearch(e)}
+              >
+                <FaMapMarkerAlt style={{ marginRight: "5px" }} />
+                Locate
+              </Button>
               <Form.Control
                 required
                 type="text"
                 placeholder="City"
+                value={this.state.admissionForm.city}
                 onChange={e => this.onChangeForm(e)}
               />
               <Form.Control.Feedback type="invalid">
@@ -156,6 +228,7 @@ export default class AdmissionsForm extends Component {
                 required
                 type="text"
                 placeholder="State"
+                value={this.state.admissionForm.state}
                 onChange={e => this.onChangeForm(e)}
               />
               <Form.Control.Feedback type="invalid">
@@ -168,6 +241,7 @@ export default class AdmissionsForm extends Component {
                 required
                 type="number"
                 placeholder="Zip"
+                value={this.state.admissionForm.zip}
                 onChange={e => this.onChangeForm(e)}
               />
               <Form.Control.Feedback type="invalid">
@@ -182,6 +256,7 @@ export default class AdmissionsForm extends Component {
                 required
                 type="email"
                 placeholder="Email Address"
+                value={this.state.admissionForm.email}
                 onChange={e => this.onChangeForm(e)}
               />
               <Form.Control.Feedback type="invalid">
@@ -194,30 +269,11 @@ export default class AdmissionsForm extends Component {
                 required
                 type="text"
                 placeholder="Date of Birth"
+                value={this.state.admissionForm.dateOfBirth}
                 onChange={e => this.onChangeForm(e)}
               />
             </Form.Group>
           </Form.Row>
-          {/* <ButtonGroup>
-              <Button>BMET Cert</Button>
-              <Button>Associates of Applied Science Degree</Button>
-            </ButtonGroup> */}
-
-          {/* <InputGroup className="mb-3">
-              <InputGroup.Prepend>
-                <InputGroup.Checkbox aria-label="Checkbox for following text input" />
-              </InputGroup.Prepend>
-              {/* <Form.Control aria-label="Text input with checkbox" />
-            </InputGroup>
-            <InputGroup>
-              <InputGroup.Prepend>
-                <InputGroup.Radio aria-label="Radio button for following text input" />
-              </InputGroup.Prepend>
-              <Form.Label>BMET</Form.Label>
-              <Form.Control aria-label="Text input with radio button" readOnly>
-                BMET
-              </Form.Control>
-            </InputGroup> */}
 
           <Form.Group as={Row}>
             <Form.Label as="legend" column sm={2}>

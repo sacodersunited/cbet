@@ -1,14 +1,12 @@
 import React from "react"
-// import { Link } from "gatsby"
-
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import AdmissionsForm from "../components/AdmissionsForm"
+import AdmissionsFormStaticQuery from "../components/AdmissionsFormStaticQuery"
 
 const Admissions = () => (
   <Layout>
     <SEO title="Admissions" />
-    <AdmissionsForm />
+    <AdmissionsFormStaticQuery />
   </Layout>
 )
 
