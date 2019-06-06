@@ -20,6 +20,7 @@ export default class AdmissionsForm extends Component {
         phone: "",
         email: "",
         dateOfBirth: "",
+        program: "",
       },
     }
 
@@ -32,7 +33,7 @@ export default class AdmissionsForm extends Component {
   onChangeForm(e) {
     e.preventDefault()
 
-    console.log("onchangeform", e.target)
+    console.log("onchangeform", e.target.value)
 
     const admissionInfo = this.state.admissionForm
 
@@ -41,7 +42,7 @@ export default class AdmissionsForm extends Component {
         admissionInfo.studentName = e.target.value
         break
       case "Social Security":
-        admissionInfo.lastName = e.target.value
+        admissionInfo.ssn = e.target.value
         break
       case "Address":
         admissionInfo.address = e.target.value
@@ -49,7 +50,7 @@ export default class AdmissionsForm extends Component {
       case "Phone":
         admissionInfo.phone = e.target.value
         break
-      case "Email":
+      case "Email Address":
         admissionInfo.email = e.target.value
         break
       case "City":
@@ -60,6 +61,9 @@ export default class AdmissionsForm extends Component {
         break
       case "Zip":
         admissionInfo.zip = e.target.value
+        break
+      case "Date of Birth":
+        admissionInfo.dateOfBirth = e.target.value
         break
       default:
         break
@@ -81,7 +85,7 @@ export default class AdmissionsForm extends Component {
       e.preventDefault()
       e.stopPropagation()
 
-      //   this.callGoogleScript()
+      this.callGoogleAdmissions()
 
       this.setState({
         validated: true,
@@ -142,6 +146,87 @@ export default class AdmissionsForm extends Component {
       })
   }
 
+  callGoogleAdmissions() {
+    let eName = `${encodeURIComponent("name")}=${encodeURIComponent(
+      this.state.admissionForm.studentName
+    )}`
+
+    let eSsn = `${encodeURIComponent("ssn")}=${encodeURIComponent(
+      this.state.admissionForm.ssn
+    )}`
+
+    let eAddress = `${encodeURIComponent("address")}=${encodeURIComponent(
+      this.state.admissionForm.address
+    )}`
+
+    let ePhone = `${encodeURIComponent("phone")}=${encodeURIComponent(
+      this.state.admissionForm.phone
+    )}`
+
+    let eState = `${encodeURIComponent("state")}=${encodeURIComponent(
+      this.state.admissionForm.state
+    )}`
+
+    let eCity = `${encodeURIComponent("city")}=${encodeURIComponent(
+      this.state.admissionForm.city
+    )}`
+
+    let eZip = `${encodeURIComponent("zip")}=${encodeURIComponent(
+      this.state.admissionForm.zip
+    )}`
+
+    let eEmail = `${encodeURIComponent("email")}=${encodeURIComponent(
+      this.state.admissionForm.email
+    )}`
+
+    let eDOB = `${encodeURIComponent("dob")}=${encodeURIComponent(
+      this.state.admissionForm.dateOfBirth
+    )}`
+
+    const querystring = `${eName}&${eSsn}&${eAddress}&${ePhone}&${eCity}&${eState}&${eZip}&${eEmail}&${eDOB}&formGoogleSheetName=responses`
+
+    fetch(
+      "https://script.google.com/macros/s/AKfycbwv08pxtawNZnuvOl8akeANYFoBG-kI-x2mM01AutvBKLXt8hTp/exec?" +
+        querystring,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      }
+    ).then(response => {
+      if (!response.ok) {
+        throw Error("Network request failed")
+      }
+      console.log(response)
+
+      this.setState({
+        isDone: true,
+        validated: false,
+        admissionForm: {
+          studentName: "",
+          ssn: "",
+          address: "",
+          city: "",
+          state: "",
+          country: "",
+          zip: "",
+          phone: "",
+          email: "",
+          dateOfBirth: "",
+          program: "",
+        },
+      })
+
+      setTimeout(() => {
+        this.setState({
+          isDone: false,
+        })
+      }, 3500)
+      return response
+    })
+  }
+
   render() {
     return (
       <Container>
@@ -154,7 +239,7 @@ export default class AdmissionsForm extends Component {
         >
           <Form.Row>
             <Form.Group as={Col} md="6">
-              <Form.Label>Student Name:</Form.Label>
+              <Form.Label>Student Name (First name, Last name)</Form.Label>
               <Form.Control
                 required
                 type="text"
@@ -164,7 +249,7 @@ export default class AdmissionsForm extends Component {
               />
             </Form.Group>
             <Form.Group as={Col} md="6">
-              <Form.Label>Social Security Number:</Form.Label>
+              <Form.Label>Social Security Number</Form.Label>
               <Form.Control
                 required
                 type="text"
@@ -176,7 +261,7 @@ export default class AdmissionsForm extends Component {
           </Form.Row>
           <Form.Row>
             <Form.Group as={Col} md="6">
-              <Form.Label>Address: </Form.Label>
+              <Form.Label>Address </Form.Label>
 
               <Form.Control
                 required
@@ -187,7 +272,7 @@ export default class AdmissionsForm extends Component {
               />
             </Form.Group>
             <Form.Group as={Col} md="6">
-              <Form.Label>Phone:</Form.Label>
+              <Form.Label>Phone</Form.Label>
               <Form.Control
                 required
                 type="tel"
@@ -202,7 +287,7 @@ export default class AdmissionsForm extends Component {
           </Form.Row>
           <Form.Row>
             <Form.Group as={Col} md="4">
-              <Form.Label>City:</Form.Label>
+              <Form.Label>City</Form.Label>
               <Button
                 size="sm"
                 style={{ marginLeft: "10px" }}
@@ -223,7 +308,7 @@ export default class AdmissionsForm extends Component {
               </Form.Control.Feedback>
             </Form.Group>
             <Form.Group as={Col} md="4">
-              <Form.Label>State:</Form.Label>
+              <Form.Label>State</Form.Label>
               <Form.Control
                 required
                 type="text"
@@ -236,7 +321,7 @@ export default class AdmissionsForm extends Component {
               </Form.Control.Feedback>
             </Form.Group>
             <Form.Group as={Col} md="4">
-              <Form.Label>Zip:</Form.Label>
+              <Form.Label>Zip</Form.Label>
               <Form.Control
                 required
                 type="number"
@@ -251,7 +336,7 @@ export default class AdmissionsForm extends Component {
           </Form.Row>
           <Form.Row>
             <Form.Group as={Col} md="6">
-              <Form.Label>Email Address:</Form.Label>
+              <Form.Label>Email Address</Form.Label>
               <Form.Control
                 required
                 type="email"
@@ -264,7 +349,7 @@ export default class AdmissionsForm extends Component {
               </Form.Control.Feedback>
             </Form.Group>
             <Form.Group as={Col} md="6">
-              <Form.Label>Date of Birth:</Form.Label>
+              <Form.Label>Date of Birth</Form.Label>
               <Form.Control
                 required
                 type="text"
