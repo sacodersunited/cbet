@@ -7,27 +7,29 @@ import TXHigherImg from "../images/TXHigherEd.png"
 import Pulse from "react-reveal/Pulse"
 import Fade from "react-reveal/Fade"
 import Partners from "./partners"
+import Pattern from "../images/transp_bg.png"
 
 const AccredSection = styled.section`
   min-height: 500px;
   padding: 96px 0;
+  background-image: url(${props => props.imgSrc || null});
 `
 
 const Accreditations = () => (
-  <AccredSection>
+  <AccredSection imgSrc={Pattern}>
     <Container fluid>
-      <Row style={{marginBottom: "64px"}}>
+      <Row style={{ marginBottom: "64px" }}>
         <Col md={{ span: 3, offset: 1 }}>
-          <h2 style={{ textTransform: "uppercase" }}>Accreditations</h2>
           <Fade left cascade>
-            <p className="text-justify">
-              CBET is Accredited by the Accrediting Council for Continuing
-              Education & Training (ACCET), a national accrediting agency listed
-              by the U.S. Department of Education. CIT is also Approved and
-              Regulated by the Texas Workforce Commission, Career Schools and
-              Colleges, Austin, Texas.
-            </p>
+            <h2 style={{ textTransform: "uppercase" }}>Accreditations</h2>
           </Fade>
+          <p>
+            CBET is Accredited by the Accrediting Council for Continuing
+            Education & Training (ACCET), a national accrediting agency listed
+            by the U.S. Department of Education. CIT is also Approved and
+            Regulated by the Texas Workforce Commission, Career Schools and
+            Colleges, Austin, Texas.
+          </p>
         </Col>
         <Col md={7}>
           <Row>
@@ -40,7 +42,7 @@ const Accreditations = () => (
               <Image
                 src={twcImg}
                 alt="twc logo"
-                style={{ maxHeight: "250px" }}
+                style={{ maxHeight: "200px" }}
                 fluid
               />
             </Col>
