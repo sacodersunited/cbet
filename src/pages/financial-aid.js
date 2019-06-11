@@ -8,6 +8,7 @@ import {
   Card,
   ListGroup,
   ListGroupItem,
+  Image,
 } from "react-bootstrap"
 import Fade from "react-reveal/Fade"
 import styled from "styled-components"
@@ -73,6 +74,17 @@ const FinancialAid = () => (
               <Card.Body>
                 <h2>Military & Veterans</h2>
                 <h4 className="text-muted">Serving Those That Served Us</h4>
+                <a
+                  target="_blank"
+                  href="https://benefits.va.gov/gibill/post911_gibill.asp"
+                >
+                  <Image
+                    src="https://benefits.va.gov/gibill/images/GIBicon.fw.png"
+                    alt="GI Bill"
+                    fluid
+                    width="200"
+                  />
+                </a>
                 <p>
                   You have a variety of military and veteran benefits programs
                   to finance your college education. CBET staff can help you in
@@ -116,17 +128,19 @@ const FinancialAid = () => (
                   day!
                 </p>
                 <Button
+                  target="_blank"
                   href="https://www.tciconnection.com/internetApp/app?key=35974edd0a527e31a2ad6306b839c6ac32"
                   className="mb-3"
                 >
                   Apply Today
                 </Button>
                 <p>
-                  SoFi – offering low-interest rates and a fixed monthly
-                  payment!
+                  Tuition Financing – Providing an affordable way for you to get
+                  the education you need for the future you deserve!
                 </p>
                 <Button
-                  href="https://www.sofi.com/personal-loans/"
+                  target="_blank"
+                  href=" http://www.tfcstudentinfo.com"
                   className="mb-3"
                 >
                   Apply Today
@@ -148,9 +162,6 @@ const FinancialAid = () => (
                 >
                   MyCAA Program for Military Spouses
                 </ListGroupItem>
-                <ListGroupItem action href="http://www.fastweb.com/">
-                  FastWeb.com Scholarships
-                </ListGroupItem>
               </ListGroup>
             </Card>
           </Col>
@@ -162,20 +173,10 @@ const FinancialAid = () => (
                 <Card.Title>Other Resources/Programs</Card.Title>
               </Card.Body>
               <ListGroup className="list-group-flush">
-                <ListGroupItem action href="https://www.greennote.com/">
-                  Green Note: Higher Education Donor Network
-                </ListGroupItem>
                 <ListGroupItem>
                   Transfer Credit: Reduces the cost of the program
                 </ListGroupItem>
                 <ListGroupItem>CBET Payment Plan</ListGroupItem>
-                <ListGroupItem
-                  action
-                  href="https://www.paypal.com/us/webapps/mpp/paypal-credit?&act=PayPal+Credit&campaignid=71700000021454035&adgroupid=58700002206050822&adgroup=CRD-TM+-+Bill+Me+Later+-+Financing+%28b%2B%29&creative=172119849549&kwid=43700018497092998&matchtype=b&network=g&adposition=1t1&target=&device=c&devicemodel=&feeditemid=&loc_physical_ms=9028268&loc_interest_ms=&targetid=kwd-220724105557&utm_source=GOOGLE&utm_medium=cpc&utm_campaign=CRD-TM+-+Bill+Me+Later+-+ALL&utm_term=bill+me+later+%2Bfinancing&gclid=CKSC18uDkdMCFRCCaQodcMYBcQ&gclsrc=aw.ds"
-                >
-                  PayPal Credit Financing: Financing offers, such as no payments
-                  and no interest if paid in full in 6 months.
-                </ListGroupItem>
               </ListGroup>
             </Card>
           </Col>

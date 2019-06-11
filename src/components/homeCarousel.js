@@ -1,6 +1,5 @@
 import React from "react"
 import { Carousel, Button } from "react-bootstrap"
-import styled from "styled-components"
 
 const HomeCarousel = () => (
   <Carousel>
@@ -11,9 +10,8 @@ const HomeCarousel = () => (
         alt="First slide"
       />
       <Carousel.Caption style={{ textAlign: "left" }}>
-        <h1>Biomedical Equipment </h1>
-        <h1>and Health Care Technology</h1>
-        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+        <h1>College of Biomedical Equipment Technology</h1>
+        <p>Building the Future Healthcare Technology Workforce</p>
         <Button className="text-uppercase">Apply Today</Button>
       </Carousel.Caption>
     </Carousel.Item>
@@ -25,9 +23,8 @@ const HomeCarousel = () => (
       />
 
       <Carousel.Caption style={{ textAlign: "left" }}>
-        <h1>Biomedical Equipment </h1>
-        <h1>and Health Care Technology</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <h1>College of Biomedical Equipment Technology</h1>
+        <p>Building the Future Healthcare Technology Workforce</p>
         <Button className="text-uppercase">Learn More</Button>
       </Carousel.Caption>
     </Carousel.Item>
@@ -39,9 +36,8 @@ const HomeCarousel = () => (
       />
 
       <Carousel.Caption style={{ textAlign: "left" }}>
-        <h1>Biomedical Equipment </h1>
-        <h1>and Health Care Technology</h1>
-        <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+        <h1>College of Biomedical Equipment Technology</h1>
+        <p>Building the Future Healthcare Technology Workforce</p>
         <Button className="text-uppercase">Learn More</Button>
       </Carousel.Caption>
     </Carousel.Item>
