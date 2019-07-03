@@ -4,6 +4,8 @@ import Pulse from "react-reveal/Pulse"
 import Fade from "react-reveal/Fade"
 import TechNationImg from "../images/TechNation_logo.png"
 import TFCImg from "../images/tfc_logo.png"
+import SIImg from "../images/si-recruiting.png"
+import TFCDoc from "../documents/TFCoverviewForStudents.CIT.pdf"
 
 const Partners = () => (
   <Row>
@@ -23,11 +25,28 @@ const Partners = () => (
       <Row>
         <Col md={4} style={{ alignSelf: "center", textAlign: "center" }}>
           <Pulse>
-            <Image src={TechNationImg} alt="Tech Nation logo" fluid />
+            <a
+              href="https://1technation.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Image src={TechNationImg} alt="Tech Nation logo" fluid />
+            </a>
           </Pulse>
         </Col>
         <Col md={4} style={{ alignSelf: "center", textAlign: "center" }}>
-          <Image src={TFCImg} alt="TFC logo" fluid />
+          <a href={TFCDoc} target="_blank" rel="noopener noreferrer">
+            <Image src={TFCImg} alt="TFC logo" fluid />
+          </a>
+        </Col>
+        <Col md={4} style={{ alignSelf: "center", textAlign: "center" }}>
+          <a
+            href="https://www.bmets-usa.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Image src={SIImg} alt="Stephens International logo" fluid />
+          </a>
         </Col>
       </Row>
     </Col>
