@@ -45,7 +45,7 @@ const Footer = () => (
           <a
             target="_blank"
             className="d-block text-light mb-3"
-            href="https://www.facebook.com/CareerInstituteofTechnology/"
+            href="https://www.facebook.com/CBETCOLLEGE/"
           >
             <FaFacebookF
               className="mr-3"
@@ -53,23 +53,12 @@ const Footer = () => (
             />
             Facebook
           </a>
-          {/* TODO: Add twitter link */}
+
           <a
             target="_blank"
+            rel="noopener noreferrer"
             className="d-block text-light mb-3"
-            href="https://twitter.com"
-          >
-            <FaTwitter
-              className="mr-3"
-              style={{ verticalAlign: "text-bottom" }}
-            />
-            Twitter
-          </a>
-          {/* TODO: Add linkedIn link */}
-          <a
-            target="_blank"
-            className="d-block text-light mb-3"
-            href="https://linkedin.com"
+            href="https://www.linkedin.com/company/cbetcollege/"
           >
             <FaLinkedinIn
               className="mr-3"
