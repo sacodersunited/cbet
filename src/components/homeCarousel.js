@@ -1,12 +1,15 @@
 import React from "react"
 import { Carousel, Button } from "react-bootstrap"
+import CarouselImage1 from '../images/carousel/carousel-1.jpg'
+import CarouselImage2  from '../images/carousel/carousel-2.jpg'
+import CarouselImage3 from '../images/carousel/carousel-3.jpg'
 
 const HomeCarousel = () => (
   <Carousel>
     <Carousel.Item>
       <img
         className="d-block w-100"
-        src="https://picsum.photos/id/249/1440/340"
+        src={CarouselImage1}
         alt="First slide"
       />
       <Carousel.Caption style={{ textAlign: "left" }}>
@@ -18,7 +21,7 @@ const HomeCarousel = () => (
     <Carousel.Item>
       <img
         className="d-block w-100"
-        src="https://picsum.photos/id/1060/1440/340"
+        src={CarouselImage2}
         alt="Third slide"
       />
 
@@ -31,7 +34,7 @@ const HomeCarousel = () => (
     <Carousel.Item>
       <img
         className="d-block w-100"
-        src="https://picsum.photos/id/3/1440/340"
+        src={CarouselImage3}
         alt="Third slide"
       />
 
