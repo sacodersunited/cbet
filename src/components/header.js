@@ -75,27 +75,21 @@ const Header = ({ siteTitle }) => {
             </Nav>
             <Nav className="social-nav">
               <a
-                href="https://facebook.com"
+                href="https://www.facebook.com/CBETCOLLEGE/"
                 target="_blank"
                 className="nav-link"
+                rel="noopener noreferrer"
               >
                 <FaFacebookSquare
                   style={{ verticalAlign: "text-bottom", fontSize: "20px" }}
                 />
               </a>
+
               <a
-                href="https://twitter.com"
+                href="https://www.linkedin.com/company/cbetcollege/"
                 target="_blank"
                 className="nav-link"
-              >
-                <FaTwitterSquare
-                  style={{ verticalAlign: "text-bottom", fontSize: "20px" }}
-                />
-              </a>
-              <a
-                href="https://www.linkedin.com/"
-                target="_blank"
-                className="nav-link"
+                rel="noopener noreferrer"
               >
                 <FaLinkedin
                   style={{ verticalAlign: "text-bottom", fontSize: "20px" }}
