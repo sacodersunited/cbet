@@ -9,6 +9,7 @@ import {
   ButtonGroup,
 } from "react-bootstrap"
 import { FaMapMarkerAlt } from "react-icons/fa"
+import InputMask from "react-input-mask"
 
 export default class AdmissionsForm extends Component {
   constructor(props) {
@@ -44,7 +45,7 @@ export default class AdmissionsForm extends Component {
 
     const formValues = this.state.admissionForm
 
-    formValues.programSelected = e.target.innerHTML
+    formValues.program = e.target.innerHTML
 
     this.setState({ admissionForm: formValues })
   }
@@ -202,7 +203,11 @@ export default class AdmissionsForm extends Component {
       this.state.admissionForm.dateOfBirth
     )}`
 
-    const querystring = `${eName}&${eSsn}&${eAddress}&${ePhone}&${eCity}&${eState}&${eZip}&${eEmail}&${eDOB}&formGoogleSheetName=responses`
+    let eProgramSelected = `${encodeURIComponent(
+      "program"
+    )}=${encodeURIComponent(this.state.admissionForm.program)}`
+
+    const querystring = `${eName}&${eSsn}&${eAddress}&${ePhone}&${eCity}&${eState}&${eZip}&${eEmail}&${eDOB}&${eProgramSelected}&formGoogleSheetName=responses`
 
     fetch(
       "https://script.google.com/macros/s/AKfycbwv08pxtawNZnuvOl8akeANYFoBG-kI-x2mM01AutvBKLXt8hTp/exec?" +
@@ -269,19 +274,26 @@ export default class AdmissionsForm extends Component {
             </Form.Group>
             <Form.Group as={Col} md="6">
               <Form.Label>Social Security Number</Form.Label>
-              <Form.Control
-                required
-                type="text"
-                placeholder="Social Security"
-                value={this.state.admissionForm.ssn}
+              <InputMask
+                {...this.props}
+                mask="999-99-9999"
+                maskChar=" "
                 onChange={e => this.onChangeForm(e)}
-                onBlur={e => this.onBlurForm(e)}
-              />
+              >
+                {inputProps => (
+                  <Form.Control
+                    {...inputProps}
+                    required
+                    type="text"
+                    placeholder="Social Security"
+                  />
+                )}
+              </InputMask>
             </Form.Group>
           </Form.Row>
           <Form.Row>
             <Form.Group as={Col} md="6">
-              <Form.Label>Address </Form.Label>
+              <Form.Label>Address</Form.Label>
 
               <Form.Control
                 required
@@ -293,13 +305,20 @@ export default class AdmissionsForm extends Component {
             </Form.Group>
             <Form.Group as={Col} md="6">
               <Form.Label>Phone</Form.Label>
-              <Form.Control
-                required
-                type="tel"
-                placeholder="Phone"
-                value={this.state.admissionForm.phone}
+              <InputMask
+                {...this.props}
+                mask="(999) 999-9999"
+                maskChar=" "
                 onChange={e => this.onChangeForm(e)}
-              />
+              >
+                {inputProps => (
+                  <Form.Control
+                    {...inputProps}
+                    type="tel"
+                    placeholder="Phone"
+                  />
+                )}
+              </InputMask>
               <Form.Control.Feedback type="invalid">
                 Please enter Phone number.
               </Form.Control.Feedback>
@@ -342,13 +361,17 @@ export default class AdmissionsForm extends Component {
             </Form.Group>
             <Form.Group as={Col} md="4">
               <Form.Label>Zip</Form.Label>
-              <Form.Control
-                required
-                type="number"
-                placeholder="Zip"
-                value={this.state.admissionForm.zip}
+
+              <InputMask
+                {...this.props}
+                mask="99999"
+                maskChar=" "
                 onChange={e => this.onChangeForm(e)}
-              />
+              >
+                {inputProps => (
+                  <Form.Control {...inputProps} type="text" placeholder="Zip" />
+                )}
+              </InputMask>
               <Form.Control.Feedback type="invalid">
                 Please enter zip.
               </Form.Control.Feedback>
@@ -357,6 +380,7 @@ export default class AdmissionsForm extends Component {
           <Form.Row>
             <Form.Group as={Col} md="6">
               <Form.Label>Email Address</Form.Label>
+
               <Form.Control
                 required
                 type="email"
@@ -370,13 +394,21 @@ export default class AdmissionsForm extends Component {
             </Form.Group>
             <Form.Group as={Col} md="6">
               <Form.Label>Date of Birth</Form.Label>
-              <Form.Control
-                required
-                type="text"
-                placeholder="Date of Birth"
-                value={this.state.admissionForm.dateOfBirth}
+
+              <InputMask
+                {...this.props}
+                mask="99/99/9999"
+                maskChar=" "
                 onChange={e => this.onChangeForm(e)}
-              />
+              >
+                {inputProps => (
+                  <Form.Control
+                    {...inputProps}
+                    type="text"
+                    placeholder="Date of Birth"
+                  />
+                )}
+              </InputMask>
             </Form.Group>
           </Form.Row>
 
@@ -393,32 +425,6 @@ export default class AdmissionsForm extends Component {
                 Associates
               </Button>
             </ButtonGroup>
-
-            {/* <Col sm={10}>
-              <Form.Check
-                type="radio"
-                custom
-                id={`check-api-checkbox1`}
-                label="BMET"
-                name="formHorizontalRadios"
-                checked={this.state.programSelected === "check-api-checkbox1"}
-                onChange={e =>
-                  this.setState({ programSelected: e.target.value })
-                }
-              />
-              <Form.Check
-                type="radio"
-                custom
-                label="Associates"
-                id={`check-api-checkbox2`}
-                name="formHorizontalRadios"
-                checked={this.state.programSelected === "check-api-checkbox2"}
-                onChange={e => {
-                  console.log("e", e.target.value)
-                  this.setState({ programSelected: e.target.value })
-                }}
-              />
-            </Col> */}
           </Form.Group>
           <Button type="submit" className="float-right">
             Submit
