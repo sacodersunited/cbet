@@ -34,6 +34,8 @@ import DatePicker from "react-datepicker"
 import "react-datepicker/dist/react-datepicker.css"
 import newDoc from "../images/jc-gellidon-1386352-unsplashnew.jpg"
 import itDefaultImage from "../images/bmet-tech.jpg"
+import nPlusDefaultImage from "../images/logoNetworkPlus.svg"
+import aPlusDefaultImage from "../images/logoAPlus.svg"
 import styled from "styled-components"
 
 const CardTitle = styled.section`
@@ -50,12 +52,23 @@ class ClassAdmin extends React.Component {
     //   () => false
     // )
 
+    const newCbetClassesStaticQuery = props.cbetClasses.map(cbet => {
+      return cbet.node
+    })
+
+    const editModeClassesTest = Array.from(
+      Array(props.cbetClasses.length),
+      () => false
+    )
+
+    console.log("new classes", newCbetClassesStaticQuery, editModeClassesTest)
+
     this.state = {
       // Local dev requires cbClasses from json file above
       // Staging/Production leave as blank array
-      classes: [], // main classes pulled in from azure db
-      editModeClasses: [], // used in PROD only, show/hide each card in UI
-      // editModeClasses: editModeClassesTest, // Used in Local Dev only
+      classes: newCbetClassesStaticQuery, // main classes pulled in from azure db
+      // editModeClasses: [], // used in PROD only, show/hide each card in UI
+      editModeClasses: editModeClassesTest, // Used in Local Dev only
       newClass: {
         // used for Adding a new class card
         Title: "",
@@ -111,16 +124,17 @@ class ClassAdmin extends React.Component {
     this.onClickActive = this.onClickActive.bind(this) // Click on active | disabled in Edit mode
     this.onDropdownProgramAdd = this.onDropdownProgramAdd.bind(this)
     this.onClickActiveAdd = this.onClickActiveAdd.bind(this)
+    this.buildCbetSite = this.buildCbetSite.bind(this)
   }
 
   componentDidMount() {
-    console.log("class admin comp loaded")
-    // Comment this out in Local dev
-    this.GetClasses().then(() => {
-      this.setState({
-        editModeClasses: this.state.classes.map(elem => false),
-      })
-    })
+    // if (isEmpty(this.props.user)) {
+    //   this.GetClasses().then(() => {
+    //     this.setState({
+    //       editModeClasses: this.state.classes.map(elem => false),
+    //     })
+    //   })
+    // }
   }
 
   onClickActiveAdd(e) {
@@ -151,6 +165,40 @@ class ClassAdmin extends React.Component {
       console.log("found add text", e.target.text)
       let program = this.state.newClass
       program.ProgramSelected = e.target.text
+
+      // switch case
+      switch (e.target.text) {
+        case "BMET":
+          program.Title = "BMET"
+          program.Format = "Complete 2 courses every 6 weeks"
+          program.Training =
+            "Biomedical Service Company Practicum and/or Hospital Co-op."
+          break
+        case "Cert":
+          program.Title = "Cert"
+          program.Format = "Complete 16 online hours weekly."
+          program.Training =
+            "Biomedical Service Company Practicum and/or Hospital Co-op."
+
+          break
+        case "A_plus":
+          program.Title = "A Plus"
+          program.Format = "Complete 16 online hours weekly."
+          program.Training =
+            "Biomedical Service Company Practicum and/or Hospital Co-op."
+
+          break
+        case "N_plus":
+          program.Title = "N Plus"
+          program.Format = "Complete 16 online hours weekly."
+          program.Training =
+            "Biomedical Service Company Practicum and/or Hospital Co-op."
+
+          break
+        default:
+          return null
+      }
+
       this.setState({
         newClass: program,
       })
@@ -199,6 +247,9 @@ class ClassAdmin extends React.Component {
         this.setState({
           editModeClasses: this.state.classes.map(() => false),
         })
+      })
+      .then(() => {
+        this.buildCbetSite()
       })
   }
 
@@ -253,26 +304,30 @@ class ClassAdmin extends React.Component {
     }
 
     this.PostClasses(newClassMode).then(() =>
-      this.GetClasses().then(() => {
-        setTimeout(() => {
-          this.setState({
-            editModeClasses: this.state.classes.map(() => false),
-            validated: false,
-            showAddMessage: false,
-            newClass: {
-              Title: "",
-              Training: "",
-              Format: "",
-              RegistrationCloseDate: "",
-              EndDate: "",
-              StartDate: "",
-              Type: "Insert",
-              IsActive: false,
-              ProgramSelected: "",
-            },
-          })
-        }, 4000)
-      })
+      this.GetClasses()
+        .then(() => {
+          setTimeout(() => {
+            this.setState({
+              editModeClasses: this.state.classes.map(() => false),
+              validated: false,
+              showAddMessage: false,
+              newClass: {
+                Title: "",
+                Training: "",
+                Format: "",
+                RegistrationCloseDate: "",
+                EndDate: "",
+                StartDate: "",
+                Type: "Insert",
+                IsActive: false,
+                ProgramSelected: "",
+              },
+            })
+          }, 4000)
+        })
+        .then(() => {
+          this.buildCbetSite()
+        })
     )
   }
 
@@ -328,6 +383,9 @@ class ClassAdmin extends React.Component {
             showEditSaveMessage: false,
           })
         }, 3000)
+      })
+      .then(() => {
+        this.buildCbetSite()
       })
   }
 
@@ -455,6 +513,27 @@ class ClassAdmin extends React.Component {
       })
     } catch (error) {
       console.log("error getClasses", error)
+    }
+  }
+
+  buildCbetSite() {
+    const myHeaders = new Headers()
+    myHeaders.append("Content-Type", "text/plain")
+
+    const myInit = {
+      method: "POST",
+      headers: myHeaders,
+    }
+
+    console.log("cbet site build")
+    try {
+      fetch(
+        `https://api.netlify.com/build_hooks/5cf3ea316717989ed33fb674`,
+        myInit
+      )
+      console.log("build initiated")
+    } catch (ex) {
+      console.log("error build", ex)
     }
   }
 
@@ -596,6 +675,29 @@ class ClassAdmin extends React.Component {
               validated={this.state.validated}
             >
               <h2>Add Class</h2>
+              <Form.Group>
+                <Form.Label>Program Selected</Form.Label>
+                <DropdownButton
+                  drop="right"
+                  variant="primary"
+                  title="Select Program"
+                  id={`dropdown-button-drop-add`}
+                  key={`dropdown-button-drop-add-key1`}
+                  style={{ marginBottom: "10px", minWidth: "146px" }}
+                  width="142px"
+                  onClick={e => this.onDropdownProgramAdd(e)}
+                >
+                  <Dropdown.Item eventKey="1">BMET</Dropdown.Item>
+                  <Dropdown.Item eventKey="2">Cert</Dropdown.Item>
+                  <Dropdown.Item eventKey="3">A_plus</Dropdown.Item>
+                  <Dropdown.Item eventKey="4">N_plus</Dropdown.Item>
+                </DropdownButton>
+                <h4 style={{ display: "inline" }}>
+                  <Badge variant="dark" style={{ marginTop: "5px" }}>
+                    {this.state.newClass.ProgramSelected}
+                  </Badge>
+                </h4>
+              </Form.Group>
               <Form.Group controlId="exampleForm.ControlInput1">
                 <Form.Label>Title</Form.Label>
                 <Form.Control
@@ -674,28 +776,6 @@ class ClassAdmin extends React.Component {
                   onChange={this.onChangeAddRegDate}
                   placeholderText="registration close date"
                 />
-              </Form.Group>
-
-              <Form.Group>
-                <Form.Label>Program Selected</Form.Label>
-                <DropdownButton
-                  drop="right"
-                  variant="primary"
-                  title="Select Program"
-                  id={`dropdown-button-drop-add`}
-                  key={`dropdown-button-drop-add-key1`}
-                  style={{ marginBottom: "10px", minWidth: "146px" }}
-                  width="142px"
-                  onClick={e => this.onDropdownProgramAdd(e)}
-                >
-                  <Dropdown.Item eventKey="1">BMET</Dropdown.Item>
-                  <Dropdown.Item eventKey="2">I.T.</Dropdown.Item>
-                </DropdownButton>
-                <h4 style={{ display: "inline" }}>
-                  <Badge variant="dark" style={{ marginTop: "5px" }}>
-                    {this.state.newClass.ProgramSelected}
-                  </Badge>
-                </h4>
               </Form.Group>
 
               <Form.Group>
@@ -812,15 +892,39 @@ class ClassAdmin extends React.Component {
                       </ButtonToolbar>
                     ) : null}
 
-                    {cbetClass.ProgramSelected === "BMET" ? (
-                      <Card.Img variant="top" src={newDoc} />
-                    ) : (
-                      <Card.Img
-                        variant="top"
-                        src={itDefaultImage}
-                        style={{ minHeight: "207px" }}
-                      />
-                    )}
+                    {/* render app image for selector */}
+                    {(() => {
+                      switch (cbetClass.ProgramSelected) {
+                        case "BMET":
+                          return <Card.Img variant="top" src={newDoc} />
+                        case "Cert":
+                          return (
+                            <Card.Img
+                              variant="top"
+                              src={itDefaultImage}
+                              style={{ minHeight: "207px" }}
+                            />
+                          )
+                        case "A_plus":
+                          return (
+                            <Card.Img
+                              variant="top"
+                              src={aPlusDefaultImage}
+                              style={{ minHeight: "207px", height: "207px" }}
+                            />
+                          )
+                        case "N_plus":
+                          return (
+                            <Card.Img
+                              variant="top"
+                              src={nPlusDefaultImage}
+                              style={{ minHeight: "207px", height: "207px" }}
+                            />
+                          )
+                        default:
+                          return null
+                      }
+                    })()}
 
                     <Card.Body>
                       {/* Select Program type which enables different Image to load per program */}
@@ -841,7 +945,9 @@ class ClassAdmin extends React.Component {
                             onClick={e => this.onDropdownProgram(e, index)}
                           >
                             <Dropdown.Item eventKey="1">BMET</Dropdown.Item>
-                            <Dropdown.Item eventKey="2">I.T.</Dropdown.Item>
+                            <Dropdown.Item eventKey="2">Cert</Dropdown.Item>
+                            <Dropdown.Item eventKey="3">A_plus</Dropdown.Item>
+                            <Dropdown.Item eventKey="4">N_plus</Dropdown.Item>
                           </DropdownButton>
                           <h4 style={{ display: "inline" }}>
                             <Badge

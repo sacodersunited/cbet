@@ -2,7 +2,7 @@ import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
 import { Container, Navbar, Nav, NavDropdown } from "react-bootstrap"
-// import { isAuthenticated, logout, getProfile } from "../utils/auth"
+import { isAuthenticated, logout, getProfile } from "../utils/auth"
 
 import {
   FaFacebookSquare,
@@ -12,7 +12,7 @@ import {
 } from "react-icons/fa"
 
 const Header = ({ siteTitle }) => {
-  const user = {}
+  const user = getProfile()
   return (
     <>
       <Navbar bg="dark" variant="dark" expand="lg">
@@ -42,9 +42,9 @@ const Header = ({ siteTitle }) => {
                 to="/schedule/"
                 className="nav-link"
                 activeClassName="active"
-                // style={{
-                //   color: isAuthenticated() && user !== null ? "aqua" : "",
-                // }}
+                style={{
+                  color: isAuthenticated() && user !== null ? "aqua" : "",
+                }}
               >
                 Schedule
               </Link>
@@ -105,7 +105,7 @@ const Header = ({ siteTitle }) => {
                 />
                 Admin
               </Link>
-              {/* {isAuthenticated() === true && user !== null ? (
+              {isAuthenticated() === true && user !== null ? (
                 <>
                   <Link
                     to="/admin"
@@ -125,7 +125,7 @@ const Header = ({ siteTitle }) => {
                     Log Out
                   </a>
                 </>
-              ) : null} */}
+              ) : null}
             </Nav>
           </Navbar.Collapse>
         </Container>

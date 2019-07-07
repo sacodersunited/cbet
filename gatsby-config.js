@@ -47,5 +47,11 @@ module.exports = {
         head: true,
       },
     },
+    {
+      resolve: "gatsby-source-cbet",
+      options: {
+        code: config.GATSBY_code,
+      },
+    },
   ],
 }
