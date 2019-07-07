@@ -1,7 +1,14 @@
 import React, { Component } from "react"
-import { Container, Form, Jumbotron, Button, Col, Row } from "react-bootstrap"
+import {
+  Container,
+  Form,
+  Jumbotron,
+  Button,
+  Col,
+  Row,
+  ButtonGroup,
+} from "react-bootstrap"
 import { FaMapMarkerAlt } from "react-icons/fa"
-// import { getLocationToAddress } from "../utils/utility"
 
 export default class AdmissionsForm extends Component {
   constructor(props) {
@@ -21,6 +28,7 @@ export default class AdmissionsForm extends Component {
         email: "",
         dateOfBirth: "",
         program: "",
+        programSelected: "",
       },
     }
 
@@ -28,6 +36,17 @@ export default class AdmissionsForm extends Component {
     this.onChangeForm = this.onChangeForm.bind(this)
     this.onLocationSearch = this.onLocationSearch.bind(this)
     this.getLocationToAddress = this.getLocationToAddress.bind(this)
+    this.onClickProgram = this.onClickProgram.bind(this)
+  }
+
+  onClickProgram(e) {
+    console.log("click pgrm", e.target.innerHTML)
+
+    const formValues = this.state.admissionForm
+
+    formValues.programSelected = e.target.innerHTML
+
+    this.setState({ admissionForm: formValues })
   }
 
   onChangeForm(e) {
@@ -256,6 +275,7 @@ export default class AdmissionsForm extends Component {
                 placeholder="Social Security"
                 value={this.state.admissionForm.ssn}
                 onChange={e => this.onChangeForm(e)}
+                onBlur={e => this.onBlurForm(e)}
               />
             </Form.Group>
           </Form.Row>
@@ -365,20 +385,40 @@ export default class AdmissionsForm extends Component {
               Choose Program
             </Form.Label>
 
-            <Col sm={10}>
+            <ButtonGroup aria-label="Basic example" vertical>
+              <Button variant="primary" onClick={e => this.onClickProgram(e)}>
+                BMET
+              </Button>
+              <Button variant="primary" onClick={e => this.onClickProgram(e)}>
+                Associates
+              </Button>
+            </ButtonGroup>
+
+            {/* <Col sm={10}>
               <Form.Check
                 type="radio"
+                custom
                 id={`check-api-checkbox1`}
                 label="BMET"
                 name="formHorizontalRadios"
+                checked={this.state.programSelected === "check-api-checkbox1"}
+                onChange={e =>
+                  this.setState({ programSelected: e.target.value })
+                }
               />
               <Form.Check
                 type="radio"
+                custom
                 label="Associates"
                 id={`check-api-checkbox2`}
                 name="formHorizontalRadios"
+                checked={this.state.programSelected === "check-api-checkbox2"}
+                onChange={e => {
+                  console.log("e", e.target.value)
+                  this.setState({ programSelected: e.target.value })
+                }}
               />
-            </Col>
+            </Col> */}
           </Form.Group>
           <Button type="submit" className="float-right">
             Submit
