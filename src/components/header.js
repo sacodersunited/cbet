@@ -23,6 +23,9 @@ const Header = ({ siteTitle }) => {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">
+              <Link to="/about/" className="nav-link" activeClassName="active">
+                About
+              </Link>
               <NavDropdown title="Programs" id="basic-nav-dropdown">
                 <Link className="dropdown-item" to="/bmet-certificate/">
                   BMET Cert
@@ -62,30 +65,31 @@ const Header = ({ siteTitle }) => {
               <Link to="/faq/" className="nav-link" activeClassName="active">
                 FAQs
               </Link>
+              <Link
+                to="/contact/"
+                className="nav-link"
+                activeClassName="active"
+              >
+                Contact Us
+              </Link>
             </Nav>
             <Nav className="social-nav">
               <a
-                href="https://facebook.com"
+                href="https://www.facebook.com/CBETCOLLEGE/"
                 target="_blank"
                 className="nav-link"
+                rel="noopener noreferrer"
               >
                 <FaFacebookSquare
                   style={{ verticalAlign: "text-bottom", fontSize: "20px" }}
                 />
               </a>
+
               <a
-                href="https://twitter.com"
+                href="https://www.linkedin.com/company/cbetcollege/"
                 target="_blank"
                 className="nav-link"
-              >
-                <FaTwitterSquare
-                  style={{ verticalAlign: "text-bottom", fontSize: "20px" }}
-                />
-              </a>
-              <a
-                href="https://www.linkedin.com/"
-                target="_blank"
-                className="nav-link"
+                rel="noopener noreferrer"
               >
                 <FaLinkedin
                   style={{ verticalAlign: "text-bottom", fontSize: "20px" }}

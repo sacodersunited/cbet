@@ -4,7 +4,6 @@ require("dotenv").config({
 
 // And then you can use the config in gatsby-config.js
 const config = require("gatsby-plugin-config").default
-// console.log("code", process.env, config)
 
 module.exports = {
   siteMetadata: {
@@ -12,6 +11,7 @@ module.exports = {
     description: `Biomedical Equipment and Health Care Technology`,
     author: `@gatsbyjs`,
     codeFunc: config.GATSBY_code,
+    gmap: config.GOOGLE_API_KEY,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

@@ -2,6 +2,11 @@ import React from "react"
 import { Container, Row, Col, CardGroup, Card } from "react-bootstrap"
 import styled from "styled-components"
 import Zoom from "react-reveal/Zoom"
+import Jeff from "../images/testimonials/jeff.jpg"
+import Jerry from "../images/testimonials/jerry.jpg"
+import Jill from "../images/testimonials/jill.jpg"
+import Josh from "../images/testimonials/josh.jpg"
+import Julia from "../images/testimonials/julia.jpg"
 
 const TestimonialsSection = styled.section`
   padding: 96px 0;
@@ -18,7 +23,7 @@ const Testimonials = () => (
     <Zoom bottom>
       <CardGroup>
         <Card>
-          <Card.Img variant="top" src="http://i.pravatar.cc/400?img=34" />
+          <Card.Img variant="top" src={Jill} />
           <Card.Body>
             <Card.Title>Awesome</Card.Title>
             <Card.Text>
@@ -29,7 +34,7 @@ const Testimonials = () => (
           </Card.Body>
         </Card>
         <Card>
-          <Card.Img variant="top" src="http://i.pravatar.cc/400?img=59" />
+          <Card.Img variant="top" src={Jeff} />
           <Card.Body>
             <Card.Title>Graduated</Card.Title>
             <Card.Text>
@@ -40,7 +45,7 @@ const Testimonials = () => (
           </Card.Body>
         </Card>
         <Card>
-          <Card.Img variant="top" src="http://i.pravatar.cc/400?img=13" />
+          <Card.Img variant="top" src={Jerry} />
           <Card.Body>
             <Card.Title>Success</Card.Title>
             <Card.Text>
@@ -51,7 +56,7 @@ const Testimonials = () => (
           </Card.Body>
         </Card>
         <Card>
-          <Card.Img variant="top" src="http://i.pravatar.cc/400?img=12" />
+          <Card.Img variant="top" src={Josh} />
           <Card.Body>
             <Card.Title>Future is Bright</Card.Title>
             <Card.Text>
@@ -62,7 +67,7 @@ const Testimonials = () => (
           </Card.Body>
         </Card>
         <Card>
-          <Card.Img variant="top" src="http://i.pravatar.cc/400?img=32" />
+          <Card.Img variant="top" src={Julia} />
           <Card.Body>
             <Card.Title>Career Move</Card.Title>
             <Card.Text>
