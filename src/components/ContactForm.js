@@ -11,6 +11,7 @@ import {
   Alert,
 } from "react-bootstrap"
 import { FaRegThumbsUp } from "react-icons/fa"
+import InputMask from "react-input-mask"
 
 class ContactForm extends React.Component {
   constructor(props) {
@@ -328,13 +329,20 @@ class ContactForm extends React.Component {
             <Form.Group as={Col} md="3" controlId="validationCustomPhone">
               <Form.Label>Phone</Form.Label>
               <InputGroup>
-                <Form.Control
-                  type="tel"
-                  placeholder="210 221-1111"
-                  required
-                  value={this.state.contactForm.phone}
+                <InputMask
+                  {...this.props}
+                  mask="(999) 999-9999"
+                  maskChar=" "
                   onChange={e => this.onChangeForm(e)}
-                />
+                >
+                  {inputProps => (
+                    <Form.Control
+                      {...inputProps}
+                      type="tel"
+                      placeholder="Phone"
+                    />
+                  )}
+                </InputMask>
                 <Form.Control.Feedback type="invalid">
                   Please enter phone number.
                 </Form.Control.Feedback>
