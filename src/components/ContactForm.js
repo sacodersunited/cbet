@@ -43,10 +43,6 @@ class ContactForm extends React.Component {
     this.callGoogleScript = this.callGoogleScript.bind(this)
   }
 
-  componentDidMount() {
-    // getLocation
-  }
-
   onChangeForm(e) {
     e.preventDefault()
 
