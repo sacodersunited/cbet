@@ -5,7 +5,6 @@
   "version": "0.1.0",
   "author": "SA Coders United <support@sacodersunited.com>",
   "dependencies": {
-    "auth0-js": "^9.11.1",
     "bootstrap": "^4.3.1",
     "dotenv": "^8.0.0",
     "gatsby": "^2.13.13",
