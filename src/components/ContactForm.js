@@ -11,6 +11,7 @@ import {
   Alert,
 } from "react-bootstrap"
 import { FaRegThumbsUp } from "react-icons/fa"
+import InputMask from "react-input-mask"
 
 class ContactForm extends React.Component {
   constructor(props) {
@@ -46,7 +47,7 @@ class ContactForm extends React.Component {
   onChangeForm(e) {
     e.preventDefault()
 
-    console.log("onchangeform", e.target.value)
+    // console.log("onchangeform", e.target.value)
 
     const contactInfo = this.state.contactForm
 
@@ -230,9 +231,7 @@ class ContactForm extends React.Component {
   // https://stackoverflow.com/questions/52583277/get-user-city-and-country-in-react-native
   getLocationToAddress(location) {
     const locationToFind = `${location.latitude},${location.longitude}`
-    const url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${locationToFind}&sensor=true&key=${
-      this.props.mapkey
-    }`
+    const url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${locationToFind}&sensor=true&key=${this.props.mapkey}`
 
     fetch(url)
       .then(resp => resp.json())
@@ -329,13 +328,20 @@ class ContactForm extends React.Component {
               <Form.Group as={Col} md="3" controlId="validationCustomPhone">
                 <Form.Label>Phone</Form.Label>
                 <InputGroup>
-                  <Form.Control
-                    type="tel"
-                    placeholder="210 221-1111"
-                    required
-                    value={this.state.contactForm.phone}
+                  <InputMask
+                    {...this.props}
+                    mask="(999) 999-9999"
+                    maskChar=" "
                     onChange={e => this.onChangeForm(e)}
-                  />
+                  >
+                    {inputProps => (
+                      <Form.Control
+                        {...inputProps}
+                        type="tel"
+                        placeholder="Phone"
+                      />
+                    )}
+                  </InputMask>
                   <Form.Control.Feedback type="invalid">
                     Please enter phone number.
                   </Form.Control.Feedback>
