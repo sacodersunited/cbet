@@ -1,0 +1,391 @@
+{
+  "plus_code": {
+    "compound_code": "PJVR+MX Bulverde, TX, USA",
+    "global_code": "76X3PJVR+MX"
+  },
+  "results": [
+    {
+      "address_components": [
+        {
+          "long_name": "30420",
+          "short_name": "30420",
+          "types": ["street_number"]
+        },
+        {
+          "long_name": "Pickle",
+          "short_name": "Pickle",
+          "types": ["route"]
+        },
+        {
+          "long_name": "Bulverde",
+          "short_name": "Bulverde",
+          "types": ["locality", "political"]
+        },
+        {
+          "long_name": "Comal County",
+          "short_name": "Comal County",
+          "types": ["administrative_area_level_2", "political"]
+        },
+        {
+          "long_name": "Texas",
+          "short_name": "TX",
+          "types": ["administrative_area_level_1", "political"]
+        },
+        {
+          "long_name": "United States",
+          "short_name": "US",
+          "types": ["country", "political"]
+        },
+        {
+          "long_name": "78163",
+          "short_name": "78163",
+          "types": ["postal_code"]
+        },
+        {
+          "long_name": "4108",
+          "short_name": "4108",
+          "types": ["postal_code_suffix"]
+        }
+      ],
+      "formatted_address": "30420 Pickle, Bulverde, TX 78163, USA",
+      "geometry": {
+        "location": {
+          "lat": 29.743954,
+          "lng": -98.35768999999999
+        },
+        "location_type": "ROOFTOP",
+        "viewport": {
+          "northeast": {
+            "lat": 29.7453029802915,
+            "lng": -98.35634101970848
+          },
+          "southwest": {
+            "lat": 29.7426050197085,
+            "lng": -98.3590389802915
+          }
+        }
+      },
+      "place_id": "ChIJi2q0BaaFXIYR1FXAIsRwCxY",
+      "plus_code": {
+        "compound_code": "PJVR+HW Bulverde, Texas, United States",
+        "global_code": "76X3PJVR+HW"
+      },
+      "types": ["street_address"]
+    },
+    {
+      "address_components": [
+        {
+          "long_name": "30425",
+          "short_name": "30425",
+          "types": ["street_number"]
+        },
+        {
+          "long_name": "Pickle",
+          "short_name": "Pickle",
+          "types": ["route"]
+        },
+        {
+          "long_name": "Bulverde",
+          "short_name": "Bulverde",
+          "types": ["locality", "political"]
+        },
+        {
+          "long_name": "Comal County",
+          "short_name": "Comal County",
+          "types": ["administrative_area_level_2", "political"]
+        },
+        {
+          "long_name": "Texas",
+          "short_name": "TX",
+          "types": ["administrative_area_level_1", "political"]
+        },
+        {
+          "long_name": "United States",
+          "short_name": "US",
+          "types": ["country", "political"]
+        },
+        {
+          "long_name": "78163",
+          "short_name": "78163",
+          "types": ["postal_code"]
+        },
+        {
+          "long_name": "4109",
+          "short_name": "4109",
+          "types": ["postal_code_suffix"]
+        }
+      ],
+      "formatted_address": "30425 Pickle, Bulverde, TX 78163, USA",
+      "geometry": {
+        "location": {
+          "lat": 29.744766,
+          "lng": -98.35849229999999
+        },
+        "location_type": "RANGE_INTERPOLATED",
+        "viewport": {
+          "northeast": {
+            "lat": 29.7461149802915,
+            "lng": -98.3571433197085
+          },
+          "southwest": {
+            "lat": 29.7434170197085,
+            "lng": -98.3598412802915
+          }
+        }
+      },
+      "place_id": "EiUzMDQyNSBQaWNrbGUsIEJ1bHZlcmRlLCBUWCA3ODE2MywgVVNBIhwSGgoUChIJRVwuUq-FXIYRx2n0k4Tp1a0Q2e0B",
+      "types": ["street_address"]
+    },
+    {
+      "address_components": [
+        {
+          "long_name": "Beck Road",
+          "short_name": "Beck Rd",
+          "types": ["route"]
+        },
+        {
+          "long_name": "Bulverde",
+          "short_name": "Bulverde",
+          "types": ["locality", "political"]
+        },
+        {
+          "long_name": "Comal County",
+          "short_name": "Comal County",
+          "types": ["administrative_area_level_2", "political"]
+        },
+        {
+          "long_name": "Texas",
+          "short_name": "TX",
+          "types": ["administrative_area_level_1", "political"]
+        },
+        {
+          "long_name": "United States",
+          "short_name": "US",
+          "types": ["country", "political"]
+        },
+        {
+          "long_name": "78163",
+          "short_name": "78163",
+          "types": ["postal_code"]
+        }
+      ],
+      "formatted_address": "Beck Rd, Bulverde, TX 78163, USA",
+      "geometry": {
+        "bounds": {
+          "northeast": {
+            "lat": 29.74649089999999,
+            "lng": -98.3543246
+          },
+          "southwest": {
+            "lat": 29.7420689,
+            "lng": -98.35805560000001
+          }
+        },
+        "location": {
+          "lat": 29.7439609,
+          "lng": -98.3556366
+        },
+        "location_type": "GEOMETRIC_CENTER",
+        "viewport": {
+          "northeast": {
+            "lat": 29.74649089999999,
+            "lng": -98.3543246
+          },
+          "southwest": {
+            "lat": 29.7420689,
+            "lng": -98.35805560000001
+          }
+        }
+      },
+      "place_id": "ChIJtZKTJqaFXIYRLU3LjjQxp4E",
+      "types": ["route"]
+    },
+    {
+      "address_components": [
+        {
+          "long_name": "78163",
+          "short_name": "78163",
+          "types": ["postal_code"]
+        },
+        {
+          "long_name": "Bulverde",
+          "short_name": "Bulverde",
+          "types": ["locality", "political"]
+        },
+        {
+          "long_name": "Texas",
+          "short_name": "TX",
+          "types": ["administrative_area_level_1", "political"]
+        },
+        {
+          "long_name": "United States",
+          "short_name": "US",
+          "types": ["country", "political"]
+        }
+      ],
+      "formatted_address": "Bulverde, TX 78163, USA",
+      "geometry": {
+        "bounds": {
+          "northeast": {
+            "lat": 29.824643,
+            "lng": -98.30361309999999
+          },
+          "southwest": {
+            "lat": 29.71232,
+            "lng": -98.6233512
+          }
+        },
+        "location": {
+          "lat": 29.7695092,
+          "lng": -98.50620069999999
+        },
+        "location_type": "APPROXIMATE",
+        "viewport": {
+          "northeast": {
+            "lat": 29.824643,
+            "lng": -98.30361309999999
+          },
+          "southwest": {
+            "lat": 29.71232,
+            "lng": -98.6233512
+          }
+        }
+      },
+      "place_id": "ChIJkfE-wxaHXIYRGEELJncQE6w",
+      "types": ["postal_code"]
+    },
+    {
+      "address_components": [
+        {
+          "long_name": "Comal County",
+          "short_name": "Comal County",
+          "types": ["administrative_area_level_2", "political"]
+        },
+        {
+          "long_name": "Texas",
+          "short_name": "TX",
+          "types": ["administrative_area_level_1", "political"]
+        },
+        {
+          "long_name": "United States",
+          "short_name": "US",
+          "types": ["country", "political"]
+        }
+      ],
+      "formatted_address": "Comal County, TX, USA",
+      "geometry": {
+        "bounds": {
+          "northeast": {
+            "lat": 30.037993,
+            "lng": -97.9992709
+          },
+          "southwest": {
+            "lat": 29.594473,
+            "lng": -98.64624409999999
+          }
+        },
+        "location": {
+          "lat": 29.8105572,
+          "lng": -98.2212979
+        },
+        "location_type": "APPROXIMATE",
+        "viewport": {
+          "northeast": {
+            "lat": 30.037993,
+            "lng": -97.9992709
+          },
+          "southwest": {
+            "lat": 29.594473,
+            "lng": -98.64624409999999
+          }
+        }
+      },
+      "place_id": "ChIJrfT9lp-FXIYRe8ruG_TtGBU",
+      "types": ["administrative_area_level_2", "political"]
+    },
+    {
+      "address_components": [
+        {
+          "long_name": "Texas",
+          "short_name": "TX",
+          "types": ["administrative_area_level_1", "political"]
+        },
+        {
+          "long_name": "United States",
+          "short_name": "US",
+          "types": ["country", "political"]
+        }
+      ],
+      "formatted_address": "Texas, USA",
+      "geometry": {
+        "bounds": {
+          "northeast": {
+            "lat": 36.5007041,
+            "lng": -93.5080389
+          },
+          "southwest": {
+            "lat": 25.8371638,
+            "lng": -106.6456461
+          }
+        },
+        "location": {
+          "lat": 31.9685988,
+          "lng": -99.9018131
+        },
+        "location_type": "APPROXIMATE",
+        "viewport": {
+          "northeast": {
+            "lat": 36.5007041,
+            "lng": -93.5080389
+          },
+          "southwest": {
+            "lat": 25.8371638,
+            "lng": -106.6456461
+          }
+        }
+      },
+      "place_id": "ChIJSTKCCzZwQIYRPN4IGI8c6xY",
+      "types": ["administrative_area_level_1", "political"]
+    },
+    {
+      "address_components": [
+        {
+          "long_name": "United States",
+          "short_name": "US",
+          "types": ["country", "political"]
+        }
+      ],
+      "formatted_address": "United States",
+      "geometry": {
+        "bounds": {
+          "northeast": {
+            "lat": 71.5388001,
+            "lng": -66.885417
+          },
+          "southwest": {
+            "lat": 18.7763,
+            "lng": 170.5957
+          }
+        },
+        "location": {
+          "lat": 37.09024,
+          "lng": -95.712891
+        },
+        "location_type": "APPROXIMATE",
+        "viewport": {
+          "northeast": {
+            "lat": 71.5388001,
+            "lng": -66.885417
+          },
+          "southwest": {
+            "lat": 18.7763,
+            "lng": 170.5957
+          }
+        }
+      },
+      "place_id": "ChIJCzYy5IS16lQRQrfeQ5K5Oxw",
+      "types": ["country", "political"]
+    }
+  ],
+  "status": "OK"
+}
