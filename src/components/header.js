@@ -3,13 +3,8 @@ import PropTypes from "prop-types"
 import React from "react"
 import { Container, Navbar, Nav, NavDropdown } from "react-bootstrap"
 // import { isAuthenticated, logout, getProfile } from "../utils/auth"
-
-import {
-  FaFacebookSquare,
-  FaTwitterSquare,
-  FaLinkedin,
-  FaUserLock,
-} from "react-icons/fa"
+import Logo from "../images/logo/CBET-04.png"
+import { FaFacebookSquare, FaLinkedin, FaUserLock } from "react-icons/fa"
 
 const Header = ({ siteTitle }) => {
   // const user = getProfile()
@@ -18,9 +13,16 @@ const Header = ({ siteTitle }) => {
     <>
       <Navbar bg="dark" variant="dark" expand="lg">
         <Container>
-          <Link className="navbar-brand" to="/">
-            {siteTitle}
-          </Link>
+          <Navbar.Brand href="/">
+            <img
+              src={Logo}
+              width="120"
+              height="auto"
+              className="d-inline-block align-top"
+              alt="CBET logo"
+            />
+          </Navbar.Brand>
+
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">
