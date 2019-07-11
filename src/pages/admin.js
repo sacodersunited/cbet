@@ -1,19 +1,20 @@
 import React from "react"
 import SEO from "../components/seo"
 import ListGroup from "react-bootstrap/ListGroup"
-import { login, isAuthenticated, getProfile } from "../utils/auth"
+// import { login, isAuthenticated, getProfile } from "../utils/auth"
 import Layout from "../components/layout"
 import Container from "react-bootstrap/Container"
 import { navigate } from "gatsby"
 
 const Admin = () => {
-  if (!isAuthenticated()) {
-    // console.log("not authenticated")
-    login()
-    return <p>Redirecting to login...</p>
-  }
+  // if (!isAuthenticated()) {
+  //   // console.log("not authenticated")
+  //   login()
+  //   return <p>Redirecting to login...</p>
+  // }
 
-  const user = getProfile()
+  // const user = getProfile()
+  const user = null
   console.log("user", user)
   return (
     <Layout>

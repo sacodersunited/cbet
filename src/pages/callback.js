@@ -1,9 +1,9 @@
 import React from "react"
-import { handleAuthentication } from "../utils/auth"
+// import { handleAuthentication } from "../utils/auth"
 import Spinner from "react-bootstrap/Spinner"
 
 const Callback = () => {
-  handleAuthentication()
+  // handleAuthentication()
 
   return (
     <Spinner animation="border" role="status">
