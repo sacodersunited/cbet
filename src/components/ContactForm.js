@@ -280,7 +280,6 @@ class ContactForm extends React.Component {
                 <b>Address:</b> 11550 IH-10 West, Suite 190, San Antonio, Texas
                 78230
               </li>
-              <li>{"        "}San Antonio, Texas 78230</li>
               <li>
                 <b>Phone:</b> (210) 233-1102
               </li>

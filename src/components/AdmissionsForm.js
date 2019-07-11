@@ -124,9 +124,7 @@ export default class AdmissionsForm extends Component {
 
   getLocationToAddress(location) {
     const locationToFind = `${location.latitude},${location.longitude}`
-    const url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${locationToFind}&sensor=true&key=${
-      this.props.mapkey
-    }`
+    const url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${locationToFind}&sensor=true&key=${this.props.mapkey}`
 
     const adForm = this.state.admissionForm
 
@@ -253,184 +251,193 @@ export default class AdmissionsForm extends Component {
 
   render() {
     return (
-      <Container>
+      <>
         <Jumbotron>
-          <h1>Admissions</h1>
+          <Container>
+            <h1>Admissions</h1>
+          </Container>
         </Jumbotron>
-        <Form
-          validated={this.state.validated}
-          onSubmit={e => this.handleSubmit(e)}
-        >
-          <Form.Row>
-            <Form.Group as={Col} md="6">
-              <Form.Label>Student Name (First name, Last name)</Form.Label>
-              <Form.Control
-                required
-                type="text"
-                placeholder="Student Name"
-                value={this.state.admissionForm.studentName}
-                onChange={e => this.onChangeForm(e)}
-              />
-            </Form.Group>
-            <Form.Group as={Col} md="6">
-              <Form.Label>Social Security Number</Form.Label>
-              <InputMask
-                {...this.props}
-                mask="999-99-9999"
-                maskChar=" "
-                onChange={e => this.onChangeForm(e)}
-              >
-                {inputProps => (
-                  <Form.Control
-                    {...inputProps}
-                    required
-                    type="text"
-                    placeholder="Social Security"
-                  />
-                )}
-              </InputMask>
-            </Form.Group>
-          </Form.Row>
-          <Form.Row>
-            <Form.Group as={Col} md="6">
-              <Form.Label>Address</Form.Label>
 
-              <Form.Control
-                required
-                type="text"
-                placeholder="Address"
-                value={this.state.admissionForm.address}
-                onChange={e => this.onChangeForm(e)}
-              />
-            </Form.Group>
-            <Form.Group as={Col} md="6">
-              <Form.Label>Phone</Form.Label>
-              <InputMask
-                {...this.props}
-                mask="(999) 999-9999"
-                maskChar=" "
-                onChange={e => this.onChangeForm(e)}
-              >
-                {inputProps => (
-                  <Form.Control
-                    {...inputProps}
-                    type="tel"
-                    placeholder="Phone"
-                  />
-                )}
-              </InputMask>
-              <Form.Control.Feedback type="invalid">
-                Please enter Phone number.
-              </Form.Control.Feedback>
-            </Form.Group>
-          </Form.Row>
-          <Form.Row>
-            <Form.Group as={Col} md="4">
-              <Form.Label>City</Form.Label>
-              <Button
-                size="sm"
-                style={{ marginLeft: "10px" }}
-                onClick={e => this.onLocationSearch(e)}
-              >
-                <FaMapMarkerAlt style={{ marginRight: "5px" }} />
-                Locate
-              </Button>
-              <Form.Control
-                required
-                type="text"
-                placeholder="City"
-                value={this.state.admissionForm.city}
-                onChange={e => this.onChangeForm(e)}
-              />
-              <Form.Control.Feedback type="invalid">
-                Please enter city.
-              </Form.Control.Feedback>
-            </Form.Group>
-            <Form.Group as={Col} md="4">
-              <Form.Label>State</Form.Label>
-              <Form.Control
-                required
-                type="text"
-                placeholder="State"
-                value={this.state.admissionForm.state}
-                onChange={e => this.onChangeForm(e)}
-              />
-              <Form.Control.Feedback type="invalid">
-                Please enter State.
-              </Form.Control.Feedback>
-            </Form.Group>
-            <Form.Group as={Col} md="4">
-              <Form.Label>Zip</Form.Label>
+        <Container>
+          <Form
+            validated={this.state.validated}
+            onSubmit={e => this.handleSubmit(e)}
+          >
+            <Form.Row>
+              <Form.Group as={Col} md="6">
+                <Form.Label>Student Name (First name, Last name)</Form.Label>
+                <Form.Control
+                  required
+                  type="text"
+                  placeholder="Student Name"
+                  value={this.state.admissionForm.studentName}
+                  onChange={e => this.onChangeForm(e)}
+                />
+              </Form.Group>
+              <Form.Group as={Col} md="6">
+                <Form.Label>Social Security Number</Form.Label>
+                <InputMask
+                  {...this.props}
+                  mask="999-99-9999"
+                  maskChar=" "
+                  onChange={e => this.onChangeForm(e)}
+                >
+                  {inputProps => (
+                    <Form.Control
+                      {...inputProps}
+                      required
+                      type="text"
+                      placeholder="Social Security"
+                    />
+                  )}
+                </InputMask>
+              </Form.Group>
+            </Form.Row>
+            <Form.Row>
+              <Form.Group as={Col} md="6">
+                <Form.Label>Address</Form.Label>
 
-              <InputMask
-                {...this.props}
-                mask="99999"
-                maskChar=" "
-                onChange={e => this.onChangeForm(e)}
-              >
-                {inputProps => (
-                  <Form.Control {...inputProps} type="text" placeholder="Zip" />
-                )}
-              </InputMask>
-              <Form.Control.Feedback type="invalid">
-                Please enter zip.
-              </Form.Control.Feedback>
+                <Form.Control
+                  required
+                  type="text"
+                  placeholder="Address"
+                  value={this.state.admissionForm.address}
+                  onChange={e => this.onChangeForm(e)}
+                />
+              </Form.Group>
+              <Form.Group as={Col} md="6">
+                <Form.Label>Phone</Form.Label>
+                <InputMask
+                  {...this.props}
+                  mask="(999) 999-9999"
+                  maskChar=" "
+                  onChange={e => this.onChangeForm(e)}
+                >
+                  {inputProps => (
+                    <Form.Control
+                      {...inputProps}
+                      type="tel"
+                      placeholder="Phone"
+                    />
+                  )}
+                </InputMask>
+                <Form.Control.Feedback type="invalid">
+                  Please enter Phone number.
+                </Form.Control.Feedback>
+              </Form.Group>
+            </Form.Row>
+            <Form.Row>
+              <Form.Group as={Col} md="4">
+                <Form.Label>City</Form.Label>
+                <Button
+                  size="sm"
+                  style={{ marginLeft: "10px" }}
+                  onClick={e => this.onLocationSearch(e)}
+                >
+                  <FaMapMarkerAlt style={{ marginRight: "5px" }} />
+                  Locate
+                </Button>
+                <Form.Control
+                  required
+                  type="text"
+                  placeholder="City"
+                  value={this.state.admissionForm.city}
+                  onChange={e => this.onChangeForm(e)}
+                />
+                <Form.Control.Feedback type="invalid">
+                  Please enter city.
+                </Form.Control.Feedback>
+              </Form.Group>
+              <Form.Group as={Col} md="4">
+                <Form.Label>State</Form.Label>
+                <Form.Control
+                  required
+                  type="text"
+                  placeholder="State"
+                  value={this.state.admissionForm.state}
+                  onChange={e => this.onChangeForm(e)}
+                />
+                <Form.Control.Feedback type="invalid">
+                  Please enter State.
+                </Form.Control.Feedback>
+              </Form.Group>
+              <Form.Group as={Col} md="4">
+                <Form.Label>Zip</Form.Label>
+
+                <InputMask
+                  {...this.props}
+                  mask="99999"
+                  maskChar=" "
+                  onChange={e => this.onChangeForm(e)}
+                >
+                  {inputProps => (
+                    <Form.Control
+                      {...inputProps}
+                      type="text"
+                      placeholder="Zip"
+                    />
+                  )}
+                </InputMask>
+                <Form.Control.Feedback type="invalid">
+                  Please enter zip.
+                </Form.Control.Feedback>
+              </Form.Group>
+            </Form.Row>
+            <Form.Row>
+              <Form.Group as={Col} md="6">
+                <Form.Label>Email Address</Form.Label>
+
+                <Form.Control
+                  required
+                  type="email"
+                  placeholder="Email Address"
+                  value={this.state.admissionForm.email}
+                  onChange={e => this.onChangeForm(e)}
+                />
+                <Form.Control.Feedback type="invalid">
+                  Please enter email address.
+                </Form.Control.Feedback>
+              </Form.Group>
+              <Form.Group as={Col} md="6">
+                <Form.Label>Date of Birth</Form.Label>
+
+                <InputMask
+                  {...this.props}
+                  mask="99/99/9999"
+                  maskChar=" "
+                  onChange={e => this.onChangeForm(e)}
+                >
+                  {inputProps => (
+                    <Form.Control
+                      {...inputProps}
+                      type="text"
+                      placeholder="Date of Birth"
+                    />
+                  )}
+                </InputMask>
+              </Form.Group>
+            </Form.Row>
+
+            <Form.Group as={Row}>
+              <Form.Label as="legend" column sm={2}>
+                Choose Program
+              </Form.Label>
+
+              <ButtonGroup aria-label="Basic example" vertical>
+                <Button variant="primary" onClick={e => this.onClickProgram(e)}>
+                  BMET
+                </Button>
+                <Button variant="primary" onClick={e => this.onClickProgram(e)}>
+                  Associates
+                </Button>
+              </ButtonGroup>
             </Form.Group>
-          </Form.Row>
-          <Form.Row>
-            <Form.Group as={Col} md="6">
-              <Form.Label>Email Address</Form.Label>
-
-              <Form.Control
-                required
-                type="email"
-                placeholder="Email Address"
-                value={this.state.admissionForm.email}
-                onChange={e => this.onChangeForm(e)}
-              />
-              <Form.Control.Feedback type="invalid">
-                Please enter email address.
-              </Form.Control.Feedback>
-            </Form.Group>
-            <Form.Group as={Col} md="6">
-              <Form.Label>Date of Birth</Form.Label>
-
-              <InputMask
-                {...this.props}
-                mask="99/99/9999"
-                maskChar=" "
-                onChange={e => this.onChangeForm(e)}
-              >
-                {inputProps => (
-                  <Form.Control
-                    {...inputProps}
-                    type="text"
-                    placeholder="Date of Birth"
-                  />
-                )}
-              </InputMask>
-            </Form.Group>
-          </Form.Row>
-
-          <Form.Group as={Row}>
-            <Form.Label as="legend" column sm={2}>
-              Choose Program
-            </Form.Label>
-
-            <ButtonGroup aria-label="Basic example" vertical>
-              <Button variant="primary" onClick={e => this.onClickProgram(e)}>
-                BMET
-              </Button>
-              <Button variant="primary" onClick={e => this.onClickProgram(e)}>
-                Associates
-              </Button>
-            </ButtonGroup>
-          </Form.Group>
-          <Button type="submit" className="float-right">
-            Submit
-          </Button>
-        </Form>
-      </Container>
+            <Button type="submit" className="float-right">
+              Submit
+            </Button>
+          </Form>
+        </Container>
+      </>
     )
   }
 }
