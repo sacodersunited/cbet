@@ -7,6 +7,7 @@ import {
   Col,
   Row,
   ButtonGroup,
+  Alert,
 } from "react-bootstrap"
 import { FaMapMarkerAlt } from "react-icons/fa"
 import InputMask from "react-input-mask"
@@ -30,7 +31,9 @@ export default class AdmissionsForm extends Component {
         dateOfBirth: "",
         program: "",
         programSelected: "",
+        drivers: "",
       },
+      isDone: false,
     }
 
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -81,6 +84,9 @@ export default class AdmissionsForm extends Component {
         break
       case "Zip":
         admissionInfo.zip = e.target.value
+        break
+      case "Drivers License":
+        admissionInfo.drivers = e.target.value
         break
       case "Date of Birth":
         admissionInfo.dateOfBirth = e.target.value
@@ -201,11 +207,15 @@ export default class AdmissionsForm extends Component {
       this.state.admissionForm.dateOfBirth
     )}`
 
+    let eDrivers = `${encodeURIComponent("drivers")}=${encodeURIComponent(
+      this.state.admissionForm.drivers
+    )}`
+
     let eProgramSelected = `${encodeURIComponent(
       "program"
     )}=${encodeURIComponent(this.state.admissionForm.program)}`
 
-    const querystring = `${eName}&${eSsn}&${eAddress}&${ePhone}&${eCity}&${eState}&${eZip}&${eEmail}&${eDOB}&${eProgramSelected}&formGoogleSheetName=responses`
+    const querystring = `${eName}&${eSsn}&${eAddress}&${ePhone}&${eCity}&${eState}&${eZip}&${eEmail}&${eDOB}&${eProgramSelected}&${eDrivers}&formGoogleSheetName=responses`
 
     fetch(
       "https://script.google.com/macros/s/AKfycbwv08pxtawNZnuvOl8akeANYFoBG-kI-x2mM01AutvBKLXt8hTp/exec?" +
@@ -220,7 +230,7 @@ export default class AdmissionsForm extends Component {
       if (!response.ok) {
         throw Error("Network request failed")
       }
-      console.log(response)
+      console.log("resp", response, querystring)
 
       this.setState({
         isDone: true,
@@ -237,6 +247,7 @@ export default class AdmissionsForm extends Component {
           email: "",
           dateOfBirth: "",
           program: "",
+          drivers: "",
         },
       })
 
@@ -384,7 +395,7 @@ export default class AdmissionsForm extends Component {
               </Form.Group>
             </Form.Row>
             <Form.Row>
-              <Form.Group as={Col} md="6">
+              <Form.Group as={Col} md="5">
                 <Form.Label>Email Address</Form.Label>
 
                 <Form.Control
@@ -398,7 +409,21 @@ export default class AdmissionsForm extends Component {
                   Please enter email address.
                 </Form.Control.Feedback>
               </Form.Group>
-              <Form.Group as={Col} md="6">
+              <Form.Group as={Col} md="3">
+                <Form.Label>Drivers License</Form.Label>
+
+                <Form.Control
+                  required
+                  type="text"
+                  placeholder="Drivers License"
+                  value={this.state.admissionForm.drivers}
+                  onChange={e => this.onChangeForm(e)}
+                />
+                <Form.Control.Feedback type="invalid">
+                  Please enter Drivers License number.
+                </Form.Control.Feedback>
+              </Form.Group>
+              <Form.Group as={Col} md="4">
                 <Form.Label>Date of Birth</Form.Label>
 
                 <InputMask
@@ -417,24 +442,40 @@ export default class AdmissionsForm extends Component {
                 </InputMask>
               </Form.Group>
             </Form.Row>
+            <Form.Row>
+              <Form.Group as={Col} md="7">
+                <Form.Label as="legend">Choose Program</Form.Label>
 
-            <Form.Group as={Row}>
-              <Form.Label as="legend" column sm={2}>
-                Choose Program
-              </Form.Label>
+                <ButtonGroup
+                  aria-label="Basic example"
+                  style={{ marginLeft: "10px" }}
+                >
+                  <Button
+                    variant="primary"
+                    onClick={e => this.onClickProgram(e)}
+                  >
+                    BMET
+                  </Button>
+                  <Button
+                    variant="primary"
+                    onClick={e => this.onClickProgram(e)}
+                  >
+                    Associates
+                  </Button>
+                </ButtonGroup>
+              </Form.Group>
 
-              <ButtonGroup aria-label="Basic example" vertical>
-                <Button variant="primary" onClick={e => this.onClickProgram(e)}>
-                  BMET
+              <Form.Group as={Col} md="5">
+                <Button type="submit" className="float-right">
+                  Submit
                 </Button>
-                <Button variant="primary" onClick={e => this.onClickProgram(e)}>
-                  Associates
-                </Button>
-              </ButtonGroup>
-            </Form.Group>
-            <Button type="submit" className="float-right">
-              Submit
-            </Button>
+              </Form.Group>
+            </Form.Row>
+            <Form.Row className="float-right">
+              <Alert show={this.state.isDone} variant="success">
+                <Alert.Heading>Admission submitted.</Alert.Heading>
+              </Alert>
+            </Form.Row>
           </Form>
         </Container>
       </>
