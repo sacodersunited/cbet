@@ -255,6 +255,8 @@ export default class AdmissionsForm extends Component {
         this.setState({
           isDone: false,
         })
+
+        window.location.reload()
       }, 3500)
       return response
     })
@@ -468,6 +470,9 @@ export default class AdmissionsForm extends Component {
               <Form.Group as={Col} md="5">
                 <Button type="submit" className="float-right">
                   Submit
+                </Button>
+                <Button onClick={() => window.location.reload()}>
+                  Window reload
                 </Button>
               </Form.Group>
             </Form.Row>

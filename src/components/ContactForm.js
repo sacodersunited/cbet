@@ -426,7 +426,7 @@ class ContactForm extends React.Component {
                 </DropdownButton>
               </Form.Group>
               <Form.Group as={Col} md="3">
-                <Form.Label>Hear answer</Form.Label>
+                <Form.Label></Form.Label>
                 <Form.Control
                   type="text"
                   placeholder="hear about us"
@@ -452,7 +452,7 @@ class ContactForm extends React.Component {
                 </DropdownButton>
               </Form.Group>
               <Form.Group as={Col} md="4">
-                <Form.Label>Program answer</Form.Label>
+                <Form.Label></Form.Label>
                 <Form.Control
                   type="text"
                   placeholder="program"
