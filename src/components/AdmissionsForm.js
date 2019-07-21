@@ -471,9 +471,6 @@ export default class AdmissionsForm extends Component {
                 <Button type="submit" className="float-right">
                   Submit
                 </Button>
-                <Button onClick={() => window.location.reload()}>
-                  Window reload
-                </Button>
               </Form.Group>
             </Form.Row>
             <Form.Row className="float-right">
