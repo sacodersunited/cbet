@@ -48,14 +48,16 @@ const Programs = () => (
         <ProgramDetail>
           <h2 className="text-uppercase mb-5">Program Overview</h2>
           <Fade>
-            <h4>Program Length</h4>
-            <p> 80 Contact Hours</p>
-            <h4>Program Composition</h4>
-            <p>Online</p>
-            <h4>Classes</h4>
-            <p>Classes 5 days a week(Monday - Friday)</p>
-            <p>Class Length: 3 hours</p>
-            <p>Class Times: 8am - 12am, 12pm-3pm, 4pm - 5pm</p>
+            <Col md="8">
+              <h4>Program Length</h4>
+              <p> 80 Contact Hours</p>
+              <h4>Program Composition</h4>
+              <p>Online</p>
+              <h4>Classes</h4>
+              <p>Classes 5 days a week(Monday - Friday)</p>
+              <p>Class Length: 3 hours</p>
+              <p>Class Times: 8am - 12am, 12pm-3pm, 4pm - 5pm</p>
+            </Col>
           </Fade>
         </ProgramDetail>
       </Col>
