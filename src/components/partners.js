@@ -6,6 +6,7 @@ import TechNationImg from "../images/TechNation_logo.png"
 import TFCImg from "../images/tfc_logo.png"
 import SIImg from "../images/si-recruiting.png"
 import TFCDoc from "../documents/TFCoverviewForStudents.CIT.pdf"
+import SummitLogo from "../images/summit-logo.webp"
 
 const Partners = () => (
   <Row>
@@ -23,7 +24,11 @@ const Partners = () => (
     </Col>
     <Col md={7}>
       <Row>
-        <Col md={4} style={{ alignSelf: "center", textAlign: "center" }}>
+        <Col
+          className="mb-5"
+          md={4}
+          style={{ alignSelf: "center", textAlign: "center" }}
+        >
           <Pulse>
             <a
               href="https://1technation.com/"
@@ -34,18 +39,45 @@ const Partners = () => (
             </a>
           </Pulse>
         </Col>
-        <Col md={4} style={{ alignSelf: "center", textAlign: "center" }}>
+        <Col
+          className="mb-5"
+          md={4}
+          style={{ alignSelf: "center", textAlign: "center" }}
+        >
           <a href={TFCDoc} target="_blank" rel="noopener noreferrer">
             <Image src={TFCImg} alt="TFC logo" fluid />
           </a>
         </Col>
-        <Col md={4} style={{ alignSelf: "center", textAlign: "center" }}>
+        <Col
+          className="mb-5"
+          md={4}
+          style={{ alignSelf: "center", textAlign: "center" }}
+        >
           <a
             href="https://www.bmets-usa.com/"
             target="_blank"
             rel="noopener noreferrer"
           >
             <Image src={SIImg} alt="Stephens International logo" fluid />
+          </a>
+        </Col>
+
+        <Col
+          md={4}
+          className="mb-5"
+          style={{ alignSelf: "center", textAlign: "center" }}
+        >
+          <a
+            href="https://www.mysummitimaging.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Image
+              src={SummitLogo}
+              alt="Summit Imaging logo"
+              fluid
+              width="400"
+            />
           </a>
         </Col>
       </Row>

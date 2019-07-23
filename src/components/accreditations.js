@@ -26,7 +26,7 @@ const Accreditations = () => (
           <p>
             CBET is Accredited by the Accrediting Council for Continuing
             Education & Training (ACCET), a national accrediting agency listed
-            by the U.S. Department of Education. CIT is also Approved and
+            by the U.S. Department of Education. CBET is also Approved and
             Regulated by the Texas Workforce Commission, Career Schools and
             Colleges, Austin, Texas.
           </p>
@@ -35,19 +35,38 @@ const Accreditations = () => (
           <Row>
             <Col md={4} style={{ alignSelf: "center", textAlign: "center" }}>
               <Pulse>
-                <Image src={AccImg} alt="acc logo" fluid />
+                <a
+                  rel="noopener noreferrer"
+                  target="_blank"
+                  href="https://accet.org/"
+                >
+                  <Image src={AccImg} alt="acc logo" fluid />
+                </a>
               </Pulse>
             </Col>
             <Col md={4} style={{ alignSelf: "center", textAlign: "center" }}>
-              <Image
-                src={twcImg}
-                alt="twc logo"
-                style={{ maxHeight: "200px" }}
-                fluid
-              />
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://twc.texas.gov/"
+              >
+                <Image
+                  src={twcImg}
+                  alt="twc logo"
+                  style={{ maxHeight: "180px" }}
+                  fluid
+                  roundedCircle
+                />
+              </a>
             </Col>
             <Col md={4} style={{ alignSelf: "center", textAlign: "center" }}>
-              <Image src={TXHigherImg} alt="twc logo" fluid />
+              <a
+                rel="noopener noreferrer"
+                target="_blank"
+                href="http://www.thecb.state.tx.us/"
+              >
+                <Image src={TXHigherImg} alt="twc logo" fluid />
+              </a>
             </Col>
           </Row>
         </Col>

@@ -25,17 +25,24 @@ const Programs = () => (
         <Col md={7}>
           <Fade left>
             <h1 className="display-5 text-uppercase">
-              BioMedical Equipment Technician
+              BIOMEDICAL EQUIPMENT TECHNICIAN (BMET) <br />
+              <small className="text-muted font-weight-light">
+                25 WEEK CERTIFICATE COURSE
+              </small>
             </h1>
             <p>
-              To ensure medical equipment operates smoothly when it’s needed the
-              most, medical professionals depend on biomedical equipment
-              technicians or BMETs. BMETs maintain patient care equipment and
-              also help other staff members understand how to properly operate
-              the equipment.
+              The Biomedical Equipment Technician (BMET) certificate program is
+              a 25-week intensive academic program delivering theoretical
+              instruction via online interactive distance learning. Students
+              enrolled in the certificate program are not required to
+              participate in an externship. Our training system provides
+              interactive instruction through our Canvas Learning Management
+              System and includes online meetings via Zoom® Video Conferencing.
+              Classes completed as part of the BMET Certificate course are
+              transferable to the BMET AAS Degree Program.
             </p>
 
-            <Link to="/">
+            <Link to="/admissions">
               <Button className="text-uppercase"> Apply Today</Button>
             </Link>
           </Fade>
@@ -48,15 +55,20 @@ const Programs = () => (
         <ProgramDetail>
           <h2 className="text-uppercase mb-5">Program Overview</h2>
           <Fade>
-            <h4>Program Length</h4>
+            <Col md="8">
+              <h4>Program Cost</h4>
 
-            <p>6 Months</p>
-            <h4>Program Composition</h4>
-            <p>Online</p>
-            <h4>Classes</h4>
-            <p>Classes 5 days a week(Monday - Friday)</p>
-            <p>Class Length: 3 hours</p>
-            <p>Class Times: 8am - 12am, 12pm-3pm, 4pm - 5pm</p>
+              <p>$5500</p>
+              <h4>Program Length</h4>
+              <p>7 Months or 480 hours</p>
+              <h4>Accreditation</h4>
+              <p>
+                The certificate program is accredited by the Accrediting Council
+                for Continuing Education and Training (ACCET); and authorized by
+                the Texas Work Force Commission (TWC) and the Texas Higher
+                Education Coordinating Board (THECB).
+              </p>
+            </Col>
           </Fade>
         </ProgramDetail>
       </Col>
@@ -76,15 +88,16 @@ const Programs = () => (
       <Row className="mb-5 align-items-center">
         <Col md={6}>
           <Slide left>
-            <h4>Program Outline</h4>
+            <h4>Course Content</h4>
             <ul>
-              <li>Medical Terminology</li>
-              <li>Basic Anatomy</li>
-              <li>Organizational Behavior in Healthcare</li>
-              <li>Introduction to Computer Office Programs</li>
-              <li>Introduction to Computer Networking</li>
-              <li> Introduction to Electronic Circuits</li>
-              <li>Biomedical Equipment Technology</li>
+              <li>BMTO 1302 Medical Terminology and Anatomy (6 Weeks) </li>
+              <li>BMTO 1305 Electronics (6 Weeks)</li>
+              <li>BMTO 2304 Biomedical Equipment Technology (6 Weeks) </li>
+              <li>BMTO 1303 Networking Fundamentals (6 Weeks) </li>
+              <li>
+                BMTO 1609 Biomedical Equipment Technician Certificate Capstone
+                (6 Weeks)
+              </li>
             </ul>
           </Slide>
         </Col>

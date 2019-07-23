@@ -1,7 +1,8 @@
 import React from "react"
-import { Container, Row, Col } from "react-bootstrap"
+import { Container, Row, Col, Image } from "react-bootstrap"
 import styled from "styled-components"
-import { FaFacebookF, FaTwitter, FaLinkedinIn } from "react-icons/fa"
+import { FaFacebookF, FaLinkedinIn } from "react-icons/fa"
+import Logo from "../../src/images/logo/footer-logo.svg"
 
 const FooterSection = styled.footer`
   color: whitesmoke;
@@ -16,8 +17,7 @@ const Footer = () => (
     <Container>
       <Row>
         <Col>
-          <h2 style={{ textTransform: "uppercase" }}>CBET </h2>
-          <p>@CBET 2019</p>
+          <Image src={Logo} />
         </Col>
         <Col>
           <a className="d-block text-light mb-3" href="#">

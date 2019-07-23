@@ -70,7 +70,14 @@ const Header = ({ siteTitle }) => {
                 className="nav-link"
                 activeClassName="active"
               >
-                International Students
+                Intl Students
+              </Link>
+              <Link
+                to="/career-services/"
+                className="nav-link"
+                activeClassName="active"
+              >
+                Career
               </Link>
               <Link to="/faq/" className="nav-link" activeClassName="active">
                 FAQs

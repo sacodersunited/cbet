@@ -20,7 +20,7 @@ const ProgramDetail = styled.div`
 const Programs = () => (
   <LayoutDetail>
     <SEO title="Programs" />
-    <GraphicHeader imgSrc={headerImg} title="BMET Degree" />
+    <GraphicHeader imgSrc={headerImg} title="BMET Associate Degree" />
     <Container className="mb-5">
       <Row>
         <Col md={7}>
@@ -29,16 +29,19 @@ const Programs = () => (
               BioMedical Equipment Technician
             </h1>
             <p>
-              The Associate of Applied Science (AAS) Degree in Biomedical
-              Equipment Technology-IDL is an interactive distance learning
-              (online) program that provides a realistic and up-to-date overview
-              of the ever-changing career of Healthcare Technology Management.
-              The program is designed to prepare the student to seek a variety
-              of entry-level positions in the field, as well as advancing in a
-              current BMET career.
+              Biomedical Equipment Technician (BMET) and Healthcare Technology
+              Management (HTM) training at the certificate and associate degree
+              levels. Theoretical instruction is offered via online interactive
+              distance learning. Students enrolled in the Associate of Applied
+              Science Degree in Biomedical Equipment Technology (AAS-BMET)
+              program also participate in an onsite externship. Our training
+              system provides interactive instruction through our Canvas
+              Learning Management System and includes online meetings via Zoom®
+              Video Conferencing and onsite applied learning during the AAS-BMET
+              externship.
             </p>
 
-            <Link to="/">
+            <Link to="/admissions">
               <Button className="text-uppercase"> Apply Today</Button>
             </Link>
           </Fade>
@@ -50,15 +53,17 @@ const Programs = () => (
         <ProgramDetail>
           <h2 className="text-uppercase mb-5">Program Overview</h2>
           <Fade>
-            <h4>Program Length</h4>
+            <Col md="8">
+              <h4>Program Length</h4>
 
-            <p>15 Months</p>
-            <h4>Program Composition</h4>
-            <p>Online</p>
-            <h4>Classes</h4>
-            <p>Classes 5 days a week(Monday - Friday)</p>
-            <p>Class Length: 3 hours</p>
-            <p>Class Times: 8am - 12am, 12pm-3pm, 4pm - 5pm</p>
+              <p>15 Months</p>
+              <h4>Program Composition</h4>
+              <p>Online</p>
+              <h4>Classes</h4>
+              <p>Classes 5 days a week(Monday - Friday)</p>
+              <p>Class Length: 3 hours</p>
+              <p>Class Times: 8am - 12am, 12pm-3pm, 4pm - 5pm</p>
+            </Col>
           </Fade>
         </ProgramDetail>
       </Col>

@@ -6,14 +6,7 @@ import headerImg from "../images/about-bg.jpg"
 import { Container, Row, Col, Card } from "react-bootstrap"
 import styled from "styled-components"
 import Fade from "react-reveal/Fade"
-import {
-  FaTwitter,
-  FaFacebook,
-  FaLinkedin,
-  FaRegEnvelope,
-  FaTag,
-  FaGlobeAmericas,
-} from "react-icons/fa"
+import { FaFacebook, FaLinkedin, FaRegEnvelope, FaTag } from "react-icons/fa"
 import Profile7 from "../images/profile-7.png"
 import Profile2 from "../images/profile-2.png"
 import Profile3 from "../images/profile-3.png"
@@ -28,21 +21,22 @@ const ValuesBG = styled.section`
 const About = () => (
   <LayoutDetail>
     <SEO title="About" />
-    <GraphicHeader imgSrc={headerImg} title="About" />
+    <GraphicHeader imgSrc={headerImg} />
     <Container className="mb-5">
       <Row className="mb-3">
         <Col md={7}>
           <Fade left>
-            <h2 className="display-5 text-uppercase">Staff</h2>
+            <h2 className="display-5 text-uppercase">Our Team</h2>
             <p>
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quos
-              quas beatae accusantium blanditiis praesentium dicta, officia
-              quidem perspiciatis nihil delectus veniam incidunt illum
-              necessitatibus odio nulla saepe harum rem corrupti.Tenetur
-              perspiciatis ab reprehenderit totam cum quasi explicabo cupiditate
-              hic soluta tempore a dolor pariatur odio, culpa exercitationem aut
-              beatae deserunt velit vitae. Laborum fuga eum impedit possimus
-              recusandae autem.
+              The College of Biomedical Equipment Technology (CBET) is a
+              <b> 100 % Veteran owned</b> and operated private college offering
+              Biomedical Equipment Technician (BMET) and Healthcare Technology
+              Management (HTM) training at the certificate and associates degree
+              levels. Our leadership team is comprised of individuals with
+              decades of experience in the healthcare industry and education.
+              Similarly, our instructional staff is comprised of industry
+              experts and award-winning educators dedicated to providing quality
+              education, training, and career services to our students.
             </p>
           </Fade>
         </Col>
@@ -53,32 +47,41 @@ const About = () => (
           <Card style={{ width: "18rem" }}>
             <Card.Img variant="top" src={Profile7} />
             <Card.Body>
-              <Card.Title>
-                Mr. William Bassuk, <small>MBA</small>
-              </Card.Title>
+              <Card.Title>William "Bill" Bassuk</Card.Title>
               <Card.Subtitle className="mb-2 text-muted">
-                CEO CER, & CIT
+                President and CEO
               </Card.Subtitle>
               <Row className="mb-3">
                 <Col>
-                  <FaTag /> Administration
-                </Col>
-                <Col>
-                  <FaRegEnvelope /> bbassuk@cittx.edu
+                  <FaTag /> Administration <br />
+                  <FaRegEnvelope />{" "}
+                  <a
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="mailto:bill@cbet.edu"
+                  >
+                    bill@cbet.edu
+                  </a>
                 </Col>
               </Row>
               <Row>
                 <Col xs={2}>
-                  <FaTwitter size="20px" />
+                  <a
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="https://www.facebook.com/CBETCOLLEGE/"
+                  >
+                    <FaFacebook size="20px" />
+                  </a>
                 </Col>
                 <Col xs={2}>
-                  <FaFacebook size="20px" />
-                </Col>
-                <Col xs={2}>
-                  <FaLinkedin size="20px" />
-                </Col>
-                <Col xs={2} size="20px">
-                  <FaGlobeAmericas />
+                  <a
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="https://www.linkedin.com/in/billbassuk/"
+                  >
+                    <FaLinkedin size="20px" />
+                  </a>
                 </Col>
               </Row>
             </Card.Body>
@@ -89,32 +92,38 @@ const About = () => (
           <Card style={{ width: "18rem" }}>
             <Card.Img variant="top" src={Profile3} />
             <Card.Body>
-              <Card.Title>
-                Monty Gonzales, <small>MA</small>
-              </Card.Title>
+              <Card.Title>Richard "Monty" Gonzales</Card.Title>
               <Card.Subtitle className="mb-2 text-muted">
-                School Director
+                College Director
               </Card.Subtitle>
               <Row className="mb-3">
                 <Col>
                   <FaTag /> Administration
                 </Col>
                 <Col>
-                  <FaRegEnvelope /> rgonzales@cittx.edu
+                  <a href="monty@cbet.edu">
+                    <FaRegEnvelope /> monty@cbet.edu
+                  </a>
                 </Col>
               </Row>
               <Row>
                 <Col xs={2}>
-                  <FaTwitter size="20px" />
+                  <a
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="https://www.facebook.com/CBETCOLLEGE/"
+                  >
+                    <FaFacebook size="20px" />
+                  </a>
                 </Col>
                 <Col xs={2}>
-                  <FaFacebook size="20px" />
-                </Col>
-                <Col xs={2}>
-                  <FaLinkedin size="20px" />
-                </Col>
-                <Col xs={2} size="20px">
-                  <FaGlobeAmericas />
+                  <a
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="http://www.linkedin.com/in/montygonzales"
+                  >
+                    <FaLinkedin size="20px" />
+                  </a>
                 </Col>
               </Row>
             </Card.Body>
@@ -125,9 +134,7 @@ const About = () => (
           <Card style={{ width: "18rem" }}>
             <Card.Img variant="top" src={Profile2} />
             <Card.Body>
-              <Card.Title>
-                Scott McKnight, <small>MSM</small>
-              </Card.Title>
+              <Card.Title>Scott McKnight</Card.Title>
               <Card.Subtitle className="mb-2 text-muted">
                 Director of Education
               </Card.Subtitle>
@@ -136,21 +143,33 @@ const About = () => (
                   <FaTag /> Administration
                 </Col>
                 <Col>
-                  <FaRegEnvelope /> smcknight@cittx.edu
+                  <a
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="mailto:mailto:scott@cbet.edu"
+                  >
+                    <FaRegEnvelope /> scott@cbet.edu
+                  </a>
                 </Col>
               </Row>
               <Row>
                 <Col xs={2}>
-                  <FaTwitter size="20px" />
+                  <a
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="https://www.facebook.com/CBETCOLLEGE/"
+                  >
+                    <FaFacebook size="20px" />
+                  </a>
                 </Col>
                 <Col xs={2}>
-                  <FaFacebook size="20px" />
-                </Col>
-                <Col xs={2}>
-                  <FaLinkedin size="20px" />
-                </Col>
-                <Col xs={2} size="20px">
-                  <FaGlobeAmericas />
+                  <a
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="https://www.linkedin.com/in/scott-mcknight-350292b/"
+                  >
+                    <FaLinkedin size="20px" />
+                  </a>
                 </Col>
               </Row>
             </Card.Body>

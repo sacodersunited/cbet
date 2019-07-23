@@ -1,23 +1,11 @@
 import React from "react"
-import { Link } from "gatsby"
-import {
-  Container,
-  Row,
-  Col,
-  Button,
-  Alert,
-  Card,
-  ListGroup,
-  ListGroupItem,
-  Image,
-} from "react-bootstrap"
+import { Container, Row, Col, Button, Alert, Image } from "react-bootstrap"
 import Fade from "react-reveal/Fade"
 import styled from "styled-components"
 import GraphicHeader from "../components/graphicHeader"
 import LayoutDetail from "../components/layout"
 import SEO from "../components/seo"
 import headerImg from "../images/intl-students-bg.jpg"
-import soldierBG from "../images/soldier-bg.png"
 import IntlPic from "../images/intl-1.jpg"
 import IntlPicTwo from "../images/intl-2.jpg"
 import IntlPicThree from "../images/intl-3.jpg"
