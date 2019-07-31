@@ -53,7 +53,7 @@ const About = () => (
               </Card.Subtitle>
               <Row className="mb-3">
                 <Col>
-                  <FaTag /> Administration <br />
+                  <FaTag /> Governing Board <br />
                   <FaRegEnvelope />{" "}
                   <a
                     target="_blank"
@@ -98,11 +98,15 @@ const About = () => (
               </Card.Subtitle>
               <Row className="mb-3">
                 <Col>
-                  <FaTag /> Administration
-                </Col>
-                <Col>
-                  <a href="monty@cbet.edu">
-                    <FaRegEnvelope /> monty@cbet.edu
+                  <FaTag /> Governing Board
+                  <br />
+                  <FaRegEnvelope />{" "}
+                  <a
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="mailto:monty@cbet.edu"
+                  >
+                    monty@cbet.edu
                   </a>
                 </Col>
               </Row>
@@ -140,15 +144,15 @@ const About = () => (
               </Card.Subtitle>
               <Row className="mb-3">
                 <Col>
-                  <FaTag /> Administration
-                </Col>
-                <Col>
+                  <FaTag /> Governing Board
+                  <br />
+                  <FaRegEnvelope />{" "}
                   <a
                     target="_blank"
                     rel="noopener noreferrer"
-                    href="mailto:mailto:scott@cbet.edu"
+                    href="mailto:scott@cbet.edu"
                   >
-                    <FaRegEnvelope /> scott@cbet.edu
+                    scott@cbet.edu
                   </a>
                 </Col>
               </Row>
