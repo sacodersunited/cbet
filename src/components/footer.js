@@ -23,8 +23,8 @@ const Footer = () => (
           <a className="d-block text-light mb-3" href="#">
             Academic Calendar
           </a>
-          <a className="d-block text-light mb-3" href="#">
-            Employment
+          <a className="d-block text-light mb-3" href="/human-resources">
+            Human Resources
           </a>
           <a className="d-block text-light mb-3" href="#">
             Student Catalog
