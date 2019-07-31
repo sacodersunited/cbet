@@ -4,10 +4,10 @@ import SEO from "../components/seo"
 import GraphicHeader from "../components/graphicHeader"
 import headerImg from "../images/about-bg.jpg"
 import { Container, Row, Col, Card, Button } from "react-bootstrap"
-import styled from "styled-components"
 import Fade from "react-reveal/Fade"
-import { FaFacebook, FaLinkedin, FaRegEnvelope, FaTag } from "react-icons/fa"
+import { FaRegEnvelope, FaTag } from "react-icons/fa"
 import LisaGonzales from "../images/lgonzales.jpg"
+import EmploymentApp from "../../src/documents/CBET Employment Application_7.8.2019.pdf"
 
 const HumanResources = () => (
   <LayoutDetail>
@@ -38,7 +38,7 @@ const HumanResources = () => (
                   <a
                     target="_blank"
                     rel="noopener noreferrer"
-                    href="mailto:bill@cbet.edu"
+                    href="mailto:lgonzales@cbet.edu"
                   >
                     lgonzales@cbet.edu
                   </a>
@@ -50,7 +50,9 @@ const HumanResources = () => (
               </Row>
               <Row>
                 <Col>
-                  <Button>Employment Application</Button>
+                  <a href={EmploymentApp}>
+                    <Button>Employment Application</Button>
+                  </a>
                 </Col>
               </Row>
             </Card.Body>

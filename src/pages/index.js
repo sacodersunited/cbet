@@ -16,10 +16,6 @@ const IndexPage = () => (
       keywords={[`biomedical equipment`, `education`, `technology`]}
     />
     <HomeCarousel />
-    {/* <Container style={{ minHeight: "300px" }}> */}
-    {/* <Map /> */}
-    {/* </Container> */}
-    {/* <Map /> */}
     <Programs />
     <Slide right>
       <Classes />
