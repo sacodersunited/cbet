@@ -33,8 +33,9 @@ const HomeCarousel = () => (
         <Button className="text-uppercase">Learn More</Button>
       </Carousel.Caption>
     </Carousel.Item>
+
     <Carousel.Item>
-      <img className="d-block w-100" src={CarouselImage4} alt="fourth slide" />
+      <img className="d-block w-100" src={CarouselImage4} alt="Fourth slide" />
 
       <Carousel.Caption style={{ textAlign: "left" }}>
         <h1>College of Biomedical Equipment Technology</h1>
