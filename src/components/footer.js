@@ -46,6 +46,7 @@ const Footer = () => (
           <Col>
             <a
               target="_blank"
+              rel="noopener noreferrer"
               className="d-block text-light mb-3"
               href="https://www.facebook.com/CBETCOLLEGE/"
             >
@@ -76,7 +77,7 @@ const Footer = () => (
               San Antonio, Texas 78230
             </p>
             <a className="d-block text-light" href="tel:+12102331102">
-              (210)233-1102
+              (210) 233-1102
             </a>
             <a className="d-block text-light" href="tel:+18668669027">
               (866) 866-9027
