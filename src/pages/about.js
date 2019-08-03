@@ -7,9 +7,9 @@ import { Container, Row, Col, Card } from "react-bootstrap"
 import styled from "styled-components"
 import Fade from "react-reveal/Fade"
 import { FaFacebook, FaLinkedin, FaRegEnvelope, FaTag } from "react-icons/fa"
-import Profile7 from "../images/profile-7.png"
-import Profile2 from "../images/profile-2.png"
-import Profile3 from "../images/profile-3.png"
+import bBassuk from "../images/staff/BillBassuk.jpg"
+import rGonzalez from "../images/staff/RichardGonzalez1.jpg"
+import sMcknight from "../images/staff/ScottMcknight.jpg"
 
 const ValuesBG = styled.section`
   background-color: #2c3e50;
@@ -45,7 +45,7 @@ const About = () => (
       <Row className="mb-5">
         <Col md={3}>
           <Card style={{ width: "18rem" }}>
-            <Card.Img variant="top" src={Profile7} />
+            <Card.Img variant="top" src={bBassuk} />
             <Card.Body>
               <Card.Title>William "Bill" Bassuk</Card.Title>
               <Card.Subtitle className="mb-2 text-muted">
@@ -90,7 +90,7 @@ const About = () => (
 
         <Col md={3}>
           <Card style={{ width: "18rem" }}>
-            <Card.Img variant="top" src={Profile3} />
+            <Card.Img variant="top" src={rGonzalez} />
             <Card.Body>
               <Card.Title>Richard "Monty" Gonzales</Card.Title>
               <Card.Subtitle className="mb-2 text-muted">
@@ -136,7 +136,7 @@ const About = () => (
 
         <Col md={3}>
           <Card style={{ width: "18rem" }}>
-            <Card.Img variant="top" src={Profile2} />
+            <Card.Img variant="top" src={sMcknight} />
             <Card.Body>
               <Card.Title>Scott McKnight</Card.Title>
               <Card.Subtitle className="mb-2 text-muted">
