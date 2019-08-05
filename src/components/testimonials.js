@@ -26,7 +26,7 @@ class Testimonials extends Component {
       <TestimonialsSection>
         <Container>
           <h2 className="mb-5" style={{ textTransform: "uppercase" }}>
-            Testimonials
+            Hear From Our Students Around the World
           </h2>
         </Container>
         <Zoom bottom>
