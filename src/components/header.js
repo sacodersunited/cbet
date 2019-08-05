@@ -89,6 +89,14 @@ const Header = ({ siteTitle }) => {
               >
                 Contact Us
               </Link>
+              <a
+                href="https://cittx.instructure.com/"
+                target="_blank"
+                className="nav-link"
+                rel="noopener noreferrer"
+              >
+                Canvas
+              </a>
             </Nav>
             <Nav className="social-nav">
               <a
@@ -112,37 +120,6 @@ const Header = ({ siteTitle }) => {
                   style={{ verticalAlign: "text-bottom", fontSize: "20px" }}
                 />
               </a>
-              <Link to="/admin" className="nav-link">
-                <FaUserLock
-                  style={{
-                    verticalAlign: "text-bottom",
-                    fontSize: "20px",
-                    marginRight: "4px",
-                  }}
-                />
-                Admin
-              </Link>
-              {/* {isAuthenticated() === true && user !== null ? (
-                <>
-                  <Link
-                    to="/admin"
-                    className="nav-link"
-                    style={{ color: "aqua" }}
-                  >
-                    {user.name}
-                  </Link>
-                  <a
-                    href="#logout"
-                    onClick={e => {
-                      logout()
-                      e.preventDefault()
-                    }}
-                    className="nav-link"
-                  >
-                    Log Out
-                  </a>
-                </>
-              ) : null} */}
             </Nav>
           </Navbar.Collapse>
         </Container>
