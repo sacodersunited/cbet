@@ -83,7 +83,7 @@ const Footer = () => (
               (866) 866-9027
             </a>
             <a className="d-block text-light" href="mailto:webmaster@cittx.edu">
-              webmaster@cittx.edu
+              webmaster@cbet.edu
             </a>
           </Col>
         </Row>
