@@ -6,7 +6,7 @@ import headerImg from "../images/about-bg.jpg"
 import { Container, Row, Col, Card, Button } from "react-bootstrap"
 import Fade from "react-reveal/Fade"
 import { FaRegEnvelope, FaTag } from "react-icons/fa"
-import LisaGonzales from "../images/lgonzales.jpg"
+import LisaGonzales from "../images/team/lGonzales.jpg"
 import EmploymentApp from "../../src/documents/CBET Employment Application_7.8.2019.pdf"
 
 const HumanResources = () => (

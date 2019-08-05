@@ -7,9 +7,9 @@ import { Container, Row, Col, Card } from "react-bootstrap"
 import styled from "styled-components"
 import Fade from "react-reveal/Fade"
 import { FaFacebook, FaLinkedin, FaRegEnvelope, FaTag } from "react-icons/fa"
-import bBassuk from "../images/billbassuk.jpg"
-import rGonzalez from "../images/richardgonzalez1.jpg"
-import sMcknight from "../images/scottmcknight.jpg"
+import bBassuk from "../images/team/billBassuk.jpg"
+import rGonzalez from "../images/team/richardGonzalez.jpg"
+import sMcknight from "../images/team/scottMcknight.jpg"
 
 const ValuesBG = styled.section`
   background-color: #2c3e50;
