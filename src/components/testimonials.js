@@ -33,7 +33,11 @@ class Testimonials extends Component {
           <CardGroup>
             {TestimonialsData.map((testimonial, index) => (
               <Card>
-                <Card.Img variant="top" src={`profile-${index + 1}.png`} />
+                <Card.Img
+                  variant="top"
+                  src={`profile-${index + 1}.png`}
+                  style={{ minHeight: "320px" }}
+                />
                 <Card.Body>
                   <Card.Title>{testimonial.name}</Card.Title>
                   <Card.Text>
