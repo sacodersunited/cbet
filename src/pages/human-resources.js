@@ -8,6 +8,7 @@ import Fade from "react-reveal/Fade"
 import { FaRegEnvelope, FaTag } from "react-icons/fa"
 import LisaGonzales from "../images/team/lGonzales.jpg"
 import EmploymentApp from "../../src/documents/CBET Employment Application_7.8.2019.pdf"
+import EmployeeHandbook from "../../src/documents/CBET EMPLOYEE HANDBOOK _ July 2019.pdf"
 
 const HumanResources = () => (
   <LayoutDetail>
@@ -51,7 +52,11 @@ const HumanResources = () => (
               <Row>
                 <Col>
                   <a href={EmploymentApp}>
-                    <Button>Employment Application</Button>
+                    <Button className="mb-2">Employment Application</Button>
+                  </a>
+
+                  <a href={EmployeeHandbook}>
+                    <Button>Employment Handbook</Button>
                   </a>
                 </Col>
               </Row>
