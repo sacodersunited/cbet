@@ -1,7 +1,8 @@
 import React from "react"
+import { Link } from "gatsby"
 import { Container, Row, Col, Image, Navbar } from "react-bootstrap"
 import styled from "styled-components"
-import { FaFacebookF, FaLinkedinIn } from "react-icons/fa"
+import { FaFacebookF, FaLinkedinIn, FaUserLock } from "react-icons/fa"
 import Logo from "../../src/images/logo/footer-logo.svg"
 import StudentCatalog from "../../src/documents/CBET COURSE CATALOG.pdf"
 
@@ -69,6 +70,37 @@ const Footer = () => (
               />
               LinkedIn
             </a>
+            <Link to="/admin" className="d-block text-light mb-3">
+              <FaUserLock
+                style={{
+                  verticalAlign: "text-bottom",
+                  fontSize: "20px",
+                  marginRight: "1rem",
+                }}
+              />
+              Admin Portal
+            </Link>
+            {/* {isAuthenticated() === true && user !== null ? (
+                <>
+                  <Link
+                    to="/admin"
+                    className="nav-link"
+                    style={{ color: "aqua" }}
+                  >
+                    {user.name}
+                  </Link>
+                  <a
+                    href="#logout"
+                    onClick={e => {
+                      logout()
+                      e.preventDefault()
+                    }}
+                    className="nav-link"
+                  >
+                    Log Out
+                  </a>
+                </>
+              ) : null} */}
           </Col>
           <Col>
             <p>
@@ -83,7 +115,7 @@ const Footer = () => (
               (866) 866-9027
             </a>
             <a className="d-block text-light" href="mailto:webmaster@cittx.edu">
-              webmaster@cittx.edu
+              webmaster@cbet.edu
             </a>
           </Col>
         </Row>

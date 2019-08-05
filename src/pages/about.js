@@ -3,13 +3,14 @@ import LayoutDetail from "../components/layoutDetail"
 import SEO from "../components/seo"
 import GraphicHeader from "../components/graphicHeader"
 import headerImg from "../images/about-bg.jpg"
-import { Container, Row, Col, Card } from "react-bootstrap"
+import { Container, Row, Col, Card, Image } from "react-bootstrap"
 import styled from "styled-components"
 import Fade from "react-reveal/Fade"
 import { FaFacebook, FaLinkedin, FaRegEnvelope, FaTag } from "react-icons/fa"
 import bBassuk from "../images/team/billBassuk.jpg"
 import rGonzalez from "../images/team/richardGonzalez.jpg"
 import sMcknight from "../images/team/scottMcknight.jpg"
+import teamPhoto from "../images/team/team.jpg"
 
 const ValuesBG = styled.section`
   background-color: #2c3e50;
@@ -29,7 +30,7 @@ const About = () => (
             <h2 className="display-5 text-uppercase">Our Team</h2>
             <p>
               The College of Biomedical Equipment Technology (CBET) is a
-              <b> 100 % Veteran owned</b> and operated private college offering
+              <b> 100 % Veteran owned and operated</b> private college offering
               Biomedical Equipment Technician (BMET) and Healthcare Technology
               Management (HTM) training at the certificate and associates degree
               levels. Our leadership team is comprised of individuals with
@@ -58,9 +59,9 @@ const About = () => (
                   <a
                     target="_blank"
                     rel="noopener noreferrer"
-                    href="mailto:bill@cbet.edu"
+                    href="mailto:bbassuk@cbet.edu"
                   >
-                    bill@cbet.edu
+                    bbassuk@cbet.edu
                   </a>
                 </Col>
               </Row>
@@ -104,9 +105,9 @@ const About = () => (
                   <a
                     target="_blank"
                     rel="noopener noreferrer"
-                    href="mailto:monty@cbet.edu"
+                    href="mailto:rgonzales@cbet.edu"
                   >
-                    monty@cbet.edu
+                    rgonzales@cbet.edu
                   </a>
                 </Col>
               </Row>
@@ -150,9 +151,9 @@ const About = () => (
                   <a
                     target="_blank"
                     rel="noopener noreferrer"
-                    href="mailto:scott@cbet.edu"
+                    href="mailto:smcknight@cbet.edu"
                   >
-                    scott@cbet.edu
+                    smcknight@cbet.edu
                   </a>
                 </Col>
               </Row>
@@ -196,14 +197,9 @@ const About = () => (
       </Row>
 
       <Row>
-        <Col md={7}>
-          <div class="embed-responsive embed-responsive-16by9 mb-5">
-            <iframe
-              className="embed-responsive-item"
-              src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0"
-              allowfullscreen
-              title="placeholder video"
-            />
+        <Col md={8}>
+          <div class="mb-5">
+            <Image src={teamPhoto} fluid thumbnail></Image>
           </div>
         </Col>
       </Row>
