@@ -47,17 +47,35 @@ class Testimonials extends Component {
                     <p className="mt-0 mb-0 text-muted">{testimonial.date}</p>
                     <p className="mt-0 mb-3 font-italic">{testimonial.state}</p>
                     {this.state.isEmptyState && (
-                      <p style={{ minHeight: "180px" }}>
-                        {testimonial.comment.substring(0, 240)}...
-                      </p>
+                      <>
+                        <p style={{ minHeight: "180px" }}>
+                          {testimonial.comment.substring(0, 240)}...
+                        </p>
+                        <Button
+                          className="text-uppercase"
+                          variant="primary"
+                          block
+                          onClick={this.showTestimonial}
+                        >
+                          Learn More
+                        </Button>
+                      </>
                     )}
                     {!this.state.isEmptyState && (
-                      <p style={{ minHeight: "260px" }}>
-                        {testimonial.comment}
-                      </p>
+                      <>
+                        <p style={{ minHeight: "260px" }}>
+                          {testimonial.comment}
+                        </p>
+                        <Button
+                          className="text-uppercase"
+                          variant="primary"
+                          block
+                          onClick={this.showTestimonial}
+                        >
+                          Show Less
+                        </Button>
+                      </>
                     )}
-
-                    <Button onClick={this.showTestimonial}>Learn More</Button>
                   </Card.Text>
                 </Card.Body>
               </Card>

@@ -29,7 +29,6 @@ const Programs = () => (
             <p className="display-4">
               Lorem ipsum dolor sit, amet consectetur adipisicing elit
             </p>
-            <Button>LEARN MORE</Button>
           </Slide>
         </Col>
         <Col md={6}>
@@ -41,7 +40,6 @@ const Programs = () => (
             <p className="display-4">
               Lorem ipsum dolor sit, amet consectetur adipisicing elit
             </p>
-            <Button>LEARN MORE</Button>
           </Slide>
         </Col>
       </Row>
