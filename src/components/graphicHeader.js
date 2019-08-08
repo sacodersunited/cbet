@@ -9,21 +9,22 @@ const GraphicJumbotron = styled(Jumbotron)`
   background-size: cover;
 `
 
-const GraphicHeader = props => (
-  <GraphicJumbotron imgSrc={props.imgSrc}>
+const GraphicHeader = ({ imgSrc, title, descr, buttonLink, children }) => (
+  <GraphicJumbotron imgSrc={imgSrc}>
     <Container>
-      <h1 className="text-light">{props.title}</h1>
-      {props.descr ? (
+      <h1 className="text-light">{title}</h1>
+      {descr ? (
         <p className="text-light">
           This is a simple hero unit, a simple jumbotron-style component for
           calling extra attention to featured content or information.
         </p>
       ) : null}
-      {props.buttonLink ? (
+      {buttonLink ? (
         <p>
           <Button variant="primary">Learn more</Button>
         </p>
       ) : null}
+      {children}
     </Container>
   </GraphicJumbotron>
 )
