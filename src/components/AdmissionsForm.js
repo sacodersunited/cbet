@@ -1,16 +1,9 @@
 import React, { Component } from "react"
-import {
-  Container,
-  Form,
-  Jumbotron,
-  Button,
-  Col,
-  Row,
-  ButtonGroup,
-  Alert,
-} from "react-bootstrap"
+import { Container, Form, Button, Col, Alert } from "react-bootstrap"
 import { FaMapMarkerAlt } from "react-icons/fa"
 import InputMask from "react-input-mask"
+import ContactBG from "../images/contact-bg.jpg"
+import GraphicHeader from "../components/graphicHeader"
 
 export default class AdmissionsForm extends Component {
   constructor(props) {
@@ -265,19 +258,43 @@ export default class AdmissionsForm extends Component {
   render() {
     return (
       <>
-        <Jumbotron>
-          <Container>
-            <h1>Admissions</h1>
-          </Container>
-        </Jumbotron>
+        <GraphicHeader imgSrc={ContactBG} title="Admissions Form" />
 
         <Container>
-          <Form
-            validated={this.state.validated}
-            onSubmit={e => this.handleSubmit(e)}
-          >
-            <Form.Row>
-              <Form.Group as={Col} md="6">
+          <Col md={7}>
+            <Form
+              validated={this.state.validated}
+              onSubmit={e => this.handleSubmit(e)}
+            >
+              <p className="text-muted ">
+                Please complete the admissions form and we'll get back to you
+                soon.
+              </p>
+              <Form.Group>
+                <Form.Label as="legend">Choose Program</Form.Label>
+                <br />
+
+                <Button
+                  className="mr-3"
+                  variant="primary"
+                  onClick={e => this.onClickProgram(e)}
+                >
+                  BMET Certificate
+                </Button>
+                <Button
+                  variant="primary"
+                  className="mr-3"
+                  onClick={e => this.onClickProgram(e)}
+                >
+                  BMET Degree
+                </Button>
+
+                <Button variant="primary" onClick={e => this.onClickProgram(e)}>
+                  IT & Networking
+                </Button>
+              </Form.Group>
+
+              <Form.Group>
                 <Form.Label>Student Name (First name, Last name)</Form.Label>
                 <Form.Control
                   required
@@ -287,7 +304,7 @@ export default class AdmissionsForm extends Component {
                   onChange={e => this.onChangeForm(e)}
                 />
               </Form.Group>
-              <Form.Group as={Col} md="6">
+              <Form.Group>
                 <Form.Label>Social Security Number</Form.Label>
                 <InputMask
                   {...this.props}
@@ -305,9 +322,7 @@ export default class AdmissionsForm extends Component {
                   )}
                 </InputMask>
               </Form.Group>
-            </Form.Row>
-            <Form.Row>
-              <Form.Group as={Col} md="6">
+              <Form.Group>
                 <Form.Label>Address</Form.Label>
 
                 <Form.Control
@@ -318,7 +333,7 @@ export default class AdmissionsForm extends Component {
                   onChange={e => this.onChangeForm(e)}
                 />
               </Form.Group>
-              <Form.Group as={Col} md="6">
+              <Form.Group>
                 <Form.Label>Phone</Form.Label>
                 <InputMask
                   {...this.props}
@@ -338,9 +353,7 @@ export default class AdmissionsForm extends Component {
                   Please enter Phone number.
                 </Form.Control.Feedback>
               </Form.Group>
-            </Form.Row>
-            <Form.Row>
-              <Form.Group as={Col} md="4">
+              <Form.Group>
                 <Form.Label>City</Form.Label>
                 <Button
                   size="sm"
@@ -361,7 +374,7 @@ export default class AdmissionsForm extends Component {
                   Please enter city.
                 </Form.Control.Feedback>
               </Form.Group>
-              <Form.Group as={Col} md="4">
+              <Form.Group>
                 <Form.Label>State</Form.Label>
                 <Form.Control
                   required
@@ -374,7 +387,7 @@ export default class AdmissionsForm extends Component {
                   Please enter State.
                 </Form.Control.Feedback>
               </Form.Group>
-              <Form.Group as={Col} md="4">
+              <Form.Group>
                 <Form.Label>Zip</Form.Label>
 
                 <InputMask
@@ -395,9 +408,7 @@ export default class AdmissionsForm extends Component {
                   Please enter zip.
                 </Form.Control.Feedback>
               </Form.Group>
-            </Form.Row>
-            <Form.Row>
-              <Form.Group as={Col} md="5">
+              <Form.Group>
                 <Form.Label>Email Address</Form.Label>
 
                 <Form.Control
@@ -411,7 +422,7 @@ export default class AdmissionsForm extends Component {
                   Please enter email address.
                 </Form.Control.Feedback>
               </Form.Group>
-              <Form.Group as={Col} md="3">
+              <Form.Group>
                 <Form.Label>Drivers License</Form.Label>
 
                 <Form.Control
@@ -425,7 +436,7 @@ export default class AdmissionsForm extends Component {
                   Please enter Drivers License number.
                 </Form.Control.Feedback>
               </Form.Group>
-              <Form.Group as={Col} md="4">
+              <Form.Group>
                 <Form.Label>Date of Birth</Form.Label>
 
                 <InputMask
@@ -443,42 +454,17 @@ export default class AdmissionsForm extends Component {
                   )}
                 </InputMask>
               </Form.Group>
-            </Form.Row>
-            <Form.Row>
-              <Form.Group as={Col} md="7">
-                <Form.Label as="legend">Choose Program</Form.Label>
 
-                <ButtonGroup
-                  aria-label="Basic example"
-                  style={{ marginLeft: "10px" }}
-                >
-                  <Button
-                    variant="primary"
-                    onClick={e => this.onClickProgram(e)}
-                  >
-                    BMET
-                  </Button>
-                  <Button
-                    variant="primary"
-                    onClick={e => this.onClickProgram(e)}
-                  >
-                    Associates
-                  </Button>
-                </ButtonGroup>
+              <Form.Group>
+                <Button type="submit">Submit Form</Button>
               </Form.Group>
-
-              <Form.Group as={Col} md="5">
-                <Button type="submit" className="float-right">
-                  Submit
-                </Button>
-              </Form.Group>
-            </Form.Row>
-            <Form.Row className="float-right">
-              <Alert show={this.state.isDone} variant="success">
-                <Alert.Heading>Admission submitted.</Alert.Heading>
-              </Alert>
-            </Form.Row>
-          </Form>
+              <Form.Row className="float-right">
+                <Alert show={this.state.isDone} variant="success">
+                  <Alert.Heading>Admission submitted.</Alert.Heading>
+                </Alert>
+              </Form.Row>
+            </Form>
+          </Col>
         </Container>
       </>
     )
