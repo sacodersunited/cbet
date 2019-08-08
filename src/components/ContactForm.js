@@ -12,6 +12,8 @@ import {
 } from "react-bootstrap"
 import { FaRegThumbsUp } from "react-icons/fa"
 import InputMask from "react-input-mask"
+import ContactBG from "../images/contact-bg.jpg"
+import GraphicHeader from "../components/graphicHeader"
 
 class ContactForm extends React.Component {
   constructor(props) {
@@ -272,37 +274,38 @@ class ContactForm extends React.Component {
   render() {
     return (
       <>
-        <Jumbotron>
-          <Container>
-            <h1>Contact Us</h1>
-            <ul style={{ listStyleType: "none" }}>
-              <li>
-                <b>Address:</b> 11550 IH-10 West, Suite 190, San Antonio, Texas
-                78230
-              </li>
-              <li>
-                <b>Phone:</b> (210) 233-1102
-              </li>
-              <li>
-                <b>Toll-Free:</b> (866) 866-9027
-              </li>
-              <li>
-                <b>E-mail:</b>{" "}
-                <a href="mailto:admissiondept@cittx.edu">
-                  admissiondept@cittx.edu
-                </a>
-              </li>
-            </ul>
-          </Container>
-        </Jumbotron>
+        <GraphicHeader imgSrc={ContactBG}>
+          <h1 className="text-light">Contact Us</h1>
+          <ul className="text-light" style={{ listStyleType: "none" }}>
+            <li>
+              <b>Address:</b> 11550 IH-10 West, Suite 190, San Antonio, Texas
+              78230
+            </li>
+            <li>
+              <b>Phone:</b> (210) 233-1102
+            </li>
+            <li>
+              <b>Toll-Free:</b> (866) 866-9027
+            </li>
+            <li>
+              <b>E-mail:</b>{" "}
+              <a className="text-light" href="mailto:admissiondept@cittx.edu">
+                admissiondept@cittx.edu
+              </a>
+            </li>
+          </ul>
+        </GraphicHeader>
 
         <Container>
-          <Form
-            validated={this.state.validated}
-            onSubmit={e => this.handleSubmit(e)}
-          >
-            <Form.Row>
-              <Form.Group as={Col} md="3" controlId="validationCustom01">
+          <Col md={7}>
+            <p className="text-muted ">
+              Please complete the form and we'll get back to you soon.
+            </p>
+            <Form
+              validated={this.state.validated}
+              onSubmit={e => this.handleSubmit(e)}
+            >
+              <Form.Group controlId="validationCustom01">
                 <Form.Label>First name</Form.Label>
                 <Form.Control
                   required
@@ -313,7 +316,7 @@ class ContactForm extends React.Component {
                 />
                 <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
               </Form.Group>
-              <Form.Group as={Col} md="3" controlId="validationCustom02">
+              <Form.Group controlId="validationCustom02">
                 <Form.Label>Last name</Form.Label>
                 <Form.Control
                   required
@@ -324,7 +327,7 @@ class ContactForm extends React.Component {
                 />
                 <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
               </Form.Group>
-              <Form.Group as={Col} md="3" controlId="validationCustomPhone">
+              <Form.Group controlId="validationCustomPhone">
                 <Form.Label>Phone</Form.Label>
                 <InputGroup>
                   <InputMask
@@ -347,7 +350,7 @@ class ContactForm extends React.Component {
                   <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                 </InputGroup>
               </Form.Group>
-              <Form.Group as={Col} md="3">
+              <Form.Group>
                 <Form.Label>Email</Form.Label>
                 <Form.Control
                   type="email"
@@ -360,9 +363,7 @@ class ContactForm extends React.Component {
                 </Form.Control.Feedback>
                 <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
               </Form.Group>
-            </Form.Row>
-            <Form.Row>
-              <Form.Group as={Col} md="4" controlId="validationCustom06">
+              <Form.Group md="4" controlId="validationCustom06">
                 <Form.Label>Country</Form.Label>
                 <Form.Control
                   type="text"
@@ -375,7 +376,7 @@ class ContactForm extends React.Component {
                   Please provide a valid country.
                 </Form.Control.Feedback>
               </Form.Group>
-              <Form.Group as={Col} md="4" controlId="validationCustom03">
+              <Form.Group md="4" controlId="validationCustom03">
                 <Form.Label>City</Form.Label>
                 <Form.Control
                   type="text"
@@ -388,7 +389,7 @@ class ContactForm extends React.Component {
                   Please provide a valid city.
                 </Form.Control.Feedback>
               </Form.Group>
-              <Form.Group as={Col} md="4" controlId="validationCustom04">
+              <Form.Group controlId="validationCustom04">
                 <Form.Label>State</Form.Label>
                 <Form.Control
                   type="text"
@@ -401,9 +402,7 @@ class ContactForm extends React.Component {
                   Please provide a valid state.
                 </Form.Control.Feedback>
               </Form.Group>
-            </Form.Row>
-            <Form.Row>
-              <Form.Group as={Col} md="3">
+              <Form.Group>
                 <Form.Label>How did you hear about us?</Form.Label>
                 <DropdownButton
                   id="dropdown-howdidyouhearaboutus-button"
@@ -425,7 +424,7 @@ class ContactForm extends React.Component {
                   <Dropdown.Item eventKey="6">Other</Dropdown.Item>
                 </DropdownButton>
               </Form.Group>
-              <Form.Group as={Col} md="3">
+              <Form.Group>
                 <Form.Label></Form.Label>
                 <Form.Control
                   type="text"
@@ -433,9 +432,10 @@ class ContactForm extends React.Component {
                   value={this.state.contactForm.hearAbout}
                   onChange={e => this.onChangeForm(e)}
                   required
+                  disabled
                 />
               </Form.Group>
-              <Form.Group as={Col} md="2">
+              <Form.Group>
                 <Form.Label>Program of interest</Form.Label>
                 <DropdownButton
                   id="dropdown-programofinterest-button"
@@ -447,22 +447,21 @@ class ContactForm extends React.Component {
                 >
                   <Dropdown.Item eventKey="1">BMET Degree</Dropdown.Item>
                   <Dropdown.Item eventKey="2">BMET Cert</Dropdown.Item>
-                  <Dropdown.Item eventKey="3">A+</Dropdown.Item>
-                  <Dropdown.Item eventKey="4">N+</Dropdown.Item>
+                  <Dropdown.Item eventKey="3">CompTia A+</Dropdown.Item>
+                  <Dropdown.Item eventKey="4">CompTia N+</Dropdown.Item>
                 </DropdownButton>
               </Form.Group>
-              <Form.Group as={Col} md="4">
+              <Form.Group>
                 <Form.Label></Form.Label>
                 <Form.Control
                   type="text"
                   placeholder="program"
                   required
+                  disabled
                   value={this.state.contactForm.programOfInterest}
                 />
               </Form.Group>
-            </Form.Row>
-            <Form.Row>
-              <Form.Group as={Col}>
+              <Form.Group>
                 <Form.Check
                   label="Would you like to receive a call back?"
                   feedback="You must agree before submitting."
@@ -474,24 +473,17 @@ class ContactForm extends React.Component {
                   }}
                 />
               </Form.Group>
-            </Form.Row>
-            <Form.Row>
-              <Form.Group as={Col}>
+              <Form.Group>
                 <Form.Label>Comments</Form.Label>
                 <Form.Control
                   as="textarea"
                   value={this.state.contactForm.comments}
                   onChange={e => this.onChangeForm(e)}
-                  size="lg"
                   placeholder="comments here"
                 />
               </Form.Group>
-            </Form.Row>
-            <Button type="submit" className="float-right">
-              Submit form
-            </Button>
-            <Form.Row>
-              <Form.Group as={Col}>
+              <Button type="submit">Submit Form</Button>
+              <Form.Group>
                 <Alert show={this.state.isDone} variant="success">
                   <Alert.Heading>
                     <FaRegThumbsUp style={{ marginRight: "5px" }} />
@@ -499,8 +491,8 @@ class ContactForm extends React.Component {
                   </Alert.Heading>
                 </Alert>
               </Form.Group>
-            </Form.Row>
-          </Form>
+            </Form>
+          </Col>
         </Container>
       </>
     )
