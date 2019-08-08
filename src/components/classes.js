@@ -1,10 +1,11 @@
 import React from "react"
-import { Container, Row, Col, Button, CardDeck, Card } from "react-bootstrap"
-import BMETDegreeImg from "../images/cbet-degree.png"
-import BMETCertImg from "../images/cbet-tech.png"
-import CompTiaNet from "../images/logoNetworkPlus.png"
-import CompTiaAPlus from "../images/logoAPlus.png"
+import { Link } from "gatsby"
+import { Container, Button, CardDeck, Card } from "react-bootstrap"
 import styled from "styled-components"
+import BMETDegreeImg from "../images/bmetDegree.jpg"
+import BMETCertImg from "../images/bmetTech.jpg"
+import TechImage from "../images/itNetworkPrograms.jpg"
+import specialtyImage from "../images/specialtyPrograms.jpg"
 
 const ClassesSection = styled.section`
   padding: 96px 0;
@@ -14,7 +15,7 @@ const Classes = () => (
   <ClassesSection>
     <Container>
       <h2 className="mb-5" style={{ textTransform: "uppercase" }}>
-        Upcoming Classes
+        Learn More About Our Programs
       </h2>
       <CardDeck>
         <Card>
@@ -26,9 +27,11 @@ const Classes = () => (
               lead-in to additional content. This card has even longer content
               than the first to show that equal height action.
             </Card.Text>
-            <Button className="mt-5" variant="primary" block>
-              APPLY
-            </Button>
+            <Link to="/bmet-degree">
+              <Button className="mt-5 text-uppercase" variant="primary" block>
+                Learn More
+              </Button>
+            </Link>
           </Card.Body>
         </Card>
         <Card>
@@ -40,38 +43,45 @@ const Classes = () => (
               lead-in to additional content. This card has even longer content
               than the first to show that equal height action.
             </Card.Text>
-            <Button className="mt-5" variant="primary" block>
-              APPLY
-            </Button>
+            <Link to="bmet-certificate">
+              <Button className="mt-5 text-uppercase" variant="primary" block>
+                Learn More
+              </Button>
+            </Link>
           </Card.Body>
         </Card>
         <Card>
-          <Card.Img variant="top" src={CompTiaNet} />
+          <Card.Img variant="top" src={TechImage} />
           <Card.Body>
-            <Card.Title style={{ marginTop: "42px" }}>IT Networking</Card.Title>
+            <Card.Title>IT & Networking</Card.Title>
             <Card.Text>
               This is a wider card with supporting text below as a natural
               lead-in to additional content. This card has even longer content
               than the first to show that equal height action.
             </Card.Text>
-            <Button className="mt-5" variant="primary" block>
-              APPLY
-            </Button>
+            <Link to="it-certificate">
+              <Button className="mt-5 text-uppercase" variant="primary" block>
+                Learn More
+              </Button>
+            </Link>
           </Card.Body>
         </Card>
         <Card>
-          <Card.Img variant="top" src={CompTiaAPlus} />
+          <Card.Img variant="top" src={specialtyImage} />
           <Card.Body>
-            <Card.Title style={{ marginTop: "42px" }}>
-              IT Certificate
-            </Card.Title>
+            <Card.Title>Specialty Programs</Card.Title>
             <Card.Text>
               This is a wider card with supporting text below as a natural
               lead-in to additional content. This card has even longer content
               than the first to show that equal height action.
             </Card.Text>
-            <Button className="mt-5" variant="primary" block>
-              APPLY
+            <Button
+              className="mt-5 text-uppercase"
+              variant="primary"
+              block
+              disabled
+            >
+              Learn More
             </Button>
           </Card.Body>
         </Card>

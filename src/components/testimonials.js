@@ -26,14 +26,18 @@ class Testimonials extends Component {
       <TestimonialsSection>
         <Container>
           <h2 className="mb-5" style={{ textTransform: "uppercase" }}>
-            Testimonials
+            Hear From Our Students Around the World
           </h2>
         </Container>
         <Zoom bottom>
           <CardGroup>
             {TestimonialsData.map((testimonial, index) => (
               <Card>
-                <Card.Img variant="top" src={`profile-${index + 1}.png`} />
+                <Card.Img
+                  variant="top"
+                  src={`profile-${index + 1}.png`}
+                  style={{ minHeight: "320px" }}
+                />
                 <Card.Body>
                   <Card.Title>{testimonial.name}</Card.Title>
                   <Card.Text>
@@ -43,17 +47,35 @@ class Testimonials extends Component {
                     <p className="mt-0 mb-0 text-muted">{testimonial.date}</p>
                     <p className="mt-0 mb-3 font-italic">{testimonial.state}</p>
                     {this.state.isEmptyState && (
-                      <p style={{ minHeight: "180px" }}>
-                        {testimonial.comment.substring(0, 240)}...
-                      </p>
+                      <>
+                        <p style={{ minHeight: "180px" }}>
+                          {testimonial.comment.substring(0, 240)}...
+                        </p>
+                        <Button
+                          className="text-uppercase"
+                          variant="primary"
+                          block
+                          onClick={this.showTestimonial}
+                        >
+                          Learn More
+                        </Button>
+                      </>
                     )}
                     {!this.state.isEmptyState && (
-                      <p style={{ minHeight: "260px" }}>
-                        {testimonial.comment}
-                      </p>
+                      <>
+                        <p style={{ minHeight: "260px" }}>
+                          {testimonial.comment}
+                        </p>
+                        <Button
+                          className="text-uppercase"
+                          variant="primary"
+                          block
+                          onClick={this.showTestimonial}
+                        >
+                          Show Less
+                        </Button>
+                      </>
                     )}
-
-                    <Button onClick={this.showTestimonial}>Learn More</Button>
                   </Card.Text>
                 </Card.Body>
               </Card>

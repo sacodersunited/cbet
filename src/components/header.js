@@ -59,11 +59,11 @@ const Header = ({ siteTitle }) => {
                 Admissions
               </Link>
               <Link
-                to="/financial-aid/"
+                to="/financial-assistance/"
                 className="nav-link"
                 activeClassName="active"
               >
-                Financial Aid
+                Financial Assistance
               </Link>
               <Link
                 to="/international-students/"

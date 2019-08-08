@@ -15,7 +15,7 @@ import styled from "styled-components"
 import GraphicHeader from "../components/graphicHeader"
 import LayoutDetail from "../components/layout"
 import SEO from "../components/seo"
-import headerImg from "../images/carousel-1.png"
+import headerImg from "../images/usFlag.png"
 import soldierBG from "../images/soldier-bg.png"
 
 const BlueBG = styled.section`
@@ -35,14 +35,17 @@ const SoldierSection = styled.section`
 
 const FinancialAid = () => (
   <LayoutDetail>
-    <SEO title="Veterans Affairs Financial Aid" />
-    <GraphicHeader imgSrc={headerImg} title="VA / Financial Aid" />
+    <SEO title="Veterans Affairs Financial Assistance" />
+    <GraphicHeader
+      imgSrc={headerImg}
+      title="Veterans Affairs | Financial Assistance"
+    />
     <Container className="mb-5">
       <Row className="mb-3">
         <Col md={7}>
           <Fade left>
             <h2 className="display-5 text-uppercase">
-              An Investment in Your Future
+              An Investment in Your <em>Future</em>
             </h2>
             <p>
               Education and career training can be one of the most valuable
@@ -76,13 +79,14 @@ const FinancialAid = () => (
                 <h4 className="text-muted">Serving Those That Served Us</h4>
                 <a
                   target="_blank"
-                  href="https://benefits.va.gov/gibill/post911_gibill.asp"
+                  href="https://www.va.gov/education/gi-bill/post-9-11/ch-33-benefit"
                 >
                   <Image
                     src="https://benefits.va.gov/gibill/images/GIBicon.fw.png"
                     alt="GI Bill"
                     fluid
                     width="200"
+                    className="mb-3"
                   />
                 </a>
                 <p>
