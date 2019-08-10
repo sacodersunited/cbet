@@ -5,6 +5,7 @@ import { StaticQuery, graphql } from "gatsby"
 import Header from "./header"
 import Accreditations from "./accreditations"
 import Footer from "./footer"
+import VideoCarousel from "./VideoCarousel"
 
 const Layout = ({ children }) => (
   <StaticQuery
@@ -27,7 +28,7 @@ const Layout = ({ children }) => (
           crossOrigin="anonymous"
         />
         <Header siteTitle={data.site.siteMetadata.title} />
-
+        <VideoCarousel></VideoCarousel>
         <main>{children}</main>
         <Accreditations />
         <Footer />

@@ -4,10 +4,11 @@ import Slide from "react-reveal/Slide"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 // import Map from "../components/map"
-import HomeCarousel from "../components/homeCarousel"
+// import HomeCarousel from "../components/homeCarousel"
 import Programs from "../components/programs"
 import Classes from "../components/classes"
 import Testimonials from "../components/testimonials"
+// import videoCarousel from "../components/videoCarousel"
 
 const IndexPage = () => (
   <Layout>
@@ -15,7 +16,7 @@ const IndexPage = () => (
       title="Home"
       keywords={[`biomedical equipment`, `education`, `technology`]}
     />
-    <HomeCarousel />
+    {/* <videoCarousel /> */}
     <Programs />
     <Slide right>
       <Classes />
