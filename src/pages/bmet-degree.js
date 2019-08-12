@@ -89,7 +89,7 @@ const Programs = () => (
         <Image
           src={BMETImg}
           style={{
-            minHeight: "486px",
+            minHeight: "502px",
           }}
           fluid
         />
