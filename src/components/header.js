@@ -13,15 +13,17 @@ const Header = ({ siteTitle }) => {
     <>
       <Navbar bg="dark" variant="dark" expand="lg">
         <Container>
-          <Navbar.Brand href="/">
-            <img
-              src={Logo}
-              width="120"
-              height="auto"
-              className="d-inline-block align-top"
-              alt="CBET logo"
-            />
-          </Navbar.Brand>
+          <Link to="/">
+            <Navbar.Brand>
+              <img
+                src={Logo}
+                width="120"
+                height="auto"
+                className="d-inline-block align-top"
+                alt="CBET logo"
+              />
+            </Navbar.Brand>
+          </Link>
 
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
@@ -77,7 +79,7 @@ const Header = ({ siteTitle }) => {
                 className="nav-link"
                 activeClassName="active"
               >
-                Career
+                Careers
               </Link>
               <Link to="/faq/" className="nav-link" activeClassName="active">
                 FAQs
@@ -87,7 +89,7 @@ const Header = ({ siteTitle }) => {
                 className="nav-link"
                 activeClassName="active"
               >
-                Contact Us
+                Contact
               </Link>
               <a
                 href="https://cittx.instructure.com/"

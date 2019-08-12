@@ -56,7 +56,7 @@ const HumanResources = () => (
                   </a>
 
                   <a href={EmployeeHandbook}>
-                    <Button>Employment Handbook</Button>
+                    <Button>Employee Handbook</Button>
                   </a>
                 </Col>
               </Row>

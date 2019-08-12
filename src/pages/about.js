@@ -3,7 +3,7 @@ import LayoutDetail from "../components/layoutDetail"
 import SEO from "../components/seo"
 import GraphicHeader from "../components/graphicHeader"
 import headerImg from "../images/about-bg.jpg"
-import { Container, Row, Col, Card, Image } from "react-bootstrap"
+import { Container, Row, Col, Card, Image, ListGroup } from "react-bootstrap"
 import styled from "styled-components"
 import Fade from "react-reveal/Fade"
 import { FaFacebook, FaLinkedin, FaRegEnvelope, FaTag } from "react-icons/fa"
@@ -179,6 +179,30 @@ const About = () => (
               </Row>
             </Card.Body>
           </Card>
+        </Col>
+      </Row>
+
+      <Row className="mb-5">
+        <Col md={7}>
+          <Fade left>
+            <h2 className="display-5 text-uppercase">ADVISORY BOARD</h2>
+          </Fade>
+          <ListGroup>
+            <ListGroup.Item>
+              Larry Nguyen{" "}
+              <em className="text-muted ml-1">CEO, Summit Imagery</em>{" "}
+            </ListGroup.Item>
+            <ListGroup.Item>
+              Brent Irwin{" "}
+              <em className="text-muted ml-1">HTM and Cyber Security Expert</em>
+            </ListGroup.Item>
+            <ListGroup.Item>
+              Courtney Nanny{" "}
+              <em className="text-muted ml-1">
+                National Compliance Manager, CHI National
+              </em>
+            </ListGroup.Item>
+          </ListGroup>
         </Col>
       </Row>
 

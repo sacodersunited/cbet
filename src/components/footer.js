@@ -26,11 +26,18 @@ const Footer = () => (
             <a className="d-block text-light mb-3" href="#">
               Academic Calendar
             </a>
-            <a className="d-block text-light mb-3" href="/human-resources">
+            <Link className="d-block text-light mb-3" to="/human-resources">
               Human Resources
-            </a>
+            </Link>
+
             <a className="d-block text-light mb-3" href={StudentCatalog}>
               Student Catalog
+            </a>
+            <a
+              className="d-block text-light mb-3"
+              href="mailto:registrar@cbet.edu?Subject=Transcript%20Request"
+            >
+              Transcripts
             </a>
           </Col>
           <Col>
@@ -114,7 +121,7 @@ const Footer = () => (
             <a className="d-block text-light" href="tel:+18668669027">
               (866) 866-9027
             </a>
-            <a className="d-block text-light" href="mailto:webmaster@cittx.edu">
+            <a className="d-block text-light" href="mailto:webmaster@cbet.edu">
               webmaster@cbet.edu
             </a>
           </Col>
