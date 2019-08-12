@@ -4,7 +4,7 @@ import LayoutDetail from "../components/layoutDetail"
 import SEO from "../components/seo"
 import GraphicHeader from "../components/graphicHeader"
 import headerImg from "../images/bmet-bg.jpg"
-import { Container, Row, Col, Button, Image } from "react-bootstrap"
+import { Container, Row, Col, Button, Image, Card } from "react-bootstrap"
 import styled from "styled-components"
 import Fade from "react-reveal/Fade"
 import Slide from "react-reveal/Slide"
@@ -12,6 +12,7 @@ import BMETImg from "../images/bmet-tech.jpg"
 import BMETImg1 from "../images/bmetDegree/bmet-1.jpg"
 import BMETImg2 from "../images/bmetDegree/bmet-2.jpg"
 import BMETImg4 from "../images/bmetDegree/bmet-4.jpg"
+import FSteinmeirImg from "../images/team/fsteinmeier.jpg"
 
 const ProgramDetail = styled.div`
   padding: 46px 0 46px 40px;
@@ -29,22 +30,36 @@ const Programs = () => (
               BioMedical Equipment Technician
             </h1>
             <p>
-              Biomedical Equipment Technician (BMET) and Healthcare Technology
-              Management (HTM) training at the certificate and associate degree
-              levels. Theoretical instruction is offered via online interactive
-              distance learning. Students enrolled in the Associate of Applied
-              Science Degree in Biomedical Equipment Technology (AAS-BMET)
-              program also participate in an onsite externship. Our training
-              system provides interactive instruction through our Canvas
-              Learning Management System and includes online meetings via Zoom®
-              Video Conferencing and onsite applied learning during the AAS-BMET
-              externship.
+              The Associate of Applied Science Degree in Biomedical Equipment
+              Technology is an interactive distance learning program designed to
+              prepare the student to seek a variety of entry-level positions in
+              the healthcare technology and management field. Students undergo
+              training in electronics and computer technology, with an emphasis
+              on medical applications, operations, and procedures. The program
+              includes instruction in instrument calibration, design,
+              installation and testing, as well as safety, maintenance, and
+              equipment repair procedures. The general education component of
+              the program prepares students to think critically in preparation
+              for taking on leadership positions in the field.
             </p>
 
             <Link to="/admissions">
               <Button className="text-uppercase"> Apply Today</Button>
             </Link>
           </Fade>
+        </Col>
+        <Col md={4}>
+          <Card>
+            <Card.Img variant="top" src={FSteinmeirImg} />
+            <Card.Body>
+              <Card.Title>Frauke Steinmeier</Card.Title>
+              <Card.Text>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni
+                unde, consequatur quaerat enim provident modi repellendus eum
+                officia fuga blanditiis corporis nulla animi nostrum!
+              </Card.Text>
+            </Card.Body>
+          </Card>
         </Col>
       </Row>
     </Container>
@@ -54,15 +69,18 @@ const Programs = () => (
           <h2 className="text-uppercase mb-5">Program Overview</h2>
           <Fade>
             <Col md="8">
+              <h4>Program Cost</h4>
+              <p>$22,600</p>
               <h4>Program Length</h4>
-
-              <p>15 Months</p>
-              <h4>Program Composition</h4>
-              <p>Online</p>
-              <h4>Classes</h4>
-              <p>Classes 5 days a week(Monday - Friday)</p>
-              <p>Class Length: 3 hours</p>
-              <p>Class Times: 8am - 12am, 12pm-3pm, 4pm - 5pm</p>
+              <p>15 Months or 1065 hours </p>
+              <h4>Career Objectives</h4>
+              <p>
+                This program prepares students to work in positions, such as
+                Biomedical Equipment Technician (maintenance and repairs),
+                Specialized Equipment Field Service, and Medical Equipment &
+                Instrumentation Technician. Also, Sales, Technical Support,
+                Consulting, and Management.
+              </p>
             </Col>
           </Fade>
         </ProgramDetail>
@@ -71,7 +89,7 @@ const Programs = () => (
         <Image
           src={BMETImg}
           style={{
-            minHeight: "486px",
+            minHeight: "502px",
           }}
           fluid
         />
