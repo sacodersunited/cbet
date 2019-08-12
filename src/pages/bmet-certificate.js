@@ -4,12 +4,13 @@ import LayoutDetail from "../components/layoutDetail"
 import SEO from "../components/seo"
 import GraphicHeader from "../components/graphicHeader"
 import headerImg from "../images/bmet-bg.jpg"
-import { Container, Row, Col, Button, Image } from "react-bootstrap"
+import { Container, Row, Col, Button, Image, Card } from "react-bootstrap"
 import styled from "styled-components"
 import Fade from "react-reveal/Fade"
 import Slide from "react-reveal/Slide"
 import BMETImg from "../images/bmet-tech.jpg"
 import BMETImg3 from "../images/bmetDegree/bmet-3.jpg"
+import BrentImg from "../images/team/brentIsham.jpg"
 
 const ProgramDetail = styled.div`
   padding: 46px 0 46px 40px;
@@ -47,6 +48,19 @@ const Programs = () => (
             </Link>
           </Fade>
         </Col>
+        <Col md={4}>
+          <Card>
+            <Card.Img variant="top" src={BrentImg} />
+            <Card.Body>
+              <Card.Title>Brent Isham</Card.Title>
+              <Card.Text>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni
+                unde, consequatur quaerat enim provident modi repellendus eum
+                officia fuga blanditiis corporis nulla animi nostrum!
+              </Card.Text>
+            </Card.Body>
+          </Card>
+        </Col>
       </Row>
     </Container>
 
@@ -58,7 +72,7 @@ const Programs = () => (
             <Col md="8">
               <h4>Program Cost</h4>
 
-              <p>$5500</p>
+              <p>$9,600</p>
               <h4>Program Length</h4>
               <p>7 Months or 480 hours</p>
               <h4>Accreditation</h4>
@@ -90,13 +104,21 @@ const Programs = () => (
           <Slide left>
             <h4>Course Content</h4>
             <ul>
-              <li>BMTO 1302 Medical Terminology and Anatomy (6 Weeks) </li>
-              <li>BMTO 1305 Electronics (6 Weeks)</li>
-              <li>BMTO 2304 Biomedical Equipment Technology (6 Weeks) </li>
-              <li>BMTO 1303 Networking Fundamentals (6 Weeks) </li>
               <li>
-                BMTO 1609 Biomedical Equipment Technician Certificate Capstone
-                (6 Weeks)
+                <b>BMTO 1302</b> Medical Terminology and Anatomy (6 Weeks)
+              </li>
+              <li>
+                <b>BMTO 1305</b> Electronics (6 Weeks)
+              </li>
+              <li>
+                <b>BMTO 2304</b> Biomedical Equipment Technology (6 Weeks)
+              </li>
+              <li>
+                <b>BMTO 1303</b> Networking Fundamentals (6 Weeks)
+              </li>
+              <li>
+                <b>BMTO 1609 </b> Biomedical Equipment Technician Certificate
+                Capstone (6 Weeks)
               </li>
             </ul>
           </Slide>

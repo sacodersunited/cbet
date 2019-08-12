@@ -13,7 +13,9 @@ const HomeCarousel = () => (
       <Carousel.Caption style={{ textAlign: "left" }}>
         <h1>College of Biomedical Equipment Technology</h1>
         <p>Building the Future Healthcare Technology Workforce</p>
-        <Button className="text-uppercase">Apply Today</Button>
+        <Link to="/admissions">
+          <Button className="text-uppercase">Apply Today</Button>
+        </Link>
       </Carousel.Caption>
     </Carousel.Item>
     <Carousel.Item>
@@ -37,7 +39,9 @@ const HomeCarousel = () => (
       <Carousel.Caption style={{ textAlign: "left" }}>
         <h1>College of Biomedical Equipment Technology</h1>
         <p>Building the Future Healthcare Technology Workforce</p>
-        <Button className="text-uppercase">Learn More</Button>
+        <Link to="/admissions">
+          <Button className="text-uppercase">Apply Today</Button>
+        </Link>
       </Carousel.Caption>
     </Carousel.Item>
 
@@ -47,7 +51,9 @@ const HomeCarousel = () => (
       <Carousel.Caption style={{ textAlign: "left" }}>
         <h1>College of Biomedical Equipment Technology</h1>
         <p>Building the Future Healthcare Technology Workforce</p>
-        <Button className="text-uppercase">Learn More</Button>
+        <Link to="/admissions">
+          <Button className="text-uppercase">Apply Today</Button>
+        </Link>
       </Carousel.Caption>
     </Carousel.Item>
   </Carousel>

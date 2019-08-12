@@ -1,5 +1,12 @@
 import React, { Component } from "react"
-import { Container, Form, Button, Col, Alert } from "react-bootstrap"
+import {
+  Container,
+  Form,
+  Button,
+  Col,
+  Alert,
+  ButtonGroup,
+} from "react-bootstrap"
 import { FaMapMarkerAlt } from "react-icons/fa"
 import InputMask from "react-input-mask"
 import ContactBG from "../images/contact-bg.jpg"
@@ -273,25 +280,33 @@ export default class AdmissionsForm extends Component {
               <Form.Group>
                 <Form.Label as="legend">Choose Program</Form.Label>
                 <br />
+                <ButtonGroup>
+                  <Button
+                    variant="primary"
+                    onClick={e => this.onClickProgram(e)}
+                  >
+                    BMET Certificate
+                  </Button>
+                  <Button
+                    variant="primary"
+                    onClick={e => this.onClickProgram(e)}
+                  >
+                    BMET Degree
+                  </Button>
 
-                <Button
-                  className="mr-3"
-                  variant="primary"
-                  onClick={e => this.onClickProgram(e)}
-                >
-                  BMET Certificate
-                </Button>
-                <Button
-                  variant="primary"
-                  className="mr-3"
-                  onClick={e => this.onClickProgram(e)}
-                >
-                  BMET Degree
-                </Button>
-
-                <Button variant="primary" onClick={e => this.onClickProgram(e)}>
-                  IT & Networking
-                </Button>
+                  <Button
+                    variant="primary"
+                    onClick={e => this.onClickProgram(e)}
+                  >
+                    IT & Networking
+                  </Button>
+                  <Button
+                    variant="primary"
+                    onClick={e => this.onClickProgram(e)}
+                  >
+                    Specialty Program
+                  </Button>
+                </ButtonGroup>
               </Form.Group>
 
               <Form.Group>
