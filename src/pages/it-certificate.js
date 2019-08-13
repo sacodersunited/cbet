@@ -36,7 +36,7 @@ const Programs = () => (
               <li>CompTIA Network+ Certification Exam</li>
             </ul>
 
-            <Link to="/">
+            <Link to="/admissions">
               <Button className="text-uppercase"> Apply Today</Button>
             </Link>
           </Fade>

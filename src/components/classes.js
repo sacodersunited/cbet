@@ -44,7 +44,7 @@ const Classes = () => (
               comprehensive, overview of the biomedical equipment and healthcare
               technology management industry.
             </Card.Text>
-            <Link to="bmet-certificate">
+            <Link to="/bmet-certificate">
               <Button className="mt-1 text-uppercase" variant="primary" block>
                 Learn More
               </Button>
@@ -59,7 +59,7 @@ const Classes = () => (
               This program is designed to help students prepare for the CompTIA
               A+ and CompTIA Network+ Certification Exam.
             </Card.Text>
-            <Link to="it-certificate">
+            <Link to="/it-certificate">
               <Button className="mt-1 text-uppercase" variant="primary" block>
                 Learn More
               </Button>

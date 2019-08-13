@@ -1,7 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
 import { Jumbotron, Container, Button } from "react-bootstrap"
-import videoTest from "../video/freeVideo.mp4"
+import videoTest from "../video/cbetCert-SD.mp4"
 
 const VideoCarousel = () => (
   <Jumbotron

@@ -222,7 +222,7 @@ const About = () => (
 
       <Row>
         <Col md={8}>
-          <div class="mb-5">
+          <div className="mb-5">
             <Image src={teamPhoto} fluid thumbnail></Image>
           </div>
         </Col>

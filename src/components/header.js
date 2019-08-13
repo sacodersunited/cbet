@@ -28,23 +28,23 @@ const Header = ({ siteTitle }) => {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">
-              <Link to="/about/" className="nav-link" activeClassName="active">
+              <Link to="/about" className="nav-link" activeClassName="active">
                 About
               </Link>
               <NavDropdown title="Programs" id="basic-nav-dropdown">
-                <Link className="dropdown-item" to="/bmet-certificate/">
+                <Link className="dropdown-item" to="/bmet-certificate">
                   BMET Cert
                 </Link>
-                <Link className="dropdown-item" to="/bmet-degree/">
+                <Link className="dropdown-item" to="/bmet-degree">
                   BMET Degree
                 </Link>
                 <NavDropdown.Divider />
-                <Link className="dropdown-item" to="/it-certificate/">
+                <Link className="dropdown-item" to="/it-certificate">
                   IT / Networking
                 </Link>
               </NavDropdown>
               <Link
-                to="/schedule/"
+                to="/schedule"
                 className="nav-link"
                 activeClassName="active"
                 // style={{
@@ -54,41 +54,37 @@ const Header = ({ siteTitle }) => {
                 Schedule
               </Link>
               <Link
-                to="/admissions/"
+                to="/admissions"
                 className="nav-link"
                 activeClassName="active"
               >
                 Admissions
               </Link>
               <Link
-                to="/financial-assistance/"
+                to="/financial-assistance"
                 className="nav-link"
                 activeClassName="active"
               >
                 Financial Assistance
               </Link>
               <Link
-                to="/international-students/"
+                to="/international-students"
                 className="nav-link"
                 activeClassName="active"
               >
                 Intl Students
               </Link>
               <Link
-                to="/career-services/"
+                to="/career-services"
                 className="nav-link"
                 activeClassName="active"
               >
                 Careers
               </Link>
-              <Link to="/faq/" className="nav-link" activeClassName="active">
+              <Link to="/faq" className="nav-link" activeClassName="active">
                 FAQs
               </Link>
-              <Link
-                to="/contact/"
-                className="nav-link"
-                activeClassName="active"
-              >
+              <Link to="/contact" className="nav-link" activeClassName="active">
                 Contact
               </Link>
               <a
