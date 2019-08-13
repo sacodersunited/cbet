@@ -27,7 +27,7 @@ const Programs = () => (
             <h1 className="display-5 text-uppercase">
               IT & Networking Certificate
             </h1>
-            <p>
+            <p className="lead">
               To assist IT professionals in staying current with their knowledge
               and skills and to help the student prepare for the
             </p>

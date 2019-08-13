@@ -1,9 +1,16 @@
 import React from "react"
+import PropTypes from "prop-types"
 import { Link } from "gatsby"
-import { Jumbotron, Container, Button } from "react-bootstrap"
-import videoTest from "../video/cbetCert-SD.mp4"
+import { Jumbotron, Container, Button, Row, Col } from "react-bootstrap"
 
-const VideoCarousel = () => (
+const VideoCarousel = ({
+  vidSrc,
+  title,
+  descr,
+  buttonLink,
+  isInternalLink,
+  children,
+}) => (
   <Jumbotron
     fluid
     style={{
@@ -29,24 +36,41 @@ const VideoCarousel = () => (
         opacity: 0.5,
       }}
     >
-      <source src={videoTest} type="video/mp4" />
+      <source src={vidSrc} type="video/mp4" />
     </video>
-    <script>document.getElementById('video').play();</script>
     <Container
       style={{ zIndex: 2, position: "absolute", bottom: "90px", left: "90px" }}
       className="text-white"
     >
-      <h1>College of Biomedical Equipment Technology</h1>
-      <p>
-        Our mission is to provide Healthcare Technology Management (HTM)
-        education, training and career services consistent with the evolving
-        needs of employers in the healthcare industry.
-      </p>
-      <Link to="/about">
-        <Button className="text-uppercase">Learn More</Button>
-      </Link>
+      <Row>
+        <Col md={8}>
+          <h1>{title}</h1>
+          <p>{descr}</p>
+          {children}
+          {buttonLink ? (
+            isInternalLink ? (
+              <Link to={buttonLink}>
+                <Button className="text-uppercase">Learn More</Button>
+              </Link>
+            ) : (
+              <Button style={{ zIndex: "100" }} href={buttonLink}>
+                Learn More
+              </Button>
+            )
+          ) : null}
+        </Col>
+      </Row>
     </Container>
   </Jumbotron>
 )
+
+VideoCarousel.propTypes = {
+  vidSrc: PropTypes.string.isRequired,
+  title: PropTypes.string,
+  descr: PropTypes.string,
+  buttonLink: PropTypes.string,
+  isInternalLink: PropTypes.bool,
+  children: PropTypes.node,
+}
 
 export default VideoCarousel

@@ -17,6 +17,7 @@ import LayoutDetail from "../components/layout"
 import SEO from "../components/seo"
 import headerImg from "../images/usFlag.png"
 import soldierBG from "../images/soldier-bg.png"
+import SoldierImg from "../images/soldier.jpg"
 
 const BlueBG = styled.section`
   background-color: #2c3e50;
@@ -47,24 +48,38 @@ const FinancialAid = () => (
             <h2 className="display-5 text-uppercase">
               An Investment in Your <em>Future</em>
             </h2>
-            <p>
-              Education and career training can be one of the most valuable
-              investments you can make. Successful investment in your future can
-              help you pursue a professional career. Many students require
-              financial assistance and at Biomedical Equipment and Health Care
-              Technology financial assistance is available for those who
-              qualify.
-            </p>
-            <p>
-              CBET's experienced staff will assist and support you every step of
-              the way through the application process. Our knowledgeable staff
-              can guide you through available financial assistance options. If
-              you are eligible, CBET can help you secure a number of types of
-              aid, including scholarships, loans, and other financing options.
-              We assist with all the paperwork. For further assistance, contact
-              us to help evaluate your eligibility.
-            </p>
           </Fade>
+          <p>
+            Education and career training can be one of the most valuable
+            investments you can make. Successful investment in your future can
+            help you pursue a professional career. Many students require
+            financial assistance and at Biomedical Equipment and Health Care
+            Technology financial assistance is available for those who qualify.
+          </p>
+          <p>
+            CBET's experienced staff will assist and support you every step of
+            the way through the application process. Our knowledgeable staff can
+            guide you through available financial assistance options. If you are
+            eligible, CBET can help you secure a number of types of aid,
+            including scholarships, loans, and other financing options. We
+            assist with all the paperwork. For further assistance, contact us to
+            help evaluate your eligibility.
+          </p>
+          <Link to="/admissions">
+            <Button className="text-uppercase"> Apply Today</Button>
+          </Link>
+        </Col>
+        <Col md={4}>
+          <Card>
+            <Card.Img variant="top" src={SoldierImg} />
+            <Card.Body>
+              <Card.Title>Calling All Service Members</Card.Title>
+              <Card.Text>
+                You have a variety of military and veteran benefits programs to
+                finance your college education.
+              </Card.Text>
+            </Card.Body>
+          </Card>
         </Col>
       </Row>
     </Container>
@@ -73,7 +88,7 @@ const FinancialAid = () => (
       <Container>
         <Row>
           <Col md={7}>
-            <Card mt-5>
+            <Card className="mt-3">
               <Card.Body>
                 <h2>Military & Veterans</h2>
                 <h4 className="text-muted">Serving Those That Served Us</h4>
@@ -121,16 +136,16 @@ const FinancialAid = () => (
       <Container>
         <Row className="mb-5">
           <Col md={7}>
-            <Card mt-5>
+            <Card>
               <Card.Body>
                 <Card.Title>Student Loan Options</Card.Title>
-                <p>
+                <Card.Text>
                   CBET’s loan partner offers 3-5 year loan terms with high
                   approval rates, fixed interest, and low monthly payments. The
                   loans are limited to U.S. residents in the lower 48 states.
                   Apply online and get a decision usually within one business
                   day!
-                </p>
+                </Card.Text>
                 <Button
                   target="_blank"
                   href="https://www.tciconnection.com/internetApp/app?key=35974edd0a527e31a2ad6306b839c6ac32"
@@ -138,10 +153,10 @@ const FinancialAid = () => (
                 >
                   Apply Today
                 </Button>
-                <p>
+                <Card.Text>
                   Tuition Financing – Providing an affordable way for you to get
                   the education you need for the future you deserve!
-                </p>
+                </Card.Text>
                 <Button
                   target="_blank"
                   href=" http://www.tfcstudentinfo.com"
@@ -155,62 +170,67 @@ const FinancialAid = () => (
         </Row>
         <Row className="mb-5">
           <Col md={7}>
-            <Card mt-5>
+            <Card>
               <Card.Body>
                 <Card.Title>Scholarship Programs</Card.Title>
+                <ListGroup className="list-group-flush">
+                  <ListGroupItem
+                    action
+                    href="https://aiportal.acc.af.mil/mycaa/Default.aspx"
+                    target="_blank"
+                  >
+                    MyCAA Program for Military Spouses
+                  </ListGroupItem>
+                </ListGroup>
               </Card.Body>
-              <ListGroup className="list-group-flush">
-                <ListGroupItem
-                  action
-                  href="https://aiportal.acc.af.mil/mycaa/Default.aspx"
-                >
-                  MyCAA Program for Military Spouses
-                </ListGroupItem>
-              </ListGroup>
             </Card>
           </Col>
         </Row>
         <Row className="mb-5">
           <Col md={7}>
-            <Card mt-5>
+            <Card>
               <Card.Body>
                 <Card.Title>Other Resources/Programs</Card.Title>
+                <ListGroup className="list-group-flush">
+                  <ListGroupItem>
+                    Transfer Credit: Reduces the cost of the program
+                  </ListGroupItem>
+                  <ListGroupItem>CBET Payment Plan</ListGroupItem>
+                </ListGroup>
               </Card.Body>
-              <ListGroup className="list-group-flush">
-                <ListGroupItem>
-                  Transfer Credit: Reduces the cost of the program
-                </ListGroupItem>
-                <ListGroupItem>CBET Payment Plan</ListGroupItem>
-              </ListGroup>
             </Card>
           </Col>
         </Row>
         <Row>
           <Col md={7}>
-            <Card mt-5>
+            <Card>
               <Card.Body>
                 <Card.Title>State Of Texas Programs</Card.Title>
+
+                <ListGroup className="list-group-flush">
+                  <ListGroupItem
+                    action
+                    target="_blank"
+                    href="http://www.wfscapitalarea.com/JobSeekers/JobTraining.aspx"
+                  >
+                    Capital Area: Workforce Investment Act (WIOA) Program
+                  </ListGroupItem>
+                  <ListGroupItem
+                    action
+                    target="_blank"
+                    href="http://www.workforcesolutionsrca.com/jobs-and-careers/program-details/Workforce-Innovation-and-Opportunity-Act--WIOA-"
+                  >
+                    Rural Capital Areas: Workforce Investment Act (WIOA) Program
+                  </ListGroupItem>
+                  <ListGroupItem
+                    action
+                    target="_blank"
+                    href="http://www.workforcesolutionsrca.com/jobs-and-careers/program-details/Trade-Adjustment-Act--TAA-"
+                  >
+                    Trade Adjustment Act (TAA)
+                  </ListGroupItem>
+                </ListGroup>
               </Card.Body>
-              <ListGroup className="list-group-flush">
-                <ListGroupItem
-                  action
-                  href="http://www.wfscapitalarea.com/JobSeekers/JobTraining.aspx"
-                >
-                  Capital Area: Workforce Investment Act (WIOA) Program
-                </ListGroupItem>
-                <ListGroupItem
-                  action
-                  href="http://www.workforcesolutionsrca.com/jobs-and-careers/program-details/Workforce-Innovation-and-Opportunity-Act--WIOA-"
-                >
-                  Rural Capital Areas: Workforce Investment Act (WIOA) Program
-                </ListGroupItem>
-                <ListGroupItem
-                  action
-                  href="http://www.workforcesolutionsrca.com/jobs-and-careers/program-details/Trade-Adjustment-Act--TAA-"
-                >
-                  Trade Adjustment Act (TAA)
-                </ListGroupItem>
-              </ListGroup>
             </Card>
           </Col>
         </Row>

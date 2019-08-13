@@ -32,7 +32,7 @@ class Testimonials extends Component {
         <Zoom bottom>
           <CardGroup>
             {TestimonialsData.map((testimonial, index) => (
-              <Card>
+              <Card key={testimonial.name}>
                 <Card.Img
                   variant="top"
                   src={`profile-${index + 1}.png`}

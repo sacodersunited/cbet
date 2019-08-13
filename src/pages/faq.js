@@ -6,6 +6,8 @@ import ListGroup from "react-bootstrap/ListGroup"
 import Fade from "react-reveal"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import GraphicHeader from "../components/graphicHeader"
+import ContactBG from "../images/cbet-header.jpg"
 import styled from "styled-components"
 
 const FaqContainer = styled.div`
@@ -15,7 +17,9 @@ const FaqContainer = styled.div`
 const Faq = () => (
   <Layout>
     <SEO title="Faq" />
-    <FaqContainer >
+    <GraphicHeader imgSrc={ContactBG} />
+
+    <FaqContainer>
       <div className="container">
         <Fade left>
           <h1 className="pt-5 pb-5">Frequently Asked Questions</h1>
