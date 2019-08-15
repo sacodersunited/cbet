@@ -26,7 +26,7 @@ const Programs = () => (
               />{" "}
               AAS Degree (BMET)
             </h5>
-            <p className="display-4">
+            <p>
               <b>Associate of Applied Science Degree</b> - The Associate of
               Applied Science Degree in Biomedical Equipment Technology is an
               interactive distance learning program designed to prepare the
@@ -48,7 +48,7 @@ const Programs = () => (
               <FaRocket size={24} style={{ verticalAlign: "text-bottom" }} />{" "}
               Certificate (BMET)
             </h5>
-            <p className="display-5">
+            <p>
               <b>Certificate Program</b> – The Biomedical Equipment Technician
               Certificate program provides a comprehensive, overview of the
               biomedical equipment and healthcare technology management
