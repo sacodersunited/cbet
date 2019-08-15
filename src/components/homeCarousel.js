@@ -12,7 +12,6 @@ const CarouselH1 = styled.h1`
 
 const HomeCarousel = props => (
   <Carousel>
-    {console.log(props.images)}
     <Carousel.Item>
       <Img
         fluid={props.images.first.childImageSharp.fluid}

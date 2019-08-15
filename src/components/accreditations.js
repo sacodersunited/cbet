@@ -1,5 +1,6 @@
 import React from "react"
 import { Container, Row, Col, Image } from "react-bootstrap"
+import Img from "gatsby-image"
 import styled from "styled-components"
 import AccImg from "../images/accet.svg"
 import twcImg from "../images/twc-logo.jpg"
@@ -15,8 +16,9 @@ const AccredSection = styled.section`
   background-image: url(${props => props.imgSrc || null});
 `
 
-const Accreditations = () => (
+const Accreditations = props => (
   <AccredSection imgSrc={Pattern}>
+    {console.log("images acc", props.images)}
     <Container fluid>
       <Row style={{ marginBottom: "64px" }}>
         <Col md={{ span: 3, offset: 1 }}>
@@ -54,12 +56,16 @@ const Accreditations = () => (
                 rel="noopener noreferrer"
                 href="https://twc.texas.gov/"
               >
-                <Image
-                  src={twcImg}
+                {/* <Img
+                  fluid={props.images.twclogo.childImageSharp.fluid}
                   alt="twc logo"
                   style={{ maxHeight: "180px" }}
+                /> */}
+                <Image
+                  src={twcImg}
+                  style={{ maxHeight: "180px" }}
+                  alt="twc logo"
                   fluid
-                  roundedCircle
                 />
               </a>
             </Col>
