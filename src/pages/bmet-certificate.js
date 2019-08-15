@@ -90,17 +90,11 @@ const Programs = () => (
           <Fade>
             <Col md="8">
               <h4>Program Cost</h4>
-
               <p>$9,600</p>
               <h4>Program Length</h4>
-              <p>7 Months or 480 hours</p>
-              <h4>Accreditation</h4>
-              <p>
-                The certificate program is accredited by the Accrediting Council
-                for Continuing Education and Training (ACCET); and authorized by
-                the Texas Work Force Commission (TWC) and the Texas Higher
-                Education Coordinating Board (THECB).
-              </p>
+              <p>6 Months or 400 hours</p>
+              <h4>Student to Teacher Ratio</h4>
+              <p>30:1</p>
             </Col>
           </Fade>
         </ProgramDetail>
@@ -123,22 +117,13 @@ const Programs = () => (
           <Slide left>
             <h4>Course Content</h4>
             <ul>
-              <li>
-                <b>BMTO 1302</b> Medical Terminology and Anatomy (6 Weeks)
-              </li>
-              <li>
-                <b>BMTO 1305</b> Electronics (6 Weeks)
-              </li>
-              <li>
-                <b>BMTO 2304</b> Biomedical Equipment Technology (6 Weeks)
-              </li>
-              <li>
-                <b>BMTO 1303</b> Networking Fundamentals (6 Weeks)
-              </li>
-              <li>
-                <b>BMTO 1609 </b> Biomedical Equipment Technician Certificate
-                Capstone (6 Weeks)
-              </li>
+              <li>Medical Terminology </li>
+              <li>Basic Anatomy</li>
+              <li>Organizational Behavior in Healthcare</li>
+              <li>Introduction to Computer Office Programs</li>
+              <li>Introduction to Computer Networking</li>
+              <li>Introduction to Electronic Circuits</li>
+              <li>Biomedical Equipment Technology</li>
             </ul>
           </Slide>
         </Col>

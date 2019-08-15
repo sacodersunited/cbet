@@ -23,7 +23,7 @@ const Footer = () => (
             <Image src={Logo} />
           </Col>
           <Col>
-            <a className="d-block text-light mb-3" href="#">
+            <a className="d-block text-light mb-3" disabled>
               Academic Calendar
             </a>
             <Link className="d-block text-light mb-3" to="/human-resources">
@@ -41,13 +41,16 @@ const Footer = () => (
             </a>
           </Col>
           <Col>
-            <a className="d-block text-light mb-3" href="#">
+            <a
+              className="d-block text-light mb-3"
+              href="mailto:webmaster@cbet.edu?Subject=Website%20Feedback"
+            >
               Provide Website Feedback
             </a>
-            <a className="d-block text-light mb-3" href="#">
+            <a className="d-block text-light mb-3" disabled>
               Accessibility Statement
             </a>
-            <a className="d-block text-light mb-3" href="#">
+            <a className="d-block text-light mb-3" disabled>
               Privacy Statement
             </a>
           </Col>

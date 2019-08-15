@@ -90,14 +90,8 @@ const Programs = () => (
               <p>$22,600</p>
               <h4>Program Length</h4>
               <p>15 Months or 1065 hours </p>
-              <h4>Career Objectives</h4>
-              <p>
-                This program prepares students to work in positions, such as
-                Biomedical Equipment Technician (maintenance and repairs),
-                Specialized Equipment Field Service, and Medical Equipment &
-                Instrumentation Technician. Also, Sales, Technical Support,
-                Consulting, and Management.
-              </p>
+              <h4>Student to Teacher Ratio</h4>
+              <p>Lab = 30:1, Externship = 1:1</p>
             </Col>
           </Fade>
         </ProgramDetail>
@@ -155,7 +149,7 @@ const Programs = () => (
           <Slide left>
             <h4>Core Component II</h4>
             <ul>
-              <li> Healthcare Technology Management II</li>
+              <li>Healthcare Technology Management II</li>
               <li>Healthcare Technology Management III</li>
               <li>Networking Fundamentals II</li>
               <li>Biomedical Equipment I</li>
