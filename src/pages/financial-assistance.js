@@ -8,7 +8,6 @@ import {
   Card,
   ListGroup,
   ListGroupItem,
-  Image,
 } from "react-bootstrap"
 import Fade from "react-reveal/Fade"
 import styled from "styled-components"
@@ -282,13 +281,11 @@ const FinancialAid = () => (
             </h2>
             <Row className="mb-5">
               <Col md={7}>
-                <p>
-                  <address>
-                    College of Biomedical Equipment Technology (CBET) <br />{" "}
-                    Admissions Office <br /> 11550 IH-10 West, Suite 190 <br />{" "}
-                    San Antonio, Texas 78230
-                  </address>
-                </p>
+                <address>
+                  College of Biomedical Equipment Technology (CBET) <br />{" "}
+                  Admissions Office <br /> 11550 IH-10 West, Suite 190 <br />{" "}
+                  San Antonio, Texas 78230
+                </address>
               </Col>
             </Row>
           </div>

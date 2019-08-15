@@ -43,7 +43,7 @@ const VideoCarousel = ({
       className="text-white"
     >
       <Row>
-        <Col md={8}>
+        <Col xs={8}>
           <h1>{title}</h1>
           <p>{descr}</p>
           {children}

@@ -44,7 +44,11 @@ const Accreditations = () => (
                 </a>
               </Pulse>
             </Col>
-            <Col md={4} style={{ alignSelf: "center", textAlign: "center" }}>
+            <Col
+              md={4}
+              style={{ alignSelf: "center", textAlign: "center" }}
+              className="mb-5"
+            >
               <a
                 target="_blank"
                 rel="noopener noreferrer"
