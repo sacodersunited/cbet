@@ -29,14 +29,15 @@ import {
   FaRegThumbsUp,
 } from "react-icons/fa"
 import DatePicker from "react-datepicker"
+import { Link } from "gatsby"
 // Uncomment in Local dev
 // import cbetClasses from "../classes/classes.json"
 import "react-datepicker/dist/react-datepicker.css"
-import newDoc from "../images/jc-gellidon-1386352-unsplashnew.jpg"
-import itDefaultImage from "../images/bmet-tech.jpg"
-import nPlusDefaultImage from "../images/logoNetworkPlus.svg"
-import aPlusDefaultImage from "../images/logoAPlus.svg"
 import styled from "styled-components"
+import BMETDegreeImg from "../images/bmetDegree.jpg"
+import BMETCertImg from "../images/bmetTech.jpg"
+import TechImage from "../images/itNetworkPrograms.jpg"
+import specialtyImage from "../images/specialtyPrograms.jpg"
 
 const CardTitle = styled.section`
   min-height: 90px;
@@ -896,20 +897,20 @@ class ClassAdmin extends React.Component {
                     {(() => {
                       switch (cbetClass.ProgramSelected) {
                         case "BMET":
-                          return <Card.Img variant="top" src={newDoc} />
+                          return <Card.Img variant="top" src={BMETDegreeImg} style={{ minHeight: "207px", height: "207px" }} />
                         case "Cert":
                           return (
                             <Card.Img
                               variant="top"
-                              src={itDefaultImage}
-                              style={{ minHeight: "207px" }}
+                              src={BMETCertImg}
+                              style={{ minHeight: "207px", height: "207px" }}
                             />
                           )
                         case "A_plus":
                           return (
                             <Card.Img
                               variant="top"
-                              src={aPlusDefaultImage}
+                              src={TechImage}
                               style={{ minHeight: "207px", height: "207px" }}
                             />
                           )
@@ -917,12 +918,12 @@ class ClassAdmin extends React.Component {
                           return (
                             <Card.Img
                               variant="top"
-                              src={nPlusDefaultImage}
+                              src={specialtyImage}
                               style={{ minHeight: "207px", height: "207px" }}
                             />
                           )
                         default:
-                          return null
+                          return <Card.Img variant="top" src={BMETDegreeImg} style={{ minHeight: "207px", height: "207px" }} />
                       }
                     })()}
 
@@ -1120,17 +1121,80 @@ class ClassAdmin extends React.Component {
                           ) : null}
                         </li>
                       </ul>
-                      <Button
-                        variant="primary"
-                        size="sm"
-                        disabled={
-                          this.state.editModeClasses[index] === true
-                            ? true
-                            : false
-                        }
-                      >
-                        Learn More
-                      </Button>
+                      
+
+                      {(() => {
+                      switch (cbetClass.ProgramSelected) {
+                        case "BMET":
+                          return  (<Link to="/bmet-degree">
+                                  <Button
+                                    variant="primary"
+                                    size="sm"
+                                    disabled={
+                                      this.state.editModeClasses[index] === true
+                                        ? true
+                                        : false
+                                    }
+                                  >
+                                    Learn More
+                                  </Button>
+                                </Link>)
+                        case "Cert":
+                          return (<Link to="/it-certificate">
+                                    <Button
+                                      variant="primary"
+                                      size="sm"
+                                      disabled={
+                                        this.state.editModeClasses[index] === true
+                                          ? true
+                                          : false
+                                      }
+                                    >
+                                      Learn More
+                                    </Button>
+                                  </Link>)
+                        case "A_plus":
+                          return (<Link to="/bmet-degree">
+                                    <Button
+                                      variant="primary"
+                                      size="sm"
+                                      disabled={
+                                        this.state.editModeClasses[index] === true
+                                          ? true
+                                          : false
+                                      }
+                                    >
+                                      Learn More
+                                    </Button>
+                                  </Link>)
+                        case "N_plus":
+                          return (<Link to="/bmet-degree">
+                          <Button
+                            variant="primary"
+                            size="sm"
+                            disabled={
+                              true
+                            }
+                          >
+                            Learn More
+                          </Button>
+                        </Link>)
+                        default:
+                          return (<Link to="/bmet-degree">
+                          <Button
+                            variant="primary"
+                            size="sm"
+                            disabled={
+                              this.state.editModeClasses[index] === true
+                                ? true
+                                : false
+                            }
+                          >
+                            Learn More
+                          </Button>
+                        </Link>)
+                      }
+                    })()}
 
                       {/* If Class is visible then show Save */}
                       {this.state.editModeClasses[index] === true ? (
