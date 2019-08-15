@@ -6,6 +6,7 @@ import {
   Col,
   Alert,
   ButtonGroup,
+  Dropdown,
 } from "react-bootstrap"
 import { FaMapMarkerAlt } from "react-icons/fa"
 import InputMask from "react-input-mask"
@@ -280,33 +281,21 @@ export default class AdmissionsForm extends Component {
               <Form.Group>
                 <Form.Label as="legend">Choose Program</Form.Label>
                 <br />
-                <ButtonGroup>
-                  <Button
-                    variant="primary"
-                    onClick={e => this.onClickProgram(e)}
-                  >
-                    BMET Certificate
-                  </Button>
-                  <Button
-                    variant="primary"
-                    onClick={e => this.onClickProgram(e)}
-                  >
-                    BMET Degree
-                  </Button>
+                <Form.Control
+                  as="select"
+                  required
+                  onSelect={e => this.onClickProgram(e)}
+                >
+                  <option value="">None</option>
+                  <option value="BMET Certificate">BMET Certificate</option>
+                  <option value="BMET Degree">BMET Degree</option>
+                  <option value="IT Networking">IT & Networking</option>
+                  <option value="Specialty Program">Specialty Program</option>
+                </Form.Control>
 
-                  <Button
-                    variant="primary"
-                    onClick={e => this.onClickProgram(e)}
-                  >
-                    IT & Networking
-                  </Button>
-                  <Button
-                    variant="primary"
-                    onClick={e => this.onClickProgram(e)}
-                  >
-                    Specialty Program
-                  </Button>
-                </ButtonGroup>
+                <Form.Control.Feedback type="invalid">
+                  Please select a program.
+                </Form.Control.Feedback>
               </Form.Group>
 
               <Form.Group>
