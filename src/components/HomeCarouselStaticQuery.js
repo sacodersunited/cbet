@@ -9,28 +9,28 @@ const HomeCarouselStaticQuery = props => (
         first: file(relativePath: { eq: "carousel/carousel-1.jpg" }) {
           childImageSharp {
             fluid(maxHeight: 449) {
-              srcSet
+              ...GatsbyImageSharpFluid
             }
           }
         }
         second: file(relativePath: { eq: "carousel/logo.jpg" }) {
           childImageSharp {
             fluid(maxHeight: 449) {
-              srcSet
+              ...GatsbyImageSharpFluid
             }
           }
         }
         third: file(relativePath: { eq: "carousel/carousel-3.jpg" }) {
           childImageSharp {
             fluid(maxHeight: 449) {
-              srcSet
+              ...GatsbyImageSharpFluid
             }
           }
         }
         fourth: file(relativePath: { eq: "carousel/carousel-4.jpg" }) {
           childImageSharp {
             fluid(maxHeight: 449) {
-              srcSet
+              ...GatsbyImageSharpFluid
             }
           }
         }

@@ -8,8 +8,8 @@ const AccreditationsStaticQuery = props => (
       {
         twclogo: file(relativePath: { eq: "twc-logo.jpg" }) {
           childImageSharp {
-            fluid(maxHeight: 180) {
-              srcSet
+            fluid(maxHeight: 180, maxWidth: 180) {
+              ...GatsbyImageSharpFluid
             }
           }
         }

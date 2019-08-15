@@ -66,6 +66,7 @@ const Accreditations = props => (
                   style={{ maxHeight: "180px" }}
                   alt="twc logo"
                   fluid
+                  roundedCircle
                 />
               </a>
             </Col>
