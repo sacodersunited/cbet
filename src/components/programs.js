@@ -26,7 +26,7 @@ const Programs = () => (
               />{" "}
               Biomedical Equipment Tech
             </h5>
-            <p className="display-4">Become an BMET Professional</p>
+            <p className="display-4">Become a BMET Professional</p>
           </Slide>
         </Col>
         <Col md={6}>
