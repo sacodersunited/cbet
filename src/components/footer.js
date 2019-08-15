@@ -5,6 +5,7 @@ import styled from "styled-components"
 import { FaFacebookF, FaLinkedinIn, FaUserLock } from "react-icons/fa"
 import Logo from "../../src/images/logo/footer-logo.svg"
 import CourseCatalog from "../../src/documents/CBET Course Catalog.pdf"
+import CourseCalendar from '../documents/2019-2020 Academic Calendar.pdf'
 
 const FooterSection = styled.footer`
   color: whitesmoke;
@@ -23,7 +24,7 @@ const Footer = () => (
             <Image src={Logo} />
           </Col>
           <Col md={2}>
-            <a className="d-block text-light mb-3" disabled>
+            <a href={CourseCalendar} className="d-block text-light mb-3">
               Academic Calendar
             </a>
             <Link className="d-block text-light mb-3" to="/human-resources">
