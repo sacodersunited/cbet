@@ -8,9 +8,12 @@ import { Container, Row, Col, Button, Image, Card } from "react-bootstrap"
 import styled from "styled-components"
 import Fade from "react-reveal/Fade"
 import Slide from "react-reveal/Slide"
+import VideoCarousel from "../components/VideoCarousel"
+import { FaRegEnvelope } from "react-icons/fa"
 import BMETImg from "../images/bmet-tech.jpg"
 import BMETImg3 from "../images/bmetDegree/bmet-3.jpg"
 import BrentImg from "../images/team/brentIsham.jpg"
+import BMETVid from "../video/cbetCert-SD.mp4"
 
 const ProgramDetail = styled.div`
   padding: 46px 0 46px 40px;
@@ -18,8 +21,12 @@ const ProgramDetail = styled.div`
 `
 const Programs = () => (
   <LayoutDetail>
-    <SEO title="Programs" />
-    <GraphicHeader imgSrc={headerImg} title="BMET Certificate" />
+    <SEO title="BMET Certification" />
+    <VideoCarousel
+      title="BMET Certificate"
+      descr="The Biomedical Equipment Technician Certificate program provides a comprehensive, overview of the biomedical equipment and healthcare technology management industry."
+      vidSrc={BMETVid}
+    />
 
     <Container className="mb-5">
       <Row>
@@ -31,7 +38,7 @@ const Programs = () => (
                 25 WEEK CERTIFICATE COURSE
               </small>
             </h1>
-            <p>
+            <p className="lead">
               The Biomedical Equipment Technician (BMET) certificate program is
               a 25-week intensive academic program delivering theoretical
               instruction via online interactive distance learning. Students
@@ -54,10 +61,22 @@ const Programs = () => (
             <Card.Body>
               <Card.Title>Brent Isham</Card.Title>
               <Card.Text>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni
-                unde, consequatur quaerat enim provident modi repellendus eum
-                officia fuga blanditiis corporis nulla animi nostrum!
+                I am the Math and Electronics instructor for CBET. I taught high
+                school math, including Algebra, Geometry, and Pre-Cal, for 4
+                years. I have a Bachelor of Science in Mathematics from The
+                University of Texas at San Antonio and an Associates of Applied
+                Science in Electronics Engineering Technology from ITT Technical
+                Institute. I am excited to help you on your path to a
+                certificate or an Associates.
               </Card.Text>
+              <FaRegEnvelope />{" "}
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="mailto:bisham@cbet.edu"
+              >
+                bisham@cbet.edu
+              </a>
             </Card.Body>
           </Card>
         </Col>
@@ -71,17 +90,11 @@ const Programs = () => (
           <Fade>
             <Col md="8">
               <h4>Program Cost</h4>
-
               <p>$9,600</p>
               <h4>Program Length</h4>
-              <p>7 Months or 480 hours</p>
-              <h4>Accreditation</h4>
-              <p>
-                The certificate program is accredited by the Accrediting Council
-                for Continuing Education and Training (ACCET); and authorized by
-                the Texas Work Force Commission (TWC) and the Texas Higher
-                Education Coordinating Board (THECB).
-              </p>
+              <p>6 Months or 400 hours</p>
+              <h4>Student to Teacher Ratio</h4>
+              <p>30:1</p>
             </Col>
           </Fade>
         </ProgramDetail>
@@ -104,22 +117,13 @@ const Programs = () => (
           <Slide left>
             <h4>Course Content</h4>
             <ul>
-              <li>
-                <b>BMTO 1302</b> Medical Terminology and Anatomy (6 Weeks)
-              </li>
-              <li>
-                <b>BMTO 1305</b> Electronics (6 Weeks)
-              </li>
-              <li>
-                <b>BMTO 2304</b> Biomedical Equipment Technology (6 Weeks)
-              </li>
-              <li>
-                <b>BMTO 1303</b> Networking Fundamentals (6 Weeks)
-              </li>
-              <li>
-                <b>BMTO 1609 </b> Biomedical Equipment Technician Certificate
-                Capstone (6 Weeks)
-              </li>
+              <li>Medical Terminology </li>
+              <li>Basic Anatomy</li>
+              <li>Organizational Behavior in Healthcare</li>
+              <li>Introduction to Computer Office Programs</li>
+              <li>Introduction to Computer Networking</li>
+              <li>Introduction to Electronic Circuits</li>
+              <li>Biomedical Equipment Technology</li>
             </ul>
           </Slide>
         </Col>

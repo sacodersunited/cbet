@@ -104,15 +104,15 @@ const InternationalStudents = () => (
             To begin the process, please send signed written requests for an
             Apostille to:
           </p>
-          <p>
-            <address>
-              <b>Attn: Apostille Request</b> <br />
-              Office of the Registrar College of Biomedical Equipment Technology
-              <br />
-              11550 IH 10 West, Suite 190 <br />
-              San Antonio, TX 78230
-            </address>
-          </p>
+
+          <address>
+            <b>Attn: Apostille Request</b> <br />
+            Office of the Registrar College of Biomedical Equipment Technology
+            <br />
+            11550 IH 10 West, Suite 190 <br />
+            San Antonio, TX 78230
+          </address>
+
           <Alert className="p-3 mb-2 bg-secondary text-white">
             <p>Requests must include the following:</p>
             <ul>

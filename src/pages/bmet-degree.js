@@ -2,17 +2,18 @@ import React from "react"
 import { Link } from "gatsby"
 import LayoutDetail from "../components/layoutDetail"
 import SEO from "../components/seo"
-import GraphicHeader from "../components/graphicHeader"
-import headerImg from "../images/bmet-bg.jpg"
 import { Container, Row, Col, Button, Image, Card } from "react-bootstrap"
 import styled from "styled-components"
 import Fade from "react-reveal/Fade"
 import Slide from "react-reveal/Slide"
+import VideoCarousel from "../components/VideoCarousel"
+import { FaRegEnvelope } from "react-icons/fa"
 import BMETImg from "../images/bmet-tech.jpg"
 import BMETImg1 from "../images/bmetDegree/bmet-1.jpg"
 import BMETImg2 from "../images/bmetDegree/bmet-2.jpg"
 import BMETImg4 from "../images/bmetDegree/bmet-4.jpg"
 import FSteinmeirImg from "../images/team/fsteinmeier.jpg"
+import BMETVid from "../video/cbetDegree-SD.mp4"
 
 const ProgramDetail = styled.div`
   padding: 46px 0 46px 40px;
@@ -20,8 +21,12 @@ const ProgramDetail = styled.div`
 `
 const Programs = () => (
   <LayoutDetail>
-    <SEO title="Programs" />
-    <GraphicHeader imgSrc={headerImg} title="BMET Associate Degree" />
+    <SEO title="BMET Associate Degree" />
+    <VideoCarousel
+      title="BMET Associate Degree"
+      descr="The BMET Degree in Biomedical Equipment Technology is an interactive distance learning program designed to prepare the student to seek a variety of entry-level positions in the healthcare technology and management field."
+      vidSrc={BMETVid}
+    />
     <Container className="mb-5">
       <Row>
         <Col md={7}>
@@ -29,7 +34,7 @@ const Programs = () => (
             <h1 className="display-5 text-uppercase">
               BioMedical Equipment Technician
             </h1>
-            <p>
+            <p className="lead">
               The Associate of Applied Science Degree in Biomedical Equipment
               Technology is an interactive distance learning program designed to
               prepare the student to seek a variety of entry-level positions in
@@ -54,10 +59,22 @@ const Programs = () => (
             <Card.Body>
               <Card.Title>Frauke Steinmeier</Card.Title>
               <Card.Text>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni
-                unde, consequatur quaerat enim provident modi repellendus eum
-                officia fuga blanditiis corporis nulla animi nostrum!
+                It is my pleasure to instruct English Composition 1. I have a
+                Master’s in Educational Leadership from the University of Texas
+                at San Antonio and over 10 years of experience. Furthermore, I
+                am a Fulbright Scholar and an SFS Scholar. In this course, I
+                will teach you the mechanics of technical writing for the
+                biomedical technology field. I look forward to teaching you.
+                Feel free to contact me with any questions you may have.
               </Card.Text>
+              <FaRegEnvelope />{" "}
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="mailto:fsteinmeier@cbet.edu"
+              >
+                fsteinmeier@cbet.edu
+              </a>
             </Card.Body>
           </Card>
         </Col>
@@ -73,14 +90,8 @@ const Programs = () => (
               <p>$22,600</p>
               <h4>Program Length</h4>
               <p>15 Months or 1065 hours </p>
-              <h4>Career Objectives</h4>
-              <p>
-                This program prepares students to work in positions, such as
-                Biomedical Equipment Technician (maintenance and repairs),
-                Specialized Equipment Field Service, and Medical Equipment &
-                Instrumentation Technician. Also, Sales, Technical Support,
-                Consulting, and Management.
-              </p>
+              <h4>Student to Teacher Ratio</h4>
+              <p>Lab = 30:1, Externship = 1:1</p>
             </Col>
           </Fade>
         </ProgramDetail>
@@ -138,7 +149,7 @@ const Programs = () => (
           <Slide left>
             <h4>Core Component II</h4>
             <ul>
-              <li> Healthcare Technology Management II</li>
+              <li>Healthcare Technology Management II</li>
               <li>Healthcare Technology Management III</li>
               <li>Networking Fundamentals II</li>
               <li>Biomedical Equipment I</li>

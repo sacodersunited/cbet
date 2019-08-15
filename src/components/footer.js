@@ -4,7 +4,7 @@ import { Container, Row, Col, Image, Navbar } from "react-bootstrap"
 import styled from "styled-components"
 import { FaFacebookF, FaLinkedinIn, FaUserLock } from "react-icons/fa"
 import Logo from "../../src/images/logo/footer-logo.svg"
-import StudentCatalog from "../../src/documents/CBET COURSE CATALOG.pdf"
+import StudentCatalog from "../../src/documents/CBET Catalog 6.22.19.pdf"
 
 const FooterSection = styled.footer`
   color: whitesmoke;
@@ -23,7 +23,7 @@ const Footer = () => (
             <Image src={Logo} />
           </Col>
           <Col>
-            <a className="d-block text-light mb-3" href="#">
+            <a className="d-block text-light mb-3" disabled>
               Academic Calendar
             </a>
             <Link className="d-block text-light mb-3" to="/human-resources">
@@ -41,13 +41,16 @@ const Footer = () => (
             </a>
           </Col>
           <Col>
-            <a className="d-block text-light mb-3" href="#">
+            <a
+              className="d-block text-light mb-3"
+              href="mailto:webmaster@cbet.edu?Subject=Website%20Feedback"
+            >
               Provide Website Feedback
             </a>
-            <a className="d-block text-light mb-3" href="#">
+            <a className="d-block text-light mb-3" disabled>
               Accessibility Statement
             </a>
-            <a className="d-block text-light mb-3" href="#">
+            <a className="d-block text-light mb-3" disabled>
               Privacy Statement
             </a>
           </Col>
@@ -77,7 +80,7 @@ const Footer = () => (
               />
               LinkedIn
             </a>
-            <Link to="/admin" className="d-block text-light mb-3">
+            <a className="d-block text-light mb-3">
               <FaUserLock
                 style={{
                   verticalAlign: "text-bottom",
@@ -86,7 +89,7 @@ const Footer = () => (
                 }}
               />
               Admin Portal
-            </Link>
+            </a>
             {/* {isAuthenticated() === true && user !== null ? (
                 <>
                   <Link

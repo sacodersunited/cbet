@@ -26,9 +26,7 @@ const Programs = () => (
               />{" "}
               Biomedical Equipment Tech
             </h5>
-            <p className="display-4">
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit
-            </p>
+            <p className="display-4">Become an BMET Professional</p>
           </Slide>
         </Col>
         <Col md={6}>
@@ -37,9 +35,7 @@ const Programs = () => (
               <FaRocket size={24} style={{ verticalAlign: "text-bottom" }} />{" "}
               INFORMATION TECHNOLOGY & NETWORKING
             </h5>
-            <p className="display-4">
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit
-            </p>
+            <p className="display-4">Become an IT Professional</p>
           </Slide>
         </Col>
       </Row>

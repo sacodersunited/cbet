@@ -10,7 +10,7 @@ import {
 } from "react-bootstrap"
 import { FaMapMarkerAlt } from "react-icons/fa"
 import InputMask from "react-input-mask"
-import ContactBG from "../images/contact-bg.jpg"
+import ContactBG from "../images/cbet-header.jpg"
 import GraphicHeader from "../components/graphicHeader"
 
 export default class AdmissionsForm extends Component {

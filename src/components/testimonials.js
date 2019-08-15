@@ -32,7 +32,7 @@ class Testimonials extends Component {
         <Zoom bottom>
           <CardGroup>
             {TestimonialsData.map((testimonial, index) => (
-              <Card>
+              <Card key={testimonial.name}>
                 <Card.Img
                   variant="top"
                   src={`profile-${index + 1}.png`}
@@ -40,43 +40,45 @@ class Testimonials extends Component {
                 />
                 <Card.Body>
                   <Card.Title>{testimonial.name}</Card.Title>
-                  <Card.Text>
-                    <p className="mt-0 mb-0 font-weight-bold">
-                      {testimonial.type}
-                    </p>
-                    <p className="mt-0 mb-0 text-muted">{testimonial.date}</p>
-                    <p className="mt-0 mb-3 font-italic">{testimonial.state}</p>
-                    {this.state.isEmptyState && (
-                      <>
-                        <p style={{ minHeight: "180px" }}>
-                          {testimonial.comment.substring(0, 240)}...
-                        </p>
-                        <Button
-                          className="text-uppercase"
-                          variant="primary"
-                          block
-                          onClick={this.showTestimonial}
-                        >
-                          Learn More
-                        </Button>
-                      </>
-                    )}
-                    {!this.state.isEmptyState && (
-                      <>
-                        <p style={{ minHeight: "260px" }}>
-                          {testimonial.comment}
-                        </p>
-                        <Button
-                          className="text-uppercase"
-                          variant="primary"
-                          block
-                          onClick={this.showTestimonial}
-                        >
-                          Show Less
-                        </Button>
-                      </>
-                    )}
+                  <Card.Text className="mt-0 mb-0 font-weight-bold">
+                    {testimonial.type}
                   </Card.Text>
+                  <Card.Text className="mt-0 mb-0 text-muted">
+                    {testimonial.date}
+                  </Card.Text>
+                  <Card.Text className="mt-0 mb-3 font-italic">
+                    {testimonial.state}
+                  </Card.Text>
+                  {this.state.isEmptyState && (
+                    <>
+                      <Card.Text style={{ minHeight: "180px" }}>
+                        {testimonial.comment.substring(0, 240)}...
+                      </Card.Text>
+                      <Button
+                        className="text-uppercase"
+                        variant="primary"
+                        block
+                        onClick={this.showTestimonial}
+                      >
+                        Learn More
+                      </Button>
+                    </>
+                  )}
+                  {!this.state.isEmptyState && (
+                    <>
+                      <Card.Text style={{ minHeight: "260px" }}>
+                        {testimonial.comment}
+                      </Card.Text>
+                      <Button
+                        className="text-uppercase"
+                        variant="primary"
+                        block
+                        onClick={this.showTestimonial}
+                      >
+                        Show Less
+                      </Button>
+                    </>
+                  )}
                 </Card.Body>
               </Card>
             ))}

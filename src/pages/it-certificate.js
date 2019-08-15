@@ -27,7 +27,7 @@ const Programs = () => (
             <h1 className="display-5 text-uppercase">
               IT & Networking Certificate
             </h1>
-            <p>
+            <p className="lead">
               To assist IT professionals in staying current with their knowledge
               and skills and to help the student prepare for the
             </p>
@@ -36,7 +36,7 @@ const Programs = () => (
               <li>CompTIA Network+ Certification Exam</li>
             </ul>
 
-            <Link to="/">
+            <Link to="/admissions">
               <Button className="text-uppercase"> Apply Today</Button>
             </Link>
           </Fade>
@@ -46,17 +46,13 @@ const Programs = () => (
     <Row className="no-gutters mb-5 ">
       <Col md={6} style={{ backgroundColor: "#2699fb" }}>
         <ProgramDetail>
-          <h2 className="text-uppercase mb-5">Program Overview</h2>
+          <h2 className="text-uppercase mb-5">Seminar Overview</h2>
           <Fade>
             <Col md="8">
-              <h4>Program Length</h4>
-              <p> 80 Contact Hours</p>
-              <h4>Program Composition</h4>
-              <p>Online</p>
-              <h4>Classes</h4>
-              <p>Classes 5 days a week(Monday - Friday)</p>
-              <p>Class Length: 3 hours</p>
-              <p>Class Times: 8am - 12am, 12pm-3pm, 4pm - 5pm</p>
+              <h4>Seminar Cost</h4>
+              <p>$750</p>
+              <h4>Seminar Length</h4>
+              <p> 40 Hours</p>
             </Col>
           </Fade>
         </ProgramDetail>
@@ -84,7 +80,6 @@ const Programs = () => (
               <li>Hardware</li>
               <li>Networking</li>
               <li>Mobile Devices</li>
-              <li>Introduction to Computers</li>
               <li>Hardware & Network Troubleshooting</li>
               <li>Windows Operating System</li>
               <li>OSX Operating System</li>
@@ -110,8 +105,8 @@ const Programs = () => (
               <li>Acronyms</li>
               <li>Network Architecture</li>
               <li>Network Operations</li>
-              <li>Network Security and Industry Standards</li>
-              <li>Practices</li>
+              <li>Network Security </li>
+              <li>Industry Standards & Practices </li>
               <li>Network Theory</li>
             </ul>
           </Slide>
