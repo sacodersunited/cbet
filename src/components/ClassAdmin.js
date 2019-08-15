@@ -1140,7 +1140,7 @@ class ClassAdmin extends React.Component {
                                   </Button>
                                 </Link>)
                         case "Cert":
-                          return (<Link to="/it-certificate">
+                          return (<Link to="/bmet-certificate">
                                     <Button
                                       variant="primary"
                                       size="sm"
@@ -1154,7 +1154,7 @@ class ClassAdmin extends React.Component {
                                     </Button>
                                   </Link>)
                         case "A_plus":
-                          return (<Link to="/bmet-degree">
+                          return (<Link to="/it-degree">
                                     <Button
                                       variant="primary"
                                       size="sm"
@@ -1168,17 +1168,7 @@ class ClassAdmin extends React.Component {
                                     </Button>
                                   </Link>)
                         case "N_plus":
-                          return (<Link to="/bmet-degree">
-                          <Button
-                            variant="primary"
-                            size="sm"
-                            disabled={
-                              true
-                            }
-                          >
-                            Learn More
-                          </Button>
-                        </Link>)
+                          return (null)
                         default:
                           return (<Link to="/bmet-degree">
                           <Button
