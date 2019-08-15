@@ -12,6 +12,7 @@ import {
 } from "react-bootstrap"
 import Fade from "react-reveal/Fade"
 import styled from "styled-components"
+import { FaCheckSquare } from "react-icons/fa"
 import GraphicHeader from "../components/graphicHeader"
 import LayoutDetail from "../components/layout"
 import SEO from "../components/seo"
@@ -34,6 +35,20 @@ const SoldierSection = styled.section`
   padding: 96px 0;
 `
 
+const CamoBG = styled.section`
+  background: #636363; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #a2ab58,
+    #636363
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #a2ab58,
+    #636363
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+`
+
 const FinancialAid = () => (
   <LayoutDetail>
     <SEO title="Veterans Affairs Financial Assistance" />
@@ -46,24 +61,30 @@ const FinancialAid = () => (
         <Col md={7}>
           <Fade left>
             <h2 className="display-5 text-uppercase">
-              An Investment in Your <em>Future</em>
+              Welcome to the CBET’s <br />
+              <em>Veterans Community</em>
             </h2>
           </Fade>
           <p>
-            Education and career training can be one of the most valuable
-            investments you can make. Successful investment in your future can
-            help you pursue a professional career. Many students require
-            financial assistance and at Biomedical Equipment and Health Care
-            Technology financial assistance is available for those who qualify.
+            The college is Veteran owned and operated and prioritizes the unique
+            requirements of our Veteran students. Our presence on Facebook and
+            LinkedIn promote discussion on topics and trends that are important
+            to our student and military Veteran community. We offer
+            military-friendly programs, and zero percent financing and support
+            the use of the Department of Veterans Affairs education benefits.
+            The college is certified with the Department of Veterans Affairs to
+            support Veterans who choose to use Chapters 30, 31, 33, 35 and
+            MGIB-SR Chapter 1606.
           </p>
+          <h2>Education Benefits Assistance</h2>
           <p>
-            CBET's experienced staff will assist and support you every step of
-            the way through the application process. Our knowledgeable staff can
-            guide you through available financial assistance options. If you are
-            eligible, CBET can help you secure a number of types of aid,
-            including scholarships, loans, and other financing options. We
-            assist with all the paperwork. For further assistance, contact us to
-            help evaluate your eligibility.
+            Utilizing the education benefits you have earned requires choosing
+            the right benefit based on your current status and personal goals.
+            Determining your eligibility and selecting the right program is an
+            important step in taking advantage of your hard-earned benefits. If
+            you need assistance or have questions, contact our certifying
+            official at{" "}
+            <a href="mailto:smcknight@cbet.edu">smcknight@cbet.edu</a> .
           </p>
           <Link to="/admissions">
             <Button className="text-uppercase"> Apply Today</Button>
@@ -84,58 +105,176 @@ const FinancialAid = () => (
       </Row>
     </Container>
 
-    <SoldierSection imgBG={soldierBG}>
-      <Container>
-        <Row>
-          <Col md={7}>
-            <Card className="mt-3">
-              <Card.Body>
-                <h2>Military & Veterans</h2>
-                <h4 className="text-muted">Serving Those That Served Us</h4>
-                <a
-                  target="_blank"
-                  href="https://www.va.gov/education/gi-bill/post-9-11/ch-33-benefit"
-                >
-                  <Image
-                    src="https://benefits.va.gov/gibill/images/GIBicon.fw.png"
-                    alt="GI Bill"
-                    fluid
-                    width="200"
-                    className="mb-3"
-                  />
-                </a>
+    <SoldierSection imgBG={soldierBG} />
+
+    <CamoBG className="pt-5 pb-5">
+      <div className="p-3 mb-2 mt-0">
+        <Container>
+          <div className="p-5 bg-light">
+            <h2>
+              <FaCheckSquare className="mr-2" />
+              Step 1: Selecting the Correct VA Education Program
+            </h2>
+          </div>
+
+          <Row className="mb-5">
+            <Col md={3}>
+              <Card className="mt-3">
+                <Card.Body style={{ minHeight: "200px" }}>
+                  <Card.Title>Chapter 30 Montgomery GI Bill</Card.Title>
+                  <Button className="mt-5 " variant="outline-primary" block>
+                    Learn More
+                  </Button>
+                </Card.Body>
+              </Card>
+            </Col>
+            <Col md={3}>
+              <Card className="mt-3">
+                <Card.Body style={{ minHeight: "200px" }}>
+                  <Card.Title>Chapter 31 Vocational Rehabilitation</Card.Title>
+                  <Button className="mt-5 " variant="outline-primary" block>
+                    Learn More
+                  </Button>
+                </Card.Body>
+              </Card>
+            </Col>
+            <Col md={3}>
+              <Card className="mt-3">
+                <Card.Body style={{ minHeight: "200px" }}>
+                  <Card.Title>Chapter 33 Post-9/11 GI Bill</Card.Title>
+                  <Button className="mt-5 " variant="outline-primary" block>
+                    Learn More
+                  </Button>
+                </Card.Body>
+              </Card>
+            </Col>
+            <Col md={3}>
+              <Card className="mt-3">
+                <Card.Body style={{ minHeight: "200px" }}>
+                  <Card.Title>
+                    Chapter 35 Dependents Educational Assistance Program
+                  </Card.Title>
+                  <Button className="mt-1 " variant="outline-primary" block>
+                    Learn More
+                  </Button>
+                </Card.Body>
+              </Card>
+            </Col>
+            <Col md={3}>
+              <Card className="mt-3">
+                <Card.Body style={{ minHeight: "200px" }}>
+                  <Card.Title>Chapter 1606 MGIB Selected-Reserves</Card.Title>
+                  <Button className="mt-5 " variant="outline-primary" block>
+                    Learn More
+                  </Button>
+                </Card.Body>
+              </Card>
+            </Col>
+          </Row>
+
+          <div className="p-5 bg-light mb-5">
+            <h2 className="mt-3">
+              <FaCheckSquare className="mr-2" />
+              Step 2 – Apply for Benefits
+            </h2>
+            <Row>
+              <Col md={7}>
+                <Button className="mt-5" variant="outline-primary">
+                  Veterans Education Benefits Application
+                </Button>
+              </Col>
+            </Row>
+          </div>
+
+          <div className="p-5 bg-light mb-5">
+            <h2>
+              <FaCheckSquare className="mr-2" />
+              Step 3 – Gather Official Education Records
+            </h2>
+            <Row className="mb-5">
+              <Col md={7}>
                 <p>
-                  You have a variety of military and veteran benefits programs
-                  to finance your college education. CBET staff can help you in
-                  your transition and are always willing to meet with you
-                  personally to help you achieve your educational objectives. We
-                  will discuss with you about our credit transfer policy and
-                  about credit earned for military training. You may be closer
-                  to your degree than you think, we can help explain how you can
-                  make use of the GI Bill benefits. You will need to complete an
-                  application located at{" "}
-                  <a href="http://vets.gov/">vets.gov </a>to begin to receive
-                  the benefit unless indicated differently.
+                  An important step in the admissions process is submitting your
+                  educational and service records. In addition to submitting
+                  your DD Form 214, Veterans are encouraged to take advantage of
+                  military training and experience by submitting training
+                  records. You may access these records at any of the following
+                  links:
                 </p>
+              </Col>
+            </Row>
+
+            <Row>
+              <Col>
+                <Button variant="outline-primary" block>
+                  Joint Services Transcript
+                </Button>
+              </Col>
+              <Col>
+                <Button variant="outline-primary" block>
+                  Community College of the Air Force (CCAF) Transcript
+                </Button>
+              </Col>
+              <Col>
+                <Button variant="outline-primary" block>
+                  Defense Language Institute (DLI) Transcript
+                </Button>
+              </Col>
+              <Col>
+                <Button variant="outline-primary" block>
+                  Defense Language Proficiency Test (DLPT)
+                </Button>
+              </Col>
+            </Row>
+          </div>
+
+          <div className="p-5 bg-light mb-5">
+            <h2>
+              <FaCheckSquare className="mr-2" />
+              Step 4 – Submit all Official Training Records and Transcripts
+            </h2>
+            <Row className="mb-5">
+              <Col md={7}>
                 <p>
-                  GI Bill beneficiaries can now download a GI Bill Statement of
-                  Benefits through Vets.gov. The GI Bill Statement of Benefits
-                  provides details on remaining entitlement, eligibility
-                  percentage, and benefits end date. The information is
-                  real-time data pulled from the same system used by the
-                  education benefit processors.
+                  <address>
+                    College of Biomedical Equipment Technology (CBET) <br />{" "}
+                    Admissions Office <br /> 11550 IH-10 West, Suite 190 <br />{" "}
+                    San Antonio, Texas 78230
+                  </address>
                 </p>
-              </Card.Body>
-            </Card>
-          </Col>
-        </Row>
-      </Container>
-    </SoldierSection>
+              </Col>
+            </Row>
+          </div>
+
+          <div className="p-5 bg-light">
+            <h2>
+              <FaCheckSquare className="mr-2" />
+              Step 5 – Review the Course Catalog and Speak with an Admissions
+              Representative
+            </h2>
+            <Row>
+              <Col md={7}>
+                <p>
+                  An admissions representative is available to discuss your
+                  unique educational requirements and the costs of the various
+                  program offerings. Veterans are encouraged to learn about
+                  program requirements, tuition and fees, and which programs
+                  best align with their academic and professional goals.
+                </p>
+                <Button variant="outline-primary" >
+                  Course Catalog
+                </Button>
+              </Col>
+            </Row>
+          </div>
+        </Container>
+      </div>
+    </CamoBG>
 
     <BlueBG>
       <Container>
         <Row className="mb-5">
-          <Col md={7}>
+          <Col>
             <Card>
               <Card.Body>
                 <Card.Title>Student Loan Options</Card.Title>
@@ -150,6 +289,7 @@ const FinancialAid = () => (
                   target="_blank"
                   href="https://www.tciconnection.com/internetApp/app?key=35974edd0a527e31a2ad6306b839c6ac32"
                   className="mb-3"
+                  variant="outline-primary"
                 >
                   Apply Today
                 </Button>
@@ -161,6 +301,7 @@ const FinancialAid = () => (
                   target="_blank"
                   href=" http://www.tfcstudentinfo.com"
                   className="mb-3"
+                  variant="outline-primary"
                 >
                   Apply Today
                 </Button>
