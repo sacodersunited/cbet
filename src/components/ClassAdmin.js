@@ -1168,7 +1168,8 @@ class ClassAdmin extends React.Component {
                                     </Button>
                                   </Link>)
                         case "N_plus":
-                          return (null)
+                          return (<div style={{display: "inline-block",
+                            height: "26.3px"}}></div>)
                         default:
                           return (<Link to="/bmet-degree">
                           <Button
