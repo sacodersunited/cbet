@@ -87,7 +87,7 @@ const Programs = () => (
           <Fade>
             <Col md="8">
               <h4>Program Cost</h4>
-              <p>$22,600</p>
+              <p>$22,500</p>
               <h4>Program Length</h4>
               <p>15 Months or 1065 hours </p>
               <h4>Student to Teacher Ratio</h4>
