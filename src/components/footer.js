@@ -19,10 +19,10 @@ const Footer = () => (
     <FooterSection className="bg-dark">
       <Container>
         <Row>
-          <Col>
+          <Col xs={6} md={2} className="mb-3">
             <Image src={Logo} />
           </Col>
-          <Col>
+          <Col md={2}>
             <a className="d-block text-light mb-3" disabled>
               Academic Calendar
             </a>
@@ -40,7 +40,7 @@ const Footer = () => (
               Transcripts
             </a>
           </Col>
-          <Col>
+          <Col md={2}>
             <a
               className="d-block text-light mb-3"
               href="mailto:webmaster@cbet.edu?Subject=Website%20Feedback"
@@ -54,7 +54,7 @@ const Footer = () => (
               Privacy Statement
             </a>
           </Col>
-          <Col>
+          <Col md={2}>
             <a
               target="_blank"
               rel="noopener noreferrer"
@@ -112,7 +112,7 @@ const Footer = () => (
                 </>
               ) : null} */}
           </Col>
-          <Col>
+          <Col md={2}>
             <p>
               11550 IH-10 West <br />
               Suite 190 <br />

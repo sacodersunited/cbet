@@ -1,17 +1,29 @@
 import React from "react"
 import { Link } from "gatsby"
 import { Carousel, Button } from "react-bootstrap"
+import styled from "styled-components"
 import CarouselImage1 from "../images/carousel/carousel-1.jpg"
 import CarouselImage2 from "../images/carousel/logo.jpg"
 import CarouselImage3 from "../images/carousel/carousel-3.jpg"
 import CarouselImage4 from "../images/carousel/carousel-4.jpg"
 
+const CarouselH1 = styled.h1`
+  @media (max-width: 575.98px) {
+    font-size: 24px !important;
+  }
+`
+
 const HomeCarousel = () => (
   <Carousel>
-    <Carousel.Item >
-      <img style={{ minHeight: "240px" }} className="d-block w-100" src={CarouselImage1} alt="First slide" />
+    <Carousel.Item>
+      <img
+        style={{ minHeight: "240px" }}
+        className="d-block w-100"
+        src={CarouselImage1}
+        alt="First slide"
+      />
       <Carousel.Caption style={{ textAlign: "left" }}>
-        <h1>College of Biomedical Equipment Technology</h1>
+        <CarouselH1>College of Biomedical Equipment Technology</CarouselH1>
         <p>Building the Future Healthcare Technology Workforce</p>
         <Link to="/admissions">
           <Button className="text-uppercase">Apply Today</Button>
@@ -19,7 +31,12 @@ const HomeCarousel = () => (
       </Carousel.Caption>
     </Carousel.Item>
     <Carousel.Item>
-      <img style={{ minHeight: "240px" }} className="d-block w-100" src={CarouselImage2} alt="Second slide" />
+      <img
+        style={{ minHeight: "240px" }}
+        className="d-block w-100"
+        src={CarouselImage2}
+        alt="Second slide"
+      />
 
       <Carousel.Caption style={{ textAlign: "left" }}>
         <p>
@@ -33,10 +50,15 @@ const HomeCarousel = () => (
       </Carousel.Caption>
     </Carousel.Item>
     <Carousel.Item>
-      <img style={{ minHeight: "240px" }} className="d-block w-100" src={CarouselImage3} alt="Third slide" />
+      <img
+        style={{ minHeight: "240px" }}
+        className="d-block w-100"
+        src={CarouselImage3}
+        alt="Third slide"
+      />
 
       <Carousel.Caption style={{ textAlign: "left" }}>
-        <h1>College of Biomedical Equipment Technology</h1>
+        <CarouselH1>College of Biomedical Equipment Technology</CarouselH1>
         <p>Building the Future Healthcare Technology Workforce</p>
         <Link to="/admissions">
           <Button className="text-uppercase">Apply Today</Button>
@@ -45,10 +67,15 @@ const HomeCarousel = () => (
     </Carousel.Item>
 
     <Carousel.Item>
-      <img style={{ minHeight: "240px" }} className="d-block w-100" src={CarouselImage4} alt="Fourth slide" />
+      <img
+        style={{ minHeight: "240px" }}
+        className="d-block w-100"
+        src={CarouselImage4}
+        alt="Fourth slide"
+      />
 
       <Carousel.Caption style={{ textAlign: "left" }}>
-        <h1>College of Biomedical Equipment Technology</h1>
+        <CarouselH1>College of Biomedical Equipment Technology</CarouselH1>
         <p>Building the Future Healthcare Technology Workforce</p>
         <Link to="/admissions">
           <Button className="text-uppercase">Apply Today</Button>
