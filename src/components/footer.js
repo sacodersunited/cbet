@@ -80,7 +80,7 @@ const Footer = () => (
               />
               LinkedIn
             </a>
-            <Link to="/admin" className="d-block text-light mb-3">
+            <a className="d-block text-light mb-3">
               <FaUserLock
                 style={{
                   verticalAlign: "text-bottom",
@@ -89,7 +89,7 @@ const Footer = () => (
                 }}
               />
               Admin Portal
-            </Link>
+            </a>
             {/* {isAuthenticated() === true && user !== null ? (
                 <>
                   <Link

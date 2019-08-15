@@ -78,7 +78,7 @@ const Classes = () => (
               className="mt-1 text-uppercase"
               variant="primary"
               block
-              disabled
+              href="mailto:rgonzales@cbet.edu?Subject=Specialty%20Program"
             >
               Learn More
             </Button>
