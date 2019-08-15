@@ -1154,7 +1154,7 @@ class ClassAdmin extends React.Component {
                                     </Button>
                                   </Link>)
                         case "A_plus":
-                          return (<Link to="/it-degree">
+                          return (<Link to="/it-certificate">
                                     <Button
                                       variant="primary"
                                       size="sm"
