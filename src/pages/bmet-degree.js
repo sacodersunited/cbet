@@ -2,7 +2,15 @@ import React from "react"
 import { Link } from "gatsby"
 import LayoutDetail from "../components/layoutDetail"
 import SEO from "../components/seo"
-import { Container, Row, Col, Button, Image, Card } from "react-bootstrap"
+import {
+  Container,
+  Row,
+  Col,
+  Button,
+  Image,
+  Card,
+  ButtonToolbar,
+} from "react-bootstrap"
 import styled from "styled-components"
 import Fade from "react-reveal/Fade"
 import Slide from "react-reveal/Slide"
@@ -14,6 +22,7 @@ import BMETImg2 from "../images/bmetDegree/bmet-2.jpg"
 import BMETImg4 from "../images/bmetDegree/bmet-4.jpg"
 import FSteinmeirImg from "../images/team/fsteinmeier.jpg"
 import BMETVid from "../video/cbetDegree-SD.mp4"
+import StudentCatalog from "../documents/CBET Course Catalog.pdf"
 
 const ProgramDetail = styled.div`
   padding: 46px 0 46px 40px;
@@ -48,9 +57,14 @@ const Programs = () => (
               for taking on leadership positions in the field.
             </p>
 
-            <Link to="/admissions">
-              <Button className="text-uppercase"> Apply Today</Button>
-            </Link>
+            <ButtonToolbar>
+              <Link to="/admissions">
+                <Button className="text-uppercase mr-3"> Apply Today</Button>
+              </Link>
+              <Button variant="outline-primary" href={StudentCatalog}>
+                Course Catalog
+              </Button>
+            </ButtonToolbar>
           </Fade>
         </Col>
         <Col md={4}>

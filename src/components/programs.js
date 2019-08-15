@@ -16,6 +16,7 @@ const Programs = () => (
       <h2 className="mb-5" style={{ textTransform: "uppercase" }}>
         Programs
       </h2>
+
       <Row>
         <Col md={6}>
           <Slide left>

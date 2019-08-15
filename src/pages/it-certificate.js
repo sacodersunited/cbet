@@ -4,13 +4,21 @@ import LayoutDetail from "../components/layoutDetail"
 import SEO from "../components/seo"
 import GraphicHeader from "../components/graphicHeader"
 import headerImg from "../images/it-bg.jpg"
-import { Container, Row, Col, Button, Image } from "react-bootstrap"
+import {
+  Container,
+  Row,
+  Col,
+  Button,
+  Image,
+  ButtonToolbar,
+} from "react-bootstrap"
 import styled from "styled-components"
 import Fade from "react-reveal/Fade"
 import Slide from "react-reveal/Slide"
 import ITImg from "../images/itDegree/it-rt-column.jpg"
 import ITAPlusImg from "../images/itDegree/it-2.jpg"
 import ITNetworkImg from "../images/itDegree/it-1.jpg"
+import StudentCatalog from "../documents/CBET Course Catalog.pdf"
 
 const ProgramDetail = styled.div`
   padding: 46px 0 46px 40px;
@@ -36,9 +44,14 @@ const Programs = () => (
               <li>CompTIA Network+ Certification Exam</li>
             </ul>
 
-            <Link to="/admissions">
-              <Button className="text-uppercase"> Apply Today</Button>
-            </Link>
+            <ButtonToolbar>
+              <Link to="/admissions">
+                <Button className="text-uppercase mr-3"> Apply Today</Button>
+              </Link>
+              <Button variant="outline-primary" href={StudentCatalog}>
+                Course Catalog
+              </Button>
+            </ButtonToolbar>
           </Fade>
         </Col>
       </Row>
