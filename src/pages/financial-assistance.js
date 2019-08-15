@@ -122,7 +122,12 @@ const FinancialAid = () => (
               <Card className="mt-3">
                 <Card.Body style={{ minHeight: "200px" }}>
                   <Card.Title>Chapter 30 Montgomery GI Bill</Card.Title>
-                  <Button className="mt-5 " variant="outline-primary" block>
+                  <Button
+                    href="https://www.benefits.va.gov/gibill/mgib_ad.asp"
+                    className="mt-5 "
+                    variant="outline-primary"
+                    block
+                  >
                     Learn More
                   </Button>
                 </Card.Body>
@@ -132,7 +137,12 @@ const FinancialAid = () => (
               <Card className="mt-3">
                 <Card.Body style={{ minHeight: "200px" }}>
                   <Card.Title>Chapter 31 Vocational Rehabilitation</Card.Title>
-                  <Button className="mt-5 " variant="outline-primary" block>
+                  <Button
+                    href="https://www.benefits.va.gov/vocrehab/eligibility_and_entitlement.asp"
+                    className="mt-5 "
+                    variant="outline-primary"
+                    block
+                  >
                     Learn More
                   </Button>
                 </Card.Body>
@@ -142,7 +152,12 @@ const FinancialAid = () => (
               <Card className="mt-3">
                 <Card.Body style={{ minHeight: "200px" }}>
                   <Card.Title>Chapter 33 Post-9/11 GI Bill</Card.Title>
-                  <Button className="mt-5 " variant="outline-primary" block>
+                  <Button
+                    href="https://www.va.gov/education/about-gi-bill-benefits/post-9-11/"
+                    className="mt-5 "
+                    variant="outline-primary"
+                    block
+                  >
                     Learn More
                   </Button>
                 </Card.Body>
@@ -154,7 +169,12 @@ const FinancialAid = () => (
                   <Card.Title>
                     Chapter 35 Dependents Educational Assistance Program
                   </Card.Title>
-                  <Button className="mt-1 " variant="outline-primary" block>
+                  <Button
+                    href="https://www.benefits.va.gov/VOCREHAB/Dep_Edu_Assist_Chapter_35.asp"
+                    className="mt-1 "
+                    variant="outline-primary"
+                    block
+                  >
                     Learn More
                   </Button>
                 </Card.Body>
@@ -164,7 +184,12 @@ const FinancialAid = () => (
               <Card className="mt-3">
                 <Card.Body style={{ minHeight: "200px" }}>
                   <Card.Title>Chapter 1606 MGIB Selected-Reserves</Card.Title>
-                  <Button className="mt-5 " variant="outline-primary" block>
+                  <Button
+                    href="https://www.benefits.va.gov/gibill/mgib_sr.asp"
+                    className="mt-5 "
+                    variant="outline-primary"
+                    block
+                  >
                     Learn More
                   </Button>
                 </Card.Body>
@@ -179,7 +204,11 @@ const FinancialAid = () => (
             </h2>
             <Row>
               <Col md={7}>
-                <Button className="mt-5" variant="outline-primary">
+                <Button
+                  href="https://www.va.gov/education/how-to-apply/"
+                  className="mt-5"
+                  variant="outline-primary"
+                >
                   Veterans Education Benefits Application
                 </Button>
               </Col>
@@ -206,22 +235,38 @@ const FinancialAid = () => (
 
             <Row>
               <Col>
-                <Button variant="outline-primary" block>
+                <Button
+                  href="https://jst.doded.mil/jst/"
+                  variant="outline-primary"
+                  block
+                >
                   Joint Services Transcript
                 </Button>
               </Col>
               <Col>
-                <Button variant="outline-primary" block>
+                <Button
+                  href="https://www.airuniversity.af.edu/Barnes/CCAF/Display/Article/803247/community-college-of-the-air-force-transcripts/"
+                  variant="outline-primary"
+                  block
+                >
                   Community College of the Air Force (CCAF) Transcript
                 </Button>
               </Col>
               <Col>
-                <Button variant="outline-primary" block>
+                <Button
+                  href="https://www.dliflc.edu/administration/registrar/transcripts-records/"
+                  variant="outline-primary"
+                  block
+                >
                   Defense Language Institute (DLI) Transcript
                 </Button>
               </Col>
               <Col>
-                <Button variant="outline-primary" block>
+                <Button
+                  href="https://www.dliflc.edu/resources/dlpt-guides/"
+                  variant="outline-primary"
+                  block
+                >
                   Defense Language Proficiency Test (DLPT)
                 </Button>
               </Col>
@@ -261,8 +306,16 @@ const FinancialAid = () => (
                   program requirements, tuition and fees, and which programs
                   best align with their academic and professional goals.
                 </p>
-                <Button variant="outline-primary" >
-                  Course Catalog
+                <Button variant="outline-primary mb-3">Course Catalog</Button>
+                <p>
+                  Contact the CBET Admissions Department at{" "}
+                  <a href="mailto:admissiondept@cbet.edu">
+                    admissiondept@cbet.edu
+                  </a>{" "}
+                  or at <a href="tel:+1866.866.9027">866.866.9027</a> .
+                </p>
+                <Button variant="outline-primary mb-3">
+                  Enrollment Application
                 </Button>
               </Col>
             </Row>
