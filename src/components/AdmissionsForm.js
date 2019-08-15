@@ -256,7 +256,7 @@ export default class AdmissionsForm extends Component {
         })
 
         window.location.reload()
-      }, 3500)
+      }, 1500)
       return response
     })
   }
