@@ -19,6 +19,8 @@ import SEO from "../components/seo"
 import headerImg from "../images/usFlag.png"
 import soldierBG from "../images/soldier-bg.png"
 import SoldierImg from "../images/soldier.jpg"
+import CourseCatalog from "../documents/CBET Catalog 6.22.19.pdf"
+import EnrollmentApplication from "../documents/CBET Enrollment Application.pdf"
 
 const BlueBG = styled.section`
   background-color: #2c3e50;
@@ -53,8 +55,8 @@ const FinancialAid = () => (
   <LayoutDetail>
     <SEO title="Veterans Affairs Financial Assistance" />
     <GraphicHeader
-      imgSrc={headerImg}
       title="Veterans Affairs | Financial Assistance"
+      imgSrc={headerImg}
     />
     <Container className="mb-5">
       <Row className="mb-3">
@@ -306,7 +308,11 @@ const FinancialAid = () => (
                   program requirements, tuition and fees, and which programs
                   best align with their academic and professional goals.
                 </p>
-                <Button variant="outline-primary mb-3">Course Catalog</Button>
+
+                <Button href={CourseCatalog} variant="outline-primary mb-3">
+                  Course Catalog
+                </Button>
+
                 <p>
                   Contact the CBET Admissions Department at{" "}
                   <a href="mailto:admissiondept@cbet.edu">
@@ -314,7 +320,10 @@ const FinancialAid = () => (
                   </a>{" "}
                   or at <a href="tel:+1866.866.9027">866.866.9027</a> .
                 </p>
-                <Button variant="outline-primary mb-3">
+                <Button
+                  href={EnrollmentApplication}
+                  variant="outline-primary mb-3"
+                >
                   Enrollment Application
                 </Button>
               </Col>

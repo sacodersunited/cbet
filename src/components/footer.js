@@ -4,7 +4,7 @@ import { Container, Row, Col, Image, Navbar } from "react-bootstrap"
 import styled from "styled-components"
 import { FaFacebookF, FaLinkedinIn, FaUserLock } from "react-icons/fa"
 import Logo from "../../src/images/logo/footer-logo.svg"
-import StudentCatalog from "../../src/documents/CBET COURSE CATALOG.pdf"
+import StudentCatalog from "../../src/documents/CBET Catalog 6.22.19.pdf"
 
 const FooterSection = styled.footer`
   color: whitesmoke;
