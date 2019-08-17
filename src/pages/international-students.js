@@ -1,7 +1,6 @@
 import React from "react"
 import { Container, Row, Col, Button, Alert, Image } from "react-bootstrap"
 import Fade from "react-reveal/Fade"
-import styled from "styled-components"
 import GraphicHeader from "../components/graphicHeader"
 import LayoutDetail from "../components/layout"
 import SEO from "../components/seo"
@@ -10,21 +9,6 @@ import IntlPic from "../images/intl-1.jpg"
 import IntlPicTwo from "../images/intl-2.jpg"
 import IntlPicThree from "../images/intl-3.jpg"
 import IntlPicFour from "../images/intl-4.jpg"
-
-const BlueBG = styled.section`
-  background-color: #2c3e50;
-  background: linear-gradient(90deg, #1cb5e0 0%, #000851 100%);
-  padding: 96px 0;
-`
-
-const SoldierSection = styled.section`
-  background-image: url(${props => props.imgBG || null});
-  background-size: cover;
-  min-height: 600px;
-  background-position: center;
-  background-repeat: no-repeat;
-  padding: 96px 0;
-`
 
 const InternationalStudents = () => (
   <LayoutDetail>

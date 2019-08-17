@@ -16,7 +16,7 @@ const Classes = props => (
       </h2>
       <CardDeck>
         <Card>
-          <Img fixed={props.images.bmetdegree.childImageSharp.fixed} />
+          <Img fluid={props.images.bmetdegree.childImageSharp.fluid} />
           <Card.Body>
             <Card.Title>BMET Degree</Card.Title>
             <Card.Text>
@@ -33,7 +33,7 @@ const Classes = props => (
           </Card.Body>
         </Card>
         <Card>
-          <Img fixed={props.images.bmettech.childImageSharp.fixed} />
+          <Img fluid={props.images.bmettech.childImageSharp.fluid} />
           <Card.Body>
             <Card.Title>BMET Certificate</Card.Title>
             <Card.Text style={{ minHeight: "215px" }}>
@@ -49,7 +49,7 @@ const Classes = props => (
           </Card.Body>
         </Card>
         <Card>
-          <Img fixed={props.images.itnetworkprograms.childImageSharp.fixed} />
+          <Img fluid={props.images.itnetworkprograms.childImageSharp.fluid} />
           <Card.Body>
             <Card.Title>IT & Networking</Card.Title>
             <Card.Text style={{ minHeight: "215px" }}>
@@ -64,7 +64,7 @@ const Classes = props => (
           </Card.Body>
         </Card>
         <Card>
-          <Img fixed={props.images.specialtyprograms.childImageSharp.fixed} />
+          <Img fluid={props.images.specialtyprograms.childImageSharp.fluid} />
           <Card.Body>
             <Card.Title>Specialty Programs</Card.Title>
             <Card.Text style={{ minHeight: "215px" }}>
