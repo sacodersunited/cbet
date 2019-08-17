@@ -8,6 +8,7 @@ import SIImg from "../images/si-recruiting.png"
 import TFCDoc from "../documents/TFCoverviewForStudents.CIT.pdf"
 import SummitLogo from "../images/summit-logo.webp"
 import CIRLogo from "../images/cer-logo.png"
+import NBLogo from "../images/NBChambers-logo.png"
 
 const Partners = () => (
   <Row>
@@ -93,6 +94,25 @@ const Partners = () => (
             rel="noopener noreferrer"
           >
             <Image src={CIRLogo} alt="Summit Imaging logo" fluid width="400" />
+          </a>
+        </Col>
+
+        <Col
+          md={4}
+          className="mb-5"
+          style={{ alignSelf: "center", textAlign: "center" }}
+        >
+          <a
+            href="https://www.chamberinnewbraunfels.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Image
+              src={NBLogo}
+              alt="New Braunfels Chamber logo"
+              fluid
+              width="400"
+            />
           </a>
         </Col>
       </Row>
