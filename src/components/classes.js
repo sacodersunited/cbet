@@ -10,7 +10,6 @@ const ClassesSection = styled.section`
 
 const Classes = props => (
   <ClassesSection>
-    {console.log("classes imgs", props)}
     <Container>
       <h2 className="mb-5" style={{ textTransform: "uppercase" }}>
         Learn More About Our Programs

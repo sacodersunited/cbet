@@ -6,8 +6,8 @@ import AccImg from "../images/accet.svg"
 import twcImg from "../images/twc-logo.jpg"
 import Pulse from "react-reveal/Pulse"
 import Fade from "react-reveal/Fade"
-import Partners from "./partners"
 import Pattern from "../images/transp_bg.png"
+import PartnersStaticQuery from "./PartnersStaticQuery"
 
 const AccredSection = styled.section`
   min-height: 500px;
@@ -78,13 +78,12 @@ const Accreditations = props => (
                   fixed={props.images.txhighered.childImageSharp.fixed}
                   alt="tx higher ed logo"
                 />
-                {/* <Image src={TXHigherImg} alt="twc logo" fluid /> */}
               </a>
             </Col>
           </Row>
         </Col>
       </Row>
-      <Partners />
+      <PartnersStaticQuery />
     </Container>
   </AccredSection>
 )
