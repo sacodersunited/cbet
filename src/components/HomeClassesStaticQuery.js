@@ -1,6 +1,6 @@
 import React from "react"
 import { StaticQuery, graphql } from "gatsby"
-import Classes from "./Classes"
+import Classes from "./classes"
 
 const HomeClassesStaticQuery = props => (
   <StaticQuery

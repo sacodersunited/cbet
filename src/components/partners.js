@@ -115,11 +115,9 @@ const Partners = props => (
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Image
-              src={NBLogo}
+            <Img
+              fluid={props.images.nbchambers.childImageSharp.fluid}
               alt="New Braunfels Chamber logo"
-              fluid
-              width="400"
             />
           </a>
         </Col>

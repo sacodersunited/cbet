@@ -34,6 +34,13 @@ const PartnersStaticQuery = props => (
             }
           }
         }
+        nbchambers: file(relativePath: { eq: "NBChambers-logo.png" }) {
+          childImageSharp {
+            fluid(maxHeight: 142, quality: 100) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
       }
     `}
     render={data => <Partners images={data} />}
