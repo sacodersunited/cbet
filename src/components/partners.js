@@ -2,15 +2,11 @@ import React from "react"
 import { Row, Col, Image } from "react-bootstrap"
 import Pulse from "react-reveal/Pulse"
 import Fade from "react-reveal/Fade"
-import TechNationImg from "../images/TechNation_logo.png"
-import TFCImg from "../images/tfc_logo.png"
-import SIImg from "../images/si-recruiting.png"
+import Img from "gatsby-image"
 import TFCDoc from "../documents/TFCoverviewForStudents.CIT.pdf"
 import SummitLogo from "../images/summit-logo.webp"
-import CIRLogo from "../images/cer-logo.png"
-import NBLogo from "../images/NBChambers-logo.png"
 
-const Partners = () => (
+const Partners = props => (
   <Row>
     <Col md={{ span: 3, offset: 1 }}>
       <Fade left cascade>
@@ -37,7 +33,10 @@ const Partners = () => (
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Image src={TechNationImg} alt="Tech Nation logo" fluid />
+              <Img
+                fluid={props.images.technation.childImageSharp.fluid}
+                alt="Tech Nation logo"
+              />
             </a>
           </Pulse>
         </Col>
@@ -47,7 +46,10 @@ const Partners = () => (
           style={{ alignSelf: "center", textAlign: "center" }}
         >
           <a href={TFCDoc} target="_blank" rel="noopener noreferrer">
-            <Image src={TFCImg} alt="TFC logo" fluid />
+            <Img
+              fluid={props.images.tfclogo.childImageSharp.fluid}
+              alt="Tech Nation logo"
+            />
           </a>
         </Col>
         <Col
@@ -60,7 +62,10 @@ const Partners = () => (
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Image src={SIImg} alt="Stephens International logo" fluid />
+            <Img
+              fluid={props.images.stephens.childImageSharp.fluid}
+              alt="Stephens International logo"
+            />
           </a>
         </Col>
 
@@ -93,7 +98,10 @@ const Partners = () => (
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Image src={CIRLogo} alt="Summit Imaging logo" fluid width="400" />
+            <Img
+              fluid={props.images.cerlogo.childImageSharp.fluid}
+              alt="Summit Imaging"
+            />
           </a>
         </Col>
 
@@ -107,11 +115,9 @@ const Partners = () => (
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Image
-              src={NBLogo}
+            <Img
+              fluid={props.images.nbchambers.childImageSharp.fluid}
               alt="New Braunfels Chamber logo"
-              fluid
-              width="400"
             />
           </a>
         </Col>

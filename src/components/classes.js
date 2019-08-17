@@ -2,16 +2,13 @@ import React from "react"
 import { Link } from "gatsby"
 import { Container, Button, CardDeck, Card } from "react-bootstrap"
 import styled from "styled-components"
-import BMETDegreeImg from "../images/bmetDegree.jpg"
-import BMETCertImg from "../images/bmetTech.jpg"
-import TechImage from "../images/itNetworkPrograms.jpg"
-import specialtyImage from "../images/specialtyPrograms.jpg"
+import Img from "gatsby-image"
 
 const ClassesSection = styled.section`
   padding: 96px 0;
 `
 
-const Classes = () => (
+const Classes = props => (
   <ClassesSection>
     <Container>
       <h2 className="mb-5" style={{ textTransform: "uppercase" }}>
@@ -19,7 +16,7 @@ const Classes = () => (
       </h2>
       <CardDeck>
         <Card>
-          <Card.Img variant="top" src={BMETDegreeImg} />
+          <Img fixed={props.images.bmetdegree.childImageSharp.fixed} />
           <Card.Body>
             <Card.Title>BMET Degree</Card.Title>
             <Card.Text>
@@ -36,7 +33,7 @@ const Classes = () => (
           </Card.Body>
         </Card>
         <Card>
-          <Card.Img variant="top" src={BMETCertImg} />
+          <Img fixed={props.images.bmettech.childImageSharp.fixed} />
           <Card.Body>
             <Card.Title>BMET Certificate</Card.Title>
             <Card.Text style={{ minHeight: "215px" }}>
@@ -52,7 +49,7 @@ const Classes = () => (
           </Card.Body>
         </Card>
         <Card>
-          <Card.Img variant="top" src={TechImage} />
+          <Img fixed={props.images.itnetworkprograms.childImageSharp.fixed} />
           <Card.Body>
             <Card.Title>IT & Networking</Card.Title>
             <Card.Text style={{ minHeight: "215px" }}>
@@ -67,7 +64,7 @@ const Classes = () => (
           </Card.Body>
         </Card>
         <Card>
-          <Card.Img variant="top" src={specialtyImage} />
+          <Img fixed={props.images.specialtyprograms.childImageSharp.fixed} />
           <Card.Body>
             <Card.Title>Specialty Programs</Card.Title>
             <Card.Text style={{ minHeight: "215px" }}>

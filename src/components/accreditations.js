@@ -1,13 +1,14 @@
 import React from "react"
 import { Container, Row, Col, Image } from "react-bootstrap"
+import Img from "gatsby-image"
 import styled from "styled-components"
 import AccImg from "../images/accet.svg"
 import twcImg from "../images/twc-logo.jpg"
 import TXHigherImg from "../images/TXHigherEd.png"
 import Pulse from "react-reveal/Pulse"
 import Fade from "react-reveal/Fade"
-import Partners from "./partners"
 import Pattern from "../images/transp_bg.png"
+import PartnersStaticQuery from "./PartnersStaticQuery"
 
 const AccredSection = styled.section`
   min-height: 500px;
@@ -15,7 +16,7 @@ const AccredSection = styled.section`
   background-image: url(${props => props.imgSrc || null});
 `
 
-const Accreditations = () => (
+const Accreditations = props => (
   <AccredSection imgSrc={Pattern}>
     <Container fluid>
       <Row style={{ marginBottom: "64px" }}>
@@ -54,10 +55,15 @@ const Accreditations = () => (
                 rel="noopener noreferrer"
                 href="https://twc.texas.gov/"
               >
-                <Image
-                  src={twcImg}
+                {/* <Img
+                  fluid={props.images.twclogo.childImageSharp.fluid}
                   alt="twc logo"
                   style={{ maxHeight: "180px" }}
+                /> */}
+                <Image
+                  src={twcImg}
+                  style={{ maxHeight: "180px" }}
+                  alt="twc logo"
                   fluid
                   roundedCircle
                 />
@@ -69,13 +75,17 @@ const Accreditations = () => (
                 target="_blank"
                 href="http://www.thecb.state.tx.us/"
               >
+                {/* <Img
+                  fixed={props.images.txhighered.childImageSharp.fixed}
+                  alt="tx higher ed logo"
+                /> */}
                 <Image src={TXHigherImg} alt="twc logo" fluid />
               </a>
             </Col>
           </Row>
         </Col>
       </Row>
-      <Partners />
+      <PartnersStaticQuery />
     </Container>
   </AccredSection>
 )
