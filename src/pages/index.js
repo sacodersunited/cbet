@@ -4,8 +4,9 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import HomeCarouselStaticQuery from "../components/HomeCarouselStaticQuery"
 import Programs from "../components/programs"
-import Classes from "../components/classes"
+// import Classes from "../components/classes"
 import Testimonials from "../components/testimonials"
+import HomeClassesStaticQuery from "../components/HomeClassesStaticQuery"
 
 const IndexPage = () => (
   <Layout>
@@ -16,7 +17,7 @@ const IndexPage = () => (
     <HomeCarouselStaticQuery />
     <Programs />
     <Slide right>
-      <Classes />
+      <HomeClassesStaticQuery />
     </Slide>
     <Testimonials />
   </Layout>

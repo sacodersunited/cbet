@@ -4,7 +4,6 @@ import Img from "gatsby-image"
 import styled from "styled-components"
 import AccImg from "../images/accet.svg"
 import twcImg from "../images/twc-logo.jpg"
-import TXHigherImg from "../images/TXHigherEd.png"
 import Pulse from "react-reveal/Pulse"
 import Fade from "react-reveal/Fade"
 import Partners from "./partners"
@@ -18,7 +17,6 @@ const AccredSection = styled.section`
 
 const Accreditations = props => (
   <AccredSection imgSrc={Pattern}>
-    {console.log("images acc", props.images)}
     <Container fluid>
       <Row style={{ marginBottom: "64px" }}>
         <Col md={{ span: 3, offset: 1 }}>
@@ -76,7 +74,11 @@ const Accreditations = props => (
                 target="_blank"
                 href="http://www.thecb.state.tx.us/"
               >
-                <Image src={TXHigherImg} alt="twc logo" fluid />
+                <Img
+                  fixed={props.images.txhighered.childImageSharp.fixed}
+                  alt="tx higher ed logo"
+                />
+                {/* <Image src={TXHigherImg} alt="twc logo" fluid /> */}
               </a>
             </Col>
           </Row>
