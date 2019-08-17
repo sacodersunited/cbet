@@ -2,9 +2,15 @@ import React from "react"
 import { Link } from "gatsby"
 import LayoutDetail from "../components/layoutDetail"
 import SEO from "../components/seo"
-import GraphicHeader from "../components/graphicHeader"
-import headerImg from "../images/bmet-bg.jpg"
-import { Container, Row, Col, Button, Image, Card } from "react-bootstrap"
+import {
+  Container,
+  Row,
+  Col,
+  Button,
+  Image,
+  Card,
+  ButtonToolbar,
+} from "react-bootstrap"
 import styled from "styled-components"
 import Fade from "react-reveal/Fade"
 import Slide from "react-reveal/Slide"
@@ -14,6 +20,7 @@ import BMETImg from "../images/bmet-tech.jpg"
 import BMETImg3 from "../images/bmetDegree/bmet-3.jpg"
 import BrentImg from "../images/team/brentIsham.jpg"
 import BMETVid from "../video/cbetCert-SD.mp4"
+import StudentCatalog from "../documents/CBET Course Catalog.pdf"
 
 const ProgramDetail = styled.div`
   padding: 46px 0 46px 40px;
@@ -49,10 +56,14 @@ const Programs = () => (
               Classes completed as part of the BMET Certificate course are
               transferable to the BMET AAS Degree Program.
             </p>
-
-            <Link to="/admissions">
-              <Button className="text-uppercase"> Apply Today</Button>
-            </Link>
+            <ButtonToolbar>
+              <Link to="/admissions">
+                <Button className="text-uppercase mr-3"> Apply Today</Button>
+              </Link>
+              <Button variant="outline-primary" href={StudentCatalog}>
+                Course Catalog
+              </Button>
+            </ButtonToolbar>
           </Fade>
         </Col>
         <Col md={4}>
@@ -90,7 +101,7 @@ const Programs = () => (
           <Fade>
             <Col md="8">
               <h4>Program Cost</h4>
-              <p>$9,600</p>
+              <p>$5,500</p>
               <h4>Program Length</h4>
               <p>6 Months or 400 hours</p>
               <h4>Student to Teacher Ratio</h4>

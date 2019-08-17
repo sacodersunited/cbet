@@ -18,7 +18,7 @@ import SEO from "../components/seo"
 import headerImg from "../images/usFlag.png"
 import soldierBG from "../images/soldier-bg.png"
 import SoldierImg from "../images/soldier.jpg"
-import CourseCatalog from "../documents/CBET Catalog 6.22.19.pdf"
+import CourseCatalog from "../documents/CBET Course Catalog.pdf"
 import EnrollmentApplication from "../documents/CBET Enrollment Application.pdf"
 
 const BlueBG = styled.section`
@@ -112,10 +112,10 @@ const FinancialAid = () => (
       <div className="p-3 mb-2 mt-0">
         <Container>
           <div className="p-5 bg-light">
-            <h2>
+            <h5>
               <FaCheckSquare className="mr-2" />
               Step 1: Selecting the Correct VA Education Program
-            </h2>
+            </h5>
           </div>
 
           <Row className="mb-5">
@@ -199,10 +199,10 @@ const FinancialAid = () => (
           </Row>
 
           <div className="p-5 bg-light mb-5">
-            <h2 className="mt-3">
+            <h5 className="mt-3">
               <FaCheckSquare className="mr-2" />
               Step 2 – Apply for Benefits
-            </h2>
+            </h5>
             <Row>
               <Col md={7}>
                 <Button
@@ -217,10 +217,10 @@ const FinancialAid = () => (
           </div>
 
           <div className="p-5 bg-light mb-5">
-            <h2>
+            <h5>
               <FaCheckSquare className="mr-2" />
               Step 3 – Gather Official Education Records
-            </h2>
+            </h5>
             <Row className="mb-5">
               <Col md={7}>
                 <p>
@@ -275,10 +275,10 @@ const FinancialAid = () => (
           </div>
 
           <div className="p-5 bg-light mb-5">
-            <h2>
+            <h5>
               <FaCheckSquare className="mr-2" />
               Step 4 – Submit all Official Training Records and Transcripts
-            </h2>
+            </h5>
             <Row className="mb-5">
               <Col md={7}>
                 <address>
@@ -291,11 +291,11 @@ const FinancialAid = () => (
           </div>
 
           <div className="p-5 bg-light">
-            <h2>
+            <h5>
               <FaCheckSquare className="mr-2" />
               Step 5 – Review the Course Catalog and Speak with an Admissions
               Representative
-            </h2>
+            </h5>
             <Row>
               <Col md={7}>
                 <p>

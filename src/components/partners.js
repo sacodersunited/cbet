@@ -104,6 +104,25 @@ const Partners = props => (
             />
           </a>
         </Col>
+
+        <Col
+          md={4}
+          className="mb-5"
+          style={{ alignSelf: "center", textAlign: "center" }}
+        >
+          <a
+            href="https://www.chamberinnewbraunfels.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Image
+              src={NBLogo}
+              alt="New Braunfels Chamber logo"
+              fluid
+              width="400"
+            />
+          </a>
+        </Col>
       </Row>
     </Col>
   </Row>
