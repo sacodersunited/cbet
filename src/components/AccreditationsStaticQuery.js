@@ -13,16 +13,17 @@ const AccreditationsStaticQuery = props => (
             }
           }
         }
-        txhighered: file(relativePath: { eq: "TXHigherEd.png" }) {
-          childImageSharp {
-            fixed(width: 242, height: 123) {
-              ...GatsbyImageSharpFixed
-            }
-          }
-        }
       }
     `}
     render={data => <Accreditations images={data} />}
   />
 )
 export default AccreditationsStaticQuery
+
+// txhighered: file(relativePath: { eq: "TXHigherEd.png" }) {
+//   childImageSharp {
+//     fixed(width: 242, height: 123) {
+//       ...GatsbyImageSharpFixed
+//     }
+//   }
+// }
