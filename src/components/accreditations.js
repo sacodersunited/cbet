@@ -76,7 +76,7 @@ const Accreditations = props => (
                 href="http://www.thecb.state.tx.us/"
               >
                 {/* <Img
-                  fixed={props.images.txhighered.childImageSharp.fixed}
+                  fluid={props.images.txhighered.childImageSharp.fluid}
                   alt="tx higher ed logo"
                 /> */}
                 <Image src={TXHigherImg} alt="twc logo" fluid />
