@@ -8,8 +8,8 @@ const FinanceAssistanceStaticQuery = props => (
       {
         soldier: file(relativePath: { eq: "soldier.jpg" }) {
           childImageSharp {
-            fixed(height: 348, width: 348, quality: 100) {
-              ...GatsbyImageSharpFixed
+            fluid(maxWidth: 800, quality: 100) {
+              ...GatsbyImageSharpFluid
             }
           }
         }

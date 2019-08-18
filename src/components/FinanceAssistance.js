@@ -93,7 +93,7 @@ const FinanceAssistance = props => (
         </Col>
         <Col md={4}>
           <Card>
-            <Img fixed={props.images.soldier.childImageSharp.fixed} />
+            <Img fluid={props.images.soldier.childImageSharp.fluid} />
             <Card.Body>
               <Card.Title>Calling All Service Members</Card.Title>
               <Card.Text>

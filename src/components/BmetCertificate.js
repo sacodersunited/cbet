@@ -64,7 +64,7 @@ const BmetCertificate = props => (
         </Col>
         <Col md={4}>
           <Card>
-            <Img fixed={props.images.bIsham.childImageSharp.fixed} />
+            <Img fluid={props.images.bIsham.childImageSharp.fluid} />
             <Card.Body>
               <Card.Title>Brent Isham</Card.Title>
               <Card.Text>

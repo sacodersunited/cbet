@@ -4,7 +4,7 @@ import Img from "gatsby-image"
 import styled from "styled-components"
 import AccImg from "../images/accet.svg"
 import twcImg from "../images/twc-logo.jpg"
-import TXHigherImg from "../images/TXHigherEd.png"
+// import TXHigherImg from "../images/TXHigherEd.png"
 import Pulse from "react-reveal/Pulse"
 import Fade from "react-reveal/Fade"
 import Pattern from "../images/transp_bg.png"
@@ -75,11 +75,11 @@ const Accreditations = props => (
                 target="_blank"
                 href="http://www.thecb.state.tx.us/"
               >
-                {/* <Img
-                  fixed={props.images.txhighered.childImageSharp.fixed}
+                <Img
+                  fluid={props.images.txhighered.childImageSharp.fluid}
                   alt="tx higher ed logo"
-                /> */}
-                <Image src={TXHigherImg} alt="twc logo" fluid />
+                />
+                {/* <Image src={TXHigherImg} alt="twc logo" fluid /> */}
               </a>
             </Col>
           </Row>

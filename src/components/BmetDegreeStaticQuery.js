@@ -36,8 +36,8 @@ const BmetDegreeStaticQuery = props => (
         }
         fSteinmeier: file(relativePath: { eq: "team/fsteinmeier.jpg" }) {
           childImageSharp {
-            fixed(height: 348, width: 348, quality: 100) {
-              ...GatsbyImageSharpFixed
+            fluid(maxWidth: 800, quality: 100) {
+              ...GatsbyImageSharpFluid
             }
           }
         }

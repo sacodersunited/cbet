@@ -63,7 +63,7 @@ const BmetDegree = props => (
         </Col>
         <Col md={4}>
           <Card>
-            <Img fixed={props.images.fSteinmeier.childImageSharp.fixed} />
+            <Img fluid={props.images.fSteinmeier.childImageSharp.fluid} />
             <Card.Body>
               <Card.Title>Frauke Steinmeier</Card.Title>
               <Card.Text>

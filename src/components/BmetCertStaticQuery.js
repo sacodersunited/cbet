@@ -22,8 +22,8 @@ const BmetCertStaticQuery = props => (
         }
         bIsham: file(relativePath: { eq: "team/brentIsham.jpg" }) {
           childImageSharp {
-            fixed(height: 348, width: 348, quality: 100) {
-              ...GatsbyImageSharpFixed
+            fluid(maxWidth: 800, quality: 100) {
+              ...GatsbyImageSharpFluid
             }
           }
         }
