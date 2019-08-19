@@ -45,19 +45,17 @@ export default class AdmissionsForm extends Component {
   }
 
   onClickProgram(e) {
-    console.log("click pgrm", e.target.innerHTML)
+    console.log("click pgrm", e.target.value)
 
     const formValues = this.state.admissionForm
 
-    formValues.program = e.target.innerHTML
+    formValues.program = e.target.value
 
     this.setState({ admissionForm: formValues })
   }
 
   onChangeForm(e) {
     e.preventDefault()
-
-    console.log("onchangeform", e.target.value)
 
     const admissionInfo = this.state.admissionForm
 
@@ -258,7 +256,7 @@ export default class AdmissionsForm extends Component {
         })
 
         window.location.reload()
-      }, 3500)
+      }, 1500)
       return response
     })
   }
@@ -284,7 +282,7 @@ export default class AdmissionsForm extends Component {
                 <Form.Control
                   as="select"
                   required
-                  onSelect={e => this.onClickProgram(e)}
+                  onChange={e => this.onClickProgram(e)}
                 >
                   <option value="">None</option>
                   <option value="BMET Certificate">BMET Certificate</option>
@@ -320,7 +318,7 @@ export default class AdmissionsForm extends Component {
                     <Form.Control
                       {...inputProps}
                       required
-                      type="text"
+                      type="password"
                       placeholder="Social Security"
                     />
                   )}
