@@ -67,13 +67,16 @@ const BmetDegree = props => (
             <Card.Body>
               <Card.Title>Frauke Steinmeier</Card.Title>
               <Card.Text>
-                It is my pleasure to instruct English Composition 1. I have a
-                Master’s in Educational Leadership from the University of Texas
-                at San Antonio and over 10 years of experience. Furthermore, I
-                am a Fulbright Scholar and an SFS Scholar. In this course, I
-                will teach you the mechanics of technical writing for the
-                biomedical technology field. I look forward to teaching you.
-                Feel free to contact me with any questions you may have.
+                It is my pleasure to welcome you to the College of Biomedical
+                Equipment Technology’s associate degree program. I have over 10
+                years of experience in education, teaching language arts and
+                technology at the secondary and post-secondary levels in the
+                United States and Luxemburg. I am a Fulbright Scholar and an SFS
+                Scholar pursuing advanced degrees in cybersecurity and
+                technology. During your course of instruction I will be working
+                with you to enhance your technical writing skills and your
+                understanding and familiarity with issues involving
+                cybersecurity in the healthcare industry.
               </Card.Text>
               <FaRegEnvelope />{" "}
               <a
