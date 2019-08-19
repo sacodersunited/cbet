@@ -68,13 +68,16 @@ const BmetCertificate = props => (
             <Card.Body>
               <Card.Title>Brent Isham</Card.Title>
               <Card.Text>
-                I am the Math and Electronics instructor for CBET. I taught high
-                school math, including Algebra, Geometry, and Pre-Cal, for 4
-                years. I have a Bachelor of Science in Mathematics from The
-                University of Texas at San Antonio and an Associates of Applied
-                Science in Electronics Engineering Technology from ITT Technical
-                Institute. I am excited to help you on your path to a
-                certificate or an Associates.
+                Welcome to the College of Biomedical Equipment Technology’s
+                Certificate Program. My name is Brent Isham, I am the senior
+                Math and Electronics instructor. Before joining the college in
+                2018, I taught Algebra, Geometry, and Pre-Calculous for a high
+                school in San Antonio, Texas. I have a B.S. in Mathematics from
+                the University of Texas at San Antonio and an A.A.S. in
+                Electronics Engineering Technology from ITT Technical Institute.
+                I am looking forward to assisting you along your journey to
+                complete your education and advance your career as a biomedical
+                equipment technician.
               </Card.Text>
               <FaRegEnvelope />{" "}
               <a
