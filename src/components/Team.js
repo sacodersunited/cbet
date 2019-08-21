@@ -199,6 +199,12 @@ const Team = props => (
                 National Compliance Manager, CHI National
               </em>
             </ListGroup.Item>
+            <ListGroup.Item>
+              Jeffrey Smoot{" "}
+              <em className="text-muted ml-1">
+                DCOmP Sci, Technology Career Institute
+              </em>
+            </ListGroup.Item>
           </ListGroup>
         </Col>
       </Row>

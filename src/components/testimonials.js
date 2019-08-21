@@ -51,8 +51,8 @@ class Testimonials extends Component {
                 </Card.Text>
                 {this.state.isEmptyState && (
                   <>
-                    <Card.Text style={{ minHeight: "180px" }}>
-                      {testimonial.comment.substring(0, 240)}...
+                    <Card.Text style={{ minHeight: "200px" }}>
+                      {testimonial.comment.substring(0, 230)}...
                     </Card.Text>
                     <Button
                       className="text-uppercase"
@@ -66,7 +66,7 @@ class Testimonials extends Component {
                 )}
                 {!this.state.isEmptyState && (
                   <>
-                    <Card.Text style={{ minHeight: "260px" }}>
+                    <Card.Text style={{ minHeight: "300px" }}>
                       {testimonial.comment}
                     </Card.Text>
                     <Button
