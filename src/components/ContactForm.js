@@ -12,7 +12,7 @@ import {
 } from "react-bootstrap"
 import { FaRegThumbsUp } from "react-icons/fa"
 import InputMask from "react-input-mask"
-import ContactBG from "../images/contact-bg.jpg"
+import ContactBG from "../images/contact-header.jpg"
 import GraphicHeader from "../components/graphicHeader"
 
 class ContactForm extends React.Component {
@@ -275,25 +275,32 @@ class ContactForm extends React.Component {
     return (
       <>
         <GraphicHeader imgSrc={ContactBG}>
-          <h1 className="text-light">Contact Us</h1>
-          <ul className="text-light" style={{ listStyleType: "none" }}>
-            <li>
-              <b>Address:</b> 11550 IH-10 West, Suite 190, San Antonio, Texas
-              78230
-            </li>
-            <li>
-              <b>Phone:</b> (210) 233-1102
-            </li>
-            <li>
-              <b>Toll-Free:</b> (866) 866-9027
-            </li>
-            <li>
-              <b>E-mail:</b>{" "}
-              <a className="text-light" href="mailto:admissiondept@cittx.edu">
-                admissiondept@cittx.edu
-              </a>
-            </li>
-          </ul>
+          <div
+            className="p-3 col-md-7"
+            style={{ background: "rgba(235, 254, 255, 0.5)" }}
+          >
+            <h1 className="text-dark" style={{ opacity: "1.0" }}>
+              Contact Us
+            </h1>
+            <ul className="text-dark" style={{ listStyleType: "none" }}>
+              <li>
+                <b>Address:</b> 11550 IH-10 West, Suite 190, San Antonio, Texas
+                78230
+              </li>
+              <li>
+                <b>Phone:</b> (210) 233-1102
+              </li>
+              <li>
+                <b>Toll-Free:</b> (866) 866-9027
+              </li>
+              <li>
+                <b>E-mail:</b>{" "}
+                <a className="text-dark" href="mailto:admissiondept@cittx.edu">
+                  admissiondept@cittx.edu
+                </a>
+              </li>
+            </ul>
+          </div>
         </GraphicHeader>
 
         <Container>
