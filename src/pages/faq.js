@@ -7,7 +7,7 @@ import Fade from "react-reveal"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import GraphicHeader from "../components/graphicHeader"
-import ContactBG from "../images/cbet-header.jpg"
+import ContactBG from "../images/logo-header2.jpg"
 import styled from "styled-components"
 
 const FaqContainer = styled.div`

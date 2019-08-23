@@ -1,16 +1,19 @@
 import React from "react"
 import SEO from "../components/seo"
 import Img from "gatsby-image"
-import GraphicHeader from "../components/graphicHeader"
-import headerImg from "../images/building-header.jpg"
 import { Container, Row, Col, Card, ListGroup } from "react-bootstrap"
 import styled from "styled-components"
-import Fade from "react-reveal/Fade"
 import { FaFacebook, FaLinkedin, FaRegEnvelope, FaTag } from "react-icons/fa"
+import Fade from "react-reveal/Fade"
+import GraphicHeader from "../components/graphicHeader"
+import headerImg from "../images/building-header.jpg"
+import MedicalBG from "../images/blue-med-bg.jpg"
 
 const ValuesBG = styled.section`
   background-color: #2c3e50;
   background: linear-gradient(90deg, #1cb5e0 0%, #000851 100%);
+  background-image: url(${props => props.imgsrc || null});
+  background-size: cover;
   padding: 96px 0;
   color: whitesmoke;
 `
@@ -247,7 +250,7 @@ const Team = props => (
       </Row>
     </Container>
 
-    <ValuesBG>
+    <ValuesBG imgsrc={MedicalBG}>
       <Container>
         <Row className="mb-3">
           <Col md={7}>
