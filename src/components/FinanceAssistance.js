@@ -19,10 +19,13 @@ import headerImg from "../images/usFlag.png"
 import soldierBG from "../images/soldier-bg.png"
 import CourseCatalog from "../documents/CBET Course Catalog.pdf"
 import EnrollmentApplication from "../documents/CBET Enrollment Application.pdf"
+import MedicalBG from "../images/blue-med-bg.jpg"
 
 const BlueBG = styled.section`
   background-color: #2c3e50;
   background: linear-gradient(90deg, #1cb5e0 0%, #000851 100%);
+  background-image: url(${props => props.imgsrc || null});
+  background-size: cover;
   padding: 96px 0;
 `
 
@@ -330,7 +333,7 @@ const FinanceAssistance = props => (
       </div>
     </CamoBG>
 
-    <BlueBG>
+    <BlueBG imgsrc={MedicalBG}>
       <Container>
         <Row className="mb-5">
           <Col>
