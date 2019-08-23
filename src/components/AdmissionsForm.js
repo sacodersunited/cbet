@@ -10,7 +10,7 @@ import {
 } from "react-bootstrap"
 import { FaMapMarkerAlt } from "react-icons/fa"
 import InputMask from "react-input-mask"
-import ContactBG from "../images/cbet-header.jpg"
+import ContactBG from "../images/logo-header2.jpg"
 import GraphicHeader from "../components/graphicHeader"
 
 export default class AdmissionsForm extends Component {
@@ -264,7 +264,7 @@ export default class AdmissionsForm extends Component {
   render() {
     return (
       <>
-        <GraphicHeader imgSrc={ContactBG} title="Admissions Form" />
+        <GraphicHeader imgSrc={ContactBG} />
 
         <Container>
           <Col md={7}>
@@ -272,6 +272,7 @@ export default class AdmissionsForm extends Component {
               validated={this.state.validated}
               onSubmit={e => this.handleSubmit(e)}
             >
+              <h2>Admission Form</h2>
               <p className="text-muted ">
                 Please complete the admissions form and we'll get back to you
                 soon.
