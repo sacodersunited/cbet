@@ -295,8 +295,8 @@ class ContactForm extends React.Component {
               </li>
               <li>
                 <b>E-mail:</b>{" "}
-                <a className="text-dark" href="mailto:admissiondept@cittx.edu">
-                  admissiondept@cittx.edu
+                <a className="text-dark" href="mailto:admissiondept@cbet.edu">
+                  admissiondept@cbet.edu
                 </a>
               </li>
             </ul>
