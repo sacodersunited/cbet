@@ -37,7 +37,9 @@ const CareerServices = () => (
             prepared for the job interview and well prepared to begin their new
             career with confidence.
           </p>
-
+          <a href="mailto:admissiondept@cbet.edu">
+            <Button>Contact Us</Button>
+          </a>
           <h3>Externships</h3>
           <p>
             Externships offer students a way to earn practical experience in
