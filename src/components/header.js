@@ -85,7 +85,7 @@ const Header = ({ siteTitle }) => {
                 FAQs
               </Link>
               <Link to="/contact" className="nav-link" activeClassName="active">
-                Contact
+                Enrollment
               </Link>
               <a
                 href="https://cittx.instructure.com/"
