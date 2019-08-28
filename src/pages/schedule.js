@@ -25,6 +25,13 @@ const Schedule = () => {
             </Button>
           </Col>
         </Row>
+        <Row>
+          <Col md={7}>
+            <a href="mailto:admissiondept@cbet.edu">
+              <Button style={{ marginTop: "15px" }}>Contact Us</Button>
+            </a>
+          </Col>
+        </Row>
       </Container>
     </Layout>
   )
