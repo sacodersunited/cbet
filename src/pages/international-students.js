@@ -132,6 +132,9 @@ const InternationalStudents = () => (
             for more information about what is required by the State of Texas to
             process the apostille request.
           </p>
+          <a href="mailto:admissiondept@cbet.edu">
+            <Button>Contact Us</Button>
+          </a>
           <h3>International Credit Policy for Testing</h3>
           <p>
             International students residing outside the United States will be
