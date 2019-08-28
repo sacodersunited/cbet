@@ -13,11 +13,16 @@ const Partners = props => (
         <h2 style={{ textTransform: "uppercase" }}>Strategic Partners</h2>
       </Fade>
       <p>
-        CBET has several nationwide originations that have partnered with us to
-        give our students externship options in an area close by. The Program
-        Director continues to explore new opportunities for our students to
-        achieve hands-on training with their program through externships with
-        current employers around the nation.
+        The College of Biomedical Equipment Technology maintains strategic
+        partnerships with healthcare organizations, service providers, and
+        biomedical equipment manufacturers to provide internships, hands-on
+        training, mentorship, and career services to our students around the
+        world. Our international network of strategic partners makes it possible
+        for us to establish real-world training opportunities for students
+        seeking careers as Biomedical Equipment Technicians (BMET). Our goal is
+        to bring the training and education to the student. To learn more about
+        joining our team of strategic partners, or to learn more about
+        externship programs near you, contact us today.
       </p>
     </Col>
     <Col md={7}>

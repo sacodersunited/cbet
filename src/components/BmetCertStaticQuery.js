@@ -27,6 +27,15 @@ const BmetCertStaticQuery = props => (
             }
           }
         }
+        bmetcerttech: file(
+          relativePath: { eq: "images/BMET-Certificate-1.png" }
+        ) {
+          childImageSharp {
+            fluid(maxWidth: 640, quality: 100) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
       }
     `}
     render={data => <BmetCertificate images={data} />}

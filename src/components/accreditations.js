@@ -7,7 +7,7 @@ import twcImg from "../images/twc-logo.jpg"
 import TXHigherImg from "../images/TXHigherEd.png"
 import Pulse from "react-reveal/Pulse"
 import Fade from "react-reveal/Fade"
-import Pattern from "../images/transp_bg.png"
+import Pattern from "../images/solid_bg.png"
 import PartnersStaticQuery from "./PartnersStaticQuery"
 
 const AccredSection = styled.section`
