@@ -41,6 +41,27 @@ const PartnersStaticQuery = props => (
             }
           }
         }
+        chihealth: file(relativePath: { eq: "chi-health.jpg" }) {
+          childImageSharp {
+            fluid(maxWidth: 400, quality: 100) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+        citizens: file(relativePath: { eq: "citizens.png" }) {
+          childImageSharp {
+            fluid(maxWidth: 400, quality: 100) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+        miracosta: file(relativePath: { eq: "mira-costa-college.png" }) {
+          childImageSharp {
+            fluid(maxWidth: 400, quality: 100) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
       }
     `}
     render={data => <Partners images={data} />}

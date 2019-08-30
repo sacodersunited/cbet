@@ -25,64 +25,116 @@ const Faq = () => (
           <h1 className="pt-5 pb-5">Frequently Asked Questions</h1>
         </Fade>
         <Tab.Container id="list-group-tabs-example" defaultActiveKey="#link1">
-          <Row>
-            <Col sm={3}>
-              <ListGroup style={{ overflowY: "scroll", height: "45vh" }}>
-                <ListGroup.Item action href="#link1">
-                  Are the Certificate and Associate Degree Programs 100% online?
-                </ListGroup.Item>
-                <ListGroup.Item action href="#link2">
-                  How long does it take to complete the BMET Certificate
-                  training?
-                </ListGroup.Item>
-                <ListGroup.Item action href="#link3">
-                  How long does it take to complete the Associate Degree?
-                </ListGroup.Item>
-                <ListGroup.Item action href="#link4">
-                  Are my credits transferable?
-                </ListGroup.Item>
-                <ListGroup.Item action href="#link5">
-                  Does the College offer career services and job placement
-                  support?
-                </ListGroup.Item>
-              </ListGroup>
+          <Row style={{ marginBottom: "15px" }}>
+            <Col sm={6}>
+              <strong>Q1</strong> - Are the Certificate and Degree Programs 100%
+              online?{" "}
             </Col>
             <Col sm={6}>
-              <Tab.Content>
-                <Tab.Pane eventKey="#link1">
-                  <p>
-                    Yes, both programs are 100% online, allowing students the
-                    opportunity to engage in learning on a schedule that meets
-                    their specific needs.
-                  </p>
-                </Tab.Pane>
-                <Tab.Pane eventKey="#link2">
-                  <p>
-                    The certificate training can be completed in approximately
-                    25 weeks.
-                  </p>
-                </Tab.Pane>
-                <Tab.Pane eventKey="#link3">
-                  <p>
-                    The Associate Degree can be completed in approximately 15
-                    months.
-                  </p>
-                </Tab.Pane>
-                <Tab.Pane eventKey="#link4">
-                  <p>
-                    Yes, the BMET degree program is fully accredited and credits
-                    earned are transferable.
-                  </p>
-                </Tab.Pane>
-                <Tab.Pane eventKey="#link5">
-                  <p>
-                    Yes, we have a dedicated offering career services,
-                    professional job placement support, and other forms
-                    assistance designed to ensure you earn the opportunity to
-                    pursue the career you seek.
-                  </p>
-                </Tab.Pane>
-              </Tab.Content>
+              <strong>A1</strong> – Yes, our programs are 100% online, designed
+              with flexibility in mind, and intended to meet the needs of
+              working adults around the world.
+            </Col>
+          </Row>
+          <Row style={{ marginBottom: "15px" }}>
+            <Col sm={6}>
+              <strong>Q2</strong> – Are International Students eligible to
+              attend the College of Biomedical Equipment Technology?
+            </Col>
+            <Col sm={6}>
+              <strong>A2</strong> – Yes, CBET students include individuals from
+              around the world, including Haiti, Nigeria, Kenya, the United Arab
+              Emirates, and a host of other countries.
+            </Col>
+          </Row>
+          <Row style={{ marginBottom: "15px" }}>
+            <Col sm={6}>
+              <strong>Q3</strong> – Do the certificate and degree programs
+              satisfy education standards and requirements for the Department of
+              Veterans Affairs?
+            </Col>
+            <Col sm={6}>
+              <strong>A3</strong> – Yes, the Department of Veterans Affairs
+              acknowledges the CBET AAS Degree as evidence of education and
+              employment readiness.
+            </Col>
+          </Row>
+          <Row style={{ marginBottom: "15px" }}>
+            <Col sm={6}>
+              <strong>Q4</strong> – Does the college accept VA Education
+              Benefits?
+            </Col>
+            <Col sm={6}>
+              <strong>A4</strong> – Yes, the college is 100% Veteran owned and
+              operated and makes every effort to support the Veterans community.
+            </Col>
+          </Row>
+          <Row style={{ marginBottom: "15px" }}>
+            <Col sm={6}>
+              <strong>Q5</strong> – Are my credits transferable?
+            </Col>
+            <Col sm={6}>
+              <strong>A5</strong> – The College of Biomedical Equipment
+              Technology is accredited by the Accrediting Council for Continuing
+              Education and Training (ACCET.ORG). To learn more about
+              accreditation and transferability of credits from institution to
+              institution visit the ACCET website or contact your gaining
+              institution.
+            </Col>
+          </Row>
+          <Row style={{ marginBottom: "15px" }}>
+            <Col sm={6}>
+              <strong>Q6</strong> – Will my certificate program credits transfer
+              into the CBET AAS Degree Program?
+            </Col>
+            <Col sm={6}>
+              <strong>A6</strong> – Yes, the certificate program was designed to
+              guarantee transferability of courses from the certificate program
+              to the CBET AAS degree program in order to save students time and
+              money as they seek advanced educational opportunities.
+            </Col>
+          </Row>
+          <Row style={{ marginBottom: "15px" }}>
+            <Col sm={6}>
+              <strong>Q7</strong> – Does the college offer career services and
+              job placement support?
+            </Col>
+            <Col sm={6}>
+              <strong>A7</strong> – Yes, the CBET team provides educational
+              services and assists with job placement for all students,
+              including international students. Although we make no guarantees,
+              it is our mission to put people to work and we make every effort
+              to place our graduates.
+            </Col>
+          </Row>
+          <Row style={{ marginBottom: "15px" }}>
+            <Col sm={6}>
+              <strong>Q8</strong> – Do I need to travel to Texas in order to
+              complete the internship/externship?
+            </Col>
+            <Col sm={6}>
+              <strong>A8</strong> – No, the CBET team includes an externship
+              coordinator whose job it is to place our students in qualifying
+              externship locations around the world. Our externship counselor
+              works with each student to identify an appropriate location near
+              their home of record. In some cases, particularly in cases where
+              students are located in remote areas, travel may be required. If
+              an externship near the students home of record cannot be located,
+              the Externship coordinator will work with the student to identify
+              an alternate suitable location.
+            </Col>
+          </Row>
+          <Row style={{ marginBottom: "15px" }}>
+            <Col sm={6}>
+              <strong>Q9</strong> – How long does it take to complete the AAS
+              degree?
+            </Col>
+            <Col sm={6}>
+              <strong>A9</strong> – It depends on the status of the student. The
+              AAS degree program includes full-time and part-time options.
+              Full-time students have an accelerated degree completion timeline
+              of 15 months from start to finish. Part time students can take up
+              to 30 months to complete the degree.
             </Col>
           </Row>
         </Tab.Container>

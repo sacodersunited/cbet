@@ -15,7 +15,7 @@ import {
 import styled from "styled-components"
 import Fade from "react-reveal/Fade"
 import Slide from "react-reveal/Slide"
-import ITImg from "../images/itDegree/it-rt-column.jpg"
+import ITImg from "../images/itDegree/networking-I.jpg"
 import ITAPlusImg from "../images/itDegree/it-2.jpg"
 import ITNetworkImg from "../images/itDegree/it-1.jpg"
 import StudentCatalog from "../documents/CBET Course Catalog.pdf"
