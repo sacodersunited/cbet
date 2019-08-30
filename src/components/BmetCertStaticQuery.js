@@ -6,14 +6,14 @@ const BmetCertStaticQuery = props => (
   <StaticQuery
     query={graphql`
       {
-        bmettech: file(relativePath: { eq: "bmet-tech.jpg" }) {
+        bmettech: file(relativePath: { eq: "BMET-certificate1.png" }) {
           childImageSharp {
             fluid(maxWidth: 952, quality: 100) {
               ...GatsbyImageSharpFluid
             }
           }
         }
-        bmet3: file(relativePath: { eq: "bmetDegree/bmet-3.jpg" }) {
+        bmet3: file(relativePath: { eq: "certificate-program2.jpg" }) {
           childImageSharp {
             fluid(maxWidth: 952, quality: 100) {
               ...GatsbyImageSharpFluid
