@@ -8,7 +8,7 @@ import SummitLogo from "../images/summit-logo.webp"
 
 const Partners = props => (
   <Row>
-    <Col md={{ span: 3, offset: 1 }}>
+    <Col md={4}>
       <Fade left cascade>
         <h2 style={{ textTransform: "uppercase" }}>Strategic Partners</h2>
       </Fade>

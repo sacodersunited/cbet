@@ -13,14 +13,13 @@ import PartnersStaticQuery from "./PartnersStaticQuery"
 const AccredSection = styled.section`
   min-height: 500px;
   padding: 96px 0;
-  background-image: url(${props => props.imgSrc || null});
 `
 
 const Accreditations = props => (
-  <AccredSection imgSrc={Pattern}>
+  <AccredSection className="bg-transparent">
     <Container fluid>
       <Row style={{ marginBottom: "64px" }}>
-        <Col md={{ span: 3, offset: 1 }}>
+        <Col md={4}>
           <Fade left cascade>
             <h2 style={{ textTransform: "uppercase" }}>Accreditations</h2>
           </Fade>

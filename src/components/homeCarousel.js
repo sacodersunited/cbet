@@ -14,21 +14,6 @@ const HomeCarousel = props => (
   <Carousel>
     <Carousel.Item>
       <Img
-        fluid={props.images.first.childImageSharp.fluid}
-        style={{ minHeight: "449px" }}
-        className="d-block w-100"
-        alt="First slide"
-      />
-      <Carousel.Caption style={{ textAlign: "left" }}>
-        <CarouselH1>College of Biomedical Equipment Technology</CarouselH1>
-        <p>Building the Future Healthcare Technology Workforce</p>
-        <Link to="/admissions">
-          <Button className="text-uppercase">Apply Today</Button>
-        </Link>
-      </Carousel.Caption>
-    </Carousel.Item>
-    <Carousel.Item>
-      <Img
         fluid={props.images.second.childImageSharp.fluid}
         style={{ minHeight: "449px" }}
         className="d-block w-100"
@@ -46,6 +31,23 @@ const HomeCarousel = props => (
         </Link>
       </Carousel.Caption>
     </Carousel.Item>
+
+    <Carousel.Item>
+      <Img
+        fluid={props.images.first.childImageSharp.fluid}
+        style={{ minHeight: "449px" }}
+        className="d-block w-100"
+        alt="First slide"
+      />
+      <Carousel.Caption style={{ textAlign: "left" }}>
+        <CarouselH1>College of Biomedical Equipment Technology</CarouselH1>
+        <p>Building the Future Healthcare Technology Workforce</p>
+        <Link to="/admissions">
+          <Button className="text-uppercase">Apply Today</Button>
+        </Link>
+      </Carousel.Caption>
+    </Carousel.Item>
+
     <Carousel.Item>
       <Img
         fluid={props.images.third.childImageSharp.fluid}
