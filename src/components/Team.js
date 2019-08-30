@@ -6,7 +6,7 @@ import styled from "styled-components"
 import { FaFacebook, FaLinkedin, FaRegEnvelope, FaTag } from "react-icons/fa"
 import Fade from "react-reveal/Fade"
 import GraphicHeader from "../components/graphicHeader"
-import headerImg from "../images/building-header.jpg"
+import fullCollegeonBlueBackground from "../images/collegeblue-bg.jpg"
 import MedicalBG from "../images/blue-med-bg.jpg"
 
 const ValuesBG = styled.section`
@@ -20,9 +20,8 @@ const ValuesBG = styled.section`
 
 const Team = props => (
   <>
-    {console.log(props)}
     <SEO title="About" />
-    <GraphicHeader imgSrc={headerImg} />
+    <GraphicHeader imgSrc={fullCollegeonBlueBackground} />
     <Container className="mb-5">
       <Row className="mb-3">
         <Col md={7}>
@@ -47,8 +46,8 @@ const Team = props => (
         <Col md={3}>
           <Card style={{ width: "18rem" }}>
             <Img fluid={props.images.bBassuk.childImageSharp.fluid} />
-            <Card.Body>
-              <Card.Title>William "Bill" Bassuk</Card.Title>
+            <Card.Body style={{ minHeight: "210px" }}>
+              <Card.Title>William "Bill" Bassuk, MBA</Card.Title>
               <Card.Subtitle className="mb-2 text-muted">
                 President and CEO
               </Card.Subtitle>
@@ -92,8 +91,8 @@ const Team = props => (
         <Col md={3}>
           <Card style={{ width: "18rem" }}>
             <Img fluid={props.images.rGonzalez.childImageSharp.fluid} />
-            <Card.Body>
-              <Card.Title>Richard "Monty" Gonzales</Card.Title>
+            <Card.Body style={{ minHeight: "210px" }}>
+              <Card.Title>Richard "Monty" Gonzales, MA</Card.Title>
               <Card.Subtitle className="mb-2 text-muted">
                 College Director
               </Card.Subtitle>
@@ -138,8 +137,8 @@ const Team = props => (
         <Col md={3}>
           <Card style={{ width: "18rem" }}>
             <Img fluid={props.images.sMcknight.childImageSharp.fluid} />
-            <Card.Body>
-              <Card.Title>Scott McKnight</Card.Title>
+            <Card.Body style={{ minHeight: "210px" }}>
+              <Card.Title>Scott McKnight, MSM</Card.Title>
               <Card.Subtitle className="mb-2 text-muted">
                 Director of Education
               </Card.Subtitle>
@@ -207,6 +206,14 @@ const Team = props => (
               <em className="text-muted ml-1">
                 DCOmP Sci, Technology Career Institute
               </em>
+            </ListGroup.Item>
+            <ListGroup.Item>
+              David Braeutigam{" "}
+              <em className="text-muted ml-1">Braeutigam Enterprises, LLC.</em>
+            </ListGroup.Item>
+            <ListGroup.Item>
+              Cherie Brzozowsk{" "}
+              <em className="text-muted ml-1">Citizens Medical Center</em>
             </ListGroup.Item>
           </ListGroup>
         </Col>

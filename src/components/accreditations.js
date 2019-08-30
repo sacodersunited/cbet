@@ -7,20 +7,19 @@ import twcImg from "../images/twc-logo.jpg"
 import TXHigherImg from "../images/TXHigherEd.png"
 import Pulse from "react-reveal/Pulse"
 import Fade from "react-reveal/Fade"
-import Pattern from "../images/transp_bg.png"
+import Pattern from "../images/solid_bg.png"
 import PartnersStaticQuery from "./PartnersStaticQuery"
 
 const AccredSection = styled.section`
   min-height: 500px;
   padding: 96px 0;
-  background-image: url(${props => props.imgSrc || null});
 `
 
 const Accreditations = props => (
-  <AccredSection imgSrc={Pattern}>
+  <AccredSection className="bg-transparent">
     <Container fluid>
       <Row style={{ marginBottom: "64px" }}>
-        <Col md={{ span: 3, offset: 1 }}>
+        <Col md={4}>
           <Fade left cascade>
             <h2 style={{ textTransform: "uppercase" }}>Accreditations</h2>
           </Fade>
@@ -55,11 +54,6 @@ const Accreditations = props => (
                 rel="noopener noreferrer"
                 href="https://twc.texas.gov/"
               >
-                {/* <Img
-                  fluid={props.images.twclogo.childImageSharp.fluid}
-                  alt="twc logo"
-                  style={{ maxHeight: "180px" }}
-                /> */}
                 <Image
                   src={twcImg}
                   style={{ maxHeight: "180px" }}
@@ -75,10 +69,6 @@ const Accreditations = props => (
                 target="_blank"
                 href="http://www.thecb.state.tx.us/"
               >
-                {/* <Img
-                  fluid={props.images.txhighered.childImageSharp.fluid}
-                  alt="tx higher ed logo"
-                /> */}
                 <Image src={TXHigherImg} alt="twc logo" fluid />
               </a>
             </Col>

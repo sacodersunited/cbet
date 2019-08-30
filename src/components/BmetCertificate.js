@@ -71,7 +71,7 @@ const BmetCertificate = props => (
                 Welcome to the College of Biomedical Equipment Technology’s
                 Certificate Program. My name is Brent Isham, I am the senior
                 Math and Electronics instructor. Before joining the college in
-                2018, I taught Algebra, Geometry, and Pre-Calculous for a high
+                2018, I taught Algebra, Geometry, and Pre-Calculus for a high
                 school in San Antonio, Texas. I have a B.S. in Mathematics from
                 the University of Texas at San Antonio and an A.A.S. in
                 Electronics Engineering Technology from ITT Technical Institute.
