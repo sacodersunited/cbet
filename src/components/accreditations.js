@@ -54,11 +54,6 @@ const Accreditations = props => (
                 rel="noopener noreferrer"
                 href="https://twc.texas.gov/"
               >
-                {/* <Img
-                  fluid={props.images.twclogo.childImageSharp.fluid}
-                  alt="twc logo"
-                  style={{ maxHeight: "180px" }}
-                /> */}
                 <Image
                   src={twcImg}
                   style={{ maxHeight: "180px" }}
@@ -74,10 +69,6 @@ const Accreditations = props => (
                 target="_blank"
                 href="http://www.thecb.state.tx.us/"
               >
-                {/* <Img
-                  fluid={props.images.txhighered.childImageSharp.fluid}
-                  alt="tx higher ed logo"
-                /> */}
                 <Image src={TXHigherImg} alt="twc logo" fluid />
               </a>
             </Col>

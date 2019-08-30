@@ -126,6 +126,57 @@ const Partners = props => (
             />
           </a>
         </Col>
+
+        <Col
+          md={4}
+          className="mb-5"
+          style={{ alignSelf: "center", textAlign: "center" }}
+        >
+          <a
+            href="https://www.chihealth.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Img
+              fluid={props.images.chihealth.childImageSharp.fluid}
+              alt="CHI Health"
+            />
+          </a>
+        </Col>
+
+        <Col
+          md={4}
+          className="mb-5"
+          style={{ alignSelf: "center", textAlign: "center" }}
+        >
+          <a
+            href="https://citizensmedicalcenter.org/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Img
+              fluid={props.images.citizens.childImageSharp.fluid}
+              alt="Citizens Medical Center"
+            />
+          </a>
+        </Col>
+
+        <Col
+          md={4}
+          className="mb-5"
+          style={{ alignSelf: "center", textAlign: "center" }}
+        >
+          <a
+            href="http://www.miracosta.edu/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Img
+              fluid={props.images.miracosta.childImageSharp.fluid}
+              alt="Citizens Medical Center"
+            />
+          </a>
+        </Col>
       </Row>
     </Col>
   </Row>
