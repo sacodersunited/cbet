@@ -46,7 +46,7 @@ const Team = props => (
         <Col md={3}>
           <Card style={{ width: "18rem" }}>
             <Img fluid={props.images.bBassuk.childImageSharp.fluid} />
-            <Card.Body>
+            <Card.Body style={{ minHeight: "210px" }}>
               <Card.Title>William "Bill" Bassuk, MBA</Card.Title>
               <Card.Subtitle className="mb-2 text-muted">
                 President and CEO
@@ -91,7 +91,7 @@ const Team = props => (
         <Col md={3}>
           <Card style={{ width: "18rem" }}>
             <Img fluid={props.images.rGonzalez.childImageSharp.fluid} />
-            <Card.Body>
+            <Card.Body style={{ minHeight: "210px" }}>
               <Card.Title>Richard "Monty" Gonzales, MA</Card.Title>
               <Card.Subtitle className="mb-2 text-muted">
                 College Director
@@ -137,7 +137,7 @@ const Team = props => (
         <Col md={3}>
           <Card style={{ width: "18rem" }}>
             <Img fluid={props.images.sMcknight.childImageSharp.fluid} />
-            <Card.Body>
+            <Card.Body style={{ minHeight: "210px" }}>
               <Card.Title>Scott McKnight, MSM</Card.Title>
               <Card.Subtitle className="mb-2 text-muted">
                 Director of Education
