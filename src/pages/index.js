@@ -12,7 +12,7 @@ const IndexPage = () => (
   <Layout>
     <SEO
       title="Home"
-      keywords={[`biomedical equipment`, `education`, `technology`]}
+      keywords={[`biomedical equipment`, `education`, `technology`, `cbet`]}
     />
     <HomeCarouselStaticQuery />
     <Programs />
