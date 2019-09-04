@@ -1,14 +1,12 @@
 import React from "react"
 import SEO from "../components/seo"
-import { Link } from "gatsby"
 import { Container, Row, Col, Button, Image } from "react-bootstrap"
 import Fade from "react-reveal/Fade"
-import styled from "styled-components"
 import GraphicHeader from "../components/graphicHeader"
 import LayoutDetail from "../components/layout"
 import headerImg from "../images/career-bg.jpg"
 import CareerPic from "../images/externship-1.jpg"
-import CareerPicTwo from "../images/externship-2.jpg"
+import bmet1 from "../images/BMET-certificate1.png"
 
 const CareerServices = () => (
   <LayoutDetail>
@@ -52,7 +50,7 @@ const CareerServices = () => (
             achieve hands-on training with their program through externships
             with current employers around the nation.
           </p>
-          <Image className="mb-3" src={CareerPicTwo} rounded />
+          <Image className="mb-3" src={bmet1} rounded />
           <h3>Stephens International</h3>
           <p>
             Stephens International Recruiting, Inc. provides the competitive
