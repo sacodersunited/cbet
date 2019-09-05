@@ -6,7 +6,7 @@ import styled from "styled-components"
 import { FaFacebook, FaLinkedin, FaRegEnvelope, FaTag } from "react-icons/fa"
 import Fade from "react-reveal/Fade"
 import GraphicHeader from "../components/graphicHeader"
-import fullCollegeonBlueBackground from "../images/collegeblue-bg.jpg"
+import fullCollegeonBlueBackground from "../images/bmet-logo3.jpg"
 import MedicalBG from "../images/blue-med-bg.jpg"
 
 const ValuesBG = styled.section`
@@ -21,7 +21,10 @@ const ValuesBG = styled.section`
 const Team = props => (
   <>
     <SEO title="About" />
-    <GraphicHeader imgSrc={fullCollegeonBlueBackground} />
+    <GraphicHeader
+      imgSrc={fullCollegeonBlueBackground}
+      title="College Of Biomedical Equipment Technology"
+    />
     <Container className="mb-5">
       <Row className="mb-3">
         <Col md={7}>

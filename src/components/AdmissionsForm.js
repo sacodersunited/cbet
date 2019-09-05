@@ -10,7 +10,7 @@ import {
 } from "react-bootstrap"
 import { FaMapMarkerAlt } from "react-icons/fa"
 import InputMask from "react-input-mask"
-import ContactBG from "../images/logo-header2.jpg"
+import ContactBG from "../images/bmet-logo3.jpg"
 import GraphicHeader from "../components/graphicHeader"
 
 export default class AdmissionsForm extends Component {
@@ -264,7 +264,10 @@ export default class AdmissionsForm extends Component {
   render() {
     return (
       <>
-        <GraphicHeader imgSrc={ContactBG} />
+        <GraphicHeader
+          imgSrc={ContactBG}
+          title="College Of Biomedical Equipment Technology"
+        />
 
         <Container>
           <Col md={7}>
