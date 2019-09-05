@@ -21,6 +21,7 @@ const HomeCarousel = props => (
       />
 
       <Carousel.Caption style={{ textAlign: "left" }}>
+        <CarouselH1>College Of Biomedical Equipment Technology</CarouselH1>
         <p>
           Our mission is to provide Healthcare Technology Management (HTM)
           education, training and career services consistent with the evolving
@@ -40,7 +41,7 @@ const HomeCarousel = props => (
         alt="First slide"
       />
       <Carousel.Caption style={{ textAlign: "left" }}>
-        <CarouselH1>College of Biomedical Equipment Technology</CarouselH1>
+        <CarouselH1>College Of Biomedical Equipment Technology</CarouselH1>
         <p>Building the Future Healthcare Technology Workforce</p>
         <Link to="/admissions">
           <Button className="text-uppercase">Apply Today</Button>
@@ -57,7 +58,7 @@ const HomeCarousel = props => (
       />
 
       <Carousel.Caption style={{ textAlign: "left" }}>
-        <CarouselH1>College of Biomedical Equipment Technology</CarouselH1>
+        <CarouselH1>College Of Biomedical Equipment Technology</CarouselH1>
         <p>Building the Future Healthcare Technology Workforce</p>
         <Link to="/admissions">
           <Button className="text-uppercase">Apply Today</Button>
@@ -74,7 +75,7 @@ const HomeCarousel = props => (
       />
 
       <Carousel.Caption style={{ textAlign: "left" }}>
-        <CarouselH1>College of Biomedical Equipment Technology</CarouselH1>
+        <CarouselH1>College Of Biomedical Equipment Technology</CarouselH1>
         <p>Building the Future Healthcare Technology Workforce</p>
         <Link to="/admissions">
           <Button className="text-uppercase">Apply Today</Button>
