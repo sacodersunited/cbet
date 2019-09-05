@@ -13,7 +13,7 @@ const HomeCarouselStaticQuery = props => (
             }
           }
         }
-        second: file(relativePath: { eq: "carousel/logo2.jpg" }) {
+        second: file(relativePath: { eq: "bmet-logo3.jpg" }) {
           childImageSharp {
             fluid(maxHeight: 449, quality: 100) {
               ...GatsbyImageSharpFluid

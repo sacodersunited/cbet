@@ -3,10 +3,15 @@ import { Container, CardGroup, Card, Button } from "react-bootstrap"
 import styled from "styled-components"
 // import Zoom from "react-reveal/Zoom"
 import { TestimonialsData } from "../utils/utility"
+import TestimonialBG from "../images/testimonials/testimonials-bg.jpg"
 
 const TestimonialsSection = styled.section`
   padding: 96px 0;
   background-color: #f8f9fa;
+  background-image: url(${props => props.imgsrc || null});
+  border-radius: 0 !important;
+  background-size: cover;
+  min-height: 240px;
 `
 
 class Testimonials extends Component {
@@ -23,9 +28,12 @@ class Testimonials extends Component {
 
   render() {
     return (
-      <TestimonialsSection>
+      <TestimonialsSection imgsrc={TestimonialBG}>
         <Container>
-          <h2 className="mb-5" style={{ textTransform: "uppercase" }}>
+          <h2
+            className="mb-5 text-white"
+            style={{ textTransform: "uppercase" }}
+          >
             Hear From Our Students Around the World
           </h2>
         </Container>
