@@ -1,5 +1,15 @@
 import React from "react"
-import { Container, Row, Col, Button, Alert, Image } from "react-bootstrap"
+import { Link } from "gatsby"
+import {
+  Container,
+  Row,
+  Col,
+  Button,
+  ButtonToolbar,
+  Alert,
+  Image,
+  Card,
+} from "react-bootstrap"
 import Fade from "react-reveal/Fade"
 import GraphicHeader from "../components/graphicHeader"
 import LayoutDetail from "../components/layout"
@@ -9,13 +19,16 @@ import IntlPic from "../images/intl-1.jpg"
 import IntlPicTwo from "../images/intl-2.jpg"
 import IntlPicThree from "../images/intl-3.jpg"
 import IntlPicFour from "../images/intl-4.jpg"
+import EnyiPic from "../images/testimonials/Emmanuel Enyi.jpg"
+import { FaRegEnvelope } from "react-icons/fa"
+import StudentCatalog from "../documents/CBET Course Catalog.pdf"
 
 const InternationalStudents = () => (
   <LayoutDetail>
     <SEO title="International Students" />
     <GraphicHeader imgSrc={headerImg} title="International Students" />
     <Container className="mb-5">
-      <Row className="mb-3">
+      <Row>
         <Col md={7}>
           <Fade left>
             <h2 className="display-5 text-uppercase">
@@ -260,6 +273,34 @@ const InternationalStudents = () => (
             tuition payment in accordance with the enrollment agreement.
           </p>
           <Image src={IntlPicFour} rounded />
+        </Col>
+        <Col md={4}>
+          <Card>
+            <Image src={EnyiPic} fluid />
+            <Card.Body>
+              <Card.Title>Emmanuel Enyi</Card.Title>
+              <Card.Text
+                className="font-weight-light"
+                style={{ lineHeight: "20px" }}
+              >
+                My experience in the College of Biomedical Equipment Technology,
+                has been absolutely incredible. I‘ve been constantly amazed by
+                the kindness, familial mutuality, and camaraderie that I‘ve
+                encountered so far. I‘ve had the pleasure of meeting and
+                learning from great mentors, working with great scholars.
+                Studying in CBET is for me a dream come true, because it gives
+                me a perfect opportunity to learn what I exactly want to pursue.
+                The lecturers are not only friendly but also with whopping
+                industry experiences, so that we can learn from their amazing
+                experiences. The staff members also care about the future career
+                of students. good relationship with co students, flexible nature
+                of programme and the ability to study when and where it suits
+                me, all online! The teaching is great and course structure is
+                nice and easy to follow. I would recommend CBET to anyone who
+                wants to study and work at the same time."
+              </Card.Text>
+            </Card.Body>
+          </Card>
         </Col>
       </Row>
     </Container>
