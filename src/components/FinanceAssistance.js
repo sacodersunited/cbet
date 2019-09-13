@@ -17,7 +17,7 @@ import GraphicHeader from "../components/graphicHeader"
 import SEO from "../components/seo"
 import headerImg from "../images/usFlag.png"
 import soldierBG from "../images/soldier-bg.png"
-import CourseCatalog from "../documents/CBET Course Catalog.pdf"
+import CourseCatalog from "../documents/CBET Course Catalog_Volume XV_September 2019.pdf"
 import EnrollmentApplication from "../documents/CBET Enrollment Application.pdf"
 import MedicalBG from "../images/blue-med-bg.jpg"
 
