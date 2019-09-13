@@ -4,7 +4,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import CbetClassesStaticQuery from "../components/CbetClassesStaticQuery"
 import { Container, Row, Col, Button } from "react-bootstrap"
-import AcedemicCalendar from "../documents/2019-2020 Academic Calendar.pdf"
+import AcademicCalendar from "../documents/2019-2020-2021 Academic Calendar.pdf"
 
 const Schedule = () => {
   // const user = getProfile()
@@ -20,7 +20,7 @@ const Schedule = () => {
               For more information, download our entire{" "}
               <em>(2019-2020) Academic Calendar</em>.
             </p>
-            <Button href={AcedemicCalendar} variant="outline-primary">
+            <Button href={AcademicCalendar} variant="outline-primary">
               Academic Calendar
             </Button>
           </Col>
