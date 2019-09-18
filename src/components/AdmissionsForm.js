@@ -166,7 +166,7 @@ export default class AdmissionsForm extends Component {
       this.state.admissionForm.studentName
     )}`
 
-    let eSsn = ""
+    let eSsn = "blank"
 
     let eAddress = `${encodeURIComponent("address")}=${encodeURIComponent(
       this.state.admissionForm.address
@@ -196,7 +196,7 @@ export default class AdmissionsForm extends Component {
       this.state.admissionForm.dateOfBirth
     )}`
 
-    let eDrivers = ""
+    let eDrivers = "blank"
 
     let eProgramSelected = `${encodeURIComponent(
       "program"
@@ -299,24 +299,6 @@ export default class AdmissionsForm extends Component {
                     onChange={e => this.onChangeForm(e)}
                   />
                 </Form.Group>
-                {/* <Form.Group>
-                  <Form.Label>Social Security Number</Form.Label>
-                  <InputMask
-                    {...this.props}
-                    mask="999-99-9999"
-                    maskChar=" "
-                    onChange={e => this.onChangeForm(e)}
-                  >
-                    {inputProps => (
-                      <Form.Control
-                        {...inputProps}
-                        required
-                        type="password"
-                        placeholder="Social Security"
-                      />
-                    )}
-                  </InputMask>
-                </Form.Group> */}
                 <Form.Group>
                   <Form.Label>Address</Form.Label>
 
@@ -417,20 +399,6 @@ export default class AdmissionsForm extends Component {
                     Please enter email address.
                   </Form.Control.Feedback>
                 </Form.Group>
-                {/* <Form.Group>
-                  <Form.Label>Drivers License</Form.Label>
-
-                  <Form.Control
-                    required
-                    type="text"
-                    placeholder="Drivers License"
-                    value={this.state.admissionForm.drivers}
-                    onChange={e => this.onChangeForm(e)}
-                  />
-                  <Form.Control.Feedback type="invalid">
-                    Please enter Drivers License number.
-                  </Form.Control.Feedback>
-                </Form.Group> */}
                 <Form.Group>
                   <Form.Label>Date of Birth</Form.Label>
 
