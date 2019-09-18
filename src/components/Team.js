@@ -285,7 +285,7 @@ const Team = props => (
               of our Students
             </h5>
             <p>
-              Our commitment to our student extends beyond the limits of the
+              Our commitment to our students extends beyond the limits of the
               classroom. Through continuing careers services, mentorship, and
               support, we foster lifelong learning and professional development
               designed to strengthen the relationship we share with our
