@@ -166,7 +166,7 @@ export default class AdmissionsForm extends Component {
       this.state.admissionForm.studentName
     )}`
 
-    let eSsn = "blank"
+    let eSsn = `${encodeURIComponent("ssn")}=${encodeURIComponent("blank")}`
 
     let eAddress = `${encodeURIComponent("address")}=${encodeURIComponent(
       this.state.admissionForm.address
@@ -196,7 +196,9 @@ export default class AdmissionsForm extends Component {
       this.state.admissionForm.dateOfBirth
     )}`
 
-    let eDrivers = "blank"
+    let eDrivers = `${encodeURIComponent("drivers")}=${encodeURIComponent(
+      "blank"
+    )}`
 
     let eProgramSelected = `${encodeURIComponent(
       "program"
