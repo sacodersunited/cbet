@@ -8,7 +8,7 @@ import {
   Dropdown,
   InputGroup,
   Alert,
-  Row
+  Row,
 } from "react-bootstrap"
 import { FaRegThumbsUp } from "react-icons/fa"
 import InputMask from "react-input-mask"
@@ -276,232 +276,238 @@ class ContactForm extends React.Component {
 
         <Container>
           <Row>
-          <Col md={7}>
-            <p className="text-muted ">
-              Please complete the form and we'll get back to you soon.
-            </p>
-            <Form
-              validated={this.state.validated}
-              onSubmit={e => this.handleSubmit(e)}
-            >
-              <Form.Group controlId="validationCustom01">
-                <Form.Label>First name</Form.Label>
-                <Form.Control
-                  required
-                  type="text"
-                  placeholder="First name"
-                  value={this.state.contactForm.firstName}
-                  onChange={e => this.onChangeForm(e)}
-                />
-                <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-              </Form.Group>
-              <Form.Group controlId="validationCustom02">
-                <Form.Label>Last name</Form.Label>
-                <Form.Control
-                  required
-                  type="text"
-                  placeholder="Last name"
-                  value={this.state.contactForm.lastName}
-                  onChange={e => this.onChangeForm(e)}
-                />
-                <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-              </Form.Group>
-              <Form.Group controlId="validationCustomPhone">
-                <Form.Label>Phone</Form.Label>
-                <InputGroup>
-                  <InputMask
-                    {...this.props}
-                    mask="(999) 999-9999"
-                    maskChar=" "
+            <Col md={7}>
+              <p className="text-muted ">
+                Please complete the form and we'll get back to you soon.
+              </p>
+              <Form
+                validated={this.state.validated}
+                onSubmit={e => this.handleSubmit(e)}
+              >
+                <Form.Group controlId="validationCustom01">
+                  <Form.Label>First name</Form.Label>
+                  <Form.Control
+                    required
+                    type="text"
+                    placeholder="First name"
+                    value={this.state.contactForm.firstName}
                     onChange={e => this.onChangeForm(e)}
-                  >
-                    {inputProps => (
-                      <Form.Control
-                        {...inputProps}
-                        type="tel"
-                        placeholder="Phone"
-                      />
-                    )}
-                  </InputMask>
+                  />
+                  <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+                </Form.Group>
+                <Form.Group controlId="validationCustom02">
+                  <Form.Label>Last name</Form.Label>
+                  <Form.Control
+                    required
+                    type="text"
+                    placeholder="Last name"
+                    value={this.state.contactForm.lastName}
+                    onChange={e => this.onChangeForm(e)}
+                  />
+                  <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+                </Form.Group>
+                <Form.Group controlId="validationCustomPhone">
+                  <Form.Label>Phone</Form.Label>
+                  <InputGroup>
+                    <InputMask
+                      {...this.props}
+                      mask="(999) 999-9999"
+                      maskChar=" "
+                      onChange={e => this.onChangeForm(e)}
+                    >
+                      {inputProps => (
+                        <Form.Control
+                          {...inputProps}
+                          type="tel"
+                          placeholder="Phone"
+                        />
+                      )}
+                    </InputMask>
+                    <Form.Control.Feedback type="invalid">
+                      Please enter phone number.
+                    </Form.Control.Feedback>
+                    <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+                  </InputGroup>
+                </Form.Group>
+                <Form.Group>
+                  <Form.Label>Email</Form.Label>
+                  <Form.Control
+                    type="email"
+                    placeholder="Email"
+                    value={this.state.contactForm.email}
+                    onChange={e => this.onChangeForm(e)}
+                  />
                   <Form.Control.Feedback type="invalid">
-                    Please enter phone number.
+                    Please enter a valid Email.
                   </Form.Control.Feedback>
                   <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-                </InputGroup>
-              </Form.Group>
-              <Form.Group>
-                <Form.Label>Email</Form.Label>
-                <Form.Control
-                  type="email"
-                  placeholder="Email"
-                  value={this.state.contactForm.email}
-                  onChange={e => this.onChangeForm(e)}
-                />
-                <Form.Control.Feedback type="invalid">
-                  Please enter a valid Email.
-                </Form.Control.Feedback>
-                <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-              </Form.Group>
-              <Form.Group md="4" controlId="validationCustom06">
-                <Form.Label>Country</Form.Label>
-                <Form.Control
-                  type="text"
-                  placeholder="Country"
-                  required
-                  value={this.state.contactForm.country}
-                  onChange={e => this.onChangeForm(e)}
-                />
-                <Form.Control.Feedback type="invalid">
-                  Please provide a valid country.
-                </Form.Control.Feedback>
-              </Form.Group>
-              <Form.Group md="4" controlId="validationCustom03">
-                <Form.Label>City</Form.Label>
-                <Form.Control
-                  type="text"
-                  placeholder="City"
-                  required
-                  value={this.state.contactForm.city}
-                  onChange={e => this.onChangeForm(e)}
-                />
-                <Form.Control.Feedback type="invalid">
-                  Please provide a valid city.
-                </Form.Control.Feedback>
-              </Form.Group>
-              <Form.Group controlId="validationCustom04">
-                <Form.Label>State</Form.Label>
-                <Form.Control
-                  type="text"
-                  placeholder="State"
-                  required
-                  value={this.state.contactForm.state}
-                  onChange={e => this.onChangeForm(e)}
-                />
-                <Form.Control.Feedback type="invalid">
-                  Please provide a valid state.
-                </Form.Control.Feedback>
-              </Form.Group>
-              <Form.Group>
-                <Form.Label>How did you hear about us?</Form.Label>
-                <DropdownButton
-                  id="dropdown-howdidyouhearaboutus-button"
-                  title="Select one"
-                  drop="right"
-                  variant="outline-primary"
-                  onClick={e => this.onDropdownHearAboutUs(e)}
-                  key="hearAboutUs1"
+                </Form.Group>
+                <Form.Group md="4" controlId="validationCustom06">
+                  <Form.Label>Country</Form.Label>
+                  <Form.Control
+                    type="text"
+                    placeholder="Country"
+                    required
+                    value={this.state.contactForm.country}
+                    onChange={e => this.onChangeForm(e)}
+                  />
+                  <Form.Control.Feedback type="invalid">
+                    Please provide a valid country.
+                  </Form.Control.Feedback>
+                </Form.Group>
+                <Form.Group md="4" controlId="validationCustom03">
+                  <Form.Label>City</Form.Label>
+                  <Form.Control
+                    type="text"
+                    placeholder="City"
+                    required
+                    value={this.state.contactForm.city}
+                    onChange={e => this.onChangeForm(e)}
+                  />
+                  <Form.Control.Feedback type="invalid">
+                    Please provide a valid city.
+                  </Form.Control.Feedback>
+                </Form.Group>
+                <Form.Group controlId="validationCustom04">
+                  <Form.Label>State</Form.Label>
+                  <Form.Control
+                    type="text"
+                    placeholder="State"
+                    required
+                    value={this.state.contactForm.state}
+                    onChange={e => this.onChangeForm(e)}
+                  />
+                  <Form.Control.Feedback type="invalid">
+                    Please provide a valid state.
+                  </Form.Control.Feedback>
+                </Form.Group>
+                <Form.Group>
+                  <Form.Label>How did you hear about us?</Form.Label>
+                  <DropdownButton
+                    id="dropdown-howdidyouhearaboutus-button"
+                    title="Select one"
+                    drop="right"
+                    variant="outline-primary"
+                    onClick={e => this.onDropdownHearAboutUs(e)}
+                    key="hearAboutUs1"
+                  >
+                    <Dropdown.Item eventKey="1">AAMI School List</Dropdown.Item>
+                    <Dropdown.Item eventKey="2">AAMI Web Banner</Dropdown.Item>
+                    <Dropdown.Item eventKey="3">
+                      Friend / Word of Mouth
+                    </Dropdown.Item>
+                    <Dropdown.Item eventKey="4">Google Search</Dropdown.Item>
+                    <Dropdown.Item eventKey="5">
+                      Other Search Engine
+                    </Dropdown.Item>
+                    <Dropdown.Item eventKey="6">Other</Dropdown.Item>
+                  </DropdownButton>
+                </Form.Group>
+                <Form.Group>
+                  <Form.Label></Form.Label>
+                  <Form.Control
+                    type="text"
+                    placeholder="hear about us"
+                    value={this.state.contactForm.hearAbout}
+                    onChange={e => this.onChangeForm(e)}
+                    required
+                    disabled
+                  />
+                </Form.Group>
+                <Form.Group>
+                  <Form.Label>Program of interest</Form.Label>
+                  <DropdownButton
+                    id="dropdown-programofinterest-button"
+                    title="Select one"
+                    drop="right"
+                    variant="outline-primary"
+                    onClick={e => this.onDropdownProgram(e)}
+                    key="programOfInterest1"
+                  >
+                    <Dropdown.Item eventKey="1">BMET Degree</Dropdown.Item>
+                    <Dropdown.Item eventKey="2">BMET Cert</Dropdown.Item>
+                    <Dropdown.Item eventKey="3">CompTia A+</Dropdown.Item>
+                    <Dropdown.Item eventKey="4">CompTia N+</Dropdown.Item>
+                  </DropdownButton>
+                </Form.Group>
+                <Form.Group>
+                  <Form.Label></Form.Label>
+                  <Form.Control
+                    type="text"
+                    placeholder="program"
+                    required
+                    disabled
+                    value={this.state.contactForm.programOfInterest}
+                  />
+                </Form.Group>
+                <Form.Group>
+                  <Form.Check
+                    label="Would you like to receive a call back?"
+                    feedback="You must agree before submitting."
+                    checked={this.state.contactForm.callback}
+                    onChange={e => {
+                      const conForm = this.state.contactForm
+                      conForm.callback = !conForm.callback
+                      this.setState({ contactForm: conForm })
+                    }}
+                  />
+                </Form.Group>
+                <Form.Group>
+                  <Form.Label>Comments</Form.Label>
+                  <Form.Control
+                    as="textarea"
+                    value={this.state.contactForm.comments}
+                    onChange={e => this.onChangeForm(e)}
+                    placeholder="comments here"
+                  />
+                </Form.Group>
+                <Button type="submit">Submit Form</Button>
+                <Form.Group>
+                  <Alert show={this.state.isDone} variant="success">
+                    <Alert.Heading>
+                      <FaRegThumbsUp style={{ marginRight: "5px" }} />
+                      Success! We will get back to you soon.
+                    </Alert.Heading>
+                  </Alert>
+                </Form.Group>
+              </Form>
+            </Col>
+            <Col md={5}>
+              <div style={{ marginLeft: "50px" }}>
+                <h1 className="text-dark" style={{ opacity: "1.0" }}>
+                  Enrollment
+                </h1>
+                <ul
+                  className="text-dark"
+                  style={{ listStyleType: "none", padding: "0px" }}
                 >
-                  <Dropdown.Item eventKey="1">AAMI School List</Dropdown.Item>
-                  <Dropdown.Item eventKey="2">AAMI Web Banner</Dropdown.Item>
-                  <Dropdown.Item eventKey="3">
-                    Friend / Word of Mouth
-                  </Dropdown.Item>
-                  <Dropdown.Item eventKey="4">Google Search</Dropdown.Item>
-                  <Dropdown.Item eventKey="5">
-                    Other Search Engine
-                  </Dropdown.Item>
-                  <Dropdown.Item eventKey="6">Other</Dropdown.Item>
-                </DropdownButton>
-              </Form.Group>
-              <Form.Group>
-                <Form.Label></Form.Label>
-                <Form.Control
-                  type="text"
-                  placeholder="hear about us"
-                  value={this.state.contactForm.hearAbout}
-                  onChange={e => this.onChangeForm(e)}
-                  required
-                  disabled
-                />
-              </Form.Group>
-              <Form.Group>
-                <Form.Label>Program of interest</Form.Label>
-                <DropdownButton
-                  id="dropdown-programofinterest-button"
-                  title="Select one"
-                  drop="right"
-                  variant="outline-primary"
-                  onClick={e => this.onDropdownProgram(e)}
-                  key="programOfInterest1"
-                >
-                  <Dropdown.Item eventKey="1">BMET Degree</Dropdown.Item>
-                  <Dropdown.Item eventKey="2">BMET Cert</Dropdown.Item>
-                  <Dropdown.Item eventKey="3">CompTia A+</Dropdown.Item>
-                  <Dropdown.Item eventKey="4">CompTia N+</Dropdown.Item>
-                </DropdownButton>
-              </Form.Group>
-              <Form.Group>
-                <Form.Label></Form.Label>
-                <Form.Control
-                  type="text"
-                  placeholder="program"
-                  required
-                  disabled
-                  value={this.state.contactForm.programOfInterest}
-                />
-              </Form.Group>
-              <Form.Group>
-                <Form.Check
-                  label="Would you like to receive a call back?"
-                  feedback="You must agree before submitting."
-                  checked={this.state.contactForm.callback}
-                  onChange={e => {
-                    const conForm = this.state.contactForm
-                    conForm.callback = !conForm.callback
-                    this.setState({ contactForm: conForm })
-                  }}
-                />
-              </Form.Group>
-              <Form.Group>
-                <Form.Label>Comments</Form.Label>
-                <Form.Control
-                  as="textarea"
-                  value={this.state.contactForm.comments}
-                  onChange={e => this.onChangeForm(e)}
-                  placeholder="comments here"
-                />
-              </Form.Group>
-              <Button type="submit">Submit Form</Button>
-              <Form.Group>
-                <Alert show={this.state.isDone} variant="success">
-                  <Alert.Heading>
-                    <FaRegThumbsUp style={{ marginRight: "5px" }} />
-                    Success! We will get back to you soon.
-                  </Alert.Heading>
-                </Alert>
-              </Form.Group>
-            </Form>
-          </Col>
-          <Col md={5}>
-            <div  style={{ marginLeft: "50px" }}>
-              <h1 className="text-dark" style={{ opacity: "1.0" }}>
-                Enrollment
-              </h1>
-              <ul className="text-dark" style={{ listStyleType: "none", padding: "0px" }}>
-                <li>
-                  <b>Address:</b> 11550 IH-10 West, Suite 190, San Antonio, Texas
-                  78230
-                </li>
-                <li>
-                  <b>Phone:</b> (210) 233-1102
-                </li>
-                <li>
-                  <b>Toll-Free:</b> (866) 866-9027
-                </li>
-                <li>
-                  <b>E-mail:</b>{" "}
-                  <a className="text-dark" href="mailto:admissiondept@cbet.edu">
-                    admissiondept@cbet.edu
-                  </a>
-                </li>
-                <li>
-                  <a href="mailto:admissiondept@cbet.edu">
-                    <Button>Contact Us</Button>
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </Col>
+                  <li>
+                    <b>Address:</b> 11550 IH-10 West, Suite 190, San Antonio,
+                    Texas 78230
+                  </li>
+                  <li>
+                    <b>Phone:</b> (210) 233-1102
+                  </li>
+                  <li>
+                    <b>Toll-Free:</b> (866) 866-9027
+                  </li>
+                  <li>
+                    <b>E-mail:</b>{" "}
+                    <a
+                      className="text-dark"
+                      href="mailto:admissiondept@cbet.edu"
+                    >
+                      admissiondept@cbet.edu
+                    </a>
+                  </li>
+                  <li>
+                    <a href="mailto:admissiondept@cbet.edu">
+                      <Button>Contact Us</Button>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </Col>
           </Row>
         </Container>
       </>
