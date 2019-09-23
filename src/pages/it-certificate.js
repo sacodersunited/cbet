@@ -26,15 +26,20 @@ const ProgramDetail = styled.div`
 `
 const Programs = () => (
   <LayoutDetail>
-    <SEO title="Programs" />
+    <SEO
+      title="CompTIA IT Certifications Available"
+      description="The College Of
+Biomedical Equipment Technology offers compTIA IT certifications. Visit our website to
+view our courses and get started!"
+    />
     <GraphicHeader imgSrc={headerImg} title="IT & Networking Courses" />
     <Container className="mb-5">
       <Row>
         <Col md={7}>
           <Fade left>
-            <h1 className="display-5 text-uppercase">
+            <h2 className="display-5 text-uppercase">
               IT & Networking Certificate
-            </h1>
+            </h2>
             <p className="lead">
               To assist IT professionals in staying current with their knowledge
               and skills and to help the student prepare for the
@@ -77,6 +82,8 @@ const Programs = () => (
             minHeight: "486px",
           }}
           fluid
+          alt="A part of
+          a computer used in our compTIA IT certifications course"
         />
       </Col>
     </Row>
@@ -104,12 +111,22 @@ const Programs = () => (
           </Slide>
         </Col>
         <Col md={6}>
-          <Image src={ITAPlusImg} fluid rounded />
+          <Image
+            src={ITAPlusImg}
+            fluid
+            rounded
+            alt="compTIA IT certifications"
+          />
         </Col>
       </Row>
       <Row className="mb-5 align-items-center">
         <Col md={6}>
-          <Image src={ITNetworkImg} fluid rounded />
+          <Image
+            src={ITNetworkImg}
+            fluid
+            rounded
+            alt="compTIA IT certifications"
+          />
         </Col>
         <Col md={{ span: 5, offset: 1 }}>
           <Slide right>
