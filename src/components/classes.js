@@ -16,7 +16,12 @@ const Classes = props => (
       </h2>
       <CardDeck>
         <Card>
-          <Img fluid={props.images.bmetdegree.childImageSharp.fluid} />
+          <Img
+            fluid={props.images.bmetdegree.childImageSharp.fluid}
+            alt="biomedical technology school /biomedical college /biomedical training
+          /online biomedical college /Online biomedical training /online biomedical technology
+          school"
+          />
           <Card.Body>
             <Card.Title>BMET Degree</Card.Title>
             <Card.Text>
@@ -33,7 +38,12 @@ const Classes = props => (
           </Card.Body>
         </Card>
         <Card>
-          <Img fluid={props.images.bmettech.childImageSharp.fluid} />
+          <Img
+            fluid={props.images.bmettech.childImageSharp.fluid}
+            alt="biomedical technology school /biomedical college /biomedical training
+          /online biomedical college /Online biomedical training /online biomedical technology
+          school"
+          />
           <Card.Body>
             <Card.Title>BMET Certificate</Card.Title>
             <Card.Text style={{ minHeight: "215px" }}>
@@ -49,7 +59,12 @@ const Classes = props => (
           </Card.Body>
         </Card>
         <Card>
-          <Img fluid={props.images.itnetworkprograms.childImageSharp.fluid} />
+          <Img
+            fluid={props.images.itnetworkprograms.childImageSharp.fluid}
+            alt="biomedical technology school /biomedical college /biomedical training
+          /online biomedical college /Online biomedical training /online biomedical technology
+          school"
+          />
           <Card.Body>
             <Card.Title>IT & Networking</Card.Title>
             <Card.Text style={{ minHeight: "215px" }}>
@@ -64,7 +79,12 @@ const Classes = props => (
           </Card.Body>
         </Card>
         <Card>
-          <Img fluid={props.images.specialtyprograms.childImageSharp.fluid} />
+          <Img
+            fluid={props.images.specialtyprograms.childImageSharp.fluid}
+            alt="biomedical technology school /biomedical college /biomedical training
+          /online biomedical college /Online biomedical training /online biomedical technology
+          school"
+          />
           <Card.Body>
             <Card.Title>Specialty Programs</Card.Title>
             <Card.Text style={{ minHeight: "215px" }}>

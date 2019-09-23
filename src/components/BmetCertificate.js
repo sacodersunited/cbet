@@ -24,7 +24,12 @@ const ProgramDetail = styled.div`
 `
 const BmetCertificate = props => (
   <>
-    <SEO title="BMET Certification" />
+    <SEO
+      title="Biomedical Training Certification Online"
+      description="Are you
+looking to get your BMET certificate? College Of Biomedical Equipment Technology is
+the place for you. Visit our website to learn more!"
+    />
     <VideoCarousel
       title="BMET Certificate"
       descr="The Biomedical Equipment Technician Certificate program provides a comprehensive, overview of the biomedical equipment and healthcare technology management industry."
@@ -35,12 +40,12 @@ const BmetCertificate = props => (
       <Row>
         <Col md={7}>
           <Fade left>
-            <h1 className="display-5 text-uppercase">
+            <h2 className="display-5 text-uppercase">
               BIOMEDICAL EQUIPMENT TECHNICIAN (BMET) <br />
               <small className="text-muted font-weight-light">
                 25 WEEK CERTIFICATE COURSE
               </small>
-            </h1>
+            </h2>
             <p className="lead">
               The Biomedical Equipment Technician (BMET) certificate program is
               a 25-week intensive academic program delivering theoretical
@@ -64,7 +69,12 @@ const BmetCertificate = props => (
         </Col>
         <Col md={4}>
           <Card>
-            <Img fluid={props.images.bIsham.childImageSharp.fluid} />
+            <Img
+              fluid={props.images.bIsham.childImageSharp.fluid}
+              alt="biomedical equipment technology
+            degree online /biomedical training degree /biomedical training degree online /BMET
+            degree"
+            />
             <Card.Body>
               <Card.Title>Brent Isham</Card.Title>
               <Card.Text>
@@ -110,7 +120,12 @@ const BmetCertificate = props => (
         </ProgramDetail>
       </Col>
       <Col md={6}>
-        <Img fluid={props.images.bmettech.childImageSharp.fluid} />
+        <Img
+          fluid={props.images.bmettech.childImageSharp.fluid}
+          alt="biomedical equipment technology
+        degree online /biomedical training degree /biomedical training degree online /BMET
+        degree"
+        />
       </Col>
     </Row>
 
@@ -132,7 +147,10 @@ const BmetCertificate = props => (
           </Slide>
         </Col>
         <Col md={6}>
-          <Img fluid={props.images.bmet3.childImageSharp.fluid} />
+          <Img
+            fluid={props.images.bmet3.childImageSharp.fluid}
+            alt="A student taking a BMET certifications course"
+          />
         </Col>
       </Row>
     </Container>

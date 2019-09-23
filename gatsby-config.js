@@ -7,8 +7,8 @@ const config = require("gatsby-plugin-config").default
 
 module.exports = {
   siteMetadata: {
-    title: `CBET`,
-    description: `Biomedical Equipment and Health Care Technology`,
+    title: `Online Biomedical Technology School`,
+    description: `The College Of Biomedical Equipment Technology offeres Online Biomedical Training. Visit our website to get more information and apply today!`,
     author: `@gatsbyjs`,
     codeFunc: config.GATSBY_code,
     gmap: config.GOOGLE_API_KEY,

@@ -11,7 +11,10 @@ import HomeClassesStaticQuery from "../components/HomeClassesStaticQuery"
 const IndexPage = () => (
   <Layout>
     <SEO
-      title="Home"
+      title="Online Biomedical Technology School"
+      description="The College
+      Of Biomedical Equipment Technology offers Online Biomedical Training. Visit our
+      website to get more information and apply today!"
       keywords={[`biomedical equipment`, `education`, `technology`, `cbet`]}
     />
     <HomeCarouselStaticQuery />

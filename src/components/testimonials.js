@@ -45,6 +45,9 @@ class Testimonials extends Component {
                 variant="top"
                 src={`profile-${index + 1}.png`}
                 style={{ minHeight: "320px" }}
+                alt="biomedical technology school /biomedical college /biomedical training
+          /online biomedical college /Online biomedical training /online biomedical technology
+          school"
               />
               <Card.Body>
                 <Card.Title>{testimonial.name}</Card.Title>

@@ -21,7 +21,12 @@ const Footer = () => (
       <Container>
         <Row>
           <Col xs={6} md={2} className="mb-3">
-            <Image src={Logo} />
+            <Image
+              src={Logo}
+              alt="biomedical technology school /biomedical college /biomedical training
+          /online biomedical college /Online biomedical training /online biomedical technology
+          school"
+            />
           </Col>
           <Col md={2}>
             <a href={CourseCalendar} className="d-block text-light mb-3">

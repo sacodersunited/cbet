@@ -17,7 +17,9 @@ const HomeCarousel = props => (
         fluid={props.images.second.childImageSharp.fluid}
         style={{ minHeight: "449px" }}
         className="d-block w-100"
-        alt="Second slide"
+        alt="biomedical technology school /biomedical college /biomedical training
+          /online biomedical college /Online biomedical training /online biomedical technology
+          school"
       />
 
       <Carousel.Caption style={{ textAlign: "left" }}>
@@ -38,7 +40,9 @@ const HomeCarousel = props => (
         fluid={props.images.first.childImageSharp.fluid}
         style={{ minHeight: "449px" }}
         className="d-block w-100"
-        alt="First slide"
+        alt="biomedical technology school
+          /biomedical college /biomedical training /online biomedical college /Online biomedical
+          training /online biomedical technology school"
       />
       <Carousel.Caption style={{ textAlign: "left" }}>
         <CarouselH1>College Of Biomedical Equipment Technology</CarouselH1>
@@ -71,7 +75,9 @@ const HomeCarousel = props => (
         fluid={props.images.fourth.childImageSharp.fluid}
         style={{ minHeight: "449px" }}
         className="d-block w-100"
-        alt="Fourth slide"
+        alt="biomedical technology school
+          /biomedical college /biomedical training /online biomedical college /Online biomedical
+          training /online biomedical technology school"
       />
 
       <Carousel.Caption style={{ textAlign: "left" }}>
