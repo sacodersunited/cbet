@@ -177,6 +177,24 @@ const Partners = props => (
             />
           </a>
         </Col>
+
+        <Col
+          md={4}
+          className="mb-5"
+          style={{ alignSelf: "center", textAlign: "center" }}
+        >
+          <a
+            href="https://nscharney.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Img
+              fluid={props.images.charney.childImageSharp.fluid}
+              alt="Charney and Associates Recruiting"
+              style={{ backgroundColor: "rebeccapurple" }}
+            />
+          </a>
+        </Col>
       </Row>
     </Col>
   </Row>

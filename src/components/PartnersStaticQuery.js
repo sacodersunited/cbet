@@ -62,6 +62,13 @@ const PartnersStaticQuery = props => (
             }
           }
         }
+        charney: file(relativePath: { eq: "charney-logo.png" }) {
+          childImageSharp {
+            fluid(maxWidth: 400, quality: 100) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
       }
     `}
     render={data => <Partners images={data} />}
