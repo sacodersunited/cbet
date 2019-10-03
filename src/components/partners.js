@@ -29,7 +29,7 @@ const Partners = props => (
       <Row>
         <Col
           className="mb-5"
-          md={4}
+          md={3}
           style={{ alignSelf: "center", textAlign: "center" }}
         >
           <Pulse>
@@ -47,7 +47,7 @@ const Partners = props => (
         </Col>
         <Col
           className="mb-5"
-          md={4}
+          md={3}
           style={{ alignSelf: "center", textAlign: "center" }}
         >
           <a href={TFCDoc} target="_blank" rel="noopener noreferrer">
@@ -59,7 +59,7 @@ const Partners = props => (
         </Col>
         <Col
           className="mb-5"
-          md={4}
+          md={3}
           style={{ alignSelf: "center", textAlign: "center" }}
         >
           <a
@@ -75,7 +75,7 @@ const Partners = props => (
         </Col>
 
         <Col
-          md={4}
+          md={3}
           className="mb-5"
           style={{ alignSelf: "center", textAlign: "center" }}
         >
@@ -94,7 +94,7 @@ const Partners = props => (
         </Col>
 
         <Col
-          md={4}
+          md={3}
           className="mb-5"
           style={{ alignSelf: "center", textAlign: "center" }}
         >
@@ -111,7 +111,7 @@ const Partners = props => (
         </Col>
 
         <Col
-          md={4}
+          md={3}
           className="mb-5"
           style={{ alignSelf: "center", textAlign: "center" }}
         >
@@ -128,7 +128,7 @@ const Partners = props => (
         </Col>
 
         <Col
-          md={4}
+          md={3}
           className="mb-5"
           style={{ alignSelf: "center", textAlign: "center" }}
         >
@@ -145,7 +145,7 @@ const Partners = props => (
         </Col>
 
         <Col
-          md={4}
+          md={3}
           className="mb-5"
           style={{ alignSelf: "center", textAlign: "center" }}
         >
@@ -162,7 +162,7 @@ const Partners = props => (
         </Col>
 
         <Col
-          md={4}
+          md={3}
           className="mb-5"
           style={{ alignSelf: "center", textAlign: "center" }}
         >
@@ -179,7 +179,7 @@ const Partners = props => (
         </Col>
 
         <Col
-          md={4}
+          md={3}
           className="mb-5"
           style={{ alignSelf: "center", textAlign: "center" }}
         >

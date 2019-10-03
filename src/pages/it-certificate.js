@@ -18,7 +18,7 @@ import Slide from "react-reveal/Slide"
 import ITImg from "../images/itDegree/networking-I.jpg"
 import ITAPlusImg from "../images/itDegree/it-2.jpg"
 import ITNetworkImg from "../images/itDegree/it-1.jpg"
-import StudentCatalog from "../documents/CBET Course Catalog_Volume XV_September 2019.pdf"
+import StudentCatalog from "../documents/CBET Course Catalog_Volume XVI_October 2019.pdf"
 
 const ProgramDetail = styled.div`
   padding: 46px 0 46px 40px;
