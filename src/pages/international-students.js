@@ -21,7 +21,7 @@ import IntlPicThree from "../images/intl-3.jpg"
 import IntlPicFour from "../images/intl-4.jpg"
 import EnyiPic from "../images/testimonials/Emmanuel Enyi.jpg"
 import { FaRegEnvelope } from "react-icons/fa"
-import StudentCatalog from "../documents/CBET Course Catalog_Volume XV_September 2019.pdf"
+import StudentCatalog from "../documents/CBET Course Catalog_Volume XVI_October 2019.pdf"
 
 const InternationalStudents = () => (
   <LayoutDetail>
