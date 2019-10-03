@@ -6,6 +6,7 @@ import { FaFacebookF, FaLinkedinIn, FaUserLock } from "react-icons/fa"
 import Logo from "../../src/images/logo/footer-logo.svg"
 import CourseCatalog from "../../src/documents/CBET Course Catalog_Volume XVI_October 2019.pdf"
 import CourseCalendar from "../documents/2019-2020-2021 Academic Calendar.pdf"
+import PrivacyStatement from "../documents/Privacy Policy_Update.pdf"
 
 const FooterSection = styled.footer`
   color: whitesmoke;
@@ -56,7 +57,7 @@ const Footer = () => (
             <a className="d-block text-light mb-3" disabled>
               Accessibility Statement
             </a>
-            <a className="d-block text-light mb-3" disabled>
+            <a href={PrivacyStatement} className="d-block text-light mb-3">
               Privacy Statement
             </a>
           </Col>
