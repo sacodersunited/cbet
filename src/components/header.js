@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 import React from "react"
 import { Container, Navbar, Nav, NavDropdown } from "react-bootstrap"
 // import { isAuthenticated, logout, getProfile } from "../utils/auth"
-import Logo from "../images/logo/cbet-logo-wh.svg"
+import Logo from "../images/logo/cbet-logo-wh-8.png"
 import { FaFacebookSquare, FaLinkedin, FaUserLock } from "react-icons/fa"
 
 const Header = ({ siteTitle }) => {
