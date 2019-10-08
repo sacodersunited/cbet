@@ -1,8 +1,9 @@
 import React from "react"
 import { Link } from "gatsby"
-import { Carousel, Button } from "react-bootstrap"
+import { Carousel, Button, Col, Row, Form } from "react-bootstrap"
 import styled from "styled-components"
 import Img from "gatsby-image"
+import CarouselForm from "./CarouselForm"
 
 const CarouselH1 = styled.h1`
   @media (max-width: 575.98px) {
@@ -11,7 +12,7 @@ const CarouselH1 = styled.h1`
 `
 
 const HomeCarousel = props => (
-  <Carousel>
+  <Carousel pauseOnHover>
     <Carousel.Item>
       <Img
         fluid={props.images.second.childImageSharp.fluid}
@@ -21,18 +22,24 @@ const HomeCarousel = props => (
           /online biomedical college /Online biomedical training /online biomedical technology
           school"
       />
-
-      <Carousel.Caption style={{ textAlign: "left" }}>
-        <CarouselH1>College Of Biomedical Equipment Technology</CarouselH1>
-        <p>
-          Our mission is to provide Healthcare Technology Management (HTM)
-          education, training and career services consistent with the evolving
-          needs of employers in the healthcare industry.
-        </p>
-        <Link to="/about">
-          <Button className="text-uppercase">Learn More</Button>
-        </Link>
-      </Carousel.Caption>
+      <Row>
+        <Col md={8}>
+          <Carousel.Caption style={{ textAlign: "left" }}>
+            <CarouselH1>College Of Biomedical Equipment Technology</CarouselH1>
+            <p>
+              Our mission is to provide Healthcare Technology Management (HTM)
+              education, training and career services consistent with the
+              evolving needs of employers in the healthcare industry.
+            </p>
+            <Link to="/about">
+              <Button className="text-uppercase">Learn More</Button>
+            </Link>
+          </Carousel.Caption>
+        </Col>
+        <Col md={4}>
+          <CarouselForm />
+        </Col>
+      </Row>
     </Carousel.Item>
 
     <Carousel.Item>
@@ -44,13 +51,20 @@ const HomeCarousel = props => (
           /biomedical college /biomedical training /online biomedical college /Online biomedical
           training /online biomedical technology school"
       />
-      <Carousel.Caption style={{ textAlign: "left" }}>
-        <CarouselH1>College Of Biomedical Equipment Technology</CarouselH1>
-        <p>Building the Future Healthcare Technology Workforce</p>
-        <Link to="/admissions">
-          <Button className="text-uppercase">Apply Today</Button>
-        </Link>
-      </Carousel.Caption>
+      <Row>
+        <Col md={8}>
+          <Carousel.Caption style={{ textAlign: "left" }}>
+            <CarouselH1>College Of Biomedical Equipment Technology</CarouselH1>
+            <p>Building the Future Healthcare Technology Workforce</p>
+            <Link to="/admissions">
+              <Button className="text-uppercase">Apply Today</Button>
+            </Link>
+          </Carousel.Caption>
+        </Col>
+        <Col md={4}>
+          <CarouselForm />
+        </Col>
+      </Row>
     </Carousel.Item>
 
     <Carousel.Item>
@@ -60,14 +74,20 @@ const HomeCarousel = props => (
         className="d-block w-100"
         alt="Third slide"
       />
-
-      <Carousel.Caption style={{ textAlign: "left" }}>
-        <CarouselH1>College Of Biomedical Equipment Technology</CarouselH1>
-        <p>Building the Future Healthcare Technology Workforce</p>
-        <Link to="/admissions">
-          <Button className="text-uppercase">Apply Today</Button>
-        </Link>
-      </Carousel.Caption>
+      <Row>
+        <Col md={8}>
+          <Carousel.Caption style={{ textAlign: "left" }}>
+            <CarouselH1>College Of Biomedical Equipment Technology</CarouselH1>
+            <p>Building the Future Healthcare Technology Workforce</p>
+            <Link to="/admissions">
+              <Button className="text-uppercase">Apply Today</Button>
+            </Link>
+          </Carousel.Caption>
+        </Col>
+        <Col md={4}>
+          <CarouselForm />
+        </Col>
+      </Row>
     </Carousel.Item>
 
     <Carousel.Item>
@@ -79,14 +99,20 @@ const HomeCarousel = props => (
           /biomedical college /biomedical training /online biomedical college /Online biomedical
           training /online biomedical technology school"
       />
-
-      <Carousel.Caption style={{ textAlign: "left" }}>
-        <CarouselH1>College Of Biomedical Equipment Technology</CarouselH1>
-        <p>Building the Future Healthcare Technology Workforce</p>
-        <Link to="/admissions">
-          <Button className="text-uppercase">Apply Today</Button>
-        </Link>
-      </Carousel.Caption>
+      <Row>
+        <Col md={8}>
+          <Carousel.Caption style={{ textAlign: "left" }}>
+            <CarouselH1>College Of Biomedical Equipment Technology</CarouselH1>
+            <p>Building the Future Healthcare Technology Workforce</p>
+            <Link to="/admissions">
+              <Button className="text-uppercase">Apply Today</Button>
+            </Link>
+          </Carousel.Caption>
+        </Col>
+        <Col md={4}>
+          <CarouselForm />
+        </Col>
+      </Row>
     </Carousel.Item>
   </Carousel>
 )
