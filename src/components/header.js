@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 import React from "react"
 import { Container, Navbar, Nav, NavDropdown } from "react-bootstrap"
 // import { isAuthenticated, logout, getProfile } from "../utils/auth"
-import Logo from "../images/logo/CBET-04.png"
+import Logo from "../images/logo/cbet-logo-wh-8.png"
 import { FaFacebookSquare, FaLinkedin, FaUserLock } from "react-icons/fa"
 
 const Header = ({ siteTitle }) => {
@@ -17,7 +17,7 @@ const Header = ({ siteTitle }) => {
             <Navbar.Brand>
               <img
                 src={Logo}
-                width="120"
+                width="180"
                 height="auto"
                 className="d-inline-block align-top"
                 alt="CBET logo"
