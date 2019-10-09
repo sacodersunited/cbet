@@ -215,7 +215,7 @@ const Team = props => (
               <em className="text-muted ml-1">Braeutigam Enterprises, LLC.</em>
             </ListGroup.Item>
             <ListGroup.Item>
-              Cherie Brzozowsk{" "}
+              Cherie Brzozowski{" "}
               <em className="text-muted ml-1">Citizens Medical Center</em>
             </ListGroup.Item>
           </ListGroup>

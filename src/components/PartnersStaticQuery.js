@@ -6,6 +6,13 @@ const PartnersStaticQuery = props => (
   <StaticQuery
     query={graphql`
       {
+        medwrench: file(relativePath: { eq: "Medwrench-logo.png" }) {
+          childImageSharp {
+            fluid(maxHeight: 600, quality: 100) {
+              ...GatsbyImageSharpFluid_withWebp
+            }
+          }
+        }
         technation: file(relativePath: { eq: "TechNation_logo.png" }) {
           childImageSharp {
             fluid(maxHeight: 600, quality: 100) {
