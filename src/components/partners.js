@@ -34,16 +34,32 @@ const Partners = props => (
         >
           <Pulse>
             <a
-              href="https://1technation.com/"
+              href="https://www.medwrench.com/"
               target="_blank"
               rel="noopener noreferrer"
             >
               <Img
-                fluid={props.images.technation.childImageSharp.fluid}
-                alt="Tech Nation logo"
+                fluid={props.images.medwrench.childImageSharp.fluid}
+                alt="Medwrench logo"
               />
             </a>
           </Pulse>
+        </Col>
+        <Col
+          className="mb-5"
+          md={3}
+          style={{ alignSelf: "center", textAlign: "center" }}
+        >
+          <a
+            href="https://1technation.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Img
+              fluid={props.images.technation.childImageSharp.fluid}
+              alt="Tech Nation logo"
+            />
+          </a>
         </Col>
         <Col
           className="mb-5"
