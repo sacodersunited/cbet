@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { Container, CardGroup, Card, Button } from "react-bootstrap"
+import { Container, CardGroup } from "react-bootstrap"
 import styled from "styled-components"
 import Slider from "react-slick"
 import { TestimonialsData } from "../utils/utility"
