@@ -55,9 +55,6 @@ export default class AdmissionsForm extends Component {
       case "Student Name":
         admissionInfo.studentName = e.target.value
         break
-      // case "Social Security":
-      //   admissionInfo.ssn = e.target.value
-      //   break
       case "Address":
         admissionInfo.address = e.target.value
         break
@@ -76,9 +73,6 @@ export default class AdmissionsForm extends Component {
       case "Zip":
         admissionInfo.zip = e.target.value
         break
-      // case "Drivers License":
-      //   admissionInfo.drivers = e.target.value
-      //   break
       case "Date of Birth":
         admissionInfo.dateOfBirth = e.target.value
         break

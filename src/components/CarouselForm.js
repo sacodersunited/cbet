@@ -152,6 +152,7 @@ class CarouselForm extends React.Component {
           </Form.Group>
           <Form.Group controlId="formBasicName">
             <Form.Control
+              required
               type="text"
               placeholder="Name"
               onChange={e => this.onChangeForm(e)}
