@@ -15,11 +15,11 @@ export default class TestimonialCard extends Component {
 
   render() {
     return (
-      // todo: fix maxWidth to match a viewport width correctly.
+      // TODO: fix maxWidth to match a viewport width correctly.
       <Card {...this.props} style={{ maxWidth: "380.41px" }}>
         <Card.Img
           variant="top"
-          src={`profile-${this.props.index + 1}.png`}
+          src={`profile-${this.props.index}.png`}
           style={{ minHeight: "320px" }}
           alt="biomedical technology school /biomedical college /biomedical training
 /online biomedical college /Online biomedical training /online biomedical technology

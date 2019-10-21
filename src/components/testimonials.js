@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { Container, CardGroup } from "react-bootstrap"
+import { Container } from "react-bootstrap"
 import styled from "styled-components"
 import Slider from "react-slick"
 import { TestimonialsData } from "../utils/utility"
@@ -22,14 +22,15 @@ class Testimonials extends Component {
 
   render() {
     let settings = {
-      dots: true,
+      dots: false,
       infinite: true,
       speed: 500,
-      slidesToShow: 5,
+      slidesToShow: 3,
       slidesToScroll: 1,
       variableWidth: true,
       adaptiveHeight: true,
       autoplay: true,
+      pauseOnHover: true,
     }
     return (
       <TestimonialsSection imgsrc={TestimonialBG}>
@@ -41,13 +42,16 @@ class Testimonials extends Component {
             Hear From Our Students Around the World
           </h2>
         </Container>
-        <CardGroup>
-          <Slider ref="slick" {...settings}>
-            {TestimonialsData.map((testimonial, index) => (
-              <TestimonialCard person={testimonial} index={index} />
-            ))}
-          </Slider>
-        </CardGroup>
+
+        <Slider ref="slick" {...settings}>
+          {TestimonialsData.map((testimonial, index) => (
+            <TestimonialCard
+              key={testimonial.name}
+              person={testimonial}
+              index={index}
+            />
+          ))}
+        </Slider>
       </TestimonialsSection>
     )
   }
