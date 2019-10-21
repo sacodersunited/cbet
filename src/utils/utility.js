@@ -53,6 +53,13 @@ export const ToStartDate = dt => {
 
 export const TestimonialsData = [
   {
+    name: "Emmanuel E",
+    type: "BMET Degree",
+    state: "Africa",
+    date: "Sep 2019",
+    comment: `My experience in the College of Biomedical Equipment Technology, has been absolutely incredible. I‘ve been constantly amazed by the kindness, familial mutuality, and camaraderie that I‘ve encountered so far. I‘ve had the pleasure of meeting and learning from great mentors, working with great scholars. Studying in CBET is for me a dream come true, because it gives me a perfect opportunity to learn what I exactly want to pursue. The lecturers are not only friendly but also with whopping industry experiences, so that we can learn from their amazing experiences. The staff members also care about the future career of students. good relationship with co students, flexible nature of programme and the ability to study when and where it suits me, all online! The teaching is great and course structure is nice and easy to follow. I would recommend CBET to anyone who wants to study and work at the same time.`,
+  },
+  {
     name: "Beena N",
     type: "BMET Certificate",
     state: "Texas",
