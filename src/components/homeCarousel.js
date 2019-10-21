@@ -1,6 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
-import { Carousel, Button, Col, Row, Form } from "react-bootstrap"
+import { Carousel, Button, Col, Row } from "react-bootstrap"
 import styled from "styled-components"
 import Img from "gatsby-image"
 import CarouselForm from "./CarouselForm"
