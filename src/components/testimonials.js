@@ -24,7 +24,7 @@ class Testimonials extends Component {
     let settings = {
       dots: false,
       infinite: true,
-      speed: 500,
+      speed: 700,
       slidesToShow: 3,
       slidesToScroll: 1,
       variableWidth: true,
