@@ -9,14 +9,14 @@ const AccreditationsStaticQuery = props => (
         twclogo: file(relativePath: { eq: "twc-logo.jpg" }) {
           childImageSharp {
             fluid(maxWidth: 242, quality: 100) {
-              ...GatsbyImageSharpFluid_withWebp
+              ...GatsbyImageSharpFluid_withWebp_tracedSVG
             }
           }
         }
         txhigher: file(relativePath: { eq: "TXHigherEd.png" }) {
           childImageSharp {
             fluid(maxWidth: 242, quality: 100) {
-              ...GatsbyImageSharpFluid_withWebp
+              ...GatsbyImageSharpFluid_withWebp_tracedSVG
             }
           }
         }

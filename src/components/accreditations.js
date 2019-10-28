@@ -16,6 +16,7 @@ const AccredSection = styled.section`
 
 const Accreditations = props => (
   <AccredSection className="bg-transparent">
+    {console.log("props", props.images)}
     <Container fluid>
       <Row style={{ marginBottom: "64px" }}>
         <Col md={4}>
