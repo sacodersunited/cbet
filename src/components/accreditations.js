@@ -7,7 +7,6 @@ import twcImg from "../images/twc-logo.jpg"
 import TXHigherImg from "../images/TXHigherEd.png"
 import Pulse from "react-reveal/Pulse"
 import Fade from "react-reveal/Fade"
-import Pattern from "../images/solid_bg.png"
 import PartnersStaticQuery from "./PartnersStaticQuery"
 
 const AccredSection = styled.section`
@@ -54,13 +53,18 @@ const Accreditations = props => (
                 rel="noopener noreferrer"
                 href="https://twc.texas.gov/"
               >
-                <Image
+                <Img
+                  fluid={props.images.twclogo.childImageSharp.fluid}
+                  className="img-fluid rounded-circle"
+                  alt="twc logo"
+                />
+                {/* <Image
                   src={twcImg}
                   style={{ maxHeight: "180px" }}
                   alt="twc logo"
                   fluid
                   roundedCircle
-                />
+                /> */}
               </a>
             </Col>
             <Col md={4} style={{ alignSelf: "center", textAlign: "center" }}>
@@ -69,7 +73,12 @@ const Accreditations = props => (
                 target="_blank"
                 href="http://www.thecb.state.tx.us/"
               >
-                <Image src={TXHigherImg} alt="twc logo" fluid />
+                <Img
+                  fluid={props.images.txhigher.childImageSharp.fluid}
+                  className="img-fluid"
+                  alt="tx higher education board"
+                />
+                {/* <Image src={TXHigherImg} alt="twc logo" fluid /> */}
               </a>
             </Col>
           </Row>
