@@ -3,7 +3,7 @@ import { Container, Row, Col, Image } from "react-bootstrap"
 import Img from "gatsby-image"
 import styled from "styled-components"
 import AccImg from "../images/accet.svg"
-// import twcImg from "../images/twc-logo.jpg"
+import twcImg from "../images/twc-logo.jpg"
 // import TXHigherImg from "../images/TXHigherEd.png"
 import Pulse from "react-reveal/Pulse"
 import Fade from "react-reveal/Fade"
@@ -54,18 +54,18 @@ const Accreditations = props => (
                 rel="noopener noreferrer"
                 href="https://twc.texas.gov/"
               >
-                <Img
+                {/* <Img
                   fluid={props.images.twclogo.childImageSharp.fluid}
                   className="img-fluid rounded-circle"
                   alt="twc logo"
-                />
-                {/* <Image
+                /> */}
+                <Image
                   src={twcImg}
                   style={{ maxHeight: "180px" }}
                   alt="twc logo"
                   fluid
                   roundedCircle
-                /> */}
+                />
               </a>
             </Col>
             <Col md={4} style={{ alignSelf: "center", textAlign: "center" }}>
