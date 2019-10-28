@@ -9,21 +9,21 @@ const FinanceAssistanceStaticQuery = props => (
         soldier: file(relativePath: { eq: "soldier.jpg" }) {
           childImageSharp {
             fluid(maxWidth: 800, quality: 100) {
-              ...GatsbyImageSharpFluid
+              ...GatsbyImageSharpFluid_withWebp
             }
           }
         }
         soldierbg: file(relativePath: { eq: "soldier-bg.png" }) {
           childImageSharp {
             fluid(maxHeight: 340, quality: 100) {
-              ...GatsbyImageSharpFluid
+              ...GatsbyImageSharpFluid_withWebp
             }
           }
         }
         usflag: file(relativePath: { eq: "usFlag.png" }) {
           childImageSharp {
             fluid(maxHeight: 340, quality: 100) {
-              ...GatsbyImageSharpFluid
+              ...GatsbyImageSharpFluid_withWebp
             }
           }
         }
