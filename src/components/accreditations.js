@@ -1,13 +1,12 @@
 import React from "react"
 import { Container, Row, Col, Image } from "react-bootstrap"
-import Img from "gatsby-image"
+// import Img from "gatsby-image"
 import styled from "styled-components"
 import AccImg from "../images/accet.svg"
 import twcImg from "../images/twc-logo.jpg"
 import TXHigherImg from "../images/TXHigherEd.png"
 import Pulse from "react-reveal/Pulse"
 import Fade from "react-reveal/Fade"
-import Pattern from "../images/solid_bg.png"
 import PartnersStaticQuery from "./PartnersStaticQuery"
 
 const AccredSection = styled.section`
@@ -54,6 +53,11 @@ const Accreditations = props => (
                 rel="noopener noreferrer"
                 href="https://twc.texas.gov/"
               >
+                {/* <Img
+                  fluid={props.images.twclogo.childImageSharp.fluid}
+                  className="img-fluid rounded-circle"
+                  alt="twc logo"
+                /> */}
                 <Image
                   src={twcImg}
                   style={{ maxHeight: "180px" }}
@@ -69,6 +73,11 @@ const Accreditations = props => (
                 target="_blank"
                 href="http://www.thecb.state.tx.us/"
               >
+                {/* <Img
+                  fluid={props.images.txhigher.childImageSharp.fluid}
+                  className="img-fluid"
+                  alt="tx higher education board"
+                /> */}
                 <Image src={TXHigherImg} alt="twc logo" fluid />
               </a>
             </Col>

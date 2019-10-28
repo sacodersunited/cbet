@@ -20,7 +20,7 @@ const Image = () => (
         placeholderImage: file(relativePath: { eq: "gatsby-astronaut.png" }) {
           childImageSharp {
             fluid(maxWidth: 300) {
-              ...GatsbyImageSharpFluid_withWebp
+              ...GatsbyImageSharpFluid_withWebp_tracedSVG
             }
           }
         }
