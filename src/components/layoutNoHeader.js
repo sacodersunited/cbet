@@ -8,7 +8,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import Accreditations from "./accreditations"
-import Footer from "./Footer"
+import Footer from "./footer"
 
 const LayoutNoHeader = ({ children }) => (
   <>

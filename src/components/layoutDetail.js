@@ -10,7 +10,7 @@ import PropTypes from "prop-types"
 import { StaticQuery, graphql } from "gatsby"
 import Header from "./header"
 import Accreditations from "./accreditations"
-import Footer from "./Footer"
+import Footer from "./footer"
 
 const LayoutDetail = ({ children }) => (
   <StaticQuery
