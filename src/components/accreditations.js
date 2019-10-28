@@ -1,6 +1,6 @@
 import React from "react"
 import { Container, Row, Col, Image } from "react-bootstrap"
-import Img from "gatsby-image"
+// import Img from "gatsby-image"
 import styled from "styled-components"
 import AccImg from "../images/accet.svg"
 import twcImg from "../images/twc-logo.jpg"
@@ -16,7 +16,6 @@ const AccredSection = styled.section`
 
 const Accreditations = props => (
   <AccredSection className="bg-transparent">
-    {console.log("props", props.images)}
     <Container fluid>
       <Row style={{ marginBottom: "64px" }}>
         <Col md={4}>
@@ -54,18 +53,18 @@ const Accreditations = props => (
                 rel="noopener noreferrer"
                 href="https://twc.texas.gov/"
               >
-                <Img
+                {/* <Img
                   fluid={props.images.twclogo.childImageSharp.fluid}
                   className="img-fluid rounded-circle"
                   alt="twc logo"
-                />
-                {/* <Image
+                /> */}
+                <Image
                   src={twcImg}
                   style={{ maxHeight: "180px" }}
                   alt="twc logo"
                   fluid
                   roundedCircle
-                /> */}
+                />
               </a>
             </Col>
             <Col md={4} style={{ alignSelf: "center", textAlign: "center" }}>
@@ -74,12 +73,12 @@ const Accreditations = props => (
                 target="_blank"
                 href="http://www.thecb.state.tx.us/"
               >
-                <Img
+                {/* <Img
                   fluid={props.images.txhigher.childImageSharp.fluid}
                   className="img-fluid"
                   alt="tx higher education board"
-                />
-                {/* <Image src={TXHigherImg} alt="twc logo" fluid /> */}
+                /> */}
+                <Image src={TXHigherImg} alt="twc logo" fluid />
               </a>
             </Col>
           </Row>
