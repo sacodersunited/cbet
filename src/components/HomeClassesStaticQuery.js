@@ -9,28 +9,28 @@ const HomeClassesStaticQuery = props => (
         bmetdegree: file(relativePath: { eq: "bmetDegree.jpg" }) {
           childImageSharp {
             fluid(maxHeight: 253, quality: 100) {
-              ...GatsbyImageSharpFluid
+              ...GatsbyImageSharpFluid_withWebp
             }
           }
         }
         bmettech: file(relativePath: { eq: "bmetTech.jpg" }) {
           childImageSharp {
             fluid(maxHeight: 253, quality: 100) {
-              ...GatsbyImageSharpFluid
+              ...GatsbyImageSharpFluid_withWebp
             }
           }
         }
         itnetworkprograms: file(relativePath: { eq: "itNetworkPrograms.jpg" }) {
           childImageSharp {
             fluid(maxHeight: 253, quality: 100) {
-              ...GatsbyImageSharpFluid
+              ...GatsbyImageSharpFluid_withWebp
             }
           }
         }
         specialtyprograms: file(relativePath: { eq: "specialtyPrograms.jpg" }) {
           childImageSharp {
             fluid(maxHeight: 253, quality: 100) {
-              ...GatsbyImageSharpFluid
+              ...GatsbyImageSharpFluid_withWebp
             }
           }
         }
