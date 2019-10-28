@@ -5,7 +5,7 @@ import SEO from "../components/seo"
 import HomeCarouselStaticQuery from "../components/HomeCarouselStaticQuery"
 import Programs from "../components/programs"
 // import Classes from "../components/classes"
-import Testimonials from "../components/testimonials"
+import TestimonialStaticQuery from "../components/TestimonialStaticQuery"
 import HomeClassesStaticQuery from "../components/HomeClassesStaticQuery"
 
 const IndexPage = () => (
@@ -22,7 +22,7 @@ const IndexPage = () => (
     <Slide right>
       <HomeClassesStaticQuery />
     </Slide>
-    <Testimonials />
+    <TestimonialStaticQuery />
   </Layout>
 )
 

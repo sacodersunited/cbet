@@ -1,16 +1,24 @@
 import React from "react"
 import { Card } from "react-bootstrap"
+import Img from "gatsby-image"
 
-const TestimonialCard = ({ person, index }) => (
+const TestimonialCard = ({ person, index, image }) => (
   <Card style={{ maxWidth: "380.41px" }}>
-    <Card.Img
+    <Img
+      fluid={image.childImageSharp.fluid}
+      alt="biomedical technology school /biomedical college /biomedical training
+/online biomedical college /Online biomedical training /online biomedical technology
+school"
+      style={{ minHeight: "320px" }}
+    />
+    {/* <Card.Img
       variant="top"
-      src={`profile-${index}.png`}
+      src={image}
       style={{ minHeight: "320px" }}
       alt="biomedical technology school /biomedical college /biomedical training
 /online biomedical college /Online biomedical training /online biomedical technology
 school"
-    />
+    /> */}
     <Card.Body>
       <Card.Title>{person.name}</Card.Title>
       <Card.Text className="mt-0 mb-0 font-weight-bold">
