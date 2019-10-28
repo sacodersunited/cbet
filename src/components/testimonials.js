@@ -32,6 +32,7 @@ class Testimonials extends Component {
       autoplay: true,
       pauseOnHover: true,
     }
+
     return (
       <TestimonialsSection imgsrc={TestimonialBG}>
         <Container>
@@ -49,6 +50,7 @@ class Testimonials extends Component {
               key={testimonial.name}
               person={testimonial}
               index={index}
+              image={this.props.images[`profile${index}`]}
             />
           ))}
         </Slider>
