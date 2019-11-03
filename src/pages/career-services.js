@@ -2,16 +2,15 @@ import React from "react"
 import SEO from "../components/seo"
 import { Container, Row, Col, Button, Image } from "react-bootstrap"
 import Fade from "react-reveal/Fade"
-import GraphicHeader from "../components/graphicHeader"
 import LayoutDetail from "../components/layout"
-import headerImg from "../images/career-bg.jpg"
 import CareerPic from "../images/externship-1.jpg"
 import bmet1 from "../images/BMET-certificate1.png"
+import BackgroundGraphicHeader from "../components/BackgroundGraphicHeader"
 
 const CareerServices = () => (
   <LayoutDetail>
     <SEO title="Career Services" />
-    <GraphicHeader imgSrc={headerImg} title="Careers" />
+    <BackgroundGraphicHeader title="Careers" page="career-bg.jpg" />
     <Container className="mb-5">
       <Row className="mb-3">
         <Col md={7}>
