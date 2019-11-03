@@ -55,7 +55,7 @@ const CareerServices = props => (
           fluid={props.images.bmetcert.childImageSharp.fluid}
           style={{ minWidth: "640px" }}
         />
-        <Image className="mb-3" src={bmet1} rounded />
+        {/* <Image className="mb-3" src={bmet1} rounded /> */}
 
         <h3>Stephens International</h3>
         <p>
