@@ -583,8 +583,6 @@ class ClassAdmin extends React.Component {
       )
     }
 
-    console.log("class admin props", this.props)
-
     return (
       <Container>
         <h1 style={{ marginTop: "50px", marginBottom: "50px" }}>
