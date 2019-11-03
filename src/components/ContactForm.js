@@ -86,12 +86,9 @@ class ContactForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault()
-    console.log("fire submit", e)
 
     const form = e.currentTarget
-    console.log("add New validate", form.checkValidity())
     if (form.checkValidity() === true) {
-      console.log("check validity eq true")
       e.preventDefault()
       e.stopPropagation()
 
@@ -163,7 +160,6 @@ class ContactForm extends React.Component {
       if (!response.ok) {
         throw Error("Network request failed")
       }
-      console.log(response)
 
       this.setState({
         isDone: true,
@@ -194,7 +190,6 @@ class ContactForm extends React.Component {
 
   onDropdownProgram(e) {
     e.preventDefault()
-    console.log("e dropdown Program", e.target.text)
 
     if (e.target.text) {
       const oldProgram = this.state.contactForm
@@ -208,7 +203,6 @@ class ContactForm extends React.Component {
 
   onDropdownHearAboutUs(e) {
     e.preventDefault()
-    console.log("e dropdown hear", e.target.text)
     if (e.target.text) {
       const oldAboutUs = this.state.contactForm
 

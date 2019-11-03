@@ -1,19 +1,17 @@
 import React, { Component } from "react"
 import { Container } from "react-bootstrap"
-import styled from "styled-components"
 import Slider from "react-slick"
 import { TestimonialsData } from "../utils/utility"
-import TestimonialBG from "../images/testimonials/testimonials-bg.jpg"
 import TestimonialCard from "./TestimonialCard"
+import TestimonialBackgroundHeader from "./TestimonialBackgroundHeader"
 
-const TestimonialsSection = styled.section`
-  padding: 96px 0;
-  background-color: #f8f9fa;
-  background-image: url(${props => props.imgsrc || null});
-  border-radius: 0 !important;
-  background-size: cover;
-  min-height: 240px;
-`
+const testimonialStyles = {
+  backgroundColor: "#2c3e50",
+  backgroundSize: "cover",
+  borderRadius: "0 !important",
+  padding: "96px 0",
+  minHeight: "240px",
+}
 
 class Testimonials extends Component {
   componentWillReceiveProps() {
@@ -34,27 +32,32 @@ class Testimonials extends Component {
     }
 
     return (
-      <TestimonialsSection imgsrc={TestimonialBG}>
-        <Container>
-          <h2
-            className="mb-5 text-white"
-            style={{ textTransform: "uppercase" }}
-          >
-            Hear From Our Students Around the World
-          </h2>
-        </Container>
+      <>
+        <TestimonialBackgroundHeader
+          bgStyle={testimonialStyles}
+          page="testimonials-bg.jpg"
+        >
+          <Container>
+            <h2
+              className="mb-5 text-white"
+              style={{ textTransform: "uppercase" }}
+            >
+              Hear From Our Students Around the World
+            </h2>
+          </Container>
 
-        <Slider ref="slick" {...settings}>
-          {TestimonialsData.map((testimonial, index) => (
-            <TestimonialCard
-              key={testimonial.name}
-              person={testimonial}
-              index={index}
-              image={this.props.images[`profile${index}`]}
-            />
-          ))}
-        </Slider>
-      </TestimonialsSection>
+          <Slider ref="slick" {...settings}>
+            {TestimonialsData.map((testimonial, index) => (
+              <TestimonialCard
+                key={testimonial.name}
+                person={testimonial}
+                index={index}
+                image={this.props.images[`profile${index}`]}
+              />
+            ))}
+          </Slider>
+        </TestimonialBackgroundHeader>
+      </>
     )
   }
 }

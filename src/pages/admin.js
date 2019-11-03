@@ -8,7 +8,7 @@ import { navigate } from "gatsby"
 
 const Admin = () => {
   // if (!isAuthenticated()) {
-  //   // console.log("not authenticated")
+  //   console.log("not authenticated")
   //   login()
   //   return <p>Redirecting to login...</p>
   // }

@@ -48,12 +48,9 @@ class CarouselForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault()
-    console.log("fire carousel submit", e)
 
     const form = e.currentTarget
-    console.log("add New validate", form.checkValidity())
     if (form.checkValidity() === true) {
-      console.log("check validity eq true")
       e.preventDefault()
       e.stopPropagation()
 
@@ -107,11 +104,9 @@ class CarouselForm extends React.Component {
         },
       }
     ).then(response => {
-      console.log("car resp", response)
       if (!response.ok) {
         throw Error("Network request failed")
       }
-      console.log("Carousel response", response, querystring)
 
       this.setState({
         isDone: true,

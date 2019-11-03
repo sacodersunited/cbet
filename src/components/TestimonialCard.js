@@ -11,14 +11,6 @@ const TestimonialCard = ({ person, index, image }) => (
 school"
       style={{ minHeight: "320px" }}
     />
-    {/* <Card.Img
-      variant="top"
-      src={image}
-      style={{ minHeight: "320px" }}
-      alt="biomedical technology school /biomedical college /biomedical training
-/online biomedical college /Online biomedical training /online biomedical technology
-school"
-    /> */}
     <Card.Body>
       <Card.Title>{person.name}</Card.Title>
       <Card.Text className="mt-0 mb-0 font-weight-bold">
