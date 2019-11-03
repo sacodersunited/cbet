@@ -13,30 +13,26 @@ import {
 import Fade from "react-reveal/Fade"
 import styled from "styled-components"
 import { FaCheckSquare } from "react-icons/fa"
-import GraphicHeader from "../components/graphicHeader"
 import SEO from "../components/seo"
-import headerImg from "../images/usFlag.png"
-import soldierBG from "../images/soldier-bg.png"
 import CourseCatalog from "../documents/CBET Course Catalog_Volume XVI_October 2019.pdf"
 import EnrollmentApplication from "../documents/CBET Enrollment Application.pdf"
-import MedicalBG from "../images/blue-med-bg.jpg"
+import BackgroundGraphicHeader from "./BackgroundGraphicHeader"
+import NonHeaderBackgroundHeader from "./NonHeaderBackgroundHeader"
 
-const BlueBG = styled.section`
-  background-color: #2c3e50;
-  background: linear-gradient(90deg, #1cb5e0 0%, #000851 100%);
-  background-image: url(${props => props.imgsrc || null});
-  background-size: cover;
-  padding: 96px 0;
-`
+const blueStyles = {
+  backgroundColor: "#2c3e50",
+  background: "linear-gradient(90deg, #1cb5e0 0%, #000851 100%)",
+  backgroundSize: "cover",
+  padding: "96px 0",
+}
 
-const SoldierSection = styled.section`
-  background-image: url(${props => props.imgBG || null});
-  background-size: cover;
-  min-height: 600px;
-  background-position: center;
-  background-repeat: no-repeat;
-  padding: 96px 0;
-`
+const soldierStyles = {
+  backgroundSize: "cover",
+  minHeight: "600px",
+  backgroundPosition: "center",
+  backgroundRepeat: "no-repeat",
+  padding: "96px 0",
+}
 
 const CamoBG = styled.section`
   background: #636363; /* fallback for old browsers */
@@ -54,11 +50,10 @@ const CamoBG = styled.section`
 
 const FinanceAssistance = props => (
   <>
-    {console.log(props)}
     <SEO title="Veterans Affairs Financial Assistance" />
-    <GraphicHeader
+    <BackgroundGraphicHeader
       title="Veterans Affairs | Financial Assistance"
-      imgSrc={headerImg}
+      bgFullImageName="usFlag.png"
     />
     <Container className="mb-5">
       <Row className="mb-3">
@@ -109,7 +104,7 @@ const FinanceAssistance = props => (
       </Row>
     </Container>
 
-    <SoldierSection imgBG={soldierBG} />
+    <NonHeaderBackgroundHeader bgStyle={soldierStyles} page="soldier-bg.png" />
 
     <CamoBG className="pt-5 pb-5">
       <div className="p-3 mb-2 mt-0">
@@ -333,7 +328,7 @@ const FinanceAssistance = props => (
       </div>
     </CamoBG>
 
-    <BlueBG imgsrc={MedicalBG}>
+    <NonHeaderBackgroundHeader bgStyle={blueStyles} page="blue-med-bg.jpg">
       <Container>
         <Row className="mb-5">
           <Col>
@@ -438,7 +433,7 @@ const FinanceAssistance = props => (
           </Col>
         </Row>
       </Container>
-    </BlueBG>
+    </NonHeaderBackgroundHeader>
   </>
 )
 

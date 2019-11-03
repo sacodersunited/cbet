@@ -1,17 +1,19 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { StaticQuery, graphql } from "gatsby"
-import Header from "./header"
+import Header from "../components/header"
 import AccreditationsStaticQuery from "./AccreditationsStaticQuery"
 import Footer from "./footer"
 
 const Layout = ({ children }) => (
   <StaticQuery
     query={graphql`
-      query SiteTitleQuery {
-        site {
-          siteMetadata {
-            title
+      {
+        cbetlogo: file(relativePath: { eq: "logo/cbet-logo-wh-8.png" }) {
+          childImageSharp {
+            fixed(width: 180, height: 52, quality: 100) {
+              ...GatsbyImageSharpFixed_tracedSVG
+            }
           }
         }
       }
@@ -33,7 +35,7 @@ const Layout = ({ children }) => (
           rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
         />
-        <Header siteTitle={data.site.siteMetadata.title} />
+        <Header images={data} />
         <main>{children}</main>
         <AccreditationsStaticQuery />
         <Footer />

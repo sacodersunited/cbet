@@ -4,7 +4,7 @@ import AboutStaticQuery from "../components/AboutStaticQuery"
 
 const About = props => (
   <LayoutDetail>
-    {console.log(props)}
+    {console.log("about", props)}
     <AboutStaticQuery />
   </LayoutDetail>
 )
