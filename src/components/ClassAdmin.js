@@ -30,14 +30,11 @@ import {
 } from "react-icons/fa"
 import DatePicker from "react-datepicker"
 import { Link } from "gatsby"
+import Img from "gatsby-image"
 // Uncomment in Local dev
 // import cbetClasses from "../classes/classes.json"
 import "react-datepicker/dist/react-datepicker.css"
 import styled from "styled-components"
-import BMETDegreeImg from "../images/bmetDegree.jpg"
-import BMETCertImg from "../images/bmetTech.jpg"
-import TechImage from "../images/itNetworkPrograms.jpg"
-import specialtyImage from "../images/specialtyPrograms.jpg"
 
 const CardTitle = styled.section`
   min-height: 90px;
@@ -61,8 +58,6 @@ class ClassAdmin extends React.Component {
       Array(props.cbetClasses.length),
       () => false
     )
-
-    console.log("new classes", newCbetClassesStaticQuery, editModeClassesTest)
 
     this.state = {
       // Local dev requires cbClasses from json file above
@@ -139,7 +134,6 @@ class ClassAdmin extends React.Component {
   }
 
   onClickActiveAdd(e) {
-    console.log("e", e.target.checked)
     let newAddClass = this.state.newClass
 
     newAddClass.IsActive = e.target.checked
@@ -150,7 +144,6 @@ class ClassAdmin extends React.Component {
   }
 
   onClickActive(e) {
-    console.log("e", e.target.checked)
     let newEditClass = this.state.editClass
 
     newEditClass.IsActive = e.target.checked
@@ -161,9 +154,7 @@ class ClassAdmin extends React.Component {
   }
 
   onDropdownProgramAdd(e) {
-    console.log("add e dropdown", e.target.text)
     if (e.target.text) {
-      console.log("found add text", e.target.text)
       let program = this.state.newClass
       program.ProgramSelected = e.target.text
 
@@ -233,11 +224,8 @@ class ClassAdmin extends React.Component {
   }
 
   onClickDelete(e, deleteClass) {
-    console.log("click delete", deleteClass)
-
     let cloneDeleteClass = JSON.parse(JSON.stringify(deleteClass))
     cloneDeleteClass["Type"] = "Delete"
-    console.log("clone", cloneDeleteClass)
     this.setState({
       showDeleteMessage: true,
     })
@@ -278,7 +266,6 @@ class ClassAdmin extends React.Component {
 
   handleAddNewClass(e) {
     const form = e.currentTarget
-    console.log("add New validate", form.checkValidity())
     if (form.checkValidity() === true) {
       e.preventDefault()
       e.stopPropagation()
@@ -296,7 +283,6 @@ class ClassAdmin extends React.Component {
     }, 3000)
 
     // Call insert class POST
-    console.log("insert class obj", this.state.newClass)
     const newClassMode = this.state.newClass
     if (newClassMode.IsActive === true) {
       newClassMode.IsActive = 1
@@ -338,7 +324,6 @@ class ClassAdmin extends React.Component {
     let add = this.state.newClass
     let charsLeftRT = this.state.addTitleCharsLeft
 
-    console.log("onChangeAdd", e.target.placeholder)
     switch (e.target.placeholder) {
       case "title":
         add.Title = e.target.value
@@ -469,7 +454,6 @@ class ClassAdmin extends React.Component {
     editModeClass.RegistrationCloseDate = new Date(
       this.state.classes[index].RegistrationCloseDate
     )
-    console.log("current class in clickMode", this.state.classes[index])
     editModeClass.Type = "Update"
     editModeClass.IsActive = this.state.classes[index].IsActive
     editModeClass.ProgramSelected = this.state.classes[index].ProgramSelected
@@ -501,13 +485,10 @@ class ClassAdmin extends React.Component {
 
     try {
       const response = await fetch(
-        `https://cbetclasses.azurewebsites.net/api/GetCbetClasses?code=${
-          this.props.code
-        }`,
+        `https://cbetclasses.azurewebsites.net/api/GetCbetClasses?code=${this.props.code}`,
         myInit
       )
       const data = await response.json()
-      console.log("classes have been refreshed", data)
 
       this.setState({
         classes: data,
@@ -526,13 +507,11 @@ class ClassAdmin extends React.Component {
       headers: myHeaders,
     }
 
-    console.log("cbet site build")
     try {
       fetch(
         `https://api.netlify.com/build_hooks/5cf3ea316717989ed33fb674`,
         myInit
       )
-      console.log("build initiated")
     } catch (ex) {
       console.log("error build", ex)
     }
@@ -550,20 +529,13 @@ class ClassAdmin extends React.Component {
 
     try {
       const response = await fetch(
-        `https://cbetclasses.azurewebsites.net/api/GetCbetClasses?code=${
-          this.props.code
-        }`,
+        `https://cbetclasses.azurewebsites.net/api/GetCbetClasses?code=${this.props.code}`,
         myInit
       )
-      console.log("POST back resp", response)
 
       // Determine Post type
       if (classObj.Type === "Update") {
-        console.log("Update POST")
-
         setTimeout(() => {
-          console.log("timeout done update post")
-
           if (response.status !== 200) {
             this.setState({
               showErrorMessage: true,
@@ -576,11 +548,7 @@ class ClassAdmin extends React.Component {
           })
         }, 6000)
       } else if (classObj.Type === "Delete") {
-        console.log("Delete POST")
-
         setTimeout(() => {
-          console.log("timeout done delete post")
-
           if (response.status !== 200) {
             this.setState({
               showErrorMessage: true,
@@ -588,11 +556,7 @@ class ClassAdmin extends React.Component {
           }
         }, 6000)
       } else if (classObj.Type === "Insert") {
-        console.log("Insert POST")
-
         setTimeout(() => {
-          console.log("timeout done Insert post")
-
           // Check if POST failed and show error message
           if (response.status !== 200) {
             this.setState({
@@ -610,7 +574,6 @@ class ClassAdmin extends React.Component {
   }
 
   render() {
-    // console.log(this.state)
     if (this.state.classes.length === 0) {
       return (
         <div style={{ padding: "10px" }}>
@@ -897,33 +860,58 @@ class ClassAdmin extends React.Component {
                     {(() => {
                       switch (cbetClass.ProgramSelected) {
                         case "BMET":
-                          return <Card.Img variant="top" src={BMETDegreeImg} style={{ minHeight: "207px", height: "207px" }} />
+                          return (
+                            <Img
+                              fluid={
+                                this.props.images.bmetdegree.childImageSharp
+                                  .fluid
+                              }
+                              className="rounded"
+                              style={{ minHeight: "207px", height: "207px" }}
+                            />
+                          )
                         case "Cert":
                           return (
-                            <Card.Img
-                              variant="top"
-                              src={BMETCertImg}
+                            <Img
+                              fluid={
+                                this.props.images.bmettech.childImageSharp.fluid
+                              }
+                              className="rounded"
                               style={{ minHeight: "207px", height: "207px" }}
                             />
                           )
                         case "A_plus":
                           return (
-                            <Card.Img
-                              variant="top"
-                              src={TechImage}
+                            <Img
+                              fluid={
+                                this.props.images.tech.childImageSharp.fluid
+                              }
+                              className="rounded"
                               style={{ minHeight: "207px", height: "207px" }}
                             />
                           )
                         case "N_plus":
                           return (
-                            <Card.Img
-                              variant="top"
-                              src={specialtyImage}
+                            <Img
+                              fluid={
+                                this.props.images.specialty.childImageSharp
+                                  .fluid
+                              }
+                              className="rounded"
                               style={{ minHeight: "207px", height: "207px" }}
                             />
                           )
                         default:
-                          return <Card.Img variant="top" src={BMETDegreeImg} style={{ minHeight: "207px", height: "207px" }} />
+                          return (
+                            <Img
+                              fluid={
+                                this.props.images.bmetdegree.childImageSharp
+                                  .fluid
+                              }
+                              className="rounded"
+                              style={{ minHeight: "207px", height: "207px" }}
+                            />
+                          )
                       }
                     })()}
 
@@ -1121,71 +1109,84 @@ class ClassAdmin extends React.Component {
                           ) : null}
                         </li>
                       </ul>
-                      
 
                       {(() => {
-                      switch (cbetClass.ProgramSelected) {
-                        case "BMET":
-                          return  (<Link to="/bmet-degree">
-                                  <Button
-                                    variant="primary"
-                                    size="sm"
-                                    disabled={
-                                      this.state.editModeClasses[index] === true
-                                        ? true
-                                        : false
-                                    }
-                                  >
-                                    Learn More
-                                  </Button>
-                                </Link>)
-                        case "Cert":
-                          return (<Link to="/bmet-certificate">
-                                    <Button
-                                      variant="primary"
-                                      size="sm"
-                                      disabled={
-                                        this.state.editModeClasses[index] === true
-                                          ? true
-                                          : false
-                                      }
-                                    >
-                                      Learn More
-                                    </Button>
-                                  </Link>)
-                        case "A_plus":
-                          return (<Link to="/it-certificate">
-                                    <Button
-                                      variant="primary"
-                                      size="sm"
-                                      disabled={
-                                        this.state.editModeClasses[index] === true
-                                          ? true
-                                          : false
-                                      }
-                                    >
-                                      Learn More
-                                    </Button>
-                                  </Link>)
-                        case "N_plus":
-                          return (<div style={{display: "inline-block",
-                            height: "26.3px"}}></div>)
-                        default:
-                          return (<Link to="/bmet-degree">
-                          <Button
-                            variant="primary"
-                            size="sm"
-                            disabled={
-                              this.state.editModeClasses[index] === true
-                                ? true
-                                : false
-                            }
-                          >
-                            Learn More
-                          </Button>
-                        </Link>)
-                      }
-                    })()}
+                        switch (cbetClass.ProgramSelected) {
+                          case "BMET":
+                            return (
+                              <Link to="/bmet-degree">
+                                <Button
+                                  variant="primary"
+                                  size="sm"
+                                  disabled={
+                                    this.state.editModeClasses[index] === true
+                                      ? true
+                                      : false
+                                  }
+                                >
+                                  Learn More
+                                </Button>
+                              </Link>
+                            )
+                          case "Cert":
+                            return (
+                              <Link to="/bmet-certificate">
+                                <Button
+                                  variant="primary"
+                                  size="sm"
+                                  disabled={
+                                    this.state.editModeClasses[index] === true
+                                      ? true
+                                      : false
+                                  }
+                                >
+                                  Learn More
+                                </Button>
+                              </Link>
+                            )
+                          case "A_plus":
+                            return (
+                              <Link to="/it-certificate">
+                                <Button
+                                  variant="primary"
+                                  size="sm"
+                                  disabled={
+                                    this.state.editModeClasses[index] === true
+                                      ? true
+                                      : false
+                                  }
+                                >
+                                  Learn More
+                                </Button>
+                              </Link>
+                            )
+                          case "N_plus":
+                            return (
+                              <div
+                                style={{
+                                  display: "inline-block",
+                                  height: "26.3px",
+                                }}
+                              ></div>
+                            )
+                          default:
+                            return (
+                              <Link to="/bmet-degree">
+                                <Button
+                                  variant="primary"
+                                  size="sm"
+                                  disabled={
+                                    this.state.editModeClasses[index] === true
+                                      ? true
+                                      : false
+                                  }
+                                >
+                                  Learn More
+                                </Button>
+                              </Link>
+                            )
+                        }
+                      })()}
 
                       {/* If Class is visible then show Save */}
                       {this.state.editModeClasses[index] === true ? (
