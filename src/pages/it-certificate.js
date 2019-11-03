@@ -2,8 +2,6 @@ import React from "react"
 import { Link } from "gatsby"
 import LayoutDetail from "../components/layoutDetail"
 import SEO from "../components/seo"
-import GraphicHeader from "../components/graphicHeader"
-import headerImg from "../images/it-bg.jpg"
 import {
   Container,
   Row,
@@ -19,6 +17,7 @@ import ITImg from "../images/itDegree/networking-I.jpg"
 import ITAPlusImg from "../images/itDegree/it-2.jpg"
 import ITNetworkImg from "../images/itDegree/it-1.jpg"
 import StudentCatalog from "../documents/CBET Course Catalog_Volume XVI_October 2019.pdf"
+import BackgroundGraphicHeader from "../components/BackgroundGraphicHeader"
 
 const ProgramDetail = styled.div`
   padding: 46px 0 46px 40px;
@@ -32,7 +31,7 @@ const Programs = () => (
 Biomedical Equipment Technology offers compTIA IT certifications. Visit our website to
 view our courses and get started!"
     />
-    <GraphicHeader imgSrc={headerImg} title="IT & Networking Courses" />
+    <BackgroundGraphicHeader page="it-bg.jpg" title="IT & Networking Courses" />
     <Container className="mb-5">
       <Row>
         <Col md={7}>
@@ -87,7 +86,6 @@ view our courses and get started!"
         />
       </Col>
     </Row>
-
     <Container className="mb-5">
       <h2 className="text-uppercase mb-5">Curriculum</h2>
       <Row className="mb-5 align-items-center">
