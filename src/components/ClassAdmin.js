@@ -30,14 +30,11 @@ import {
 } from "react-icons/fa"
 import DatePicker from "react-datepicker"
 import { Link } from "gatsby"
+import Img from "gatsby-image"
 // Uncomment in Local dev
 // import cbetClasses from "../classes/classes.json"
 import "react-datepicker/dist/react-datepicker.css"
 import styled from "styled-components"
-import BMETDegreeImg from "../images/bmetDegree.jpg"
-import BMETCertImg from "../images/bmetTech.jpg"
-import TechImage from "../images/itNetworkPrograms.jpg"
-import specialtyImage from "../images/specialtyPrograms.jpg"
 
 const CardTitle = styled.section`
   min-height: 90px;
@@ -586,6 +583,8 @@ class ClassAdmin extends React.Component {
       )
     }
 
+    console.log("class admin props", this.props)
+
     return (
       <Container>
         <h1 style={{ marginTop: "50px", marginBottom: "50px" }}>
@@ -864,41 +863,54 @@ class ClassAdmin extends React.Component {
                       switch (cbetClass.ProgramSelected) {
                         case "BMET":
                           return (
-                            <Card.Img
-                              variant="top"
-                              src={BMETDegreeImg}
+                            <Img
+                              fluid={
+                                this.props.images.bmetdegree.childImageSharp
+                                  .fluid
+                              }
+                              className="rounded"
                               style={{ minHeight: "207px", height: "207px" }}
                             />
                           )
                         case "Cert":
                           return (
-                            <Card.Img
-                              variant="top"
-                              src={BMETCertImg}
+                            <Img
+                              fluid={
+                                this.props.images.bmettech.childImageSharp.fluid
+                              }
+                              className="rounded"
                               style={{ minHeight: "207px", height: "207px" }}
                             />
                           )
                         case "A_plus":
                           return (
-                            <Card.Img
-                              variant="top"
-                              src={TechImage}
+                            <Img
+                              fluid={
+                                this.props.images.tech.childImageSharp.fluid
+                              }
+                              className="rounded"
                               style={{ minHeight: "207px", height: "207px" }}
                             />
                           )
                         case "N_plus":
                           return (
-                            <Card.Img
-                              variant="top"
-                              src={specialtyImage}
+                            <Img
+                              fluid={
+                                this.props.images.specialty.childImageSharp
+                                  .fluid
+                              }
+                              className="rounded"
                               style={{ minHeight: "207px", height: "207px" }}
                             />
                           )
                         default:
                           return (
-                            <Card.Img
-                              variant="top"
-                              src={BMETDegreeImg}
+                            <Img
+                              fluid={
+                                this.props.images.bmetdegree.childImageSharp
+                                  .fluid
+                              }
+                              className="rounded"
                               style={{ minHeight: "207px", height: "207px" }}
                             />
                           )
