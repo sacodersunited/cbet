@@ -36,12 +36,8 @@ export default class AdmissionsForm extends Component {
   }
 
   onClickProgram(e) {
-    console.log("click pgrm", e.target.value)
-
     const formValues = this.state.admissionForm
-
     formValues.program = e.target.value
-
     this.setState({ admissionForm: formValues })
   }
 
@@ -86,12 +82,9 @@ export default class AdmissionsForm extends Component {
 
   handleSubmit(e) {
     e.preventDefault()
-    console.log("fire submit", e)
 
     const form = e.currentTarget
-    console.log("add New validate", form.checkValidity())
     if (form.checkValidity() === true) {
-      console.log("check validity eq true")
       e.preventDefault()
       e.stopPropagation()
 
@@ -104,7 +97,6 @@ export default class AdmissionsForm extends Component {
   }
 
   onLocationSearch(e) {
-    console.log("loc e", e)
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(position => {
         this.getLocationToAddress(position.coords)
@@ -212,7 +204,6 @@ export default class AdmissionsForm extends Component {
       if (!response.ok) {
         throw Error("Network request failed")
       }
-      console.log("resp", response, querystring)
 
       this.setState({
         isDone: true,

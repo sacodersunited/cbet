@@ -13,7 +13,6 @@ const Header = props => {
   return (
     <>
       <Navbar bg="dark" variant="dark" expand="lg">
-        {console.log("header", props.images)}
         <Container>
           <Link to="/">
             <Navbar.Brand>
