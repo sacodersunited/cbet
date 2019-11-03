@@ -5,8 +5,6 @@ import Col from "react-bootstrap/Col"
 import Fade from "react-reveal"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import GraphicHeader from "../components/graphicHeader"
-import ContactBG from "../images/bmet-logo3.jpg"
 import styled from "styled-components"
 import BackgroundGraphicHeader from "../components/BackgroundGraphicHeader"
 
@@ -21,10 +19,6 @@ const Faq = () => (
       title="College of Biomedical Equipment Technology"
       page="bmet-logo3.jpg"
     />
-    {/* <GraphicHeader
-      imgSrc={ContactBG}
-      title="College Of Biomedical Equipment Technology"
-    /> */}
 
     <FaqContainer>
       <div className="container">

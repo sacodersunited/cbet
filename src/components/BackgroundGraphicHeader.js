@@ -20,13 +20,9 @@ const BackgroundGraphicHeader = props => (
       }
     `}
     render={data => {
-      console.log("images coming back.", data)
-      console.log("props", props)
-
       const image = data.allImageSharp.edges.find(
         edge => edge.node.fluid.originalName === props.page
       )
-      console.log("image from", image)
 
       if (!image) {
         return null
