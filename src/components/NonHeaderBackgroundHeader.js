@@ -11,7 +11,7 @@ const NonHeaderBackgroundHeader = props => (
           edges {
             node {
               fluid(quality: 100, maxWidth: 1440) {
-                ...GatsbyImageSharpFluid
+                ...GatsbyImageSharpFluid_withWebp
                 originalName
               }
             }
