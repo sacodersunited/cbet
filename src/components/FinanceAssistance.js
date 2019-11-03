@@ -30,7 +30,13 @@ const BlueBG = styled.section`
   background-size: cover;
   padding: 96px 0;
 `
-
+const soldierStyles = {
+  backgroundSize: "cover",
+  minHeight: "600px",
+  backgroundPosition: "center",
+  backgroundRepeat: "no-repeat",
+  padding: "96px 0",
+}
 // const SoldierSection = styled.section`
 //   background-image: url(${props => props.imgBG || null});
 //   background-size: cover;
@@ -110,7 +116,7 @@ const FinanceAssistance = props => (
       </Row>
     </Container>
 
-    <NonHeaderBackgroundHeader page="soldier-bg.png" />
+    <NonHeaderBackgroundHeader bgStyle={soldierStyles} page="soldier-bg.png" />
 
     <CamoBG className="pt-5 pb-5">
       <div className="p-3 mb-2 mt-0">

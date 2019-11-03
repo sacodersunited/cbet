@@ -28,7 +28,8 @@ const NonHeaderBackgroundHeader = props => (
         return null
       }
 
-      const { title, descr, buttonLink, children } = props
+      console.log("props", props, image)
+      const { title, descr, buttonLink, children, bgStyle } = props
 
       return (
         <BackgroundImage
@@ -39,12 +40,7 @@ const NonHeaderBackgroundHeader = props => (
           id="cbet_values"
           role="img"
           aria-label="cbet_values"
-          style={{
-            background: "linearGradient(90deg, #1cb5e0 0%, #000851 100%)",
-            borderRadius: "0 !important",
-            backgroundSize: "cover",
-            minHeight: "600px",
-          }}
+          style={bgStyle}
         >
           <Container>
             <h1 className="text-light">{title}</h1>
