@@ -2,25 +2,25 @@ import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
 import { Container, Navbar, Nav, NavDropdown } from "react-bootstrap"
+import Img from "gatsby-image"
 // import { isAuthenticated, logout, getProfile } from "../utils/auth"
 import Logo from "../images/logo/cbet-logo-wh-8.png"
 import { FaFacebookSquare, FaLinkedin } from "react-icons/fa"
 
-const Header = ({ siteTitle }) => {
+const Header = props => {
   // const user = getProfile()
   const user = null
   return (
     <>
       <Navbar bg="dark" variant="dark" expand="lg">
+        {console.log("header", props.images)}
         <Container>
           <Link to="/">
             <Navbar.Brand>
-              <img
-                src={Logo}
-                width="180"
-                height="auto"
+              <Img
+                fixed={props.images.cbetlogo.childImageSharp.fixed}
                 className="d-inline-block align-top"
-                alt="CBET logo"
+                style={{ height: "52px", width: "180px" }}
               />
             </Navbar.Brand>
           </Link>

@@ -15,10 +15,12 @@ import Footer from "./footer"
 const LayoutDetail = ({ children }) => (
   <StaticQuery
     query={graphql`
-      query SiteDetailTitleQuery {
-        site {
-          siteMetadata {
-            title
+      {
+        cbetlogo: file(relativePath: { eq: "logo/cbet-logo-wh-8.png" }) {
+          childImageSharp {
+            fixed(width: 180, height: 52, quality: 100) {
+              ...GatsbyImageSharpFixed_tracedSVG
+            }
           }
         }
       }
@@ -32,7 +34,7 @@ const LayoutDetail = ({ children }) => (
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
           crossOrigin="anonymous"
         />
-        <Header siteTitle={data.site.siteMetadata.title} />
+        <Header images={data} />
         <main>{children}</main>
         <AccreditationsStaticQuery />
         <Footer />
