@@ -12,8 +12,7 @@ import {
 } from "react-bootstrap"
 import { FaRegThumbsUp } from "react-icons/fa"
 import InputMask from "react-input-mask"
-import ContactBG from "../images/contact-header.jpg"
-import GraphicHeader from "../components/graphicHeader"
+import BackgroundGraphicHeader from "../components/BackgroundGraphicHeader"
 
 class ContactForm extends React.Component {
   constructor(props) {
@@ -272,7 +271,7 @@ class ContactForm extends React.Component {
   render() {
     return (
       <>
-        <GraphicHeader imgSrc={ContactBG} />
+        <BackgroundGraphicHeader page="contact-header.jpg" />
 
         <Container>
           <Row>

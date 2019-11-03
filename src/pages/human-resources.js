@@ -1,19 +1,18 @@
 import React from "react"
 import LayoutDetail from "../components/layoutDetail"
 import SEO from "../components/seo"
-import GraphicHeader from "../components/graphicHeader"
-import headerImg from "../images/about-bg.jpg"
 import { Container, Row, Col, Card, Button } from "react-bootstrap"
 import Fade from "react-reveal/Fade"
 import { FaRegEnvelope, FaTag } from "react-icons/fa"
 import LisaGonzales from "../images/team/lGonzales.jpg"
 import EmploymentApp from "../../src/documents/CBET Employment Application_7.8.2019.pdf"
 import EmployeeHandbook from "../../src/documents/CBET EMPLOYEE HANDBOOK _ July 2019.pdf"
+import BackgroundGraphicHeader from "../components/BackgroundGraphicHeader"
 
 const HumanResources = () => (
   <LayoutDetail>
     <SEO title="human resources" />
-    <GraphicHeader imgSrc={headerImg} />
+    <BackgroundGraphicHeader page="about-bg.jpg" />
     <Container className="mb-5">
       <Row className="mb-3">
         <Col md={7}>
