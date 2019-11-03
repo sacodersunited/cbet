@@ -13,13 +13,14 @@ import {
 import Fade from "react-reveal/Fade"
 import styled from "styled-components"
 import { FaCheckSquare } from "react-icons/fa"
-import GraphicHeader from "../components/graphicHeader"
+// import GraphicHeader from "../components/graphicHeader"
 import SEO from "../components/seo"
-import headerImg from "../images/usFlag.png"
+// import headerImg from "../images/usFlag.png"
 import soldierBG from "../images/soldier-bg.png"
 import CourseCatalog from "../documents/CBET Course Catalog_Volume XVI_October 2019.pdf"
 import EnrollmentApplication from "../documents/CBET Enrollment Application.pdf"
 import MedicalBG from "../images/blue-med-bg.jpg"
+import BackgroundGraphicHeader from "./BackgroundGraphicHeader"
 
 const BlueBG = styled.section`
   background-color: #2c3e50;
@@ -54,11 +55,10 @@ const CamoBG = styled.section`
 
 const FinanceAssistance = props => (
   <>
-    {console.log(props)}
     <SEO title="Veterans Affairs Financial Assistance" />
-    <GraphicHeader
+    <BackgroundGraphicHeader
       title="Veterans Affairs | Financial Assistance"
-      imgSrc={headerImg}
+      page="usFlag.png"
     />
     <Container className="mb-5">
       <Row className="mb-3">
