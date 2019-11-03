@@ -9,16 +9,18 @@ import React from "react"
 import PropTypes from "prop-types"
 import { StaticQuery, graphql } from "gatsby"
 import Header from "./header"
-import Accreditations from "./accreditations"
+import AccreditationsStaticQuery from "./AccreditationsStaticQuery"
 import Footer from "./footer"
 
 const LayoutDetail = ({ children }) => (
   <StaticQuery
     query={graphql`
-      query SiteDetailTitleQuery {
-        site {
-          siteMetadata {
-            title
+      {
+        cbetlogo: file(relativePath: { eq: "logo/cbet-logo-wh-8.png" }) {
+          childImageSharp {
+            fixed(width: 180, height: 52, quality: 100) {
+              ...GatsbyImageSharpFixed_tracedSVG
+            }
           }
         }
       }
@@ -32,9 +34,9 @@ const LayoutDetail = ({ children }) => (
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
           crossOrigin="anonymous"
         />
-        <Header siteTitle={data.site.siteMetadata.title} />
+        <Header images={data} />
         <main>{children}</main>
-        <Accreditations />
+        <AccreditationsStaticQuery />
         <Footer />
       </>
     )}

@@ -5,9 +5,8 @@ import Col from "react-bootstrap/Col"
 import Fade from "react-reveal"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import GraphicHeader from "../components/graphicHeader"
-import ContactBG from "../images/bmet-logo3.jpg"
 import styled from "styled-components"
+import BackgroundGraphicHeader from "../components/BackgroundGraphicHeader"
 
 const FaqContainer = styled.div`
   background-color: #f8f9fa;
@@ -16,9 +15,9 @@ const FaqContainer = styled.div`
 const Faq = () => (
   <Layout>
     <SEO title="Faq" />
-    <GraphicHeader
-      imgSrc={ContactBG}
-      title="College Of Biomedical Equipment Technology"
+    <BackgroundGraphicHeader
+      title="College of Biomedical Equipment Technology"
+      bgFullImageName="bmet-logo3.jpg"
     />
 
     <FaqContainer>

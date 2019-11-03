@@ -2,7 +2,7 @@ import React from "react"
 import { StaticQuery, graphql } from "gatsby"
 import Partners from "./partners"
 
-const PartnersStaticQuery = props => (
+const PartnersStaticQuery = () => (
   <StaticQuery
     query={graphql`
       {

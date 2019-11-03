@@ -2,8 +2,7 @@ import React, { Component } from "react"
 import { Container, Form, Button, Col, Alert, Row } from "react-bootstrap"
 import { FaMapMarkerAlt } from "react-icons/fa"
 import InputMask from "react-input-mask"
-import ContactBG from "../images/bmet-logo3.jpg"
-import GraphicHeader from "../components/graphicHeader"
+import BackgroundGraphicHeader from "./BackgroundGraphicHeader"
 
 export default class AdmissionsForm extends Component {
   constructor(props) {
@@ -248,13 +247,12 @@ export default class AdmissionsForm extends Component {
   render() {
     return (
       <>
-        <GraphicHeader
-          imgSrc={ContactBG}
-          title="College Of Biomedical Equipment Technology"
-        />
-
-        <Container>
-          <Row>
+        <BackgroundGraphicHeader
+          title="College of Biomedical Equipment Technology"
+          bgFullImageName="bmet-logo3.jpg"
+        ></BackgroundGraphicHeader>
+        <Container className="mb-5">
+          <Row className="mb-3">
             <Col md={6}>
               <Form
                 validated={this.state.validated}
