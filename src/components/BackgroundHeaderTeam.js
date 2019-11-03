@@ -35,24 +35,7 @@ const BackgroundHeaderTeam = () => (
             Tag="section"
             fluid={imageData}
             backgroundColor={`#040e18`}
-            // Title get's passed to both container and noscriptImg.
             title="cbet_values"
-            // You are able to set a classId and style by wrapper (see below or
-            // https://github.com/timhagn/gatsby-background-image/#styling--passed-through-styles):
-            // classId="gbi"
-            // style={{
-            //   // Defaults are overwrite-able by setting one of the following:
-            //   // backgroundSize: '',
-            //   // backgroundPosition: '',
-            //   // backgroundRepeat: '',
-            // }}
-            // To "force" the classic fading in of every image (especially on
-            // imageData change for fluid / fixed) by setting `soft` on `fadeIn`:
-            // fadeIn={`soft`}
-            // To be able to use stacking context changing elements yourself,
-            // set this to true to disable the "opacity hack":
-            // preserveStackingContext={true}
-            // You can "safely" (look them up beforehand ; ) add other props:
             id="cbet_values"
             role="img"
             aria-label="cbet_values"

@@ -28,7 +28,6 @@ const NonHeaderBackgroundHeader = props => (
         return null
       }
 
-      console.log("props", props, image)
       const { title, descr, buttonLink, children, bgStyle } = props
 
       return (

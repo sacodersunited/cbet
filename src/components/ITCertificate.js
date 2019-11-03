@@ -21,7 +21,6 @@ const ProgramDetail = styled.div`
 
 const itCert = props => (
   <>
-    {console.log("itcert props", props.images)}
     <Container className="mb-5">
       <Row>
         <Col md={7}>
