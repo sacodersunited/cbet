@@ -2,8 +2,6 @@ import React, { Component } from "react"
 import { Container, Form, Button, Col, Alert, Row } from "react-bootstrap"
 import { FaMapMarkerAlt } from "react-icons/fa"
 import InputMask from "react-input-mask"
-// import ContactBG from "../images/bmet-logo3.jpg"
-// import GraphicHeader from "../components/graphicHeader"
 import BackgroundGraphicHeader from "./BackgroundGraphicHeader"
 
 export default class AdmissionsForm extends Component {

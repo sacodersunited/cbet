@@ -1,13 +1,10 @@
 import React from "react"
-import { Container, Row, Col, Button, Image } from "react-bootstrap"
+import { Container, Row, Col, Button } from "react-bootstrap"
 import Img from "gatsby-image"
 import Fade from "react-reveal/Fade"
-import CareerPic from "../images/externship-1.jpg"
-import bmet1 from "../images/BMET-certificate1.png"
 
 const CareerServices = props => (
   <Container className="mb-5">
-    {console.log("career svcs", props)}
     <Row className="mb-3">
       <Col md={7}>
         <Fade left>
@@ -28,7 +25,6 @@ const CareerServices = props => (
           fluid={props.images.externship.childImageSharp.fluid}
           style={{ maxWidth: "600px" }}
         />
-        {/* <Image className="mb-3" src={CareerPic} rounded /> */}
         <h3>Confidence For Your Next Step</h3>
         <p>
           Graduates of College of Biomedical Equipment Technology are well
@@ -55,7 +51,6 @@ const CareerServices = props => (
           fluid={props.images.bmetcert.childImageSharp.fluid}
           style={{ minWidth: "640px" }}
         />
-        {/* <Image className="mb-3" src={bmet1} rounded /> */}
 
         <h3>Stephens International</h3>
         <p>
