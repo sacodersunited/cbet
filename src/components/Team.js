@@ -12,7 +12,7 @@ const Team = props => (
     <SEO title="About" />
     <AboutUsGraphicBackground
       title="College Of Biomedical Equipment Technology"
-      page="bmet-logo3.jpg"
+      bgFullImageName="bmet-logo3.jpg"
     />
     <Container className="mb-5">
       <Row className="mb-3">

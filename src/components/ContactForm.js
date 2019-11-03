@@ -271,7 +271,7 @@ class ContactForm extends React.Component {
   render() {
     return (
       <>
-        <BackgroundGraphicHeader page="contact-header.jpg" />
+        <BackgroundGraphicHeader bgFullImageName="contact-header.jpg" />
 
         <Container>
           <Row>

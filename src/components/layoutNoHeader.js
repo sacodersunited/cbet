@@ -7,7 +7,7 @@
 
 import React from "react"
 import PropTypes from "prop-types"
-import Accreditations from "./accreditations"
+import AccreditationsStaticQuery from "./AccreditationsStaticQuery"
 import Footer from "./footer"
 
 const LayoutNoHeader = ({ children }) => (
@@ -22,7 +22,7 @@ const LayoutNoHeader = ({ children }) => (
     />
 
     <main>{children}</main>
-    <Accreditations />
+    <AccreditationsStaticQuery />
     <Footer />
   </>
 )

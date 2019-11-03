@@ -53,7 +53,7 @@ const FinanceAssistance = props => (
     <SEO title="Veterans Affairs Financial Assistance" />
     <BackgroundGraphicHeader
       title="Veterans Affairs | Financial Assistance"
-      page="usFlag.png"
+      bgFullImageName="usFlag.png"
     />
     <Container className="mb-5">
       <Row className="mb-3">

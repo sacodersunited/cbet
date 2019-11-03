@@ -21,7 +21,7 @@ const BackgroundGraphicHeader = props => (
     `}
     render={data => {
       const image = data.allImageSharp.edges.find(
-        edge => edge.node.fluid.originalName === props.page
+        edge => edge.node.fluid.originalName === props.bgFullImageName
       )
 
       if (!image) {

@@ -12,7 +12,7 @@ import BackgroundGraphicHeader from "../components/BackgroundGraphicHeader"
 const HumanResources = () => (
   <LayoutDetail>
     <SEO title="human resources" />
-    <BackgroundGraphicHeader page="about-bg.jpg" />
+    <BackgroundGraphicHeader bgFullImageName="about-bg.jpg" />
     <Container className="mb-5">
       <Row className="mb-3">
         <Col md={7}>

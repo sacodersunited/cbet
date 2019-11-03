@@ -17,7 +17,7 @@ const Faq = () => (
     <SEO title="Faq" />
     <BackgroundGraphicHeader
       title="College of Biomedical Equipment Technology"
-      page="bmet-logo3.jpg"
+      bgFullImageName="bmet-logo3.jpg"
     />
 
     <FaqContainer>

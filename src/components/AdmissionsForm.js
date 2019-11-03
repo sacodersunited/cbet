@@ -251,7 +251,7 @@ export default class AdmissionsForm extends Component {
       <>
         <BackgroundGraphicHeader
           title="College of Biomedical Equipment Technology"
-          page="bmet-logo3.jpg"
+          bgFullImageName="bmet-logo3.jpg"
         ></BackgroundGraphicHeader>
         <Container className="mb-5">
           <Row className="mb-3">
