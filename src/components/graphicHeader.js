@@ -1,5 +1,4 @@
 import React from "react"
-// import { Link } from "gatsby"
 import { Container, Jumbotron, Button } from "react-bootstrap"
 import styled from "styled-components"
 
