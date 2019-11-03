@@ -11,10 +11,8 @@ import {
   Card,
 } from "react-bootstrap"
 import Fade from "react-reveal/Fade"
-import GraphicHeader from "../components/graphicHeader"
 import LayoutDetail from "../components/layout"
 import SEO from "../components/seo"
-import headerImg from "../images/intl-students-bg.jpg"
 import IntlPic from "../images/intl-1.jpg"
 import IntlPicTwo from "../images/intl-2.jpg"
 import IntlPicThree from "../images/intl-3.jpg"
@@ -22,11 +20,15 @@ import IntlPicFour from "../images/intl-4.jpg"
 import EnyiPic from "../images/testimonials/Emmanuel Enyi.jpg"
 import { FaRegEnvelope } from "react-icons/fa"
 import StudentCatalog from "../documents/CBET Course Catalog_Volume XVI_October 2019.pdf"
+import BackgroundGraphicHeader from "../components/BackgroundGraphicHeader"
 
 const InternationalStudents = () => (
   <LayoutDetail>
     <SEO title="International Students" />
-    <GraphicHeader imgSrc={headerImg} title="International Students" />
+    <BackgroundGraphicHeader
+      page={"intl-students-bg.jpg"}
+      title="International Students"
+    />
     <Container className="mb-5">
       <Row>
         <Col md={7}>
