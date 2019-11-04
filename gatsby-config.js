@@ -53,5 +53,6 @@ module.exports = {
         code: config.GATSBY_code,
       },
     },
+    `gatsby-plugin-netlify-cache`,
   ],
 }
