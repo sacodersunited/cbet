@@ -16,7 +16,7 @@ const LayoutDetail = ({ children }) => (
   <StaticQuery
     query={graphql`
       {
-        cbetlogo: file(relativePath: { eq: "logo/cbet-logo-wh-8.png" }) {
+        cbetlogo: file(relativePath: { eq: "logo/logo-8.png" }) {
           childImageSharp {
             fixed(width: 180, height: 52, quality: 100) {
               ...GatsbyImageSharpFixed_tracedSVG
