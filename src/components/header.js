@@ -4,7 +4,6 @@ import React from "react"
 import { Container, Navbar, Nav, NavDropdown } from "react-bootstrap"
 import Img from "gatsby-image"
 // import { isAuthenticated, logout, getProfile } from "../utils/auth"
-import Logo from "../images/logo/cbet-logo-wh-8.png"
 import { FaFacebookSquare, FaLinkedin } from "react-icons/fa"
 
 const Header = props => {
@@ -19,7 +18,7 @@ const Header = props => {
               <Img
                 fixed={props.images.cbetlogo.childImageSharp.fixed}
                 className="d-inline-block align-top"
-                style={{ height: "52px", width: "180px" }}
+                
               />
             </Navbar.Brand>
           </Link>
