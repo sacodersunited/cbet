@@ -5,12 +5,13 @@ import Fade from "react-reveal/Fade"
 import Img from "gatsby-image"
 import TFCDoc from "../documents/TFCoverviewForStudents.CIT.pdf"
 import SummitLogo from "../images/summit-logo.webp"
+import "../classes/cbet.css"
 
 const Partners = props => (
   <Row>
     <Col md={4}>
       <Fade left cascade>
-        <h2 style={{ textTransform: "uppercase" }}>Strategic Partners</h2>
+        <h2 className="strategic">Strategic Partners</h2>
       </Fade>
       <p>
         The College of Biomedical Equipment Technology maintains strategic
