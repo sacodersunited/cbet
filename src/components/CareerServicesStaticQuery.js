@@ -9,14 +9,14 @@ const CareerServicesStaticQuery = props => (
         externship: file(relativePath: { eq: "externship-1.jpg" }) {
           childImageSharp {
             fluid(maxHeight: 340, maxWidth: 600, quality: 100) {
-              ...GatsbyImageSharpFluid_withWebp_tracedSVG
+              ...GatsbyImageSharpFluid_withWebp
             }
           }
         }
         bmetcert: file(relativePath: { eq: "BMET-certificate1.png" }) {
           childImageSharp {
             fluid(maxHeight: 427, quality: 100) {
-              ...GatsbyImageSharpFluid_withWebp_tracedSVG
+              ...GatsbyImageSharpFluid_withWebp
             }
           }
         }
