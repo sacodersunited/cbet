@@ -26,7 +26,6 @@ const TestimonialBackgroundHeader = props => (
       if (!image) {
         return null
       }
-      console.log("non header", props, image)
       const { children, bgStyle } = props
 
       return (
