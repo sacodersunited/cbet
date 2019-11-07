@@ -53,7 +53,11 @@ const Accreditations = props => (
               >
                 <Img
                   fluid={props.images.twclogo.childImageSharp.fluid}
-                  style={{ maxHeight: "180px", maxWidth: "187px" }}
+                  style={{
+                    maxHeight: "180px",
+                    maxWidth: "187px",
+                    margin: "0 auto",
+                  }}
                   alt="twc logo"
                 />
               </a>
@@ -66,7 +70,11 @@ const Accreditations = props => (
               >
                 <Img
                   fluid={props.images.txhigher.childImageSharp.fluid}
-                  style={{ maxHeight: "123px", maxWidth: "242px" }}
+                  style={{
+                    maxHeight: "123px",
+                    maxWidth: "242px",
+                    margin: "0 auto",
+                  }}
                   alt="tx higher education board"
                 />
               </a>
