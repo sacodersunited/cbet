@@ -1,0 +1,10 @@
+.strategic {
+  text-transform: uppercase;
+}
+
+@media only screen and (max-width: 330px) {
+  .strategic {
+    font-size: x-large;
+    text-transform: uppercase;
+  }
+}
