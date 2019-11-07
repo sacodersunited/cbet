@@ -39,7 +39,18 @@ const VideoCarousel = ({
       <source src={vidSrc} type="video/mp4" />
     </video>
     <Container
-      style={{ zIndex: 2, position: "absolute", bottom: "90px", left: "90px" }}
+      style={{
+        zIndex: 2,
+        position: "absolute",
+        bottom:
+          title === "Biomedical Equipment Technology Degree Online"
+            ? "9px"
+            : "90px",
+        left:
+          title === "Biomedical Equipment Technology Degree Online"
+            ? "9px"
+            : "58px",
+      }}
       className="text-white"
     >
       <Row>
