@@ -21,7 +21,7 @@ const BackgroundHeaderTeam = () => (
         desktop: file(relativePath: { eq: "blue-med-bg.jpg" }) {
           childImageSharp {
             fluid(quality: 100, maxWidth: 4160) {
-              ...GatsbyImageSharpFluid_withWebp_tracedSVG
+              ...GatsbyImageSharpFluid_withWebp
             }
           }
         }

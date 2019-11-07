@@ -9,14 +9,14 @@ const ITCertificateStaticQuery = () => (
         networking: file(relativePath: { eq: "itDegree/networking-I.jpg" }) {
           childImageSharp {
             fluid(maxHeight: 585, quality: 100) {
-              ...GatsbyImageSharpFluid_withWebp_tracedSVG
+              ...GatsbyImageSharpFluid_withWebp
             }
           }
         }
         plus: file(relativePath: { eq: "itDegree/it-2.jpg" }) {
           childImageSharp {
             fluid(maxHeight: 400, quality: 100) {
-              ...GatsbyImageSharpFluid_withWebp_tracedSVG
+              ...GatsbyImageSharpFluid_withWebp
             }
           }
         }

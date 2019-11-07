@@ -9,21 +9,21 @@ const BmetCertStaticQuery = props => (
         bmettech: file(relativePath: { eq: "BMET-certificate1.png" }) {
           childImageSharp {
             fluid(maxWidth: 952, quality: 100) {
-              ...GatsbyImageSharpFluid_withWebp_tracedSVG
+              ...GatsbyImageSharpFluid_withWebp
             }
           }
         }
         bmet3: file(relativePath: { eq: "certificate-program2.jpg" }) {
           childImageSharp {
             fluid(maxWidth: 952, quality: 100) {
-              ...GatsbyImageSharpFluid_withWebp_tracedSVG
+              ...GatsbyImageSharpFluid_withWebp
             }
           }
         }
         bIsham: file(relativePath: { eq: "team/brentIsham2.jpg" }) {
           childImageSharp {
             fluid(maxWidth: 800, quality: 100) {
-              ...GatsbyImageSharpFluid_withWebp_tracedSVG
+              ...GatsbyImageSharpFluid_withWebp
             }
           }
         }
@@ -32,7 +32,7 @@ const BmetCertStaticQuery = props => (
         ) {
           childImageSharp {
             fluid(maxWidth: 640, quality: 100) {
-              ...GatsbyImageSharpFluid_withWebp_tracedSVG
+              ...GatsbyImageSharpFluid_withWebp
             }
           }
         }

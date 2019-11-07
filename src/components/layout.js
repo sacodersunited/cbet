@@ -12,7 +12,7 @@ const Layout = ({ children }) => (
         cbetlogo: file(relativePath: { eq: "logo/logo-8.png" }) {
           childImageSharp {
             fixed(width: 180, height: 52, quality: 100) {
-              ...GatsbyImageSharpFixed_tracedSVG
+              ...GatsbyImageSharpFixed
             }
           }
         }

@@ -29,28 +29,28 @@ const CbetClassesStaticQuery = props => (
         bmetdegree: file(relativePath: { eq: "bmetDegree.jpg" }) {
           childImageSharp {
             fluid(quality: 100) {
-              ...GatsbyImageSharpFluid_withWebp_tracedSVG
+              ...GatsbyImageSharpFluid_withWebp
             }
           }
         }
         bmettech: file(relativePath: { eq: "bmetTech.jpg" }) {
           childImageSharp {
             fluid(quality: 100) {
-              ...GatsbyImageSharpFluid_withWebp_tracedSVG
+              ...GatsbyImageSharpFluid_withWebp
             }
           }
         }
         tech: file(relativePath: { eq: "itNetworkPrograms.jpg" }) {
           childImageSharp {
             fluid(quality: 100) {
-              ...GatsbyImageSharpFluid_withWebp_tracedSVG
+              ...GatsbyImageSharpFluid_withWebp
             }
           }
         }
         specialty: file(relativePath: { eq: "specialtyPrograms.jpg" }) {
           childImageSharp {
             fluid(quality: 100) {
-              ...GatsbyImageSharpFluid_withWebp_tracedSVG
+              ...GatsbyImageSharpFluid_withWebp
             }
           }
         }
