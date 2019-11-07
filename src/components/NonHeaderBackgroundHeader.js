@@ -27,7 +27,6 @@ const NonHeaderBackgroundHeader = props => (
       if (!image) {
         return null
       }
-      console.log("non header", props, image)
       const { title, descr, buttonLink, children, bgStyle } = props
 
       return (
