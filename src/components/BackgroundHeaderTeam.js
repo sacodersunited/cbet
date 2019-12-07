@@ -10,7 +10,6 @@ const ValuesBG = styled.section`
   background: linear-gradient(90deg, #1cb5e0 0%, #000851 100%);
   background-image: url(${props => props.imgsrc || null});
   background-size: cover;
-  padding: 96px 0;
   color: whitesmoke;
 `
 
@@ -40,7 +39,7 @@ const BackgroundHeaderTeam = () => (
             role="img"
             aria-label="cbet_values"
           >
-            <Container>
+            <Container className="pt-5 pb-5">
               <Row className="mb-3">
                 <Col md={7}>
                   <Fade left>
