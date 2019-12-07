@@ -13,14 +13,14 @@ const AboutStaticQuery = props => (
             }
           }
         }
-        bBassuk: file(relativePath: { eq: "team/bill2.jpg" }) {
+        bBassuk: file(relativePath: { eq: "team/bill.jpg" }) {
           childImageSharp {
             fluid(maxHeight: 400, quality: 100) {
               ...GatsbyImageSharpFluid_withWebp
             }
           }
         }
-        rGonzalez: file(relativePath: { eq: "team/richard2.jpg" }) {
+        rGonzalez: file(relativePath: { eq: "team/monty.jpg" }) {
           childImageSharp {
             fluid(maxHeight: 400, quality: 100) {
               ...GatsbyImageSharpFluid_withWebp
