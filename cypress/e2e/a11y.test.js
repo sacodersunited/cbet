@@ -7,7 +7,12 @@ describe("Accessibility checks", () => {
     cy.injectAxe()
     cy.wait(500)
   })
-  it("Has no detectable a11y violations on load", () => {
+  it("Homepage has no detectable a11y violations on load", () => {
     cy.checkA11y()
+  })
+  it("Navigates to about bage and checks for accessibility violations", () => {
+    cy.get('.mr-auto > [href="/about"]')
+      .click({ force: true })
+      .checkA11y()
   })
 })
