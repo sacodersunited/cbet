@@ -429,7 +429,10 @@ export default class AdmissionsForm extends Component {
                 <Form.Group>
                   <Button type="submit">Submit Form</Button>
                   {this.state.validated ? (
-                    <SpinSpinner style={{ marginLeft: "5px" }} />
+                    <div className="p-3 mb-2 bg-info text-white">
+                      <SpinSpinner style={{ marginLeft: "5px" }} />
+                      <span>Please be patient, submitting form</span>
+                    </div>
                   ) : null}
                 </Form.Group>
                 <Form.Row className="float-right">
