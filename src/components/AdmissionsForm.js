@@ -3,6 +3,37 @@ import { Container, Form, Button, Col, Alert, Row } from "react-bootstrap"
 import { FaMapMarkerAlt } from "react-icons/fa"
 import InputMask from "react-input-mask"
 import BackgroundGraphicHeader from "./BackgroundGraphicHeader"
+import styled from "styled-components"
+import { FaSpinner } from "react-icons/fa/index"
+
+const SpinSpinner = styled(FaSpinner)`
+  @keyframes spin {
+    0% {
+      -webkit-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    100% {
+      -webkit-transform: rotate(359deg);
+      transform: rotate(359deg);
+    }
+  }
+  animation: spin 1.5s infinite;
+`
+
+const blankForm = {
+  studentName: "",
+  ssn: "",
+  address: "",
+  city: "",
+  state: "",
+  country: "",
+  zip: "",
+  phone: "",
+  email: "",
+  dateOfBirth: "",
+  program: "",
+  drivers: "",
+}
 
 export default class AdmissionsForm extends Component {
   constructor(props) {
@@ -88,11 +119,11 @@ export default class AdmissionsForm extends Component {
       e.preventDefault()
       e.stopPropagation()
 
-      this.callGoogleAdmissions()
-
+      console.log("set validted to true")
       this.setState({
         validated: true,
       })
+      this.callGoogleAdmissions()
     }
   }
 
@@ -191,6 +222,8 @@ export default class AdmissionsForm extends Component {
 
     const querystring = `${eName}&${eSsn}&${eAddress}&${ePhone}&${eCity}&${eState}&${eZip}&${eEmail}&${eDOB}&${eProgramSelected}&${eDrivers}&formGoogleSheetName=responses`
 
+    console.log("querystring is", querystring)
+
     fetch(
       "https://script.google.com/macros/s/AKfycbwv08pxtawNZnuvOl8akeANYFoBG-kI-x2mM01AutvBKLXt8hTp/exec?" +
         querystring,
@@ -208,20 +241,7 @@ export default class AdmissionsForm extends Component {
       this.setState({
         isDone: true,
         validated: false,
-        admissionForm: {
-          studentName: "",
-          ssn: "",
-          address: "",
-          city: "",
-          state: "",
-          country: "",
-          zip: "",
-          phone: "",
-          email: "",
-          dateOfBirth: "",
-          program: "",
-          drivers: "",
-        },
+        admissionForm: blankForm,
       })
 
       setTimeout(() => {
@@ -229,7 +249,7 @@ export default class AdmissionsForm extends Component {
           isDone: false,
         })
 
-        window.location.reload()
+        // window.location.reload()
       }, 1500)
       return response
     })
@@ -302,6 +322,7 @@ export default class AdmissionsForm extends Component {
                     mask="(999) 999-9999"
                     maskChar=" "
                     onChange={e => this.onChangeForm(e)}
+                    value={this.state.admissionForm.phone}
                   >
                     {inputProps => (
                       <Form.Control
@@ -357,6 +378,7 @@ export default class AdmissionsForm extends Component {
                     mask="99999"
                     maskChar=" "
                     onChange={e => this.onChangeForm(e)}
+                    value={this.state.admissionForm.zip}
                   >
                     {inputProps => (
                       <Form.Control
@@ -392,6 +414,7 @@ export default class AdmissionsForm extends Component {
                     mask="99/99/9999"
                     maskChar=" "
                     onChange={e => this.onChangeForm(e)}
+                    value={this.state.admissionForm.dateOfBirth}
                   >
                     {inputProps => (
                       <Form.Control
@@ -405,6 +428,9 @@ export default class AdmissionsForm extends Component {
 
                 <Form.Group>
                   <Button type="submit">Submit Form</Button>
+                  {this.state.validated ? (
+                    <SpinSpinner style={{ marginLeft: "5px" }} />
+                  ) : null}
                 </Form.Group>
                 <Form.Row className="float-right">
                   <Alert show={this.state.isDone} variant="success">
