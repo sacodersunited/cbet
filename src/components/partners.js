@@ -212,6 +212,23 @@ const Partners = props => (
             />
           </a>
         </Col>
+
+        <Col
+          md={3}
+          className="mb-5"
+          style={{ alignSelf: "center", textAlign: "center" }}
+        >
+          <a
+            href="http://www.memorialhermann.org/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Img
+              fluid={props.images.memHermann.childImageSharp.fluid}
+              alt="Memorial Hermann"
+            />
+          </a>
+        </Col>
       </Row>
     </Col>
   </Row>
