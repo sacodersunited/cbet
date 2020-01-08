@@ -9,6 +9,7 @@ const Scholarships = () => {
       <a href={hollisMerit} download>
         Download Hollis Merit Scholarship
       </a>
+      <br></br>
       <a href={bassukScholarship} download>
         Download First Sergeant Warren Bassuk Memorial Scholarship_AAS and CERT
       </a>
