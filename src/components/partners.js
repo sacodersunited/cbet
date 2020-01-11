@@ -229,6 +229,23 @@ const Partners = props => (
             />
           </a>
         </Col>
+
+        <Col
+          md={3}
+          className="mb-5"
+          style={{ alignSelf: "center", textAlign: "center" }}
+        >
+          <a
+            href="https://www.cybertexas.org/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Img
+              fluid={props.images.cyberTexas.childImageSharp.fluid}
+              alt="Cyber Texas"
+            />
+          </a>
+        </Col>
       </Row>
     </Col>
   </Row>
