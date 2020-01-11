@@ -83,6 +83,13 @@ const PartnersStaticQuery = () => (
             }
           }
         }
+        cyberTexas: file(relativePath: { eq: "logo-cyberTexas.png" }) {
+          childImageSharp {
+            fluid(maxHeight: 600, quality: 100) {
+              ...GatsbyImageSharpFluid_withWebp
+            }
+          }
+        }
       }
     `}
     render={data => <Partners images={data} />}
