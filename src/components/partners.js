@@ -4,7 +4,6 @@ import Pulse from "react-reveal/Pulse"
 import Fade from "react-reveal/Fade"
 import Img from "gatsby-image"
 import TFCDoc from "../documents/TFCoverviewForStudents.CIT.pdf"
-import SummitLogo from "../images/summit-logo.webp"
 import "../classes/cbet.css"
 
 const Partners = props => (
@@ -101,11 +100,9 @@ const Partners = props => (
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Image
-              src={SummitLogo}
-              alt="Summit Imaging logo"
-              fluid
-              width="400"
+            <Img
+              fluid={props.images.summit.childImageSharp.fluid}
+              alt="Summit Imaging"
             />
           </a>
         </Col>
