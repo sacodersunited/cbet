@@ -5,7 +5,7 @@ import styled from "styled-components"
 import { FaFacebookF, FaLinkedinIn, FaUserLock } from "react-icons/fa"
 import Logo from "../../src/images/logo/footer-logo.svg"
 import CourseCatalog from "../../src/documents/Catalog 6.22.19.pdf"
-import CourseCalendar from "../documents/2019-2020-2021 Academic Calendar.pdf"
+import CourseCalendar from "../documents/2019-2020-2021 Academic Calendar-.pdf"
 import PrivacyStatement from "../documents/Privacy Policy_Update.pdf"
 import { navigate } from "@reach/router"
 
