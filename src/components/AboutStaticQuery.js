@@ -6,9 +6,9 @@ const AboutStaticQuery = props => (
   <StaticQuery
     query={graphql`
       {
-        teamphoto: file(relativePath: { eq: "team/team.jpg" }) {
+        teamphoto: file(relativePath: { eq: "team/cbet-team.png" }) {
           childImageSharp {
-            fluid(maxHeight: 585, quality: 100) {
+            fluid(maxHeight: 800, quality: 100) {
               ...GatsbyImageSharpFluid_withWebp
             }
           }
