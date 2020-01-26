@@ -76,6 +76,28 @@ const PartnersStaticQuery = () => (
             }
           }
         }
+        memHermann: file(relativePath: { eq: "memorial-hermann-logo.jpg" }) {
+          childImageSharp {
+            fluid(maxHeight: 600, quality: 100) {
+              ...GatsbyImageSharpFluid_withWebp
+            }
+          }
+        }
+        cyberTexas: file(relativePath: { eq: "logo-cyberTexas.png" }) {
+          childImageSharp {
+            fluid(maxHeight: 600, quality: 100) {
+              ...GatsbyImageSharpFluid_withWebp
+            }
+          }
+        }
+
+        summit: file(relativePath: { eq: "summit-logo.jpg" }) {
+          childImageSharp {
+            fluid(maxHeight: 600, quality: 100) {
+              ...GatsbyImageSharpFluid_withWebp
+            }
+          }
+        }
       }
     `}
     render={data => <Partners images={data} />}

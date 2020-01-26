@@ -2,12 +2,23 @@ import React from "react"
 import { Link } from "gatsby"
 import { Container, Row, Col, Image, Navbar } from "react-bootstrap"
 import styled from "styled-components"
-import Img from "gatsby-image"
 import { FaFacebookF, FaLinkedinIn, FaUserLock } from "react-icons/fa"
 import Logo from "../../src/images/logo/footer-logo.svg"
-import CourseCatalog from "../../src/documents/CBET Course Catalog_Volume XVI_October 2019.pdf"
-import CourseCalendar from "../documents/2019-2020-2021 Academic Calendar.pdf"
+import CourseCatalog from "../../src/documents/Catalog 6.22.19.pdf"
+import CourseCalendar from "../documents/2019-2020-2021 Academic Calendar-.pdf"
 import PrivacyStatement from "../documents/Privacy Policy_Update.pdf"
+import { navigate } from "@reach/router"
+
+const DivLink = styled.div`
+  &:hover {
+    cursor: pointer;
+    text-decoration: underline;
+  }
+`
+
+const scholarshipLink = () => {
+  navigate("/financial-assistance#scholarships")
+}
 
 const FooterSection = styled.footer`
   color: whitesmoke;
@@ -47,6 +58,12 @@ const Footer = () => (
             >
               Transcripts
             </a>
+            <DivLink
+              className="d-block text-light mb-3"
+              onClick={scholarshipLink}
+            >
+              Scholarships
+            </DivLink>
           </Col>
           <Col md={2}>
             <a

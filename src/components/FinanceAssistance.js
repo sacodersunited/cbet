@@ -14,10 +14,12 @@ import Fade from "react-reveal/Fade"
 import styled from "styled-components"
 import { FaCheckSquare } from "react-icons/fa"
 import SEO from "../components/seo"
-import CourseCatalog from "../documents/CBET Course Catalog_Volume XVI_October 2019.pdf"
+import CourseCatalog from "../documents/Catalog 6.22.19.pdf"
 import EnrollmentApplication from "../documents/CBET Enrollment Application.pdf"
 import BackgroundGraphicHeader from "./BackgroundGraphicHeader"
 import NonHeaderBackgroundHeader from "./NonHeaderBackgroundHeader"
+import hollisScholarship from "../documents/Hollis Merit Scholarship_AAS and CERT.pdf"
+import bassukScholarship from "../documents/First Sergeant Warren Bassuk Memorial Scholarship_AAS and CERT.pdf"
 
 const blueStyles = {
   backgroundColor: "#2c3e50",
@@ -399,7 +401,7 @@ const FinanceAssistance = props => (
             </Card>
           </Col>
         </Row>
-        <Row>
+        <Row className="mb-5">
           <Col md={7}>
             <Card>
               <Card.Body>
@@ -426,6 +428,24 @@ const FinanceAssistance = props => (
                     href="http://www.workforcesolutionsrca.com/jobs-and-careers/program-details/Trade-Adjustment-Act--TAA-"
                   >
                     Trade Adjustment Act (TAA)
+                  </ListGroupItem>
+                </ListGroup>
+              </Card.Body>
+            </Card>
+          </Col>
+        </Row>
+        <Row>
+          <Col md={7} id="scholarships">
+            <Card>
+              <Card.Body>
+                <Card.Title>CBET Scholarships</Card.Title>
+
+                <ListGroup className="list-group-flush">
+                  <ListGroupItem action href={hollisScholarship}>
+                    Hollis Merit Scholarship
+                  </ListGroupItem>
+                  <ListGroupItem action href={bassukScholarship}>
+                    First Sergeant Warren Bassuk Memorial Scholarship
                   </ListGroupItem>
                 </ListGroup>
               </Card.Body>

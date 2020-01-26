@@ -6,21 +6,21 @@ const AboutStaticQuery = props => (
   <StaticQuery
     query={graphql`
       {
-        teamphoto: file(relativePath: { eq: "team/team.jpg" }) {
+        teamphoto: file(relativePath: { eq: "team/cbet-team.png" }) {
           childImageSharp {
-            fluid(maxHeight: 585, quality: 100) {
+            fluid(maxHeight: 800, quality: 100) {
               ...GatsbyImageSharpFluid_withWebp
             }
           }
         }
-        bBassuk: file(relativePath: { eq: "team/bill2.jpg" }) {
+        bBassuk: file(relativePath: { eq: "team/bill.jpg" }) {
           childImageSharp {
             fluid(maxHeight: 400, quality: 100) {
               ...GatsbyImageSharpFluid_withWebp
             }
           }
         }
-        rGonzalez: file(relativePath: { eq: "team/richard2.jpg" }) {
+        rGonzalez: file(relativePath: { eq: "team/monty.jpg" }) {
           childImageSharp {
             fluid(maxHeight: 400, quality: 100) {
               ...GatsbyImageSharpFluid_withWebp

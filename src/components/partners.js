@@ -4,7 +4,6 @@ import Pulse from "react-reveal/Pulse"
 import Fade from "react-reveal/Fade"
 import Img from "gatsby-image"
 import TFCDoc from "../documents/TFCoverviewForStudents.CIT.pdf"
-import SummitLogo from "../images/summit-logo.webp"
 import "../classes/cbet.css"
 
 const Partners = props => (
@@ -101,11 +100,9 @@ const Partners = props => (
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Image
-              src={SummitLogo}
-              alt="Summit Imaging logo"
-              fluid
-              width="400"
+            <Img
+              fluid={props.images.summit.childImageSharp.fluid}
+              alt="Summit Imaging"
             />
           </a>
         </Col>
@@ -209,6 +206,40 @@ const Partners = props => (
               fluid={props.images.charney.childImageSharp.fluid}
               alt="Charney and Associates Recruiting"
               style={{ backgroundColor: "rebeccapurple" }}
+            />
+          </a>
+        </Col>
+
+        <Col
+          md={3}
+          className="mb-5"
+          style={{ alignSelf: "center", textAlign: "center" }}
+        >
+          <a
+            href="http://www.memorialhermann.org/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Img
+              fluid={props.images.memHermann.childImageSharp.fluid}
+              alt="Memorial Hermann"
+            />
+          </a>
+        </Col>
+
+        <Col
+          md={3}
+          className="mb-5"
+          style={{ alignSelf: "center", textAlign: "center" }}
+        >
+          <a
+            href="https://www.cybertexas.org/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Img
+              fluid={props.images.cyberTexas.childImageSharp.fluid}
+              alt="Cyber Texas"
             />
           </a>
         </Col>
