@@ -39,8 +39,8 @@ class Testimonials extends Component {
         >
           <Container>
             <h2
-              className="mb-5 text-white"
-              style={{ textTransform: "uppercase" }}
+              className="mb-5"
+              style={{ textTransform: "uppercase", color: "#FFFF00" }}
             >
               Hear From Our Students Around the World
             </h2>

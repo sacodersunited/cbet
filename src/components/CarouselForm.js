@@ -146,6 +146,8 @@ class CarouselForm extends React.Component {
             </Form.Control>
           </Form.Group>
           <Form.Group controlId="formBasicName">
+            <Form.Label style={{ display: "none" }}>Name</Form.Label>
+
             <Form.Control
               required
               type="text"
@@ -155,6 +157,8 @@ class CarouselForm extends React.Component {
           </Form.Group>
 
           <Form.Group controlId="formBasicEmail">
+            <Form.Label style={{ display: "none" }}>Email</Form.Label>
+
             <Form.Control
               type="email"
               placeholder="Email"
@@ -163,6 +167,8 @@ class CarouselForm extends React.Component {
           </Form.Group>
 
           <Form.Group controlId="formBasicPhone">
+            <Form.Label style={{ display: "none" }}>Phone</Form.Label>
+
             <Form.Control
               type="tel"
               placeholder="Phone Number"

@@ -13,12 +13,14 @@ const Header = props => {
     <>
       <Navbar bg="dark" variant="dark" expand="lg">
         <Container>
-          <Link to="/">
+          <Link
+            to="/"
+            aria-label="College Of Biomedical Equipment Technology homepage"
+          >
             <Navbar.Brand>
               <Img
                 fixed={props.images.cbetlogo.childImageSharp.fixed}
                 className="d-inline-block align-top"
-                
               />
             </Navbar.Brand>
           </Link>
@@ -97,6 +99,7 @@ const Header = props => {
                 target="_blank"
                 className="nav-link"
                 rel="noopener noreferrer"
+                aria-label="College Of Biomedical Equipment Technology on facebook"
               >
                 <FaFacebookSquare
                   style={{ verticalAlign: "text-bottom", fontSize: "20px" }}
@@ -108,6 +111,7 @@ const Header = props => {
                 target="_blank"
                 className="nav-link"
                 rel="noopener noreferrer"
+                aria-label="College Of Biomedical Equipment Technology on linkedin"
               >
                 <FaLinkedin
                   style={{ verticalAlign: "text-bottom", fontSize: "20px" }}
