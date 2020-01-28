@@ -98,6 +98,14 @@ const PartnersStaticQuery = () => (
             }
           }
         }
+
+        imedbiomedical: file(relativePath: { eq: "iMed-Biomedical.png" }) {
+          childImageSharp {
+            fluid(maxHeight: 600, quality: 100) {
+              ...GatsbyImageSharpFluid_withWebp
+            }
+          }
+        }
       }
     `}
     render={data => <Partners images={data} />}

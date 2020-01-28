@@ -243,6 +243,22 @@ const Partners = props => (
             />
           </a>
         </Col>
+        <Col
+          md={4}
+          className="mb-5"
+          style={{ alignSelf: "center", textAlign: "center" }}
+        >
+          <a
+            href="http://imedbiomedical.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Img
+              fluid={props.images.imedbiomedical.childImageSharp.fluid}
+              alt="iMed Biomedical"
+            />
+          </a>
+        </Col>
       </Row>
     </Col>
   </Row>
