@@ -244,7 +244,7 @@ const Partners = props => (
           </a>
         </Col>
         <Col
-          md={3}
+          md={4}
           className="mb-5"
           style={{ alignSelf: "center", textAlign: "center" }}
         >
