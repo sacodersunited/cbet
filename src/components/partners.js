@@ -259,6 +259,38 @@ const Partners = props => (
             />
           </a>
         </Col>
+        <Col
+          md={3}
+          className="mb-5"
+          style={{ alignSelf: "center", textAlign: "center" }}
+        >
+          <a
+            href="https://www.vyaire.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Img
+              fluid={props.images.vyaire.childImageSharp.fluid}
+              alt="iMed Biomedical"
+            />
+          </a>
+        </Col>
+        <Col
+          md={2}
+          className="mb-5"
+          style={{ alignSelf: "center", textAlign: "center" }}
+        >
+          <a
+            href="https://kami.camp9.org/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Img
+              fluid={props.images.kami.childImageSharp.fluid}
+              alt="iMed Biomedical"
+            />
+          </a>
+        </Col>
       </Row>
     </Col>
   </Row>

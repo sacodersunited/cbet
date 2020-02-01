@@ -3,7 +3,7 @@ import { Link } from "gatsby"
 import { Container, Row, Col, Image, Navbar } from "react-bootstrap"
 import styled from "styled-components"
 import { FaFacebookF, FaLinkedinIn, FaUserLock } from "react-icons/fa"
-import Logo from "../../src/images/logo/footer-logo.svg"
+import Logo from "../../src/images/logo/bmet-seal.png"
 import CourseCatalog from "../../src/documents/Catalog 6.22.19.pdf"
 import CourseCalendar from "../documents/2019-2020-2021 Academic Calendar-.pdf"
 import PrivacyStatement from "../documents/Privacy Policy_Update.pdf"
@@ -39,6 +39,7 @@ const Footer = () => (
               alt="biomedical technology school /biomedical college /biomedical training
           /online biomedical college /Online biomedical training /online biomedical technology
           school"
+              fluid
             />
           </Col>
           <Col md={2}>
