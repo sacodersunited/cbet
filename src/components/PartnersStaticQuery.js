@@ -106,6 +106,22 @@ const PartnersStaticQuery = () => (
             }
           }
         }
+
+        vyaire: file(relativePath: { eq: "vyaire-logo.png" }) {
+          childImageSharp {
+            fluid(maxHeight: 600, quality: 100) {
+              ...GatsbyImageSharpFluid_withWebp
+            }
+          }
+        }
+
+        kami: file(relativePath: { eq: "kami-logo.png" }) {
+          childImageSharp {
+            fluid(maxHeight: 600, quality: 100) {
+              ...GatsbyImageSharpFluid_withWebp
+            }
+          }
+        }
       }
     `}
     render={data => <Partners images={data} />}
