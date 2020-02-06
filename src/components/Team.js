@@ -200,7 +200,7 @@ const Team = props => (
               </em>
             </ListGroup.Item>
             <ListGroup.Item>
-              David Braeutigam{" "}
+              Bob McGhin PHD, Environmental Science{" "}
               <em className="text-muted ml-1">Braeutigam Enterprises, LLC.</em>
             </ListGroup.Item>
             <ListGroup.Item>

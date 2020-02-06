@@ -107,7 +107,7 @@ const PartnersStaticQuery = () => (
           }
         }
 
-        vyaire: file(relativePath: { eq: "vyaire-logo.png" }) {
+        vyaire: file(relativePath: { eq: "Vyaire_Medical_Art.jpg" }) {
           childImageSharp {
             fluid(maxHeight: 600, quality: 100) {
               ...GatsbyImageSharpFluid_withWebp
