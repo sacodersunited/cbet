@@ -28,7 +28,7 @@ const Partners = props => (
       <Row>
         {props.images.allPartnersYaml.nodes.map(partner => (
           <Col
-            className="mb-2"
+            className="mb-1"
             md={partner.colWidth}
             style={{ alignSelf: "center", textAlign: "center" }}
             key={partner.name}
