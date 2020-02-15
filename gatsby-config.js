@@ -52,5 +52,12 @@ module.exports = {
       },
     },
     `gatsby-plugin-netlify-cache`,
+    `gatsby-transformer-yaml`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `./src/data/`,
+      },
+    },
   ],
 }

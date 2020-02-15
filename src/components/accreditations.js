@@ -5,7 +5,7 @@ import styled from "styled-components"
 import AccImg from "../images/accet.svg"
 import Pulse from "react-reveal/Pulse"
 import Fade from "react-reveal/Fade"
-import PartnersStaticQuery from "./PartnersStaticQuery"
+import PartnersStaticQuery from "./PartnersYamlQuery"
 
 const AccredSection = styled.section`
   min-height: 500px;
