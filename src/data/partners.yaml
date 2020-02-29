@@ -44,11 +44,12 @@
   link: https://citizensmedicalcenter.org/
   img: logos/citizens.png
   colWidth: "3"
-- miracosta:
-  name: MiraCosta College
-  link: http://www.miracosta.edu/
-  img: logos/mira-costa-college.png
+- cyberTexas:
+  name: Cyber Texas Foundation
+  link: https://www.cybertexas.org
+  img: logos/logo-cyberTexas.png
   colWidth: "3"
+
 - charney:
   name: Charney & Associates
   link: https://nscharney.com/
@@ -59,16 +60,16 @@
   link: http://www.memorialhermann.org/
   img: logos/memorial-hermann-logo.jpg
   colWidth: "3"
-- cyberTexas:
-  name: Cyber Texas Foundation
-  link: https://www.cybertexas.org
-  img: logos/logo-cyberTexas.png
+- miracosta:
+  name: MiraCosta College
+  link: http://www.miracosta.edu/
+  img: logos/mira-costa-college.png
+  colWidth: "2"
+- army:
+  name: U.S. army
+  link: https://goarmy.com
+  img: logos/ArmyLogo.jpg
   colWidth: "3"
-- imedbiomedical:
-  name: iMed Biomedical
-  link: http://imedbiomedical.com/
-  img: logos/iMed-Biomedical.png
-  colWidth: "4"
 - kami:
   name: Kentucky Association for Medical Instrumentation
   link: https://kami.camp9.org/
@@ -78,7 +79,7 @@
   name: Healthcare Technology Management Association of South Carolina
   link: https://scba.wildapricot.org/
   img: logos/HTMA-SC-logo.jpg
-  colWidth: "3"
+  colWidth: "2"
 - vyaire:
   name: Vyaire Medical
   link: https://www.vyaire.com/
@@ -89,3 +90,13 @@
   link: https://www.scciowa.edu/
   img: logos/scc-logo.png
   colWidth: "3"
+- imedbiomedical:
+  name: iMed Biomedical
+  link: http://imedbiomedical.com/
+  img: logos/iMed-Biomedical.png
+  colWidth: "4"
+- armypays:
+  name: Army Pays
+  link: https://www.armypays.com/
+  img: logos/REGISTEREDlogo.jpg
+  colWidth: "2"

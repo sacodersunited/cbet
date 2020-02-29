@@ -6,6 +6,13 @@ const AccreditationsStaticQuery = () => (
   <StaticQuery
     query={graphql`
       {
+        vetlogo: file(relativePath: { eq: "vet-owned.png" }) {
+          childImageSharp {
+            fluid(maxHeight: 180, quality: 100) {
+              ...GatsbyImageSharpFluid_withWebp
+            }
+          }
+        }
         twclogo: file(relativePath: { eq: "twc-logo.jpg" }) {
           childImageSharp {
             fluid(maxHeight: 180, quality: 100) {

@@ -30,7 +30,7 @@ const Accreditations = props => (
         </Col>
         <Col md={7}>
           <Row>
-            <Col md={4} style={{ alignSelf: "center", textAlign: "center" }}>
+            <Col md={3} style={{ alignSelf: "center", textAlign: "center" }}>
               <Pulse>
                 <a
                   rel="noopener noreferrer"
@@ -42,7 +42,7 @@ const Accreditations = props => (
               </Pulse>
             </Col>
             <Col
-              md={4}
+              md={3}
               style={{ alignSelf: "center", textAlign: "center" }}
               className="mb-5"
             >
@@ -54,7 +54,6 @@ const Accreditations = props => (
                 <Img
                   fluid={props.images.twclogo.childImageSharp.fluid}
                   style={{
-                    maxHeight: "180px",
                     maxWidth: "187px",
                     margin: "0 auto",
                   }}
@@ -62,7 +61,7 @@ const Accreditations = props => (
                 />
               </a>
             </Col>
-            <Col md={4} style={{ alignSelf: "center", textAlign: "center" }}>
+            <Col md={3} style={{ alignSelf: "center", textAlign: "center" }}>
               <a
                 rel="noopener noreferrer"
                 target="_blank"
@@ -71,7 +70,22 @@ const Accreditations = props => (
                 <Img
                   fluid={props.images.txhigher.childImageSharp.fluid}
                   style={{
-                    maxHeight: "123px",
+                    maxWidth: "242px",
+                    margin: "0 auto",
+                  }}
+                  alt="tx higher education board"
+                />
+              </a>
+            </Col>
+            <Col md={3} style={{ alignSelf: "center", textAlign: "center" }}>
+              <a
+                rel="noopener noreferrer"
+                target="_blank"
+                href="https://www.veteranownedbusiness.com"
+              >
+                <Img
+                  fluid={props.images.vetlogo.childImageSharp.fluid}
+                  style={{
                     maxWidth: "242px",
                     margin: "0 auto",
                   }}
