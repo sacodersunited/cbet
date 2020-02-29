@@ -13,7 +13,7 @@ const PartnersStaticQuery = () => (
             colWidth
             img {
               childImageSharp {
-                fluid {
+                fluid(maxHeight: 200, quality: 100) {
                   ...GatsbyImageSharpFluid_withWebp
                 }
               }
