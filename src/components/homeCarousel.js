@@ -25,7 +25,7 @@ const HomeCarousel = props => (
       <Row>
         <Col md={8}>
           <Carousel.Caption style={{ textAlign: "left" }}>
-            <CarouselH1>College Of Biomedical Equipment Technology</CarouselH1>
+            <CarouselH1>College of Biomedical Equipment Technology</CarouselH1>
             <p>
               Our mission is to provide Healthcare Technology Management (HTM)
               education, training and career services consistent with the
@@ -54,7 +54,7 @@ const HomeCarousel = props => (
       <Row>
         <Col md={8} className="d-none d-sm-block">
           <Carousel.Caption style={{ textAlign: "left" }}>
-            <CarouselH1>College Of Biomedical Equipment Technology</CarouselH1>
+            <CarouselH1>College of Biomedical Equipment Technology</CarouselH1>
             <p>Building the Future Healthcare Technology Workforce</p>
             <Link to="/admissions">
               <Button className="text-uppercase">Apply Today</Button>
@@ -77,7 +77,7 @@ const HomeCarousel = props => (
       <Row>
         <Col md={8}>
           <Carousel.Caption style={{ textAlign: "left" }}>
-            <CarouselH1>College Of Biomedical Equipment Technology</CarouselH1>
+            <CarouselH1>College of Biomedical Equipment Technology</CarouselH1>
             <p>Building the Future Healthcare Technology Workforce</p>
             <Link to="/admissions">
               <Button className="text-uppercase">Apply Today</Button>
@@ -102,7 +102,7 @@ const HomeCarousel = props => (
       <Row>
         <Col md={8} className="d-none d-sm-block">
           <Carousel.Caption style={{ textAlign: "left" }}>
-            <CarouselH1>College Of Biomedical Equipment Technology</CarouselH1>
+            <CarouselH1>College of Biomedical Equipment Technology</CarouselH1>
             <p>Building the Future Healthcare Technology Workforce</p>
             <Link to="/admissions">
               <Button className="text-uppercase">Apply Today</Button>
