@@ -11,7 +11,7 @@ const Team = props => (
   <>
     <SEO title="About" />
     <AboutUsGraphicBackground
-      title="College Of Biomedical Equipment Technology"
+      title="College of Biomedical Equipment Technology"
       bgFullImageName="bmet-logo3.jpg"
     />
     <Container className="mb-5">

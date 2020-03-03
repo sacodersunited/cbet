@@ -8,7 +8,7 @@ const Programs = () => (
   <LayoutDetail>
     <SEO
       title="CompTIA IT Certifications Available"
-      description="The College Of
+      description="The College of
 Biomedical Equipment Technology offers compTIA IT certifications. Visit our website to
 view our courses and get started!"
     />

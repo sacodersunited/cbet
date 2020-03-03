@@ -27,7 +27,7 @@ const BmetDegree = props => (
     <SEO
       title="Biomedical Equipment Technology Degree Online"
       description="If you’re
-looking to get a biomedical training degree, check out College Of Biomedical Equipment
+looking to get a biomedical training degree, check out College of Biomedical Equipment
 Technology. Visit our website to apply today!"
     />
     <VideoCarousel

@@ -27,7 +27,7 @@ const BmetCertificate = props => (
     <SEO
       title="Biomedical Training Certification Online"
       description="Are you
-looking to get your BMET certificate? College Of Biomedical Equipment Technology is
+looking to get your BMET certificate? College of Biomedical Equipment Technology is
 the place for you. Visit our website to learn more!"
     />
     <VideoCarousel
