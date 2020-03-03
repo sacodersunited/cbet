@@ -15,7 +15,7 @@ const Header = props => {
         <Container>
           <Link
             to="/"
-            aria-label="College Of Biomedical Equipment Technology homepage"
+            aria-label="College of Biomedical Equipment Technology homepage"
           >
             <Navbar.Brand>
               <Img
@@ -99,7 +99,7 @@ const Header = props => {
                 target="_blank"
                 className="nav-link"
                 rel="noopener noreferrer"
-                aria-label="College Of Biomedical Equipment Technology on facebook"
+                aria-label="College of Biomedical Equipment Technology on facebook"
               >
                 <FaFacebookSquare
                   style={{ verticalAlign: "text-bottom", fontSize: "20px" }}
@@ -111,7 +111,7 @@ const Header = props => {
                 target="_blank"
                 className="nav-link"
                 rel="noopener noreferrer"
-                aria-label="College Of Biomedical Equipment Technology on linkedin"
+                aria-label="College of Biomedical Equipment Technology on linkedin"
               >
                 <FaLinkedin
                   style={{ verticalAlign: "text-bottom", fontSize: "20px" }}
