@@ -6,58 +6,33 @@ const TestimonialStaticQuery = () => (
   <StaticQuery
     query={graphql`
       {
-        profile0: file(relativePath: { eq: "testimonials/profile-0.png" }) {
-          childImageSharp {
-            fluid(maxWidth: 952, quality: 100) {
-              ...GatsbyImageSharpFluid_withWebp
-            }
-          }
-        }
-        profile1: file(relativePath: { eq: "testimonials/profile-1.png" }) {
-          childImageSharp {
-            fluid(maxWidth: 952, quality: 100) {
-              ...GatsbyImageSharpFluid_withWebp
-            }
-          }
-        }
-        profile2: file(relativePath: { eq: "testimonials/profile-2.png" }) {
-          childImageSharp {
-            fluid(maxWidth: 800, quality: 100) {
-              ...GatsbyImageSharpFluid_withWebp
-            }
-          }
-        }
-        profile3: file(relativePath: { eq: "testimonials/profile-3.png" }) {
-          childImageSharp {
-            fluid(maxWidth: 640, quality: 100) {
-              ...GatsbyImageSharpFluid_withWebp
-            }
-          }
-        }
-        profile4: file(relativePath: { eq: "testimonials/profile-4.png" }) {
-          childImageSharp {
-            fluid(maxWidth: 640, quality: 100) {
-              ...GatsbyImageSharpFluid_withWebp
-            }
-          }
-        }
-        profile5: file(relativePath: { eq: "testimonials/profile-5.png" }) {
-          childImageSharp {
-            fluid(maxWidth: 640, quality: 100) {
-              ...GatsbyImageSharpFluid_withWebp
-            }
-          }
-        }
-        profile6: file(relativePath: { eq: "testimonials/profile-6.png" }) {
-          childImageSharp {
-            fluid(maxWidth: 640, quality: 100) {
-              ...GatsbyImageSharpFluid_withWebp
+        allTestimonialsYaml {
+          nodes {
+            id
+            name
+            state
+            date
+            comment
+            type
+            image {
+              childImageSharp {
+                fluid {
+                  base64
+                  tracedSVG
+                  srcWebp
+                  srcSetWebp
+                  originalImg
+                  originalName
+                  presentationWidth
+                  presentationHeight
+                }
+              }
             }
           }
         }
       }
     `}
-    render={data => <Testimonials images={data} />}
+    render={data => <Testimonials data={data} />}
   />
 )
 export default TestimonialStaticQuery

@@ -7,6 +7,7 @@ import Programs from "../components/programs"
 // import Classes from "../components/classes"
 import TestimonialStaticQuery from "../components/TestimonialStaticQuery"
 import HomeClassesStaticQuery from "../components/HomeClassesStaticQuery"
+// import Testimonials from "../components/testimonials"
 
 const IndexPage = () => (
   <Layout>

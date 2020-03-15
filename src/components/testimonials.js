@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import { Container } from "react-bootstrap"
 import Slider from "react-slick"
-import { TestimonialsData } from "../utils/utility"
+// import { TestimonialsData } from "../utils/utility"
 import TestimonialCard from "./TestimonialCard"
 import TestimonialBackgroundHeader from "./TestimonialBackgroundHeader"
 
@@ -47,12 +47,12 @@ class Testimonials extends Component {
           </Container>
 
           <Slider ref="slick" {...settings}>
-            {TestimonialsData.map((testimonial, index) => (
+            {this.props.data.map((testimonial, index) => (
               <TestimonialCard
                 key={testimonial.name}
                 person={testimonial}
                 index={index}
-                image={this.props.images[`profile${index}`]}
+                // image={this.props.images[`profile${index}`]}
               />
             ))}
           </Slider>
