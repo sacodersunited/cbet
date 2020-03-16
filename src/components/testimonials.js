@@ -40,7 +40,7 @@ class Testimonials extends Component {
           <Container>
             <h2
               className="mb-5"
-              style={{ textTransform: "uppercase", color: "#FFFF00" }}
+              style={{ textTransform: "uppercase", color: "#212121" }}
             >
               Hear From Our Students Around the World
             </h2>
@@ -49,7 +49,7 @@ class Testimonials extends Component {
           <Slider ref="slick" {...settings}>
             {TestimonialsData.map((testimonial, index) => (
               <TestimonialCard
-                key={testimonial.name}
+                key={testimonial.id}
                 person={testimonial}
                 index={index}
                 image={this.props.images[`profile${index}`]}
