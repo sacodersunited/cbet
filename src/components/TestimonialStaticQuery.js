@@ -8,21 +8,21 @@ const TestimonialStaticQuery = () => (
       {
         profile0: file(relativePath: { eq: "testimonials/profile-0.png" }) {
           childImageSharp {
-            fluid(maxWidth: 952, quality: 100) {
+            fluid(maxWidth: 640, quality: 100) {
               ...GatsbyImageSharpFluid_withWebp
             }
           }
         }
         profile1: file(relativePath: { eq: "testimonials/profile-1.png" }) {
           childImageSharp {
-            fluid(maxWidth: 952, quality: 100) {
+            fluid(maxWidth: 640, quality: 100) {
               ...GatsbyImageSharpFluid_withWebp
             }
           }
         }
         profile2: file(relativePath: { eq: "testimonials/profile-2.png" }) {
           childImageSharp {
-            fluid(maxWidth: 800, quality: 100) {
+            fluid(maxWidth: 640, quality: 100) {
               ...GatsbyImageSharpFluid_withWebp
             }
           }
@@ -49,6 +49,13 @@ const TestimonialStaticQuery = () => (
           }
         }
         profile6: file(relativePath: { eq: "testimonials/profile-6.png" }) {
+          childImageSharp {
+            fluid(maxWidth: 640, quality: 100) {
+              ...GatsbyImageSharpFluid_withWebp
+            }
+          }
+        }
+        profile7: file(relativePath: { eq: "testimonials/profile-7.png" }) {
           childImageSharp {
             fluid(maxWidth: 640, quality: 100) {
               ...GatsbyImageSharpFluid_withWebp
