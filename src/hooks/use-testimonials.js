@@ -13,15 +13,8 @@ const UseTestimonials = () => {
           type
           image {
             childImageSharp {
-              fluid {
-                base64
-                tracedSVG
-                srcWebp
-                srcSetWebp
-                originalImg
-                originalName
-                presentationWidth
-                presentationHeight
+              fluid(maxWidth: 640, quality: 100) {
+                ...GatsbyImageSharpFluid
               }
             }
           }

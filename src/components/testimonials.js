@@ -1,9 +1,9 @@
-import React, { Component } from "react"
-import { Container } from "react-bootstrap"
+import React, { useRef } from "react"
+import { Container, Card } from "react-bootstrap"
 import Slider from "react-slick"
-// import { TestimonialsData } from "../utils/utility"
-import TestimonialCard from "./TestimonialCard"
+import Img from "gatsby-image"
 import TestimonialBackgroundHeader from "./TestimonialBackgroundHeader"
+import UseTestimonials from "../hooks/use-testimonials"
 
 const testimonialStyles = {
   backgroundColor: "#2c3e50",
@@ -13,53 +13,68 @@ const testimonialStyles = {
   minHeight: "240px",
 }
 
-class Testimonials extends Component {
-  componentWillReceiveProps() {
-    this.refs.slick.innerSlider.onWindowResized()
+const Testimonials = () => {
+  const testimonials = UseTestimonials()
+  const refSlick = useRef("slick")
+
+  let settings = {
+    dots: false,
+    infinite: true,
+    speed: 700,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    variableWidth: true,
+    adaptiveHeight: true,
+    autoplay: true,
+    pauseOnHover: true,
   }
 
-  render() {
-    let settings = {
-      dots: false,
-      infinite: true,
-      speed: 700,
-      slidesToShow: 3,
-      slidesToScroll: 1,
-      variableWidth: true,
-      adaptiveHeight: true,
-      autoplay: true,
-      pauseOnHover: true,
-    }
+  return (
+    <>
+      <TestimonialBackgroundHeader
+        bgStyle={testimonialStyles}
+        page="testimonials-bg.jpg"
+      >
+        <Container>
+          <h2
+            className="mb-5"
+            style={{ textTransform: "uppercase", color: "#212121" }}
+          >
+            Hear From Our Students Around the World
+          </h2>
+        </Container>
 
-    return (
-      <>
-        <TestimonialBackgroundHeader
-          bgStyle={testimonialStyles}
-          page="testimonials-bg.jpg"
-        >
-          <Container>
-            <h2
-              className="mb-5"
-              style={{ textTransform: "uppercase", color: "#FFFF00" }}
-            >
-              Hear From Our Students Around the World
-            </h2>
-          </Container>
-
-          <Slider ref="slick" {...settings}>
-            {this.props.data.map((testimonial, index) => (
-              <TestimonialCard
-                key={testimonial.name}
-                person={testimonial}
-                index={index}
-                // image={this.props.images[`profile${index}`]}
+        <Slider ref={refSlick} {...settings}>
+          {testimonials.map(testimonial => (
+            <Card id={testimonial.id} style={{ maxWidth: "380.41px" }}>
+              <Img
+                fluid={testimonial.image.childImageSharp.fluid}
+                alt="biomedical technology school /biomedical college /biomedical training
+          /online biomedical college /Online biomedical training /online biomedical technology
+          school"
+                style={{ minHeight: "320px" }}
               />
-            ))}
-          </Slider>
-        </TestimonialBackgroundHeader>
-      </>
-    )
-  }
+              <Card.Body>
+                <Card.Title>{testimonial.name}</Card.Title>
+                <Card.Text className="mt-0 mb-0 font-weight-bold">
+                  {testimonial.type}
+                </Card.Text>
+                <Card.Text className="mt-0 mb-0 text-muted">
+                  {testimonial.date}
+                </Card.Text>
+                <Card.Text className="mt-0 mb-3 font-italic">
+                  {testimonial.state}
+                </Card.Text>
+                <Card.Text style={{ minHeight: "300px", maxWidth: "330px" }}>
+                  {testimonial.comment}
+                </Card.Text>
+              </Card.Body>
+            </Card>
+          ))}
+        </Slider>
+      </TestimonialBackgroundHeader>
+    </>
+  )
 }
 
 export default Testimonials
