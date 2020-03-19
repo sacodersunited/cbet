@@ -29,30 +29,28 @@ const Testimonials = () => {
     pauseOnHover: true,
   }
 
-  return (
-    <>
-      <TestimonialBackgroundHeader
-        bgStyle={testimonialStyles}
-        page="testimonials-bg.jpg"
-      >
-        <Container>
-          <h2
-            className="mb-5"
-            style={{ textTransform: "uppercase", color: "#212121" }}
-          >
-            Hear From Our Students Around the World
-          </h2>
-        </Container>
+    return (
+      <>
+        <TestimonialBackgroundHeader
+          bgStyle={testimonialStyles}
+          page="testimonials-bg.jpg"
+        >
+          <Container>
+            <h2
+              className="mb-5"
+              style={{ textTransform: "uppercase", color: "#212121" }}
+            >
+              Hear From Our Students Around the World
+            </h2>
+          </Container>
 
-        <Slider ref={refSlick} {...settings}>
-          {testimonials.map(testimonial => (
-            <Card id={testimonial.id} style={{ maxWidth: "380.41px" }}>
-              <Img
-                fluid={testimonial.image.childImageSharp.fluid}
-                alt="biomedical technology school /biomedical college /biomedical training
-          /online biomedical college /Online biomedical training /online biomedical technology
-          school"
-                style={{ minHeight: "320px" }}
+          <Slider ref="slick" {...settings}>
+            {TestimonialsData.map((testimonial, index) => (
+              <TestimonialCard
+                key={testimonial.id}
+                person={testimonial}
+                index={index}
+                image={this.props.images[`profile${index}`]}
               />
               <Card.Body>
                 <Card.Title>{testimonial.name}</Card.Title>
