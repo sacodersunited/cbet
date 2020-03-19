@@ -64,7 +64,7 @@ const TestimonialStaticQuery = () => (
         }
       }
     `}
-    render={data => <Testimonials images={data} />}
+    render={data => <Testimonials data={data} />}
   />
 )
 export default TestimonialStaticQuery
