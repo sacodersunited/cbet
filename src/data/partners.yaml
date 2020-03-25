@@ -100,3 +100,8 @@
   link: https://www.armypays.com/
   img: logos/REGISTEREDlogo.jpg
   colWidth: "2"
+- skillnet:
+  name: Skillnet
+  link: https://skillnet.net/
+  img: logos/skillnet.png
+  colWidth: "3"
