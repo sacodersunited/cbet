@@ -32,7 +32,6 @@ const UseJobs = () => {
     description: job.description,
     link: job.link,
     image: job.img,
-    type: job.type,
     status: job.status,
     startDate: job.startDate,
     endDate: job.endDate,

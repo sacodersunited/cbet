@@ -2,6 +2,7 @@ import React from "react"
 import { Carousel, Container, Card, Button, Badge } from "react-bootstrap"
 import Img from "gatsby-image"
 import styled from "styled-components"
+import PropTypes from "prop-types"
 
 export default function JobsCarousel({ jobs, bgImages }) {
   const FlexRow = styled.div`
@@ -49,4 +50,27 @@ export default function JobsCarousel({ jobs, bgImages }) {
       ))}
     </Carousel>
   )
+}
+
+JobsCarousel.propTypes = {
+  jobs: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      isFeatured: PropTypes.bool.isRequired,
+      description: PropTypes.string.isRequired,
+      link: PropTypes.string.isRequired,
+      image: PropTypes.object.isRequired,
+      status: PropTypes.string.isRequired,
+      startDate: PropTypes.string.isRequired,
+      endDate: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+  bgImages: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      image: PropTypes.object.isRequired,
+    })
+  ).isRequired,
 }
