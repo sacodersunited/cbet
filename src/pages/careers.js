@@ -5,6 +5,7 @@ import SEO from "../components/seo"
 import useJobs from "../hooks/use-jobs"
 import useJobsBG from "../hooks/use-jobs-bg"
 import JobsCarousel from "../components/careers/JobsCarousel.js"
+import JobDetail from "../components/careers/JobDetail"
 import { Container, Col, Row, Button, Image } from "react-bootstrap"
 
 export default function Careers() {
@@ -23,13 +24,15 @@ export default function Careers() {
       <JobsCarousel jobs={jobs} bgImages={carouselBgImages} />
       <Container className="mt-5">
         <Row>
-          <Col>
+          <Col md={6}>
             <section id="hot-jobs">
-              <h1 className="text-uppercase">Hot Jobs</h1>
-              <p>jobs go here</p>
+              <h1 className="text-uppercase mb-5">Hot Jobs</h1>
+              {jobs.map(job => (
+                <JobDetail key={job.id} job={job} />
+              ))}
             </section>
           </Col>
-          <Col md={2}>
+          <Col md={{ span: 3, offset: 3 }}>
             <aside>
               <section id="events">
                 <h2>Events</h2>
@@ -37,7 +40,7 @@ export default function Careers() {
                 <p>Events go here</p>
               </section>
               <section id="blog">
-                <h2>Blog Posts</h2>
+                <h2>Latest Posts</h2>
                 <hr />
                 <p>Blog Posts go here</p>
               </section>
