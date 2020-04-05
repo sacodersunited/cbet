@@ -74,11 +74,7 @@ const Header = props => {
               >
                 Intl Students
               </Link>
-              <Link
-                to="/career-services"
-                className="nav-link"
-                activeClassName="active"
-              >
+              <Link to="/careers" className="nav-link" activeClassName="active">
                 Careers
               </Link>
               <Link to="/faq" className="nav-link" activeClassName="active">
