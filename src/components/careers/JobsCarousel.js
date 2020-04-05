@@ -40,7 +40,7 @@ export default function JobsCarousel({ jobs, bgImages }) {
                   </Card.Subtitle>
                   <Card.Text>{job.description}</Card.Text>
                   <a href={job.link} target="_blank" rel="noopener noreferrer">
-                    <Button>Apply Now</Button>
+                    <Button className="text-uppercase">Apply Now</Button>
                   </a>
                 </Card.Body>
               </Card>
