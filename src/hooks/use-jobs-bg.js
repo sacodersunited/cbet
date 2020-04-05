@@ -9,7 +9,7 @@ const UseJobsBGImages = () => {
           name
           img {
             childImageSharp {
-              fluid(maxWidth: 1440, maxHeight: 300, quality: 100) {
+              fluid(maxWidth: 1440, maxHeight: 400, quality: 100) {
                 ...GatsbyImageSharpFluid
               }
             }
