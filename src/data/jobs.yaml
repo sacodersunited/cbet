@@ -6,7 +6,7 @@
   link: https://www.medwrench.com/
   img: logos/Medwrench-logo.png
   status: active
-  startDate: 2020-04-01
+  startDate: 2020-04-15
   endDate: 2020-04-28
 - technation:
   name: Tech Nation
@@ -15,8 +15,8 @@
   link: https://1technation.com/
   img: logos/TechNation_logo.png
   status: active
-  startDate: 2020-04-01
-  endDate: 2020-04-28
+  startDate: 2020-05-17
+  endDate: 2020-05-28
 - tfc:
   name: TFC
   isFeatured: true
@@ -24,8 +24,8 @@
   link: https://www.tfcstudentinfo.com
   img: logos/tfc_logo.png
   status: active
-  startDate: 2020-04-01
-  endDate: 2020-04-28
+  startDate: 2020-01-12
+  endDate: 2020-01-15
 - siRecruiting:
   isFeatured: true
   description: Tofu subway tile flannel kickstarter farm-to-table humblebrag health goth vinyl migas.
@@ -33,5 +33,5 @@
   link: https://www.bmets-usa.com/
   img: logos/si-recruiting.png
   status: active
-  startDate: 2020-04-01
-  endDate: 2020-04-28
+  startDate: 2020-11-19
+  endDate: 2020-12-23

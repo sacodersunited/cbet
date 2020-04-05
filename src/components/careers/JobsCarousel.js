@@ -1,8 +1,13 @@
 import React from "react"
-import { Carousel, Container, Card, Button } from "react-bootstrap"
+import { Carousel, Container, Card, Button, Badge } from "react-bootstrap"
 import Img from "gatsby-image"
+import styled from "styled-components"
 
 export default function JobsCarousel({ jobs, bgImages }) {
+  const FlexRow = styled.div`
+    display: flex;
+    justify-content: space-between;
+  `
   return (
     <Carousel>
       {jobs.map((job, index) => (
@@ -18,10 +23,16 @@ export default function JobsCarousel({ jobs, bgImages }) {
                 <Card.Body style={{ color: "#212121" }}>
                   <Card.Title>
                     <Img
+                      className="mb-3"
                       fluid={job.image.childImageSharp.fluid}
                       alt={job.name}
                     />
-                    {job.name}
+                    <FlexRow>
+                      {job.name}
+                      <Badge variant="primary" style={{ height: "26px" }}>
+                        {job.startDate}
+                      </Badge>
+                    </FlexRow>
                   </Card.Title>
                   <Card.Subtitle className="mb-2 text-muted">
                     Featured Sponsor
