@@ -11,7 +11,7 @@ const UseCbetAuth = () => {
     }
   `)
 
-  return data.cbetAuth.site.siteMetadata.getCbetContentCode
+  return data.site.siteMetadata.getCbetContentCode
 }
 
 export default UseCbetAuth

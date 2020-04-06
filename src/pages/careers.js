@@ -14,6 +14,7 @@ export default function Careers() {
   const carouselBgImages = useJobsBG()
   const authContent = useCbetAuth()
 
+  console.log("auth", authContent)
   return (
     <Layout>
       <SEO
