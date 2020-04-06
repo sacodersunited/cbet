@@ -11,6 +11,7 @@ module.exports = {
     description: `The College of Biomedical Equipment Technology offers Online Biomedical Training. Visit our website to get more information and apply today!`,
     author: `@gatsbyjs`,
     codeFunc: config.GATSBY_code,
+    getCbetContentCode: config.cbetContentCode,
     gmap: config.GOOGLE_API_KEY,
   },
   plugins: [

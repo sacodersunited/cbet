@@ -26,9 +26,7 @@ exports.sourceNodes = (
     return nodeData
   }
 
-  const apiUrl = `https://cbetclasses.azurewebsites.net/api/GetCbetClasses?code=${
-    configOptions.code
-  }`
+  const apiUrl = `https://cbetclasses.azurewebsites.net/api/GetCbetClasses?code=${configOptions.code}`
 
   // Gatsby expects sourceNodes to return a promise
   return (

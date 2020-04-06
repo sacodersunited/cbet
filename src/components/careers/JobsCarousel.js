@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import { Carousel, Container, Card, Button, Badge } from "react-bootstrap"
 import Img from "gatsby-image"
 import styled from "styled-components"
@@ -9,6 +9,7 @@ export default function JobsCarousel({ jobs, bgImages }) {
     display: flex;
     justify-content: space-between;
   `
+
   return (
     <Carousel>
       {jobs.map((job, index) => (
