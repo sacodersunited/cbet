@@ -14,7 +14,18 @@ export default function Careers() {
   const carouselBgImages = useJobsBG()
   const authContent = useCbetAuth()
 
-  console.log("auth", authContent)
+  const [cbetContent, setCbetContent] = useState(0)
+  useEffect(() => {
+    // get data from GitHub api
+    fetch(
+      `https://cbetcontent.azurewebsites.net/api/GetCbetContent?code=${authContent}`
+    )
+      .then(response => response.json()) // parse JSON from request
+      .then(resultData => {
+        setCbetContent(resultData)
+      }) // set data for the number of stars
+  }, [authContent])
+
   return (
     <Layout>
       <SEO
