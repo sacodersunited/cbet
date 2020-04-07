@@ -1,9 +1,10 @@
-import React from "react"
-import Slide from "react-reveal/Slide"
+import React, { useEffect, useState } from "react"
+// import Slide from "react-reveal/Slide"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import useJobs from "../hooks/use-jobs"
 import useJobsBG from "../hooks/use-jobs-bg"
+import useCbetAuth from "../hooks/use-cbet-auth"
 import JobsCarousel from "../components/careers/JobsCarousel.js"
 import JobDetail from "../components/careers/JobDetail"
 import { Container, Col, Row, Button, Image } from "react-bootstrap"
@@ -11,6 +12,20 @@ import { Container, Col, Row, Button, Image } from "react-bootstrap"
 export default function Careers() {
   const jobs = useJobs()
   const carouselBgImages = useJobsBG()
+  const authContent = useCbetAuth()
+
+  const [cbetContent, setCbetContent] = useState(0)
+  useEffect(() => {
+    // get data from GitHub api
+    fetch(
+      `https://cbetcontent.azurewebsites.net/api/GetCbetContent?code=${authContent}`
+    )
+      .then(response => response.json()) // parse JSON from request
+      .then(resultData => {
+        setCbetContent(resultData)
+      }) // set data for the number of stars
+  }, [authContent])
+
   return (
     <Layout>
       <SEO
