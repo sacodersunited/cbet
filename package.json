@@ -5,6 +5,7 @@
   "version": "0.1.0",
   "author": "SA Coders United <support@sacodersunited.com>",
   "dependencies": {
+    "@microsoft/microsoft-graph-client": "^2.0.0",
     "auth0-js": "^9.12.2",
     "bootstrap": "^4.4.1",
     "dotenv": "^8.2.0",
@@ -22,6 +23,7 @@
     "gatsby-source-filesystem": "^2.1.46",
     "gatsby-transformer-sharp": "^2.3.13",
     "gatsby-transformer-yaml": "^2.2.25",
+    "msal": "^1.2.2",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
     "react-bootstrap": "^1.0.0-beta.16",
