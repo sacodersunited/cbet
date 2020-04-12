@@ -8,7 +8,7 @@
   endDate: 2020-04-05
 - futureTech:
   name: Future Tech
-  location: Dallas, TX
+  location: New York, NY
   link: https://google.com
   status: active
   startDate: 2020-03-18
@@ -29,7 +29,7 @@
   endDate: 2020-02-15
 - neJobFair:
   name: NorthEast Job Fair
-  location: San Antonio, TX
+  location: Lansing, MI
   link: https://google.com
   status: active
   startDate: 2020-02-01
