@@ -10,8 +10,8 @@ const UseEvents = () => {
           link
           location
           status
-          startDate
-          endDate
+          startDate(formatString: "MMM DD")
+          endDate(formatString: "MMM DD")
         }
       }
     }

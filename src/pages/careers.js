@@ -4,13 +4,16 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import useJobs from "../hooks/use-jobs"
 import useJobsBG from "../hooks/use-jobs-bg"
+import useEvents from "../hooks/use-events"
 import JobsCarousel from "../components/careers/JobsCarousel.js"
 import JobDetail from "../components/careers/JobDetail"
-import { Container, Col, Row, Button, Image } from "react-bootstrap"
+import { Container, Col, Row, Button, Image, Badge } from "react-bootstrap"
 
 export default function Careers() {
   const jobs = useJobs()
   const carouselBgImages = useJobsBG()
+  const events = useEvents()
+
   return (
     <Layout>
       <SEO
@@ -20,7 +23,7 @@ export default function Careers() {
       website to get more information and apply today!"
         keywords={[`biomedical equipment`, `education`, `technology`, `cbet`]}
       />
-      {/* <pre>{JSON.stringify(carouselBgImages, null, 2)}</pre> */}
+      {/* <pre>{JSON.stringify(events, null, 2)}</pre> */}
       <JobsCarousel jobs={jobs} bgImages={carouselBgImages} />
       <Container className="mt-5">
         <Row>
@@ -32,14 +35,30 @@ export default function Careers() {
               ))}
             </section>
           </Col>
-          <Col md={{ span: 3, offset: 3 }}>
+          <Col md={{ span: 4, offset: 2 }}>
             <aside>
               <section id="events">
                 <h2>Events</h2>
                 <hr />
-                <p>Events go here</p>
+                {events.map(event => (
+                  <div key={event.id}>
+                    <Badge variant="primary" style={{ height: "20px" }}>
+                      {event.startDate}
+                    </Badge>{" "}
+                    <a
+                      href={event.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{ display: "inline-flex" }}
+                    >
+                      <p className="mt-0 mb-2">
+                        {event.name} @ {event.location}
+                      </p>
+                    </a>
+                  </div>
+                ))}
               </section>
-              <section id="blog">
+              <section id="blog" className="mt-5">
                 <h2>Latest Posts</h2>
                 <hr />
                 <p>Blog Posts go here</p>
