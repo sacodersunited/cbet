@@ -5,7 +5,7 @@ import styled from "styled-components"
 import { FaFacebookF, FaLinkedinIn, FaUserLock } from "react-icons/fa"
 import Logo from "../../src/images/logo/bmet-seal.png"
 import CourseCatalog from "../../src/documents/CBET Course Catalog_Volume XVI_October 2019.pdf"
-import CourseCalendar from "../documents/2019-2020-2021 Academic Calendar-.pdf"
+import CourseCalendar from "../documents/CBET _Academic_Calendar_2020-2021_03262020.pdf"
 import PrivacyStatement from "../documents/Privacy Policy_Update.pdf"
 import { navigate } from "@reach/router"
 
