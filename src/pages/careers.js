@@ -14,6 +14,7 @@ export default function Careers() {
   const jobs = useJobs()
   const carouselBgImages = useJobsBG()
   const authContent = useCbetAuth()
+  const events = useEvents()
 
   const [cbetContent, setCbetContent] = useState(0)
   useEffect(() => {
