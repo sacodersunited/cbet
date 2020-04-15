@@ -16,7 +16,7 @@ export default function Careers() {
   const authContent = useCbetAuth()
   const events = useEvents()
 
-  const [cbetContent, setCbetContent] = useState(0)
+  const [cbetContent, setCbetContent] = useState([])
   useEffect(() => {
     // get data from GitHub api
     fetch(
@@ -28,6 +28,14 @@ export default function Careers() {
       }) // set data for the number of stars
   }, [authContent])
 
+  const blogPosts = cbetContent.filter(
+    content => content.CategoryName === "Blog" && content.Status === true
+  )
+
+  function createMarkup(html) {
+    return { __html: html }
+  }
+
   return (
     <Layout>
       <SEO
@@ -37,7 +45,7 @@ export default function Careers() {
       website to get more information and apply today!"
         keywords={[`biomedical equipment`, `education`, `technology`, `cbet`]}
       />
-      {/* <pre>{JSON.stringify(events, null, 2)}</pre> */}
+      {/* {<pre>{JSON.stringify(blogPosts, null, 2)}</pre>} */}
       <JobsCarousel jobs={jobs} bgImages={carouselBgImages} />
       <Container className="mt-5">
         <Row>
@@ -75,7 +83,18 @@ export default function Careers() {
               <section id="blog" className="mt-5">
                 <h2>Latest Posts</h2>
                 <hr />
-                <p>Blog Posts go here</p>
+                {blogPosts.length > 0
+                  ? blogPosts.map(post => (
+                      <div key={post.Id}>
+                        <h4>{post.Title}</h4>
+                        <p
+                          dangerouslySetInnerHTML={createMarkup(
+                            post.Description
+                          )}
+                        />
+                      </div>
+                    ))
+                  : null}
               </section>
             </aside>
           </Col>
