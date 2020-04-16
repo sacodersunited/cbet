@@ -110,7 +110,7 @@ the place for you. Visit our website to learn more!"
           <Fade>
             <Col md="8">
               <h4>Program Cost</h4>
-              <p>$5,500</p>
+              <p>$5,600</p>
               <h4>Program Length</h4>
               <p>6 Months or 400 hours</p>
               <h4>Student to Teacher Ratio</h4>
