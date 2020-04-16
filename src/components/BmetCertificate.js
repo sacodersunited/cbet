@@ -16,7 +16,7 @@ import Slide from "react-reveal/Slide"
 import VideoCarousel from "../components/VideoCarousel"
 import { FaRegEnvelope } from "react-icons/fa"
 import BMETVid from "../video/cbetCert-SD.mp4"
-import StudentCatalog from "../documents/CBET Course Catalog_Volume XVI_October 2019.pdf"
+import StudentCatalog from "../documents/CBET Course Catalog_Volume XVI_October 2019-2020.pdf"
 
 const ProgramDetail = styled.div`
   padding: 46px 0 46px 40px;
@@ -110,7 +110,7 @@ the place for you. Visit our website to learn more!"
           <Fade>
             <Col md="8">
               <h4>Program Cost</h4>
-              <p>$5,600</p>
+              <p>$6,095</p>
               <h4>Program Length</h4>
               <p>6 Months or 400 hours</p>
               <h4>Student to Teacher Ratio</h4>
