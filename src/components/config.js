@@ -1,5 +1,5 @@
 module.exports = {
-  appId: "1eaf1c72-32ef-46f9-a068-66678e6fa53c",
+  appId: "f52faa18-493f-44c7-9b2e-56a41f489147",
   redirectUri: "http://localhost:8000",
   scopes: ["user.read"],
 }
