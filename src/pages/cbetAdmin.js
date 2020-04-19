@@ -4,7 +4,7 @@ import ListGroup from "react-bootstrap/ListGroup"
 import Layout from "../components/layout"
 import Container from "react-bootstrap/Container"
 import { navigate } from "gatsby"
-import config from "../components/Config"
+import config from "../components/config"
 import { getUserDetails } from "../components/GraphService"
 import { UserAgentApplication } from "msal"
 
@@ -122,7 +122,6 @@ class CbetAdmin extends Component {
     console.log("cbet admin fired")
     return (
       <Layout>
-        <button onClick={this.login.bind(this)}>Login</button>
         {/* <Welcome
           {...props}
           isAuthenticated={this.state.isAuthenticated}
@@ -133,6 +132,11 @@ class CbetAdmin extends Component {
         <Container>
           <h2 className="pt-5 pb-5">Cbet Administration</h2>
           <ListGroup style={{ height: "45vh" }}>
+            <ListGroup.Item
+             variant="primary"
+             action
+             onClick={this.login.bind(this)}
+             >Login to CBET Admin</ListGroup.Item>
             <ListGroup.Item
               variant="primary"
               action
