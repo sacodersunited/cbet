@@ -6,7 +6,6 @@
   "author": "SA Coders United <support@sacodersunited.com>",
   "dependencies": {
     "@microsoft/microsoft-graph-client": "^2.0.0",
-    "auth0-js": "^9.12.2",
     "bootstrap": "^4.4.1",
     "dotenv": "^8.2.0",
     "gatsby": "^2.19.5",
