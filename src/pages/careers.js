@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react"
 // import Slide from "react-reveal/Slide"
-import Layout from "../components/layout"
+import Layout from "../components/careers/layout"
+import { Link } from "gatsby"
 import SEO from "../components/seo"
 import useJobs from "../hooks/use-jobs"
 import useJobsBG from "../hooks/use-jobs-bg"
@@ -46,7 +47,6 @@ export default function Careers() {
         keywords={[`biomedical equipment`, `education`, `technology`, `cbet`]}
       />
       {/* {<pre>{JSON.stringify(blogPosts, null, 2)}</pre>} */}
-      <JobsCarousel jobs={jobs} bgImages={carouselBgImages} />
       <Container className="mt-5">
         <Row>
           <Col md={6}>
@@ -86,7 +86,9 @@ export default function Careers() {
                 {blogPosts.length > 0
                   ? blogPosts.map(post => (
                       <div key={post.Id}>
-                        <h4>{post.Title}</h4>
+                        <Link to="/blog">
+                          <h4>{post.Title}</h4>
+                        </Link>
                         <p
                           dangerouslySetInnerHTML={createMarkup(
                             post.Description.slice(0, 140) + "..."
@@ -98,31 +100,6 @@ export default function Careers() {
               </section>
             </aside>
           </Col>
-        </Row>
-        <Row className="mt-5">
-          <Container>
-            <Row>
-              <Col md={6}>
-                <section id="externship">
-                  <h1 className="text-uppercase">Externships </h1>
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Repellendus autem ea numquam iste, vitae dignissimos officia
-                    velit. Magnam, eveniet, sapiente commodi laudantium eum
-                    soluta itaque totam optio eligendi delectus unde!
-                  </p>
-                  <Button className="text-uppercase">Sign Up</Button>
-                </section>
-              </Col>
-              <Col md={{ span: 5, offset: 1 }}>
-                <Image
-                  src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=80"
-                  rounded
-                  fluid
-                />
-              </Col>
-            </Row>
-          </Container>
         </Row>
       </Container>
     </Layout>
