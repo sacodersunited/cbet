@@ -89,7 +89,7 @@ export default function Careers() {
                         <h4>{post.Title}</h4>
                         <p
                           dangerouslySetInnerHTML={createMarkup(
-                            post.Description
+                            post.Description.slice(0, 140) + "..."
                           )}
                         />
                       </div>
