@@ -9,7 +9,7 @@ import useEvents from "../../hooks/use-events"
 import useJobsBG from "../../hooks/use-jobs-bg"
 import useCbetAuth from "../../hooks/use-cbet-auth"
 
-export default function CareersLayout({ children }) {
+export default function CareersLayout({ children, noCarousel }) {
   const jobs = useJobs()
   const carouselBgImages = useJobsBG()
   const events = useEvents()
@@ -38,7 +38,19 @@ export default function CareersLayout({ children }) {
   return (
     <Layout>
       <>
-        <JobsCarousel jobs={jobs} bgImages={carouselBgImages} />
+        {!noCarousel ? (
+          <JobsCarousel jobs={jobs} bgImages={carouselBgImages} />
+        ) : (
+          <img
+            src="https://i.picsum.photos/id/1067/1440/300.jpg"
+            alt="nature"
+            css={css`
+              object-fit: cover;
+              width: 100%;
+            `}
+          />
+        )}
+
         <Container className="mt-5">
           <Row>
             <Col md={6}>{children}</Col>
@@ -97,7 +109,10 @@ export default function CareersLayout({ children }) {
                   velit. Magnam, eveniet, sapiente commodi laudantium eum soluta
                   itaque totam optio eligendi delectus unde!
                 </p>
-                <Button className="text-uppercase">Sign Up</Button>
+                <Button className="text-uppercase">Sign Up</Button>{" "}
+                <Button className="text-uppercase" variant="outline-primary">
+                  Info Paper
+                </Button>
               </section>
             </Col>
 
