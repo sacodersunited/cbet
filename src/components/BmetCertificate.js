@@ -112,7 +112,7 @@ the place for you. Visit our website to learn more!"
               <h4>Program Cost</h4>
               <p>$6,095</p>
               <h4>Program Length</h4>
-              <p>6 Months or 400 hours</p>
+              <p>7.5 Months or 480 hours</p>
               <h4>Student to Teacher Ratio</h4>
               <p>30:1</p>
             </Col>
