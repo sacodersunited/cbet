@@ -93,9 +93,9 @@ the place for you. Visit our website to learn more!"
               <a
                 target="_blank"
                 rel="noopener noreferrer"
-                href="mailto:bisham@cbet.edu"
+                href="mailto:admissiondept@cbet.edu?subject=REQ: BMET Certificate"
               >
-                bisham@cbet.edu
+                admissiondept@cbet.edu
               </a>
             </Card.Body>
           </Card>
