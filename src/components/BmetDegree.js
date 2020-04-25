@@ -92,9 +92,9 @@ degree"
               <a
                 target="_blank"
                 rel="noopener noreferrer"
-                href="mailto:fsteinmeier@cbet.edu"
+                href="mailto:admissiondept@cbet.edu?subject=REQ: BMET Degree"
               >
-                fsteinmeier@cbet.edu
+                admissiondept@cbet.edu
               </a>
             </Card.Body>
           </Card>
