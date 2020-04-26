@@ -44,10 +44,7 @@ export default function CareersLayout({ children, noCarousel }) {
           <img
             src="https://i.picsum.photos/id/1067/1440/300.jpg"
             alt="nature"
-            css={css`
-              object-fit: cover;
-              width: 100%;
-            `}
+            style={{ objectFit: "cover", width: "100%" }}
           />
         )}
 
