@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React from "react"
 import PropTypes from "prop-types"
 import { Link } from "gatsby"
 import Layout from "../layout"
@@ -7,25 +7,11 @@ import JobsCarousel from "./JobsCarousel"
 import useJobs from "../../hooks/use-jobs"
 import useEvents from "../../hooks/use-events"
 import useJobsBG from "../../hooks/use-jobs-bg"
-import useCbetAuth from "../../hooks/use-cbet-auth"
 
-export default function CareersLayout({ children, noCarousel }) {
+export default function CareersLayout({ children, noCarousel, cbetContent }) {
   const jobs = useJobs()
   const carouselBgImages = useJobsBG()
   const events = useEvents()
-  const authContent = useCbetAuth()
-  const [cbetContent, setCbetContent] = useState([])
-
-  useEffect(() => {
-    // get data from GitHub api
-    fetch(
-      `https://cbetcontent.azurewebsites.net/api/GetCbetContent?code=${authContent}`
-    )
-      .then(response => response.json()) // parse JSON from request
-      .then(resultData => {
-        setCbetContent(resultData)
-      }) // set data for the number of stars
-  }, [authContent])
 
   const blogPosts = cbetContent.filter(
     content => content.CategoryName === "Blog" && content.Status === true
@@ -41,6 +27,7 @@ export default function CareersLayout({ children, noCarousel }) {
         {!noCarousel ? (
           <JobsCarousel jobs={jobs} bgImages={carouselBgImages} />
         ) : (
+          // default banner image for blog posts
           <img
             src="https://i.picsum.photos/id/1067/1440/300.jpg"
             alt="nature"
@@ -127,4 +114,4 @@ export default function CareersLayout({ children, noCarousel }) {
   )
 }
 
-// TODO: Add proptyptes
+// TODO: Add propTypes

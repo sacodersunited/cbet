@@ -25,7 +25,7 @@ export default function Careers() {
   )
 
   return (
-    <Layout>
+    <Layout cbetContent={cbetContent}>
       <SEO
         title="Online Biomedical Technology School Careers Page"
         description="The College
@@ -33,11 +33,12 @@ export default function Careers() {
       website to get more information and apply today!"
         keywords={[`biomedical equipment`, `education`, `technology`, `cbet`]}
       />
+      {/* uncomment to debug */}
       {/* {<pre>{JSON.stringify(jobs, null, 2)}</pre>} */}
       <section id="hot-jobs">
         <h1 className="text-uppercase mb-5">Hot Jobs</h1>
         {jobs.map(job => (
-          <JobDetail key={job.id} job={job} />
+          <JobDetail key={job.Id} job={job} />
         ))}
       </section>
     </Layout>
