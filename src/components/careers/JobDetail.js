@@ -31,6 +31,7 @@ export default function JobDetail({ job }) {
           )}
           <h4 className="text-dark">{job.Title}</h4>
           <Badge variant="primary" style={{ height: "26px" }}>
+            {/* TODO: Change to startDate */}
             {job.CreatedDate}
           </Badge>
         </FlexRow>

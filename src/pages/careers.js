@@ -24,8 +24,10 @@ export default function Careers() {
     content => content.CategoryName === "Job" && content.Status === true
   )
 
+  const featuredJobs = jobs.filter(job => job.Featured === true)
+
   return (
-    <Layout cbetContent={cbetContent}>
+    <Layout cbetContent={cbetContent} jobs={featuredJobs}>
       <SEO
         title="Online Biomedical Technology School Careers Page"
         description="The College
@@ -34,7 +36,7 @@ export default function Careers() {
         keywords={[`biomedical equipment`, `education`, `technology`, `cbet`]}
       />
       {/* uncomment to debug */}
-      {/* {<pre>{JSON.stringify(jobs, null, 2)}</pre>} */}
+      {/* {<pre>{JSON.stringify(featuredJobs, null, 2)}</pre>} */}
       <section id="hot-jobs">
         <h1 className="text-uppercase mb-5">Hot Jobs</h1>
         {jobs.map(job => (

@@ -4,12 +4,16 @@ import { Link } from "gatsby"
 import Layout from "../layout"
 import { Container, Col, Row, Button, Image, Badge } from "react-bootstrap"
 import JobsCarousel from "./JobsCarousel"
-import useJobs from "../../hooks/use-jobs"
 import useEvents from "../../hooks/use-events"
 import useJobsBG from "../../hooks/use-jobs-bg"
 
-export default function CareersLayout({ children, noCarousel, cbetContent }) {
-  const jobs = useJobs()
+export default function CareersLayout({
+  children,
+  noCarousel,
+  cbetContent,
+  jobs,
+}) {
+  // const jobs = useJobs()
   const carouselBgImages = useJobsBG()
   const events = useEvents()
 
@@ -36,6 +40,8 @@ export default function CareersLayout({ children, noCarousel, cbetContent }) {
         )}
 
         <Container className="mt-5">
+          {/* uncomment to debug */}
+          {/* {<pre>{JSON.stringify(carouselBgImages, null, 2)}</pre>} */}
           <Row>
             <Col md={6}>{children}</Col>
             <Col md={{ span: 4, offset: 2 }}>
