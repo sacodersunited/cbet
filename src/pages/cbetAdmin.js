@@ -1,11 +1,11 @@
 import React, { Component } from "react"
+import AzureAD from "react-aad-msal";
 import SEO from "../components/seo"
 import ListGroup from "react-bootstrap/ListGroup"
 import Layout from "../components/layout"
 import Container from "react-bootstrap/Container"
 import { navigate } from "gatsby"
-import AzureAD from "react-aad-msal";
-import { signInAuthProvider} from "./authProvider";
+import { signInAuthProvider } from "../components/authProvider";
 
 class CbetAdmin extends Component {
   constructor(props) {
@@ -20,7 +20,6 @@ class CbetAdmin extends Component {
   }
 
   render() {
-    console.log("cbet admin fired")
     return (
       <AzureAD provider={signInAuthProvider} forceLogin={true}>
         <Layout>
