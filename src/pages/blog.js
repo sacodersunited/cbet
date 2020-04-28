@@ -20,9 +20,13 @@ export default function Blog() {
       })
   }, [authContent])
 
+  const events = cbetContent.filter(
+    content => content.CategoryName === "Event" && content.Status === true
+  )
+
   return (
     <>
-      <Layout cbetContent={cbetContent} noCarousel>
+      <Layout cbetContent={cbetContent} events={events} noCarousel>
         <h1>Lessons From the Trenches</h1>
         <section className="post-meta">
           <p>
@@ -55,6 +59,7 @@ export default function Blog() {
         </ul>
         <ResponsiveEmbed aspectRatio="16by9">
           <iframe
+            title="youtube video"
             width="560"
             height="315"
             src="https://www.youtube.com/embed/zpOULjyy-n8"
