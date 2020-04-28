@@ -13,6 +13,7 @@ module.exports = {
     codeFunc: config.GATSBY_code,
     getCbetContentCode: config.cbetContentCode,
     gmap: config.GOOGLE_API_KEY,
+    cbetappid: config.CBET_AZURE_APPID
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
