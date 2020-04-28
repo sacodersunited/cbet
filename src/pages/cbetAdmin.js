@@ -7,19 +7,7 @@ import Container from "react-bootstrap/Container"
 import { navigate } from "gatsby"
 import { signInAuthProvider } from "../components/authProvider";
 
-class CbetAdmin extends Component {
-  constructor(props) {
-    super(props)
-
-    this.state = {
-      isAuthenticated: null,
-      user: {},
-      error: null,
-    }
-
-  }
-
-  render() {
+export default function CbetAdmin() {
     return (
       <AzureAD provider={signInAuthProvider} forceLogin={true}>
         <Layout>
@@ -45,7 +33,4 @@ class CbetAdmin extends Component {
         </Layout>
       </AzureAD>
     )
-  }
 }
-
-export default CbetAdmin

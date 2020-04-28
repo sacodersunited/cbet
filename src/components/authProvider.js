@@ -3,7 +3,7 @@ import "regenerator-runtime";
 
 const tenant = "cbettenant.onmicrosoft.com";
 const signInPolicy = "B2C_1_CbetAdminSignUpv1";
-const applicationID = "f52faa18-493f-44c7-9b2e-56a41f489147";
+const applicationID = process.env.CBET_AZURE_APPID;
 const reactRedirectUri = "http://localhost:8000";
 const tenantSubdomain = tenant.split(".")[0];
 const instance = `https://${tenantSubdomain}.b2clogin.com/tfp/`;
@@ -31,8 +31,9 @@ const authenticationParameters = {
 // Options
 const options = {
   loginType: LoginType.Redirect,
-  tokenRefreshUri: window.location.origin + "/auth.html"
+  // tokenRefreshUri: window.location.origin + "/auth.html"
 };
+
 export const signInAuthProvider = new MsalAuthProvider(
   signInConfig,
   authenticationParameters,
