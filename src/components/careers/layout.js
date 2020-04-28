@@ -10,7 +10,7 @@ import useJobsBG from "../../hooks/use-jobs-bg"
 export default function CareersLayout({
   children,
   noCarousel,
-  cbetContent,
+  cbetContent,  
   jobs,
 }) {
   // const jobs = useJobs()

@@ -26,7 +26,7 @@ export default function JobDetail({ job }) {
             />
           )}
           <h4 className="text-dark">{job.Title}</h4>
-          <Badge variant="primary" style={{ height: "26px" }}>
+          <Badge variant="primary" style={{ height: "21px" }}>
             <Moment format="MMM DD">{job.StartDate}</Moment>
           </Badge>
         </FlexRow>
@@ -37,18 +37,4 @@ export default function JobDetail({ job }) {
   )
 }
 
-JobDetail.propTypes = {
-  job: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      name: PropTypes.string.isRequired,
-      isFeatured: PropTypes.bool.isRequired,
-      description: PropTypes.string.isRequired,
-      link: PropTypes.string.isRequired,
-      image: PropTypes.object.isRequired,
-      status: PropTypes.string.isRequired,
-      startDate: PropTypes.string.isRequired,
-      endDate: PropTypes.string.isRequired,
-    })
-  ).isRequired,
-}
+JobDetail.propTypes = {}

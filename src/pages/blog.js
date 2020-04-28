@@ -1,13 +1,28 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 // import Slide from "react-reveal/Slide"
 import Layout from "../components/careers/layout"
 import { FaClock } from "react-icons/fa"
 import { Image, Badge, ResponsiveEmbed } from "react-bootstrap"
+import useCbetAuth from "../hooks/use-cbet-auth"
 
 export default function Blog() {
+  const authContent = useCbetAuth()
+  const [cbetContent, setCbetContent] = useState([])
+
+  useEffect(() => {
+    // get data from GitHub api
+    fetch(
+      `https://cbetcontent.azurewebsites.net/api/GetCbetContent?code=${authContent}`
+    )
+      .then(response => response.json()) // parse JSON from request
+      .then(resultData => {
+        setCbetContent(resultData)
+      })
+  }, [authContent])
+
   return (
     <>
-      <Layout noCarousel>
+      <Layout cbetContent={cbetContent} noCarousel>
         <h1>Lessons From the Trenches</h1>
         <section className="post-meta">
           <p>

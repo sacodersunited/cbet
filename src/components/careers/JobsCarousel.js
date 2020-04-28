@@ -49,7 +49,7 @@ export default function JobsCarousel({ jobs, bgImages }) {
                     Featured Sponsor
                   </Card.Subtitle>
                   <Card.Text>{job.Description.substring(0, 80)}...</Card.Text>
-                  <a href={job.link} target="_blank" rel="noopener noreferrer">
+                  <a href={job.Link} target="_blank" rel="noopener noreferrer">
                     <Button className="text-uppercase">Apply Now</Button>
                   </a>
                 </Card.Body>
