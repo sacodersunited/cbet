@@ -14,6 +14,6 @@ RUN npm install -g gatsby-cli
 
 WORKDIR /app
 COPY ./package.json .
-RUN npm install
+RUN npm install --silent && npm cache clear --force
 COPY . .
 CMD ["gatsby", "develop", "-H", "0.0.0.0" ]
