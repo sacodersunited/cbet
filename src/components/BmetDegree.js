@@ -16,7 +16,7 @@ import Slide from "react-reveal/Slide"
 import VideoCarousel from "../components/VideoCarousel"
 import { FaRegEnvelope } from "react-icons/fa"
 import BMETVid from "../video/cbetDegree-SD.mp4"
-import StudentCatalog from "../documents/CBET Course Catalog_Volume XVI_October 2019.pdf"
+import StudentCatalog from "../documents/CBET Course Catalog_Volume XVI_October 2019-2020.pdf"
 
 const ProgramDetail = styled.div`
   padding: 46px 0 46px 40px;
@@ -92,9 +92,9 @@ degree"
               <a
                 target="_blank"
                 rel="noopener noreferrer"
-                href="mailto:fsteinmeier@cbet.edu"
+                href="mailto:admissiondept@cbet.edu?subject=REQ: BMET Degree"
               >
-                fsteinmeier@cbet.edu
+                admissiondept@cbet.edu
               </a>
             </Card.Body>
           </Card>
@@ -108,7 +108,7 @@ degree"
           <Fade>
             <Col md="8">
               <h4>Program Cost</h4>
-              <p>$22,500</p>
+              <p>$23,095</p>
               <h4>Program Length</h4>
               <p>15 Months or 1065 hours </p>
               <h4>Student to Teacher Ratio</h4>

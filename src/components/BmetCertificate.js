@@ -16,7 +16,7 @@ import Slide from "react-reveal/Slide"
 import VideoCarousel from "../components/VideoCarousel"
 import { FaRegEnvelope } from "react-icons/fa"
 import BMETVid from "../video/cbetCert-SD.mp4"
-import StudentCatalog from "../documents/CBET Course Catalog_Volume XVI_October 2019.pdf"
+import StudentCatalog from "../documents/CBET Course Catalog_Volume XVI_October 2019-2020.pdf"
 
 const ProgramDetail = styled.div`
   padding: 46px 0 46px 40px;
@@ -93,9 +93,9 @@ the place for you. Visit our website to learn more!"
               <a
                 target="_blank"
                 rel="noopener noreferrer"
-                href="mailto:bisham@cbet.edu"
+                href="mailto:admissiondept@cbet.edu?subject=REQ: BMET Certificate"
               >
-                bisham@cbet.edu
+                admissiondept@cbet.edu
               </a>
             </Card.Body>
           </Card>
@@ -110,9 +110,9 @@ the place for you. Visit our website to learn more!"
           <Fade>
             <Col md="8">
               <h4>Program Cost</h4>
-              <p>$5,500</p>
+              <p>$6,095</p>
               <h4>Program Length</h4>
-              <p>6 Months or 400 hours</p>
+              <p>7.5 Months or 480 hours</p>
               <h4>Student to Teacher Ratio</h4>
               <p>30:1</p>
             </Col>

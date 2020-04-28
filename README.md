@@ -5,7 +5,7 @@
   </a>
 </p>
 <h1 align="center">
-  Cbet Staging site
+  College of Biomedical Equipment Technology
 </h1>
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/963e2ebf-4de0-462b-871a-46f5a6d09834/deploy-status)](https://app.netlify.com/sites/dazzling-darwin-78f815/deploys)
