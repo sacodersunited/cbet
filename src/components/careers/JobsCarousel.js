@@ -1,9 +1,9 @@
 import React from "react"
 import { Carousel, Container, Card, Button, Badge } from "react-bootstrap"
-import BackgroundImage from "gatsby-background-image"
 import Img from "gatsby-image"
 import styled from "styled-components"
 import PropTypes from "prop-types"
+import Moment from "react-moment"
 
 export default function JobsCarousel({ jobs, bgImages }) {
   const FlexRow = styled.div`
@@ -25,10 +25,10 @@ export default function JobsCarousel({ jobs, bgImages }) {
               <Card style={{ width: "18rem", padding: "20px 10px" }}>
                 <Card.Body style={{ color: "#212121" }}>
                   <Card.Title>
-                    {job.Image ? (
-                      <Img
-                        className="mb-3"
-                        fluid={job.image.childImageSharp.fluid}
+                    {job.Thumbnail ? (
+                      <img
+                        className="mb-3 w-50 d-block"
+                        src={job.Thumbnail}
                         alt={job.name}
                       />
                     ) : (
@@ -41,8 +41,7 @@ export default function JobsCarousel({ jobs, bgImages }) {
                     <FlexRow>
                       {job.Title}
                       <Badge variant="primary" style={{ height: "26px" }}>
-                        {/* TODO: CHange to starDate */}
-                        {job.CreatedDate}
+                        <Moment format="MMM DD">{job.StartDate}</Moment>
                       </Badge>
                     </FlexRow>
                   </Card.Title>
@@ -50,7 +49,7 @@ export default function JobsCarousel({ jobs, bgImages }) {
                     Featured Sponsor
                   </Card.Subtitle>
                   <Card.Text>{job.Description.substring(0, 80)}...</Card.Text>
-                  <a href={job.link} target="_blank" rel="noopener noreferrer">
+                  <a href={job.Link} target="_blank" rel="noopener noreferrer">
                     <Button className="text-uppercase">Apply Now</Button>
                   </a>
                 </Card.Body>

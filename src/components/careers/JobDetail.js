@@ -1,7 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
-import Img from "gatsby-image"
 import styled from "styled-components"
+import Moment from "react-moment"
 import { Badge } from "react-bootstrap"
 
 export default function JobDetail({ job }) {
@@ -17,11 +17,7 @@ export default function JobDetail({ job }) {
       <a href={job.Link} target="_blank" rel="noopener noreferrer">
         <FlexRow>
           {job.Thumbnail ? (
-            <Img
-              className="d-block w-50"
-              fluid={job.Thumbnail.childImageSharp.fluid}
-              alt={job.name}
-            />
+            <img className="d-block w-50" src={job.Thumbnail} alt={job.name} />
           ) : (
             <img
               src="https://about.att.com/ecms/dam/snrlogos/AT&T%20Logo.png"
@@ -30,9 +26,8 @@ export default function JobDetail({ job }) {
             />
           )}
           <h4 className="text-dark">{job.Title}</h4>
-          <Badge variant="primary" style={{ height: "26px" }}>
-            {/* TODO: Change to startDate */}
-            {job.CreatedDate}
+          <Badge variant="primary" style={{ height: "21px" }}>
+            <Moment format="MMM DD">{job.StartDate}</Moment>
           </Badge>
         </FlexRow>
       </a>
@@ -42,18 +37,4 @@ export default function JobDetail({ job }) {
   )
 }
 
-JobDetail.propTypes = {
-  job: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      name: PropTypes.string.isRequired,
-      isFeatured: PropTypes.bool.isRequired,
-      description: PropTypes.string.isRequired,
-      link: PropTypes.string.isRequired,
-      image: PropTypes.object.isRequired,
-      status: PropTypes.string.isRequired,
-      startDate: PropTypes.string.isRequired,
-      endDate: PropTypes.string.isRequired,
-    })
-  ).isRequired,
-}
+JobDetail.propTypes = {}

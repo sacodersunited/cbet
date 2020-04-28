@@ -4,18 +4,20 @@ import { Link } from "gatsby"
 import Layout from "../layout"
 import { Container, Col, Row, Button, Image, Badge } from "react-bootstrap"
 import JobsCarousel from "./JobsCarousel"
-import useEvents from "../../hooks/use-events"
 import useJobsBG from "../../hooks/use-jobs-bg"
+import Moment from "react-moment"
 
-export default function CareersLayout({
-  children,
-  noCarousel,
-  cbetContent,
-  jobs,
-}) {
-  // const jobs = useJobs()
+export default function CareersLayout({ children, noCarousel, cbetContent }) {
   const carouselBgImages = useJobsBG()
-  const events = useEvents()
+
+  const jobs = cbetContent.filter(
+    content => content.CategoryName === "Job" && content.Status === true
+  )
+  const featuredJobs = jobs.filter(job => job.Featured === true)
+
+  const events = cbetContent.filter(
+    content => content.CategoryName === "Event" && content.Status === true
+  )
 
   const blogPosts = cbetContent.filter(
     content => content.CategoryName === "Blog" && content.Status === true
@@ -29,7 +31,7 @@ export default function CareersLayout({
     <Layout>
       <>
         {!noCarousel ? (
-          <JobsCarousel jobs={jobs} bgImages={carouselBgImages} />
+          <JobsCarousel jobs={featuredJobs} bgImages={carouselBgImages} />
         ) : (
           // default banner image for blog posts
           <img
@@ -40,8 +42,6 @@ export default function CareersLayout({
         )}
 
         <Container className="mt-5">
-          {/* uncomment to debug */}
-          {/* {<pre>{JSON.stringify(carouselBgImages, null, 2)}</pre>} */}
           <Row>
             <Col md={6}>{children}</Col>
             <Col md={{ span: 4, offset: 2 }}>
@@ -50,18 +50,18 @@ export default function CareersLayout({
                   <h2>Events</h2>
                   <hr />
                   {events.map(event => (
-                    <div key={event.id}>
+                    <div key={event.Id}>
                       <Badge variant="primary" style={{ height: "20px" }}>
-                        {event.startDate}
+                        <Moment format="MMM DD">{event.StartDate}</Moment>
                       </Badge>{" "}
                       <a
-                        href={event.link}
+                        href={event.Link}
                         target="_blank"
                         rel="noopener noreferrer"
                         style={{ display: "inline-flex" }}
                       >
                         <p className="mt-0 mb-2">
-                          {event.name} @ {event.location}
+                          {event.Title} @ {event.Location}
                         </p>
                       </a>
                     </div>
