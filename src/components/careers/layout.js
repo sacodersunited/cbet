@@ -71,18 +71,24 @@ export default function CareersLayout({ children, noCarousel, cbetContent }) {
                   <h2>Latest Posts</h2>
                   <hr />
                   {blogPosts.length > 0
-                    ? blogPosts.map(post => (
-                        <div key={post.Id}>
-                          <Link to="/blog">
-                            <h4>{post.Title}</h4>
-                          </Link>
-                          <p
-                            dangerouslySetInnerHTML={createMarkup(
-                              post.Description.slice(0, 140) + "..."
-                            )}
-                          />
-                        </div>
-                      ))
+                    ? blogPosts.map(post => {
+                        return (
+                          <div key={post.Id}>
+                            <Link
+                              to={`/posts/${post.Title.toLowerCase()
+                                .replace(/ /g, "-")
+                                .replace(/[^\w-]+/g, "")}`}
+                            >
+                              <h4>{post.Title}</h4>
+                            </Link>
+                            <p
+                              dangerouslySetInnerHTML={createMarkup(
+                                post.Description.slice(0, 140) + "..."
+                              )}
+                            />
+                          </div>
+                        )
+                      })
                     : null}
                 </section>
               </aside>
