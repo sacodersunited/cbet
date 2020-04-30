@@ -1,7 +1,7 @@
 // ./gatsby-node.js
 const createPages = ({ graphql, actions: { createPage } }, type) =>
   new Promise((resolve, reject) => {
-    if (type === 'CbetContent') {
+    if (type === "CbetContent") {
       resolve(
         graphql(`
           query allCbetContent {
@@ -17,11 +17,11 @@ const createPages = ({ graphql, actions: { createPage } }, type) =>
           }
         `).then(result => {
           if (result.errors) {
-            reject(result.errors);
-            return;
+            reject(result.errors)
+            return
           }
 
-          const cbetContent = result.data['allCbetContent'].edges;
+          const cbetContent = result.data["allCbetContent"].edges
 
           // grab all the portletID and template you want to use
           // conditionally render templates for ea template ie Borden
@@ -29,30 +29,30 @@ const createPages = ({ graphql, actions: { createPage } }, type) =>
 
           // Create each page with custom slug
           cbetContent.forEach(({ node }) => {
-            const slugPath = `/${node.Title.toLowerCase()
-              .replace(/ /g, '-')
-              .replace(/[^\w-]+/g, '')}`;
+            const slugPath = `/posts/${node.Title.toLowerCase()
+              .replace(/ /g, "-")
+              .replace(/[^\w-]+/g, "")}`
 
-              if(node.Category === 3){
-                createPage({
-                  path: slugPath,
-                  component: require.resolve('./src/template/blog.js'),
-                  context: {
-                    id: node.Id
-                  }
-                });
-              }
-          });
+            if (node.Category === 3) {
+              createPage({
+                path: slugPath,
+                component: require.resolve("./src/template/blog.js"),
+                context: {
+                  id: node.Id,
+                },
+              })
+            }
+          })
         })
-      );
+      )
     } else {
       // do nothing
     }
-  });
+  })
 
 exports.createPages = async props => {
-  await createPages(props, 'CbetContent');
-};
+  await createPages(props, "CbetContent")
+}
 
 // above code unchanged
 exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {

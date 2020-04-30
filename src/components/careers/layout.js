@@ -6,17 +6,25 @@ import { Container, Col, Row, Button, Image, Badge } from "react-bootstrap"
 import JobsCarousel from "./JobsCarousel"
 import useJobsBG from "../../hooks/use-jobs-bg"
 import Moment from "react-moment"
+import { FaFrown } from "react-icons/fa"
 
 export default function CareersLayout({ children, noCarousel, cbetContent }) {
+  const today = new Date()
   const carouselBgImages = useJobsBG()
 
   const jobs = cbetContent.filter(
-    content => content.CategoryName === "Job" && content.Status === true
+    content =>
+      content.CategoryName === "Job" &&
+      content.Status === true &&
+      today < content.EndDate
   )
   const featuredJobs = jobs.filter(job => job.Featured === true)
 
   const events = cbetContent.filter(
-    content => content.CategoryName === "Event" && content.Status === true
+    content =>
+      content.CategoryName === "Event" &&
+      content.Status === true &&
+      today < content.EndDate
   )
 
   const blogPosts = cbetContent.filter(
@@ -30,7 +38,7 @@ export default function CareersLayout({ children, noCarousel, cbetContent }) {
   return (
     <Layout>
       <>
-        {!noCarousel ? (
+        {!noCarousel && featuredJobs.length > 0 ? (
           <JobsCarousel jobs={featuredJobs} bgImages={carouselBgImages} />
         ) : (
           // default banner image for blog posts
@@ -49,40 +57,52 @@ export default function CareersLayout({ children, noCarousel, cbetContent }) {
                 <section id="events">
                   <h2>Events</h2>
                   <hr />
-                  {events.map(event => (
-                    <div key={event.Id}>
-                      <Badge variant="primary" style={{ height: "20px" }}>
-                        <Moment format="MMM DD">{event.StartDate}</Moment>
-                      </Badge>{" "}
-                      <a
-                        href={event.Link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        style={{ display: "inline-flex" }}
-                      >
-                        <p className="mt-0 mb-2">
-                          {event.Title} @ {event.Location}
-                        </p>
-                      </a>
-                    </div>
-                  ))}
+                  {events.length > 0 ? (
+                    events.map(event => (
+                      <div key={event.Id}>
+                        <Badge variant="primary" style={{ height: "20px" }}>
+                          <Moment format="MMM DD">{event.StartDate}</Moment>
+                        </Badge>{" "}
+                        <a
+                          href={event.Link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          style={{ display: "inline-flex" }}
+                        >
+                          <p className="mt-0 mb-2">
+                            {event.Title} @ {event.Location}
+                          </p>
+                        </a>
+                      </div>
+                    ))
+                  ) : (
+                    <p>
+                      <FaFrown color="goldenrod" /> Sorry no events.
+                    </p>
+                  )}
                 </section>
                 <section id="blog" className="mt-5">
                   <h2>Latest Posts</h2>
                   <hr />
                   {blogPosts.length > 0
-                    ? blogPosts.map(post => (
-                        <div key={post.Id}>
-                          <Link to="/blog">
-                            <h4>{post.Title}</h4>
-                          </Link>
-                          <p
-                            dangerouslySetInnerHTML={createMarkup(
-                              post.Description.slice(0, 140) + "..."
-                            )}
-                          />
-                        </div>
-                      ))
+                    ? blogPosts.map(post => {
+                        return (
+                          <div key={post.Id}>
+                            <Link
+                              to={`/posts/${post.Title.toLowerCase()
+                                .replace(/ /g, "-")
+                                .replace(/[^\w-]+/g, "")}`}
+                            >
+                              <h4>{post.Title}</h4>
+                            </Link>
+                            <p
+                              dangerouslySetInnerHTML={createMarkup(
+                                post.Description.slice(0, 140) + "..."
+                              )}
+                            />
+                          </div>
+                        )
+                      })
                     : null}
                 </section>
               </aside>

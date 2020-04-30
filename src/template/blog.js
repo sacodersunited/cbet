@@ -1,20 +1,50 @@
-import React from 'react';
-import { graphql } from 'gatsby';
+import React, { useEffect, useState } from "react"
+import { graphql } from "gatsby"
+import { FaClock } from "react-icons/fa"
+import Layout from "../components/careers/layout"
+import useCbetAuth from "../hooks/use-cbet-auth"
+import Moment from "react-moment"
 
 //eslint-disable-next-line
 export default ({ data }) => {
-  console.log('data', data);
- 
+  const authContent = useCbetAuth()
+  const [cbetContent, setCbetContent] = useState([])
+
+  useEffect(() => {
+    // get data from GitHub api
+    fetch(
+      `https://cbetcontent.azurewebsites.net/api/GetCbetContent?code=${authContent}`
+    )
+      .then(response => response.json()) // parse JSON from request
+      .then(resultData => {
+        setCbetContent(resultData)
+      })
+  }, [authContent])
+
+  const events = cbetContent.filter(
+    content => content.CategoryName === "Event" && content.Status === true
+  )
+
   return (
-    <>
+    <Layout cbetContent={cbetContent} events={events} noCarousel>
       <h1>{data.cbetContent.Title}</h1>
-      <div dangerouslySetInnerHTML={{ __html: data.cbetContent.Description }} />
-    </>
-  );
-};
+      <section className="post-meta">
+        <p>
+          by {data.cbetContent.Author} posted on:{" "}
+          <Moment format="MMM DD, YYYY">{data.cbetContent.StartDate}</Moment>{" "}
+          <FaClock />{" "}
+          <Moment fromNow="MMM DD, YYYY">{data.cbetContent.StartDate}</Moment>
+        </p>
+      </section>
+      <main
+        dangerouslySetInnerHTML={{ __html: data.cbetContent.Description }}
+      />
+    </Layout>
+  )
+}
 export const query = graphql`
   query CbetBlog($id: Int) {
-    cbetContent(Id: {eq: $id}) {
+    cbetContent(Id: { eq: $id }) {
       Id
       Title
       Author
@@ -36,4 +66,4 @@ export const query = graphql`
       Link
     }
   }
-`;
+`
