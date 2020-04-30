@@ -1,3 +1,29 @@
+export function formatDate(date, withTime, withSlashes) {
+  const monthNames = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ]
+  const dateF = new Date(date)
+  const day = dateF.getDate()
+  const monthIndex = dateF.getMonth()
+  console.log("##date in formatDAte", dateF, "monthIndex", monthIndex)
+  const year = dateF.getFullYear()
+  const time = dateF.toLocaleTimeString()
+  if (withTime) return `${monthIndex + 1}/${day}/${year} ${time}`
+  if (withSlashes) return `${monthIndex + 1}/${day}/${year}`
+  return `${day} ${monthNames[monthIndex]} ${year}`
+}
+
 export const isEmpty = obj => {
   for (var key in obj) {
     if (obj.hasOwnProperty(key)) return false

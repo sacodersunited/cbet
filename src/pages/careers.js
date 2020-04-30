@@ -5,6 +5,7 @@ import Layout from "../components/careers/layout"
 import SEO from "../components/seo"
 import JobDetail from "../components/careers/JobDetail"
 import useCbetAuth from "../hooks/use-cbet-auth"
+import { formatDate } from "../utils/utility"
 
 export default function Careers() {
   const today = new Date()
@@ -22,12 +23,19 @@ export default function Careers() {
       })
   }, [authContent])
 
-  const jobs = cbetContent.filter(
-    content =>
-      content.CategoryName === "Job" &&
-      content.Status === true &&
-      today < content.EndDate
-  )
+  const jobs = cbetContent.filter(content => {
+    const newEndDate = new Date(formatDate(content.EndDate, true))
+
+    if (
+      today < newEndDate &&
+      content.Category === 1 &&
+      content.Status === true
+    ) {
+      return content
+    }
+
+    return null
+  })
 
   return (
     <Layout cbetContent={cbetContent}>

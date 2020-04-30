@@ -7,24 +7,32 @@ import JobsCarousel from "./JobsCarousel"
 import useJobsBG from "../../hooks/use-jobs-bg"
 import Moment from "react-moment"
 import { FaFrown } from "react-icons/fa"
+import { formatDate } from "../../utils/utility"
 
 export default function CareersLayout({ children, noCarousel, cbetContent }) {
   const today = new Date()
   const carouselBgImages = useJobsBG()
 
-  const jobs = cbetContent.filter(
-    content =>
-      content.CategoryName === "Job" &&
-      content.Status === true &&
-      today < content.EndDate
-  )
+  const jobs = cbetContent.filter(content => {
+    const newEndDate = new Date(formatDate(content.EndDate, true))
+    if (
+      today < newEndDate &&
+      content.Category === 1 &&
+      content.Status === true
+    ) {
+      return content
+    }
+
+    return null
+  })
+
   const featuredJobs = jobs.filter(job => job.Featured === true)
 
   const events = cbetContent.filter(
     content =>
       content.CategoryName === "Event" &&
       content.Status === true &&
-      today < content.EndDate
+      today < new Date(formatDate(content.EndDate, true))
   )
 
   const blogPosts = cbetContent.filter(
