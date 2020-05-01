@@ -20,7 +20,7 @@ const Admin = () => {
     <Layout>
       <SEO title="Admin" />
 
-      <h2 className="pt-5 pb-5">Cbet Administration</h2>
+      <h2 className="pt-5 pb-5">Dasboard</h2>
       <ListGroup style={{ height: "45vh" }}>
         <ListGroup.Item
           variant="primary"
