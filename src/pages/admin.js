@@ -2,7 +2,7 @@ import React from "react"
 import SEO from "../components/seo"
 import ListGroup from "react-bootstrap/ListGroup"
 // import { login, isAuthenticated, getProfile } from "../utils/auth"
-import Layout from "../components/layout"
+import Layout from "../components/admin/layout"
 import Container from "react-bootstrap/Container"
 import { navigate } from "gatsby"
 
@@ -19,21 +19,20 @@ const Admin = () => {
   return (
     <Layout>
       <SEO title="Admin" />
-      <Container>
-        <h2 className="pt-5 pb-5">Cbet Administration</h2>
-        <ListGroup style={{ height: "45vh" }}>
-          <ListGroup.Item
-            variant="primary"
-            action
-            onClick={() => navigate("/schedule/")}
-          >
-            Class Scheduler
-          </ListGroup.Item>
-          <ListGroup.Item action variant="secondary">
-            Next Feature (Coming soon)
-          </ListGroup.Item>
-        </ListGroup>
-      </Container>
+
+      <h2 className="pt-5 pb-5">Cbet Administration</h2>
+      <ListGroup style={{ height: "45vh" }}>
+        <ListGroup.Item
+          variant="primary"
+          action
+          onClick={() => navigate("/schedule/")}
+        >
+          Class Scheduler
+        </ListGroup.Item>
+        <ListGroup.Item action variant="secondary">
+          Next Feature (Coming soon)
+        </ListGroup.Item>
+      </ListGroup>
     </Layout>
   )
 }

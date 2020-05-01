@@ -9,6 +9,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import Helmet from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
+import "bootstrap/dist/css/bootstrap.min.css"
 
 function SEO({ description, lang, meta, keywords, title }) {
   const { site } = useStaticQuery(
@@ -35,14 +36,6 @@ function SEO({ description, lang, meta, keywords, title }) {
       title={title}
       titleTemplate={title}
       link={[
-        {
-          rel: "stylesheet",
-          href:
-            "https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css",
-          integrity:
-            "sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T",
-          crossOrigin: "anonymous",
-        },
         {
           rel: "stylesheet",
           href:
