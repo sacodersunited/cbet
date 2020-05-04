@@ -12,7 +12,7 @@ const AdminCreate = () => {
   return (
     <Layout title="Create/Edit">
       <SEO title="Admin Create Edit" />
-      <Container>
+      <Container fluid>
         <Row>
           <Col md={4}>
             <Form.Group controlId="selectCategory">
