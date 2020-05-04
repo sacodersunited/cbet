@@ -122,6 +122,7 @@ export default function Layout({ title, children, user }) {
               </Container>
             )
           case AuthenticationState.Unauthenticated:
+            // TODO: ADD Cbet Styles for unauthenticated
             return (
               <div>
                 {error && (
@@ -138,6 +139,7 @@ export default function Layout({ title, children, user }) {
               </div>
             )
           case AuthenticationState.InProgress:
+            // TODO: ADD Cbet Styles for unauthenticating
             return <p>Authenticating...</p>
           default:
             return null
