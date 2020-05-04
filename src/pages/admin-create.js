@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form"
 import { signInAuthProvider } from "../components/authProvider"
 import SEO from "../components/seo"
 import Layout from "../components/admin/layout"
+import CbetDropzone from "../components/CbetDropzone"
 
 const AdminCreate = () => {
   const { register, handleSubmit, watch, errors } = useForm()
@@ -34,12 +35,18 @@ const AdminCreate = () => {
                       </Form.Group>
 
                       <Form.Group controlId="TitleHere">
-                        <Form.Control as="text" ref={register()}></Form.Control>
+                        <Form.Control
+                          type="text"
+                          ref={register()}
+                        ></Form.Control>
                         <Form.Label>Title of Blog Post</Form.Label>
                       </Form.Group>
 
                       <Form.Group controlId="AuthorHere">
-                        <Form.Control as="text" ref={register()}></Form.Control>
+                        <Form.Control
+                          type="text"
+                          ref={register()}
+                        ></Form.Control>
                         <Form.Label>Author</Form.Label>
                       </Form.Group>
 
@@ -90,7 +97,9 @@ const AdminCreate = () => {
                         </Form.Group>
                       </Form.Row>
 
-                      <Form.Group>Banner image</Form.Group>
+                      <Form.Group>
+                        <CbetDropzone></CbetDropzone>
+                      </Form.Group>
 
                       <Form.Row>
                         <Form.Group as={Col}>
