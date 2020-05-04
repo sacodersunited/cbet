@@ -1,13 +1,13 @@
 import React from "react"
 import { AzureAD, AuthenticationState } from "react-aad-msal"
-import { Button } from "react-bootstrap"
+import { Button, Container, Row, Col, Form } from "react-bootstrap"
+import { useForm } from "react-hook-form"
 import { signInAuthProvider } from "../components/authProvider"
 import SEO from "../components/seo"
 import Layout from "../components/admin/layout"
 
 const AdminCreate = () => {
-  const user = null
-  console.log("user", user)
+  const { register, handleSubmit, watch, errors } = useForm()
   return (
     <AzureAD provider={signInAuthProvider} forceLogin={true}>
       {({ login, logout, authenticationState, error, accountInfo }) => {
@@ -16,10 +16,94 @@ const AdminCreate = () => {
             return (
               <Layout title="Create/Edit">
                 <SEO title="Admin Create Edit" />
-                <p>edit the this page from </p>
-                <pre className="p-3 mb-2 bg-dark text-white">
-                  /src/pages/admin-create
-                </pre>
+                <Container>
+                  <Row>
+                    <Col md={4}>
+                      <Form.Group controlId="selectCategory">
+                        <Form.Control
+                          as="select"
+                          name="category"
+                          ref={register()}
+                        >
+                          <option value="">Select</option>
+                          <option value="Job">Job</option>
+                          <option value="Event">Event</option>
+                          <option value="Blog">Blog</option>
+                        </Form.Control>
+                        <Form.Label>Job, Event or Blog Post</Form.Label>
+                      </Form.Group>
+
+                      <Form.Group controlId="TitleHere">
+                        <Form.Control as="text" ref={register()}></Form.Control>
+                        <Form.Label>Title of Blog Post</Form.Label>
+                      </Form.Group>
+
+                      <Form.Group controlId="AuthorHere">
+                        <Form.Control as="text" ref={register()}></Form.Control>
+                        <Form.Label>Author</Form.Label>
+                      </Form.Group>
+
+                      <Form.Row controlId="selectCategory">
+                        <Form.Group as={Col}>
+                          <Form.Control
+                            style={{ width: "75px" }}
+                            as="select"
+                            name="month"
+                            ref={register()}
+                          >
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                          </Form.Control>
+                          <Form.Label>Month</Form.Label>
+                        </Form.Group>
+
+                        <Form.Group as={Col}>
+                          <Form.Control
+                            style={{ width: "75px" }}
+                            as="select"
+                            name="day"
+                            ref={register()}
+                          >
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                          </Form.Control>
+                          <Form.Label>Day</Form.Label>
+                        </Form.Group>
+
+                        <Form.Group as={Col}>
+                          <Form.Control
+                            style={{ width: "100px" }}
+                            as="select"
+                            name="year"
+                            ref={register()}
+                          >
+                            <option value="2020">2020</option>
+                            <option value="2019">2019</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                          </Form.Control>
+                          <Form.Label>Year</Form.Label>
+                        </Form.Group>
+                      </Form.Row>
+
+                      <Form.Group>Banner image</Form.Group>
+
+                      <Form.Row>
+                        <Form.Group as={Col}>
+                          <Button>Save</Button>
+                        </Form.Group>
+                        <Form.Group as={Col}>
+                          <Button>Cancel</Button>
+                        </Form.Group>
+                      </Form.Row>
+                    </Col>
+                    <Col md={8}>editor here</Col>
+                  </Row>
+                </Container>
               </Layout>
             )
           case AuthenticationState.Unauthenticated:
