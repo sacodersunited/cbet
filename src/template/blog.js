@@ -4,6 +4,7 @@ import { FaClock } from "react-icons/fa"
 import Layout from "../components/careers/layout"
 import useCbetAuth from "../hooks/use-cbet-auth"
 import Moment from "react-moment"
+import SEO from "../components/seo"
 
 //eslint-disable-next-line
 export default ({ data }) => {
@@ -27,6 +28,12 @@ export default ({ data }) => {
 
   return (
     <Layout cbetContent={cbetContent} events={events} noCarousel>
+      <SEO
+        title="Biomedical Training Certification Online Blog"
+        description="Are you
+looking to get your BMET certificate? College of Biomedical Equipment Technology is
+the place for you. Visit our website to learn more!"
+      />
       <h1>{data.cbetContent.Title}</h1>
       <section className="post-meta">
         <p>
