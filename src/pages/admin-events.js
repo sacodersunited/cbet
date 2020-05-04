@@ -3,7 +3,7 @@ import SEO from "../components/seo"
 // import { login, isAuthenticated, getProfile } from "../utils/auth"
 import Layout from "../components/admin/layout"
 
-const Admin = () => {
+const AdminEvents = () => {
   // if (!isAuthenticated()) {
   //   console.log("not authenticated")
   //   login()
@@ -14,12 +14,12 @@ const Admin = () => {
   const user = null
   console.log("user", user)
   return (
-    <Layout title="Dashboard">
-      <SEO title="Admin" />
+    <Layout title="Events">
+      <SEO title="Admin Events" />
       <p>edit the this page from </p>
-      <pre className="p-3 mb-2 bg-dark text-white">/src/pages/admin</pre>
+      <pre className="p-3 mb-2 bg-dark text-white">/src/pages/admin-events</pre>
     </Layout>
   )
 }
 
-export default Admin
+export default AdminEvents

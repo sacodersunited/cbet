@@ -7,6 +7,7 @@ import { Link } from "gatsby"
 import { signInAuthProvider } from "../components/authProvider"
 
 export default function CbetAdmin() {
+  // TODO: if auth, can they go straight to the /admin page?
   return (
     <AzureAD provider={signInAuthProvider} forceLogin={true}>
       {({ login, logout, authenticationState, error, accountInfo }) => {
