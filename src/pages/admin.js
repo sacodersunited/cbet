@@ -3,7 +3,6 @@ import SEO from "../components/seo"
 import ListGroup from "react-bootstrap/ListGroup"
 // import { login, isAuthenticated, getProfile } from "../utils/auth"
 import Layout from "../components/admin/layout"
-import Container from "react-bootstrap/Container"
 import { navigate } from "gatsby"
 
 const Admin = () => {
@@ -20,19 +19,11 @@ const Admin = () => {
     <Layout>
       <SEO title="Admin" />
 
-      <h2 className="pt-5 pb-5">Dasboard</h2>
-      <ListGroup style={{ height: "45vh" }}>
-        <ListGroup.Item
-          variant="primary"
-          action
-          onClick={() => navigate("/schedule/")}
-        >
-          Class Scheduler
-        </ListGroup.Item>
-        <ListGroup.Item action variant="secondary">
-          Next Feature (Coming soon)
-        </ListGroup.Item>
-      </ListGroup>
+      <h2 className="pt-5 p b-5">Dashboard</h2>
+      <p>
+        edit the dashboard from{" "}
+        <pre className="p-3 mb-2 bg-dark text-white">/src/pages/admin</pre>
+      </p>
     </Layout>
   )
 }
