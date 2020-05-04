@@ -11,6 +11,8 @@ import {
 } from "react-bootstrap"
 import { Link } from "gatsby"
 import { FaChevronDown } from "react-icons/fa"
+import { AzureAD, AuthenticationState } from "react-aad-msal"
+import { signInAuthProvider } from "./../authProvider"
 
 function SideNav() {
   return (
@@ -65,51 +67,82 @@ function SideNav() {
   )
 }
 
-export default function Layout({ title, children }) {
+export default function Layout({ title, children, user }) {
   return (
-    <Container fluid>
-      <Row className="flex-xl-nowrap">
-        <SideNav />
-        <Col md={10}>
-          <Navbar expand="lg" variant="light" bg="light">
-            <Form className="w-75" inline>
-              <FormControl
-                type="text"
-                placeholder="&#x1F50D; Search for jobs, events, and posts"
-                className="mr-sm-2 w-100"
-              />
-            </Form>
-            <Navbar.Toggle />
-            <Navbar.Collapse className="justify-content-end">
-              <Navbar.Text>
-                Signed in as: <a href="#login">CBET Admin</a>
-              </Navbar.Text>
-            </Navbar.Collapse>
-          </Navbar>
+    <AzureAD provider={signInAuthProvider} forceLogin={true}>
+      {({ login, logout, authenticationState, error, accountInfo }) => {
+        console.log("acct", accountInfo.account.name)
+        switch (authenticationState) {
+          case AuthenticationState.Authenticated:
+            return (
+              <Container fluid>
+                <Row className="flex-xl-nowrap">
+                  <SideNav />
+                  <Col md={10}>
+                    <Navbar expand="lg" variant="light" bg="light">
+                      <Form className="w-75" inline>
+                        <FormControl
+                          type="text"
+                          placeholder="&#x1F50D; Search for jobs, events, and posts"
+                          className="mr-sm-2 w-100"
+                        />
+                      </Form>
+                      <Navbar.Toggle />
+                      <Navbar.Collapse className="justify-content-end">
+                        <Navbar.Text>
+                          Signed in as:
+                          <a href="#login">{` ${accountInfo.account.name}`}</a>
+                        </Navbar.Text>
+                      </Navbar.Collapse>
+                    </Navbar>
 
-          <Row className="pt-5 pb-5">
-            <Col md={2}>
-              <h2>{title}</h2>
-            </Col>
-            <Col md={2}>
-              <Link to="admin-create">
-                <Button variant="outline-primary">Create New</Button>
-              </Link>
-            </Col>
-            <Col md={2}>
-              <p>
-                Filter One <FaChevronDown />
-              </p>
-            </Col>
-            <Col md={2}>
-              <p>
-                Filter Two <FaChevronDown />
-              </p>
-            </Col>
-          </Row>
-          {children}
-        </Col>
-      </Row>
-    </Container>
+                    <Row className="pt-5 pb-5">
+                      <Col md={2}>
+                        <h2>{title}</h2>
+                      </Col>
+                      <Col md={2}>
+                        <Link to="admin-create">
+                          <Button variant="outline-primary">Create New</Button>
+                        </Link>
+                      </Col>
+                      <Col md={2}>
+                        <p>
+                          Filter One <FaChevronDown />
+                        </p>
+                      </Col>
+                      <Col md={2}>
+                        <p>
+                          Filter Two <FaChevronDown />
+                        </p>
+                      </Col>
+                    </Row>
+                    {children}
+                  </Col>
+                </Row>
+              </Container>
+            )
+          case AuthenticationState.Unauthenticated:
+            return (
+              <div>
+                {error && (
+                  <p>
+                    <span>
+                      An error occurred during authentication, please try again!
+                    </span>
+                  </p>
+                )}
+                <p>
+                  <span>Please Login to continue.</span>
+                  <Button onClick={login}>Login</Button>
+                </p>
+              </div>
+            )
+          case AuthenticationState.InProgress:
+            return <p>Authenticating...</p>
+          default:
+            return null
+        }
+      }}
+    </AzureAD>
   )
 }

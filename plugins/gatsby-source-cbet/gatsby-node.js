@@ -1,42 +1,42 @@
-const fetch = require('node-fetch');
+const fetch = require("node-fetch")
 
 const apiRequest = {
   GETCBETCLASSSES: `https://cbetclasses.azurewebsites.net/api/GetCbetClasses?code=`,
-  GETCBETCONTENT: `https://cbetcontent.azurewebsites.net/api/GetCbetContent?code=`
-};
+  GETCBETCONTENT: `https://cbetcontent.azurewebsites.net/api/GetCbetContent?code=`,
+}
 
 const apiRequestType = {
-  cbetclasses: 'classes',
-  cbetcontent: 'content',
-};
+  cbetclasses: "classes",
+  cbetcontent: "content",
+}
 
 async function getCbetData(getRequestType, cbetcode) {
   const options = {
-    method: 'GET',
-    credentials: 'include'
-  };
-
-  let getRequest = '';
-  switch (getRequestType) {
-    case apiRequestType.cbetclasses:
-      getRequest = apiRequest.GETCBETCLASSSES + cbetcode;
-      break;
-    case apiRequestType.cbetcontent:
-      getRequest = apiRequest.GETCBETCONTENT + cbetcode;
-      break;
-    default:
-      getRequest = '';
+    method: "GET",
+    credentials: "include",
   }
 
-  const apiData = await (await fetch(getRequest, options)).json();
-  return apiData;
+  let getRequest = ""
+  switch (getRequestType) {
+    case apiRequestType.cbetclasses:
+      getRequest = apiRequest.GETCBETCLASSSES + cbetcode
+      break
+    case apiRequestType.cbetcontent:
+      getRequest = apiRequest.GETCBETCONTENT + cbetcode
+      break
+    default:
+      getRequest = ""
+  }
+
+  const apiData = await (await fetch(getRequest, options)).json()
+  return apiData
 }
 
 exports.sourceNodes = async (
   { actions, createNodeId, createContentDigest },
   configOptions
 ) => {
-  const { createNode } = actions;
+  const { createNode } = actions
 
   // Gatsby adds a configOption that's not needed for this plugin, delete it
   delete configOptions.plugins
@@ -73,22 +73,26 @@ exports.sourceNodes = async (
     return nodeData
   }
 
-  console.log("configOptions", configOptions)
-
-  const classesData = await getCbetData(apiRequestType.cbetclasses, configOptions.code);
-  const contentData = await getCbetData(apiRequestType.cbetcontent, configOptions.appid);
+  const classesData = await getCbetData(
+    apiRequestType.cbetclasses,
+    configOptions.code
+  )
+  const contentData = await getCbetData(
+    apiRequestType.cbetcontent,
+    configOptions.appid
+  )
 
   classesData.forEach(item => {
-    const nodeData = processCbetClass(item);
+    const nodeData = processCbetClass(item)
 
-    createNode(nodeData);
-  });
+    createNode(nodeData)
+  })
 
   contentData.forEach(item => {
-    const nodeData = processCbetContent(item);
+    const nodeData = processCbetContent(item)
 
-    createNode(nodeData);
-  });
+    createNode(nodeData)
+  })
 
-  return;
-};
+  return
+}
