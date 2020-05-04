@@ -11,6 +11,8 @@ export default function CbetAdmin() {
   return (
     <AzureAD provider={signInAuthProvider} forceLogin={true}>
       {({ login, logout, authenticationState, error, accountInfo }) => {
+        console.log(`Auth state is ${AuthenticationState}`)
+        console.log(`error is ${error}`)
         switch (authenticationState) {
           case AuthenticationState.Authenticated:
             return (
@@ -68,6 +70,9 @@ export default function CbetAdmin() {
           case AuthenticationState.InProgress:
             return <p>Authenticating...</p>
           default:
+            console.log(`Auth state is ${AuthenticationState}`)
+            console.log(`error is ${error}`)
+
             return null
         }
       }}

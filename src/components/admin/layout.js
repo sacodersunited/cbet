@@ -65,7 +65,7 @@ function SideNav() {
   )
 }
 
-export default function Layout({ title, children }) {
+export default function Layout({ title, children, user }) {
   return (
     <Container fluid>
       <Row className="flex-xl-nowrap">
@@ -82,7 +82,8 @@ export default function Layout({ title, children }) {
             <Navbar.Toggle />
             <Navbar.Collapse className="justify-content-end">
               <Navbar.Text>
-                Signed in as: <a href="#login">CBET Admin</a>
+                Signed in as:
+                <a href="#login">{user}</a>
               </Navbar.Text>
             </Navbar.Collapse>
           </Navbar>
