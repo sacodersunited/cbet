@@ -86,7 +86,7 @@ const Footer = () => (
               rel="noopener noreferrer"
               className="d-block text-light mb-3"
               href="https://www.facebook.com/CBETCOLLEGE/"
-              aria-label="College of Biomedical Equipment Technology on facebook"
+              aria-label="College of Biomedical Equipment Technology on Facebook"
             >
               <FaFacebookF
                 className="mr-3"
@@ -100,7 +100,7 @@ const Footer = () => (
               rel="noopener noreferrer"
               className="d-block text-light mb-3"
               href="https://www.linkedin.com/company/cbetcollege/"
-              aria-label="College of Biomedical Equipment Technology on linkedin"
+              aria-label="College of Biomedical Equipment Technology on LinkedIn"
             >
               <FaLinkedinIn
                 className="mr-3"
