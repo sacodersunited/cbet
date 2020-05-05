@@ -26,8 +26,6 @@ const FooterSection = styled.footer`
   padding: 96px 0;
 `
 
-// TODO: Add links as we build these pages
-
 const Footer = () => (
   <>
     <FooterSection className="bg-dark">
@@ -73,6 +71,7 @@ const Footer = () => (
             >
               Provide Website Feedback
             </a>
+            {/* TODO: Add link */}
             <a className="d-block text-light mb-3" disabled>
               Accessibility Statement
             </a>
