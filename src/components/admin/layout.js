@@ -33,8 +33,9 @@ export default function Layout({ title, children, user }) {
                 cbetContent={cbetContent}
                 signedInUser={accountInfo.account.name}
                 title={title}
-                children={children}
-              />
+              >
+                {children}
+              </AuthenticatedLayout>
             )
           case AuthenticationState.Unauthenticated:
             // TODO: ADD Cbet Styles for unauthenticated
