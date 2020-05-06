@@ -114,9 +114,8 @@ export default function AuthenticatedLayout({
             </Col>
           </Row>
           {/* TODO: cbetContent still not getting to child below */}
-          <div children={children} cbetContent={cbetContent} />
           {/* <pre>{JSON.stringify(cbetContent, null, 2)}</pre> */}
-          {/* {children} */}
+          {children}
         </Col>
       </Row>
     </Container>
