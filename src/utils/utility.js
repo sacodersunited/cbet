@@ -1,3 +1,6 @@
+const MonthDays = { FullMonth: 31, Thirty: 30, NonLeapYear: 28, LeapYear: 29 }
+Object.freeze(MonthDays)
+
 export function formatDate(date, withTime, withSlashes) {
   const monthNames = [
     "January",
@@ -116,4 +119,38 @@ export const getLocationToAddress = location => {
     .catch(e => {
       console.log(e)
     })
+}
+
+export function calculateDays(month, yearSelected) {
+  let daysArrayLength = 31
+
+  if (month === "" || yearSelected === "") {
+    return daysArrayLength
+  }
+
+  if (
+    month === "01" ||
+    month === "03" ||
+    month === "05" ||
+    month === "07" ||
+    month === "08" ||
+    month === "10" ||
+    month === "12"
+  ) {
+    // these are 31 days
+    daysArrayLength = MonthDays.FullMonth
+  } else if (month === "02" && isLeapYear(yearSelected) === true) {
+    daysArrayLength = MonthDays.LeapYear
+  } else if (month === "02") {
+    daysArrayLength = MonthDays.NonLeapYear
+  } else if (
+    month === "04" ||
+    month === "06" ||
+    month === "09" ||
+    month === "11"
+  ) {
+    daysArrayLength = MonthDays.Thirty
+  }
+
+  return daysArrayLength
 }
