@@ -26,8 +26,6 @@ const FooterSection = styled.footer`
   padding: 96px 0;
 `
 
-// TODO: Add links as we build these pages
-
 const Footer = () => (
   <>
     <FooterSection className="bg-dark">
@@ -73,6 +71,7 @@ const Footer = () => (
             >
               Provide Website Feedback
             </a>
+            {/* TODO: Add link */}
             <a className="d-block text-light mb-3" disabled>
               Accessibility Statement
             </a>
@@ -86,7 +85,7 @@ const Footer = () => (
               rel="noopener noreferrer"
               className="d-block text-light mb-3"
               href="https://www.facebook.com/CBETCOLLEGE/"
-              aria-label="College of Biomedical Equipment Technology on facebook"
+              aria-label="College of Biomedical Equipment Technology on Facebook"
             >
               <FaFacebookF
                 className="mr-3"
@@ -100,7 +99,7 @@ const Footer = () => (
               rel="noopener noreferrer"
               className="d-block text-light mb-3"
               href="https://www.linkedin.com/company/cbetcollege/"
-              aria-label="College of Biomedical Equipment Technology on linkedin"
+              aria-label="College of Biomedical Equipment Technology on LinkedIn"
             >
               <FaLinkedinIn
                 className="mr-3"
@@ -108,7 +107,7 @@ const Footer = () => (
               />
               LinkedIn
             </a>
-            <a className="d-block text-light mb-3">
+            <Link to="/cbetAdmin" className="d-block text-light mb-3">
               <FaUserLock
                 style={{
                   verticalAlign: "text-bottom",
@@ -117,7 +116,7 @@ const Footer = () => (
                 }}
               />
               Admin Portal
-            </a>
+            </Link>
             {/* {isAuthenticated() === true && user !== null ? (
                 <>
                   <Link
