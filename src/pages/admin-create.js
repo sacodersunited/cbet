@@ -17,6 +17,7 @@ function AdminCreate() {
   const [addMonth, setAddMonth] = useState("")
   const [addDay, setAddDay] = useState("")
   const [addYear, setAddYear] = useState("")
+  const [daysLength, setDaysLength] = useState(0)
 
   const onSubmit = data => alert(JSON.stringify(data))
 
@@ -24,23 +25,13 @@ function AdminCreate() {
     const newDate = event.target.value
 
     if (event.target.id === "addMonth") {
-      const getYear = this.state.addYear
-
-      this.setState({
-        addMonth: newDate,
-        daysLength: calculateDays(newDate, getYear),
-      })
+      setAddMonth(newDate)
+      setDaysLength(calculateDays(newDate, addYear))
     } else if (event.target.id === "addDay") {
-      this.setState({
-        addDay: newDate,
-      })
+      setAddDay(newDate)
     } else if (event.target.id === "addYear") {
-      const getMonth = this.state.addMonth
-
-      this.setState({
-        addYear: newDate,
-        daysLength: calculateDays(getMonth, newDate),
-      })
+      setAddYear(newDate)
+      setDaysLength(calculateDays(addMonth, newDate))
     }
   }
 
@@ -87,10 +78,12 @@ function AdminCreate() {
             <Form.Row controlId="selectCategory">
               <Form.Group as={Col}>
                 <Form.Control
+                  id="addMonth"
                   style={{ width: "75px" }}
                   as="select"
                   name="month"
                   inputRef={register({ required: true })}
+                  onChange={handleDates}
                 >
                   <option value="MM">MM</option>
                   {[
@@ -120,10 +113,12 @@ function AdminCreate() {
 
               <Form.Group as={Col}>
                 <Form.Control
+                  id="addDay"
                   style={{ width: "75px" }}
                   as="select"
                   name="day"
                   inputRef={register({ required: true })}
+                  onChange={handleDates}
                 >
                   <option value="DD">DD</option>
                   {[
@@ -178,10 +173,12 @@ function AdminCreate() {
 
               <Form.Group as={Col}>
                 <Form.Control
+                  id="addYear"
                   style={{ width: "100px" }}
                   as="select"
                   name="year"
                   inputRef={register({ required: true })}
+                  onChange={handleDates}
                 >
                   <option value="YYYY">YYYY</option>
                   {years.map((everyYear, index) => {
@@ -203,10 +200,12 @@ function AdminCreate() {
 
             <Form.Row>
               <Form.Group as={Col}>
-                <Button onClick={handleSubmit(onSubmit)}>Save</Button>
+                <Button size="lg" onClick={handleSubmit(onSubmit)}>
+                  Save
+                </Button>
               </Form.Group>
               <Form.Group as={Col}>
-                <Button>Cancel</Button>
+                <Button size="lg">Cancel</Button>
               </Form.Group>
             </Form.Row>
           </Col>
