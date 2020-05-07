@@ -1,10 +1,32 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import SEO from "../components/seo"
 import Layout from "../components/admin/layout"
+import useCbetAuth from "../hooks/use-cbet-auth"
 
-const AdminBlog = props => {
-  const user = null
-  console.log("user", user)
+export default function AdminBlog() {
+  const authContent = useCbetAuth()
+  const [cbetContent, setCbetContent] = useState([])
+
+  useEffect(() => {
+    fetch(
+      `https://cbetcontent.azurewebsites.net/api/GetCbetContent?code=${authContent}`
+    )
+      .then(response => response.json()) // parse JSON from request
+      .then(resultData => {
+        setCbetContent(resultData)
+      })
+  }, [authContent])
+
+  if (cbetContent.length > 0) {
+    console.log(`cbetContent ${cbetContent}`)
+    console.log(
+      "test",
+      cbetContent.map(cat => {
+        console.log("cat", cat)
+        return cat
+      })
+    )
+  }
 
   return (
     <Layout title="Admin Blog">
@@ -15,5 +37,3 @@ const AdminBlog = props => {
     </Layout>
   )
 }
-
-export default AdminBlog
