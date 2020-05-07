@@ -45,33 +45,43 @@ function AdminCreate() {
               <Form.Control
                 as="select"
                 name="category"
-                inputRef={register({ required: true })}
+                ref={register({ required: true })}
               >
                 <option value="">Select</option>
                 <option value="Job">Job</option>
                 <option value="Event">Event</option>
                 <option value="Blog">Blog</option>
               </Form.Control>
+              <Form.Label style={{ color: "red" }}>
+                {errors.category && "Cbet Category is required"}
+              </Form.Label>
+              <br></br>
               <Form.Label>Job, Event or Blog Post</Form.Label>
-              {errors.category && "Cbet Category is required"}
             </Form.Group>
 
             <Form.Group controlId="TitleHere">
               <Form.Control
                 type="text"
                 name="title"
-                inputRef={register({ required: true })}
+                ref={register({ required: true })}
               ></Form.Control>
-              {errors.title && "Title is required"}
-
+              <Form.Label style={{ color: "red" }}>
+                {errors.title && "Title is required"}
+              </Form.Label>
+              <br></br>
               <Form.Label>Title of Blog Post</Form.Label>
             </Form.Group>
 
             <Form.Group controlId="AuthorHere">
               <Form.Control
                 type="text"
-                inputRef={register({ required: true })}
+                name="author"
+                ref={register({ required: true })}
               ></Form.Control>
+              <Form.Label style={{ color: "red" }}>
+                {errors.author && "Author is required"}
+              </Form.Label>
+              <br></br>
               <Form.Label>Author</Form.Label>
             </Form.Group>
 
@@ -82,10 +92,10 @@ function AdminCreate() {
                   style={{ width: "75px" }}
                   as="select"
                   name="month"
-                  inputRef={register({ required: true })}
+                  ref={register({ required: true })}
                   onChange={handleDates}
                 >
-                  <option value="MM">MM</option>
+                  <option value="">MM</option>
                   {[
                     "01",
                     "02",
@@ -108,6 +118,10 @@ function AdminCreate() {
                     )
                   })}
                 </Form.Control>
+                <Form.Label style={{ color: "red" }}>
+                  {errors.month && "Month is required."}
+                </Form.Label>
+                <br></br>
                 <Form.Label>Month</Form.Label>
               </Form.Group>
 
@@ -117,10 +131,10 @@ function AdminCreate() {
                   style={{ width: "75px" }}
                   as="select"
                   name="day"
-                  inputRef={register({ required: true })}
+                  ref={register({ required: true })}
                   onChange={handleDates}
                 >
-                  <option value="DD">DD</option>
+                  <option value="">DD</option>
                   {[
                     "01",
                     "02",
@@ -155,11 +169,9 @@ function AdminCreate() {
                     "31",
                   ]
                     .filter(numberOfDays => {
-                      console.log("number of days", numberOfDays, daysSelected)
                       return Number(numberOfDays) <= daysSelected
                     })
                     .map(day => {
-                      console.log("day", day)
                       return (
                         <option
                           value={`${day}`}
@@ -168,6 +180,10 @@ function AdminCreate() {
                       )
                     })}
                 </Form.Control>
+                <Form.Label style={{ color: "red" }}>
+                  {errors.day && "Day is required."}
+                </Form.Label>
+                <br></br>
                 <Form.Label>Day</Form.Label>
               </Form.Group>
 
@@ -177,10 +193,10 @@ function AdminCreate() {
                   style={{ width: "100px" }}
                   as="select"
                   name="year"
-                  inputRef={register({ required: true })}
+                  ref={register({ required: true })}
                   onChange={handleDates}
                 >
-                  <option value="YYYY">YYYY</option>
+                  <option value="">YYYY</option>
                   {years.map((everyYear, index) => {
                     const keyIndex = index
                     return (
@@ -190,6 +206,10 @@ function AdminCreate() {
                     )
                   })}
                 </Form.Control>
+                <Form.Label style={{ color: "red" }}>
+                  {errors.year && "Year is required."}
+                </Form.Label>
+                <br></br>
                 <Form.Label>Year</Form.Label>
               </Form.Group>
             </Form.Row>
