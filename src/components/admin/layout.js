@@ -20,7 +20,8 @@ function SideNav() {
       md={2}
       className="p-0"
       style={{
-        height: "100vh",
+        height: "100",
+        minHeight: "100vh",
         color: "whitesmoke",
         backgroundColor: "#43425d",
         display: "block !important",
@@ -90,7 +91,7 @@ export default function Layout({ title, children }) {
                       <Navbar.Collapse className="justify-content-end">
                         <Navbar.Text>
                           Signed in as:
-                          <a href="#login">{` ${accountInfo.account.name}`}</a>
+                          <span className="text-dark">{` ${accountInfo.account.name}`}</span>
                         </Navbar.Text>
                       </Navbar.Collapse>
                     </Navbar>
