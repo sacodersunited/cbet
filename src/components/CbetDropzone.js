@@ -1,6 +1,7 @@
 import React, { useCallback } from "react"
+import { Image } from "react-bootstrap"
 import { useDropzone } from "react-dropzone"
-import "../classes/cbet.css"
+import banner from "../images/banner image.png"
 
 export default function CbetDropzone() {
   const onDrop = useCallback(acceptedFiles => {
@@ -12,11 +13,11 @@ export default function CbetDropzone() {
     <div {...getRootProps()}>
       <input {...getInputProps()} />
       {isDragActive ? (
-        <p>Drop the files here ...</p>
+        <Image src={banner} />
       ) : (
         <div {...getRootProps({ className: "dropzone" })}>
           <input {...getInputProps()} />
-          <p>Drag 'n' drop some files here, or click to select files</p>
+          <Image src={banner} />
         </div>
       )}
     </div>

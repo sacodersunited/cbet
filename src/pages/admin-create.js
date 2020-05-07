@@ -213,9 +213,11 @@ function AdminCreate() {
                 <Form.Label>Year</Form.Label>
               </Form.Group>
             </Form.Row>
+            <Form.Label>Publish Date</Form.Label>
 
             <Form.Group>
               <CbetDropzone></CbetDropzone>
+              <Form.Label>Thumbnail</Form.Label>
             </Form.Group>
 
             <Form.Row>
