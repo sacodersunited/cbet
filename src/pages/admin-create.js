@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { Button, Container, Row, Col, Form } from "react-bootstrap"
 import { useForm } from "react-hook-form"
 import SEO from "../components/seo"
@@ -7,6 +7,7 @@ import SunEditor from "suneditor-react"
 import "suneditor/dist/css/suneditor.min.css"
 import CbetDropzone from "../components/CbetDropzone"
 import { calculateDays } from "../utils/utility"
+import useCbetAuth from "../hooks/use-cbet-auth"
 
 const year = new Date().getFullYear()
 const years = Array.from(new Array(40), (val, index) => year - index)
@@ -18,6 +19,18 @@ function AdminCreate() {
   const [addDay, setAddDay] = useState("")
   const [addYear, setAddYear] = useState("")
   const [daysLength, setDaysLength] = useState(0)
+  const authContent = useCbetAuth()
+  const [cbetContent, setCbetContent] = useState([])
+
+  useEffect(() => {
+    fetch(
+      `https://cbetcontent.azurewebsites.net/api/GetCbetContent?code=${authContent}`
+    )
+      .then(response => response.json()) // parse JSON from request
+      .then(resultData => {
+        setCbetContent(resultData)
+      })
+  }, [authContent])
 
   const onSubmit = data => alert(JSON.stringify(data))
 

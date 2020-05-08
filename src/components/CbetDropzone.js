@@ -15,10 +15,8 @@ export default function CbetDropzone() {
       {isDragActive ? (
         <Image src={banner} />
       ) : (
-        <div {...getRootProps({ className: "dropzone" })}>
-          <input {...getInputProps()} />
-          <Image src={banner} />
-        </div>
+        // <div {...getRootProps({ className: "dropzone" })}>
+        <Image src={banner} />
       )}
     </div>
   )
