@@ -21,6 +21,7 @@ function AdminCreate() {
   const [daysLength, setDaysLength] = useState(0)
   const authContent = useCbetAuth()
   const [cbetContent, setCbetContent] = useState([])
+  const [thumbnailUpload, setThumbnailUpload] = useState([])
 
   useEffect(() => {
     fetch(
@@ -46,6 +47,11 @@ function AdminCreate() {
       setAddYear(newDate)
       setDaysLength(calculateDays(addMonth, newDate))
     }
+  }
+
+  function uploadThumbnail(files) {
+    console.log("uploading thumbnail...", files)
+    setThumbnailUpload(files)
   }
 
   return (
@@ -229,7 +235,7 @@ function AdminCreate() {
             <Form.Label>Publish Date</Form.Label>
 
             <Form.Group>
-              <CbetDropzone></CbetDropzone>
+              <CbetDropzone upload={uploadThumbnail}></CbetDropzone>
               <Form.Label>Thumbnail</Form.Label>
             </Form.Group>
 
@@ -245,7 +251,7 @@ function AdminCreate() {
             </Form.Row>
           </Col>
           <Col md={8}>
-            <SunEditor />
+            <SunEditor setOptions={{ height: "auto", minHeight: "600px" }} />
           </Col>
         </Row>
       </Container>
