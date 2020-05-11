@@ -24,7 +24,7 @@ export default function CbetDropzone(props) {
   }
 
   return (
-    <div {...getRootProps()}>
+    <div {...getRootProps()} style={{ width: "404px" }}>
       <input {...getInputProps()} />
 
       {isDragActive ? (

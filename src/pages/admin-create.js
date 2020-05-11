@@ -21,6 +21,8 @@ function AdminCreate() {
   const [daysLength, setDaysLength] = useState(0)
   const authContent = useCbetAuth()
   const [cbetContent, setCbetContent] = useState([])
+  const [htmlContent, setHtmlContent] = useState("")
+  const [cbetContentCategory, setCbetContentCategory] = useState(0)
   const [thumbnailUpload, setThumbnailUpload] = useState([])
 
   useEffect(() => {
@@ -53,6 +55,12 @@ function AdminCreate() {
     }
   }
 
+  function handleContentChange(content) {
+    console.log("content is changing", content) //Get Content Inside Editor
+
+    setHtmlContent(content)
+  }
+
   function uploadThumbnail(files) {
     console.log("uploading thumbnail...", files)
     setThumbnailUpload(files)
@@ -64,7 +72,7 @@ function AdminCreate() {
     const cbetContent = {
       ID: 0, // number
       ContentTitle: formData.title, // string
-      Description: "<p>TEsting</p>", // string
+      Description: htmlContent, // string
       PartnerName: "partner", // string
       Author: "Paul c", // string
       ContentCreator: "Paul c", // string
@@ -102,6 +110,12 @@ function AdminCreate() {
     }
   }
 
+  function handleCbetCategoryChange(e) {
+    e.preventDefault()
+    console.log("e", e.target.value, typeof e.target.value)
+    setCbetContentCategory(Number(e.target.value))
+  }
+
   return (
     <Layout title="Create/Edit">
       <SEO title="Admin Create Edit" />
@@ -113,11 +127,13 @@ function AdminCreate() {
                 as="select"
                 name="category"
                 ref={register({ required: true })}
+                value={cbetContentCategory}
+                onChange={handleCbetCategoryChange}
               >
-                <option value="">Select</option>
-                <option value="Job">Job</option>
-                <option value="Event">Event</option>
-                <option value="Blog">Blog</option>
+                <option value="0">Select</option>
+                <option value="1">Job</option>
+                <option value="2">Event</option>
+                <option value="3">Blog</option>
               </Form.Control>
               <Form.Label style={{ color: "red" }}>
                 {errors.category && "Cbet Category is required"}
@@ -299,7 +315,10 @@ function AdminCreate() {
             </Form.Row>
           </Col>
           <Col md={8}>
-            <SunEditor setOptions={{ height: "auto", minHeight: "600px" }} />
+            <SunEditor
+              onChange={handleContentChange}
+              setOptions={{ height: "auto", minHeight: "600px" }}
+            />
           </Col>
         </Row>
       </Container>
