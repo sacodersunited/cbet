@@ -79,7 +79,7 @@ function AdminCreate() {
       Status: 1, // number
       CbetCategory: cbetContentCategory, // number
       Link: "http://google.com", // string
-      StartDate: "1/1/2020", // date
+      StartDate: `${addMonth}/${addDay}/${addYear}`, // date
       EndDate: "1/1/2021", // date
       Location: "san antonio, texas", // string
       Tags: "test,one,two", // string
