@@ -77,7 +77,7 @@ function AdminCreate() {
       Author: "Paul c", // string
       ContentCreator: "Paul c", // string
       Status: 1, // number
-      CbetCategory: 1, // number
+      CbetCategory: cbetContentCategory, // number
       Link: "http://google.com", // string
       StartDate: "1/1/2020", // date
       EndDate: "1/1/2021", // date
