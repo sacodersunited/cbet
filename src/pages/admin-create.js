@@ -54,6 +54,52 @@ function AdminCreate() {
     setThumbnailUpload(files)
   }
 
+  function insertCbetContent() {
+    console.log("reached insert cbet content api call")
+
+    const cbetContent = {
+      ID: 0, // number
+      ContentTitle: "Test", // string
+      Description: "<p>TEsting</p>", // string
+      PartnerName: "partner", // string
+      Author: "Paul c", // string
+      ContentCreator: "Paul c", // string
+      Status: 1, // number
+      CbetCategory: 1, // number
+      Link: "http://google.com", // string
+      StartDate: "1/1/2020", // date
+      EndDate: "1/1/2021", // date
+      Location: "san antonio, texas", // string
+      Tags: "test,one,two", // string
+      Featured: false, // true/false
+    }
+
+    const payload = new FormData()
+    payload.append("file", thumbnailUpload[0])
+    payload.append(JSON.stringify(cbetContent))
+
+    const myInit = {
+      method: "POST",
+      body: payload,
+    }
+
+    try {
+      const response = fetch("http://localhost:7071/api/GetCbetContent", myInit)
+      // const response = fetch(
+      //   `https://CbetContent.azurewebsites.net/api/GetCbetContent?code=${this.props.code}`,
+      //   myInit
+      // )
+
+      console.log("response is ", response)
+
+      if (!response.ok) {
+        console.log("response not OK.")
+      }
+    } catch (e) {
+      console.log(`catch error: ${e}`)
+    }
+  }
+
   return (
     <Layout title="Create/Edit">
       <SEO title="Admin Create Edit" />
