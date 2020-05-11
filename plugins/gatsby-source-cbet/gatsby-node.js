@@ -2,7 +2,7 @@ const fetch = require("node-fetch")
 
 const apiRequest = {
   GETCBETCLASSSES: `https://cbetclasses.azurewebsites.net/api/GetCbetClasses?code=`,
-  GETCBETCONTENT: `https://cbetcontent.azurewebsites.net/api/GetCbetContent?code=`,
+  GETCBETCONTENT: `https://cbetdata.azurewebsites.net/api/GetCbetContent?code=`,
 }
 
 const apiRequestType = {

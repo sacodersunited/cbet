@@ -25,15 +25,19 @@ function AdminCreate() {
 
   useEffect(() => {
     fetch(
-      `https://cbetcontent.azurewebsites.net/api/GetCbetContent?code=${authContent}`
+      `https://cbetdata.azurewebsites.net/api/GetCbetContent?code=${authContent}`
     )
+      // fetch("http://localhost:7071/api/GetCbetContent")
       .then(response => response.json()) // parse JSON from request
       .then(resultData => {
         setCbetContent(resultData)
       })
   }, [authContent])
 
-  const onSubmit = data => alert(JSON.stringify(data))
+  const onSubmit = data => {
+    alert(JSON.stringify(data))
+    insertCbetContent(data)
+  }
 
   function handleDates(event) {
     const newDate = event.target.value
@@ -54,12 +58,12 @@ function AdminCreate() {
     setThumbnailUpload(files)
   }
 
-  function insertCbetContent() {
-    console.log("reached insert cbet content api call")
+  function insertCbetContent(formData) {
+    console.log("reached insert cbet content api call", formData)
 
     const cbetContent = {
       ID: 0, // number
-      ContentTitle: "Test", // string
+      ContentTitle: formData.title, // string
       Description: "<p>TEsting</p>", // string
       PartnerName: "partner", // string
       Author: "Paul c", // string
@@ -76,7 +80,7 @@ function AdminCreate() {
 
     const payload = new FormData()
     payload.append("file", thumbnailUpload[0])
-    payload.append(JSON.stringify(cbetContent))
+    payload.append("cbetContent", JSON.stringify(cbetContent))
 
     const myInit = {
       method: "POST",
@@ -84,17 +88,15 @@ function AdminCreate() {
     }
 
     try {
-      const response = fetch("http://localhost:7071/api/GetCbetContent", myInit)
+      // const response = fetch("http://localhost:7071/api/GetCbetContent", myInit)
       // const response = fetch(
-      //   `https://CbetContent.azurewebsites.net/api/GetCbetContent?code=${this.props.code}`,
+      //   `https://cbetdata.azurewebsites.net/api/GetCbetContent?code=${this.props.code}`,
       //   myInit
       // )
-
-      console.log("response is ", response)
-
-      if (!response.ok) {
-        console.log("response not OK.")
-      }
+      // console.log("response is ", response)
+      // if (!response.ok) {
+      //   console.log("response not OK.")
+      // }
     } catch (e) {
       console.log(`catch error: ${e}`)
     }
