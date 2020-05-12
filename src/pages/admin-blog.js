@@ -9,7 +9,7 @@ export default function AdminBlog() {
 
   useEffect(() => {
     fetch(
-      `https://cbetcontent.azurewebsites.net/api/GetCbetContent?code=${authContent}`
+      `https://cbetdata.azurewebsites.net/api/GetCbetContent?code=${authContent}`
     )
       .then(response => response.json()) // parse JSON from request
       .then(resultData => {

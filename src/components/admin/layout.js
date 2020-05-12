@@ -96,7 +96,7 @@ export default function Layout({ title, category, children }) {
                     </Navbar>
 
                     <Row className="pt-5 pb-5">
-                      <Col md={2}>
+                      <Col md={3}>
                         <h2>{`${title} - ${category}`}</h2>
                       </Col>
                       <Col md={2}>

@@ -83,7 +83,7 @@ function AdminCreate() {
       case 3:
         return "Blog"
       default:
-        return "Cbet Category"
+        return "Category"
     }
   }
 
