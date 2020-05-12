@@ -56,6 +56,7 @@ function AdminCreate() {
   const [cbetPartner, setCbetPartner] = useState("") // Partner dropdown list
   const [cbetTitle, setCbetTitle] = useState("") // Title
   const [featured, setFeatured] = useState(false) // is Featured?
+  const [status, setStatus] = useState(false)
 
   useEffect(() => {
     fetch(
@@ -116,6 +117,11 @@ function AdminCreate() {
     setFeatured(e.target.value)
   }
 
+  function handleCbetStatusChange(e) {
+    e.preventDefault()
+    setStatus(e.target.value)
+  }
+
   function uploadThumbnail(files) {
     console.log("uploading thumbnail...", files)
     setThumbnailUpload(files)
@@ -124,21 +130,65 @@ function AdminCreate() {
   function insertCbetContent(formData) {
     console.log("reached insert cbet content api call", formData)
 
-    const cbetContent = {
-      ID: 0, // number
-      ContentTitle: formData.title, // string
-      Description: htmlContent, // string
-      PartnerName: cbetPartner, // string
-      Author: "Paul c", // string
-      ContentCreator: "Paul c", // string
-      Status: 1, // number
-      CbetCategory: cbetContentCategory, // number
-      Link: "http://google.com", // string
-      StartDate: `${addMonth}/${addDay}/${addYear}`, // date
-      EndDate: "1/1/2021", // date
-      Location: "san antonio, texas", // string
-      Tags: "test,one,two", // string
-      Featured: false, // true/false
+    let cbetContent = {}
+
+    switch (cbetContentCategory) {
+      case 1: // Job
+        cbetContent = {
+          ID: 0, // number
+          ContentTitle: formData.title, // string
+          Description: htmlContent, // string
+          PartnerName: cbetPartner, // string
+          Author: "Paul c", // string
+          ContentCreator: "Paul c", // string
+          Status: status, // number
+          CbetCategory: cbetContentCategory, // number
+          Link: "http://google.com", // string - Event and Job only
+          StartDate: `${addMonth}/${addDay}/${addYear}`, // date
+          EndDate: "1/1/2021", // date
+          Location: "san antonio, texas", // string
+          Tags: "test,one,two", // string
+          Featured: featured, // bool
+        }
+        break
+      case 2: // Event
+        cbetContent = {
+          ID: 0, // number
+          ContentTitle: formData.title, // string
+          Description: htmlContent, // string
+          PartnerName: cbetPartner, // string
+          Author: "Paul c", // string
+          ContentCreator: "Paul c", // string
+          Status: status, // bool
+          CbetCategory: cbetContentCategory, // number
+          Link: "http://google.com", // string
+          StartDate: `${addMonth}/${addDay}/${addYear}`, // date
+          EndDate: "1/1/2021", // date
+          Location: "san antonio, texas", // string - Event ONLY
+          Tags: "test,one,two", // string
+          Featured: featured, // bool
+        }
+        break
+      case 3: // Blog
+        cbetContent = {
+          ID: 0, // number
+          ContentTitle: formData.title, // string
+          Description: htmlContent, // string
+          PartnerName: cbetPartner, // string
+          Author: "Paul c", // string
+          ContentCreator: "Paul c", // string
+          Status: status, // bool
+          CbetCategory: cbetContentCategory, // number
+          Link: "", // string
+          StartDate: `${addMonth}/${addDay}/${addYear}`, // date
+          EndDate: "1/1/2021", // date
+          Location: "", // string
+          Tags: "test,one,two", // string
+          Featured: featured, // bool
+        }
+        break
+      default:
+        return "Cbet Category"
     }
 
     const payload = new FormData()
@@ -219,6 +269,24 @@ function AdminCreate() {
               <Form.Label>{`Title of ${getCategoryName(
                 cbetContentCategory
               )}`}</Form.Label>
+            </Form.Group>
+
+            <Form.Group controlId="status">
+              <Form.Control
+                as="select"
+                name="status"
+                ref={register({ required: true })}
+                value={status}
+                onChange={handleCbetStatusChange}
+              >
+                <option value="1">Active</option>
+                <option value="0">InActive</option>
+              </Form.Control>
+              <Form.Label style={{ color: "red" }}>
+                {errors.category && "Cbet Category is required"}
+              </Form.Label>
+              <br></br>
+              <Form.Label>Status</Form.Label>
             </Form.Group>
 
             <Form.Group controlId="Partners">
@@ -422,6 +490,7 @@ function AdminCreate() {
                   <option value="Yes">Yes</option>
                   <option value="No">No</option>
                 </Form.Control>
+                <Form.Label>Featured</Form.Label>
               </Form.Group>
             ) : null}
 
