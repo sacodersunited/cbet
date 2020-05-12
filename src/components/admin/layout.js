@@ -68,7 +68,7 @@ function SideNav() {
   )
 }
 
-export default function Layout({ title, children }) {
+export default function Layout({ title, category, children }) {
   return (
     <AzureAD provider={signInAuthProvider} forceLogin={true}>
       {({ login, logout, authenticationState, error, accountInfo }) => {
@@ -97,8 +97,12 @@ export default function Layout({ title, children }) {
                     </Navbar>
 
                     <Row className="pt-5 pb-5">
-                      <Col md={2}>
-                        <h2>{title}</h2>
+                      <Col md={3}>
+                        {category === undefined ? (
+                          <h2>{`${title}`}</h2>
+                        ) : (
+                          <h2>{`${title} - ${category}`}</h2>
+                        )}
                       </Col>
                       <Col md={2}>
                         <Link to="admin-create">

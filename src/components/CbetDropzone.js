@@ -1,23 +1,37 @@
-import React, { useCallback } from "react"
+import React, { useCallback, useState } from "react"
+import { Image } from "react-bootstrap"
 import { useDropzone } from "react-dropzone"
-import "../classes/cbet.css"
+import dropzone from "../images/drops/dropzone.png"
+import dropzone_Active from "../images/drops/DropZone Active.png"
+import dropzone_Complete from "../images/drops/DropZone Complete.png"
+import dropzone_Uploading from "../images/drops/DropZone Uploading.png"
 
-export default function CbetDropzone() {
+export default function CbetDropzone(props) {
+  const [isUploading, setIsUploading] = useState(false)
   const onDrop = useCallback(acceptedFiles => {
     // Do something with the files
+    if (acceptedFiles.length === 0) {
+      return
+    }
+
+    props.upload(acceptedFiles, setIsUploading(false))
   }, [])
   const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop })
 
+  function clickUpload(e) {
+    e.preventDefault()
+    setIsUploading(true)
+  }
+
   return (
-    <div {...getRootProps()}>
+    <div {...getRootProps()} style={{ width: "404px" }}>
       <input {...getInputProps()} />
+
       {isDragActive ? (
-        <p>Drop the files here ...</p>
+        <Image src={dropzone_Active} onClick={clickUpload} />
       ) : (
-        <div {...getRootProps({ className: "dropzone" })}>
-          <input {...getInputProps()} />
-          <p>Drag 'n' drop some files here, or click to select files</p>
-        </div>
+        // <div {...getRootProps({ className: "dropzone" })}>
+        <Image src={dropzone} onClick={clickUpload} />
       )}
     </div>
   )
