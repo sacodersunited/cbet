@@ -173,7 +173,7 @@ function AdminCreate() {
         cbetContent = {
           ID: 0, // number
           ContentTitle: formData.title, // string
-          Description: htmlContent, // string
+          Description: htmlContent, // HTML for blog
           PartnerName: cbetPartner, // string
           Author: "Paul c", // string
           ContentCreator: "Paul c", // string
@@ -236,6 +236,7 @@ function AdminCreate() {
         <Row>
           <Col md={4}>
             <Form.Group controlId="selectCategory">
+              <Form.Label>{getCategoryName(cbetContentCategory)}</Form.Label>
               <Form.Control
                 as="select"
                 name="category"
@@ -252,10 +253,12 @@ function AdminCreate() {
                 {errors.category && "Cbet Category is required"}
               </Form.Label>
               <br></br>
-              <Form.Label>{getCategoryName(cbetContentCategory)}</Form.Label>
             </Form.Group>
 
             <Form.Group controlId="TitleHere">
+              <Form.Label>{`Title of ${getCategoryName(
+                cbetContentCategory
+              )}`}</Form.Label>
               <Form.Control
                 type="text"
                 name="title"
@@ -265,13 +268,10 @@ function AdminCreate() {
               <Form.Label style={{ color: "red" }}>
                 {errors.title && "Title is required"}
               </Form.Label>
-              <br></br>
-              <Form.Label>{`Title of ${getCategoryName(
-                cbetContentCategory
-              )}`}</Form.Label>
             </Form.Group>
 
             <Form.Group controlId="status">
+              <Form.Label>Status</Form.Label>
               <Form.Control
                 as="select"
                 name="status"
@@ -280,16 +280,15 @@ function AdminCreate() {
                 onChange={handleCbetStatusChange}
               >
                 <option value="1">Active</option>
-                <option value="0">InActive</option>
+                <option value="0">Disabled</option>
               </Form.Control>
               <Form.Label style={{ color: "red" }}>
                 {errors.category && "Cbet Category is required"}
               </Form.Label>
-              <br></br>
-              <Form.Label>Status</Form.Label>
             </Form.Group>
 
             <Form.Group controlId="Partners">
+              <Form.Label>Partners</Form.Label>
               <Form.Control
                 as="select"
                 name="partner"
@@ -306,10 +305,10 @@ function AdminCreate() {
                 {errors.author && "Partner is required"}
               </Form.Label>
               <br></br>
-              <Form.Label>Partner</Form.Label>
             </Form.Group>
 
             <Form.Group controlId="AuthorHere">
+              <Form.Label>Author</Form.Label>
               <Form.Control
                 type="text"
                 name="author"
@@ -319,9 +318,9 @@ function AdminCreate() {
                 {errors.author && "Author is required"}
               </Form.Label>
               <br></br>
-              <Form.Label>Author</Form.Label>
             </Form.Group>
 
+            <Form.Label>Publish Date</Form.Label>
             <Form.Row controlId="selectCategory">
               <Form.Group as={Col}>
                 <Form.Control
@@ -450,31 +449,47 @@ function AdminCreate() {
                 <Form.Label>Year</Form.Label>
               </Form.Group>
             </Form.Row>
-            <Form.Label>Publish Date</Form.Label>
 
-            <Form.Group>
+            <Form.Label>Thumbnail</Form.Label>
+            <Form.Group style={{ display: "flex", justifyContent: "center" }}>
               <CbetDropzone upload={uploadThumbnail}></CbetDropzone>
-              <Form.Label>Thumbnail</Form.Label>
             </Form.Group>
 
             <Form.Row>
-              <Form.Group as={Col}>
+              <Form.Group
+                as={Col}
+                style={{ display: "flex", justifyContent: "center" }}
+              >
                 <Button size="lg" onClick={handleSubmit(onSubmit)}>
                   Save
                 </Button>
               </Form.Group>
-              <Form.Group as={Col}>
+              <Form.Group
+                as={Col}
+                style={{ display: "flex", justifyContent: "center" }}
+              >
                 <Button size="lg">Cancel</Button>
               </Form.Group>
             </Form.Row>
           </Col>
           <Col md={8}>
-            {cbetContentCategory === 3 ? (
-              <SunEditor
-                onChange={handleContentChange}
-                setOptions={{ height: "auto", minHeight: "600px" }}
-              />
-            ) : null}
+            {(() => {
+              switch (cbetContentCategory) {
+                case 3:
+                  return <Form.Label>Blog content</Form.Label>
+                case 2:
+                  return <Form.Label>Event content</Form.Label>
+                case 1:
+                  return <Form.Label>Job content</Form.Label>
+                default:
+                  return <Form.Label>Cbet Content</Form.Label>
+              }
+            })()}
+
+            <SunEditor
+              onChange={handleContentChange}
+              setOptions={{ height: "auto", minHeight: "600px" }}
+            />
 
             {cbetContentCategory === 1 ? (
               <Form.Group controlId="Featured">
