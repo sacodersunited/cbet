@@ -53,8 +53,9 @@ function AdminCreate() {
   const [htmlContent, setHtmlContent] = useState("") // html content for blog post
   const [cbetContentCategory, setCbetContentCategory] = useState(0) // content Category
   const [thumbnailUpload, setThumbnailUpload] = useState([]) // thumbnail image
-  const [cbetPartner, setCbetPartner] = useState("")
-  const [cbetTitle, setCbetTitle] = useState("")
+  const [cbetPartner, setCbetPartner] = useState("") // Partner dropdown list
+  const [cbetTitle, setCbetTitle] = useState("") // Title
+  const [featured, setFeatured] = useState(false) // is Featured?
 
   useEffect(() => {
     fetch(
@@ -108,6 +109,11 @@ function AdminCreate() {
   function handleTitleChange(e) {
     e.preventDefault()
     setCbetTitle(e.target.value)
+  }
+
+  function handleFeatured(e) {
+    e.preventDefault()
+    setFeatured(e.target.value)
   }
 
   function uploadThumbnail(files) {
@@ -402,7 +408,22 @@ function AdminCreate() {
               />
             ) : null}
 
-            {cbetContentCategory === 1 ? "job here" : null}
+            {cbetContentCategory === 1 ? (
+              <Form.Group controlId="Featured">
+                <Form.Control
+                  id="isFeatured"
+                  style={{ width: "100px" }}
+                  as="select"
+                  name="featured"
+                  ref={register()}
+                  onChange={handleFeatured}
+                  value={featured}
+                >
+                  <option value="Yes">Yes</option>
+                  <option value="No">No</option>
+                </Form.Control>
+              </Form.Group>
+            ) : null}
 
             {cbetContentCategory === 2 ? (
               <Form.Group controlId="Location">
