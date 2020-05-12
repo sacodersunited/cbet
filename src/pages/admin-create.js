@@ -1,24 +1,14 @@
 import React, { useState, useEffect } from "react"
-import {
-  Button,
-  Container,
-  Row,
-  Col,
-  Form,
-  ListGroup,
-  Tab,
-} from "react-bootstrap"
+import { Button, Container, Row, Col, Form, ListGroup } from "react-bootstrap"
 import { useForm } from "react-hook-form"
 import SEO from "../components/seo"
 import Layout from "../components/admin/layout"
 import SunEditor from "suneditor-react"
 import "suneditor/dist/css/suneditor.min.css"
 import CbetDropzone from "../components/CbetDropzone"
-import { calculateDays } from "../utils/utility"
 import useCbetAuth from "../hooks/use-cbet-auth"
+import CbetDatePicker from "../components/CbetDatePicker"
 
-const year = new Date().getFullYear()
-const years = Array.from(new Array(40), (val, index) => year - index)
 const partnersList = [
   "Accet",
   "Texas Workforce Commission",
@@ -52,11 +42,6 @@ partnersList.sort()
 function AdminCreate() {
   const { register, handleSubmit, watch, errors } = useForm()
   const authContent = useCbetAuth() // code used for making api calls
-  const [daysSelected, setDaysSelected] = useState(31) // number of days in month
-  const [addMonth, setAddMonth] = useState("") // Month selected to add
-  const [addDay, setAddDay] = useState("") // Day selected to add
-  const [addYear, setAddYear] = useState("") // Year selected to add
-  const [daysLength, setDaysLength] = useState(0) // number of days selected
   const [cbetContent, setCbetContent] = useState([]) // all cbet content blogs, jobs and events
   const [htmlContent, setHtmlContent] = useState("") // html content for blog post
   const [cbetContentCategory, setCbetContentCategory] = useState(2) // content Category
@@ -65,6 +50,7 @@ function AdminCreate() {
   const [cbetTitle, setCbetTitle] = useState("") // Title
   const [featured, setFeatured] = useState(false) // is Featured?
   const [status, setStatus] = useState(false)
+  const [publishDate, setPublishDate] = useState("")
 
   useEffect(() => {
     fetch(
@@ -97,20 +83,6 @@ function AdminCreate() {
 
   function handleLoadHtmlEditor(reload) {
     console.log("reload html editor", reload) //Boolean
-  }
-
-  function handleDates(event) {
-    const newDate = event.target.value
-
-    if (event.target.id === "addMonth") {
-      setAddMonth(newDate)
-      setDaysLength(calculateDays(newDate, addYear))
-    } else if (event.target.id === "addDay") {
-      setAddDay(newDate)
-    } else if (event.target.id === "addYear") {
-      setAddYear(newDate)
-      setDaysLength(calculateDays(addMonth, newDate))
-    }
   }
 
   function handleContentChange(content) {
@@ -156,7 +128,7 @@ function AdminCreate() {
           Status: status, // number
           CbetCategory: cbetContentCategory, // number
           Link: "http://google.com", // string - Event and Job only
-          StartDate: `${addMonth}/${addDay}/${addYear}`, // date
+          StartDate: `1/1/2020`, // date
           EndDate: "1/1/2021", // date
           Location: "san antonio, texas", // string
           Tags: "test,one,two", // string
@@ -174,7 +146,7 @@ function AdminCreate() {
           Status: status, // bool
           CbetCategory: cbetContentCategory, // number
           Link: "http://google.com", // string
-          StartDate: `${addMonth}/${addDay}/${addYear}`, // date
+          StartDate: `1/1/2020`, // date
           EndDate: "1/1/2021", // date
           Location: "san antonio, texas", // string - Event ONLY
           Tags: "test,one,two", // string
@@ -192,7 +164,7 @@ function AdminCreate() {
           Status: status, // bool
           CbetCategory: cbetContentCategory, // number
           Link: "", // string
-          StartDate: `${addMonth}/${addDay}/${addYear}`, // date
+          StartDate: `1/1/2020`, // date
           EndDate: "1/1/2021", // date
           Location: "", // string
           Tags: "test,one,two", // string
@@ -244,6 +216,19 @@ function AdminCreate() {
     setCbetContentCategory(CategorySelected)
   }
 
+  function getPublishDate(renderedDate) {
+    console.log("Get publish date", renderedDate)
+    setPublishDate(renderedDate)
+  }
+
+  function getStartDate(startDate) {
+    console.log("get STart Date", startDate)
+  }
+
+  function getEndDate(endDate) {
+    console.log("get end date", endDate)
+  }
+
   return (
     <Layout title="Create/Edit" category={getCategoryName(cbetContentCategory)}>
       <SEO title="Admin Create Edit" />
@@ -271,7 +256,6 @@ function AdminCreate() {
               </Form.Label>
               <br></br>
             </Form.Group>
-
             <Form.Group controlId="TitleHere">
               <Form.Label
                 style={{ fontWeight: "bold" }}
@@ -286,7 +270,6 @@ function AdminCreate() {
                 {errors.title && "Title is required"}
               </Form.Label>
             </Form.Group>
-
             <Form.Group controlId="status">
               <Form.Label style={{ fontWeight: "bold" }}>Status</Form.Label>
               <Form.Control
@@ -303,7 +286,6 @@ function AdminCreate() {
                 {errors.category && "Cbet Category is required"}
               </Form.Label>
             </Form.Group>
-
             {cbetContentCategory !== 3 ? (
               <Form.Group controlId="Partners">
                 <Form.Label style={{ fontWeight: "bold" }}>Partners</Form.Label>
@@ -325,7 +307,6 @@ function AdminCreate() {
                 <br></br>
               </Form.Group>
             ) : null}
-
             <Form.Group controlId="AuthorHere">
               <Form.Label style={{ fontWeight: "bold" }}>Author</Form.Label>
               <Form.Control
@@ -338,167 +319,14 @@ function AdminCreate() {
               </Form.Label>
               <br></br>
             </Form.Group>
-
             <Form.Label style={{ fontWeight: "bold" }}>Publish Date</Form.Label>
-            <Form.Row controlId="selectCategory">
-              <Form.Group
-                as={Col}
-                style={{ display: "flex", justifyContent: "center" }}
-              >
-                <Form.Control
-                  id="addMonth"
-                  style={{ width: "80px" }}
-                  as="select"
-                  name="month"
-                  ref={register({ required: true })}
-                  onChange={handleDates}
-                >
-                  <option value="">MM</option>
-                  {[
-                    "01",
-                    "02",
-                    "03",
-                    "04",
-                    "05",
-                    "06",
-                    "07",
-                    "08",
-                    "09",
-                    "10",
-                    "11",
-                    "12",
-                  ].map(month => {
-                    return (
-                      <option
-                        value={`${month}`}
-                        key={Number(month)}
-                      >{`${month}`}</option>
-                    )
-                  })}
-                </Form.Control>
-                <Form.Label style={{ color: "red" }}>
-                  {errors.month && "Month is required."}
-                </Form.Label>
-              </Form.Group>
 
-              <Form.Group
-                as={Col}
-                style={{ display: "flex", justifyContent: "center" }}
-              >
-                <Form.Control
-                  id="addDay"
-                  style={{ width: "75px" }}
-                  as="select"
-                  name="day"
-                  ref={register({ required: true })}
-                  onChange={handleDates}
-                >
-                  <option value="">DD</option>
-                  {[
-                    "01",
-                    "02",
-                    "03",
-                    "04",
-                    "05",
-                    "06",
-                    "07",
-                    "08",
-                    "09",
-                    "10",
-                    "11",
-                    "12",
-                    "13",
-                    "14",
-                    "15",
-                    "16",
-                    "17",
-                    "18",
-                    "19",
-                    "20",
-                    "21",
-                    "22",
-                    "23",
-                    "24",
-                    "25",
-                    "26",
-                    "27",
-                    "28",
-                    "29",
-                    "30",
-                    "31",
-                  ]
-                    .filter(numberOfDays => {
-                      return Number(numberOfDays) <= daysSelected
-                    })
-                    .map(day => {
-                      return (
-                        <option
-                          value={`${day}`}
-                          key={`day-${Number(day)}`}
-                        >{`${day}`}</option>
-                      )
-                    })}
-                </Form.Control>
-                <Form.Label style={{ color: "red" }}>
-                  {errors.day && "Day is required."}
-                </Form.Label>
-              </Form.Group>
-
-              <Form.Group
-                as={Col}
-                style={{ display: "flex", justifyContent: "center" }}
-              >
-                <Form.Control
-                  id="addYear"
-                  style={{ width: "100px" }}
-                  as="select"
-                  name="year"
-                  ref={register({ required: true })}
-                  onChange={handleDates}
-                >
-                  <option value="">YYYY</option>
-                  {years.map((everyYear, index) => {
-                    const keyIndex = index
-                    return (
-                      <option key={`everyYear-${keyIndex}`} value={everyYear}>
-                        {everyYear}
-                      </option>
-                    )
-                  })}
-                </Form.Control>
-                <Form.Label style={{ color: "red" }}>
-                  {errors.year && "Year is required."}
-                </Form.Label>
-                <br></br>
-              </Form.Group>
-            </Form.Row>
-
-            <Form.Row>
-              <Form.Group
-                as={Col}
-                style={{ display: "flex", justifyContent: "center" }}
-              >
-                <Form.Label style={{ fontWeight: "bold" }}>Month</Form.Label>
-              </Form.Group>
-              <Form.Group
-                as={Col}
-                style={{ display: "flex", justifyContent: "center" }}
-              >
-                <Form.Label style={{ fontWeight: "bold" }}>Day</Form.Label>
-              </Form.Group>
-              <Form.Group
-                as={Col}
-                style={{ display: "flex", justifyContent: "center" }}
-              >
-                <Form.Label style={{ fontWeight: "bold" }}>Year</Form.Label>
-              </Form.Group>
-            </Form.Row>
+            <CbetDatePicker getDate={getPublishDate} />
 
             <Form.Label style={{ fontWeight: "bold" }}>Thumbnail</Form.Label>
             <Form.Group style={{ display: "flex", justifyContent: "center" }}>
               <CbetDropzone upload={uploadThumbnail}></CbetDropzone>
             </Form.Group>
-
             <Form.Row>
               <Form.Group
                 as={Col}
@@ -546,6 +374,23 @@ function AdminCreate() {
                 </ListGroup.Item>
               </ListGroup>
             </Form.Group>
+
+            {/* Event */}
+            {cbetContentCategory === 2 ? (
+              <Col md={4}>
+                <Form.Group controlId="event dates">
+                  <Form.Label style={{ fontWeight: "bold" }}>
+                    Start Date
+                  </Form.Label>
+                  <CbetDatePicker getDate={getStartDate} />
+                  <Form.Label style={{ fontWeight: "bold" }}>
+                    Stop Date
+                  </Form.Label>
+                  <CbetDatePicker getDate={getEndDate} />
+                </Form.Group>
+              </Col>
+            ) : null}
+
             <Form.Label style={{ fontWeight: "bold" }}>
               {(() => {
                 switch (cbetContentCategory) {
@@ -567,6 +412,7 @@ function AdminCreate() {
               setOptions={{ height: "auto", minHeight: 400 }}
             />
 
+            {/* Event */}
             {cbetContentCategory === 2 ? (
               <>
                 <Form.Group controlId="Location" style={{ paddingTop: "10px" }}>
@@ -584,10 +430,6 @@ function AdminCreate() {
                     {errors.Location && "Location is required"}
                   </Form.Label>
                   <br></br>
-                </Form.Group>
-                <Form.Group controlId="event dates">
-                  <Form.Label>Start Date</Form.Label>
-                  <Form.Label>Stop Date</Form.Label>
                 </Form.Group>
               </>
             ) : null}
