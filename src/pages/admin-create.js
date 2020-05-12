@@ -51,6 +51,8 @@ function AdminCreate() {
   const [featured, setFeatured] = useState(false) // is Featured?
   const [status, setStatus] = useState(false)
   const [publishDate, setPublishDate] = useState("")
+  const [startDate, setStartDate] = useState("1/1/2020")
+  const [endDate, setEndDate] = useState("1/1/2021")
 
   useEffect(() => {
     fetch(
@@ -128,9 +130,9 @@ function AdminCreate() {
           Status: status, // number
           CbetCategory: cbetContentCategory, // number
           Link: "http://google.com", // string - Event and Job only
-          StartDate: `1/1/2020`, // date
-          EndDate: "1/1/2021", // date
-          Location: "san antonio, texas", // string
+          StartDate: startDate, // date
+          EndDate: endDate, // date
+          Location: "", // string
           Tags: "test,one,two", // string
           Featured: featured, // bool
         }
@@ -146,9 +148,9 @@ function AdminCreate() {
           Status: status, // bool
           CbetCategory: cbetContentCategory, // number
           Link: "http://google.com", // string
-          StartDate: `1/1/2020`, // date
-          EndDate: "1/1/2021", // date
-          Location: "san antonio, texas", // string - Event ONLY
+          StartDate: startDate, // date
+          EndDate: endDate, // date
+          Location: formData.location, // string - Event ONLY
           Tags: "test,one,two", // string
           Featured: featured, // bool
         }
@@ -164,8 +166,8 @@ function AdminCreate() {
           Status: status, // bool
           CbetCategory: cbetContentCategory, // number
           Link: "", // string
-          StartDate: `1/1/2020`, // date
-          EndDate: "1/1/2021", // date
+          StartDate: startDate, // date
+          EndDate: endDate, // date
           Location: "", // string
           Tags: "test,one,two", // string
           Featured: featured, // bool
@@ -188,14 +190,16 @@ function AdminCreate() {
 
     try {
       // const response = fetch("http://localhost:7071/api/GetCbetContent", myInit)
-      // const response = fetch(
-      //   `https://cbetdata.azurewebsites.net/api/GetCbetContent?code=${this.props.code}`,
-      //   myInit
-      // )
-      // console.log("response is ", response)
-      // if (!response.ok) {
-      //   console.log("response not OK.")
-      // }
+      const response = fetch(
+        `https://cbetdata.azurewebsites.net/api/GetCbetContent?code=${this.props.code}`,
+        myInit
+      )
+
+      if (!response.ok) {
+        console.log("response not OK.")
+      }
+
+      console.log("response is OK")
     } catch (e) {
       console.log(`catch error: ${e}`)
     }
@@ -205,7 +209,6 @@ function AdminCreate() {
     e.preventDefault()
 
     console.log("handle Partners", e.target.value)
-
     setCbetPartner(e.target.value)
   }
 
@@ -223,10 +226,12 @@ function AdminCreate() {
 
   function getStartDate(startDate) {
     console.log("get STart Date", startDate)
+    setStartDate(startDate)
   }
 
   function getEndDate(endDate) {
     console.log("get end date", endDate)
+    setEndDate(endDate)
   }
 
   return (
@@ -423,7 +428,7 @@ function AdminCreate() {
                   )}`}</Form.Label>
                   <Form.Control
                     type="text"
-                    name="Location"
+                    name="location"
                     ref={register()}
                   ></Form.Control>
                   <Form.Label style={{ color: "red" }}>
