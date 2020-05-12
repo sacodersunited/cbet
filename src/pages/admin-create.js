@@ -520,21 +520,31 @@ function AdminCreate() {
             <Form.Label style={{ fontWeight: "bold" }}>Is Featured</Form.Label>
             <Form.Group as={Col}>
               <ListGroup horizontal>
-                <ListGroup.Item action href="#link1" style={{ width: "77px" }}>
+                <ListGroup.Item
+                  as="button"
+                  action
+                  onClick={() => {
+                    console.log("clicked ON")
+                    setFeatured(true)
+                  }}
+                  href="link1"
+                  style={{ width: "77px" }}
+                >
                   On
                 </ListGroup.Item>
-                <ListGroup.Item action href="#link2" style={{ width: "77px" }}>
+                <ListGroup.Item
+                  as="button"
+                  action
+                  href="link2"
+                  onClick={() => {
+                    setFeatured(false)
+                    console.log("clicked OFF")
+                  }}
+                  style={{ width: "77px" }}
+                >
                   Off
                 </ListGroup.Item>
               </ListGroup>
-              <Tab.Content>
-                <Tab.Pane eventKey="#link1">
-                  <Form.Label>Is Featured</Form.Label>
-                </Tab.Pane>
-                <Tab.Pane eventKey="#link2">
-                  <Form.Label>Not Featured</Form.Label>
-                </Tab.Pane>
-              </Tab.Content>
             </Form.Group>
             <Form.Label style={{ fontWeight: "bold" }}>
               {(() => {
@@ -551,37 +561,35 @@ function AdminCreate() {
               })()}
             </Form.Label>
 
-            {cbetContentCategory === 2 ? (
-              <SunEditor
-                onChange={handleContentChange}
-                onBlur={handleLoadHtmlEditor}
-                setOptions={{ height: "auto", maxHeight: 200 }}
-              />
-            ) : (
-              <SunEditor
-                onChange={handleContentChange}
-                onBlur={handleLoadHtmlEditor}
-                setOptions={{ height: "auto", minHeight: 600 }}
-              />
-            )}
+            <SunEditor
+              onChange={handleContentChange}
+              onBlur={handleLoadHtmlEditor}
+              setOptions={{ height: "auto", minHeight: 400 }}
+            />
 
             {cbetContentCategory === 2 ? (
-              <Form.Group controlId="Location" style={{ paddingTop: "10px" }}>
-                <Form.Label
-                  style={{ fontWeight: "bold" }}
-                >{`Location of ${getCategoryName(
-                  cbetContentCategory
-                )}`}</Form.Label>
-                <Form.Control
-                  type="text"
-                  name="Location"
-                  ref={register()}
-                ></Form.Control>
-                <Form.Label style={{ color: "red" }}>
-                  {errors.Location && "Location is required"}
-                </Form.Label>
-                <br></br>
-              </Form.Group>
+              <>
+                <Form.Group controlId="Location" style={{ paddingTop: "10px" }}>
+                  <Form.Label
+                    style={{ fontWeight: "bold" }}
+                  >{`Location of ${getCategoryName(
+                    cbetContentCategory
+                  )}`}</Form.Label>
+                  <Form.Control
+                    type="text"
+                    name="Location"
+                    ref={register()}
+                  ></Form.Control>
+                  <Form.Label style={{ color: "red" }}>
+                    {errors.Location && "Location is required"}
+                  </Form.Label>
+                  <br></br>
+                </Form.Group>
+                <Form.Group controlId="event dates">
+                  <Form.Label>Start Date</Form.Label>
+                  <Form.Label>Stop Date</Form.Label>
+                </Form.Group>
+              </>
             ) : null}
           </Col>
         </Row>
