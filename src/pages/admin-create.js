@@ -11,19 +11,50 @@ import useCbetAuth from "../hooks/use-cbet-auth"
 
 const year = new Date().getFullYear()
 const years = Array.from(new Array(40), (val, index) => year - index)
+const partnersList = [
+  "Accet",
+  "Texas Workforce Commission",
+  "Texas Higher Education Board",
+  "Veteran Owned Business",
+  "MedWrench",
+  "TechNation",
+  "Tuition Financing",
+  "Stephens International Recruiting",
+  "CER Technology",
+  "Summit Imaging",
+  "New Braunfels Chamber of Commerce",
+  "Catholic Health Initiatives",
+  "Citizens Medical Center",
+  "CYBERTEXAS Foundation",
+  "Charney & Associates Recruiting",
+  "Memorial Hermann",
+  "SkillNet",
+  "Vyaire",
+  "SouthEastern Community College",
+  "iMed Biomedical",
+  "MiraCosta College",
+  "U.S. Army",
+  "Partnership for Youth Success",
+  "Healthcare Technology Management Association of South Carolina",
+  "Kentucky Association for Medical Instumentation",
+]
+
+partnersList.sort()
 
 function AdminCreate() {
   const { register, handleSubmit, watch, errors } = useForm()
-  const [daysSelected, setDaysSelected] = useState(31)
-  const [addMonth, setAddMonth] = useState("")
-  const [addDay, setAddDay] = useState("")
-  const [addYear, setAddYear] = useState("")
-  const [daysLength, setDaysLength] = useState(0)
-  const authContent = useCbetAuth()
-  const [cbetContent, setCbetContent] = useState([])
-  const [htmlContent, setHtmlContent] = useState("")
-  const [cbetContentCategory, setCbetContentCategory] = useState(0)
-  const [thumbnailUpload, setThumbnailUpload] = useState([])
+  const authContent = useCbetAuth() // code used for making api calls
+  const [daysSelected, setDaysSelected] = useState(31) // number of days in month
+  const [addMonth, setAddMonth] = useState("") // Month selected to add
+  const [addDay, setAddDay] = useState("") // Day selected to add
+  const [addYear, setAddYear] = useState("") // Year selected to add
+  const [daysLength, setDaysLength] = useState(0) // number of days selected
+  const [cbetContent, setCbetContent] = useState([]) // all cbet content blogs, jobs and events
+  const [htmlContent, setHtmlContent] = useState("") // html content for blog post
+  const [cbetContentCategory, setCbetContentCategory] = useState(0) // content Category
+  const [thumbnailUpload, setThumbnailUpload] = useState([]) // thumbnail image
+  const [cbetPartner, setCbetPartner] = useState("")
+  const [cbetTitle, setCbetTitle] = useState("")
 
   useEffect(() => {
     fetch(
@@ -39,6 +70,19 @@ function AdminCreate() {
   const onSubmit = data => {
     alert(JSON.stringify(data))
     insertCbetContent(data)
+  }
+
+  function getCategoryName(cbetCategoryNumber) {
+    switch (cbetCategoryNumber) {
+      case 1:
+        return "Job"
+      case 2:
+        return "Event"
+      case 3:
+        return "Blog"
+      default:
+        return "Cbet Category"
+    }
   }
 
   function handleDates(event) {
@@ -61,6 +105,11 @@ function AdminCreate() {
     setHtmlContent(content)
   }
 
+  function handleTitleChange(e) {
+    e.preventDefault()
+    setCbetTitle(e.target.value)
+  }
+
   function uploadThumbnail(files) {
     console.log("uploading thumbnail...", files)
     setThumbnailUpload(files)
@@ -73,7 +122,7 @@ function AdminCreate() {
       ID: 0, // number
       ContentTitle: formData.title, // string
       Description: htmlContent, // string
-      PartnerName: "partner", // string
+      PartnerName: cbetPartner, // string
       Author: "Paul c", // string
       ContentCreator: "Paul c", // string
       Status: 1, // number
@@ -110,6 +159,14 @@ function AdminCreate() {
     }
   }
 
+  function handleCbetPartnerChange(e) {
+    e.preventDefault()
+
+    console.log("handle Partners", e.target.value)
+
+    setCbetPartner(e.target.value)
+  }
+
   function handleCbetCategoryChange(e) {
     e.preventDefault()
     console.log("e", e.target.value, typeof e.target.value)
@@ -117,7 +174,7 @@ function AdminCreate() {
   }
 
   return (
-    <Layout title="Create/Edit">
+    <Layout title="Create/Edit" category={getCategoryName(cbetContentCategory)}>
       <SEO title="Admin Create Edit" />
       <Container fluid>
         <Row>
@@ -139,20 +196,43 @@ function AdminCreate() {
                 {errors.category && "Cbet Category is required"}
               </Form.Label>
               <br></br>
-              <Form.Label>Job, Event or Blog Post</Form.Label>
+              <Form.Label>{getCategoryName(cbetContentCategory)}</Form.Label>
             </Form.Group>
 
             <Form.Group controlId="TitleHere">
               <Form.Control
                 type="text"
                 name="title"
+                onChange={handleTitleChange}
                 ref={register({ required: true })}
               ></Form.Control>
               <Form.Label style={{ color: "red" }}>
                 {errors.title && "Title is required"}
               </Form.Label>
               <br></br>
-              <Form.Label>Title of Blog Post</Form.Label>
+              <Form.Label>{`Title of ${getCategoryName(
+                cbetContentCategory
+              )}`}</Form.Label>
+            </Form.Group>
+
+            <Form.Group controlId="Partners">
+              <Form.Control
+                as="select"
+                name="partner"
+                ref={register({ required: true })}
+                value={cbetPartner}
+                onChange={handleCbetPartnerChange}
+              >
+                <option value="0">Select</option>
+                {partnersList.map(partner => {
+                  return <option value={partner}>{partner}</option>
+                })}
+              </Form.Control>
+              <Form.Label style={{ color: "red" }}>
+                {errors.author && "Partner is required"}
+              </Form.Label>
+              <br></br>
+              <Form.Label>Partner</Form.Label>
             </Form.Group>
 
             <Form.Group controlId="AuthorHere">
@@ -315,10 +395,31 @@ function AdminCreate() {
             </Form.Row>
           </Col>
           <Col md={8}>
-            <SunEditor
-              onChange={handleContentChange}
-              setOptions={{ height: "auto", minHeight: "600px" }}
-            />
+            {cbetContentCategory === 3 ? (
+              <SunEditor
+                onChange={handleContentChange}
+                setOptions={{ height: "auto", minHeight: "600px" }}
+              />
+            ) : null}
+
+            {cbetContentCategory === 1 ? "job here" : null}
+
+            {cbetContentCategory === 2 ? (
+              <Form.Group controlId="Location">
+                <Form.Control
+                  type="text"
+                  name="Location"
+                  ref={register()}
+                ></Form.Control>
+                <Form.Label style={{ color: "red" }}>
+                  {errors.Location && "Location is required"}
+                </Form.Label>
+                <br></br>
+                <Form.Label>{`Location of ${getCategoryName(
+                  cbetContentCategory
+                )}`}</Form.Label>
+              </Form.Group>
+            ) : null}
           </Col>
         </Row>
       </Container>
