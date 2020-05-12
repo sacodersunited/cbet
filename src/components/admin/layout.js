@@ -97,7 +97,11 @@ export default function Layout({ title, category, children }) {
 
                     <Row className="pt-5 pb-5">
                       <Col md={3}>
-                        <h2>{`${title} - ${category}`}</h2>
+                        {category === undefined ? (
+                          <h2>{`${title}`}</h2>
+                        ) : (
+                          <h2>{`${title} - ${category}`}</h2>
+                        )}
                       </Col>
                       <Col md={2}>
                         <Link to="admin-create">

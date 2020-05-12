@@ -1,5 +1,13 @@
 import React, { useState, useEffect } from "react"
-import { Button, Container, Row, Col, Form } from "react-bootstrap"
+import {
+  Button,
+  Container,
+  Row,
+  Col,
+  Form,
+  ListGroup,
+  Tab,
+} from "react-bootstrap"
 import { useForm } from "react-hook-form"
 import SEO from "../components/seo"
 import Layout from "../components/admin/layout"
@@ -51,7 +59,7 @@ function AdminCreate() {
   const [daysLength, setDaysLength] = useState(0) // number of days selected
   const [cbetContent, setCbetContent] = useState([]) // all cbet content blogs, jobs and events
   const [htmlContent, setHtmlContent] = useState("") // html content for blog post
-  const [cbetContentCategory, setCbetContentCategory] = useState(0) // content Category
+  const [cbetContentCategory, setCbetContentCategory] = useState(2) // content Category
   const [thumbnailUpload, setThumbnailUpload] = useState([]) // thumbnail image
   const [cbetPartner, setCbetPartner] = useState("") // Partner dropdown list
   const [cbetTitle, setCbetTitle] = useState("") // Title
@@ -85,6 +93,10 @@ function AdminCreate() {
       default:
         return "Category"
     }
+  }
+
+  function handleLoadHtmlEditor(reload) {
+    console.log("reload html editor", reload) //Boolean
   }
 
   function handleDates(event) {
@@ -191,6 +203,8 @@ function AdminCreate() {
         return "Cbet Category"
     }
 
+    console.log("payload", cbetContent)
+
     const payload = new FormData()
     payload.append("file", thumbnailUpload[0])
     payload.append("cbetContent", JSON.stringify(cbetContent))
@@ -225,8 +239,9 @@ function AdminCreate() {
 
   function handleCbetCategoryChange(e) {
     e.preventDefault()
-    console.log("e", e.target.value, typeof e.target.value)
-    setCbetContentCategory(Number(e.target.value))
+
+    const CategorySelected = Number(e.target.value)
+    setCbetContentCategory(CategorySelected)
   }
 
   return (
@@ -236,7 +251,9 @@ function AdminCreate() {
         <Row>
           <Col md={4}>
             <Form.Group controlId="selectCategory">
-              <Form.Label>{getCategoryName(cbetContentCategory)}</Form.Label>
+              <Form.Label style={{ fontWeight: "bold" }}>
+                {getCategoryName(cbetContentCategory)}
+              </Form.Label>
               <Form.Control
                 as="select"
                 name="category"
@@ -256,9 +273,9 @@ function AdminCreate() {
             </Form.Group>
 
             <Form.Group controlId="TitleHere">
-              <Form.Label>{`Title of ${getCategoryName(
-                cbetContentCategory
-              )}`}</Form.Label>
+              <Form.Label
+                style={{ fontWeight: "bold" }}
+              >{`Title of ${getCategoryName(cbetContentCategory)}`}</Form.Label>
               <Form.Control
                 type="text"
                 name="title"
@@ -271,7 +288,7 @@ function AdminCreate() {
             </Form.Group>
 
             <Form.Group controlId="status">
-              <Form.Label>Status</Form.Label>
+              <Form.Label style={{ fontWeight: "bold" }}>Status</Form.Label>
               <Form.Control
                 as="select"
                 name="status"
@@ -287,28 +304,30 @@ function AdminCreate() {
               </Form.Label>
             </Form.Group>
 
-            <Form.Group controlId="Partners">
-              <Form.Label>Partners</Form.Label>
-              <Form.Control
-                as="select"
-                name="partner"
-                ref={register({ required: true })}
-                value={cbetPartner}
-                onChange={handleCbetPartnerChange}
-              >
-                <option value="0">Select</option>
-                {partnersList.map(partner => {
-                  return <option value={partner}>{partner}</option>
-                })}
-              </Form.Control>
-              <Form.Label style={{ color: "red" }}>
-                {errors.author && "Partner is required"}
-              </Form.Label>
-              <br></br>
-            </Form.Group>
+            {cbetContentCategory !== 3 ? (
+              <Form.Group controlId="Partners">
+                <Form.Label style={{ fontWeight: "bold" }}>Partners</Form.Label>
+                <Form.Control
+                  as="select"
+                  name="partner"
+                  ref={register({ required: true })}
+                  value={cbetPartner}
+                  onChange={handleCbetPartnerChange}
+                >
+                  <option value="0">Select</option>
+                  {partnersList.map(partner => {
+                    return <option value={partner}>{partner}</option>
+                  })}
+                </Form.Control>
+                <Form.Label style={{ color: "red" }}>
+                  {errors.author && "Partner is required"}
+                </Form.Label>
+                <br></br>
+              </Form.Group>
+            ) : null}
 
             <Form.Group controlId="AuthorHere">
-              <Form.Label>Author</Form.Label>
+              <Form.Label style={{ fontWeight: "bold" }}>Author</Form.Label>
               <Form.Control
                 type="text"
                 name="author"
@@ -320,12 +339,15 @@ function AdminCreate() {
               <br></br>
             </Form.Group>
 
-            <Form.Label>Publish Date</Form.Label>
+            <Form.Label style={{ fontWeight: "bold" }}>Publish Date</Form.Label>
             <Form.Row controlId="selectCategory">
-              <Form.Group as={Col}>
+              <Form.Group
+                as={Col}
+                style={{ display: "flex", justifyContent: "center" }}
+              >
                 <Form.Control
                   id="addMonth"
-                  style={{ width: "75px" }}
+                  style={{ width: "80px" }}
                   as="select"
                   name="month"
                   ref={register({ required: true })}
@@ -357,11 +379,12 @@ function AdminCreate() {
                 <Form.Label style={{ color: "red" }}>
                   {errors.month && "Month is required."}
                 </Form.Label>
-                <br></br>
-                <Form.Label>Month</Form.Label>
               </Form.Group>
 
-              <Form.Group as={Col}>
+              <Form.Group
+                as={Col}
+                style={{ display: "flex", justifyContent: "center" }}
+              >
                 <Form.Control
                   id="addDay"
                   style={{ width: "75px" }}
@@ -419,11 +442,12 @@ function AdminCreate() {
                 <Form.Label style={{ color: "red" }}>
                   {errors.day && "Day is required."}
                 </Form.Label>
-                <br></br>
-                <Form.Label>Day</Form.Label>
               </Form.Group>
 
-              <Form.Group as={Col}>
+              <Form.Group
+                as={Col}
+                style={{ display: "flex", justifyContent: "center" }}
+              >
                 <Form.Control
                   id="addYear"
                   style={{ width: "100px" }}
@@ -446,11 +470,31 @@ function AdminCreate() {
                   {errors.year && "Year is required."}
                 </Form.Label>
                 <br></br>
-                <Form.Label>Year</Form.Label>
               </Form.Group>
             </Form.Row>
 
-            <Form.Label>Thumbnail</Form.Label>
+            <Form.Row>
+              <Form.Group
+                as={Col}
+                style={{ display: "flex", justifyContent: "center" }}
+              >
+                <Form.Label style={{ fontWeight: "bold" }}>Month</Form.Label>
+              </Form.Group>
+              <Form.Group
+                as={Col}
+                style={{ display: "flex", justifyContent: "center" }}
+              >
+                <Form.Label style={{ fontWeight: "bold" }}>Day</Form.Label>
+              </Form.Group>
+              <Form.Group
+                as={Col}
+                style={{ display: "flex", justifyContent: "center" }}
+              >
+                <Form.Label style={{ fontWeight: "bold" }}>Year</Form.Label>
+              </Form.Group>
+            </Form.Row>
+
+            <Form.Label style={{ fontWeight: "bold" }}>Thumbnail</Form.Label>
             <Form.Group style={{ display: "flex", justifyContent: "center" }}>
               <CbetDropzone upload={uploadThumbnail}></CbetDropzone>
             </Form.Group>
@@ -473,44 +517,61 @@ function AdminCreate() {
             </Form.Row>
           </Col>
           <Col md={8}>
-            {(() => {
-              switch (cbetContentCategory) {
-                case 3:
-                  return <Form.Label>Blog content</Form.Label>
-                case 2:
-                  return <Form.Label>Event content</Form.Label>
-                case 1:
-                  return <Form.Label>Job content</Form.Label>
-                default:
-                  return <Form.Label>Cbet Content</Form.Label>
-              }
-            })()}
-
-            <SunEditor
-              onChange={handleContentChange}
-              setOptions={{ height: "auto", minHeight: "600px" }}
-            />
-
-            {cbetContentCategory === 1 ? (
-              <Form.Group controlId="Featured">
-                <Form.Control
-                  id="isFeatured"
-                  style={{ width: "100px" }}
-                  as="select"
-                  name="featured"
-                  ref={register()}
-                  onChange={handleFeatured}
-                  value={featured}
-                >
-                  <option value="Yes">Yes</option>
-                  <option value="No">No</option>
-                </Form.Control>
-                <Form.Label>Featured</Form.Label>
-              </Form.Group>
-            ) : null}
+            <Form.Label style={{ fontWeight: "bold" }}>Is Featured</Form.Label>
+            <Form.Group as={Col}>
+              <ListGroup horizontal>
+                <ListGroup.Item action href="#link1" style={{ width: "77px" }}>
+                  On
+                </ListGroup.Item>
+                <ListGroup.Item action href="#link2" style={{ width: "77px" }}>
+                  Off
+                </ListGroup.Item>
+              </ListGroup>
+              <Tab.Content>
+                <Tab.Pane eventKey="#link1">
+                  <Form.Label>Is Featured</Form.Label>
+                </Tab.Pane>
+                <Tab.Pane eventKey="#link2">
+                  <Form.Label>Not Featured</Form.Label>
+                </Tab.Pane>
+              </Tab.Content>
+            </Form.Group>
+            <Form.Label style={{ fontWeight: "bold" }}>
+              {(() => {
+                switch (cbetContentCategory) {
+                  case 3:
+                    return "Blog content"
+                  case 2:
+                    return "Event content"
+                  case 1:
+                    return "Job content"
+                  default:
+                    return "Cbet Content"
+                }
+              })()}
+            </Form.Label>
 
             {cbetContentCategory === 2 ? (
-              <Form.Group controlId="Location">
+              <SunEditor
+                onChange={handleContentChange}
+                onBlur={handleLoadHtmlEditor}
+                setOptions={{ height: "auto", maxHeight: 200 }}
+              />
+            ) : (
+              <SunEditor
+                onChange={handleContentChange}
+                onBlur={handleLoadHtmlEditor}
+                setOptions={{ height: "auto", minHeight: 600 }}
+              />
+            )}
+
+            {cbetContentCategory === 2 ? (
+              <Form.Group controlId="Location" style={{ paddingTop: "10px" }}>
+                <Form.Label
+                  style={{ fontWeight: "bold" }}
+                >{`Location of ${getCategoryName(
+                  cbetContentCategory
+                )}`}</Form.Label>
                 <Form.Control
                   type="text"
                   name="Location"
@@ -520,9 +581,6 @@ function AdminCreate() {
                   {errors.Location && "Location is required"}
                 </Form.Label>
                 <br></br>
-                <Form.Label>{`Location of ${getCategoryName(
-                  cbetContentCategory
-                )}`}</Form.Label>
               </Form.Group>
             ) : null}
           </Col>
