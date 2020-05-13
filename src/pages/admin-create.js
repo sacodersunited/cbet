@@ -44,7 +44,7 @@ function AdminCreate() {
   const authContent = useCbetAuth() // code used for making api calls
   const [cbetContent, setCbetContent] = useState([]) // all cbet content blogs, jobs and events
   const [htmlContent, setHtmlContent] = useState("") // html content for blog post
-  const [cbetContentCategory, setCbetContentCategory] = useState(2) // content Category
+  const [cbetContentCategory, setCbetContentCategory] = useState(1) // content Category
   const [thumbnailUpload, setThumbnailUpload] = useState([]) // thumbnail image
   const [cbetPartner, setCbetPartner] = useState("") // Partner dropdown list
   const [cbetTitle, setCbetTitle] = useState("") // Title
@@ -53,6 +53,7 @@ function AdminCreate() {
   const [publishDate, setPublishDate] = useState("")
   const [startDate, setStartDate] = useState("1/1/2020")
   const [endDate, setEndDate] = useState("1/1/2021")
+  const [author, setAuthor] = useState("")
 
   useEffect(() => {
     fetch(
@@ -218,6 +219,10 @@ function AdminCreate() {
     setCbetContentCategory(CategorySelected)
   }
 
+  function handleAuthor(e) {
+    setAuthor(e.target.value)
+  }
+
   function getPublishDate(renderedDate) {
     console.log("Get publish date", renderedDate)
     setPublishDate(renderedDate)
@@ -233,9 +238,20 @@ function AdminCreate() {
     setEndDate(endDate)
   }
 
+  function clearFields() {
+    console.log("clearing fields")
+    setCbetContentCategory(1)
+    setCbetTitle("")
+    setAuthor("")
+    setCbetPartner("0")
+  }
+
   return (
     <Layout title="Create/Edit" category={getCategoryName(cbetContentCategory)}>
       <SEO title="Admin Create Edit" />
+      <Button variant="outline-primary" onClick={clearFields}>
+        Clear
+      </Button>
       <Container fluid>
         <Row>
           <Col md={4}>
@@ -269,6 +285,7 @@ function AdminCreate() {
                 type="text"
                 name="title"
                 onChange={handleTitleChange}
+                value={cbetTitle}
                 ref={register({ required: true })}
               ></Form.Control>
               <Form.Label style={{ color: "red" }}>
@@ -320,6 +337,8 @@ function AdminCreate() {
               <Form.Control
                 type="text"
                 name="author"
+                value={author}
+                onChange={handleAuthor}
                 ref={register({ required: true })}
               ></Form.Control>
               <Form.Label style={{ color: "red" }}>
@@ -332,7 +351,7 @@ function AdminCreate() {
                 <Form.Label style={{ fontWeight: "bold" }}>
                   Publish Date
                 </Form.Label>
-                <CbetDatePicker getDate={getPublishDate} />
+                <CbetDatePicker getDate={getPublishDate} defaultDate />
               </Form.Group>
             </Form.Row>
 

@@ -1,5 +1,5 @@
-import React, { useState } from "react"
-import { Button, Container, Row, Col, Form, ListGroup } from "react-bootstrap"
+import React, { useState, useEffect } from "react"
+import { Col, Form } from "react-bootstrap"
 import { calculateDays } from "../utils/utility"
 
 const year = new Date().getFullYear()
@@ -11,6 +11,25 @@ export default function CbetDatePicker(props) {
   const [addDay, setAddDay] = useState("") // Day selected to add
   const [addYear, setAddYear] = useState("") // Year selected to add
   const [daysLength, setDaysLength] = useState(0) // number of days selected
+
+  useEffect(() => {
+    if (props.defaultDate) {
+      console.log("must set default date")
+      const dateF = new Date()
+      console.log("new date", dateF)
+      const day = dateF.getDate()
+      const monthIndex = dateF.getMonth()
+      const year = dateF.getFullYear()
+
+      const month = monthIndex + 1
+      console.log("def date", monthIndex + 1, day, year)
+      setAddMonth("0" + month.toString())
+      setAddDay(day.toString())
+      setAddYear(year.toString())
+    }
+
+    props.getDate(`${addMonth}/${addDay}/${addYear}`)
+  })
 
   function handleDates(event) {
     const newDate = event.target.value
@@ -24,11 +43,7 @@ export default function CbetDatePicker(props) {
       setAddYear(newDate)
       setDaysLength(calculateDays(addMonth, newDate))
     }
-    // props.getDate(`${addMonth}/${addDay}/${addYear}`)
   }
-
-  //   console.log("get stuff", props.getDate)
-  props.getDate(`${addMonth}/${addDay}/${addYear}`)
 
   return (
     <React.Fragment>
@@ -42,7 +57,7 @@ export default function CbetDatePicker(props) {
             style={{ width: "80px" }}
             as="select"
             name="month"
-            // ref={register({ required: true })}
+            value={addMonth}
             onChange={handleDates}
           >
             <option value="">MM</option>
@@ -79,7 +94,7 @@ export default function CbetDatePicker(props) {
             style={{ width: "75px" }}
             as="select"
             name="day"
-            // ref={register({ required: true })}
+            value={addDay}
             onChange={handleDates}
           >
             <option value="">DD</option>
@@ -142,7 +157,7 @@ export default function CbetDatePicker(props) {
             style={{ width: "100px" }}
             as="select"
             name="year"
-            // ref={register({ required: true })}
+            value={year}
             onChange={handleDates}
           >
             <option value="">YYYY</option>
