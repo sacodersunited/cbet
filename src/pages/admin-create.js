@@ -66,7 +66,6 @@ function AdminCreate() {
   }, [authContent])
 
   const onSubmit = data => {
-    alert(JSON.stringify(data))
     insertCbetContent(data)
   }
 
@@ -130,8 +129,8 @@ function AdminCreate() {
           Status: status, // number
           CbetCategory: cbetContentCategory, // number
           Link: "http://google.com", // string - Event and Job only
-          StartDate: startDate, // date
-          EndDate: endDate, // date
+          StartDate: publishDate, // date
+          EndDate: publishDate, // date
           Location: "", // string
           Tags: "test,one,two", // string
           Featured: featured, // bool
@@ -166,8 +165,8 @@ function AdminCreate() {
           Status: status, // bool
           CbetCategory: cbetContentCategory, // number
           Link: "", // string
-          StartDate: startDate, // date
-          EndDate: endDate, // date
+          StartDate: publishDate, // date
+          EndDate: publishDate, // date
           Location: "", // string
           Tags: "test,one,two", // string
           Featured: featured, // bool
@@ -191,7 +190,7 @@ function AdminCreate() {
     try {
       // const response = fetch("http://localhost:7071/api/GetCbetContent", myInit)
       const response = fetch(
-        `https://cbetdata.azurewebsites.net/api/GetCbetContent?code=${this.props.code}`,
+        `https://cbetdata.azurewebsites.net/api/GetCbetContent?code=${authContent}`,
         myInit
       )
 
@@ -261,6 +260,7 @@ function AdminCreate() {
               </Form.Label>
               <br></br>
             </Form.Group>
+
             <Form.Group controlId="TitleHere">
               <Form.Label
                 style={{ fontWeight: "bold" }}
@@ -275,6 +275,7 @@ function AdminCreate() {
                 {errors.title && "Title is required"}
               </Form.Label>
             </Form.Group>
+
             <Form.Group controlId="status">
               <Form.Label style={{ fontWeight: "bold" }}>Status</Form.Label>
               <Form.Control
@@ -291,6 +292,7 @@ function AdminCreate() {
                 {errors.category && "Cbet Category is required"}
               </Form.Label>
             </Form.Group>
+
             {cbetContentCategory !== 3 ? (
               <Form.Group controlId="Partners">
                 <Form.Label style={{ fontWeight: "bold" }}>Partners</Form.Label>
@@ -312,6 +314,7 @@ function AdminCreate() {
                 <br></br>
               </Form.Group>
             ) : null}
+
             <Form.Group controlId="AuthorHere">
               <Form.Label style={{ fontWeight: "bold" }}>Author</Form.Label>
               <Form.Control
