@@ -8,6 +8,7 @@ import "suneditor/dist/css/suneditor.min.css"
 import CbetDropzone from "../components/CbetDropzone"
 import useCbetAuth from "../hooks/use-cbet-auth"
 import CbetDatePicker from "../components/CbetDatePicker"
+import { FaCheck } from "react-icons/fa"
 
 const partnersList = [
   "Accet",
@@ -357,8 +358,41 @@ function AdminCreate() {
 
             <Form.Label style={{ fontWeight: "bold" }}>Thumbnail</Form.Label>
             <Form.Group style={{ display: "flex", justifyContent: "center" }}>
-              <CbetDropzone upload={uploadThumbnail}></CbetDropzone>
+              <CbetDropzone
+                upload={uploadThumbnail}
+                complete={thumbnailUpload.length > 0}
+              ></CbetDropzone>
             </Form.Group>
+            {thumbnailUpload ? (
+              <ul
+                style={{
+                  listStyleType: "none",
+                  paddingLeft: "0px",
+                  marginTop: "0px",
+                }}
+              >
+                {thumbnailUpload.map(file => (
+                  <li key={file.name}>
+                    <FaCheck
+                      color="green"
+                      size={22}
+                      style={{ marginTop: "10px" }}
+                    />
+                    <span
+                      style={{
+                        color: "#005ea2",
+                        marginTop: "10px",
+                        marginLeft: "5px",
+                        verticalAlign: "bottom",
+                      }}
+                      data-testid="uploadfilename"
+                    >
+                      {file.name}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            ) : null}
             <Form.Row>
               <Form.Group
                 as={Col}
