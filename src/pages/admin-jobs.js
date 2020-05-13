@@ -18,7 +18,7 @@ export default function AdminJobs() {
       .then(resultData => {
         setCbetContent(resultData)
       })
-  }, [authContent])
+  }, [])
 
   const jobs = cbetContent.filter(post => post.Category === 1)
 
