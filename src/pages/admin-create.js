@@ -324,9 +324,14 @@ function AdminCreate() {
               </Form.Label>
               <br></br>
             </Form.Group>
-            <Form.Label style={{ fontWeight: "bold" }}>Publish Date</Form.Label>
-
-            <CbetDatePicker getDate={getPublishDate} />
+            <Form.Row>
+              <Form.Group>
+                <Form.Label style={{ fontWeight: "bold" }}>
+                  Publish Date
+                </Form.Label>
+                <CbetDatePicker getDate={getPublishDate} />
+              </Form.Group>
+            </Form.Row>
 
             <Form.Label style={{ fontWeight: "bold" }}>Thumbnail</Form.Label>
             <Form.Group style={{ display: "flex", justifyContent: "center" }}>
@@ -350,8 +355,10 @@ function AdminCreate() {
             </Form.Row>
           </Col>
           <Col md={8}>
-            <Form.Label style={{ fontWeight: "bold" }}>Is Featured</Form.Label>
-            <Form.Group as={Col}>
+            <Form.Group>
+              <Form.Label style={{ fontWeight: "bold" }}>
+                Is Featured
+              </Form.Label>
               <ListGroup horizontal>
                 <ListGroup.Item
                   as="button"
@@ -382,40 +389,47 @@ function AdminCreate() {
 
             {/* Event */}
             {cbetContentCategory === 2 ? (
-              <Col md={4}>
-                <Form.Group controlId="event dates">
-                  <Form.Label style={{ fontWeight: "bold" }}>
-                    Start Date
-                  </Form.Label>
-                  <CbetDatePicker getDate={getStartDate} />
-                  <Form.Label style={{ fontWeight: "bold" }}>
-                    Stop Date
-                  </Form.Label>
-                  <CbetDatePicker getDate={getEndDate} />
-                </Form.Group>
-              </Col>
+              <>
+                <Form.Row>
+                  <Form.Group controlId="event dates">
+                    <Form.Label style={{ fontWeight: "bold" }}>
+                      Start Date
+                    </Form.Label>
+                    <CbetDatePicker getDate={getStartDate} />
+                  </Form.Group>
+                </Form.Row>
+                <Form.Row>
+                  <Form.Group>
+                    <Form.Label style={{ fontWeight: "bold" }}>
+                      Stop Date
+                    </Form.Label>
+                    <CbetDatePicker getDate={getEndDate} />
+                  </Form.Group>
+                </Form.Row>
+              </>
             ) : null}
+            <Form.Group>
+              <Form.Label style={{ fontWeight: "bold" }}>
+                {(() => {
+                  switch (cbetContentCategory) {
+                    case 3:
+                      return "Blog content"
+                    case 2:
+                      return "Event content"
+                    case 1:
+                      return "Job content"
+                    default:
+                      return "Cbet Content"
+                  }
+                })()}
+              </Form.Label>
 
-            <Form.Label style={{ fontWeight: "bold" }}>
-              {(() => {
-                switch (cbetContentCategory) {
-                  case 3:
-                    return "Blog content"
-                  case 2:
-                    return "Event content"
-                  case 1:
-                    return "Job content"
-                  default:
-                    return "Cbet Content"
-                }
-              })()}
-            </Form.Label>
-
-            <SunEditor
-              onChange={handleContentChange}
-              onBlur={handleLoadHtmlEditor}
-              setOptions={{ height: "auto", minHeight: 400 }}
-            />
+              <SunEditor
+                onChange={handleContentChange}
+                onBlur={handleLoadHtmlEditor}
+                setOptions={{ height: "auto", minHeight: 400 }}
+              />
+            </Form.Group>
 
             {/* Event */}
             {cbetContentCategory === 2 ? (

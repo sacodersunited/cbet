@@ -1,7 +1,7 @@
 import React, { useCallback, useState } from "react"
 import { Image } from "react-bootstrap"
 import { useDropzone } from "react-dropzone"
-import dropzone from "../images/drops/dropzone.png"
+import dropzone from "../images/drops/DropZone.png"
 import dropzone_Active from "../images/drops/DropZone Active.png"
 import dropzone_Complete from "../images/drops/DropZone Complete.png"
 import dropzone_Uploading from "../images/drops/DropZone Uploading.png"
@@ -28,10 +28,10 @@ export default function CbetDropzone(props) {
       <input {...getInputProps()} />
 
       {isDragActive ? (
-        <Image src={dropzone_Active} onClick={clickUpload} />
+        <Image src={dropzone_Active} onClick={clickUpload} fluid/>
       ) : (
         // <div {...getRootProps({ className: "dropzone" })}>
-        <Image src={dropzone} onClick={clickUpload} />
+        <Image src={dropzone} onClick={clickUpload} fluid/>
       )}
     </div>
   )

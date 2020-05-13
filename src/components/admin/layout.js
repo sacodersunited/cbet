@@ -78,7 +78,7 @@ export default function Layout({ title, category, children }) {
               <Container fluid>
                 <Row className="flex-xl-nowrap">
                   <SideNav />
-                  <Col md={10}>
+                  <Col md={10} className="pb-5">
                     <Navbar expand="lg" variant="light" bg="light">
                       <Form className="w-75" inline>
                         <FormControl
