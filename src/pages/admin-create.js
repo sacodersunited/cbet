@@ -56,7 +56,7 @@ const partnersList = [
 partnersList.sort()
 
 function AdminCreate() {
-  const { register, handleSubmit, watch, errors } = useForm()
+  const { register, handleSubmit, watch, errors, setValue } = useForm()
   const authContent = useCbetAuth() // code used for making api calls
   const [cbetContent, setCbetContent] = useState([]) // all cbet content blogs, jobs and events
   const [htmlContent, setHtmlContent] = useState("") // html content for blog post
@@ -72,6 +72,7 @@ function AdminCreate() {
   const [author, setAuthor] = useState("")
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [location, setLocation] = useState("")
+  const [submitMessage, setSubmitMessage] = useState("")
 
   useEffect(() => {
     fetch(
@@ -82,9 +83,27 @@ function AdminCreate() {
       .then(resultData => {
         setCbetContent(resultData)
       })
-  }, [authContent])
+
+    register({ name: "cbetDropzone" }, { required: true })
+    register(
+      { name: "publishDate" },
+      { required: true, validate: value => Date.parse(value) !== isNaN }
+    )
+    const dateF = new Date()
+    const day = dateF.getDate()
+    const monthIndex = dateF.getMonth()
+    const year = dateF.getFullYear()
+
+    const month = monthIndex + 1
+    setValue("publishDate", `${month}/${day}/${year}`)
+  }, [])
 
   const onSubmit = data => {
+    console.log("form data", data)
+    if (cbetContentCategory === 0) {
+      setSubmitMessage("Select a Cbet Category to save.")
+      return
+    }
     setIsSubmitting(true)
     insertCbetContent(data)
   }
@@ -129,6 +148,7 @@ function AdminCreate() {
 
   function uploadThumbnail(files) {
     console.log("uploading thumbnail...", files)
+    setValue("cbetDropzone", files)
     setThumbnailUpload(files)
   }
 
@@ -216,9 +236,12 @@ function AdminCreate() {
 
       if (!response.ok) {
         console.log("response not OK.")
+        setIsSubmitting(false)
       }
 
       console.log("response is OK")
+
+      setIsSubmitting(false)
     } catch (e) {
       console.log(`catch error: ${e}`)
     }
@@ -248,6 +271,8 @@ function AdminCreate() {
 
   function getPublishDate(renderedDate) {
     // console.log("Get publish date", renderedDate)
+    console.log("is date valid?", Date.parse(renderedDate))
+    setValue("publishDate", renderedDate)
     setPublishDate(renderedDate)
   }
 
@@ -371,6 +396,9 @@ function AdminCreate() {
                   Publish Date
                 </Form.Label>
                 <CbetDatePicker getDate={getPublishDate} defaultDate />
+                <Form.Label style={{ color: "red" }}>
+                  {errors.publishDate && "Valid Date is required"}
+                </Form.Label>
               </Form.Group>
             </Form.Row>
 
@@ -380,6 +408,9 @@ function AdminCreate() {
                 upload={uploadThumbnail}
                 complete={thumbnailUpload.length > 0}
               ></CbetDropzone>
+              <Form.Label style={{ color: "red" }}>
+                {errors.cbetDropzone && "Thumbnail upload is required"}
+              </Form.Label>
             </Form.Group>
             {thumbnailUpload ? (
               <ul
@@ -411,6 +442,13 @@ function AdminCreate() {
                 ))}
               </ul>
             ) : null}
+
+            {/* Submit Message here */}
+            {submitMessage.length > 1 ? (
+              <Form.Label style={{ color: "red" }}>{submitMessage}</Form.Label>
+            ) : null}
+
+            {/* Save Cancel buttons */}
             <Form.Row>
               <Form.Group
                 as={Col}

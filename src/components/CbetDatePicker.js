@@ -33,11 +33,14 @@ export default function CbetDatePicker(props) {
     if (event.target.id === "addMonth") {
       setAddMonth(newDate)
       setDaysLength(calculateDays(newDate, addYear))
+      props.getDate(`${newDate}/${addDay}/${addYear}`)
     } else if (event.target.id === "addDay") {
       setAddDay(newDate)
+      props.getDate(`${addMonth}/${newDate}/${addYear}`)
     } else if (event.target.id === "addYear") {
       setAddYear(newDate)
       setDaysLength(calculateDays(addMonth, newDate))
+      props.getDate(`${addMonth}/${newDate}/${newDate}`)
     }
   }
 
