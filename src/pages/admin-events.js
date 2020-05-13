@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react"
 import SEO from "../components/seo"
 import Layout from "../components/admin/layout"
 import useCbetAuth from "../hooks/use-cbet-auth"
-import { Container, Row, Col, Card, Button, Badge } from "react-bootstrap"
+import { Container, Row, Col, Card, Badge } from "react-bootstrap"
 import Moment from "react-moment"
 import { FaPen, FaTimes } from "react-icons/fa"
 
@@ -12,7 +12,7 @@ export default function AdminEvents() {
 
   useEffect(() => {
     fetch(
-      `https://cbetcontent.azurewebsites.net/api/GetCbetContent?code=${authContent}`
+      `https://cbetdata.azurewebsites.net/api/GetCbetContent?code=${authContent}`
     )
       .then(response => response.json()) // parse JSON from request
       .then(resultData => {
