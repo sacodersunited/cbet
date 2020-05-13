@@ -71,6 +71,7 @@ function AdminCreate() {
   const [endDate, setEndDate] = useState("1/1/2021")
   const [author, setAuthor] = useState("")
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [location, setLocation] = useState("")
 
   useEffect(() => {
     fetch(
@@ -237,6 +238,10 @@ function AdminCreate() {
     setCbetContentCategory(CategorySelected)
   }
 
+  function handleLocation(e) {
+    setLocation(e.target.value)
+  }
+
   function handleAuthor(e) {
     setAuthor(e.target.value)
   }
@@ -258,18 +263,17 @@ function AdminCreate() {
 
   function clearFields() {
     console.log("clearing fields")
-    setCbetContentCategory(1)
+    // setCbetContentCategory(1)
     setCbetTitle("")
     setAuthor("")
     setCbetPartner("0")
+    setHtmlContent("")
+    setLocation("")
   }
 
   return (
     <Layout title="Create/Edit" category={getCategoryName(cbetContentCategory)}>
       <SEO title="Admin Create Edit" />
-      {/* <Button variant="outline-primary" onClick={clearFields}>
-        Clear
-      </Button> */}
       <Container fluid>
         <Row>
           <Col md={4}>
@@ -524,6 +528,8 @@ function AdminCreate() {
                   <Form.Control
                     type="text"
                     name="location"
+                    value={location}
+                    onChange={handleLocation}
                     ref={register()}
                   ></Form.Control>
                   <Form.Label style={{ color: "red" }}>
