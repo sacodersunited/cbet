@@ -14,26 +14,22 @@ export default function CbetDatePicker(props) {
 
   useEffect(() => {
     if (props.defaultDate) {
-      console.log("must set default date")
       const dateF = new Date()
-      console.log("new date", dateF)
       const day = dateF.getDate()
       const monthIndex = dateF.getMonth()
       const year = dateF.getFullYear()
 
       const month = monthIndex + 1
-      console.log("def date", monthIndex + 1, day, year)
       setAddMonth("0" + month.toString())
       setAddDay(day.toString())
       setAddYear(year.toString())
     }
 
     props.getDate(`${addMonth}/${addDay}/${addYear}`)
-  })
+  }, [])
 
   function handleDates(event) {
     const newDate = event.target.value
-
     if (event.target.id === "addMonth") {
       setAddMonth(newDate)
       setDaysLength(calculateDays(newDate, addYear))
@@ -157,7 +153,7 @@ export default function CbetDatePicker(props) {
             style={{ width: "100px" }}
             as="select"
             name="year"
-            value={year}
+            value={addYear}
             onChange={handleDates}
           >
             <option value="">YYYY</option>
