@@ -8,7 +8,22 @@ import "suneditor/dist/css/suneditor.min.css"
 import CbetDropzone from "../components/CbetDropzone"
 import useCbetAuth from "../hooks/use-cbet-auth"
 import CbetDatePicker from "../components/CbetDatePicker"
-import { FaCheck } from "react-icons/fa"
+import { FaCheck, FaSpinner } from "react-icons/fa"
+import styled from "styled-components"
+
+const SpinSpinner = styled(FaSpinner)`
+  @keyframes spin {
+    0% {
+      -webkit-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    100% {
+      -webkit-transform: rotate(359deg);
+      transform: rotate(359deg);
+    }
+  }
+  animation: spin 1.5s infinite;
+`
 
 const partnersList = [
   "Accet",
@@ -55,6 +70,7 @@ function AdminCreate() {
   const [startDate, setStartDate] = useState("1/1/2020")
   const [endDate, setEndDate] = useState("1/1/2021")
   const [author, setAuthor] = useState("")
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
   useEffect(() => {
     fetch(
@@ -68,6 +84,7 @@ function AdminCreate() {
   }, [authContent])
 
   const onSubmit = data => {
+    setIsSubmitting(true)
     insertCbetContent(data)
   }
 
@@ -209,7 +226,7 @@ function AdminCreate() {
   function handleCbetPartnerChange(e) {
     e.preventDefault()
 
-    console.log("handle Partners", e.target.value)
+    // console.log("handle Partners", e.target.value)
     setCbetPartner(e.target.value)
   }
 
@@ -225,17 +242,17 @@ function AdminCreate() {
   }
 
   function getPublishDate(renderedDate) {
-    console.log("Get publish date", renderedDate)
+    // console.log("Get publish date", renderedDate)
     setPublishDate(renderedDate)
   }
 
   function getStartDate(startDate) {
-    console.log("get STart Date", startDate)
+    // console.log("get STart Date", startDate)
     setStartDate(startDate)
   }
 
   function getEndDate(endDate) {
-    console.log("get end date", endDate)
+    // console.log("get end date", endDate)
     setEndDate(endDate)
   }
 
@@ -250,9 +267,9 @@ function AdminCreate() {
   return (
     <Layout title="Create/Edit" category={getCategoryName(cbetContentCategory)}>
       <SEO title="Admin Create Edit" />
-      <Button variant="outline-primary" onClick={clearFields}>
+      {/* <Button variant="outline-primary" onClick={clearFields}>
         Clear
-      </Button>
+      </Button> */}
       <Container fluid>
         <Row>
           <Col md={4}>
@@ -275,7 +292,6 @@ function AdminCreate() {
               <Form.Label style={{ color: "red" }}>
                 {errors.category && "Cbet Category is required"}
               </Form.Label>
-              <br></br>
             </Form.Group>
 
             <Form.Group controlId="TitleHere">
@@ -329,7 +345,6 @@ function AdminCreate() {
                 <Form.Label style={{ color: "red" }}>
                   {errors.author && "Partner is required"}
                 </Form.Label>
-                <br></br>
               </Form.Group>
             ) : null}
 
@@ -345,7 +360,6 @@ function AdminCreate() {
               <Form.Label style={{ color: "red" }}>
                 {errors.author && "Author is required"}
               </Form.Label>
-              <br></br>
             </Form.Group>
             <Form.Row>
               <Form.Group>
@@ -401,6 +415,7 @@ function AdminCreate() {
                 <Button size="lg" onClick={handleSubmit(onSubmit)}>
                   Save
                 </Button>
+                {isSubmitting ? <SpinSpinner data-testid="spinner" /> : null}
               </Form.Group>
               <Form.Group
                 as={Col}
@@ -408,40 +423,50 @@ function AdminCreate() {
               >
                 <Button size="lg">Cancel</Button>
               </Form.Group>
+              <Form.Group
+                as={Col}
+                style={{ display: "flex", justifyContent: "center" }}
+              >
+                <Button variant="outline-primary" onClick={clearFields}>
+                  Clear
+                </Button>
+              </Form.Group>
             </Form.Row>
           </Col>
           <Col md={8}>
-            <Form.Group>
-              <Form.Label style={{ fontWeight: "bold" }}>
-                Is Featured
-              </Form.Label>
-              <ListGroup horizontal>
-                <ListGroup.Item
-                  as="button"
-                  action
-                  onClick={() => {
-                    console.log("clicked ON")
-                    setFeatured(true)
-                  }}
-                  href="link1"
-                  style={{ width: "77px" }}
-                >
-                  On
-                </ListGroup.Item>
-                <ListGroup.Item
-                  as="button"
-                  action
-                  href="link2"
-                  onClick={() => {
-                    setFeatured(false)
-                    console.log("clicked OFF")
-                  }}
-                  style={{ width: "77px" }}
-                >
-                  Off
-                </ListGroup.Item>
-              </ListGroup>
-            </Form.Group>
+            {cbetContentCategory === 1 ? (
+              <Form.Group>
+                <Form.Label style={{ fontWeight: "bold" }}>
+                  Is Featured
+                </Form.Label>
+                <ListGroup horizontal>
+                  <ListGroup.Item
+                    as="button"
+                    action
+                    onClick={() => {
+                      console.log("clicked ON")
+                      setFeatured(true)
+                    }}
+                    href="link1"
+                    style={{ width: "77px" }}
+                  >
+                    On
+                  </ListGroup.Item>
+                  <ListGroup.Item
+                    as="button"
+                    action
+                    href="link2"
+                    onClick={() => {
+                      setFeatured(false)
+                      console.log("clicked OFF")
+                    }}
+                    style={{ width: "77px" }}
+                  >
+                    Off
+                  </ListGroup.Item>
+                </ListGroup>
+              </Form.Group>
+            ) : null}
 
             {/* Event */}
             {cbetContentCategory === 2 ? (
@@ -504,7 +529,6 @@ function AdminCreate() {
                   <Form.Label style={{ color: "red" }}>
                     {errors.Location && "Location is required"}
                   </Form.Label>
-                  <br></br>
                 </Form.Group>
               </>
             ) : null}
