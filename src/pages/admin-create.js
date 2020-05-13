@@ -486,7 +486,6 @@ function AdminCreate() {
                     as="button"
                     action
                     onClick={() => {
-                      console.log("clicked ON")
                       setFeatured(true)
                     }}
                     href="link1"
@@ -498,9 +497,9 @@ function AdminCreate() {
                     as="button"
                     action
                     href="link2"
+                    active={featured === false}
                     onClick={() => {
                       setFeatured(false)
-                      console.log("clicked OFF")
                     }}
                     style={{ width: "77px" }}
                   >
