@@ -73,6 +73,7 @@ function AdminCreate() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [location, setLocation] = useState("")
   const [submitMessage, setSubmitMessage] = useState("")
+  const [isDone, setIsDone] = useState(false)
 
   useEffect(() => {
     fetch(
@@ -97,6 +98,10 @@ function AdminCreate() {
 
     const month = monthIndex + 1
     setValue("publishDate", `${month}/${day}/${year}`)
+    setStartDate(`${month}/${day}/${year}`)
+    setEndDate(`${month}/${day}/${year}`)
+    setPublishDate(`${month}/${day}/${year}`)
+    setLocation("Unknown")
   }, [])
 
   const onSubmit = data => {
@@ -105,6 +110,11 @@ function AdminCreate() {
       setSubmitMessage("Select a Cbet Category to save.")
       return
     }
+
+    if (Date.parse(startDate) === isNaN) {
+      console.log("Start date is not valid")
+    }
+
     setIsSubmitting(true)
     insertCbetContent(data)
   }
@@ -237,15 +247,25 @@ function AdminCreate() {
 
       if (!response.ok) {
         console.log("response not OK.")
-        setIsSubmitting(false)
       }
 
       console.log("response is OK")
 
-      setIsSubmitting(false)
+      setTimeout(() => {
+        setIsSubmitting(false)
+        clearFields()
+        setIsDone(true)
+        ClearDone()
+      }, 3000)
     } catch (e) {
       console.log(`catch error: ${e}`)
     }
+  }
+
+  function ClearDone() {
+    setTimeout(() => {
+      setIsDone(false)
+    }, 5000)
   }
 
   function handleCbetPartnerChange(e) {
@@ -260,6 +280,12 @@ function AdminCreate() {
 
     const CategorySelected = Number(e.target.value)
     setCbetContentCategory(CategorySelected)
+
+    if (CategorySelected !== 2) {
+      setLocation("Unknown")
+    } else {
+      setLocation("")
+    }
   }
 
   function handleLocation(e) {
@@ -272,19 +298,20 @@ function AdminCreate() {
 
   function getPublishDate(renderedDate) {
     // console.log("Get publish date", renderedDate)
-    console.log("is date valid?", Date.parse(renderedDate))
+    // console.log("is date valid?", Date.parse(renderedDate))
     setValue("publishDate", renderedDate)
     setPublishDate(renderedDate)
   }
 
-  function getStartDate(startDate) {
+  function getStartDate(startDateCbet) {
     // console.log("get STart Date", startDate)
-    setStartDate(startDate)
+    console.log("start date is ", Date.parse(startDateCbet))
+    setStartDate(startDateCbet)
   }
 
-  function getEndDate(endDate) {
+  function getEndDate(endDateCbet) {
     // console.log("get end date", endDate)
-    setEndDate(endDate)
+    setEndDate(endDateCbet)
   }
 
   function clearFields() {
@@ -295,6 +322,7 @@ function AdminCreate() {
     setCbetPartner("0")
     setHtmlContent("")
     setLocation("")
+    setThumbnailUpload([])
   }
 
   return (
@@ -303,6 +331,20 @@ function AdminCreate() {
       <Container fluid>
         <Row>
           <Col md={4}>
+            {isDone ? (
+              <Form.Label>
+                <FaCheck color="green" size={22}></FaCheck>
+                <span
+                  style={{
+                    marginLeft: "5px",
+                    verticalAlign: "bottom",
+                  }}
+                  data-testid="uploadfilename"
+                >
+                  {`${getCategoryName(cbetContentCategory)} is submitted`}
+                </span>
+              </Form.Label>
+            ) : null}
             <Form.Group controlId="selectCategory">
               <Form.Label style={{ fontWeight: "bold" }}>
                 {getCategoryName(cbetContentCategory)}
@@ -458,7 +500,9 @@ function AdminCreate() {
                 <Button size="lg" onClick={handleSubmit(onSubmit)}>
                   Save
                 </Button>
-                {isSubmitting ? <SpinSpinner data-testid="spinner" /> : null}
+                {isSubmitting === true ? (
+                  <SpinSpinner data-testid="spinner" />
+                ) : null}
               </Form.Group>
               <Form.Group
                 as={Col}
@@ -518,19 +562,28 @@ function AdminCreate() {
                     <Form.Label style={{ fontWeight: "bold" }}>
                       Start Date
                     </Form.Label>
-                    <CbetDatePicker getDate={getStartDate} />
+                    <CbetDatePicker getDate={getStartDate} defaultDate />
+                    <Form.Label style={{ color: "red", marginLeft: "5px" }}>
+                      {Date.parse(startDate) === isNaN &&
+                        "* Start date must be a valid date."}
+                    </Form.Label>
                   </Form.Group>
                 </Form.Row>
                 <Form.Row>
                   <Form.Group>
                     <Form.Label style={{ fontWeight: "bold" }}>
-                      Stop Date
+                      End Date
                     </Form.Label>
-                    <CbetDatePicker getDate={getEndDate} />
+                    <CbetDatePicker getDate={getEndDate} defaultDate />
+                    <Form.Label style={{ color: "red", marginLeft: "5px" }}>
+                      {Date.parse(endDate) === isNaN &&
+                        "* End date must be a valid date."}
+                    </Form.Label>
                   </Form.Group>
                 </Form.Row>
               </>
             ) : null}
+
             <Form.Group>
               <Form.Label style={{ fontWeight: "bold" }}>
                 {(() => {
@@ -571,10 +624,10 @@ function AdminCreate() {
                     name="location"
                     value={location}
                     onChange={handleLocation}
-                    ref={register()}
+                    ref={register({ required: true })}
                   ></Form.Control>
                   <Form.Label style={{ color: "red" }}>
-                    {errors.Location && "* Location is required"}
+                    {errors.location && "* Location is required"}
                   </Form.Label>
                 </Form.Group>
               </>
