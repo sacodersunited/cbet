@@ -8,6 +8,22 @@ import "suneditor/dist/css/suneditor.min.css"
 import CbetDropzone from "../components/CbetDropzone"
 import useCbetAuth from "../hooks/use-cbet-auth"
 import CbetDatePicker from "../components/CbetDatePicker"
+import { FaCheck, FaSpinner } from "react-icons/fa"
+import styled from "styled-components"
+
+const SpinSpinner = styled(FaSpinner)`
+  @keyframes spin {
+    0% {
+      -webkit-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    100% {
+      -webkit-transform: rotate(359deg);
+      transform: rotate(359deg);
+    }
+  }
+  animation: spin 1.5s infinite;
+`
 
 const partnersList = [
   "Accet",
@@ -40,11 +56,11 @@ const partnersList = [
 partnersList.sort()
 
 function AdminCreate() {
-  const { register, handleSubmit, watch, errors } = useForm()
+  const { register, handleSubmit, watch, errors, setValue } = useForm()
   const authContent = useCbetAuth() // code used for making api calls
   const [cbetContent, setCbetContent] = useState([]) // all cbet content blogs, jobs and events
   const [htmlContent, setHtmlContent] = useState("") // html content for blog post
-  const [cbetContentCategory, setCbetContentCategory] = useState(2) // content Category
+  const [cbetContentCategory, setCbetContentCategory] = useState(1) // content Category
   const [thumbnailUpload, setThumbnailUpload] = useState([]) // thumbnail image
   const [cbetPartner, setCbetPartner] = useState("") // Partner dropdown list
   const [cbetTitle, setCbetTitle] = useState("") // Title
@@ -53,6 +69,11 @@ function AdminCreate() {
   const [publishDate, setPublishDate] = useState("")
   const [startDate, setStartDate] = useState("1/1/2020")
   const [endDate, setEndDate] = useState("1/1/2021")
+  const [author, setAuthor] = useState("")
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [location, setLocation] = useState("")
+  const [submitMessage, setSubmitMessage] = useState("")
+  const [isDone, setIsDone] = useState(false)
 
   useEffect(() => {
     fetch(
@@ -63,9 +84,38 @@ function AdminCreate() {
       .then(resultData => {
         setCbetContent(resultData)
       })
-  }, [authContent])
+
+    register({ name: "cbetDropzone" }, { required: true })
+    register(
+      { name: "publishDate" },
+      { required: true, validate: value => Date.parse(value) !== isNaN }
+    )
+    register({ name: "htmlContent" }, { required: true })
+    const dateF = new Date()
+    const day = dateF.getDate()
+    const monthIndex = dateF.getMonth()
+    const year = dateF.getFullYear()
+
+    const month = monthIndex + 1
+    setValue("publishDate", `${month}/${day}/${year}`)
+    setStartDate(`${month}/${day}/${year}`)
+    setEndDate(`${month}/${day}/${year}`)
+    setPublishDate(`${month}/${day}/${year}`)
+    setLocation("Unknown")
+  }, [])
 
   const onSubmit = data => {
+    console.log("form data", data)
+    if (cbetContentCategory === 0) {
+      setSubmitMessage("Select a Cbet Category to save.")
+      return
+    }
+
+    if (Date.parse(startDate) === isNaN) {
+      console.log("Start date is not valid")
+    }
+
+    setIsSubmitting(true)
     insertCbetContent(data)
   }
 
@@ -88,7 +138,7 @@ function AdminCreate() {
 
   function handleContentChange(content) {
     console.log("content is changing", content) //Get Content Inside Editor
-
+    setValue("htmlContent", content)
     setHtmlContent(content)
   }
 
@@ -109,6 +159,7 @@ function AdminCreate() {
 
   function uploadThumbnail(files) {
     console.log("uploading thumbnail...", files)
+    setValue("cbetDropzone", files)
     setThumbnailUpload(files)
   }
 
@@ -199,15 +250,28 @@ function AdminCreate() {
       }
 
       console.log("response is OK")
+
+      setTimeout(() => {
+        setIsSubmitting(false)
+        clearFields()
+        setIsDone(true)
+        ClearDone()
+      }, 3000)
     } catch (e) {
       console.log(`catch error: ${e}`)
     }
   }
 
+  function ClearDone() {
+    setTimeout(() => {
+      setIsDone(false)
+    }, 5000)
+  }
+
   function handleCbetPartnerChange(e) {
     e.preventDefault()
 
-    console.log("handle Partners", e.target.value)
+    // console.log("handle Partners", e.target.value)
     setCbetPartner(e.target.value)
   }
 
@@ -216,21 +280,49 @@ function AdminCreate() {
 
     const CategorySelected = Number(e.target.value)
     setCbetContentCategory(CategorySelected)
+
+    if (CategorySelected !== 2) {
+      setLocation("Unknown")
+    } else {
+      setLocation("")
+    }
+  }
+
+  function handleLocation(e) {
+    setLocation(e.target.value)
+  }
+
+  function handleAuthor(e) {
+    setAuthor(e.target.value)
   }
 
   function getPublishDate(renderedDate) {
-    console.log("Get publish date", renderedDate)
+    // console.log("Get publish date", renderedDate)
+    // console.log("is date valid?", Date.parse(renderedDate))
+    setValue("publishDate", renderedDate)
     setPublishDate(renderedDate)
   }
 
-  function getStartDate(startDate) {
-    console.log("get STart Date", startDate)
-    setStartDate(startDate)
+  function getStartDate(startDateCbet) {
+    // console.log("get STart Date", startDate)
+    console.log("start date is ", Date.parse(startDateCbet))
+    setStartDate(startDateCbet)
   }
 
-  function getEndDate(endDate) {
-    console.log("get end date", endDate)
-    setEndDate(endDate)
+  function getEndDate(endDateCbet) {
+    // console.log("get end date", endDate)
+    setEndDate(endDateCbet)
+  }
+
+  function clearFields() {
+    console.log("clearing fields")
+    // setCbetContentCategory(1)
+    setCbetTitle("")
+    setAuthor("")
+    setCbetPartner("0")
+    setHtmlContent("")
+    setLocation("")
+    setThumbnailUpload([])
   }
 
   return (
@@ -239,6 +331,20 @@ function AdminCreate() {
       <Container fluid>
         <Row>
           <Col md={4}>
+            {isDone ? (
+              <Form.Label>
+                <FaCheck color="green" size={22}></FaCheck>
+                <span
+                  style={{
+                    marginLeft: "5px",
+                    verticalAlign: "bottom",
+                  }}
+                  data-testid="uploadfilename"
+                >
+                  {`${getCategoryName(cbetContentCategory)} is submitted`}
+                </span>
+              </Form.Label>
+            ) : null}
             <Form.Group controlId="selectCategory">
               <Form.Label style={{ fontWeight: "bold" }}>
                 {getCategoryName(cbetContentCategory)}
@@ -256,9 +362,8 @@ function AdminCreate() {
                 <option value="3">Blog</option>
               </Form.Control>
               <Form.Label style={{ color: "red" }}>
-                {errors.category && "Cbet Category is required"}
+                {errors.category && "* Cbet Category is required"}
               </Form.Label>
-              <br></br>
             </Form.Group>
 
             <Form.Group controlId="TitleHere">
@@ -269,10 +374,11 @@ function AdminCreate() {
                 type="text"
                 name="title"
                 onChange={handleTitleChange}
+                value={cbetTitle}
                 ref={register({ required: true })}
               ></Form.Control>
               <Form.Label style={{ color: "red" }}>
-                {errors.title && "Title is required"}
+                {errors.title && "* Title is required"}
               </Form.Label>
             </Form.Group>
 
@@ -289,7 +395,7 @@ function AdminCreate() {
                 <option value="0">Disabled</option>
               </Form.Control>
               <Form.Label style={{ color: "red" }}>
-                {errors.category && "Cbet Category is required"}
+                {errors.category && "* Cbet Category is required"}
               </Form.Label>
             </Form.Group>
 
@@ -309,9 +415,8 @@ function AdminCreate() {
                   })}
                 </Form.Control>
                 <Form.Label style={{ color: "red" }}>
-                  {errors.author && "Partner is required"}
+                  {errors.author && "* Partner is required"}
                 </Form.Label>
-                <br></br>
               </Form.Group>
             ) : null}
 
@@ -320,26 +425,73 @@ function AdminCreate() {
               <Form.Control
                 type="text"
                 name="author"
+                value={author}
+                onChange={handleAuthor}
                 ref={register({ required: true })}
               ></Form.Control>
               <Form.Label style={{ color: "red" }}>
-                {errors.author && "Author is required"}
+                {errors.author && "* Author is required"}
               </Form.Label>
-              <br></br>
             </Form.Group>
             <Form.Row>
               <Form.Group>
                 <Form.Label style={{ fontWeight: "bold" }}>
                   Publish Date
                 </Form.Label>
-                <CbetDatePicker getDate={getPublishDate} />
+                <CbetDatePicker getDate={getPublishDate} defaultDate />
+                <Form.Label style={{ color: "red" }}>
+                  {errors.publishDate && "* Valid Date is required"}
+                </Form.Label>
               </Form.Group>
             </Form.Row>
 
             <Form.Label style={{ fontWeight: "bold" }}>Thumbnail</Form.Label>
             <Form.Group style={{ display: "flex", justifyContent: "center" }}>
-              <CbetDropzone upload={uploadThumbnail}></CbetDropzone>
+              <CbetDropzone
+                upload={uploadThumbnail}
+                complete={thumbnailUpload.length > 0}
+              ></CbetDropzone>
+              <Form.Label style={{ color: "red" }}>
+                {errors.cbetDropzone && "* Thumbnail upload is required"}
+              </Form.Label>
             </Form.Group>
+            {thumbnailUpload ? (
+              <ul
+                style={{
+                  listStyleType: "none",
+                  paddingLeft: "0px",
+                  marginTop: "0px",
+                }}
+              >
+                {thumbnailUpload.map(file => (
+                  <li key={file.name}>
+                    <FaCheck
+                      color="green"
+                      size={22}
+                      style={{ marginTop: "10px" }}
+                    />
+                    <span
+                      style={{
+                        color: "#005ea2",
+                        marginTop: "10px",
+                        marginLeft: "5px",
+                        verticalAlign: "bottom",
+                      }}
+                      data-testid="uploadfilename"
+                    >
+                      {file.name}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            ) : null}
+
+            {/* Submit Message here */}
+            {submitMessage.length > 1 ? (
+              <Form.Label style={{ color: "red" }}>{submitMessage}</Form.Label>
+            ) : null}
+
+            {/* Save Cancel buttons */}
             <Form.Row>
               <Form.Group
                 as={Col}
@@ -348,6 +500,9 @@ function AdminCreate() {
                 <Button size="lg" onClick={handleSubmit(onSubmit)}>
                   Save
                 </Button>
+                {isSubmitting === true ? (
+                  <SpinSpinner data-testid="spinner" />
+                ) : null}
               </Form.Group>
               <Form.Group
                 as={Col}
@@ -355,40 +510,49 @@ function AdminCreate() {
               >
                 <Button size="lg">Cancel</Button>
               </Form.Group>
+              <Form.Group
+                as={Col}
+                style={{ display: "flex", justifyContent: "center" }}
+              >
+                <Button variant="outline-primary" onClick={clearFields}>
+                  Clear
+                </Button>
+              </Form.Group>
             </Form.Row>
           </Col>
           <Col md={8}>
-            <Form.Group>
-              <Form.Label style={{ fontWeight: "bold" }}>
-                Is Featured
-              </Form.Label>
-              <ListGroup horizontal>
-                <ListGroup.Item
-                  as="button"
-                  action
-                  onClick={() => {
-                    console.log("clicked ON")
-                    setFeatured(true)
-                  }}
-                  href="link1"
-                  style={{ width: "77px" }}
-                >
-                  On
-                </ListGroup.Item>
-                <ListGroup.Item
-                  as="button"
-                  action
-                  href="link2"
-                  onClick={() => {
-                    setFeatured(false)
-                    console.log("clicked OFF")
-                  }}
-                  style={{ width: "77px" }}
-                >
-                  Off
-                </ListGroup.Item>
-              </ListGroup>
-            </Form.Group>
+            {cbetContentCategory === 1 ? (
+              <Form.Group>
+                <Form.Label style={{ fontWeight: "bold" }}>
+                  Is Featured
+                </Form.Label>
+                <ListGroup horizontal>
+                  <ListGroup.Item
+                    as="button"
+                    action
+                    onClick={() => {
+                      setFeatured(true)
+                    }}
+                    href="link1"
+                    style={{ width: "77px" }}
+                  >
+                    On
+                  </ListGroup.Item>
+                  <ListGroup.Item
+                    as="button"
+                    action
+                    href="link2"
+                    active={featured === false}
+                    onClick={() => {
+                      setFeatured(false)
+                    }}
+                    style={{ width: "77px" }}
+                  >
+                    Off
+                  </ListGroup.Item>
+                </ListGroup>
+              </Form.Group>
+            ) : null}
 
             {/* Event */}
             {cbetContentCategory === 2 ? (
@@ -398,19 +562,28 @@ function AdminCreate() {
                     <Form.Label style={{ fontWeight: "bold" }}>
                       Start Date
                     </Form.Label>
-                    <CbetDatePicker getDate={getStartDate} />
+                    <CbetDatePicker getDate={getStartDate} defaultDate />
+                    <Form.Label style={{ color: "red", marginLeft: "5px" }}>
+                      {Date.parse(startDate) === isNaN &&
+                        "* Start date must be a valid date."}
+                    </Form.Label>
                   </Form.Group>
                 </Form.Row>
                 <Form.Row>
                   <Form.Group>
                     <Form.Label style={{ fontWeight: "bold" }}>
-                      Stop Date
+                      End Date
                     </Form.Label>
-                    <CbetDatePicker getDate={getEndDate} />
+                    <CbetDatePicker getDate={getEndDate} defaultDate />
+                    <Form.Label style={{ color: "red", marginLeft: "5px" }}>
+                      {Date.parse(endDate) === isNaN &&
+                        "* End date must be a valid date."}
+                    </Form.Label>
                   </Form.Group>
                 </Form.Row>
               </>
             ) : null}
+
             <Form.Group>
               <Form.Label style={{ fontWeight: "bold" }}>
                 {(() => {
@@ -427,6 +600,9 @@ function AdminCreate() {
                 })()}
               </Form.Label>
 
+              <Form.Label style={{ color: "red", marginLeft: "5px" }}>
+                {errors.htmlContent && "* Content is required"}
+              </Form.Label>
               <SunEditor
                 onChange={handleContentChange}
                 onBlur={handleLoadHtmlEditor}
@@ -446,12 +622,13 @@ function AdminCreate() {
                   <Form.Control
                     type="text"
                     name="location"
-                    ref={register()}
+                    value={location}
+                    onChange={handleLocation}
+                    ref={register({ required: true })}
                   ></Form.Control>
                   <Form.Label style={{ color: "red" }}>
-                    {errors.Location && "Location is required"}
+                    {errors.location && "* Location is required"}
                   </Form.Label>
-                  <br></br>
                 </Form.Group>
               </>
             ) : null}
