@@ -19,7 +19,7 @@ export function formatDate(date, withTime, withSlashes) {
   const dateF = new Date(date)
   const day = dateF.getDate()
   const monthIndex = dateF.getMonth()
-  console.log("##date in formatDAte", dateF, "monthIndex", monthIndex)
+  // console.log("##date in formatDAte", dateF, "monthIndex", monthIndex)
   const year = dateF.getFullYear()
   const time = dateF.toLocaleTimeString()
   if (withTime) return `${monthIndex + 1}/${day}/${year} ${time}`

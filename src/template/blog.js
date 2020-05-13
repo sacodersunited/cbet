@@ -20,7 +20,7 @@ export default ({ data }) => {
       .then(resultData => {
         setCbetContent(resultData)
       })
-  }, [authContent])
+  }, [])
 
   const events = cbetContent.filter(
     content => content.CategoryName === "Event" && content.Status === true

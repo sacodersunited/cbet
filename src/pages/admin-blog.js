@@ -18,7 +18,7 @@ export default function AdminBlog() {
       .then(resultData => {
         setCbetContent(resultData)
       })
-  }, [authContent])
+  }, [])
 
   const posts = cbetContent.filter(post => post.Category === 3)
 

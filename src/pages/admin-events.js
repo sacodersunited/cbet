@@ -18,7 +18,7 @@ export default function AdminEvents() {
       .then(resultData => {
         setCbetContent(resultData)
       })
-  }, [authContent])
+  }, [])
 
   const events = cbetContent.filter(post => post.Category === 2)
 

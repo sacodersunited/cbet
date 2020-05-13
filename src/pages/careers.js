@@ -21,11 +21,10 @@ export default function Careers() {
       .then(resultData => {
         setCbetContent(resultData)
       })
-  }, [authContent])
+  }, [])
 
   const jobs = cbetContent.filter(content => {
     const newEndDate = new Date(formatDate(content.EndDate, true))
-
     if (
       today < newEndDate &&
       content.Category === 1 &&

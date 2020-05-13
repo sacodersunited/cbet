@@ -31,7 +31,7 @@ export default function JobDetail({ job }) {
           </Badge>
         </FlexRow>
       </a>
-      <p>{job.Description}</p>
+      <div dangerouslySetInnerHTML={{ __html: job.Description }}></div>
       <hr className="mt-5 mb-5" />
     </>
   )
