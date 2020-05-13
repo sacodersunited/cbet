@@ -89,6 +89,7 @@ function AdminCreate() {
       { name: "publishDate" },
       { required: true, validate: value => Date.parse(value) !== isNaN }
     )
+    register({ name: "htmlContent" }, { required: true })
     const dateF = new Date()
     const day = dateF.getDate()
     const monthIndex = dateF.getMonth()
@@ -127,7 +128,7 @@ function AdminCreate() {
 
   function handleContentChange(content) {
     console.log("content is changing", content) //Get Content Inside Editor
-
+    setValue("htmlContent", content)
     setHtmlContent(content)
   }
 
@@ -319,7 +320,7 @@ function AdminCreate() {
                 <option value="3">Blog</option>
               </Form.Control>
               <Form.Label style={{ color: "red" }}>
-                {errors.category && "Cbet Category is required"}
+                {errors.category && "* Cbet Category is required"}
               </Form.Label>
             </Form.Group>
 
@@ -335,7 +336,7 @@ function AdminCreate() {
                 ref={register({ required: true })}
               ></Form.Control>
               <Form.Label style={{ color: "red" }}>
-                {errors.title && "Title is required"}
+                {errors.title && "* Title is required"}
               </Form.Label>
             </Form.Group>
 
@@ -352,7 +353,7 @@ function AdminCreate() {
                 <option value="0">Disabled</option>
               </Form.Control>
               <Form.Label style={{ color: "red" }}>
-                {errors.category && "Cbet Category is required"}
+                {errors.category && "* Cbet Category is required"}
               </Form.Label>
             </Form.Group>
 
@@ -372,7 +373,7 @@ function AdminCreate() {
                   })}
                 </Form.Control>
                 <Form.Label style={{ color: "red" }}>
-                  {errors.author && "Partner is required"}
+                  {errors.author && "* Partner is required"}
                 </Form.Label>
               </Form.Group>
             ) : null}
@@ -387,7 +388,7 @@ function AdminCreate() {
                 ref={register({ required: true })}
               ></Form.Control>
               <Form.Label style={{ color: "red" }}>
-                {errors.author && "Author is required"}
+                {errors.author && "* Author is required"}
               </Form.Label>
             </Form.Group>
             <Form.Row>
@@ -397,7 +398,7 @@ function AdminCreate() {
                 </Form.Label>
                 <CbetDatePicker getDate={getPublishDate} defaultDate />
                 <Form.Label style={{ color: "red" }}>
-                  {errors.publishDate && "Valid Date is required"}
+                  {errors.publishDate && "* Valid Date is required"}
                 </Form.Label>
               </Form.Group>
             </Form.Row>
@@ -409,7 +410,7 @@ function AdminCreate() {
                 complete={thumbnailUpload.length > 0}
               ></CbetDropzone>
               <Form.Label style={{ color: "red" }}>
-                {errors.cbetDropzone && "Thumbnail upload is required"}
+                {errors.cbetDropzone && "* Thumbnail upload is required"}
               </Form.Label>
             </Form.Group>
             {thumbnailUpload ? (
@@ -546,6 +547,9 @@ function AdminCreate() {
                 })()}
               </Form.Label>
 
+              <Form.Label style={{ color: "red", marginLeft: "5px" }}>
+                {errors.htmlContent && "* Content is required"}
+              </Form.Label>
               <SunEditor
                 onChange={handleContentChange}
                 onBlur={handleLoadHtmlEditor}
@@ -570,7 +574,7 @@ function AdminCreate() {
                     ref={register()}
                   ></Form.Control>
                   <Form.Label style={{ color: "red" }}>
-                    {errors.Location && "Location is required"}
+                    {errors.Location && "* Location is required"}
                   </Form.Label>
                 </Form.Group>
               </>
