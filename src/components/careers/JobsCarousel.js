@@ -48,7 +48,11 @@ export default function JobsCarousel({ jobs, bgImages }) {
                   <Card.Subtitle className="mb-2 text-muted">
                     Featured Sponsor
                   </Card.Subtitle>
-                  <Card.Text>{job.Description.substring(0, 80)}...</Card.Text>
+                  <Card.Text
+                    dangerouslySetInnerHTML={{
+                      __html: job.Description.substring(0, 80),
+                    }}
+                  ></Card.Text>
                   <a href={job.Link} target="_blank" rel="noopener noreferrer">
                     <Button className="text-uppercase">Apply Now</Button>
                   </a>
