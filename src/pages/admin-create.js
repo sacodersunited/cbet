@@ -145,7 +145,7 @@ const linkValidator = new RegExp(
 )
 
 function AdminCreate() {
-  const { register, handleSubmit, errors, setValue } = useForm()
+  const { register, handleSubmit, errors, setValue, reset } = useForm()
   const authContent = useCbetAuth() // code used for making api calls
   const [htmlContent, setHtmlContent] = useState("") // html content for blog post
   const [cbetContentCategory, setCbetContentCategory] = useState(1) // content Category
@@ -406,14 +406,16 @@ function AdminCreate() {
   }
 
   function clearFields() {
+    reset()
     console.log("clearing fields")
-    // setCbetContentCategory(1)
     setCbetTitle("")
     setAuthor("")
     setCbetPartner("0")
     setHtmlContent("")
     setLocation("")
     setThumbnailUpload([])
+    setLink("")
+    setJobDescription("")
   }
 
   return (
