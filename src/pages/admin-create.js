@@ -56,9 +56,8 @@ const partnersList = [
 partnersList.sort()
 
 function AdminCreate() {
-  const { register, handleSubmit, watch, errors, setValue } = useForm()
+  const { register, handleSubmit, errors, setValue } = useForm()
   const authContent = useCbetAuth() // code used for making api calls
-  const [cbetContent, setCbetContent] = useState([]) // all cbet content blogs, jobs and events
   const [htmlContent, setHtmlContent] = useState("") // html content for blog post
   const [cbetContentCategory, setCbetContentCategory] = useState(1) // content Category
   const [thumbnailUpload, setThumbnailUpload] = useState([]) // thumbnail image
@@ -74,17 +73,9 @@ function AdminCreate() {
   const [location, setLocation] = useState("")
   const [submitMessage, setSubmitMessage] = useState("")
   const [isDone, setIsDone] = useState(false)
+  const [link, setLink] = useState("")
 
   useEffect(() => {
-    fetch(
-      `https://cbetdata.azurewebsites.net/api/GetCbetContent?code=${authContent}`
-    )
-      // fetch("http://localhost:7071/api/GetCbetContent")
-      .then(response => response.json()) // parse JSON from request
-      .then(resultData => {
-        setCbetContent(resultData)
-      })
-
     register({ name: "cbetDropzone" }, { required: true })
     register(
       { name: "publishDate" },
@@ -296,6 +287,10 @@ function AdminCreate() {
     setAuthor(e.target.value)
   }
 
+  function handleLink(e) {
+    setLink(e.target.value)
+  }
+
   function getPublishDate(renderedDate) {
     // console.log("Get publish date", renderedDate)
     // console.log("is date valid?", Date.parse(renderedDate))
@@ -400,24 +395,38 @@ function AdminCreate() {
             </Form.Group>
 
             {cbetContentCategory !== 3 ? (
-              <Form.Group controlId="Partners">
-                <Form.Label style={{ fontWeight: "bold" }}>Partners</Form.Label>
-                <Form.Control
-                  as="select"
-                  name="partner"
-                  ref={register({ required: true })}
-                  value={cbetPartner}
-                  onChange={handleCbetPartnerChange}
-                >
-                  <option value="0">Select</option>
-                  {partnersList.map(partner => {
-                    return <option value={partner}>{partner}</option>
-                  })}
-                </Form.Control>
-                <Form.Label style={{ color: "red" }}>
-                  {errors.author && "* Partner is required"}
-                </Form.Label>
-              </Form.Group>
+              <React.Fragment>
+                <Form.Group controlId="Partners">
+                  <Form.Label style={{ fontWeight: "bold" }}>
+                    Partners
+                  </Form.Label>
+                  <Form.Control
+                    as="select"
+                    name="partner"
+                    ref={register({ required: true })}
+                    value={cbetPartner}
+                    onChange={handleCbetPartnerChange}
+                  >
+                    <option value="0">Select</option>
+                    {partnersList.map(partner => {
+                      return <option value={partner}>{partner}</option>
+                    })}
+                  </Form.Control>
+                  <Form.Label style={{ color: "red" }}>
+                    {errors.author && "* Partner is required"}
+                  </Form.Label>
+                </Form.Group>
+                <Form.Group>
+                  <Form.Label style={{ fontWeight: "bold" }}>Link</Form.Label>
+                  <Form.Control
+                    type="text"
+                    name="Link"
+                    value={link}
+                    onChange={handleLink}
+                    ref={register({ required: true })}
+                  ></Form.Control>
+                </Form.Group>
+              </React.Fragment>
             ) : null}
 
             <Form.Group controlId="AuthorHere">
@@ -445,7 +454,40 @@ function AdminCreate() {
               </Form.Group>
             </Form.Row>
 
-            <Form.Label style={{ fontWeight: "bold" }}>Thumbnail</Form.Label>
+            {cbetContentCategory === 1 ? (
+              <Form.Group>
+                <Form.Label style={{ fontWeight: "bold" }}>
+                  Is Featured
+                </Form.Label>
+                <ListGroup horizontal>
+                  <ListGroup.Item
+                    as="button"
+                    action
+                    onClick={() => {
+                      setFeatured(true)
+                    }}
+                    href="link1"
+                    style={{ width: "77px" }}
+                  >
+                    On
+                  </ListGroup.Item>
+                  <ListGroup.Item
+                    as="button"
+                    action
+                    href="link2"
+                    active={featured === false}
+                    onClick={() => {
+                      setFeatured(false)
+                    }}
+                    style={{ width: "77px" }}
+                  >
+                    Off
+                  </ListGroup.Item>
+                </ListGroup>
+              </Form.Group>
+            ) : null}
+
+            {/* <Form.Label style={{ fontWeight: "bold" }}>Thumbnail</Form.Label>
             <Form.Group style={{ display: "flex", justifyContent: "center" }}>
               <CbetDropzone
                 upload={uploadThumbnail}
@@ -484,7 +526,7 @@ function AdminCreate() {
                   </li>
                 ))}
               </ul>
-            ) : null}
+            ) : null} */}
 
             {/* Submit Message here */}
             {submitMessage.length > 1 ? (
@@ -521,42 +563,9 @@ function AdminCreate() {
             </Form.Row>
           </Col>
           <Col md={8}>
-            {cbetContentCategory === 1 ? (
-              <Form.Group>
-                <Form.Label style={{ fontWeight: "bold" }}>
-                  Is Featured
-                </Form.Label>
-                <ListGroup horizontal>
-                  <ListGroup.Item
-                    as="button"
-                    action
-                    onClick={() => {
-                      setFeatured(true)
-                    }}
-                    href="link1"
-                    style={{ width: "77px" }}
-                  >
-                    On
-                  </ListGroup.Item>
-                  <ListGroup.Item
-                    as="button"
-                    action
-                    href="link2"
-                    active={featured === false}
-                    onClick={() => {
-                      setFeatured(false)
-                    }}
-                    style={{ width: "77px" }}
-                  >
-                    Off
-                  </ListGroup.Item>
-                </ListGroup>
-              </Form.Group>
-            ) : null}
-
             {/* Event */}
             {cbetContentCategory === 2 ? (
-              <>
+              <Col md={5}>
                 <Form.Row>
                   <Form.Group controlId="event dates">
                     <Form.Label style={{ fontWeight: "bold" }}>
@@ -581,38 +590,29 @@ function AdminCreate() {
                     </Form.Label>
                   </Form.Group>
                 </Form.Row>
-              </>
+              </Col>
             ) : null}
 
-            <Form.Group>
-              <Form.Label style={{ fontWeight: "bold" }}>
-                {(() => {
-                  switch (cbetContentCategory) {
-                    case 3:
-                      return "Blog content"
-                    case 2:
-                      return "Event content"
-                    case 1:
-                      return "Job content"
-                    default:
-                      return "Cbet Content"
-                  }
-                })()}
-              </Form.Label>
+            {cbetContentCategory === 3 ? (
+              <Form.Group>
+                <Form.Label style={{ fontWeight: "bold" }}>
+                  Blog content
+                </Form.Label>
 
-              <Form.Label style={{ color: "red", marginLeft: "5px" }}>
-                {errors.htmlContent && "* Content is required"}
-              </Form.Label>
-              <SunEditor
-                onChange={handleContentChange}
-                onBlur={handleLoadHtmlEditor}
-                setOptions={{ height: "auto", minHeight: 400 }}
-              />
-            </Form.Group>
+                <Form.Label style={{ color: "red", marginLeft: "5px" }}>
+                  {errors.htmlContent && "* Content is required"}
+                </Form.Label>
+                <SunEditor
+                  onChange={handleContentChange}
+                  onBlur={handleLoadHtmlEditor}
+                  setOptions={{ height: "auto", minHeight: 400 }}
+                />
+              </Form.Group>
+            ) : null}
 
             {/* Event */}
             {cbetContentCategory === 2 ? (
-              <>
+              <Col md={3}>
                 <Form.Group controlId="Location" style={{ paddingTop: "10px" }}>
                   <Form.Label
                     style={{ fontWeight: "bold" }}
@@ -630,7 +630,7 @@ function AdminCreate() {
                     {errors.location && "* Location is required"}
                   </Form.Label>
                 </Form.Group>
-              </>
+              </Col>
             ) : null}
           </Col>
         </Row>
