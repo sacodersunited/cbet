@@ -180,14 +180,6 @@ function AdminCreate() {
       { required: true, validate: value => Date.parse(value) !== isNaN }
     )
     register({ name: "htmlContent" }, { required: true })
-    // register(
-    //   { name: "startDate" },
-    //   { required: true, validate: value => Date.parse(value) !== isNaN }
-    // )
-    // register(
-    //   { name: "endDate" },
-    //   { required: true, validate: value => Date.parse(value) !== isNaN }
-    // )
     setLocation("Unknown")
 
     // Set default dates for each date field
@@ -648,6 +640,9 @@ function AdminCreate() {
                 <Form.Label style={{ fontWeight: "bold" }}>
                   Blog Header image
                 </Form.Label>
+                <Form.Label style={{ color: "red", marginLeft: "5px" }}>
+                  * Requires an image at 1440 x 300 pixels
+                </Form.Label>
                 <Form.Group
                   style={{ display: "flex", justifyContent: "center" }}
                 >
@@ -659,6 +654,7 @@ function AdminCreate() {
                     {errors.cbetDropzone && "* Blog Header image is required"}
                   </Form.Label>
                 </Form.Group>
+
                 {thumbnailUpload ? (
                   <ul
                     style={{
@@ -725,13 +721,13 @@ function AdminCreate() {
                 </Button>
               </Form.Group>
 
-              <Button
+              {/* <Button
                 onClick={() => {
                   console.log("errors", errors)
                 }}
               >
                 Errors
-              </Button>
+              </Button> */}
             </Form.Row>
           </Col>
 
