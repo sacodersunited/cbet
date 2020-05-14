@@ -177,6 +177,7 @@ function AdminCreate(props) {
   const [link, setLink] = useState("")
   const [cbetDescription, setCbetDescription] = useState("")
   const [partnerLink, setPartnerLink] = useState("")
+  const [initialHtmlContents, setInitialHtmlComments] = useState("")
 
   useEffect(() => {
     register({ name: "cbetDropzone" }, { required: true })
@@ -228,7 +229,7 @@ function AdminCreate(props) {
           setCbetTitle(cbetContent.Title)
           // setCbetDescription(cbetContent.Description)
           setAuthor(cbetContent.Author)
-          setHtmlContent(cbetContentCategory.Description)
+          setInitialHtmlComments(cbetContent.Description)
           break
         default:
           break
@@ -857,7 +858,7 @@ function AdminCreate(props) {
                 <SunEditor
                   onChange={handleContentChange}
                   onBlur={handleLoadHtmlEditor}
-                  setContents={htmlContent}
+                  setContents={initialHtmlContents}
                   setOptions={{
                     height: "auto",
                     minHeight: 400,
