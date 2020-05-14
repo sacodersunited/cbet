@@ -12,7 +12,7 @@ import {
 import { useForm } from "react-hook-form"
 import SEO from "../components/seo"
 import Layout from "../components/admin/layout"
-import SunEditor from "suneditor-react"
+import SunEditor, { buttonList } from "suneditor-react"
 import "suneditor/dist/css/suneditor.min.css"
 import CbetDropzone from "../components/CbetDropzone"
 import useCbetAuth from "../hooks/use-cbet-auth"
@@ -815,7 +815,11 @@ function AdminCreate() {
                 <SunEditor
                   onChange={handleContentChange}
                   onBlur={handleLoadHtmlEditor}
-                  setOptions={{ height: "auto", minHeight: 400 }}
+                  setOptions={{
+                    height: "auto",
+                    minHeight: 400,
+                    buttonList: buttonList.complex,
+                  }}
                 />
               </Form.Group>
             ) : null}
