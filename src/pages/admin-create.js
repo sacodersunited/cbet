@@ -164,6 +164,7 @@ function AdminCreate() {
   const [isDone, setIsDone] = useState(false)
   const [link, setLink] = useState("")
   const [jobDescription, setJobDescription] = useState("")
+  const [partnerLink, setPartnerLink] = useState("")
 
   useEffect(() => {
     register({ name: "cbetDropzone" }, { required: true })
@@ -257,6 +258,7 @@ function AdminCreate() {
           ID: 0, // number
           ContentTitle: formData.title, // string
           Description: htmlContent, // string
+          Thumbnail: "", // string for url link from partner
           PartnerName: cbetPartner, // string
           Author: "Paul c", // string
           ContentCreator: "Paul c", // string
@@ -354,7 +356,12 @@ function AdminCreate() {
   function handleCbetPartnerChange(e) {
     e.preventDefault()
 
-    // console.log("handle Partners", e.target.value)
+    const partner = partnersList.find(
+      element => element.name === e.target.value
+    )
+    console.log("find partner", partner.link)
+
+    setPartnerLink(partner.link)
     setCbetPartner(e.target.value)
   }
 
@@ -567,47 +574,6 @@ function AdminCreate() {
               </Form.Group>
             </Form.Row>
 
-            {/* <Form.Label style={{ fontWeight: "bold" }}>Thumbnail</Form.Label>
-            <Form.Group style={{ display: "flex", justifyContent: "center" }}>
-              <CbetDropzone
-                upload={uploadThumbnail}
-                complete={thumbnailUpload.length > 0}
-              ></CbetDropzone>
-              <Form.Label style={{ color: "red" }}>
-                {errors.cbetDropzone && "* Thumbnail upload is required"}
-              </Form.Label>
-            </Form.Group>
-            {thumbnailUpload ? (
-              <ul
-                style={{
-                  listStyleType: "none",
-                  paddingLeft: "0px",
-                  marginTop: "0px",
-                }}
-              >
-                {thumbnailUpload.map(file => (
-                  <li key={file.name}>
-                    <FaCheck
-                      color="green"
-                      size={22}
-                      style={{ marginTop: "10px" }}
-                    />
-                    <span
-                      style={{
-                        color: "#005ea2",
-                        marginTop: "10px",
-                        marginLeft: "5px",
-                        verticalAlign: "bottom",
-                      }}
-                      data-testid="uploadfilename"
-                    >
-                      {file.name}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            ) : null} */}
-
             {/* Submit Message here */}
             {submitMessage.length > 1 ? (
               <Form.Label style={{ color: "red" }}>{submitMessage}</Form.Label>
@@ -692,6 +658,51 @@ function AdminCreate() {
                     {errors.description && "* Description is required"}
                   </Form.Label>
                 </Form.Group>
+
+                {/* <Form.Label style={{ fontWeight: "bold" }}>
+                  Blog Header image
+                </Form.Label>
+                <Form.Group
+                  style={{ display: "flex", justifyContent: "center" }}
+                >
+                  <CbetDropzone
+                    upload={uploadThumbnail}
+                    complete={thumbnailUpload.length > 0}
+                  ></CbetDropzone>
+                  <Form.Label style={{ color: "red" }}>
+                    {errors.cbetDropzone && "* Thumbnail upload is required"}
+                  </Form.Label>
+                </Form.Group>
+                {thumbnailUpload ? (
+                  <ul
+                    style={{
+                      listStyleType: "none",
+                      paddingLeft: "0px",
+                      marginTop: "0px",
+                    }}
+                  >
+                    {thumbnailUpload.map(file => (
+                      <li key={file.name}>
+                        <FaCheck
+                          color="green"
+                          size={22}
+                          style={{ marginTop: "10px" }}
+                        />
+                        <span
+                          style={{
+                            color: "#005ea2",
+                            marginTop: "10px",
+                            marginLeft: "5px",
+                            verticalAlign: "bottom",
+                          }}
+                          data-testid="uploadfilename"
+                        >
+                          {file.name}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                ) : null} */}
               </React.Fragment>
             ) : null}
             {/* Event */}
