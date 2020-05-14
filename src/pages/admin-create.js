@@ -201,7 +201,7 @@ function AdminCreate(props) {
     setStartDate(`${month}/${day}/${year}`)
     setEndDate(`${month}/${day}/${year}`)
 
-    if (props.location.state !== null) {
+    if (props.location.state.cbetContent !== undefined) {
       console.log("form Props", props.location.state)
       const cbetContent = props.location.state.cbetContent
 
