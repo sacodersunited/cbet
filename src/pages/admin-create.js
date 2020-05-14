@@ -1,5 +1,14 @@
 import React, { useState, useEffect } from "react"
-import { Button, Container, Row, Col, Form, ListGroup } from "react-bootstrap"
+import {
+  Button,
+  Container,
+  Row,
+  Col,
+  Form,
+  ListGroup,
+  OverlayTrigger,
+  Tooltip,
+} from "react-bootstrap"
 import { useForm } from "react-hook-form"
 import SEO from "../components/seo"
 import Layout from "../components/admin/layout"
@@ -131,6 +140,10 @@ const partnersList = [
 
 partnersList.sort()
 
+const linkValidator = new RegExp(
+  /^((https?|ftp|smtp):\/\/)?(www.)?[a-z0-9]+\.[a-z]+(\/[a-zA-Z0-9#]+\/?)*$/
+)
+
 function AdminCreate() {
   const { register, handleSubmit, errors, setValue } = useForm()
   const authContent = useCbetAuth() // code used for making api calls
@@ -150,6 +163,7 @@ function AdminCreate() {
   const [submitMessage, setSubmitMessage] = useState("")
   const [isDone, setIsDone] = useState(false)
   const [link, setLink] = useState("")
+  const [jobDescription, setJobDescription] = useState("")
 
   useEffect(() => {
     register({ name: "cbetDropzone" }, { required: true })
@@ -369,6 +383,10 @@ function AdminCreate() {
     setLink(e.target.value)
   }
 
+  function handleJobDescription(e) {
+    setJobDescription(e.target.value)
+  }
+
   function getPublishDate(renderedDate) {
     // console.log("Get publish date", renderedDate)
     // console.log("is date valid?", Date.parse(renderedDate))
@@ -486,7 +504,9 @@ function AdminCreate() {
                   >
                     <option value="0">Select</option>
                     {partnersList.map(partner => {
-                      return <option value={partner}>{partner}</option>
+                      return (
+                        <option value={partner.name}>{partner.name}</option>
+                      )
                     })}
                   </Form.Control>
                   <Form.Label style={{ color: "red" }}>
@@ -495,15 +515,26 @@ function AdminCreate() {
                 </Form.Group>
                 <Form.Group>
                   <Form.Label style={{ fontWeight: "bold" }}>Link</Form.Label>
-                  <Form.Control
-                    type="text"
-                    name="link"
-                    value={link}
-                    onChange={handleLink}
-                    ref={register({ required: true })}
-                  ></Form.Control>
+                  <OverlayTrigger
+                    overlay={
+                      <Tooltip id="tooltip-disabled">
+                        IE: https://google.com
+                      </Tooltip>
+                    }
+                  >
+                    <Form.Control
+                      type="text"
+                      name="link"
+                      value={link}
+                      onChange={handleLink}
+                      ref={register({
+                        required: true,
+                        validate: value => linkValidator.test(value) === true,
+                      })}
+                    ></Form.Control>
+                  </OverlayTrigger>
                   <Form.Label style={{ color: "red" }}>
-                    {errors.link && "* Link is required"}
+                    {errors.link && "* Valid Link is required"}
                   </Form.Label>
                 </Form.Group>
               </React.Fragment>
@@ -533,40 +564,6 @@ function AdminCreate() {
                 </Form.Label>
               </Form.Group>
             </Form.Row>
-
-            {/* Jobs only */}
-            {cbetContentCategory === 1 ? (
-              <Form.Group>
-                <Form.Label style={{ fontWeight: "bold" }}>
-                  Is Featured
-                </Form.Label>
-                <ListGroup horizontal>
-                  <ListGroup.Item
-                    as="button"
-                    action
-                    onClick={() => {
-                      setFeatured(true)
-                    }}
-                    href="link1"
-                    style={{ width: "77px" }}
-                  >
-                    On
-                  </ListGroup.Item>
-                  <ListGroup.Item
-                    as="button"
-                    action
-                    href="link2"
-                    active={featured === false}
-                    onClick={() => {
-                      setFeatured(false)
-                    }}
-                    style={{ width: "77px" }}
-                  >
-                    Off
-                  </ListGroup.Item>
-                </ListGroup>
-              </Form.Group>
-            ) : null}
 
             {/* <Form.Label style={{ fontWeight: "bold" }}>Thumbnail</Form.Label>
             <Form.Group style={{ display: "flex", justifyContent: "center" }}>
@@ -645,6 +642,56 @@ function AdminCreate() {
           </Col>
 
           <Col md={8}>
+            {/* Job description */}
+            {cbetContentCategory === 1 ? (
+              <React.Fragment>
+                <Form.Group>
+                  <Form.Label style={{ fontWeight: "bold" }}>
+                    Is Featured
+                  </Form.Label>
+                  <ListGroup horizontal>
+                    <ListGroup.Item
+                      as="button"
+                      action
+                      onClick={() => {
+                        setFeatured(true)
+                      }}
+                      href="link1"
+                      style={{ width: "77px" }}
+                    >
+                      On
+                    </ListGroup.Item>
+                    <ListGroup.Item
+                      as="button"
+                      action
+                      href="link2"
+                      active={featured === false}
+                      onClick={() => {
+                        setFeatured(false)
+                      }}
+                      style={{ width: "77px" }}
+                    >
+                      Off
+                    </ListGroup.Item>
+                  </ListGroup>
+                </Form.Group>
+                <Form.Group>
+                  <Form.Label style={{ fontWeight: "bold" }}>
+                    Job Description
+                  </Form.Label>
+                  <Form.Control
+                    as="textarea"
+                    name="description"
+                    value={jobDescription}
+                    onChange={handleJobDescription}
+                    ref={register({ required: true })}
+                  ></Form.Control>
+                  <Form.Label style={{ color: "red", marginLeft: "5px" }}>
+                    {errors.description && "* Description is required"}
+                  </Form.Label>
+                </Form.Group>
+              </React.Fragment>
+            ) : null}
             {/* Event */}
             {cbetContentCategory === 2 ? (
               <Col md={5}>
@@ -674,7 +721,6 @@ function AdminCreate() {
                 </Form.Row>
               </Col>
             ) : null}
-
             {/* Blog only */}
             {cbetContentCategory === 3 ? (
               <Form.Group>
@@ -692,7 +738,6 @@ function AdminCreate() {
                 />
               </Form.Group>
             ) : null}
-
             {/* Event */}
             {cbetContentCategory === 2 ? (
               <Col md={3}>
