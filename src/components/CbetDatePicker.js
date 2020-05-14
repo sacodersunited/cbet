@@ -23,9 +23,10 @@ export default function CbetDatePicker(props) {
       setAddMonth("0" + month.toString())
       setAddDay(day.toString())
       setAddYear(year.toString())
+      props.getDate(
+        `${"0" + month.toString()}/${day.toString()}/${year.toString()}`
+      )
     }
-
-    props.getDate(`${addMonth}/${addDay}/${addYear}`)
   }, [])
 
   function handleDates(event) {
