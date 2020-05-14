@@ -178,6 +178,7 @@ function AdminCreate(props) {
   const [cbetDescription, setCbetDescription] = useState("")
   const [partnerLink, setPartnerLink] = useState("")
   const [initialHtmlContents, setInitialHtmlComments] = useState("")
+  const [contentID, setContentID] = useState(0)
 
   useEffect(() => {
     register({ name: "cbetDropzone" }, { required: true })
@@ -205,6 +206,7 @@ function AdminCreate(props) {
       const cbetContent = props.location.state.cbetContent
 
       console.log("job", cbetContent)
+      setContentID(cbetContent.Id)
 
       switch (cbetContent.Category) {
         case 1:
@@ -309,7 +311,7 @@ function AdminCreate(props) {
     switch (cbetContentCategory) {
       case 1: // Job
         cbetContent = {
-          ID: 0, // number
+          ID: contentID, // number
           ContentTitle: formData.title, // string
           Description: cbetDescription, // string
           Thumbnail: partnerLink, // string for url link from partner
@@ -328,7 +330,7 @@ function AdminCreate(props) {
         break
       case 2: // Event
         cbetContent = {
-          ID: 0, // number
+          ID: contentID, // number
           ContentTitle: formData.title, // string
           Description: cbetDescription, // string
           Thumbnail: "",
@@ -347,7 +349,7 @@ function AdminCreate(props) {
         break
       case 3: // Blog
         cbetContent = {
-          ID: 0, // number
+          ID: contentID, // number
           ContentTitle: formData.title, // string
           Description: htmlContent, // HTML for blog
           Thumbnail: "",
