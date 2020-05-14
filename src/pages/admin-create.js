@@ -149,7 +149,7 @@ const linkValidator = new RegExp(
   /^((https?|ftp|smtp):\/\/)?(www.)?[a-z0-9]+\.[a-z]+(\/[a-zA-Z0-9#]+\/?)*$/
 )
 
-function AdminCreate() {
+function AdminCreate(props) {
   const {
     register,
     handleSubmit,
@@ -198,6 +198,42 @@ function AdminCreate() {
     setPublishDate(`${month}/${day}/${year}`)
     setStartDate(`${month}/${day}/${year}`)
     setEndDate(`${month}/${day}/${year}`)
+
+    if (props.location.state !== null) {
+      console.log("form Props", props.location.state)
+      const cbetContent = props.location.state.cbetContent
+
+      console.log("job", cbetContent)
+
+      switch (cbetContent.Category) {
+        case 1:
+          setCbetContentCategory(cbetContent.CbetCategory_Id)
+          setAuthor(cbetContent.Author)
+          setCbetTitle(cbetContent.Title)
+          setCbetDescription(cbetContent.Description)
+          setFeatured(cbetContent.Featured)
+          setStatus(cbetContent.Status)
+          setLink(cbetContent.Link)
+          setPublishDate(cbetContent.StartDate)
+          break
+        case 2:
+          setCbetContentCategory(cbetContent.CbetCategory_Id)
+          setCbetTitle(cbetContent.Title)
+          setCbetDescription(cbetContent.Description)
+          setLink(cbetContent.Link)
+          setStatus(cbetContent.Status)
+          break
+        case 3:
+          setCbetContentCategory(cbetContent.CbetCategory_Id)
+          setCbetTitle(cbetContent.Title)
+          // setCbetDescription(cbetContent.Description)
+          setAuthor(cbetContent.Author)
+          setHtmlContent(cbetContentCategory.Description)
+          break
+        default:
+          break
+      }
+    }
   }, [])
 
   function getTodaysDate() {
@@ -744,6 +780,7 @@ function AdminCreate() {
                       onClick={() => {
                         setFeatured(true)
                       }}
+                      active={featured === true}
                       href="link1"
                       style={{ width: "77px" }}
                     >
@@ -820,6 +857,7 @@ function AdminCreate() {
                 <SunEditor
                   onChange={handleContentChange}
                   onBlur={handleLoadHtmlEditor}
+                  setContents={htmlContent}
                   setOptions={{
                     height: "auto",
                     minHeight: 400,
