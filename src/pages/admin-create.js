@@ -26,31 +26,107 @@ const SpinSpinner = styled(FaSpinner)`
 `
 
 const partnersList = [
-  "Accet",
-  "Texas Workforce Commission",
-  "Texas Higher Education Board",
-  "Veteran Owned Business",
-  "MedWrench",
-  "TechNation",
-  "Tuition Financing",
-  "Stephens International Recruiting",
-  "CER Technology",
-  "Summit Imaging",
-  "New Braunfels Chamber of Commerce",
-  "Catholic Health Initiatives",
-  "Citizens Medical Center",
-  "CYBERTEXAS Foundation",
-  "Charney & Associates Recruiting",
-  "Memorial Hermann",
-  "SkillNet",
-  "Vyaire",
-  "SouthEastern Community College",
-  "iMed Biomedical",
-  "MiraCosta College",
-  "U.S. Army",
-  "Partnership for Youth Success",
-  "Healthcare Technology Management Association of South Carolina",
-  "Kentucky Association for Medical Instumentation",
+  {
+    name: "Accet",
+    link: "https://cbet.blob.core.windows.net/cbetblobs/accet.svg",
+  },
+  {
+    name: "Texas Workforce Commission",
+    link: "https://cbet.blob.core.windows.net/cbetblobs/twc-logo.jpg",
+  },
+  {
+    name: "Texas Higher Education Board",
+    link: "https://cbet.blob.core.windows.net/cbetblobs/TXHigherEd.png",
+  },
+  {
+    name: "Veteran Owned Business",
+    link: "https://cbet.blob.core.windows.net/cbetblobs/vet-owned.png",
+  },
+  {
+    name: "MedWrench",
+    link: "https://cbet.blob.core.windows.net/cbetblobs/Medwrench-logo.png",
+  },
+  {
+    name: "TechNation",
+    link: "https://cbet.blob.core.windows.net/cbetblobs/TechNation_logo.png",
+  },
+  {
+    name: "Tuition Financing",
+    link: "https://cbet.blob.core.windows.net/cbetblobs/tfc_logo.png",
+  },
+  {
+    name: "Stephens International Recruiting",
+    link: "https://cbet.blob.core.windows.net/cbetblobs/si-recruiting.png",
+  },
+  {
+    name: "CER Technology",
+    link: "https://cbet.blob.core.windows.net/cbetblobs/cer-logo.png",
+  },
+  {
+    name: "Summit Imaging",
+    link: "https://cbet.blob.core.windows.net/cbetblobs/summit-logo.jpg",
+  },
+  {
+    name: "New Braunfels Chamber of Commerce",
+    link: "https://cbet.blob.core.windows.net/cbetblobs/NBChambers-logo.png",
+  },
+  {
+    name: "Catholic Health Initiatives",
+    link: "https://cbet.blob.core.windows.net/cbetblobs/chi-health.jpg",
+  },
+  {
+    name: "Citizens Medical Center",
+    link: "https://cbet.blob.core.windows.net/cbetblobs/citizens.png",
+  },
+  {
+    name: "CYBERTEXAS Foundation",
+    link: "https://cbet.blob.core.windows.net/cbetblobs/logo-cyberTexas.png",
+  },
+  {
+    name: "Charney & Associates Recruiting",
+    link: "https://cbet.blob.core.windows.net/cbetblobs/charney-logo.png",
+  },
+  {
+    name: "Memorial Hermann",
+    link:
+      "https://cbet.blob.core.windows.net/cbetblobs/memorial-hermann-logo.jpg",
+  },
+  {
+    name: "SkillNet",
+    link: "https://cbet.blob.core.windows.net/cbetblobs/skillnet.png",
+  },
+  {
+    name: "Vyaire",
+    link: "https://cbet.blob.core.windows.net/cbetblobs/Vyaire_Medical_Art.jpg",
+  },
+  {
+    name: "SouthEastern Community College",
+    link: "https://cbet.blob.core.windows.net/cbetblobs/scc-logo.png",
+  },
+  {
+    name: "iMed Biomedical",
+    link: "https://cbet.blob.core.windows.net/cbetblobs/iMed-Biomedical.png",
+  },
+  {
+    name: "MiraCosta College",
+    link: "https://cbet.blob.core.windows.net/cbetblobs/mira-costa-college.png",
+  },
+  {
+    name: "U.S. Army",
+    link: "https://cbet.blob.core.windows.net/cbetblobs/ArmyLogo.jpg",
+  },
+  {
+    name: "Partnership for Youth Success",
+    link: "https://cbet.blob.core.windows.net/cbetblobs/REGISTEREDlogo.jpg",
+  },
+  {
+    name: "Healthcare Technology Management Association of South Carolina",
+    link: "https://cbet.blob.core.windows.net/cbetblobs/HTMA-SC-logo.jpg",
+  },
+  {
+    name: "Kentucky Association for Medical Instumentation",
+    link: "https://cbet.blob.core.windows.net/cbetblobs/kami-logo.png",
+  },
 ]
 
 partnersList.sort()
@@ -64,7 +140,7 @@ function AdminCreate() {
   const [cbetPartner, setCbetPartner] = useState("") // Partner dropdown list
   const [cbetTitle, setCbetTitle] = useState("") // Title
   const [featured, setFeatured] = useState(false) // is Featured?
-  const [status, setStatus] = useState(false)
+  const [status, setStatus] = useState(false) // Status: active/disabled
   const [publishDate, setPublishDate] = useState("")
   const [startDate, setStartDate] = useState("1/1/2020")
   const [endDate, setEndDate] = useState("1/1/2021")
@@ -82,6 +158,9 @@ function AdminCreate() {
       { required: true, validate: value => Date.parse(value) !== isNaN }
     )
     register({ name: "htmlContent" }, { required: true })
+    setLocation("Unknown")
+
+    // Set default dates for each date field
     const dateF = new Date()
     const day = dateF.getDate()
     const monthIndex = dateF.getMonth()
@@ -92,7 +171,6 @@ function AdminCreate() {
     setStartDate(`${month}/${day}/${year}`)
     setEndDate(`${month}/${day}/${year}`)
     setPublishDate(`${month}/${day}/${year}`)
-    setLocation("Unknown")
   }, [])
 
   const onSubmit = data => {
@@ -360,7 +438,6 @@ function AdminCreate() {
                 {errors.category && "* Cbet Category is required"}
               </Form.Label>
             </Form.Group>
-
             <Form.Group controlId="TitleHere">
               <Form.Label
                 style={{ fontWeight: "bold" }}
@@ -376,7 +453,6 @@ function AdminCreate() {
                 {errors.title && "* Title is required"}
               </Form.Label>
             </Form.Group>
-
             <Form.Group controlId="status">
               <Form.Label style={{ fontWeight: "bold" }}>Status</Form.Label>
               <Form.Control
@@ -394,6 +470,7 @@ function AdminCreate() {
               </Form.Label>
             </Form.Group>
 
+            {/* Blog only */}
             {cbetContentCategory !== 3 ? (
               <React.Fragment>
                 <Form.Group controlId="Partners">
@@ -420,11 +497,14 @@ function AdminCreate() {
                   <Form.Label style={{ fontWeight: "bold" }}>Link</Form.Label>
                   <Form.Control
                     type="text"
-                    name="Link"
+                    name="link"
                     value={link}
                     onChange={handleLink}
                     ref={register({ required: true })}
                   ></Form.Control>
+                  <Form.Label style={{ color: "red" }}>
+                    {errors.link && "* Link is required"}
+                  </Form.Label>
                 </Form.Group>
               </React.Fragment>
             ) : null}
@@ -454,6 +534,7 @@ function AdminCreate() {
               </Form.Group>
             </Form.Row>
 
+            {/* Jobs only */}
             {cbetContentCategory === 1 ? (
               <Form.Group>
                 <Form.Label style={{ fontWeight: "bold" }}>
@@ -562,6 +643,7 @@ function AdminCreate() {
               </Form.Group>
             </Form.Row>
           </Col>
+
           <Col md={8}>
             {/* Event */}
             {cbetContentCategory === 2 ? (
@@ -593,6 +675,7 @@ function AdminCreate() {
               </Col>
             ) : null}
 
+            {/* Blog only */}
             {cbetContentCategory === 3 ? (
               <Form.Group>
                 <Form.Label style={{ fontWeight: "bold" }}>
