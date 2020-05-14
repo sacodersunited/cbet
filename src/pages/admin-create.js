@@ -248,11 +248,6 @@ function AdminCreate() {
     setCbetTitle(e.target.value)
   }
 
-  function handleFeatured(e) {
-    e.preventDefault()
-    setFeatured(e.target.value)
-  }
-
   function handleCbetStatusChange(e) {
     e.preventDefault()
     setStatus(e.target.value)
@@ -275,7 +270,7 @@ function AdminCreate() {
           ID: 0, // number
           ContentTitle: formData.title, // string
           Description: cbetDescription, // string
-          Thumbnail: "", // string for url link from partner
+          Thumbnail: partnerLink, // string for url link from partner
           PartnerName: cbetPartner, // string
           Author: author, // string
           ContentCreator: author, // string
@@ -294,6 +289,7 @@ function AdminCreate() {
           ID: 0, // number
           ContentTitle: formData.title, // string
           Description: cbetDescription, // string
+          Thumbnail: "",
           PartnerName: cbetPartner, // string
           Author: author, // string
           ContentCreator: author, // string
@@ -312,6 +308,7 @@ function AdminCreate() {
           ID: 0, // number
           ContentTitle: formData.title, // string
           Description: htmlContent, // HTML for blog
+          Thumbnail: "",
           PartnerName: cbetPartner, // string
           Author: author, // string
           ContentCreator: author, // string
@@ -420,8 +417,6 @@ function AdminCreate() {
       )
       setValue("startDate", newDate)
       setValue("endDate", newDate)
-      // setStartDate(getTodaysDate())
-      // setEndDate(getTodaysDate())
     } else if (CategorySelected === 3) {
       register({ name: "htmlContent" }, { required: true })
     }
@@ -445,8 +440,6 @@ function AdminCreate() {
   }
 
   function getPublishDate(renderedDate) {
-    // console.log("Get publish date", renderedDate)
-    // console.log("is date valid?", Date.parse(renderedDate))
     setValue("publishDate", renderedDate)
     setPublishDate(renderedDate)
   }
