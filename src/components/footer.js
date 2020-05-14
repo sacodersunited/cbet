@@ -107,7 +107,7 @@ const Footer = () => (
               />
               LinkedIn
             </a>
-            <Link to="/cbetAdmin" className="d-block text-light mb-3">
+            <Link to="/admin" className="d-block text-light mb-3">
               <FaUserLock
                 style={{
                   verticalAlign: "text-bottom",
@@ -117,27 +117,6 @@ const Footer = () => (
               />
               Admin Portal
             </Link>
-            {/* {isAuthenticated() === true && user !== null ? (
-                <>
-                  <Link
-                    to="/admin"
-                    className="nav-link"
-                    style={{ color: "aqua" }}
-                  >
-                    {user.name}
-                  </Link>
-                  <a
-                    href="#logout"
-                    onClick={e => {
-                      logout()
-                      e.preventDefault()
-                    }}
-                    className="nav-link"
-                  >
-                    Log Out
-                  </a>
-                </>
-              ) : null} */}
           </Col>
           <Col md={2}>
             <p>

@@ -25,11 +25,6 @@ export default function AdminBlog() {
   return (
     <Layout title="Blog Posts">
       <SEO title="Admin Blog" />
-      <pre className="p-3 mb-2 bg-dark text-white">
-        edit the this page from /src/pages/admin-blog
-      </pre>
-
-      {/* <pre>{JSON.stringify(posts, null, 2)}</pre> */}
       <Container>
         <Row>
           {posts.map(post => (

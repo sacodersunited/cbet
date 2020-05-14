@@ -25,11 +25,6 @@ export default function AdminJobs() {
   return (
     <Layout title="Jobs">
       <SEO title="Admin Blog" />
-      <pre className="p-3 mb-2 bg-dark text-white">
-        edit the this page from /src/pages/admin-jobs
-      </pre>
-
-      {/* <pre>{JSON.stringify(cbetContent, null, 2)}</pre> */}
       <Container>
         <Row>
           {jobs.map(job => (

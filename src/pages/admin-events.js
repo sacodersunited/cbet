@@ -25,11 +25,6 @@ export default function AdminEvents() {
   return (
     <Layout title="Events">
       <SEO title="Admin Events" />
-      <pre className="p-3 mb-2 bg-dark text-white">
-        edit the this page from /src/pages/admin-events
-      </pre>
-
-      {/* <pre>{JSON.stringify(cbetContent, null, 2)}</pre> */}
       <Container>
         <Row>
           {events.map(event => (
