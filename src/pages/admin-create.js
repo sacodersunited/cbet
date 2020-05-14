@@ -138,7 +138,12 @@ const partnersList = [
   },
 ]
 
-partnersList.sort()
+partnersList.sort((a, b) => {
+  if (a.name < b.name) {
+    return -1
+  }
+  return 1
+})
 
 const linkValidator = new RegExp(
   /^((https?|ftp|smtp):\/\/)?(www.)?[a-z0-9]+\.[a-z]+(\/[a-zA-Z0-9#]+\/?)*$/
