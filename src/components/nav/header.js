@@ -1,18 +1,29 @@
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
-import {
-  Container,
-  Navbar,
-  Nav,
-  NavDropdown,
-  Button,
-  Form,
-} from "react-bootstrap"
+import { Container, Navbar, Nav, NavDropdown } from "react-bootstrap"
 import Img from "gatsby-image"
 // import { isAuthenticated, logout, getProfile } from "../utils/auth"
 import Timer from "./timer"
 import CarouselForm from "./CarouselForm"
+import styled from "styled-components"
+import Moment from "react-moment"
+
+let enrollmentDeadline = "2020-06-22"
+// future terms for 2020
+// let enrollmentDeadline = "2020-08-03"
+// let enrollmentDeadline = "2020-09-14"
+// let enrollmentDeadline = "2020-11-02"
+// let enrollmentDeadline = "2020-12-28"
+
+const StyledNavDropdown = styled(NavDropdown)`
+  border: 1px solid white;
+  border-radius: 0.25rem;
+  .dropdown-menu {
+    padding: 0;
+    padding-bottom: 20px;
+  }
+`
 
 const Header = props => {
   // const user = getProfile()
@@ -104,16 +115,23 @@ const Header = props => {
               </Link>
             </Nav>
             <Nav className="timer-nav">
-              <Navbar.Text className="mr-1 text-white">
-                <Timer enrollmentEndDate="2020-06-22" />
+              <Navbar.Text className="mr-2 text-white">
+                <Timer enrollmentEndDate={enrollmentDeadline} />
               </Navbar.Text>
-              <NavDropdown
+              <StyledNavDropdown
                 className="dropleft"
                 title="Start Now"
                 id="form-dropdown"
               >
+                <div className="container px-5 py-3 bg-primary text-white">
+                  <h5>
+                    Enrollment Deadline is{" "}
+                    <Moment format="MMM DD">{enrollmentDeadline}</Moment>
+                  </h5>
+                  <Timer enrollmentEndDate={enrollmentDeadline} />
+                </div>
                 <CarouselForm />
-              </NavDropdown>
+              </StyledNavDropdown>
             </Nav>
           </Navbar.Collapse>
         </Container>

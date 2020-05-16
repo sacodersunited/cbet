@@ -48,7 +48,7 @@ const HomeCarousel = props => (
           training /online biomedical technology school"
       />
       <Row>
-        <Col md={8} className="d-none d-sm-block">
+        <Col md={8}>
           <Carousel.Caption style={{ textAlign: "left" }}>
             <CarouselH1>College of Biomedical Equipment Technology</CarouselH1>
             <p>Building the Future Healthcare Technology Workforce</p>
@@ -90,7 +90,7 @@ const HomeCarousel = props => (
           training /online biomedical technology school"
       />
       <Row>
-        <Col md={8} className="d-none d-sm-block">
+        <Col md={8}>
           <Carousel.Caption style={{ textAlign: "left" }}>
             <CarouselH1>College of Biomedical Equipment Technology</CarouselH1>
             <p>Building the Future Healthcare Technology Workforce</p>

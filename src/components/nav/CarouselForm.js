@@ -135,7 +135,10 @@ class CarouselForm extends React.Component {
         onSubmit={e => this.handleSubmit(e)}
         style={{ padding: "10px 40px", minWidth: "400px" }}
       >
-        <h4>Request Information</h4>
+        <p className="lead">
+          Find out how CBET can help you succeed with your future
+        </p>
+
         <Form.Group controlId="formBasicProgram">
           <Form.Label>Program of Interest</Form.Label>
           <Form.Control as="select" onChange={e => this.onDropdownProgram(e)}>
