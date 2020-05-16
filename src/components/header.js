@@ -1,10 +1,16 @@
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
-import { Container, Navbar, Nav, NavDropdown } from "react-bootstrap"
+import {
+  Container,
+  Navbar,
+  Nav,
+  NavDropdown,
+  Button,
+  Form,
+} from "react-bootstrap"
 import Img from "gatsby-image"
 // import { isAuthenticated, logout, getProfile } from "../utils/auth"
-import { FaFacebookSquare, FaLinkedin } from "react-icons/fa"
 
 const Header = props => {
   // const user = getProfile()
@@ -12,7 +18,7 @@ const Header = props => {
   return (
     <>
       <Navbar bg="dark" variant="dark" expand="lg">
-        <Container>
+        <Container fluid>
           <Link
             to="/"
             aria-label="College of Biomedical Equipment Technology homepage"
@@ -60,59 +66,48 @@ const Header = props => {
               >
                 Admissions
               </Link>
-              <Link
-                to="/financial-assistance"
-                className="nav-link"
-                activeClassName="active"
-              >
-                Financial Assistance
-              </Link>
-              <Link
-                to="/international-students"
-                className="nav-link"
-                activeClassName="active"
-              >
-                Intl Students
-              </Link>
-              <Link to="/careers" className="nav-link" activeClassName="active">
-                Careers
-              </Link>
+              <NavDropdown title="Students" id="student-dropdown">
+                <Link
+                  to="/financial-assistance"
+                  className="dropdown-item"
+                  activeClassName="active"
+                >
+                  Financial Assistance
+                </Link>
+                <Link
+                  to="/international-students"
+                  className="dropdown-item"
+                  activeClassName="active"
+                >
+                  Intl Students
+                </Link>
+                <Link
+                  to="/careers"
+                  className="dropdown-item"
+                  activeClassName="active"
+                >
+                  Careers
+                </Link>
+                <a
+                  href="https://cittx.instructure.com/"
+                  target="_blank"
+                  className="dropdown-item"
+                  rel="noopener noreferrer"
+                >
+                  Canvas
+                </a>
+              </NavDropdown>
               <Link to="/faq" className="nav-link" activeClassName="active">
                 FAQs
               </Link>
-              <a
-                href="https://cittx.instructure.com/"
-                target="_blank"
-                className="nav-link"
-                rel="noopener noreferrer"
-              >
-                Canvas
-              </a>
             </Nav>
-            <Nav className="social-nav">
-              <a
-                href="https://www.facebook.com/CBETCOLLEGE/"
-                target="_blank"
-                className="nav-link"
-                rel="noopener noreferrer"
-                aria-label="College of Biomedical Equipment Technology on facebook"
-              >
-                <FaFacebookSquare
-                  style={{ verticalAlign: "text-bottom", fontSize: "20px" }}
-                />
-              </a>
-
-              <a
-                href="https://www.linkedin.com/company/cbetcollege/"
-                target="_blank"
-                className="nav-link"
-                rel="noopener noreferrer"
-                aria-label="College of Biomedical Equipment Technology on linkedin"
-              >
-                <FaLinkedin
-                  style={{ verticalAlign: "text-bottom", fontSize: "20px" }}
-                />
-              </a>
+            <Nav className="timer-nav">
+              <Form inline>
+                <Navbar.Text className="mr-1 text-white">
+                  <small>14 Days, 10 Hours, 1 Minutes, and 44 Seconds</small>
+                </Navbar.Text>
+                <Button variant="outline-light">Start Here</Button>
+              </Form>
             </Nav>
           </Navbar.Collapse>
         </Container>
