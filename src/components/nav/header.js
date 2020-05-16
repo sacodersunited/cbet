@@ -11,6 +11,7 @@ import {
 } from "react-bootstrap"
 import Img from "gatsby-image"
 // import { isAuthenticated, logout, getProfile } from "../utils/auth"
+import Timer from "./timer"
 
 const Header = props => {
   // const user = getProfile()
@@ -104,7 +105,7 @@ const Header = props => {
             <Nav className="timer-nav">
               <Form inline>
                 <Navbar.Text className="mr-1 text-white">
-                  <small>14 Days, 10 Hours, 1 Minutes, and 44 Seconds</small>
+                  <Timer enrollmentEndDate="2020-06-22"/>
                 </Navbar.Text>
                 <Button variant="outline-light">Start Here</Button>
               </Form>
