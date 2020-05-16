@@ -12,6 +12,7 @@ import {
 import Img from "gatsby-image"
 // import { isAuthenticated, logout, getProfile } from "../utils/auth"
 import Timer from "./timer"
+import CarouselForm from "./CarouselForm"
 
 const Header = props => {
   // const user = getProfile()
@@ -103,12 +104,16 @@ const Header = props => {
               </Link>
             </Nav>
             <Nav className="timer-nav">
-              <Form inline>
-                <Navbar.Text className="mr-1 text-white">
-                  <Timer enrollmentEndDate="2020-06-22"/>
-                </Navbar.Text>
-                <Button variant="outline-light">Start Here</Button>
-              </Form>
+              <Navbar.Text className="mr-1 text-white">
+                <Timer enrollmentEndDate="2020-06-22" />
+              </Navbar.Text>
+              <NavDropdown
+                className="dropleft"
+                title="Start Now"
+                id="form-dropdown"
+              >
+                <CarouselForm />
+              </NavDropdown>
             </Nav>
           </Navbar.Collapse>
         </Container>

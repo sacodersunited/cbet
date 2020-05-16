@@ -3,7 +3,6 @@ import { Link } from "gatsby"
 import { Carousel, Button, Col, Row } from "react-bootstrap"
 import styled from "styled-components"
 import Img from "gatsby-image"
-import CarouselForm from "./CarouselForm"
 
 const CarouselH1 = styled.h1`
   @media (max-width: 575.98px) {
@@ -36,9 +35,6 @@ const HomeCarousel = props => (
             </Link>
           </Carousel.Caption>
         </Col>
-        <Col md={4} className="d-none d-sm-block">
-          <CarouselForm />
-        </Col>
       </Row>
     </Carousel.Item>
 
@@ -61,9 +57,6 @@ const HomeCarousel = props => (
             </Link>
           </Carousel.Caption>
         </Col>
-        <Col md={4}>
-          <CarouselForm />
-        </Col>
       </Row>
     </Carousel.Item>
 
@@ -83,9 +76,6 @@ const HomeCarousel = props => (
               <Button className="text-uppercase">Apply Today</Button>
             </Link>
           </Carousel.Caption>
-        </Col>
-        <Col md={4} className="d-none d-sm-block">
-          <CarouselForm />
         </Col>
       </Row>
     </Carousel.Item>
@@ -108,9 +98,6 @@ const HomeCarousel = props => (
               <Button className="text-uppercase">Apply Today</Button>
             </Link>
           </Carousel.Caption>
-        </Col>
-        <Col md={4}>
-          <CarouselForm />
         </Col>
       </Row>
     </Carousel.Item>
