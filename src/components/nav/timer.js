@@ -42,7 +42,7 @@ export default function Timer({ enrollmentEndDate }) {
   })
 
   if (timerComponents.length) return timerComponents
-  return <span>Time is up. Please register next semester.</span>
+  return <span className>Time is up. Please register next semester.</span>
 }
 
 Timer.propTypes = {

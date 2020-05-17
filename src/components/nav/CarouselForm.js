@@ -1,5 +1,5 @@
 import React from "react"
-import { Carousel, Form, Button } from "react-bootstrap"
+import { Form, Button } from "react-bootstrap"
 
 class CarouselForm extends React.Component {
   constructor(props) {
@@ -130,57 +130,59 @@ class CarouselForm extends React.Component {
 
   render() {
     return (
-      <Carousel.Caption style={{ color: "white", textAlign: "left" }}>
-        <Form
-          validated={this.state.validated}
-          onSubmit={e => this.handleSubmit(e)}
-        >
-          <h4>Request Information</h4>
-          <Form.Group controlId="formBasicProgram">
-            <Form.Label>Program of Interest</Form.Label>
-            <Form.Control as="select" onChange={e => this.onDropdownProgram(e)}>
-              <option>BMET Certificate</option>
-              <option>BMET Degree</option>
-              <option>IT/Networking</option>
-              <option>Not Sure</option>
-            </Form.Control>
-          </Form.Group>
-          <Form.Group controlId="formBasicName">
-            <Form.Label style={{ display: "none" }}>Name</Form.Label>
+      <Form
+        validated={this.state.validated}
+        onSubmit={e => this.handleSubmit(e)}
+        style={{ padding: "10px 40px", minWidth: "400px" }}
+      >
+        <p className="lead">
+          Find out how CBET can help you succeed with your future
+        </p>
 
-            <Form.Control
-              required
-              type="text"
-              placeholder="Name"
-              onChange={e => this.onChangeForm(e)}
-            />
-          </Form.Group>
+        <Form.Group controlId="formBasicProgram">
+          <Form.Label>Program of Interest</Form.Label>
+          <Form.Control as="select" onChange={e => this.onDropdownProgram(e)}>
+            <option>BMET Certificate</option>
+            <option>BMET Degree</option>
+            <option>IT/Networking</option>
+            <option>Not Sure</option>
+          </Form.Control>
+        </Form.Group>
+        <Form.Group controlId="formBasicName">
+          <Form.Label style={{ display: "none" }}>Name</Form.Label>
 
-          <Form.Group controlId="formBasicEmail">
-            <Form.Label style={{ display: "none" }}>Email</Form.Label>
+          <Form.Control
+            required
+            type="text"
+            placeholder="Name"
+            onChange={e => this.onChangeForm(e)}
+          />
+        </Form.Group>
 
-            <Form.Control
-              type="email"
-              placeholder="Email"
-              onChange={e => this.onChangeForm(e)}
-            />
-          </Form.Group>
+        <Form.Group controlId="formBasicEmail">
+          <Form.Label style={{ display: "none" }}>Email</Form.Label>
 
-          <Form.Group controlId="formBasicPhone">
-            <Form.Label style={{ display: "none" }}>Phone</Form.Label>
+          <Form.Control
+            type="email"
+            placeholder="Email"
+            onChange={e => this.onChangeForm(e)}
+          />
+        </Form.Group>
 
-            <Form.Control
-              type="tel"
-              placeholder="Phone Number"
-              onChange={e => this.onChangeForm(e)}
-            />
-          </Form.Group>
+        <Form.Group controlId="formBasicPhone">
+          <Form.Label style={{ display: "none" }}>Phone</Form.Label>
 
-          <Button variant="outline-light" type="submit">
-            Submit
-          </Button>
-        </Form>
-      </Carousel.Caption>
+          <Form.Control
+            type="tel"
+            placeholder="Phone Number"
+            onChange={e => this.onChangeForm(e)}
+          />
+        </Form.Group>
+
+        <Button variant="outline-primary" type="submit">
+          Submit
+        </Button>
+      </Form>
     )
   }
 }
