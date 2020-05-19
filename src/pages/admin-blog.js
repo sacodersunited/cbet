@@ -6,6 +6,14 @@ import { Container, Row, Col, Card, Badge } from "react-bootstrap"
 import Moment from "react-moment"
 import { FaPen, FaTimes } from "react-icons/fa"
 import { navigate } from "@reach/router"
+import { showActive, showDate, showAuthor } from "../utils/admin"
+import styled from "styled-components"
+
+const MetaSection = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+`
 
 export default function AdminBlog() {
   const authContent = useCbetAuth()
@@ -57,7 +65,17 @@ export default function AdminBlog() {
                       <Moment format="MM/DD">{post.StartDate}</Moment>
                     </Badge>
                   </Card.Title>
-                  <Card.Text>
+                  <Card.Text style={{ minHeight: "190px" }}>
+                    <MetaSection>
+                      {showActive(post.Status)}
+                      {showDate("Published Date", post.StartDate)}
+                      {showDate(
+                        "Modified Date",
+                        post.ModifyDate,
+                        post.CreatedDate
+                      )}
+                      {showAuthor(post.Author)}
+                    </MetaSection>
                     {/* copied from stack overflow, do not trust */}
                     {/* https://stackoverflow.com/questions/55418929/how-can-i-remove-html-markup-from-strings-in-state-data/55419024 */}
                     {post.Description.slice(0, 140).replace(

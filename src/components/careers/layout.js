@@ -105,7 +105,10 @@ export default function CareersLayout({ children, noCarousel, cbetContent }) {
                             </Link>
                             <p
                               dangerouslySetInnerHTML={createMarkup(
-                                post.Description.slice(0, 140) + "..."
+                                post.Description.slice(0, 140).replace(
+                                  /<\/?[^>]+(>|$)/g,
+                                  ""
+                                ) + "..."
                               )}
                             />
                           </div>

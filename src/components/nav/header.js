@@ -4,7 +4,26 @@ import React from "react"
 import { Container, Navbar, Nav, NavDropdown } from "react-bootstrap"
 import Img from "gatsby-image"
 // import { isAuthenticated, logout, getProfile } from "../utils/auth"
-import { FaFacebookSquare, FaLinkedin } from "react-icons/fa"
+import Timer from "./timer"
+import CarouselForm from "./CarouselForm"
+import styled from "styled-components"
+import Moment from "react-moment"
+
+let enrollmentDeadline = "2020-06-22"
+// future terms for 2020
+// let enrollmentDeadline = "2020-08-03"
+// let enrollmentDeadline = "2020-09-14"
+// let enrollmentDeadline = "2020-11-02"
+// let enrollmentDeadline = "2020-12-28"
+
+const StyledNavDropdown = styled(NavDropdown)`
+  border: 1px solid white;
+  border-radius: 0.25rem;
+  .dropdown-menu {
+    padding: 0;
+    padding-bottom: 20px;
+  }
+`
 
 const Header = props => {
   // const user = getProfile()
@@ -12,7 +31,7 @@ const Header = props => {
   return (
     <>
       <Navbar bg="dark" variant="dark" expand="lg">
-        <Container>
+        <Container fluid>
           <Link
             to="/"
             aria-label="College of Biomedical Equipment Technology homepage"
@@ -60,59 +79,59 @@ const Header = props => {
               >
                 Admissions
               </Link>
-              <Link
-                to="/financial-assistance"
-                className="nav-link"
-                activeClassName="active"
-              >
-                Financial Assistance
-              </Link>
-              <Link
-                to="/international-students"
-                className="nav-link"
-                activeClassName="active"
-              >
-                Intl Students
-              </Link>
-              <Link to="/careers" className="nav-link" activeClassName="active">
-                Careers
-              </Link>
+              <NavDropdown title="Students" id="student-dropdown">
+                <Link
+                  to="/financial-assistance"
+                  className="dropdown-item"
+                  activeClassName="active"
+                >
+                  Financial Assistance
+                </Link>
+                <Link
+                  to="/international-students"
+                  className="dropdown-item"
+                  activeClassName="active"
+                >
+                  Intl Students
+                </Link>
+                <Link
+                  to="/careers"
+                  className="dropdown-item"
+                  activeClassName="active"
+                >
+                  Careers
+                </Link>
+                <a
+                  href="https://cittx.instructure.com/"
+                  target="_blank"
+                  className="dropdown-item"
+                  rel="noopener noreferrer"
+                >
+                  Canvas
+                </a>
+              </NavDropdown>
               <Link to="/faq" className="nav-link" activeClassName="active">
                 FAQs
               </Link>
-              <a
-                href="https://cittx.instructure.com/"
-                target="_blank"
-                className="nav-link"
-                rel="noopener noreferrer"
-              >
-                Canvas
-              </a>
             </Nav>
-            <Nav className="social-nav">
-              <a
-                href="https://www.facebook.com/CBETCOLLEGE/"
-                target="_blank"
-                className="nav-link"
-                rel="noopener noreferrer"
-                aria-label="College of Biomedical Equipment Technology on facebook"
+            <Nav className="timer-nav">
+              <Navbar.Text className="mr-2 text-white">
+                <Timer enrollmentEndDate={enrollmentDeadline} />
+              </Navbar.Text>
+              <StyledNavDropdown
+                className="dropleft"
+                title="Start Now"
+                id="form-dropdown"
               >
-                <FaFacebookSquare
-                  style={{ verticalAlign: "text-bottom", fontSize: "20px" }}
-                />
-              </a>
-
-              <a
-                href="https://www.linkedin.com/company/cbetcollege/"
-                target="_blank"
-                className="nav-link"
-                rel="noopener noreferrer"
-                aria-label="College of Biomedical Equipment Technology on linkedin"
-              >
-                <FaLinkedin
-                  style={{ verticalAlign: "text-bottom", fontSize: "20px" }}
-                />
-              </a>
+                <div className="container px-5 py-3 bg-primary text-white">
+                  <h5>
+                    Enrollment Deadline is{" "}
+                    <Moment format="MMM DD">{enrollmentDeadline}</Moment>
+                  </h5>
+                  <Timer enrollmentEndDate={enrollmentDeadline} />
+                </div>
+                <CarouselForm />
+              </StyledNavDropdown>
             </Nav>
           </Navbar.Collapse>
         </Container>

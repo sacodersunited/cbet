@@ -6,6 +6,15 @@ import { Container, Row, Col, Card, Badge } from "react-bootstrap"
 import Moment from "react-moment"
 import { navigate } from "@reach/router"
 import { FaPen, FaTimes } from "react-icons/fa"
+import { showActive, showDate } from "../utils/admin"
+import styled from "styled-components"
+import { Link } from "react-router-dom"
+
+const MetaSection = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+`
 
 export default function AdminJobs(props) {
   const authContent = useCbetAuth()
@@ -57,7 +66,15 @@ export default function AdminJobs(props) {
                       <Moment format="MM/DD">{job.StartDate}</Moment>
                     </Badge>
                   </Card.Title>
-                  <Card.Text>
+                  <Card.Text style={{ minHeight: "170px" }}>
+                    <MetaSection>
+                      {showActive(job.Status)}
+                      {showDate(
+                        "Modified Date",
+                        job.ModifyDate,
+                        job.CreatedDate
+                      )}
+                    </MetaSection>
                     {/* copied from stack overflow, do not trust */}
                     {/* https://stackoverflow.com/questions/55418929/how-can-i-remove-html-markup-from-strings-in-state-data/55419024 */}
                     {job.Description.slice(0, 140).replace(
@@ -65,7 +82,9 @@ export default function AdminJobs(props) {
                       ""
                     ) + "..."}
                   </Card.Text>
-                  {/* <Button variant="primary">Go somewhere</Button> */}
+                  <a href={job.Link} target="_blank" rel="noopener noreferrer">
+                    <Button variant="outline-primary">Apply Link</Button>
+                  </a>
                 </Card.Body>
               </Card>
             </Col>

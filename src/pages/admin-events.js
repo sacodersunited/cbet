@@ -2,10 +2,19 @@ import React, { useState, useEffect } from "react"
 import SEO from "../components/seo"
 import Layout from "../components/admin/layout"
 import useCbetAuth from "../hooks/use-cbet-auth"
-import { Container, Row, Col, Card, Badge } from "react-bootstrap"
+import { Container, Row, Col, Card, Badge, Button } from "react-bootstrap"
 import Moment from "react-moment"
 import { FaPen, FaTimes } from "react-icons/fa"
+
 import { navigate } from "@reach/router"
+import { showActive, showDate, showAddress } from "../utils/admin"
+import styled from "styled-components"
+
+const MetaSection = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+`
 
 export default function AdminEvents() {
   const authContent = useCbetAuth()
@@ -58,6 +67,17 @@ export default function AdminEvents() {
                     </Badge>
                   </Card.Title>
                   <Card.Text>
+                    <MetaSection>
+                      {showActive(event.Status)}
+                      {showDate(
+                        "Modified Date",
+                        event.ModifyDate,
+                        event.CreatedDate
+                      )}
+                      {showDate("Start Date", event.StartDate)}
+                      {showDate("End Date", event.EndDate)}
+                      {showAddress(event.Location)}
+                    </MetaSection>
                     {/* copied from stack overflow, do not trust */}
                     {/* https://stackoverflow.com/questions/55418929/how-can-i-remove-html-markup-from-strings-in-state-data/55419024 */}
                     {event.Description.slice(0, 140).replace(
@@ -65,7 +85,13 @@ export default function AdminEvents() {
                       ""
                     ) + "..."}
                   </Card.Text>
-                  {/* <Button variant="primary">Go somewhere</Button> */}
+                  <a
+                    href={event.Link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Button variant="outline-primary">Event Link</Button>
+                  </a>
                 </Card.Body>
               </Card>
             </Col>
