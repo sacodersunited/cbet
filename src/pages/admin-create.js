@@ -15,7 +15,6 @@ import Layout from "../components/admin/layout"
 import SunEditor, { buttonList } from "suneditor-react"
 import "suneditor/dist/css/suneditor.min.css"
 import CbetDropzone from "../components/CbetDropzone"
-import useCbetAuth from "../hooks/use-cbet-auth"
 import CbetDatePicker from "../components/CbetDatePicker"
 import { FaCheck, FaSpinner } from "react-icons/fa"
 import styled from "styled-components"
@@ -158,7 +157,6 @@ function AdminCreate(props) {
     reset,
     unregister,
   } = useForm()
-  const authContent = useCbetAuth() // code used for making api calls
   const [htmlContent, setHtmlContent] = useState("") // html content for blog post
   const [cbetContentCategory, setCbetContentCategory] = useState(1) // content Category
   const [thumbnailUpload, setThumbnailUpload] = useState([]) // thumbnail image
@@ -205,7 +203,7 @@ function AdminCreate(props) {
       console.log("form Props", props.location.state)
       const cbetContent = props.location.state.cbetContent
 
-      console.log("job", cbetContent)
+      console.log("job,event,blog", cbetContent)
       setContentID(cbetContent.Id)
 
       switch (cbetContent.Category) {
@@ -218,6 +216,8 @@ function AdminCreate(props) {
           setStatus(cbetContent.Status)
           setLink(cbetContent.Link)
           setPublishDate(cbetContent.StartDate)
+          unregister("cbetDropzone")
+          unregister("htmlContent")
           break
         case 2:
           setCbetContentCategory(cbetContent.CbetCategory_Id)
@@ -229,7 +229,6 @@ function AdminCreate(props) {
         case 3:
           setCbetContentCategory(cbetContent.CbetCategory_Id)
           setCbetTitle(cbetContent.Title)
-          // setCbetDescription(cbetContent.Description)
           setAuthor(cbetContent.Author)
           setInitialHtmlComments(cbetContent.Description)
           break
@@ -386,11 +385,13 @@ function AdminCreate(props) {
     }
 
     try {
-      // const response = fetch("http://localhost:7071/api/GetCbetContent", myInit)
-      const response = fetch(
-        `https://cbetdata.azurewebsites.net/api/GetCbetContent?code=${authContent}`,
-        myInit
-      )
+      const response = fetch("http://localhost:7071/api/GetCbetContent", myInit)
+      // const response = fetch(
+      //   `https://cbetdata.azurewebsites.net/api/GetCbetContent?code=${authContent}`,
+      //   myInit
+      // )
+
+      console.log("response is ", response)
 
       if (!response.ok) {
         console.log("response not OK.")
@@ -489,7 +490,7 @@ function AdminCreate(props) {
   }
 
   function getStartDate(startDateCbet) {
-    console.log("get STart Date", startDate)
+    console.log("get Start Date function in adminCreate", startDate)
     console.log("start date is ", Date.parse(startDateCbet), startDateCbet)
     setValue("startDate", startDateCbet)
     setStartDate(startDateCbet)
@@ -758,13 +759,13 @@ function AdminCreate(props) {
                 </Button>
               </Form.Group>
 
-              {/* <Button
+              <Button
                 onClick={() => {
                   console.log("errors", errors)
                 }}
               >
                 Errors
-              </Button> */}
+              </Button>
             </Form.Row>
           </Col>
 
@@ -828,7 +829,15 @@ function AdminCreate(props) {
                     <Form.Label style={{ fontWeight: "bold" }}>
                       Start Date
                     </Form.Label>
-                    <CbetDatePicker getDate={getStartDate} defaultDate />
+                    <CbetDatePicker
+                      getDate={getStartDate}
+                      defaultDate
+                      initialDate={
+                        props.location.state.cbetContent
+                          ? props.location.state.cbetContent.StartDate
+                          : null
+                      }
+                    />
                     <Form.Label style={{ color: "red", marginLeft: "5px" }}>
                       {errors.startDate && "* Start date must be a valid date."}
                     </Form.Label>
@@ -839,7 +848,15 @@ function AdminCreate(props) {
                     <Form.Label style={{ fontWeight: "bold" }}>
                       End Date
                     </Form.Label>
-                    <CbetDatePicker getDate={getEndDate} defaultDate />
+                    <CbetDatePicker
+                      getDate={getEndDate}
+                      defaultDate
+                      initialDate={
+                        props.location.state.cbetContent
+                          ? props.location.state.cbetContent.EndDate
+                          : null
+                      }
+                    />
                     <Form.Label style={{ color: "red", marginLeft: "5px" }}>
                       {errors.endDate && "* End date must be a valid date."}
                     </Form.Label>
