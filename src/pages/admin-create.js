@@ -148,7 +148,7 @@ const linkValidator = new RegExp(
   /^((https?|ftp|smtp):\/\/)?(www.)?[a-z0-9]+\.[a-z]+(\/[a-zA-Z0-9#]+\/?)*$/
 )
 
-function AdminCreate(props) {
+export default React.memo(function AdminCreate(props) {
   const {
     register,
     handleSubmit,
@@ -236,6 +236,13 @@ function AdminCreate(props) {
           break
       }
     }
+
+    if (props.location.state.create === true) {
+      console.log("Clicked on Create button and now in admin-create")
+      clearFields()
+    }
+
+    console.log("inside useEffect")
   }, [])
 
   function getTodaysDate() {
@@ -516,7 +523,11 @@ function AdminCreate(props) {
   }
 
   return (
-    <Layout title="Create/Edit" category={getCategoryName(cbetContentCategory)}>
+    <Layout
+      title="Create/Edit"
+      category={getCategoryName(cbetContentCategory)}
+      clickNew={clearFields}
+    >
       <SEO title="Admin Create Edit" />
       <Container fluid>
         <Row>
@@ -918,6 +929,4 @@ function AdminCreate(props) {
       </Container>
     </Layout>
   )
-}
-
-export default AdminCreate
+})
