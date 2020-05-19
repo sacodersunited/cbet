@@ -687,6 +687,11 @@ function AdminCreate(props) {
                   <CbetDropzone
                     upload={uploadThumbnail}
                     complete={thumbnailUpload.length > 0}
+                    editImageUrl={
+                      props.location.state.cbetContent !== undefined
+                        ? props.location.state.cbetContent.Thumbnail
+                        : null
+                    }
                   ></CbetDropzone>
                   <Form.Label style={{ color: "red" }}>
                     {errors.cbetDropzone && "* Blog Header image is required"}
