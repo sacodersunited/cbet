@@ -220,6 +220,8 @@ export default React.memo(function AdminCreate(props) {
           unregister("htmlContent")
           break
         case 2:
+          unregister("cbetDropzone")
+          unregister("htmlContent")
           setCbetContentCategory(cbetContent.CbetCategory_Id)
           setCbetTitle(cbetContent.Title)
           setCbetDescription(cbetContent.Description)
@@ -827,6 +829,7 @@ export default React.memo(function AdminCreate(props) {
                   </Form.Label>
                   <Form.Control
                     as="textarea"
+                    rows="5"
                     name="description"
                     value={cbetDescription}
                     onChange={handleCbetDescription}
