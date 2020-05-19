@@ -13,6 +13,7 @@ import {
 } from "react-bootstrap"
 import { FaChevronDown } from "react-icons/fa"
 import { Link } from "gatsby"
+import { navigate } from "@reach/router"
 import styled from "styled-components"
 
 const StyledLink = styled(Link)`
@@ -76,7 +77,18 @@ function SideNav() {
   )
 }
 
-export default function Layout({ title, category, children }) {
+export default function Layout({ title, category, clickNew, children }) {
+  function createNewCbetContent(e) {
+    e.preventDefault()
+    console.log("clicked create new")
+
+    navigate("/admin-create")
+    if (clickNew) {
+      clickNew()
+    }
+    console.log("typeof clickedNew: ", typeof clickNew)
+  }
+
   return (
     <AzureAD provider={signInAuthProvider} forceLogin={true}>
       {({ login, logout, authenticationState, error, accountInfo }) => {
@@ -117,11 +129,12 @@ export default function Layout({ title, category, children }) {
                           )}
                         </Col>
                         <Col md={2}>
-                          <Link to="admin-create">
-                            <Button variant="outline-primary">
-                              Create New
-                            </Button>
-                          </Link>
+                          <Button
+                          variant="outline-primary"
+                          onClick={createNewCbetContent}
+                        >
+                          Create New
+                        </Button>
                         </Col>
                         <Col md={2}>
                           <p>

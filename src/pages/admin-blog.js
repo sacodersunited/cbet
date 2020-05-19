@@ -2,9 +2,10 @@ import React, { useState, useEffect } from "react"
 import SEO from "../components/seo"
 import Layout from "../components/admin/layout"
 import useCbetAuth from "../hooks/use-cbet-auth"
-import { Container, Row, Col, Card, Button, Badge } from "react-bootstrap"
+import { Container, Row, Col, Card, Badge } from "react-bootstrap"
 import Moment from "react-moment"
 import { FaPen, FaTimes } from "react-icons/fa"
+import { navigate } from "@reach/router"
 import { showActive, showDate, showAuthor } from "../utils/admin"
 import styled from "styled-components"
 
@@ -28,6 +29,15 @@ export default function AdminBlog() {
       })
   }, [])
 
+  function handleEdit(e, cbetContent) {
+    e.preventDefault()
+    console.log("clicked edit", cbetContent)
+
+    navigate("/admin-create", {
+      state: { cbetContent },
+    })
+  }
+
   const posts = cbetContent.filter(post => post.Category === 3)
 
   return (
@@ -41,8 +51,11 @@ export default function AdminBlog() {
                 <Card.Header className="d-flex justify-content-between">
                   {post.CategoryName}
                   <div className="meta-edit">
-                    <FaPen color="#A4AFB7" />
-                    <FaTimes color="#A4AFB7" className="ml-2" />
+                    <FaPen
+                      style={{ cursor: "pointer" }}
+                      onClick={e => handleEdit(e, post)}
+                    />
+                    <FaTimes style={{ cursor: "pointer" }} className="ml-2" />
                   </div>
                 </Card.Header>
                 <Card.Body style={{ minHeight: "200px" }}>

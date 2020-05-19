@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
 import { Col, Form } from "react-bootstrap"
-import { calculateDays } from "../utils/utility"
+import { calculateDays, formatDate } from "../utils/utility"
 
 const year = new Date().getFullYear()
 const years = Array.from(new Array(40), (val, index) => year - index)
@@ -13,7 +13,11 @@ export default function CbetDatePicker(props) {
   const [daysLength, setDaysLength] = useState(0) // number of days selected
 
   useEffect(() => {
-    if (props.defaultDate) {
+    console.log("props date picker", props)
+    if (props.defaultDate && props.initialDate === undefined) {
+      console.log(
+        "date picker has DefaultDate prop selected and undefined initial Date"
+      )
       const dateF = new Date()
       const day = dateF.getDate()
       const monthIndex = dateF.getMonth()
@@ -26,6 +30,19 @@ export default function CbetDatePicker(props) {
       props.getDate(
         `${"0" + month.toString()}/${day.toString()}/${year.toString()}`
       )
+    } else if (props.initialDate !== undefined) {
+      console.log(
+        "initial date is there!!!",
+        props.initialDate,
+        formatDate(props.initialDate, true)
+      )
+      let newInitialDate = new Date(formatDate(props.initialDate, false, true))
+      console.log("newInitialDate", newInitialDate)
+
+      setAddMonth("0" + (newInitialDate.getMonth() + 1).toString())
+      setAddDay(newInitialDate.getDate().toString())
+      setAddYear(newInitialDate.getFullYear().toString())
+      props.getDate(formatDate(props.initialDate, false, true))
     }
   }, [])
 

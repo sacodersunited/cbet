@@ -10,15 +10,17 @@ import {
   Tooltip,
 } from "react-bootstrap"
 import { useForm } from "react-hook-form"
+import { AzureAD } from "react-aad-msal"
+import { signInAuthProvider } from "../components/authProvider"
 import SEO from "../components/seo"
 import Layout from "../components/admin/layout"
 import SunEditor, { buttonList } from "suneditor-react"
 import "suneditor/dist/css/suneditor.min.css"
 import CbetDropzone from "../components/CbetDropzone"
-import useCbetAuth from "../hooks/use-cbet-auth"
 import CbetDatePicker from "../components/CbetDatePicker"
 import { FaCheck, FaSpinner } from "react-icons/fa"
 import styled from "styled-components"
+import { accountInfo } from "react-aad-msal"
 
 const SpinSpinner = styled(FaSpinner)`
   @keyframes spin {
@@ -138,13 +140,18 @@ const partnersList = [
   },
 ]
 
-partnersList.sort()
+partnersList.sort((a, b) => {
+  if (a.name < b.name) {
+    return -1
+  }
+  return 1
+})
 
 const linkValidator = new RegExp(
   /^((https?|ftp|smtp):\/\/)?(www.)?[a-z0-9]+\.[a-z]+(\/[a-zA-Z0-9#]+\/?)*$/
 )
 
-function AdminCreate() {
+export default function AdminCreate(props) {
   const {
     register,
     handleSubmit,
@@ -153,7 +160,6 @@ function AdminCreate() {
     reset,
     unregister,
   } = useForm()
-  const authContent = useCbetAuth() // code used for making api calls
   const [htmlContent, setHtmlContent] = useState("") // html content for blog post
   const [cbetContentCategory, setCbetContentCategory] = useState(1) // content Category
   const [thumbnailUpload, setThumbnailUpload] = useState([]) // thumbnail image
@@ -172,6 +178,8 @@ function AdminCreate() {
   const [link, setLink] = useState("")
   const [cbetDescription, setCbetDescription] = useState("")
   const [partnerLink, setPartnerLink] = useState("")
+  const [initialHtmlContents, setInitialHtmlComments] = useState("")
+  const [contentID, setContentID] = useState(0)
 
   useEffect(() => {
     register({ name: "cbetDropzone" }, { required: true })
@@ -193,6 +201,50 @@ function AdminCreate() {
     setPublishDate(`${month}/${day}/${year}`)
     setStartDate(`${month}/${day}/${year}`)
     setEndDate(`${month}/${day}/${year}`)
+
+    if (props.location.state.cbetContent !== undefined) {
+      const cbetContent = props.location.state.cbetContent
+
+      console.log("job,event,blog", cbetContent)
+      setContentID(cbetContent.Id)
+      // job = 1, event = 2, blog = 3
+      switch (cbetContent.Category) {
+        case 1:
+          setCbetContentCategory(cbetContent.CbetCategory_Id)
+          setAuthor(cbetContent.Author)
+          setCbetTitle(cbetContent.Title)
+          setCbetDescription(cbetContent.Description)
+          setFeatured(cbetContent.Featured)
+          setStatus(cbetContent.Status)
+          setLink(cbetContent.Link)
+          setPublishDate(cbetContent.StartDate)
+          unregister("cbetDropzone")
+          unregister("htmlContent")
+          break
+        case 2:
+          unregister("cbetDropzone")
+          unregister("htmlContent")
+          setCbetContentCategory(cbetContent.CbetCategory_Id)
+          setCbetTitle(cbetContent.Title)
+          setCbetDescription(cbetContent.Description)
+          setLink(cbetContent.Link)
+          setStatus(cbetContent.Status)
+          setLocation(cbetContent.Location)
+          break
+        case 3:
+          setCbetContentCategory(cbetContent.CbetCategory_Id)
+          setCbetTitle(cbetContent.Title)
+          setAuthor(cbetContent.Author)
+          setInitialHtmlComments(cbetContent.Description)
+          break
+        default:
+          break
+      }
+    }
+
+    if (props.location.state.create === true) {
+      clearFields()
+    }
   }, [])
 
   function getTodaysDate() {
@@ -206,14 +258,9 @@ function AdminCreate() {
   }
 
   const onSubmit = data => {
-    console.log("form data", data)
     if (cbetContentCategory === 0) {
       setSubmitMessage("Select a Cbet Category to save.")
       return
-    }
-
-    if (Date.parse(startDate) === isNaN) {
-      console.log("Start date is not valid")
     }
 
     setIsSubmitting(true)
@@ -233,12 +280,7 @@ function AdminCreate() {
     }
   }
 
-  function handleLoadHtmlEditor(reload) {
-    console.log("reload html editor", reload) //Boolean
-  }
-
   function handleContentChange(content) {
-    console.log("content is changing", content) //Get Content Inside Editor
     setValue("htmlContent", content)
     setHtmlContent(content)
   }
@@ -254,7 +296,6 @@ function AdminCreate() {
   }
 
   function uploadThumbnail(files) {
-    console.log("uploading thumbnail...", files)
     setValue("cbetDropzone", files)
     setThumbnailUpload(files)
   }
@@ -267,13 +308,13 @@ function AdminCreate() {
     switch (cbetContentCategory) {
       case 1: // Job
         cbetContent = {
-          ID: 0, // number
+          ID: contentID, // number
           ContentTitle: formData.title, // string
           Description: cbetDescription, // string
           Thumbnail: partnerLink, // string for url link from partner
           PartnerName: cbetPartner, // string
           Author: author, // string
-          ContentCreator: author, // string
+          ContentCreator: formData.signedInAuthor, // string
           Status: status, // number
           CbetCategory: cbetContentCategory, // number
           Link: link, // string - Event and Job only
@@ -286,13 +327,13 @@ function AdminCreate() {
         break
       case 2: // Event
         cbetContent = {
-          ID: 0, // number
+          ID: contentID, // number
           ContentTitle: formData.title, // string
           Description: cbetDescription, // string
           Thumbnail: "",
           PartnerName: cbetPartner, // string
           Author: author, // string
-          ContentCreator: author, // string
+          ContentCreator: formData.signedInAuthor, // string
           Status: status, // bool
           CbetCategory: cbetContentCategory, // number
           Link: link, // string
@@ -305,13 +346,13 @@ function AdminCreate() {
         break
       case 3: // Blog
         cbetContent = {
-          ID: 0, // number
+          ID: contentID, // number
           ContentTitle: formData.title, // string
           Description: htmlContent, // HTML for blog
           Thumbnail: "",
           PartnerName: cbetPartner, // string
           Author: author, // string
-          ContentCreator: author, // string
+          ContentCreator: formData.signedInAuthor, // string
           Status: status, // bool
           CbetCategory: cbetContentCategory, // number
           Link: link, // string
@@ -377,7 +418,6 @@ function AdminCreate() {
     const partner = partnersList.find(
       element => element.name === e.target.value
     )
-    console.log("find partner", partner.link)
 
     setPartnerLink(partner.link)
     setCbetPartner(e.target.value)
@@ -402,11 +442,9 @@ function AdminCreate() {
       unregister("endDate")
       // unregister("")
     } else if (CategorySelected === 2) {
-      console.log("changed cat to Event")
       unregister("cbetDropzone")
       unregister("htmlContent")
       const newDate = getTodaysDate()
-      console.log("newdate for cat", newDate)
       register(
         { name: "startDate" },
         { required: true, validate: value => Date.parse(value) !== isNaN }
@@ -435,7 +473,6 @@ function AdminCreate() {
   }
 
   function handleCbetDescription(e) {
-    console.log("cbetDescription", e.target.value, cbetDescription)
     setCbetDescription(e.target.value)
   }
 
@@ -445,21 +482,17 @@ function AdminCreate() {
   }
 
   function getStartDate(startDateCbet) {
-    console.log("get STart Date", startDate)
-    console.log("start date is ", Date.parse(startDateCbet), startDateCbet)
     setValue("startDate", startDateCbet)
     setStartDate(startDateCbet)
   }
 
   function getEndDate(endDateCbet) {
-    console.log("get end date", endDate)
     setValue("endDate", endDateCbet)
     setEndDate(endDateCbet)
   }
 
   function clearFields() {
     reset()
-    console.log("clearing fields")
     setCbetTitle("")
     setAuthor("")
     setCbetPartner("0")
@@ -471,7 +504,11 @@ function AdminCreate() {
   }
 
   return (
-    <Layout title="Create/Edit" category={getCategoryName(cbetContentCategory)}>
+    <Layout
+      title="Create/Edit"
+      category={getCategoryName(cbetContentCategory)}
+      clickNew={clearFields}
+    >
       <SEO title="Admin Create Edit" />
       <Container fluid>
         <Row>
@@ -642,6 +679,11 @@ function AdminCreate() {
                   <CbetDropzone
                     upload={uploadThumbnail}
                     complete={thumbnailUpload.length > 0}
+                    editImageUrl={
+                      props.location.state.cbetContent !== undefined
+                        ? props.location.state.cbetContent.Thumbnail
+                        : null
+                    }
                   ></CbetDropzone>
                   <Form.Label style={{ color: "red" }}>
                     {errors.cbetDropzone && "* Blog Header image is required"}
@@ -692,9 +734,12 @@ function AdminCreate() {
                 as={Col}
                 style={{ display: "flex", justifyContent: "center" }}
               >
-                <Button size="lg" onClick={handleSubmit(onSubmit)}>
-                  Save
-                </Button>
+                <React.Fragment>
+                  <Button size="lg" onClick={handleSubmit(onSubmit)}>
+                    Save
+                  </Button>
+                </React.Fragment>
+
                 {isSubmitting === true ? (
                   <SpinSpinner data-testid="spinner" />
                 ) : null}
@@ -714,13 +759,13 @@ function AdminCreate() {
                 </Button>
               </Form.Group>
 
-              {/* <Button
+              <Button
                 onClick={() => {
                   console.log("errors", errors)
                 }}
               >
                 Errors
-              </Button> */}
+              </Button>
             </Form.Row>
           </Col>
 
@@ -739,6 +784,7 @@ function AdminCreate() {
                       onClick={() => {
                         setFeatured(true)
                       }}
+                      active={featured === true}
                       href="link1"
                       style={{ width: "77px" }}
                     >
@@ -764,6 +810,7 @@ function AdminCreate() {
                   </Form.Label>
                   <Form.Control
                     as="textarea"
+                    rows="5"
                     name="description"
                     value={cbetDescription}
                     onChange={handleCbetDescription}
@@ -783,7 +830,15 @@ function AdminCreate() {
                     <Form.Label style={{ fontWeight: "bold" }}>
                       Start Date
                     </Form.Label>
-                    <CbetDatePicker getDate={getStartDate} defaultDate />
+                    <CbetDatePicker
+                      getDate={getStartDate}
+                      defaultDate
+                      initialDate={
+                        props.location.state.cbetContent
+                          ? props.location.state.cbetContent.StartDate
+                          : null
+                      }
+                    />
                     <Form.Label style={{ color: "red", marginLeft: "5px" }}>
                       {errors.startDate && "* Start date must be a valid date."}
                     </Form.Label>
@@ -794,7 +849,15 @@ function AdminCreate() {
                     <Form.Label style={{ fontWeight: "bold" }}>
                       End Date
                     </Form.Label>
-                    <CbetDatePicker getDate={getEndDate} defaultDate />
+                    <CbetDatePicker
+                      getDate={getEndDate}
+                      defaultDate
+                      initialDate={
+                        props.location.state.cbetContent
+                          ? props.location.state.cbetContent.EndDate
+                          : null
+                      }
+                    />
                     <Form.Label style={{ color: "red", marginLeft: "5px" }}>
                       {errors.endDate && "* End date must be a valid date."}
                     </Form.Label>
@@ -814,7 +877,7 @@ function AdminCreate() {
                 </Form.Label>
                 <SunEditor
                   onChange={handleContentChange}
-                  onBlur={handleLoadHtmlEditor}
+                  setContents={initialHtmlContents}
                   setOptions={{
                     height: "auto",
                     minHeight: 400,
@@ -823,9 +886,10 @@ function AdminCreate() {
                 />
               </Form.Group>
             ) : null}
+
             {/* Event */}
-            {cbetContentCategory === 2 ? (
-              <Col md={8}>
+            <Col md={8}>
+              {cbetContentCategory === 2 ? (
                 <Form.Group controlId="Location" style={{ paddingTop: "10px" }}>
                   <Form.Label
                     style={{ fontWeight: "bold" }}
@@ -843,13 +907,30 @@ function AdminCreate() {
                     {errors.location && "* Location is required"}
                   </Form.Label>
                 </Form.Group>
-              </Col>
-            ) : null}
+              ) : null}
+
+              <AzureAD provider={signInAuthProvider}>
+                {({ accountInfo }) => {
+                  return (
+                    <Form.Group controlId="User" style={{ paddingTop: "10px" }}>
+                      <Form.Label style={{ fontWeight: "bold" }}>
+                        User Logged in
+                      </Form.Label>
+                      <Form.Control
+                        type="text"
+                        name="signedInAuthor"
+                        value={accountInfo.account.name}
+                        readonly
+                        ref={register()}
+                      ></Form.Control>
+                    </Form.Group>
+                  )
+                }}
+              </AzureAD>
+            </Col>
           </Col>
         </Row>
       </Container>
     </Layout>
   )
 }
-
-export default AdminCreate
