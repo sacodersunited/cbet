@@ -205,7 +205,7 @@ export default React.memo(function AdminCreate(props) {
 
       console.log("job,event,blog", cbetContent)
       setContentID(cbetContent.Id)
-
+      // job = 1, event = 2, blog = 3
       switch (cbetContent.Category) {
         case 1:
           setCbetContentCategory(cbetContent.CbetCategory_Id)
@@ -225,6 +225,7 @@ export default React.memo(function AdminCreate(props) {
           setCbetDescription(cbetContent.Description)
           setLink(cbetContent.Link)
           setStatus(cbetContent.Status)
+          setLocation(cbetContent.Location)
           break
         case 3:
           setCbetContentCategory(cbetContent.CbetCategory_Id)
