@@ -4,7 +4,8 @@ import Layout from "../components/admin/layout"
 import useCbetAuth from "../hooks/use-cbet-auth"
 import { Container, Row, Col, Card, Button, Badge } from "react-bootstrap"
 import Moment from "react-moment"
-import { FaPen, FaTimes, FaCircle } from "react-icons/fa"
+import { FaPen, FaTimes } from "react-icons/fa"
+import { showActive } from "../utils/admin"
 
 export default function AdminBlog() {
   const authContent = useCbetAuth()
@@ -45,27 +46,7 @@ export default function AdminBlog() {
                     </Badge>
                   </Card.Title>
                   <Card.Text>
-                    <div className="meta">
-                      {post.Status ? (
-                        <small>
-                          <FaCircle
-                            className="mr-1"
-                            color="#5EE2A0"
-                            style={{ verticalAlign: "baseline" }}
-                          />
-                          Active
-                        </small>
-                      ) : (
-                        <small>
-                          <FaCircle
-                            className="mr-1"
-                            color="#E25E5E"
-                            style={{ verticalAlign: "baseline" }}
-                          />
-                          Disabled
-                        </small>
-                      )}
-                    </div>
+                    <div className="meta">{showActive(post.Status)}</div>
                     {/* copied from stack overflow, do not trust */}
                     {/* https://stackoverflow.com/questions/55418929/how-can-i-remove-html-markup-from-strings-in-state-data/55419024 */}
                     {post.Description.slice(0, 140).replace(

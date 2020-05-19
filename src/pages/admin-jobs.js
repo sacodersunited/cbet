@@ -5,6 +5,7 @@ import useCbetAuth from "../hooks/use-cbet-auth"
 import { Container, Row, Col, Card, Button, Badge } from "react-bootstrap"
 import Moment from "react-moment"
 import { FaPen, FaTimes } from "react-icons/fa"
+import { showActive } from "../utils/admin"
 
 export default function AdminJobs() {
   const authContent = useCbetAuth()
@@ -45,6 +46,7 @@ export default function AdminJobs() {
                     </Badge>
                   </Card.Title>
                   <Card.Text>
+                    <div className="meta">{showActive(job.Status)}</div>
                     {/* copied from stack overflow, do not trust */}
                     {/* https://stackoverflow.com/questions/55418929/how-can-i-remove-html-markup-from-strings-in-state-data/55419024 */}
                     {job.Description.slice(0, 140).replace(
