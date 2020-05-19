@@ -86,7 +86,11 @@ export default function Layout({ title, category, children }) {
               <Container fluid>
                 <Row className="flex-xl-nowrap">
                   <SideNav />
-                  <Col md={10} className="pb-5">
+                  <Col
+                    md={10}
+                    className="pb-5"
+                    style={{ backgroundColor: "#f0f0f7" }}
+                  >
                     <Navbar expand="lg" variant="light" bg="light">
                       <Form className="w-75" inline>
                         <FormControl
@@ -103,31 +107,34 @@ export default function Layout({ title, category, children }) {
                         </Navbar.Text>
                       </Navbar.Collapse>
                     </Navbar>
-
-                    <Row className="pt-5 pb-5">
-                      <Col md={3}>
-                        {category === undefined ? (
-                          <h2>{`${title}`}</h2>
-                        ) : (
-                          <h2>{`${title} - ${category}`}</h2>
-                        )}
-                      </Col>
-                      <Col md={2}>
-                        <Link to="admin-create">
-                          <Button variant="outline-primary">Create New</Button>
-                        </Link>
-                      </Col>
-                      <Col md={2}>
-                        <p>
-                          Filter One <FaChevronDown />
-                        </p>
-                      </Col>
-                      <Col md={2}>
-                        <p>
-                          Filter Two <FaChevronDown />
-                        </p>
-                      </Col>
-                    </Row>
+                    <Container>
+                      <Row className="pt-5 pb-5">
+                        <Col md={3}>
+                          {category === undefined ? (
+                            <h2>{`${title}`}</h2>
+                          ) : (
+                            <h2>{`${title} - ${category}`}</h2>
+                          )}
+                        </Col>
+                        <Col md={2}>
+                          <Link to="admin-create">
+                            <Button variant="outline-primary">
+                              Create New
+                            </Button>
+                          </Link>
+                        </Col>
+                        <Col md={2}>
+                          <p>
+                            Filter One <FaChevronDown />
+                          </p>
+                        </Col>
+                        <Col md={2}>
+                          <p>
+                            Filter Two <FaChevronDown />
+                          </p>
+                        </Col>
+                      </Row>
+                    </Container>
                     {children}
                   </Col>
                 </Row>
