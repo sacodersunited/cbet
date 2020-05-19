@@ -10,6 +10,8 @@ import {
   Tooltip,
 } from "react-bootstrap"
 import { useForm } from "react-hook-form"
+import { AzureAD } from "react-aad-msal"
+import { signInAuthProvider } from "../components/authProvider"
 import SEO from "../components/seo"
 import Layout from "../components/admin/layout"
 import SunEditor, { buttonList } from "suneditor-react"
@@ -18,6 +20,7 @@ import CbetDropzone from "../components/CbetDropzone"
 import CbetDatePicker from "../components/CbetDatePicker"
 import { FaCheck, FaSpinner } from "react-icons/fa"
 import styled from "styled-components"
+import { accountInfo } from "react-aad-msal"
 
 const SpinSpinner = styled(FaSpinner)`
   @keyframes spin {
@@ -200,7 +203,6 @@ export default function AdminCreate(props) {
     setEndDate(`${month}/${day}/${year}`)
 
     if (props.location.state.cbetContent !== undefined) {
-      console.log("form Props", props.location.state)
       const cbetContent = props.location.state.cbetContent
 
       console.log("job,event,blog", cbetContent)
@@ -241,11 +243,8 @@ export default function AdminCreate(props) {
     }
 
     if (props.location.state.create === true) {
-      console.log("Clicked on Create button and now in admin-create")
       clearFields()
     }
-
-    console.log("inside useEffect")
   }, [])
 
   function getTodaysDate() {
@@ -259,14 +258,9 @@ export default function AdminCreate(props) {
   }
 
   const onSubmit = data => {
-    console.log("form data", data)
     if (cbetContentCategory === 0) {
       setSubmitMessage("Select a Cbet Category to save.")
       return
-    }
-
-    if (Date.parse(startDate) === isNaN) {
-      console.log("Start date is not valid")
     }
 
     setIsSubmitting(true)
@@ -286,12 +280,7 @@ export default function AdminCreate(props) {
     }
   }
 
-  function handleLoadHtmlEditor(reload) {
-    console.log("reload html editor", reload) //Boolean
-  }
-
   function handleContentChange(content) {
-    console.log("content is changing", content) //Get Content Inside Editor
     setValue("htmlContent", content)
     setHtmlContent(content)
   }
@@ -307,7 +296,6 @@ export default function AdminCreate(props) {
   }
 
   function uploadThumbnail(files) {
-    console.log("uploading thumbnail...", files)
     setValue("cbetDropzone", files)
     setThumbnailUpload(files)
   }
@@ -326,7 +314,7 @@ export default function AdminCreate(props) {
           Thumbnail: partnerLink, // string for url link from partner
           PartnerName: cbetPartner, // string
           Author: author, // string
-          ContentCreator: author, // string
+          ContentCreator: formData.signedInAuthor, // string
           Status: status, // number
           CbetCategory: cbetContentCategory, // number
           Link: link, // string - Event and Job only
@@ -345,7 +333,7 @@ export default function AdminCreate(props) {
           Thumbnail: "",
           PartnerName: cbetPartner, // string
           Author: author, // string
-          ContentCreator: author, // string
+          ContentCreator: formData.signedInAuthor, // string
           Status: status, // bool
           CbetCategory: cbetContentCategory, // number
           Link: link, // string
@@ -364,7 +352,7 @@ export default function AdminCreate(props) {
           Thumbnail: "",
           PartnerName: cbetPartner, // string
           Author: author, // string
-          ContentCreator: author, // string
+          ContentCreator: formData.signedInAuthor, // string
           Status: status, // bool
           CbetCategory: cbetContentCategory, // number
           Link: link, // string
@@ -395,13 +383,11 @@ export default function AdminCreate(props) {
     }
 
     try {
-      const response = fetch("http://localhost:7071/api/GetCbetContent", myInit)
-      // const response = fetch(
-      //   `https://cbetdata.azurewebsites.net/api/GetCbetContent?code=${authContent}`,
-      //   myInit
-      // )
-
-      console.log("response is ", response)
+      // const response = fetch("http://localhost:7071/api/GetCbetContent", myInit)
+      const response = fetch(
+        `https://cbetdata.azurewebsites.net/api/GetCbetContent?code=${authContent}`,
+        myInit
+      )
 
       if (!response.ok) {
         console.log("response not OK.")
@@ -432,7 +418,6 @@ export default function AdminCreate(props) {
     const partner = partnersList.find(
       element => element.name === e.target.value
     )
-    console.log("find partner", partner.link)
 
     setPartnerLink(partner.link)
     setCbetPartner(e.target.value)
@@ -457,11 +442,9 @@ export default function AdminCreate(props) {
       unregister("endDate")
       // unregister("")
     } else if (CategorySelected === 2) {
-      console.log("changed cat to Event")
       unregister("cbetDropzone")
       unregister("htmlContent")
       const newDate = getTodaysDate()
-      console.log("newdate for cat", newDate)
       register(
         { name: "startDate" },
         { required: true, validate: value => Date.parse(value) !== isNaN }
@@ -490,7 +473,6 @@ export default function AdminCreate(props) {
   }
 
   function handleCbetDescription(e) {
-    console.log("cbetDescription", e.target.value, cbetDescription)
     setCbetDescription(e.target.value)
   }
 
@@ -500,21 +482,17 @@ export default function AdminCreate(props) {
   }
 
   function getStartDate(startDateCbet) {
-    console.log("get Start Date function in adminCreate", startDate)
-    console.log("start date is ", Date.parse(startDateCbet), startDateCbet)
     setValue("startDate", startDateCbet)
     setStartDate(startDateCbet)
   }
 
   function getEndDate(endDateCbet) {
-    console.log("get end date", endDate)
     setValue("endDate", endDateCbet)
     setEndDate(endDateCbet)
   }
 
   function clearFields() {
     reset()
-    console.log("clearing fields")
     setCbetTitle("")
     setAuthor("")
     setCbetPartner("0")
@@ -756,9 +734,12 @@ export default function AdminCreate(props) {
                 as={Col}
                 style={{ display: "flex", justifyContent: "center" }}
               >
-                <Button size="lg" onClick={handleSubmit(onSubmit)}>
-                  Save
-                </Button>
+                <React.Fragment>
+                  <Button size="lg" onClick={handleSubmit(onSubmit)}>
+                    Save
+                  </Button>
+                </React.Fragment>
+
                 {isSubmitting === true ? (
                   <SpinSpinner data-testid="spinner" />
                 ) : null}
@@ -896,7 +877,6 @@ export default function AdminCreate(props) {
                 </Form.Label>
                 <SunEditor
                   onChange={handleContentChange}
-                  onBlur={handleLoadHtmlEditor}
                   setContents={initialHtmlContents}
                   setOptions={{
                     height: "auto",
@@ -906,9 +886,10 @@ export default function AdminCreate(props) {
                 />
               </Form.Group>
             ) : null}
+
             {/* Event */}
-            {cbetContentCategory === 2 ? (
-              <Col md={8}>
+            <Col md={8}>
+              {cbetContentCategory === 2 ? (
                 <Form.Group controlId="Location" style={{ paddingTop: "10px" }}>
                   <Form.Label
                     style={{ fontWeight: "bold" }}
@@ -926,8 +907,27 @@ export default function AdminCreate(props) {
                     {errors.location && "* Location is required"}
                   </Form.Label>
                 </Form.Group>
-              </Col>
-            ) : null}
+              ) : null}
+
+              <AzureAD provider={signInAuthProvider}>
+                {({ accountInfo }) => {
+                  return (
+                    <Form.Group controlId="User" style={{ paddingTop: "10px" }}>
+                      <Form.Label style={{ fontWeight: "bold" }}>
+                        User Logged in
+                      </Form.Label>
+                      <Form.Control
+                        type="text"
+                        name="signedInAuthor"
+                        value={accountInfo.account.name}
+                        readonly
+                        ref={register()}
+                      ></Form.Control>
+                    </Form.Group>
+                  )
+                }}
+              </AzureAD>
+            </Col>
           </Col>
         </Row>
       </Container>
