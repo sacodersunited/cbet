@@ -13,6 +13,14 @@ import {
 } from "react-bootstrap"
 import { FaChevronDown } from "react-icons/fa"
 import { Link } from "gatsby"
+import styled from "styled-components"
+
+const StyledLink = styled(Link)`
+  &.active {
+    background-color: #3c3b54;
+    border-left: 3px solid #a3a0fb;
+  }
+`
 
 function SideNav() {
   return (
@@ -31,38 +39,38 @@ function SideNav() {
         zIndex: "1000",
       }}
     >
-      <h4 className="pt-2 pb-3 pl-2" style={{ backgroundColor: "#3c3b54" }}>
+      <h5 className="pt-3 pb-3 pl-3" style={{ backgroundColor: "#3c3b54" }}>
         CBET Admin
-      </h4>
+      </h5>
       <Nav defaultActiveKey="/admin" className="flex-column" fill justify>
-        <Link
+        <StyledLink
           to="/admin"
           className="nav-link text-light"
           activeClassName="active"
         >
           Dashboard
-        </Link>
-        <Link
+        </StyledLink>
+        <StyledLink
           to="/admin-jobs"
           className="nav-link text-light"
           activeClassName="active"
         >
           Jobs
-        </Link>
-        <Link
+        </StyledLink>
+        <StyledLink
           to="/admin-events"
           className="nav-link text-light"
           activeClassName="active"
         >
           Events
-        </Link>
-        <Link
+        </StyledLink>
+        <StyledLink
           to="/admin-blog"
           className="nav-link text-light"
           activeClassName="active"
         >
           Blog
-        </Link>
+        </StyledLink>
       </Nav>
     </Col>
   )
