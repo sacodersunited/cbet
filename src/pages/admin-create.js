@@ -10,6 +10,7 @@ import {
   Tooltip,
 } from "react-bootstrap"
 import { useForm } from "react-hook-form"
+import useCbetAuth from "../hooks/use-cbet-auth"
 import { AzureAD } from "react-aad-msal"
 import { signInAuthProvider } from "../components/authProvider"
 import SEO from "../components/seo"
@@ -20,7 +21,6 @@ import CbetDropzone from "../components/CbetDropzone"
 import CbetDatePicker from "../components/CbetDatePicker"
 import { FaCheck, FaSpinner } from "react-icons/fa"
 import styled from "styled-components"
-import { accountInfo } from "react-aad-msal"
 
 const SpinSpinner = styled(FaSpinner)`
   @keyframes spin {
@@ -180,6 +180,7 @@ export default function AdminCreate(props) {
   const [partnerLink, setPartnerLink] = useState("")
   const [initialHtmlContents, setInitialHtmlComments] = useState("")
   const [contentID, setContentID] = useState(0)
+  const authContent = useCbetAuth()
 
   useEffect(() => {
     register({ name: "cbetDropzone" }, { required: true })
