@@ -148,7 +148,7 @@ const linkValidator = new RegExp(
   /^((https?|ftp|smtp):\/\/)?(www.)?[a-z0-9]+\.[a-z]+(\/[a-zA-Z0-9#]+\/?)*$/
 )
 
-export default React.memo(function AdminCreate(props) {
+export default function AdminCreate(props) {
   const {
     register,
     handleSubmit,
@@ -933,4 +933,4 @@ export default React.memo(function AdminCreate(props) {
       </Container>
     </Layout>
   )
-})
+}
