@@ -44,6 +44,20 @@ _Have another more specific idea? You may want to check out our vibrant collecti
 
     Open the `my-default-starter` directory in your code editor of choice and edit `src/pages/index.js`. Save your changes and the browser will update in real time!
 
+## How to run in Docker container in Windows 10
+
+1. Open terminal to root of project.
+
+1. Build the container and run it - `docker-compose up --build`.
+
+1. Then open browser and code. 
+
+1. When done using the container run the command `CTRL-C` twice.
+
+1. If you make any dependency changes like `npm install <packagename>` to the project then make sure and run `docker-compose up --build` again to rebuild the container.
+
+** Check your images periodically and remove any unused images created for this container.
+
 ## 🧐 How to run testing in Cypress/Applitools.
 
 1. Add Environment variable named APPLITOOLS_API_KEY and have the key handy to put in the env.development file on the root directory.
