@@ -1,0 +1,15 @@
+FROM node:alpine
+RUN \
+  apk add --no-cache python make g++ && \
+  apk add vips-dev fftw-dev --update-cache \
+  --repository http://dl-3.alpinelinux.org/alpine/edge/community \
+  --repository http://dl-3.alpinelinux.org/alpine/edge/main \
+  && rm -fR /var/cache/apk/*
+
+RUN npm install -g gatsby-cli
+
+WORKDIR /app
+COPY ./package.json .
+RUN npm install --silent && npm cache clear --force
+COPY . .
+CMD ["gatsby", "develop", "-H", "0.0.0.0" ]
