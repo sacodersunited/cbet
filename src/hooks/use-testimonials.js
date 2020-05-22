@@ -23,7 +23,7 @@ const UseTestimonials = () => {
     }
   `)
 
-  return data.allTestimonialsYaml.nodes.map(testimonial => ({
+  return data.allTestimonialsYaml.nodes.map((testimonial) => ({
     id: testimonial.id,
     name: testimonial.name,
     state: testimonial.state,

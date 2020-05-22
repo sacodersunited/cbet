@@ -117,6 +117,7 @@ export default function Layout({ title, category, clickNew, children }) {
                           Signed in as:
                           <span className="text-dark">{` ${accountInfo.account.name}`}</span>
                         </Navbar.Text>
+                        <Button onClick={logout}>Logout</Button>
                       </Navbar.Collapse>
                     </Navbar>
                     <Container>
@@ -130,11 +131,11 @@ export default function Layout({ title, category, clickNew, children }) {
                         </Col>
                         <Col md={2}>
                           <Button
-                          variant="outline-primary"
-                          onClick={createNewCbetContent}
-                        >
-                          Create New
-                        </Button>
+                            variant="outline-primary"
+                            onClick={createNewCbetContent}
+                          >
+                            Create New
+                          </Button>
                         </Col>
                         <Col md={2}>
                           <p>

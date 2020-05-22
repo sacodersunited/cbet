@@ -16,14 +16,14 @@ export default ({ data }) => {
     fetch(
       `https://cbetdata.azurewebsites.net/api/GetCbetContent?code=${authContent}`
     )
-      .then(response => response.json()) // parse JSON from request
-      .then(resultData => {
+      .then((response) => response.json()) // parse JSON from request
+      .then((resultData) => {
         setCbetContent(resultData)
       })
   }, [])
 
   const events = cbetContent.filter(
-    content => content.CategoryName === "Event" && content.Status === true
+    (content) => content.CategoryName === "Event" && content.Status === true
   )
 
   return (
@@ -50,7 +50,7 @@ the place for you. Visit our website to learn more!"
   )
 }
 export const query = graphql`
-  query CbetBlog($id: Int) {
+  query CbetBlogs($id: Int) {
     cbetContent(Id: { eq: $id }) {
       Id
       Title
