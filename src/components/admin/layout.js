@@ -10,6 +10,7 @@ import {
   FormControl,
   Navbar,
   Nav,
+  NavDropdown,
 } from "react-bootstrap"
 import { FaChevronDown } from "react-icons/fa"
 import { Link } from "gatsby"
@@ -113,10 +114,14 @@ export default function Layout({ title, category, clickNew, children }) {
                       </Form>
                       <Navbar.Toggle />
                       <Navbar.Collapse className="justify-content-end">
-                        <Navbar.Text>
-                          Signed in as:
-                          <span className="text-dark">{` ${accountInfo.account.name}`}</span>
-                        </Navbar.Text>
+                        <NavDropdown
+                          title={`Signed in as ${accountInfo.account.name}`}
+                          id="basic-nav-dropdown"
+                        >
+                          <NavDropdown.Item onClick={logout}>
+                            Logout
+                          </NavDropdown.Item>
+                        </NavDropdown>
                       </Navbar.Collapse>
                     </Navbar>
                     <Container>
@@ -130,11 +135,11 @@ export default function Layout({ title, category, clickNew, children }) {
                         </Col>
                         <Col md={2}>
                           <Button
-                          variant="outline-primary"
-                          onClick={createNewCbetContent}
-                        >
-                          Create New
-                        </Button>
+                            variant="outline-primary"
+                            onClick={createNewCbetContent}
+                          >
+                            Create New
+                          </Button>
                         </Col>
                         <Col md={2}>
                           <p>
@@ -154,7 +159,7 @@ export default function Layout({ title, category, clickNew, children }) {
               </Container>
             )
           case AuthenticationState.Unauthenticated:
-            // TODO: ADD Cbet Styles for unauthenticated
+            // TODO: Added a logout button but the AUth client kicks in....may not need this or authenticating state to the app
             return (
               <div>
                 {error && (
@@ -171,7 +176,6 @@ export default function Layout({ title, category, clickNew, children }) {
               </div>
             )
           case AuthenticationState.InProgress:
-            // TODO: ADD Cbet Styles for unauthenticating
             return <p>Authenticating...</p>
           default:
             return null
