@@ -16,18 +16,23 @@ export default ({ data }) => {
     fetch(
       `https://cbetdata.azurewebsites.net/api/GetCbetContent?code=${authContent}`
     )
-      .then(response => response.json()) // parse JSON from request
-      .then(resultData => {
+      .then((response) => response.json()) // parse JSON from request
+      .then((resultData) => {
         setCbetContent(resultData)
       })
   }, [])
 
   const events = cbetContent.filter(
-    content => content.CategoryName === "Event" && content.Status === true
+    (content) => content.CategoryName === "Event" && content.Status === true
   )
 
   return (
-    <Layout cbetContent={cbetContent} events={events} noCarousel>
+    <Layout
+      cbetContent={cbetContent}
+      events={events}
+      noCarousel
+      blogHeader={data.cbetContent.Thumbnail}
+    >
       <SEO
         title="Biomedical Training Certification Online Blog"
         description="Are you
