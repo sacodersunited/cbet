@@ -25,8 +25,8 @@ export default function Admin() {
     fetch(
       `https://cbetdata.azurewebsites.net/api/GetCbetContent?code=${authContent}`
     )
-      .then((response) => response.json()) // parse JSON from request
-      .then((resultData) => {
+      .then(response => response.json()) // parse JSON from request
+      .then(resultData => {
         setCbetContent(resultData)
       })
   }, [])
@@ -42,20 +42,20 @@ export default function Admin() {
 
   console.log(
     "content",
-    cbetContent.filter((content) => {
+    cbetContent.filter(content => {
       return content.Category === 1 && content.Status === true
     })
   )
 
-  const activeJobs = cbetContent.filter((content) => {
+  const activeJobs = cbetContent.filter(content => {
     return content.Category === 1 && content.Status === true
   })
 
-  const activeEvents = cbetContent.filter((content) => {
+  const activeEvents = cbetContent.filter(content => {
     return content.Category === 2 && content.Status === true
   })
 
-  const activeBlogs = cbetContent.filter((content) => {
+  const activeBlogs = cbetContent.filter(content => {
     return content.Category === 3 && content.Status === true
   })
 
@@ -76,7 +76,7 @@ export default function Admin() {
               </p>
             </Jumbotron>
 
-            <Accordion >
+            <Accordion defaultActiveKey="-1">
               <Card>
                 <Accordion.Toggle
                   as={Card.Header}
@@ -89,11 +89,11 @@ export default function Admin() {
                 </Accordion.Toggle>
                 <Accordion.Collapse eventKey="0">
                   <ListGroup variant="flush">
-                    {activeJobs.map((job) => (
+                    {activeJobs.map(job => (
                       <ListGroup.Item
                         action
                         variant="secondary"
-                        onClick={(e) => handleEdit(e, job)}
+                        onClick={e => handleEdit(e, job)}
                       >
                         <FaToolbox style={{ verticalAlign: "middle" }} />
                         <span
@@ -126,11 +126,11 @@ export default function Admin() {
                 </Accordion.Toggle>
                 <Accordion.Collapse eventKey="1">
                   <ListGroup variant="flush">
-                    {activeEvents.map((event) => (
+                    {activeEvents.map(event => (
                       <ListGroup.Item
                         action
                         variant="success"
-                        onClick={(e) => handleEdit(e, event)}
+                        onClick={e => handleEdit(e, event)}
                       >
                         <FaRegCalendar />{" "}
                         <span
@@ -163,11 +163,11 @@ export default function Admin() {
                 </Accordion.Toggle>
                 <Accordion.Collapse eventKey="2">
                   <ListGroup variant="flush">
-                    {activeBlogs.map((blog) => (
+                    {activeBlogs.map(blog => (
                       <ListGroup.Item
                         action
                         variant="info"
-                        onClick={(e) => handleEdit(e, blog)}
+                        onClick={e => handleEdit(e, blog)}
                       >
                         <FaNewspaper />
                         <span

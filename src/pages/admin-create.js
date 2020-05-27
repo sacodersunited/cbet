@@ -21,6 +21,7 @@ import CbetDropzone from "../components/CbetDropzone"
 import CbetDatePicker from "../components/CbetDatePicker"
 import { FaCheck, FaSpinner } from "react-icons/fa"
 import styled from "styled-components"
+import { navigate } from "@reach/router"
 
 const SpinSpinner = styled(FaSpinner)`
   @keyframes spin {
@@ -103,10 +104,6 @@ const partnersList = [
       "https://cbet.blob.core.windows.net/cbetblobs/memorial-hermann-logo.jpg",
   },
   {
-    name: "SkillNet",
-    link: "https://cbet.blob.core.windows.net/cbetblobs/skillnet.png",
-  },
-  {
     name: "Vyaire",
     link: "https://cbet.blob.core.windows.net/cbetblobs/Vyaire_Medical_Art.jpg",
   },
@@ -167,20 +164,21 @@ export default function AdminCreate(props) {
   const [cbetTitle, setCbetTitle] = useState("") // Title
   const [featured, setFeatured] = useState(false) // is Featured?
   const [status, setStatus] = useState(false) // Status: active/disabled
-  const [publishDate, setPublishDate] = useState("")
-  const [startDate, setStartDate] = useState("1/1/2020")
-  const [endDate, setEndDate] = useState("1/1/2021")
-  const [author, setAuthor] = useState("")
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [location, setLocation] = useState("")
-  const [submitMessage, setSubmitMessage] = useState("")
-  const [isDone, setIsDone] = useState(false)
-  const [link, setLink] = useState("")
-  const [cbetDescription, setCbetDescription] = useState("")
-  const [partnerLink, setPartnerLink] = useState("")
-  const [initialHtmlContents, setInitialHtmlComments] = useState("")
-  const [contentID, setContentID] = useState(0)
-  const authContent = useCbetAuth()
+  const [publishDate, setPublishDate] = useState("") // publish date
+  const [startDate, setStartDate] = useState("1/1/2020") // Event Start Date
+  const [endDate, setEndDate] = useState("1/1/2021") // Event End Date
+  const [author, setAuthor] = useState("") // Author text box
+  const [isSubmitting, setIsSubmitting] = useState(false) // is Submitting form
+  const [location, setLocation] = useState("") // Location text box
+  const [submitMessage, setSubmitMessage] = useState("") // Submit message label
+  const [isDone, setIsDone] = useState(false) // Done with submission
+  const [link, setLink] = useState("") // url link
+  const [cbetDescription, setCbetDescription] = useState("") // Description textarea
+  const [partnerLink, setPartnerLink] = useState("") // Partner link from array
+  const [initialHtmlContents, setInitialHtmlComments] = useState("") // initial HTML content
+  const [contentID, setContentID] = useState(0) // ID of cbet Content
+  const authContent = useCbetAuth() // key for running azure function
+  const [editImageURL, setEditImageURL] = useState("") // link to Blog header image
 
   useEffect(() => {
     register({ name: "cbetDropzone" }, { required: true })
@@ -206,6 +204,8 @@ export default function AdminCreate(props) {
     if (props.location.state.cbetContent !== undefined) {
       const cbetContent = props.location.state.cbetContent
 
+      // Blog header url
+      setEditImageURL(cbetContent.Thumbnail)
       console.log("job,event,blog", cbetContent)
       setContentID(cbetContent.Id)
       // job = 1, event = 2, blog = 3
@@ -216,7 +216,7 @@ export default function AdminCreate(props) {
           setCbetTitle(cbetContent.Title)
           setCbetDescription(cbetContent.Description)
           setFeatured(cbetContent.Featured)
-          setStatus(cbetContent.Status)
+          setStatus(cbetContent.Status ? "1" : "0")
           setLink(cbetContent.Link)
           setPublishDate(cbetContent.StartDate)
           unregister("cbetDropzone")
@@ -229,14 +229,16 @@ export default function AdminCreate(props) {
           setCbetTitle(cbetContent.Title)
           setCbetDescription(cbetContent.Description)
           setLink(cbetContent.Link)
-          setStatus(cbetContent.Status)
+          setStatus(cbetContent.Status ? "1" : "0")
           setLocation(cbetContent.Location)
           break
         case 3:
           setCbetContentCategory(cbetContent.CbetCategory_Id)
           setCbetTitle(cbetContent.Title)
+          setStatus(cbetContent.Status ? "1" : "0")
           setAuthor(cbetContent.Author)
           setInitialHtmlComments(cbetContent.Description)
+          unregister("cbetDropzone")
           break
         default:
           break
@@ -293,7 +295,7 @@ export default function AdminCreate(props) {
 
   function handleCbetStatusChange(e) {
     e.preventDefault()
-    setStatus(e.target.value)
+    setStatus(e.target.value === "1" ? true : false)
   }
 
   function uploadThumbnail(files) {
@@ -302,7 +304,7 @@ export default function AdminCreate(props) {
   }
 
   function insertCbetContent(formData) {
-    console.log("reached insert cbet content api call", formData)
+    // console.log("reached insert cbet content api call", formData)
 
     let cbetContent = {}
 
@@ -669,7 +671,15 @@ export default function AdminCreate(props) {
             {cbetContentCategory === 3 ? (
               <React.Fragment>
                 <Form.Label style={{ fontWeight: "bold" }}>
-                  Blog Header image
+                  Blog Header image{" "}
+                  <Button
+                    onClick={() => {
+                      setThumbnailUpload([])
+                      setEditImageURL("")
+                    }}
+                  >
+                    Clear
+                  </Button>
                 </Form.Label>
                 <Form.Label style={{ color: "red", marginLeft: "5px" }}>
                   * Requires an image at 1440 x 300 pixels
@@ -682,7 +692,7 @@ export default function AdminCreate(props) {
                     complete={thumbnailUpload.length > 0}
                     editImageUrl={
                       props.location.state.cbetContent !== undefined
-                        ? props.location.state.cbetContent.Thumbnail
+                        ? editImageURL
                         : null
                     }
                   ></CbetDropzone>
@@ -742,14 +752,24 @@ export default function AdminCreate(props) {
                 </React.Fragment>
 
                 {isSubmitting === true ? (
-                  <SpinSpinner data-testid="spinner" />
+                  <SpinSpinner
+                    data-testid="spinner"
+                    style={{ leftMargin: "5px" }}
+                  />
                 ) : null}
               </Form.Group>
               <Form.Group
                 as={Col}
                 style={{ display: "flex", justifyContent: "center" }}
               >
-                <Button size="lg">Cancel</Button>
+                <Button
+                  size="lg"
+                  onClick={() => {
+                    navigate("admin")
+                  }}
+                >
+                  Cancel
+                </Button>
               </Form.Group>
               <Form.Group
                 as={Col}
@@ -760,13 +780,13 @@ export default function AdminCreate(props) {
                 </Button>
               </Form.Group>
 
-              <Button
+              {/* <Button
                 onClick={() => {
                   console.log("errors", errors)
                 }}
               >
                 Errors
-              </Button>
+              </Button> */}
             </Form.Row>
           </Col>
 
