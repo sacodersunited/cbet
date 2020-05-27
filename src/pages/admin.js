@@ -76,7 +76,7 @@ export default function Admin() {
               </p>
             </Jumbotron>
 
-            <Accordion defaultActiveKey="0">
+            <Accordion >
               <Card>
                 <Accordion.Toggle
                   as={Card.Header}
