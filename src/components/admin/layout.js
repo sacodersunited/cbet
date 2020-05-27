@@ -104,13 +104,13 @@ export default function Layout({ title, category, clickNew, children }) {
                     style={{ backgroundColor: "#f0f0f7" }}
                   >
                     <Navbar expand="lg" variant="light" bg="light">
-                      <Form className="w-75" inline>
+                      {/* <Form className="w-75" inline>
                         <FormControl
                           type="text"
                           placeholder="&#x1F50D; Search for jobs, events, and posts"
                           className="mr-sm-2 w-100"
                         />
-                      </Form>
+                      </Form> */}
                       <Navbar.Toggle />
                       <Navbar.Collapse className="justify-content-end">
                         <Navbar.Text>
@@ -130,13 +130,13 @@ export default function Layout({ title, category, clickNew, children }) {
                         </Col>
                         <Col md={2}>
                           <Button
-                          variant="outline-primary"
-                          onClick={createNewCbetContent}
-                        >
-                          Create New
-                        </Button>
+                            variant="outline-primary"
+                            onClick={createNewCbetContent}
+                          >
+                            Create New
+                          </Button>
                         </Col>
-                        <Col md={2}>
+                        {/* <Col md={2}>
                           <p>
                             Filter One <FaChevronDown />
                           </p>
@@ -145,7 +145,7 @@ export default function Layout({ title, category, clickNew, children }) {
                           <p>
                             Filter Two <FaChevronDown />
                           </p>
-                        </Col>
+                        </Col> */}
                       </Row>
                     </Container>
                     {children}

@@ -72,7 +72,9 @@ export default function Admin() {
                 for calling extra attention to featured content or information.
               </p>
               <p>
-                <Button variant="primary">Email Cbet Web Team</Button>
+                <a href="mailto:webmaster@cbet.edu?Subject=Cbet Update">
+                  <Button variant="primary">Email Cbet Web Team</Button>
+                </a>
               </p>
             </Jumbotron>
 
