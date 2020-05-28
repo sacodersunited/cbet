@@ -9,11 +9,16 @@ import Moment from "react-moment"
 import { FaFrown } from "react-icons/fa"
 import { formatDate } from "../../utils/utility"
 
-export default function CareersLayout({ children, noCarousel, cbetContent }) {
+export default function CareersLayout({
+  children,
+  noCarousel,
+  cbetContent,
+  blogHeader,
+}) {
   const today = new Date()
   const carouselBgImages = useJobsBG()
 
-  const jobs = cbetContent.filter(content => {
+  const jobs = cbetContent.filter((content) => {
     const newEndDate = new Date(formatDate(content.EndDate, true))
     if (
       today < newEndDate &&
@@ -26,17 +31,17 @@ export default function CareersLayout({ children, noCarousel, cbetContent }) {
     return null
   })
 
-  const featuredJobs = jobs.filter(job => job.Featured === true)
+  const featuredJobs = jobs.filter((job) => job.Featured === true)
 
   const events = cbetContent.filter(
-    content =>
+    (content) =>
       content.CategoryName === "Event" &&
       content.Status === true &&
       today < new Date(formatDate(content.EndDate, true))
   )
 
   const blogPosts = cbetContent.filter(
-    content => content.CategoryName === "Blog" && content.Status === true
+    (content) => content.CategoryName === "Blog" && content.Status === true
   )
 
   function createMarkup(html) {
@@ -48,8 +53,14 @@ export default function CareersLayout({ children, noCarousel, cbetContent }) {
       <>
         {!noCarousel && featuredJobs.length > 0 ? (
           <JobsCarousel jobs={featuredJobs} bgImages={carouselBgImages} />
+        ) : // default banner image for blog posts
+        blogHeader ? (
+          <img
+            src={blogHeader}
+            alt="blog"
+            style={{ objectFit: "cover", width: "100%", maxHeight: "300px" }}
+          />
         ) : (
-          // default banner image for blog posts
           <img
             src="https://i.picsum.photos/id/1067/1440/300.jpg"
             alt="nature"
@@ -66,7 +77,7 @@ export default function CareersLayout({ children, noCarousel, cbetContent }) {
                   <h2>Events</h2>
                   <hr />
                   {events.length > 0 ? (
-                    events.map(event => (
+                    events.map((event) => (
                       <div key={event.Id}>
                         <Badge variant="primary" style={{ height: "20px" }}>
                           <Moment format="MMM DD">{event.StartDate}</Moment>
@@ -93,7 +104,7 @@ export default function CareersLayout({ children, noCarousel, cbetContent }) {
                   <h2>Latest Posts</h2>
                   <hr />
                   {blogPosts.length > 0
-                    ? blogPosts.map(post => {
+                    ? blogPosts.map((post) => {
                         return (
                           <div key={post.Id}>
                             <Link

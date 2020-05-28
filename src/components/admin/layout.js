@@ -24,6 +24,15 @@ const StyledLink = styled(Link)`
   }
 `
 
+const StyledLoadingBG = styled.div`
+  background-color: #191b28;
+  color: whitesmoke;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+`
+
 function SideNav() {
   return (
     <Col
@@ -105,13 +114,13 @@ export default function Layout({ title, category, clickNew, children }) {
                     style={{ backgroundColor: "#f0f0f7" }}
                   >
                     <Navbar expand="lg" variant="light" bg="light">
-                      <Form className="w-75" inline>
+                      {/* <Form className="w-75" inline>
                         <FormControl
                           type="text"
                           placeholder="&#x1F50D; Search for jobs, events, and posts"
                           className="mr-sm-2 w-100"
                         />
-                      </Form>
+                      </Form> */}
                       <Navbar.Toggle />
                       <Navbar.Collapse className="justify-content-end">
                         <NavDropdown
@@ -141,7 +150,7 @@ export default function Layout({ title, category, clickNew, children }) {
                             Create New
                           </Button>
                         </Col>
-                        <Col md={2}>
+                        {/* <Col md={2}>
                           <p>
                             Filter One <FaChevronDown />
                           </p>
@@ -150,7 +159,7 @@ export default function Layout({ title, category, clickNew, children }) {
                           <p>
                             Filter Two <FaChevronDown />
                           </p>
-                        </Col>
+                        </Col> */}
                       </Row>
                     </Container>
                     {children}
@@ -176,7 +185,12 @@ export default function Layout({ title, category, clickNew, children }) {
               </div>
             )
           case AuthenticationState.InProgress:
-            return <p>Authenticating...</p>
+            // TODO: ADD Cbet Styles for unauthenticating
+            return (
+              <StyledLoadingBG>
+                <p style={{ fontSize: "62px" }}>Authenticating...</p>
+              </StyledLoadingBG>
+            )
           default:
             return null
         }

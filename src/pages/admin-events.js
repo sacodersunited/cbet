@@ -77,12 +77,6 @@ export default function AdminEvents() {
                       {showDate("End Date", event.EndDate)}
                       {showAddress(event.Location)}
                     </MetaSection>
-                    {/* copied from stack overflow, do not trust */}
-                    {/* https://stackoverflow.com/questions/55418929/how-can-i-remove-html-markup-from-strings-in-state-data/55419024 */}
-                    {event.Description.slice(0, 140).replace(
-                      /<\/?[^>]+(>|$)/g,
-                      ""
-                    ) + "..."}
                   </Card.Text>
                   <a
                     href={event.Link}

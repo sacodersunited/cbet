@@ -62,7 +62,7 @@ export default function CbetDropzone(props) {
 
       {isUploading === false &&
       props.complete === false &&
-      props.editImageUrl == null ? (
+      props.editImageUrl === "" ? (
         <Image src={dropzone} onClick={clickUpload} fluid />
       ) : (
         <Image src={props.editImageUrl} fluid />
