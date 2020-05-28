@@ -68,8 +68,8 @@ export default function Admin() {
             <Jumbotron>
               <h1>CBET Administration</h1>
               <p>
-                This is a simple hero unit, a simple jumbotron-style component
-                for calling extra attention to featured content or information.
+                Welcome to the Administration portion of the CBET website! Here
+                you will be able to manage all your CBET content.
               </p>
               <p>
                 <a href="mailto:webmaster@cbet.edu?Subject=Cbet Update">
