@@ -400,11 +400,11 @@ export default function AdminCreate(props) {
     }
 
     try {
-      const response = fetch("http://localhost:7071/api/GetCbetContent", myInit)
-      // const response = fetch(
-      //   `https://cbetdata.azurewebsites.net/api/GetCbetContent?code=${authContent}`,
-      //   myInit
-      // )
+      // const response = fetch("http://localhost:7071/api/GetCbetContent", myInit)
+      const response = fetch(
+        `https://cbetdata.azurewebsites.net/api/GetCbetContent?code=${authContent}`,
+        myInit
+      )
 
       if (!response.ok) {
         console.log("response not OK.")
