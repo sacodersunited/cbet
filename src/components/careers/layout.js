@@ -58,7 +58,7 @@ export default function CareersLayout({
           <img
             src={blogHeader}
             alt="blog"
-            style={{ objectFit: "cover", width: "100%" }}
+            style={{ objectFit: "cover", width: "100%", maxHeight: "300px" }}
           />
         ) : (
           <img
