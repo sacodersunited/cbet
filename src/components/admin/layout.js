@@ -23,6 +23,15 @@ const StyledLink = styled(Link)`
   }
 `
 
+const StyledLoadingBG = styled.div`
+  background-color: #191b28;
+  color: whitesmoke;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+`
+
 function SideNav() {
   return (
     <Col
@@ -172,7 +181,11 @@ export default function Layout({ title, category, clickNew, children }) {
             )
           case AuthenticationState.InProgress:
             // TODO: ADD Cbet Styles for unauthenticating
-            return <p>Authenticating...</p>
+            return (
+              <StyledLoadingBG>
+                <p>Authenticating...</p>
+              </StyledLoadingBG>
+            )
           default:
             return null
         }
