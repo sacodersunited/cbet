@@ -30,7 +30,7 @@ export default function CbetDatePicker(props) {
       props.getDate(
         `${"0" + month.toString()}/${day.toString()}/${year.toString()}`
       )
-    } else if (props.initialDate !== undefined) {
+    } else if (props.initialDate !== null) {
       console.log(
         "initial date is there!!!",
         props.initialDate,

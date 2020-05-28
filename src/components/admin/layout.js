@@ -90,13 +90,13 @@ function SideNav() {
 export default function Layout({ title, category, clickNew, children }) {
   function createNewCbetContent(e) {
     e.preventDefault()
-    console.log("clicked create new")
 
     navigate("/admin-create")
     if (clickNew) {
+      console.log("Clear fields called", clickNew)
       clickNew()
     }
-    console.log("typeof clickedNew: ", typeof clickNew)
+    // console.log("typeof clickedNew: ", typeof clickNew)
   }
 
   return (

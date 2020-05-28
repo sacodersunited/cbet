@@ -195,11 +195,19 @@ export default function AdminCreate(props) {
     const monthIndex = dateF.getMonth()
     const year = dateF.getFullYear()
 
-    const month = monthIndex + 1
-    setValue("publishDate", `${month}/${day}/${year}`)
-    setPublishDate(`${month}/${day}/${year}`)
-    setStartDate(`${month}/${day}/${year}`)
-    setEndDate(`${month}/${day}/${year}`)
+    const month =
+      (monthIndex + 1).toString().length === 1
+        ? `0${monthIndex + 1}`
+        : monthIndex + 1
+
+    const newDay =
+      day.toString().length === 1 ? `0${day.toString()}` : day.toString()
+
+    console.log("date set in useEffect", `${month}/${newDay}/${year}`)
+    setValue("publishDate", `${month}/${newDay}/${year}`)
+    setPublishDate(`${month}/${newDay}/${year}`)
+    setStartDate(`${month}/${newDay}/${year}`)
+    setEndDate(`${month}/${newDay}/${year}`)
 
     if (props.location.state.cbetContent !== undefined) {
       const cbetContent = props.location.state.cbetContent
@@ -245,10 +253,10 @@ export default function AdminCreate(props) {
         default:
           break
       }
-    }
 
-    if (props.location.state.create === true) {
-      clearFields()
+      if (props.location.state.create === true) {
+        clearFields()
+      }
     }
   }, [])
 
@@ -389,11 +397,11 @@ export default function AdminCreate(props) {
     }
 
     try {
-      const response = fetch("http://localhost:7071/api/GetCbetContent", myInit)
-      // const response = fetch(
-      //   `https://cbetdata.azurewebsites.net/api/GetCbetContent?code=${authContent}`,
-      //   myInit
-      // )
+      // const response = fetch("http://localhost:7071/api/GetCbetContent", myInit)
+      const response = fetch(
+        `https://cbetdata.azurewebsites.net/api/GetCbetContent?code=${authContent}`,
+        myInit
+      )
 
       if (!response.ok) {
         console.log("response not OK.")
@@ -519,6 +527,8 @@ export default function AdminCreate(props) {
     setLink("")
     setCbetDescription("")
   }
+
+  // console.log("props", props.location.state)
 
   return (
     <Layout
@@ -676,7 +686,7 @@ export default function AdminCreate(props) {
                       getDate={getPublishDate}
                       defaultDate
                       initialDate={
-                        props.location.state.cbetContent
+                        props.location.state.cbetContent !== undefined
                           ? props.location.state.cbetContent.StartDate
                           : null
                       }
@@ -787,7 +797,7 @@ export default function AdminCreate(props) {
                 <Button
                   size="lg"
                   onClick={() => {
-                    if (props.location.state.cbetContent) {
+                    if (props.location.state.cbetContent !== undefined) {
                       switch (props.location.state.cbetContent.Category) {
                         case 1:
                           navigate("admin-jobs")
@@ -893,7 +903,7 @@ export default function AdminCreate(props) {
                       getDate={getStartDate}
                       defaultDate
                       initialDate={
-                        props.location.state.cbetContent
+                        props.location.state.cbetContent !== undefined
                           ? props.location.state.cbetContent.StartDate
                           : null
                       }
@@ -912,7 +922,7 @@ export default function AdminCreate(props) {
                       getDate={getEndDate}
                       defaultDate
                       initialDate={
-                        props.location.state.cbetContent
+                        props.location.state.cbetContent !== undefined
                           ? props.location.state.cbetContent.EndDate
                           : null
                       }
