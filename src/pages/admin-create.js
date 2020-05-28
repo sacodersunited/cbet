@@ -163,7 +163,7 @@ export default function AdminCreate(props) {
   const [cbetPartner, setCbetPartner] = useState("") // Partner dropdown list
   const [cbetTitle, setCbetTitle] = useState("") // Title
   const [featured, setFeatured] = useState(false) // is Featured?
-  const [status, setStatus] = useState(false) // Status: active/disabled
+  const [status, setStatus] = useState("0") // Status: active/disabled
   const [publishDate, setPublishDate] = useState("") // publish date
   const [startDate, setStartDate] = useState("1/1/2020") // Event Start Date
   const [endDate, setEndDate] = useState("1/1/2021") // Event End Date
@@ -209,7 +209,10 @@ export default function AdminCreate(props) {
     setStartDate(`${month}/${newDay}/${year}`)
     setEndDate(`${month}/${newDay}/${year}`)
 
-    if (props.location.state.cbetContent !== undefined) {
+    if (
+      props.location.state &&
+      props.location.state.cbetContent !== undefined
+    ) {
       const cbetContent = props.location.state.cbetContent
 
       // Blog header url
@@ -225,7 +228,7 @@ export default function AdminCreate(props) {
           setCbetTitle(cbetContent.Title)
           setCbetDescription(cbetContent.Description)
           setFeatured(cbetContent.Featured)
-          setStatus(cbetContent.Status ? true : false)
+          setStatus(cbetContent.Status === true ? "1" : "0")
           setLink(cbetContent.Link)
           setPublishDate(cbetContent.StartDate)
           setCbetPartner(cbetContent.PartnerName)
@@ -239,13 +242,13 @@ export default function AdminCreate(props) {
           setCbetTitle(cbetContent.Title)
           setCbetDescription(cbetContent.Description)
           setLink(cbetContent.Link)
-          setStatus(cbetContent.Status ? true : false)
+          setStatus(cbetContent.Status === true ? "1" : "0")
           setLocation(cbetContent.Location)
           break
         case 3:
           setCbetContentCategory(cbetContent.CbetCategory_Id)
           setCbetTitle(cbetContent.Title)
-          setStatus(cbetContent.Status ? true : false)
+          setStatus(cbetContent.Status === true ? "1" : "0")
           setAuthor(cbetContent.Author)
           setInitialHtmlComments(cbetContent.Description)
           unregister("cbetDropzone")
@@ -306,7 +309,7 @@ export default function AdminCreate(props) {
 
   function handleCbetStatusChange(e) {
     e.preventDefault()
-    setStatus(e.target.value === "1" ? true : false)
+    setStatus(e.target.value === "1" ? "1" : "0")
   }
 
   function uploadThumbnail(files) {
@@ -329,7 +332,7 @@ export default function AdminCreate(props) {
           PartnerName: cbetPartner, // string
           Author: author, // string
           ContentCreator: formData.signedInAuthor, // string
-          Status: status, // number
+          Status: status === "1" ? true : false, // string
           CbetCategory: cbetContentCategory, // number
           Link: link, // string - Event and Job only
           StartDate: publishDate, // date
@@ -348,7 +351,7 @@ export default function AdminCreate(props) {
           PartnerName: cbetPartner, // string
           Author: author, // string
           ContentCreator: formData.signedInAuthor, // string
-          Status: status, // bool
+          Status: status === "1" ? true : false, // string
           CbetCategory: cbetContentCategory, // number
           Link: link, // string
           StartDate: startDate, // date
@@ -367,7 +370,7 @@ export default function AdminCreate(props) {
           PartnerName: cbetPartner, // string
           Author: author, // string
           ContentCreator: formData.signedInAuthor, // string
-          Status: status, // bool
+          Status: status === "1" ? true : false, // string
           CbetCategory: cbetContentCategory, // number
           Link: link, // string
           StartDate: publishDate, // date
@@ -397,11 +400,11 @@ export default function AdminCreate(props) {
     }
 
     try {
-      // const response = fetch("http://localhost:7071/api/GetCbetContent", myInit)
-      const response = fetch(
-        `https://cbetdata.azurewebsites.net/api/GetCbetContent?code=${authContent}`,
-        myInit
-      )
+      const response = fetch("http://localhost:7071/api/GetCbetContent", myInit)
+      // const response = fetch(
+      //   `https://cbetdata.azurewebsites.net/api/GetCbetContent?code=${authContent}`,
+      //   myInit
+      // )
 
       if (!response.ok) {
         console.log("response not OK.")
@@ -686,6 +689,7 @@ export default function AdminCreate(props) {
                       getDate={getPublishDate}
                       defaultDate
                       initialDate={
+                        props.location.state &&
                         props.location.state.cbetContent !== undefined
                           ? props.location.state.cbetContent.StartDate
                           : null
@@ -723,6 +727,7 @@ export default function AdminCreate(props) {
                     upload={uploadThumbnail}
                     complete={thumbnailUpload.length > 0}
                     editImageUrl={
+                      props.location.state &&
                       props.location.state.cbetContent !== undefined
                         ? editImageURL
                         : null
@@ -797,7 +802,10 @@ export default function AdminCreate(props) {
                 <Button
                   size="lg"
                   onClick={() => {
-                    if (props.location.state.cbetContent !== undefined) {
+                    if (
+                      props.location.state &&
+                      props.location.state.cbetContent !== undefined
+                    ) {
                       switch (props.location.state.cbetContent.Category) {
                         case 1:
                           navigate("admin-jobs")
@@ -903,6 +911,7 @@ export default function AdminCreate(props) {
                       getDate={getStartDate}
                       defaultDate
                       initialDate={
+                        props.location.state &&
                         props.location.state.cbetContent !== undefined
                           ? props.location.state.cbetContent.StartDate
                           : null
@@ -922,6 +931,7 @@ export default function AdminCreate(props) {
                       getDate={getEndDate}
                       defaultDate
                       initialDate={
+                        props.location.state &&
                         props.location.state.cbetContent !== undefined
                           ? props.location.state.cbetContent.EndDate
                           : null

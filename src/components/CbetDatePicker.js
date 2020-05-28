@@ -37,7 +37,7 @@ export default function CbetDatePicker(props) {
         formatDate(props.initialDate, true)
       )
       let newInitialDate = new Date(formatDate(props.initialDate, false, true))
-      console.log("newInitialDate", newInitialDate)
+      // console.log("newInitialDate", newInitialDate)
       let newDay = newInitialDate.getDate().toString()
       if (newDay.length === 1) {
         newDay = `0${newDay}`
@@ -62,8 +62,13 @@ export default function CbetDatePicker(props) {
     } else if (event.target.id === "addYear") {
       setAddYear(newDate)
       setDaysLength(calculateDays(addMonth, newDate))
-      props.getDate(`${addMonth}/${newDate}/${newDate}`)
+      props.getDate(`${addMonth}/${addDay}/${newDate}`)
     }
+    console.log("date from cbet date picker", `${newDate}/${addDay}/${addYear}`)
+    console.log(
+      "date from cbet date picker",
+      `${addMonth}/${addDay}/${addYear}`
+    )
   }
 
   return (
