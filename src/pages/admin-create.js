@@ -216,7 +216,7 @@ export default function AdminCreate(props) {
           setCbetTitle(cbetContent.Title)
           setCbetDescription(cbetContent.Description)
           setFeatured(cbetContent.Featured)
-          setStatus(cbetContent.Status ? "1" : "0")
+          setStatus(cbetContent.Status ? true : false)
           setLink(cbetContent.Link)
           setPublishDate(cbetContent.StartDate)
           unregister("cbetDropzone")
@@ -229,13 +229,13 @@ export default function AdminCreate(props) {
           setCbetTitle(cbetContent.Title)
           setCbetDescription(cbetContent.Description)
           setLink(cbetContent.Link)
-          setStatus(cbetContent.Status ? "1" : "0")
+          setStatus(cbetContent.Status ? true : false)
           setLocation(cbetContent.Location)
           break
         case 3:
           setCbetContentCategory(cbetContent.CbetCategory_Id)
           setCbetTitle(cbetContent.Title)
-          setStatus(cbetContent.Status ? "1" : "0")
+          setStatus(cbetContent.Status ? true : false)
           setAuthor(cbetContent.Author)
           setInitialHtmlComments(cbetContent.Description)
           unregister("cbetDropzone")
@@ -386,11 +386,11 @@ export default function AdminCreate(props) {
     }
 
     try {
-      // const response = fetch("http://localhost:7071/api/GetCbetContent", myInit)
-      const response = fetch(
-        `https://cbetdata.azurewebsites.net/api/GetCbetContent?code=${authContent}`,
-        myInit
-      )
+      const response = fetch("http://localhost:7071/api/GetCbetContent", myInit)
+      // const response = fetch(
+      //   `https://cbetdata.azurewebsites.net/api/GetCbetContent?code=${authContent}`,
+      //   myInit
+      // )
 
       if (!response.ok) {
         console.log("response not OK.")

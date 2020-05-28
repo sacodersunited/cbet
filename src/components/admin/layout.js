@@ -183,7 +183,7 @@ export default function Layout({ title, category, clickNew, children }) {
             // TODO: ADD Cbet Styles for unauthenticating
             return (
               <StyledLoadingBG>
-                <p>Authenticating...</p>
+                <p style={{ fontSize: "62px" }}>Authenticating...</p>
               </StyledLoadingBG>
             )
           default:
