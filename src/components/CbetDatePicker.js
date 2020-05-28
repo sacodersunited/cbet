@@ -38,9 +38,13 @@ export default function CbetDatePicker(props) {
       )
       let newInitialDate = new Date(formatDate(props.initialDate, false, true))
       console.log("newInitialDate", newInitialDate)
+      let newDay = newInitialDate.getDate().toString()
+      if (newDay.length === 1) {
+        newDay = `0${newDay}`
+      }
 
       setAddMonth("0" + (newInitialDate.getMonth() + 1).toString())
-      setAddDay(newInitialDate.getDate().toString())
+      setAddDay(newDay)
       setAddYear(newInitialDate.getFullYear().toString())
       props.getDate(formatDate(props.initialDate, false, true))
     }

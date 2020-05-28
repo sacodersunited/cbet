@@ -208,6 +208,7 @@ export default function AdminCreate(props) {
       setEditImageURL(cbetContent.Thumbnail)
       console.log("job,event,blog", cbetContent)
       setContentID(cbetContent.Id)
+
       // job = 1, event = 2, blog = 3
       switch (cbetContent.Category) {
         case 1:
@@ -219,6 +220,7 @@ export default function AdminCreate(props) {
           setStatus(cbetContent.Status ? true : false)
           setLink(cbetContent.Link)
           setPublishDate(cbetContent.StartDate)
+          setCbetPartner(cbetContent.PartnerName)
           unregister("cbetDropzone")
           unregister("htmlContent")
           break
@@ -284,6 +286,7 @@ export default function AdminCreate(props) {
   }
 
   function handleContentChange(content) {
+    console.log("html content is ", content)
     setValue("htmlContent", content)
     setHtmlContent(content)
   }
@@ -669,7 +672,15 @@ export default function AdminCreate(props) {
                     <Form.Label style={{ fontWeight: "bold" }}>
                       Publish Date
                     </Form.Label>
-                    <CbetDatePicker getDate={getPublishDate} defaultDate />
+                    <CbetDatePicker
+                      getDate={getPublishDate}
+                      defaultDate
+                      initialDate={
+                        props.location.state.cbetContent
+                          ? props.location.state.cbetContent.StartDate
+                          : null
+                      }
+                    />
                     <Form.Label style={{ color: "red" }}>
                       {errors.publishDate && "* Valid Date is required"}
                     </Form.Label>
@@ -776,7 +787,23 @@ export default function AdminCreate(props) {
                 <Button
                   size="lg"
                   onClick={() => {
-                    navigate("admin")
+                    if (props.location.state.cbetContent) {
+                      switch (props.location.state.cbetContent.Category) {
+                        case 1:
+                          navigate("admin-jobs")
+                          break
+                        case 2:
+                          navigate("admin-events")
+                          break
+                        case 3:
+                          navigate("admin-blog")
+                          break
+                        default:
+                          navigate("admin")
+                      }
+                    } else {
+                      navigate("admin")
+                    }
                   }}
                 >
                   Cancel
