@@ -5,6 +5,9 @@ import Layout from "../components/careers/layout"
 import useCbetAuth from "../hooks/use-cbet-auth"
 import Moment from "react-moment"
 import SEO from "../components/seo"
+import { formatDate } from "../utils/utility"
+
+const today = new Date()
 
 //eslint-disable-next-line
 export default ({ data }) => {
@@ -22,9 +25,18 @@ export default ({ data }) => {
       })
   }, [])
 
-  const events = cbetContent.filter(
-    (content) => content.CategoryName === "Event" && content.Status === true
-  )
+  const events = cbetContent
+    .filter(
+      (content) =>
+        content.CategoryName === "Event" &&
+        content.Status === true &&
+        today < new Date(formatDate(content.EndDate, true))
+    )
+    .sort(
+      (a, b) =>
+        new Date(formatDate(a.StartDate, true)) -
+        new Date(formatDate(b.StartDate, true))
+    )
 
   return (
     <Layout

@@ -33,12 +33,18 @@ export default function CareersLayout({
 
   const featuredJobs = jobs.filter((job) => job.Featured === true)
 
-  const events = cbetContent.filter(
-    (content) =>
-      content.CategoryName === "Event" &&
-      content.Status === true &&
-      today < new Date(formatDate(content.EndDate, true))
-  )
+  const events = cbetContent
+    .filter(
+      (content) =>
+        content.CategoryName === "Event" &&
+        content.Status === true &&
+        today < new Date(formatDate(content.EndDate, true))
+    )
+    .sort(
+      (a, b) =>
+        new Date(formatDate(a.StartDate, true)) -
+        new Date(formatDate(b.StartDate, true))
+    )
 
   const blogPosts = cbetContent.filter(
     (content) => content.CategoryName === "Blog" && content.Status === true
