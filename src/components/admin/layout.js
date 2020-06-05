@@ -6,13 +6,13 @@ import {
   Container,
   Row,
   Col,
-  Form,
-  FormControl,
+  // Form,
+  // FormControl,
   Navbar,
   Nav,
   NavDropdown,
 } from "react-bootstrap"
-import { FaChevronDown } from "react-icons/fa"
+// import { FaChevronDown } from "react-icons/fa"
 import { Link } from "gatsby"
 import { navigate } from "@reach/router"
 import styled from "styled-components"
@@ -96,7 +96,6 @@ export default function Layout({ title, category, clickNew, children }) {
       console.log("Clear fields called", clickNew)
       clickNew()
     }
-    // console.log("typeof clickedNew: ", typeof clickNew)
   }
 
   return (
