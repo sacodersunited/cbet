@@ -1,13 +1,15 @@
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
-import React from "react"
+import React, { useEffect, useRef } from "react"
 import { Container, Navbar, Nav, NavDropdown } from "react-bootstrap"
 import Img from "gatsby-image"
 // import { isAuthenticated, logout, getProfile } from "../utils/auth"
 import Timer from "./timer"
-import CarouselForm from "./CarouselForm"
+// import CarouselForm from "./CarouselForm"
 import styled from "styled-components"
 import Moment from "react-moment"
+// import Script from "../../hooks/use-script"
+import { Helmet } from "react-helmet"
 
 let enrollmentDeadline = "2020-06-22"
 // future terms for 2020
@@ -25,11 +27,19 @@ const StyledNavDropdown = styled(NavDropdown)`
   }
 `
 
-const Header = props => {
+const Header = (props) => {
   // const user = getProfile()
   const user = null
+
   return (
     <>
+      <Helmet>
+        <script
+          src="https://cbet.quickschools.com/sms/es/enquiry?divId=enquiry-form"
+          async
+        ></script>
+      </Helmet>
+
       <Navbar bg="dark" variant="dark" expand="lg">
         <Container fluid>
           <Link
@@ -116,7 +126,7 @@ const Header = props => {
             </Nav>
             <Nav className="timer-nav">
               <Navbar.Text className="mr-2 text-white">
-                <Timer enrollmentEndDate={enrollmentDeadline} />
+                <Timer enrollmentEndDate={enrollmentDeadline} key="navbar" />
               </Navbar.Text>
               <StyledNavDropdown
                 className="dropleft"
@@ -128,9 +138,24 @@ const Header = props => {
                     Enrollment Deadline is{" "}
                     <Moment format="MMM DD">{enrollmentDeadline}</Moment>
                   </h5>
-                  <Timer enrollmentEndDate={enrollmentDeadline} />
+                  <p>
+                    <Timer
+                      enrollmentEndDate={enrollmentDeadline}
+                      key="dropdown"
+                    />
+                  </p>
                 </div>
-                <CarouselForm />
+                {/* TODO: replace with quick schools form */}
+                <div
+                  id="enquiry-form"
+                  style={{ padding: "10px 40px", minWidth: "500px" }}
+                >
+                  <p className="lead">
+                    Find out how CBET can help you succeed with your future
+                  </p>
+                </div>
+
+                {/* <CarouselForm /> */}
               </StyledNavDropdown>
             </Nav>
           </Navbar.Collapse>
