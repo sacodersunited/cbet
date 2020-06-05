@@ -10,8 +10,8 @@ const CarouselH1 = styled.h1`
   }
 `
 
-const HomeCarousel = props => (
-  <Carousel pauseOnHover>
+const HomeCarousel = (props) => (
+  <Carousel pauseonhover="true">
     <Carousel.Item>
       <Img
         fluid={props.images.second.childImageSharp.fluid}

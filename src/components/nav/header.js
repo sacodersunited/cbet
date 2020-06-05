@@ -8,7 +8,7 @@ import Timer from "./timer"
 // import CarouselForm from "./CarouselForm"
 import styled from "styled-components"
 import Moment from "react-moment"
-// import Script from "../../hooks/use-script"
+import { UseScript } from "../../hooks/use-script"
 import { Helmet } from "react-helmet"
 
 let enrollmentDeadline = "2020-06-22"
@@ -31,6 +31,7 @@ const Header = (props) => {
   // const user = getProfile()
   const user = null
 
+  UseScript("https://cbet.quickschools.com/sms/es/enquiry?divId=enquiry-form")
   return (
     <>
       <Helmet>
@@ -39,7 +40,6 @@ const Header = (props) => {
           async
         ></script>
       </Helmet>
-
       <Navbar bg="dark" variant="dark" expand="lg">
         <Container fluid>
           <Link

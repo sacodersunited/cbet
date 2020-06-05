@@ -35,6 +35,14 @@ function SEO({ description, lang, meta, keywords, title }) {
       }}
       title={title}
       titleTemplate={title}
+      // script={[
+      //   {
+      //     src:
+      //       "https://cbet.quickschools.com/sms/es/enquiry?divId=enquiry-form",
+      //     type: "text/javascript",
+      //     async: true,
+      //   },
+      // ]}
       link={[
         {
           rel: "stylesheet",
@@ -46,18 +54,6 @@ function SEO({ description, lang, meta, keywords, title }) {
           href:
             "https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css",
         },
-        // {
-        //   rel: "script",
-        //   href:
-        //     "https://cbet.quickschools.com/sms/es/enquiry?divId=enquiry-form",
-        //   async: true,
-        // },
-        // {
-        //   rel: "script",
-        //   href:
-        //     "https://cbet.quickschools.com/sms/es/application?divId=application-form",
-        //   async: true,
-        // },
       ]}
       meta={[
         {
