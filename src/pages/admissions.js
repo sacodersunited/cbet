@@ -4,7 +4,7 @@ import SEO from "../components/seo"
 import AdmissionsFormStaticQuery from "../components/AdmissionsFormStaticQuery"
 
 const Admissions = () => (
-  <Layout>
+  <Layout isAdmission>
     <SEO title="Admissions" />
     <AdmissionsFormStaticQuery />
   </Layout>

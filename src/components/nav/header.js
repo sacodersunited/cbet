@@ -3,11 +3,10 @@ import PropTypes from "prop-types"
 import React from "react"
 import { Container, Navbar, Nav, NavDropdown } from "react-bootstrap"
 import Img from "gatsby-image"
-// import { isAuthenticated, logout, getProfile } from "../utils/auth"
 import Timer from "./timer"
-import CarouselForm from "./CarouselForm"
 import styled from "styled-components"
 import Moment from "react-moment"
+import { UseScript } from "../../hooks/use-script"
 
 let enrollmentDeadline = "2020-06-22"
 // future terms for 2020
@@ -26,8 +25,9 @@ const StyledNavDropdown = styled(NavDropdown)`
 `
 
 const Header = props => {
-  // const user = getProfile()
-  const user = null
+  !props.isAdmission &&
+    UseScript("https://cbet.quickschools.com/sms/es/enquiry?divId=enquiry-form")
+
   return (
     <>
       <Navbar bg="dark" variant="dark" expand="lg">
@@ -66,9 +66,6 @@ const Header = props => {
                 to="/schedule"
                 className="nav-link"
                 activeClassName="active"
-                // style={{
-                //   color: isAuthenticated() && user !== null ? "aqua" : "",
-                // }}
               >
                 Schedule
               </Link>
@@ -116,21 +113,36 @@ const Header = props => {
             </Nav>
             <Nav className="timer-nav">
               <Navbar.Text className="mr-2 text-white">
-                <Timer enrollmentEndDate={enrollmentDeadline} />
+                <Timer enrollmentEndDate={enrollmentDeadline} key="navbar" />
               </Navbar.Text>
+
               <StyledNavDropdown
                 className="dropleft"
                 title="Start Now"
-                id="form-dropdown"
+                id="drop-form"
+                renderMenuOnMount
               >
                 <div className="container px-5 py-3 bg-primary text-white">
                   <h5>
                     Enrollment Deadline is{" "}
                     <Moment format="MMM DD">{enrollmentDeadline}</Moment>
                   </h5>
-                  <Timer enrollmentEndDate={enrollmentDeadline} />
+                  <p>
+                    <Timer
+                      enrollmentEndDate={enrollmentDeadline}
+                      key="dropdown"
+                    />
+                  </p>
                 </div>
-                <CarouselForm />
+
+                <div
+                  id="enquiry-form"
+                  style={{ padding: "10px 40px", minWidth: "500px" }}
+                >
+                  <p className="lead">
+                    Find out how CBET can help you succeed with your future
+                  </p>
+                </div>
               </StyledNavDropdown>
             </Nav>
           </Navbar.Collapse>

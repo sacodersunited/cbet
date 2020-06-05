@@ -11,9 +11,9 @@ export default function Timer({ enrollmentEndDate }) {
     if (difference > 0) {
       timeLeft = {
         days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-        hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
-        minutes: Math.floor((difference / 1000 / 60) % 60),
-        seconds: Math.floor((difference / 1000) % 60),
+        hrs: Math.floor((difference / (1000 * 60 * 60)) % 24),
+        mins: Math.floor((difference / 1000 / 60) % 60),
+        secs: Math.floor((difference / 1000) % 60),
       }
     }
 
@@ -29,7 +29,7 @@ export default function Timer({ enrollmentEndDate }) {
 
   const timerComponents = []
 
-  Object.keys(timeLeft).forEach(interval => {
+  Object.keys(timeLeft).forEach((interval) => {
     if (!timeLeft[interval]) {
       return
     }
