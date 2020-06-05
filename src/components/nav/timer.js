@@ -29,7 +29,7 @@ export default function Timer({ enrollmentEndDate }) {
 
   const timerComponents = []
 
-  Object.keys(timeLeft).forEach((interval) => {
+  Object.keys(timeLeft).forEach(interval => {
     if (!timeLeft[interval]) {
       return
     }
