@@ -27,19 +27,31 @@ const StyledNavDropdown = styled(NavDropdown)`
   }
 `
 
+function openMenu() {
+  return (
+    <Helmet>
+      <script
+        src="https://cbet.quickschools.com/sms/es/enquiry?divId=enquiry-form"
+        async
+      ></script>
+    </Helmet>
+  )
+}
+
 const Header = (props) => {
   // const user = getProfile()
   const user = null
 
   UseScript("https://cbet.quickschools.com/sms/es/enquiry?divId=enquiry-form")
+
   return (
     <>
-      <Helmet>
+      {/* <Helmet>
         <script
           src="https://cbet.quickschools.com/sms/es/enquiry?divId=enquiry-form"
           async
         ></script>
-      </Helmet>
+      </Helmet> */}
       <Navbar bg="dark" variant="dark" expand="lg">
         <Container fluid>
           <Link
@@ -57,6 +69,8 @@ const Header = (props) => {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">
+              {/* TODO: Uncomment to see example */}
+              {/* <Navbar.Text id="enquiry-form">jello</Navbar.Text> */}
               <Link to="/about" className="nav-link" activeClassName="active">
                 About
               </Link>
@@ -128,10 +142,13 @@ const Header = (props) => {
               <Navbar.Text className="mr-2 text-white">
                 <Timer enrollmentEndDate={enrollmentDeadline} key="navbar" />
               </Navbar.Text>
+
               <StyledNavDropdown
                 className="dropleft"
                 title="Start Now"
-                id="form-dropdown"
+                id="drop-form"
+                renderMenuOnMount
+                // onClick={}
               >
                 <div className="container px-5 py-3 bg-primary text-white">
                   <h5>
@@ -145,7 +162,7 @@ const Header = (props) => {
                     />
                   </p>
                 </div>
-                {/* TODO: replace with quick schools form */}
+
                 <div
                   id="enquiry-form"
                   style={{ padding: "10px 40px", minWidth: "500px" }}

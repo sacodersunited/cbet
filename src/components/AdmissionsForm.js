@@ -1,16 +1,33 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { Container, Button, Col, Row } from "react-bootstrap"
 import BackgroundGraphicHeader from "./BackgroundGraphicHeader"
-// import Script from "../hooks/use-script"
 import { Helmet } from "react-helmet"
+import { UseScript } from "../hooks/use-script"
+
+function removeHeaderScript() {
+  const script = document.createElement("script")
+  script.src = "https://cbet.quickschools.com/sms/es/enquiry?divId=enquiry-form"
+  script.async = true
+  try {
+    console.log("script is " + script)
+    document.body.removeChild(script)
+  } catch (error) {
+    console.log("error")
+  }
+}
 
 export default function AdmissionsForm() {
+  useEffect(() => {
+    removeHeaderScript()
+  }, [])
+
+  // UseScript(
+  //   "https://cbet.quickschools.com/sms/es/application?divId=application-form"
+  // )
+
   return (
     <>
-      {/* <Script
-        src="https://cbet.quickschools.com/sms/es/application?divId=application-form"
-        async={true}
-      /> */}
+      {removeHeaderScript()}
       <Helmet>
         <script
           src="https://cbet.quickschools.com/sms/es/application?divId=application-form"
@@ -61,6 +78,10 @@ export default function AdmissionsForm() {
           </Col>
         </Row>
       </Container>
+      {/* <Script
+        src="https://cbet.quickschools.com/sms/es/application?divId=application-form"
+        async={true}
+      /> */}
     </>
   )
 }

@@ -9,30 +9,33 @@ export const UseScript = (url) => {
 
     script.src = url
     script.async = true
-
     document.body.appendChild(script)
+
+    return () => {
+      document.body.removeChild(script)
+    }
   }, [url])
 }
 
 // import { useEffect } from "react"
 
-// const useScript = (url, async) => {
-//   useEffect(() => {
-//     const script = document.createElement("script")
+const useScript = (url, async) => {
+  useEffect(() => {
+    const script = document.createElement("script")
 
-//     script.src = url
-//     script.async = typeof async === "undefined" ? true : async
+    script.src = url
+    script.async = typeof async === "undefined" ? true : async
 
-//     document.body.appendChild(script)
+    document.body.appendChild(script)
 
-//     return () => {
-//       document.body.removeChild(script)
-//     }
-//   }, [url])
-// }
+    return () => {
+      document.body.removeChild(script)
+    }
+  }, [url])
+}
 
-// export default function Script({ src, async = true }) {
-//   useScript(src, async)
+export function Script({ src, async = true }) {
+  useScript(src, async)
 
-//   return null // Return null is necessary for the moment.
-// }
+  return null // Return null is necessary for the moment.
+}
