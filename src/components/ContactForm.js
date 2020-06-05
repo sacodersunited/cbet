@@ -214,11 +214,11 @@ class ContactForm extends React.Component {
   }
 
   getLocation() {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(position => {
-        this.getLocationToAddress(position.coords)
-      })
-    }
+    // if (navigator.geolocation) {
+    //   navigator.geolocation.getCurrentPosition(position => {
+    //     this.getLocationToAddress(position.coords)
+    //   })
+    // }
   }
 
   // https://stackoverflow.com/questions/52583277/get-user-city-and-country-in-react-native
