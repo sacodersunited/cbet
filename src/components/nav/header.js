@@ -113,9 +113,6 @@ const Header = props => {
             </Nav>
             <Nav className="timer-nav">
               <Navbar.Text className="mr-2 text-white">
-                {console.log("enrollment date", new Date(enrollmentDeadline))}
-                {console.log("today date", new Date())}
-
                 {new Date(enrollmentDeadline) >= new Date() ? (
                   <>
                     <span>Enrollment Deadline: </span>{" "}
