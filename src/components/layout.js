@@ -5,7 +5,7 @@ import Header from "../components/nav/header"
 import AccreditationsStaticQuery from "./AccreditationsStaticQuery"
 import Footer from "./footer"
 
-const Layout = ({ children }) => (
+const Layout = ({ children, isAdmission }) => (
   <StaticQuery
     query={graphql`
       {
@@ -20,7 +20,7 @@ const Layout = ({ children }) => (
     `}
     render={data => (
       <>
-        <Header images={data} />
+        <Header images={data} isAdmission={isAdmission} />
         <main>{children}</main>
         <AccreditationsStaticQuery />
         <Footer />

@@ -1,15 +1,12 @@
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
-import React, { useEffect, useRef } from "react"
+import React from "react"
 import { Container, Navbar, Nav, NavDropdown } from "react-bootstrap"
 import Img from "gatsby-image"
-// import { isAuthenticated, logout, getProfile } from "../utils/auth"
 import Timer from "./timer"
-// import CarouselForm from "./CarouselForm"
 import styled from "styled-components"
 import Moment from "react-moment"
 import { UseScript } from "../../hooks/use-script"
-import { Helmet } from "react-helmet"
 
 let enrollmentDeadline = "2020-06-22"
 // future terms for 2020
@@ -27,31 +24,12 @@ const StyledNavDropdown = styled(NavDropdown)`
   }
 `
 
-function openMenu() {
-  return (
-    <Helmet>
-      <script
-        src="https://cbet.quickschools.com/sms/es/enquiry?divId=enquiry-form"
-        async
-      ></script>
-    </Helmet>
-  )
-}
-
-const Header = (props) => {
-  // const user = getProfile()
-  const user = null
-
-  UseScript("https://cbet.quickschools.com/sms/es/enquiry?divId=enquiry-form")
+const Header = props => {
+  !props.isAdmission &&
+    UseScript("https://cbet.quickschools.com/sms/es/enquiry?divId=enquiry-form")
 
   return (
     <>
-      {/* <Helmet>
-        <script
-          src="https://cbet.quickschools.com/sms/es/enquiry?divId=enquiry-form"
-          async
-        ></script>
-      </Helmet> */}
       <Navbar bg="dark" variant="dark" expand="lg">
         <Container fluid>
           <Link
@@ -69,8 +47,6 @@ const Header = (props) => {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">
-              {/* TODO: Uncomment to see example */}
-              {/* <Navbar.Text id="enquiry-form">jello</Navbar.Text> */}
               <Link to="/about" className="nav-link" activeClassName="active">
                 About
               </Link>
@@ -90,9 +66,6 @@ const Header = (props) => {
                 to="/schedule"
                 className="nav-link"
                 activeClassName="active"
-                // style={{
-                //   color: isAuthenticated() && user !== null ? "aqua" : "",
-                // }}
               >
                 Schedule
               </Link>
@@ -148,7 +121,6 @@ const Header = (props) => {
                 title="Start Now"
                 id="drop-form"
                 renderMenuOnMount
-                // onClick={}
               >
                 <div className="container px-5 py-3 bg-primary text-white">
                   <h5>
@@ -171,8 +143,6 @@ const Header = (props) => {
                     Find out how CBET can help you succeed with your future
                   </p>
                 </div>
-
-                {/* <CarouselForm /> */}
               </StyledNavDropdown>
             </Nav>
           </Navbar.Collapse>
