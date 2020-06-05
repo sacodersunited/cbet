@@ -1,34 +1,53 @@
-import React, { useEffect, useState } from "react"
+import React from "react"
 import PropTypes from "prop-types"
 import { Link } from "gatsby"
 import Layout from "../layout"
 import { Container, Col, Row, Button, Image, Badge } from "react-bootstrap"
 import JobsCarousel from "./JobsCarousel"
-import useJobs from "../../hooks/use-jobs"
-import useEvents from "../../hooks/use-events"
 import useJobsBG from "../../hooks/use-jobs-bg"
-import useCbetAuth from "../../hooks/use-cbet-auth"
+import Moment from "react-moment"
+import { FaFrown } from "react-icons/fa"
+import { formatDate } from "../../utils/utility"
 
-export default function CareersLayout({ children, noCarousel }) {
-  const jobs = useJobs()
+export default function CareersLayout({
+  children,
+  noCarousel,
+  cbetContent,
+  blogHeader,
+}) {
+  const today = new Date()
   const carouselBgImages = useJobsBG()
-  const events = useEvents()
-  const authContent = useCbetAuth()
-  const [cbetContent, setCbetContent] = useState([])
 
-  useEffect(() => {
-    // get data from GitHub api
-    fetch(
-      `https://cbetcontent.azurewebsites.net/api/GetCbetContent?code=${authContent}`
+  const jobs = cbetContent.filter((content) => {
+    const newEndDate = new Date(formatDate(content.EndDate, true))
+    if (
+      today < newEndDate &&
+      content.Category === 1 &&
+      content.Status === true
+    ) {
+      return content
+    }
+
+    return null
+  })
+
+  const featuredJobs = jobs.filter((job) => job.Featured === true)
+
+  const events = cbetContent
+    .filter(
+      (content) =>
+        content.CategoryName === "Event" &&
+        content.Status === true &&
+        today < new Date(formatDate(content.EndDate, true))
     )
-      .then(response => response.json()) // parse JSON from request
-      .then(resultData => {
-        setCbetContent(resultData)
-      }) // set data for the number of stars
-  }, [authContent])
+    .sort(
+      (a, b) =>
+        new Date(formatDate(a.StartDate, true)) -
+        new Date(formatDate(b.StartDate, true))
+    )
 
   const blogPosts = cbetContent.filter(
-    content => content.CategoryName === "Blog" && content.Status === true
+    (content) => content.CategoryName === "Blog" && content.Status === true
   )
 
   function createMarkup(html) {
@@ -38,16 +57,20 @@ export default function CareersLayout({ children, noCarousel }) {
   return (
     <Layout>
       <>
-        {!noCarousel ? (
-          <JobsCarousel jobs={jobs} bgImages={carouselBgImages} />
+        {!noCarousel && featuredJobs.length > 0 ? (
+          <JobsCarousel jobs={featuredJobs} bgImages={carouselBgImages} />
+        ) : // default banner image for blog posts
+        blogHeader ? (
+          <img
+            src={blogHeader}
+            alt="blog"
+            style={{ objectFit: "cover", width: "100%", maxHeight: "300px" }}
+          />
         ) : (
           <img
             src="https://i.picsum.photos/id/1067/1440/300.jpg"
             alt="nature"
-            css={css`
-              object-fit: cover;
-              width: 100%;
-            `}
+            style={{ objectFit: "cover", width: "100%" }}
           />
         )}
 
@@ -59,40 +82,55 @@ export default function CareersLayout({ children, noCarousel }) {
                 <section id="events">
                   <h2>Events</h2>
                   <hr />
-                  {events.map(event => (
-                    <div key={event.id}>
-                      <Badge variant="primary" style={{ height: "20px" }}>
-                        {event.startDate}
-                      </Badge>{" "}
-                      <a
-                        href={event.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        style={{ display: "inline-flex" }}
-                      >
-                        <p className="mt-0 mb-2">
-                          {event.name} @ {event.location}
-                        </p>
-                      </a>
-                    </div>
-                  ))}
+                  {events.length > 0 ? (
+                    events.map((event) => (
+                      <div key={event.Id}>
+                        <Badge variant="primary" style={{ height: "20px" }}>
+                          <Moment format="MMM DD">{event.StartDate}</Moment>
+                        </Badge>{" "}
+                        <a
+                          href={event.Link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          style={{ display: "inline-flex" }}
+                        >
+                          <p className="mt-0 mb-2">
+                            {event.Title} @ {event.Location}
+                          </p>
+                        </a>
+                      </div>
+                    ))
+                  ) : (
+                    <p>
+                      <FaFrown color="goldenrod" /> Sorry no events.
+                    </p>
+                  )}
                 </section>
                 <section id="blog" className="mt-5">
                   <h2>Latest Posts</h2>
                   <hr />
                   {blogPosts.length > 0
-                    ? blogPosts.map(post => (
-                        <div key={post.Id}>
-                          <Link to="/blog">
-                            <h4>{post.Title}</h4>
-                          </Link>
-                          <p
-                            dangerouslySetInnerHTML={createMarkup(
-                              post.Description.slice(0, 140) + "..."
-                            )}
-                          />
-                        </div>
-                      ))
+                    ? blogPosts.map((post) => {
+                        return (
+                          <div key={post.Id}>
+                            <Link
+                              to={`/posts/${post.Title.toLowerCase()
+                                .replace(/ /g, "-")
+                                .replace(/[^\w-]+/g, "")}`}
+                            >
+                              <h4>{post.Title}</h4>
+                            </Link>
+                            <p
+                              dangerouslySetInnerHTML={createMarkup(
+                                post.Description.slice(0, 140).replace(
+                                  /<\/?[^>]+(>|$)/g,
+                                  ""
+                                ) + "..."
+                              )}
+                            />
+                          </div>
+                        )
+                      })
                     : null}
                 </section>
               </aside>
@@ -130,4 +168,4 @@ export default function CareersLayout({ children, noCarousel }) {
   )
 }
 
-// TODO: Add proptyptes
+// TODO: Add propTypes

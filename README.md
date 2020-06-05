@@ -5,7 +5,7 @@
   </a>
 </p>
 <h1 align="center">
-  Cbet Staging site
+  College of Biomedical Equipment Technology
 </h1>
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/963e2ebf-4de0-462b-871a-46f5a6d09834/deploy-status)](https://app.netlify.com/sites/dazzling-darwin-78f815/deploys)
@@ -43,6 +43,20 @@ _Have another more specific idea? You may want to check out our vibrant collecti
     _Note: You'll also see a second link: _`http://localhost:8000/___graphql`_. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.org/tutorial/part-five/#introducing-graphiql)._
 
     Open the `my-default-starter` directory in your code editor of choice and edit `src/pages/index.js`. Save your changes and the browser will update in real time!
+
+## How to run in Docker container in Windows 10
+
+1. Open terminal to root of project.
+
+1. Build the container and run it - `docker-compose up --build`.
+
+1. Then open browser and code. 
+
+1. When done using the container run the command `CTRL-C` twice.
+
+1. If you make any dependency changes like `npm install <packagename>` to the project then make sure and run `docker-compose up --build` again to rebuild the container.
+
+** Check your images periodically and remove any unused images created for this container.
 
 ## 🧐 How to run testing in Cypress/Applitools.
 

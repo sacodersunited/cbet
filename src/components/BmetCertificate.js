@@ -93,9 +93,9 @@ the place for you. Visit our website to learn more!"
               <a
                 target="_blank"
                 rel="noopener noreferrer"
-                href="mailto:bisham@cbet.edu"
+                href="mailto:admissiondept@cbet.edu?subject=REQ: BMET Certificate"
               >
-                bisham@cbet.edu
+                admissiondept@cbet.edu
               </a>
             </Card.Body>
           </Card>
@@ -112,7 +112,7 @@ the place for you. Visit our website to learn more!"
               <h4>Program Cost</h4>
               <p>$6,095</p>
               <h4>Program Length</h4>
-              <p>6 Months or 400 hours</p>
+              <p>7.5 Months or 480 hours</p>
               <h4>Student to Teacher Ratio</h4>
               <p>30:1</p>
             </Col>

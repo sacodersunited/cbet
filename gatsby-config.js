@@ -13,6 +13,7 @@ module.exports = {
     codeFunc: config.GATSBY_code,
     getCbetContentCode: config.cbetContentCode,
     gmap: config.GOOGLE_API_KEY,
+    cbetappid: config.CBET_AZURE_APPID,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -38,7 +39,12 @@ module.exports = {
       },
     },
     `gatsby-plugin-offline`,
-    `gatsby-plugin-styled-components`,
+    {
+      resolve: `gatsby-plugin-styled-components`,
+      options: {
+        displayName: false,
+      },
+    },
     {
       resolve: "gatsby-plugin-google-analytics",
       options: {
@@ -50,6 +56,7 @@ module.exports = {
       resolve: "gatsby-source-cbet",
       options: {
         code: config.GATSBY_code,
+        appid: config.cbetContentCode,
       },
     },
     `gatsby-plugin-netlify-cache`,

@@ -59,11 +59,6 @@
   link: http://www.memorialhermann.org/
   img: logos/memorial-hermann-logo.jpg
   colWidth: "3"
-- skillnet:
-  name: Skillnet
-  link: https://skillnet.net/
-  img: logos/skillnet.png
-  colWidth: "3"
 - vyaire:
   name: Vyaire Medical
   link: https://www.vyaire.com/
@@ -103,4 +98,19 @@
   name: Kentucky Association for Medical Instrumentation
   link: https://kami.camp9.org/
   img: logos/kami-logo.png
+  colWidth: "2"
+- rtg:
+  name: RTG and Associates, LLC
+  link: https://www.leadershipcredit.info
+  img: logos/RTG and Associates Image _ Eagle-fs8.png
+  colWidth: "2"
+- workforce:
+  name: Workforce Outcomes
+  link: http://www.workforceoutcomes.com
+  img: logos/Workforce Outcomes Logo-fs8.png
+  colWidth: "2"
+- wellness:
+  name: Wellness4Warriors
+  link: http://www.workforceoutcomes.com
+  img: logos/Wellness4Warriors Image.jpeg
   colWidth: "2"

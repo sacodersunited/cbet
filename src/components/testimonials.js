@@ -26,7 +26,7 @@ const Testimonials = () => {
     variableWidth: true,
     adaptiveHeight: true,
     autoplay: true,
-    pauseOnHover: true,
+    pauseonhover: true,
   }
 
   return (

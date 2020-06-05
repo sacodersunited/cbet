@@ -1,0 +1,15 @@
+FROM node:14.2.0-alpine
+ENV TERM=xterm-256color
+ENV GATSBY_TELEMETRY_DISABLED=1
+ENV NODE_ENV=production
+RUN apk add --update --no-cache alpine-sdk gettext libtool autoconf automake make libpng-dev libjpeg-turbo-dev libc6-compat mesa-gl libx11 libxxf86vm libxi g++ nasm && \
+    npm install -g gatsby-cli
+
+RUN mkdir /app
+WORKDIR /app
+COPY ./package.json .
+RUN npm install
+RUN npm run build
+COPY . .
+EXPOSE 9000
+CMD ["gatsby", "serve", "--verbose", "-p", "9000", "--host", "0.0.0.0"]

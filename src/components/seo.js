@@ -7,8 +7,9 @@
 
 import React from "react"
 import PropTypes from "prop-types"
-import Helmet from "react-helmet"
+import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
+import "bootstrap/dist/css/bootstrap.min.css"
 
 function SEO({ description, lang, meta, keywords, title }) {
   const { site } = useStaticQuery(
@@ -34,6 +35,26 @@ function SEO({ description, lang, meta, keywords, title }) {
       }}
       title={title}
       titleTemplate={title}
+      // script={[
+      //   {
+      //     src:
+      //       "https://cbet.quickschools.com/sms/es/enquiry?divId=enquiry-form",
+      //     type: "text/javascript",
+      //     async: true,
+      //   },
+      // ]}
+      link={[
+        {
+          rel: "stylesheet",
+          href:
+            "https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css",
+        },
+        {
+          rel: "stylesheet",
+          href:
+            "https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css",
+        },
+      ]}
       meta={[
         {
           name: `description`,

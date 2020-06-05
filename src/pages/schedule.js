@@ -7,7 +7,6 @@ import { Container, Row, Col, Button } from "react-bootstrap"
 import AcademicCalendar from "../documents/CBET _Academic_Calendar_2020-2021_04152020.pdf"
 
 const Schedule = () => {
-  // const user = getProfile()
   const user = null
   return (
     <Layout>
