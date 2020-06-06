@@ -68,7 +68,7 @@ exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
       module: {
         rules: [
           {
-            test: /msal.js/,
+            test: /TelemetryManager.js/,
             use: loaders.null(),
           },
         ],
