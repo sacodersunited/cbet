@@ -37,8 +37,16 @@ const options = {
   tokenRefreshUri: "https://dazzling-darwin-78f815.netlify.app/admin",
 }
 
-export const signInAuthProvider = new MsalAuthProvider(
-  signInConfig,
-  authenticationParameters,
-  options
-)
+let signInAuthProvider = ""
+
+if (navigator !== undefined) {
+  signInAuthProvider = new MsalAuthProvider(
+    signInConfig,
+    authenticationParameters,
+    options
+  )
+} else {
+  signInAuthProvider = ""
+}
+
+export default signInAuthProvider
