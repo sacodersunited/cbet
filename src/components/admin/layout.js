@@ -1,7 +1,7 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { Button } from "react-bootstrap"
-import { AzureAD, AuthenticationState } from "react-aad-msal"
 import { signInAuthProvider } from "./../authProvider"
+// import { AzureAD, AuthenticationState } from "react-aad-msal"
 import {
   Container,
   Row,
@@ -16,6 +16,9 @@ import {
 import { Link } from "gatsby"
 import { navigate } from "@reach/router"
 import styled from "styled-components"
+const AzureAD = typeof window !== `undefined` ? require("AzureAD") : null
+const AuthenticationState =
+  typeof window !== `undefined` ? require("AuthenticationState") : null
 
 const StyledLink = styled(Link)`
   &.active {
