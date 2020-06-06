@@ -68,7 +68,7 @@ exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
       module: {
         rules: [
           {
-            test: /react-aad-msal/,
+            test: "msal",
             use: loaders.null(),
           },
         ],
