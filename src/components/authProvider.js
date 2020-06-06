@@ -1,8 +1,6 @@
 import { MsalAuthProvider, LoginType } from "react-aad-msal"
 import "regenerator-runtime"
 
-//console.log("login type", LoginType)
-
 const tenant = "cbettenant.onmicrosoft.com"
 const signInPolicy = "B2C_1_CbetAdminSignUpv1"
 const applicationID = process.env.CBET_AZURE_APPID
@@ -39,7 +37,7 @@ const options = {
 
 let signInAuthProvider = ""
 
-if (navigator !== undefined) {
+if (window !== undefined) {
   signInAuthProvider = new MsalAuthProvider(
     signInConfig,
     authenticationParameters,
