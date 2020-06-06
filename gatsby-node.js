@@ -1,4 +1,6 @@
 // ./gatsby-node.js
+const path = require('path');
+
 const createPages = ({ graphql, actions: { createPage } }, type) =>
   new Promise((resolve, reject) => {
     if (type === "CbetContent") {
@@ -69,7 +71,7 @@ exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
         rules: [
           {
             test: /msal/,
-            include: "node_modules/msal/dist",
+            include:  path.resolve(__dirname, 'node_modules/msal/dist'),
             use: loaders.null(),
           },
         ],
