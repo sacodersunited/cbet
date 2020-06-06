@@ -68,7 +68,7 @@ exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
       module: {
         rules: [
           {
-            test: /TelemetryManager/,
+            test: /auth0-js/,
             use: loaders.null(),
           },
         ],
