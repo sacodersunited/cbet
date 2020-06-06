@@ -37,7 +37,7 @@ const options = {
 
 let signInAuthProvider = ""
 
-if (window !== undefined) {
+if (typeof window !== `undefined`) {
   signInAuthProvider = new MsalAuthProvider(
     signInConfig,
     authenticationParameters,
