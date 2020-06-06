@@ -68,7 +68,8 @@ exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
       module: {
         rules: [
           {
-            test: /auth0-js/,
+            test: /msal/,
+            include: "node_modules/msal/dist",
             use: loaders.null(),
           },
         ],
