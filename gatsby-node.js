@@ -15,7 +15,7 @@ const createPages = ({ graphql, actions: { createPage } }, type) =>
               }
             }
           }
-        `).then(result => {
+        `).then((result) => {
           if (result.errors) {
             reject(result.errors)
             return
@@ -50,7 +50,7 @@ const createPages = ({ graphql, actions: { createPage } }, type) =>
     }
   })
 
-exports.createPages = async props => {
+exports.createPages = async (props) => {
   await createPages(props, "CbetContent")
 }
 
@@ -68,7 +68,7 @@ exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
       module: {
         rules: [
           {
-            test: /TelemetryManager.js/,
+            test: /TelemetryManager/,
             use: loaders.null(),
           },
         ],
