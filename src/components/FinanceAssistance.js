@@ -14,7 +14,6 @@ import Fade from "react-reveal/Fade"
 import styled from "styled-components"
 import { FaCheckSquare } from "react-icons/fa"
 import SEO from "../components/seo"
-import CourseCatalog from "../documents/CBET Course Catalog_Volume XVI_October 2019-2020.pdf"
 import EnrollmentApplication from "../documents/CBET Enrollment Application.pdf"
 import BackgroundGraphicHeader from "./BackgroundGraphicHeader"
 import NonHeaderBackgroundHeader from "./NonHeaderBackgroundHeader"
@@ -50,7 +49,7 @@ const CamoBG = styled.section`
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 `
 
-const FinanceAssistance = props => (
+const FinanceAssistance = (props) => (
   <>
     <SEO title="Veterans Affairs Financial Assistance" />
     <BackgroundGraphicHeader
@@ -305,10 +304,9 @@ const FinanceAssistance = props => (
                   program requirements, tuition and fees, and which programs
                   best align with their academic and professional goals.
                 </p>
-
-                <Button href={CourseCatalog} variant="outline-primary mb-3">
-                  Course Catalog
-                </Button>
+                <Link to="/catalog">
+                  <Button variant="outline-primary mb-3">Course Catalog</Button>
+                </Link>
 
                 <p>
                   Contact the CBET Admissions Department at{" "}

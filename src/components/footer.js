@@ -4,7 +4,6 @@ import { Container, Row, Col, Image, Navbar } from "react-bootstrap"
 import styled from "styled-components"
 import { FaFacebookF, FaLinkedinIn, FaUserLock } from "react-icons/fa"
 import Logo from "../../src/images/logo/bmet-seal.png"
-import CourseCatalog from "../../src/documents/CBET Course Catalog_Volume XVI_October 2019-2020.pdf"
 import CourseCalendar from "../documents/CBET _Academic_Calendar_2020-2021_04152020.pdf"
 import PrivacyStatement from "../documents/Privacy Policy_Update.pdf"
 import { navigate } from "@reach/router"
@@ -48,9 +47,9 @@ const Footer = () => (
               Human Resources
             </Link>
 
-            <a className="d-block text-light mb-3" href={CourseCatalog}>
+            <Link to="/catalog" className="d-block text-light mb-3">
               Course Catalog
-            </a>
+            </Link>
             <a
               className="d-block text-light mb-3"
               href="mailto:registrar@cbet.edu?Subject=Transcript%20Request"

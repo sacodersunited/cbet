@@ -24,7 +24,20 @@ const StyledNavDropdown = styled(NavDropdown)`
   }
 `
 
-const Header = props => {
+const FancyForm = styled.div`
+  .qsform button {
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+    &:hover {
+      color: #fff;
+      background-color: #0069d9;
+      border-color: #0062cc;
+    }
+  }
+`
+
+const Header = (props) => {
   !props.isAdmission &&
     UseScript("https://cbet.quickschools.com/sms/es/enquiry?divId=enquiry-form")
 
@@ -141,14 +154,14 @@ const Header = props => {
                   </p>
                 </div>
 
-                <div
+                <FancyForm
                   id="enquiry-form"
                   style={{ padding: "10px 40px", minWidth: "500px" }}
                 >
                   <p className="lead">
                     Find out how CBET can help you succeed with your future
                   </p>
-                </div>
+                </FancyForm>
               </StyledNavDropdown>
             </Nav>
           </Navbar.Collapse>
