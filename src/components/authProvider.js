@@ -38,14 +38,11 @@ const options = {
 let signInAuthProvider = ""
 
 if (typeof window !== `undefined`) {
-  if (typeof document !== `undefined`) {
-    signInAuthProvider = new MsalAuthProvider(
-      signInConfig,
-      authenticationParameters,
-      options
-    )
-  }
-  signInAuthProvider = ""
+  signInAuthProvider = new MsalAuthProvider(
+    signInConfig,
+    authenticationParameters,
+    options
+  )
 } else {
   signInAuthProvider = ""
 }
