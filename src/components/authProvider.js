@@ -29,7 +29,7 @@ const authenticationParameters = {
     "https://cbettenant.onmicrosoft.com/api-1/user_impersonation",
   ],
 }
-// Options
+
 const options = {
   loginType: LoginType.Redirect,
   tokenRefreshUri: "https://dazzling-darwin-78f815.netlify.app/admin",
@@ -38,7 +38,7 @@ const options = {
 let signInAuthProvider = ""
 
 if (typeof window !== `undefined`) {
-  if (typeof document !== "undefined") {
+  if (typeof document !== `undefined`) {
     signInAuthProvider = new MsalAuthProvider(
       signInConfig,
       authenticationParameters,

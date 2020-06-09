@@ -4,9 +4,13 @@ import BackgroundGraphicHeader from "./BackgroundGraphicHeader"
 import { UseScript } from "../hooks/use-script"
 
 export default function AdmissionsForm() {
-  UseScript(
-    "https://cbet.quickschools.com/sms/es/application?divId=application-form"
-  )
+  if (typeof window !== "undefined") {
+    if (typeof document !== `undefined`) {
+      UseScript(
+        "https://cbet.quickschools.com/sms/es/application?divId=application-form"
+      )
+    }
+  }
 
   return (
     <>

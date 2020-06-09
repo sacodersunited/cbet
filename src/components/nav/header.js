@@ -24,10 +24,15 @@ const StyledNavDropdown = styled(NavDropdown)`
   }
 `
 
-const Header = props => {
-  !props.isAdmission &&
-    UseScript("https://cbet.quickschools.com/sms/es/enquiry?divId=enquiry-form")
-
+const Header = (props) => {
+  if (typeof window !== "undefined") {
+    if (typeof document !== `undefined`) {
+      !props.isAdmission &&
+        UseScript(
+          "https://cbet.quickschools.com/sms/es/enquiry?divId=enquiry-form"
+        )
+    }
+  }
   return (
     <>
       <Navbar bg="dark" variant="dark" expand="lg">
