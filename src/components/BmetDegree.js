@@ -16,13 +16,13 @@ import Slide from "react-reveal/Slide"
 import VideoCarousel from "../components/VideoCarousel"
 import { FaRegEnvelope } from "react-icons/fa"
 import BMETVid from "../video/cbetDegree-SD.mp4"
-import StudentCatalog from "../documents/CBET Course Catalog_Volume XVI_October 2019-2020.pdf"
+import StudentCatalog from "../documents/CBET.Course.Catalog_Volume.XVI_October.2019-2020.pdf"
 
 const ProgramDetail = styled.div`
   padding: 46px 0 46px 40px;
   color: white;
 `
-const BmetDegree = props => (
+const BmetDegree = (props) => (
   <>
     <SEO
       title="Biomedical Equipment Technology Degree Online"
