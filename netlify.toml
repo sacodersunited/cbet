@@ -1,1 +1,4 @@
-/admin/* https://epic-beaver-ac3d99.netlify.app/:splat 200!
+# A basic redirect rule
+[[redirects]]
+  from = "/admin/*"
+  to = "https://epic-beaver-ac3d99.netlify.app/:splat"
