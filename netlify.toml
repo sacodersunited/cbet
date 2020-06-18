@@ -1,7 +1,7 @@
 # A basic redirect rule
 [[redirects]]
-  from = "/admin/*"
-  to = "https://epic-beaver-ac3d99.netlify.app/:splat"
+  from = "/admin"
+  to = "https://epic-beaver-ac3d99.netlify.app"
   status = 200
   force = true
   headers = {X-From = "Netlify"}
