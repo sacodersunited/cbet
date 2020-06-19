@@ -56,8 +56,9 @@ const Faq = () => (
             </Col>
             <Col sm={6}>
               <strong>A3</strong> – Yes, the Department of Veterans Affairs
-              acknowledges the CBET AAS Degree as evidence of education and
-              employment readiness.
+              acknowledges the Associate of Applied Science Degree in Biomedical
+              Equipment Technology – IDL as evidence of education and employment
+              readiness.
             </Col>
           </Row>
           <Row style={{ marginBottom: "15px" }}>
@@ -86,13 +87,15 @@ const Faq = () => (
           <Row style={{ marginBottom: "15px" }}>
             <Col sm={6}>
               <strong>Q6</strong> – Will my certificate program credits transfer
-              into the CBET AAS Degree Program?
+              into the Associate of Applied Science Degree in Biomedical
+              Equipment Technology – IDL?
             </Col>
             <Col sm={6}>
               <strong>A6</strong> – Yes, the certificate program was designed to
               guarantee transferability of courses from the certificate program
-              to the CBET AAS degree program in order to save students time and
-              money as they seek advanced educational opportunities.
+              to the Associate of Applied Science Degree in Biomedical Equipment
+              Technology – IDL in order to save students time and money as they
+              seek advanced educational opportunities.
             </Col>
           </Row>
           <Row style={{ marginBottom: "15px" }}>
@@ -132,7 +135,8 @@ const Faq = () => (
             </Col>
             <Col sm={6}>
               <strong>A9</strong> – It depends on the status of the student. The
-              AAS degree program includes full-time and part-time options.
+              Associate of Applied Science Degree in Biomedical Equipment
+              Technology – IDL includes full-time and part-time options.
               Full-time students have an accelerated degree completion timeline
               of 15 months from start to finish. Part time students can take up
               to 30 months to complete the degree.

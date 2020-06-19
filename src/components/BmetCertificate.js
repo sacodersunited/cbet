@@ -31,7 +31,7 @@ looking to get your BMET certificate? College of Biomedical Equipment Technology
 the place for you. Visit our website to learn more!"
     />
     <VideoCarousel
-      title="BMET Certificate"
+      title=" Biomedical Equipment Technician Certificate"
       descr="The Biomedical Equipment Technician Certificate program provides a comprehensive, overview of the biomedical equipment and healthcare technology management industry."
       vidSrc={BMETVid}
     />
@@ -47,15 +47,16 @@ the place for you. Visit our website to learn more!"
               </small>
             </h2>
             <p className="lead">
-              The Biomedical Equipment Technician (BMET) certificate program is
-              a 25-week intensive academic program delivering theoretical
+              The Biomedical Equipment Technician Certificate program is a
+              25-week intensive academic program delivering theoretical
               instruction via online interactive distance learning. Students
               enrolled in the certificate program are not required to
               participate in an externship. Our training system provides
               interactive instruction through our Canvas Learning Management
               System and includes online meetings via Zoom® Video Conferencing.
-              Classes completed as part of the BMET Certificate course are
-              transferable to the BMET AAS Degree Program.
+              Classes completed as part of the Biomedical Equipment Technician
+              Certificate course are transferable to the Associate of Applied
+              Science Degree in Biomedical Equipment Technology – IDL.
             </p>
             <ButtonToolbar>
               <Link to="/admissions">
@@ -79,15 +80,15 @@ the place for you. Visit our website to learn more!"
               <Card.Title>Brent Isham</Card.Title>
               <Card.Text>
                 Welcome to the College of Biomedical Equipment Technology’s
-                Certificate Program. My name is Brent Isham, I am the senior
-                Math and Electronics instructor. Before joining the college in
-                2018, I taught Algebra, Geometry, and Pre-Calculus for a high
-                school in San Antonio, Texas. I have a B.S. in Mathematics from
-                the University of Texas at San Antonio and an A.A.S. in
-                Electronics Engineering Technology from ITT Technical Institute.
-                I am looking forward to assisting you along your journey to
-                complete your education and advance your career as a biomedical
-                equipment technician.
+                Biomedical Equipment Technician Certificate Program. My name is
+                Brent Isham, I am the senior Math and Electronics instructor.
+                Before joining the college in 2018, I taught Algebra, Geometry,
+                and Pre-Calculus for a high school in San Antonio, Texas. I have
+                a B.S. in Mathematics from the University of Texas at San
+                Antonio and an A.A.S. in Electronics Engineering Technology from
+                ITT Technical Institute. I am looking forward to assisting you
+                along your journey to complete your education and advance your
+                career as a biomedical equipment technician.
               </Card.Text>
               <FaRegEnvelope />{" "}
               <a
