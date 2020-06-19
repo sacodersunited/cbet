@@ -32,7 +32,7 @@ Technology. Visit our website to apply today!"
     />
     <VideoCarousel
       title="Biomedical Equipment Technology Degree Online"
-      descr="The BMET Degree in Biomedical Equipment Technology is an interactive distance learning program designed to prepare the student to seek a variety of entry-level positions in the healthcare technology and management field."
+      descr="The Associate of Applied Science Degree in Biomedical Equipment Technology – IDL is an interactive distance learning program designed to prepare the student to seek a variety of entry-level positions in the healthcare technology and management field."
       vidSrc={BMETVid}
     />
     <Container className="mb-5">
@@ -44,16 +44,17 @@ Technology. Visit our website to apply today!"
             </h2>
             <p className="lead">
               The Associate of Applied Science Degree in Biomedical Equipment
-              Technology is an interactive distance learning program designed to
-              prepare the student to seek a variety of entry-level positions in
-              the healthcare technology and management field. Students undergo
-              training in electronics and computer technology, with an emphasis
-              on medical applications, operations, and procedures. The program
-              includes instruction in instrument calibration, design,
-              installation and testing, as well as safety, maintenance, and
-              equipment repair procedures. The general education component of
-              the program prepares students to think critically in preparation
-              for taking on leadership positions in the field.
+              Technology – IDL is an interactive distance learning program
+              designed to prepare the student to seek a variety of entry-level
+              positions in the healthcare technology and management field.
+              Students undergo training in electronics and computer technology,
+              with an emphasis on medical applications, operations, and
+              procedures. The program includes instruction in instrument
+              calibration, design, installation and testing, as well as safety,
+              maintenance, and equipment repair procedures. The general
+              education component of the program prepares students to think
+              critically in preparation for taking on leadership positions in
+              the field.
             </p>
 
             <ButtonToolbar>
