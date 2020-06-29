@@ -69,15 +69,15 @@ Technology. Visit our website to apply today!"
         </Col>
         <Col md={4}>
           <Card>
-            <Img
+            {/* <Img
               fluid={props.images.fSteinmeier.childImageSharp.fluid}
               alt="biomedical equipment technology
 degree online /biomedical training degree /biomedical training degree online /BMET
 degree"
-            />
+            /> */}
             <Card.Body>
-              <Card.Title>Frauke Steinmeier</Card.Title>
-              <Card.Text>
+              {/* <Card.Title>Frauke Steinmeier</Card.Title> */}
+              {/* <Card.Text>
                 It is my pleasure to welcome you to the College of Biomedical
                 Equipment Technology’s associate degree program. I have over 10
                 years of experience in education, teaching language arts and
@@ -88,7 +88,7 @@ degree"
                 with you to enhance your technical writing skills and your
                 understanding and familiarity with issues involving
                 cybersecurity in the healthcare industry.
-              </Card.Text>
+              </Card.Text> */}
               <FaRegEnvelope />{" "}
               <a
                 target="_blank"

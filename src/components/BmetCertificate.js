@@ -70,15 +70,15 @@ the place for you. Visit our website to learn more!"
         </Col>
         <Col md={4}>
           <Card>
-            <Img
+            {/* <Img
               fluid={props.images.bIsham.childImageSharp.fluid}
               alt="biomedical equipment technology
             degree online /biomedical training degree /biomedical training degree online /BMET
             degree"
-            />
+            /> */}
             <Card.Body>
-              <Card.Title>Brent Isham</Card.Title>
-              <Card.Text>
+              {/* <Card.Title>Brent Isham</Card.Title> */}
+              {/* <Card.Text>
                 Welcome to the College of Biomedical Equipment Technology’s
                 Biomedical Equipment Technician Certificate Program. My name is
                 Brent Isham, I am the senior Math and Electronics instructor.
@@ -89,7 +89,7 @@ the place for you. Visit our website to learn more!"
                 ITT Technical Institute. I am looking forward to assisting you
                 along your journey to complete your education and advance your
                 career as a biomedical equipment technician.
-              </Card.Text>
+              </Card.Text> */}
               <FaRegEnvelope />{" "}
               <a
                 target="_blank"
