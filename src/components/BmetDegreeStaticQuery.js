@@ -34,7 +34,7 @@ const BmetDegreeStaticQuery = props => (
             }
           }
         }
-        fSteinmeier: file(relativePath: { eq: "team/fsteinmeier.jpg" }) {
+        gmcknight: file(relativePath: { eq: "team/gmcknight.jpg" }) {
           childImageSharp {
             fluid(maxWidth: 800, quality: 100) {
               ...GatsbyImageSharpFluid_withWebp

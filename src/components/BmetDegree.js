@@ -69,14 +69,14 @@ Technology. Visit our website to apply today!"
         </Col>
         <Col md={4}>
           <Card>
-            {/* <Img
-              fluid={props.images.fSteinmeier.childImageSharp.fluid}
+            <Img
+              fluid={props.images.gmcknight.childImageSharp.fluid}
               alt="biomedical equipment technology
 degree online /biomedical training degree /biomedical training degree online /BMET
 degree"
-            /> */}
+            />
             <Card.Body>
-              {/* <Card.Title>Frauke Steinmeier</Card.Title> */}
+              <Card.Title>Guadalupe McKnight</Card.Title>
               {/* <Card.Text>
                 It is my pleasure to welcome you to the College of Biomedical
                 Equipment Technology’s associate degree program. I have over 10

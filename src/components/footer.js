@@ -149,8 +149,8 @@ const Footer = () => (
             <a className="d-block text-light" href="tel:+12102331102">
               (210) 233-1102
             </a>
-            <a className="d-block text-light" href="tel:+18668669027">
-              (866) 866-9027
+            <a className="d-block text-light" href="tel:+18448799043">
+              (844) 879-9043
             </a>
             <a className="d-block text-light" href="mailto:webmaster@cbet.edu">
               webmaster@cbet.edu
