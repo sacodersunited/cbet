@@ -70,14 +70,14 @@ the place for you. Visit our website to learn more!"
         </Col>
         <Col md={4}>
           <Card>
-            {/* <Img
-              fluid={props.images.bIsham.childImageSharp.fluid}
+            <Img
+              fluid={props.images.agillins.childImageSharp.fluid}
               alt="biomedical equipment technology
             degree online /biomedical training degree /biomedical training degree online /BMET
             degree"
-            /> */}
+            />
             <Card.Body>
-              {/* <Card.Title>Brent Isham</Card.Title> */}
+              <Card.Title>Anntonett Gillins</Card.Title>
               {/* <Card.Text>
                 Welcome to the College of Biomedical Equipment Technology’s
                 Biomedical Equipment Technician Certificate Program. My name is
