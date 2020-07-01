@@ -32,9 +32,9 @@ const Faq = () => (
               online?{" "}
             </Col>
             <Col sm={6}>
-              <strong>A1</strong> – Yes, our programs are 100% online, designed
-              with flexibility in mind, and intended to meet the needs of
-              working adults around the world.
+              <strong>A1</strong> – The certificate program is offered 100%
+              online. The AAS program includes a 135 hour onsite externship;
+              however, during COVID-19 a capstone is also available.
             </Col>
           </Row>
           <Row style={{ marginBottom: "15px" }}>
@@ -43,9 +43,8 @@ const Faq = () => (
               attend the College of Biomedical Equipment Technology?
             </Col>
             <Col sm={6}>
-              <strong>A2</strong> – Yes, CBET students include individuals from
-              around the world, including Haiti, Nigeria, Kenya, the United Arab
-              Emirates, and a host of other countries.
+              <strong>A2</strong> – CBET students include individuals from
+              around the world.
             </Col>
           </Row>
           <Row style={{ marginBottom: "15px" }}>
@@ -67,8 +66,8 @@ const Faq = () => (
               Benefits?
             </Col>
             <Col sm={6}>
-              <strong>A4</strong> – Yes, the college is 100% Veteran owned and
-              operated and makes every effort to support the Veterans community.
+              <strong>A4</strong> – CBET is majority Veteran owned and operated
+              and makes every effort to support the Veterans community.
             </Col>
           </Row>
           <Row style={{ marginBottom: "15px" }}>
@@ -76,12 +75,11 @@ const Faq = () => (
               <strong>Q5</strong> – Are my credits transferable?
             </Col>
             <Col sm={6}>
-              <strong>A5</strong> – The College of Biomedical Equipment
-              Technology is accredited by the Accrediting Council for Continuing
-              Education and Training (ACCET.ORG). To learn more about
-              accreditation and transferability of credits from institution to
-              institution visit the ACCET website or contact your gaining
-              institution.
+              <strong>A5</strong> – CBET is accredited by the Accrediting
+              Council for Continuing Education and Training (
+              <a href="https://www.ACCET.ORG">www.ACCET.ORG</a>). To learn more
+              about transferability of credits please review the college
+              catalog.
             </Col>
           </Row>
           <Row style={{ marginBottom: "15px" }}>
@@ -91,11 +89,9 @@ const Faq = () => (
               Equipment Technology – IDL?
             </Col>
             <Col sm={6}>
-              <strong>A6</strong> – Yes, the certificate program was designed to
-              guarantee transferability of courses from the certificate program
-              to the Associate of Applied Science Degree in Biomedical Equipment
-              Technology – IDL in order to save students time and money as they
-              seek advanced educational opportunities.
+              <strong>A6</strong> – Yes, all courses successfully completed at
+              the certificate level will transfer into the Associate of Applied
+              Science Degree in Biomedical Equipment Technology.
             </Col>
           </Row>
           <Row style={{ marginBottom: "15px" }}>
@@ -117,15 +113,14 @@ const Faq = () => (
               complete the internship/externship?
             </Col>
             <Col sm={6}>
-              <strong>A8</strong> – No, the CBET team includes an externship
-              coordinator whose job it is to place our students in qualifying
-              externship locations around the world. Our externship counselor
-              works with each student to identify an appropriate location near
-              their home of record. In some cases, particularly in cases where
-              students are located in remote areas, travel may be required. If
-              an externship near the students home of record cannot be located,
-              the Externship coordinator will work with the student to identify
-              an alternate suitable location.
+              <strong>A8</strong> – CBET works with each student to identify an
+              appropriate externship location. In some cases, particularly in
+              cases where students are located in remote areas, travel may be
+              required. Students requiring housing in the San Antonio area
+              during their externship should budget $5000 to compensate for
+              travel and living expenses. The College will assist students in
+              finding suitable housing during their externship; however, housing
+              is not provided by the College.
             </Col>
           </Row>
           <Row style={{ marginBottom: "15px" }}>
@@ -134,12 +129,14 @@ const Faq = () => (
               degree?
             </Col>
             <Col sm={6}>
-              <strong>A9</strong> – It depends on the status of the student. The
-              Associate of Applied Science Degree in Biomedical Equipment
-              Technology – IDL includes full-time and part-time options.
-              Full-time students have an accelerated degree completion timeline
-              of 15 months from start to finish. Part time students can take up
-              to 30 months to complete the degree.
+              <strong>A9</strong> – It depends on the status of the student.
+              Full time students attend 60 Weeks or 15 Months and part-time
+              students attend 120 Weeks or 30 Months. All program requirements
+              must be completed within a maximum time frame of 1.5 times the
+              normal program length. Once a student reaches the 150% point of
+              their program, the student’s enrollment will be terminated unless
+              a request is made from the student to the instructor or Director
+              of Education to continue the program.
             </Col>
           </Row>
         </Tab.Container>

@@ -6,7 +6,7 @@ import Img from "gatsby-image"
 // import { isAuthenticated, logout, getProfile } from "../utils/auth"
 import { FaFacebookSquare, FaLinkedin } from "react-icons/fa"
 
-const Header = props => {
+const Header = (props) => {
   // const user = getProfile()
   const user = null
   return (
@@ -60,13 +60,22 @@ const Header = props => {
               >
                 Admissions
               </Link>
-              <Link
-                to="/financial-assistance"
-                className="nav-link"
-                activeClassName="active"
-              >
-                Financial Assistance
-              </Link>
+              <NavDropdown title="Financial Assistance" id="finance-dropdown">
+                <Link
+                  to="/financial-assistance"
+                  className="dropdown-item"
+                  activeClassName="active"
+                >
+                  Financial Assistance
+                </Link>
+                <Link
+                  to="/military-financial-assistance"
+                  className="dropdown-item"
+                  activeClassName="active"
+                >
+                  Military Financial Assistance
+                </Link>
+              </NavDropdown>
               <Link
                 to="/international-students"
                 className="nav-link"

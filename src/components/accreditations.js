@@ -12,7 +12,7 @@ const AccredSection = styled.section`
   padding: 96px 0;
 `
 
-const Accreditations = props => (
+const Accreditations = (props) => (
   <AccredSection className="bg-transparent">
     <Container fluid>
       <Row style={{ marginBottom: "64px" }}>
@@ -22,10 +22,8 @@ const Accreditations = props => (
           </Fade>
           <p>
             CBET is Accredited by the Accrediting Council for Continuing
-            Education & Training (ACCET), a national accrediting agency listed
-            by the U.S. Department of Education. CBET is also Approved and
-            Regulated by the Texas Workforce Commission, Career Schools and
-            Colleges, Austin, Texas.
+            Education & Training (ACCET). ACCET is listed by the U.S. Department
+            of Education as a nationally recognized accrediting agency.
           </p>
         </Col>
         <Col md={7}>

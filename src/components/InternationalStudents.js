@@ -3,7 +3,7 @@ import { Container, Row, Col, Button, Alert, Card } from "react-bootstrap"
 import Img from "gatsby-image"
 import Fade from "react-reveal/Fade"
 
-const InternationalStudents = props => (
+const InternationalStudents = (props) => (
   <Container className="mb-5">
     <Row>
       <Col md={7}>
@@ -36,7 +36,7 @@ const InternationalStudents = props => (
           enrollment if they can provide scores from either the TOEFL (Test of
           English as a Foreign Language) or IELTS (International English
           Language Testing System); and achieve a score of 17 or greater on the
-          Wonderlic English aptitude test.
+          Wonderlic Exam.
         </p>
         <p>
           At minimum, TOEFL scores should be 500 on the paper examination, 173
@@ -151,7 +151,7 @@ const InternationalStudents = props => (
           English is not the official language of their country of citizenship.
           Students may also submit a minimum score of 6.5 on the IELTS
           (International English Language System) examination. Students must
-          also garner a score of 17 or greater on the Wonderlic English
+          also garner a score of 14 or greater on the Wonderlic English
           Proficiency Examination. Students are responsible for all mailing
           costs and proctoring fees. College of Biomedical Equipment Technology
           reserves the right to approve the proctoring arrangement.
@@ -237,25 +237,8 @@ const InternationalStudents = props => (
           </li>
         </ol>
         <p>
-          To enroll in College of Biomedical Equipment Technology, international
-          students select the desired program of study, indicate full or part
-          time, and agree to a comprehensive tuition plan. After enrollment, any
-          credentials or documents submitted will be evaluated. When the
-          evaluation has been completed, the student will be advised of any
-          remaining degree requirements. It is the responsibility of the student
-          to arrange for the completion of remaining degree requirements.
-        </p>
-        <h3>Fees and Requests for Additional Information</h3>
-        <p>
-          Fees for international students residing in foreign countries cover
-          extensive administrative costs. Students on nonimmigrant visas living
-          in the United States will pay no additional fees. Details on fees are
-          outlined in the Cancellation and Refund policy and fee schedule.
-        </p>
-        <h3>Enrollment</h3>
-        <p>
-          Students are considered enrolled when they make their initial tuition
-          payment in accordance with the enrollment agreement.
+          Upon receipt of approval to apply students may then complete the
+          enrollment process outlined in the catalog.
         </p>
         <Img
           className="mb-3 rounded"

@@ -3,7 +3,7 @@ import { Container, Row, Col, Button } from "react-bootstrap"
 import Img from "gatsby-image"
 import Fade from "react-reveal/Fade"
 
-const CareerServices = props => (
+const CareerServices = (props) => (
   <Container className="mb-5">
     <Row className="mb-3">
       <Col md={7}>
@@ -25,26 +25,16 @@ const CareerServices = props => (
           fluid={props.images.externship.childImageSharp.fluid}
           style={{ maxWidth: "600px" }}
         />
-        <h3>Confidence For Your Next Step</h3>
-        <p>
-          Graduates of College of Biomedical Equipment Technology are well
-          prepared for the job interview and well prepared to begin their new
-          career with confidence.
-        </p>
         <a href="mailto:admissiondept@cbet.edu">
           <Button>Contact Us</Button>
         </a>
         <h3>Externships</h3>
         <p>
           Externships offer students a way to earn practical experience in their
-          program field and often lead to employment with the company they are
-          working with. Each program has an Externship seminar to prepare and
-          explore the different options. CBET has several nationwide
-          originations that have partnered with us to give our students
-          externship options in an area close by. The Program Director continues
-          to explore new opportunities for our students to achieve hands-on
-          training with their program through externships with current employers
-          around the nation.
+          program field and can lead to employment with the company they are
+          working with. The AAS BMET – IDL program includes an
+          externship/capstone course to help students prepare for a career in
+          the field or a related field.
         </p>
         <Img
           className="mb-3 rounded"
@@ -54,16 +44,15 @@ const CareerServices = props => (
 
         <h3>Stephens International</h3>
         <p>
-          Stephens International Recruiting, Inc. provides the competitive edge
-          and resources to assist you in your career search. Candidate
-          qualifications, career objectives, and location preferences are
-          priorities when we match you with an employer’s requirements.
+          CBET has partnered with Stephens International Recruiting, Inc. to
+          help graduates in their career search. Candidate qualifications,
+          career objectives, and location preferences are considered when
+          helping students match their skills with an employer’s hiring
+          requirements.
         </p>
         <p>
-          We are associated with Top Echelon Network, giving us access to
-          additional job openings to assist candidates seeking new
-          opportunities. This includes opportunities for candidates outside of
-          our expertise and client base.
+          Stephens International is associated with Top Echelon Network, giving
+          them access to additional opportunities in the field.
         </p>
         <a
           target="_blank"

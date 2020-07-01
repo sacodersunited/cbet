@@ -10,12 +10,7 @@ import {
   ListGroup,
   ListGroupItem,
 } from "react-bootstrap"
-import Fade from "react-reveal/Fade"
-import styled from "styled-components"
-import { FaCheckSquare } from "react-icons/fa"
 import SEO from "../components/seo"
-import CourseCatalog from "../documents/CBET Course Catalog_Volume XVI_May 22, 2020.pdf"
-import EnrollmentApplication from "../documents/CBET Enrollment Application.pdf"
 import BackgroundGraphicHeader from "./BackgroundGraphicHeader"
 import NonHeaderBackgroundHeader from "./NonHeaderBackgroundHeader"
 import hollisScholarship from "../documents/Hollis Merit Scholarship_AAS and CERT.pdf"
@@ -28,342 +23,33 @@ const blueStyles = {
   padding: "96px 0",
 }
 
-const soldierStyles = {
-  backgroundSize: "cover",
-  minHeight: "600px",
-  backgroundPosition: "center",
-  backgroundRepeat: "no-repeat",
-  padding: "96px 0",
-}
-
-const CamoBG = styled.section`
-  background: #636363; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to right,
-    #a2ab58,
-    #636363
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to right,
-    #a2ab58,
-    #636363
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-`
-
 const FinanceAssistance = (props) => (
   <>
     <SEO title="Veterans Affairs Financial Assistance" />
     <BackgroundGraphicHeader
-      title="Veterans Affairs | Financial Assistance"
+      title="Financial Assistance"
       bgFullImageName="usFlag.png"
     />
-    <Container className="mb-5">
-      <Row className="mb-3">
-        <Col md={7}>
-          <Fade left>
-            <h2 className="display-5 text-uppercase">
-              Welcome to the CBET’s <br />
-              <em>Veterans Community</em>
-            </h2>
-          </Fade>
-          <p>
-            The college is Veteran owned and operated and prioritizes the unique
-            requirements of our Veteran students. Our presence on Facebook and
-            LinkedIn promote discussion on topics and trends that are important
-            to our student and military Veteran community. We offer
-            military-friendly programs, and zero percent financing and support
-            the use of the Department of Veterans Affairs education benefits.
-            The college is certified with the Department of Veterans Affairs to
-            support Veterans who choose to use Chapters 30, 31, 33, 35 and
-            MGIB-SR Chapter 1606.
-          </p>
-          <h2>Education Benefits Assistance</h2>
-          <p>
-            Utilizing the education benefits you have earned requires choosing
-            the right benefit based on your current status and personal goals.
-            Determining your eligibility and selecting the right program is an
-            important step in taking advantage of your hard-earned benefits. If
-            you need assistance or have questions, contact our certifying
-            official at{" "}
-            <a href="mailto:smcknight@cbet.edu">smcknight@cbet.edu</a> .
-          </p>
-          <Link to="/admissions">
-            <Button className="text-uppercase"> Apply Today</Button>
-          </Link>
-        </Col>
-        <Col md={4}>
-          <Card>
-            <Img fluid={props.images.soldier.childImageSharp.fluid} />
-            <Card.Body>
-              <Card.Title>Calling All Service Members</Card.Title>
-              <Card.Text>
-                You have a variety of military and veteran benefits programs to
-                finance your college education.
-              </Card.Text>
-            </Card.Body>
-          </Card>
-        </Col>
-      </Row>
-    </Container>
-
-    <NonHeaderBackgroundHeader bgStyle={soldierStyles} page="soldier-bg.png" />
-
-    <CamoBG className="pt-5 pb-5">
-      <div className="p-3 mb-2 mt-0">
-        <Container>
-          <div className="p-5 bg-light">
-            <h5>
-              <FaCheckSquare className="mr-2" />
-              Step 1: Selecting the Correct VA Education Program
-            </h5>
-          </div>
-
-          <Row className="mb-5">
-            <Col md={3}>
-              <Card className="mt-3">
-                <Card.Body style={{ minHeight: "200px" }}>
-                  <Card.Title>Chapter 30 Montgomery GI Bill</Card.Title>
-                  <Button
-                    href="https://www.benefits.va.gov/gibill/mgib_ad.asp"
-                    className="mt-5 "
-                    variant="outline-primary"
-                    block
-                  >
-                    Learn More
-                  </Button>
-                </Card.Body>
-              </Card>
-            </Col>
-            <Col md={3}>
-              <Card className="mt-3">
-                <Card.Body style={{ minHeight: "200px" }}>
-                  <Card.Title>Chapter 31 Vocational Rehabilitation</Card.Title>
-                  <Button
-                    href="https://www.benefits.va.gov/vocrehab/eligibility_and_entitlement.asp"
-                    className="mt-5 "
-                    variant="outline-primary"
-                    block
-                  >
-                    Learn More
-                  </Button>
-                </Card.Body>
-              </Card>
-            </Col>
-            <Col md={3}>
-              <Card className="mt-3">
-                <Card.Body style={{ minHeight: "200px" }}>
-                  <Card.Title>Chapter 33 Post-9/11 GI Bill</Card.Title>
-                  <Button
-                    href="https://www.va.gov/education/about-gi-bill-benefits/post-9-11/"
-                    className="mt-5 "
-                    variant="outline-primary"
-                    block
-                  >
-                    Learn More
-                  </Button>
-                </Card.Body>
-              </Card>
-            </Col>
-            <Col md={3}>
-              <Card className="mt-3">
-                <Card.Body style={{ minHeight: "200px" }}>
-                  <Card.Title>
-                    Chapter 35 Dependents Educational Assistance Program
-                  </Card.Title>
-                  <Button
-                    href="https://www.benefits.va.gov/VOCREHAB/Dep_Edu_Assist_Chapter_35.asp"
-                    className="mt-1 "
-                    variant="outline-primary"
-                    block
-                  >
-                    Learn More
-                  </Button>
-                </Card.Body>
-              </Card>
-            </Col>
-            <Col md={3}>
-              <Card className="mt-3">
-                <Card.Body style={{ minHeight: "200px" }}>
-                  <Card.Title>Chapter 1606 MGIB Selected-Reserves</Card.Title>
-                  <Button
-                    href="https://www.benefits.va.gov/gibill/mgib_sr.asp"
-                    className="mt-5 "
-                    variant="outline-primary"
-                    block
-                  >
-                    Learn More
-                  </Button>
-                </Card.Body>
-              </Card>
-            </Col>
-          </Row>
-
-          <div className="p-5 bg-light mb-5">
-            <h5 className="mt-3">
-              <FaCheckSquare className="mr-2" />
-              Step 2 – Apply for Benefits
-            </h5>
-            <Row>
-              <Col md={7}>
-                <Button
-                  href="https://www.va.gov/education/how-to-apply/"
-                  className="mt-5"
-                  variant="outline-primary"
-                >
-                  Veterans Education Benefits Application
-                </Button>
-              </Col>
-            </Row>
-          </div>
-
-          <div className="p-5 bg-light mb-5">
-            <h5>
-              <FaCheckSquare className="mr-2" />
-              Step 3 – Gather Official Education Records
-            </h5>
-            <Row className="mb-5">
-              <Col md={7}>
-                <p>
-                  An important step in the admissions process is submitting your
-                  educational and service records. In addition to submitting
-                  your DD Form 214, Veterans are encouraged to take advantage of
-                  military training and experience by submitting training
-                  records. You may access these records at any of the following
-                  links:
-                </p>
-              </Col>
-            </Row>
-
-            <Row>
-              <Col>
-                <Button
-                  href="https://jst.doded.mil/jst/"
-                  variant="outline-primary"
-                  block
-                >
-                  Joint Services Transcript
-                </Button>
-              </Col>
-              <Col>
-                <Button
-                  href="https://www.airuniversity.af.edu/Barnes/CCAF/Display/Article/803247/community-college-of-the-air-force-transcripts/"
-                  variant="outline-primary"
-                  block
-                >
-                  Community College of the Air Force (CCAF) Transcript
-                </Button>
-              </Col>
-              <Col>
-                <Button
-                  href="https://www.dliflc.edu/administration/registrar/transcripts-records/"
-                  variant="outline-primary"
-                  block
-                >
-                  Defense Language Institute (DLI) Transcript
-                </Button>
-              </Col>
-              <Col>
-                <Button
-                  href="https://www.dliflc.edu/resources/dlpt-guides/"
-                  variant="outline-primary"
-                  block
-                >
-                  Defense Language Proficiency Test (DLPT)
-                </Button>
-              </Col>
-            </Row>
-          </div>
-
-          <div className="p-5 bg-light mb-5">
-            <h5>
-              <FaCheckSquare className="mr-2" />
-              Step 4 – Submit all Official Training Records and Transcripts
-            </h5>
-            <Row className="mb-5">
-              <Col md={7}>
-                <address>
-                  College of Biomedical Equipment Technology (CBET) <br />{" "}
-                  Admissions Office <br /> 11550 IH-10 West, Suite 190 <br />{" "}
-                  San Antonio, Texas 78230
-                </address>
-              </Col>
-            </Row>
-          </div>
-
-          <div className="p-5 bg-light">
-            <h5>
-              <FaCheckSquare className="mr-2" />
-              Step 5 – Review the Course Catalog and Speak with an Admissions
-              Representative
-            </h5>
-            <Row>
-              <Col md={7}>
-                <p>
-                  An admissions representative is available to discuss your
-                  unique educational requirements and the costs of the various
-                  program offerings. Veterans are encouraged to learn about
-                  program requirements, tuition and fees, and which programs
-                  best align with their academic and professional goals.
-                </p>
-
-                <Button href={CourseCatalog} variant="outline-primary mb-3">
-                  Course Catalog
-                </Button>
-
-                <p>
-                  Contact the CBET Admissions Department at{" "}
-                  <a href="mailto:admissiondept@cbet.edu">
-                    admissiondept@cbet.edu
-                  </a>{" "}
-                  or at <a href="tel:+1866.866.9027">866.866.9027</a> .
-                </p>
-                <Button
-                  href={EnrollmentApplication}
-                  variant="outline-primary mb-3"
-                >
-                  Enrollment Application
-                </Button>
-              </Col>
-            </Row>
-          </div>
-        </Container>
-      </div>
-    </CamoBG>
 
     <NonHeaderBackgroundHeader bgStyle={blueStyles} page="blue-med-bg.jpg">
       <Container>
         <Row className="mb-5">
-          <Col>
+          <Col md={7}>
             <Card>
               <Card.Body>
-                <Card.Title>Student Loan Options</Card.Title>
+                <Card.Title>PAYMENT OF CHARGES</Card.Title>
                 <Card.Text>
-                  CBET’s loan partner offers 3-5 year loan terms with high
-                  approval rates, fixed interest, and low monthly payments. The
-                  loans are limited to U.S. residents in the lower 48 states.
-                  Apply online and get a decision usually within one business
-                  day!
+                  Tuition and fees are billed on a term basis. A term is defined
+                  as 6 weeks. Students with payment plans are expected to make
+                  payments on the scheduled date in accordance with the retail
+                  installment contract signed during the enrollment process. All
+                  account balances must be current before the upcoming semester.
+                  Payments may be made by cash, check, money order, MasterCard,
+                  VISA, American Express, or Discover Card. Checks must be made
+                  payable to the College of Biomedical Equipment Technology. No
+                  interest payment plans are also available to qualified
+                  applicants. See Student Loan Options.
                 </Card.Text>
-                <Button
-                  target="_blank"
-                  href="https://www.tciconnection.com/internetApp/app?key=35974edd0a527e31a2ad6306b839c6ac32"
-                  className="mb-3"
-                  variant="outline-primary"
-                >
-                  Apply Today
-                </Button>
-                <Card.Text>
-                  Tuition Financing – Providing an affordable way for you to get
-                  the education you need for the future you deserve!
-                </Card.Text>
-                <Button
-                  target="_blank"
-                  href=" http://www.tfcstudentinfo.com"
-                  className="mb-3"
-                  variant="outline-primary"
-                >
-                  Apply Today
-                </Button>
               </Card.Body>
             </Card>
           </Col>
@@ -372,7 +58,73 @@ const FinanceAssistance = (props) => (
           <Col md={7}>
             <Card>
               <Card.Body>
-                <Card.Title>Scholarship Programs</Card.Title>
+                <Card.Title>
+                  WORKFORCE INVESTMENT AND OPPORTUNITY ACT (WIOA)
+                </Card.Title>
+                <Card.Text>
+                  CBET is approved by the US Department of Labor to enroll
+                  qualified WIOA funded applicants. Participants must be deemed
+                  eligible for WIOA services before enrollment at CBET and
+                  produce a financial award letter before admission. For
+                  detailed information concerning these programs, contact your
+                  local workforce office. A list of one-stop providers around
+                  the nation is available at{" "}
+                  <a href="https://www.dol.gov/general/topic/training/onestop">
+                    https://www.dol.gov/general/topic/training/onestop
+                  </a>
+                </Card.Text>
+              </Card.Body>
+            </Card>
+          </Col>
+        </Row>
+        <Row className="mb-5">
+          <Col md={7}>
+            <Card>
+              <Card.Body>
+                <Card.Title>Student Loan Options</Card.Title>
+                <Card.Text>
+                  CBET has alternative options with Tuition Finance Company
+                  (TFC), including no-interest financing for students who
+                  qualify. CBET’s founders established a Student Loan Financing
+                  options to assist students in the payment of their tuition.
+                  Students that voluntarily withdraw; or are withdrawn from the
+                  program due to failure to meet satisfactory academic progress,
+                  attendance, and conduct policies will be required to remit
+                  payment in accordance with the terms established in the
+                  financial contract. Outside lenders are also available to
+                  students.
+                </Card.Text>
+                <Card.Text>
+                  Outside lenders are also available to students.
+                </Card.Text>
+              </Card.Body>
+            </Card>
+          </Col>
+        </Row>
+        <Row className="mb-5">
+          <Col md={7}>
+            <Card>
+              <Card.Body>
+                <Card.Title>STUDENT LOAN OBLIGATIONS</Card.Title>
+                <Card.Text>
+                  Students who receive loans to pay for their course of
+                  instruction are responsible for repaying the full amount of
+                  the loan, less the amount of any refund. Defaulting on loans
+                  could result in damage to credit ratings, loss of eligibility
+                  for future options, withholding of state and federal income
+                  tax refunds, initiation of court action, and garnishment of
+                  wages. CBET will transfer defaulted loans to collection
+                  agencies. Credit may be adversely affected.
+                </Card.Text>
+              </Card.Body>
+            </Card>
+          </Col>
+        </Row>
+        <Row className="mb-5">
+          <Col md={7}>
+            <Card>
+              <Card.Body>
+                <Card.Title>Military Spouse Scholarship</Card.Title>
                 <ListGroup className="list-group-flush">
                   <ListGroupItem
                     action
