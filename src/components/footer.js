@@ -108,7 +108,13 @@ const Footer = () => (
               />
               LinkedIn
             </a>
-            <a className="d-block text-light mb-3">
+            <a
+              className="d-block text-light mb-3"
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://epic-admin-ac3d99.netlify.app/"
+              aria-label="College of Biomedical Equipment Technology"
+            >
               <FaUserLock
                 style={{
                   verticalAlign: "text-bottom",

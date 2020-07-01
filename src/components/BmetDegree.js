@@ -78,18 +78,17 @@ degree"
             />
             <Card.Body>
               <Card.Title>Guadalupe McKnight</Card.Title>
-              {/* <Card.Text>
-                It is my pleasure to welcome you to the College of Biomedical
-                Equipment Technology’s associate degree program. I have over 10
-                years of experience in education, teaching language arts and
-                technology at the secondary and post-secondary levels in the
-                United States and Luxemburg. I am a Fulbright Scholar and an SFS
-                Scholar pursuing advanced degrees in cybersecurity and
-                technology. During your course of instruction I will be working
-                with you to enhance your technical writing skills and your
-                understanding and familiarity with issues involving
-                cybersecurity in the healthcare industry.
-              </Card.Text> */}
+              <Card.Text>
+                As an Iraq War Veteran, I am proud to continue serving as a
+                member of a team of professionals committed to helping others.
+                My teaching philosophy is centered on forming strong
+                relationships of trust with my students. It has been my
+                experience that the trust formed in the classroom translates to
+                student success. I am looking forward to working with and
+                learning from you as you pursue your academic goals. At the
+                College of Biomedical Equipment Technology we are committed to
+                your academic and professional success.
+              </Card.Text>
               <FaRegEnvelope />{" "}
               <a
                 target="_blank"
