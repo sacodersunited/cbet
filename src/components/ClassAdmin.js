@@ -50,7 +50,7 @@ class ClassAdmin extends React.Component {
     //   () => false
     // )
 
-    const newCbetClassesStaticQuery = props.cbetClasses.map(cbet => {
+    const newCbetClassesStaticQuery = props.cbetClasses.map((cbet) => {
       return cbet.node
     })
 
@@ -544,7 +544,7 @@ class ClassAdmin extends React.Component {
 
           this.setState({
             showEditSaveMessage: false,
-            editModeClasses: this.state.classes.map(elem => false),
+            editModeClasses: this.state.classes.map((elem) => false),
           })
         }, 6000)
       } else if (classObj.Type === "Delete") {
@@ -592,7 +592,7 @@ class ClassAdmin extends React.Component {
               variant={this.state.isAddMode === false ? "primary" : "secondary"}
               style={{ marginLeft: "5px" }}
               type="sm"
-              onClick={e => this.onClickAddClass(e)}
+              onClick={(e) => this.onClickAddClass(e)}
             >
               {this.state.isAddMode === false ? (
                 <>
@@ -635,7 +635,7 @@ class ClassAdmin extends React.Component {
           <Collapse in={this.state.isAddMode}>
             <Form
               style={{ marginTop: "5px" }}
-              onSubmit={e => this.handleAddNewClass(e)}
+              onSubmit={(e) => this.handleAddNewClass(e)}
               validated={this.state.validated}
             >
               <h2>Add Class</h2>
@@ -649,7 +649,7 @@ class ClassAdmin extends React.Component {
                   key={`dropdown-button-drop-add-key1`}
                   style={{ marginBottom: "10px", minWidth: "146px" }}
                   width="142px"
-                  onClick={e => this.onDropdownProgramAdd(e)}
+                  onClick={(e) => this.onDropdownProgramAdd(e)}
                 >
                   <Dropdown.Item eventKey="1">BMET</Dropdown.Item>
                   <Dropdown.Item eventKey="2">Cert</Dropdown.Item>
@@ -756,7 +756,7 @@ class ClassAdmin extends React.Component {
                         this.state.newClass.IsActive ? "Active" : "Disabled"
                       }
                       size="lg"
-                      onClick={e => this.onClickActiveAdd(e)}
+                      onClick={(e) => this.onClickActiveAdd(e)}
                     />
                   </ListGroup.Item>
                 </ListGroup>
@@ -803,6 +803,7 @@ class ClassAdmin extends React.Component {
                           : "medium",
                       width: "17rem",
                       padding: "4px",
+                      minHeight: "809px",
                     }}
                     key={cbetClass.Id}
                     className="mb-5"
@@ -835,7 +836,7 @@ class ClassAdmin extends React.Component {
                             height={40}
                             size="sm"
                             style={{ height: "40px" }}
-                            onClick={e => this.onClickMode(e, index)}
+                            onClick={(e) => this.onClickMode(e, index)}
                           >
                             <FaEdit />{" "}
                             {this.state.editModeClasses[index] === false
@@ -847,7 +848,7 @@ class ClassAdmin extends React.Component {
                             variant="danger"
                             style={{ height: "40px" }}
                             size="sm"
-                            onClick={e => this.onClickDelete(e, cbetClass)}
+                            onClick={(e) => this.onClickDelete(e, cbetClass)}
                           >
                             <FaTrashAlt style={{ marginRight: "5px" }} />
                             Delete
@@ -915,7 +916,11 @@ class ClassAdmin extends React.Component {
                       }
                     })()}
 
-                    <Card.Body>
+                    <Card.Body
+                      style={{
+                        maxHeight: "130px",
+                      }}
+                    >
                       {/* Select Program type which enables different Image to load per program */}
                       {this.state.editModeClasses[index] === true ? (
                         <>
@@ -931,7 +936,7 @@ class ClassAdmin extends React.Component {
                             }}
                             width="142px"
                             className="d-inline-block"
-                            onClick={e => this.onDropdownProgram(e, index)}
+                            onClick={(e) => this.onDropdownProgram(e, index)}
                           >
                             <Dropdown.Item eventKey="1">BMET</Dropdown.Item>
                             <Dropdown.Item eventKey="2">Cert</Dropdown.Item>
@@ -964,7 +969,7 @@ class ClassAdmin extends React.Component {
                               required
                               value={this.state.editClass.Title}
                               style={{ textAlign: "center" }}
-                              onChange={e => this.onHandleEdit(e, "title")}
+                              onChange={(e) => this.onHandleEdit(e, "title")}
                             />
                           ) : (
                             cbetClass.Title
@@ -1047,7 +1052,9 @@ class ClassAdmin extends React.Component {
                                   required
                                   rows={4}
                                   value={this.state.editClass.Format}
-                                  onChange={e => this.onHandleEdit(e, "format")}
+                                  onChange={(e) =>
+                                    this.onHandleEdit(e, "format")
+                                  }
                                   style={{ width: "100%" }}
                                 />
                               ) : (
@@ -1057,29 +1064,31 @@ class ClassAdmin extends React.Component {
                           </Form.Group>
                         </li>
                         <li style={{ padding: "8px" }}>
-                          <Form.Group>
-                            <Card.Text style={{ minHeight: "104px" }}>
-                              <FaGraduationCap
-                                size={32}
-                                style={{ marginRight: "5px" }}
-                              />
-                              <strong>Training</strong>:{" "}
-                              {this.state.editModeClasses[index] === true ? (
-                                <Form.Control
-                                  as="textarea"
-                                  rows={4}
-                                  required
-                                  value={this.state.editClass.Training}
-                                  onChange={e =>
-                                    this.onHandleEdit(e, "training")
-                                  }
-                                  style={{ width: "100%", display: "inline" }}
+                          {cbetClass.Training.length > 0 ? (
+                            <Form.Group>
+                              <Card.Text style={{ minHeight: "104px" }}>
+                                <FaGraduationCap
+                                  size={32}
+                                  style={{ marginRight: "5px" }}
                                 />
-                              ) : (
-                                cbetClass.Training
-                              )}
-                            </Card.Text>
-                          </Form.Group>
+                                <strong>Training</strong>:{" "}
+                                {this.state.editModeClasses[index] === true ? (
+                                  <Form.Control
+                                    as="textarea"
+                                    rows={4}
+                                    required
+                                    value={this.state.editClass.Training}
+                                    onChange={(e) =>
+                                      this.onHandleEdit(e, "training")
+                                    }
+                                    style={{ width: "100%", display: "inline" }}
+                                  />
+                                ) : (
+                                  cbetClass.Training
+                                )}
+                              </Card.Text>
+                            </Form.Group>
+                          ) : null}
                           {this.state.editModeClasses[index] === true ? (
                             <ListGroup>
                               <ListGroup.Item
@@ -1102,7 +1111,7 @@ class ClassAdmin extends React.Component {
                                       ? true
                                       : false
                                   }
-                                  onClick={e => this.onClickActive(e)}
+                                  onClick={(e) => this.onClickActive(e)}
                                 />
                               </ListGroup.Item>
                             </ListGroup>
@@ -1115,7 +1124,7 @@ class ClassAdmin extends React.Component {
                           case "BMET":
                             return (
                               <Link to="/bmet-degree">
-                                <Button
+                                {/* <Button
                                   variant="primary"
                                   size="sm"
                                   disabled={
@@ -1125,13 +1134,13 @@ class ClassAdmin extends React.Component {
                                   }
                                 >
                                   Learn More
-                                </Button>
+                                </Button> */}
                               </Link>
                             )
                           case "Cert":
                             return (
                               <Link to="/bmet-certificate">
-                                <Button
+                                {/* <Button
                                   variant="primary"
                                   size="sm"
                                   disabled={
@@ -1141,13 +1150,13 @@ class ClassAdmin extends React.Component {
                                   }
                                 >
                                   Learn More
-                                </Button>
+                                </Button> */}
                               </Link>
                             )
                           case "A_plus":
                             return (
                               <Link to="/it-certificate">
-                                <Button
+                                {/* <Button
                                   variant="primary"
                                   size="sm"
                                   disabled={
@@ -1157,7 +1166,7 @@ class ClassAdmin extends React.Component {
                                   }
                                 >
                                   Learn More
-                                </Button>
+                                </Button> */}
                               </Link>
                             )
                           case "N_plus":
@@ -1194,7 +1203,7 @@ class ClassAdmin extends React.Component {
                           <Button
                             variant="primary"
                             size="sm"
-                            onClick={e => this.onSaveClass(e)}
+                            onClick={(e) => this.onSaveClass(e)}
                             className="float-right"
                           >
                             Save
