@@ -21,7 +21,7 @@ const Team = props => (
             <h2 className="display-5 text-uppercase">Our Team</h2>
             <p>
               The College of Biomedical Equipment Technology (CBET) is a
-              <b> 100 % Veteran owned and operated</b> private college offering
+              <b> majority Veteran owned and operated</b> private college offering
               Biomedical Equipment Technician (BMET) and Healthcare Technology
               Management (HTM) training at the certificate and associates degree
               levels. Our leadership team is comprised of individuals with

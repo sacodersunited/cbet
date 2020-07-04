@@ -57,8 +57,9 @@ const MilitaryFinanceAssistance = (props) => (
               <em>Veterans Community</em>
             </h2>
           </Fade>
+          <p>Active Service Members and Veterans.</p>
           <p>
-            Active Service Members and Veterans All applicable policies and
+             All applicable policies and
             procedures governing VA education benefits are approved by the Texas
             Veteran’s Commission (TVC). The TVC, acting as the SAA, approves
             facilities. Veterans may qualify for a variety of military and

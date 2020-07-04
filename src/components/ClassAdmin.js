@@ -803,7 +803,7 @@ class ClassAdmin extends React.Component {
                           : "medium",
                       width: "17rem",
                       padding: "4px",
-                      minHeight: "809px",
+                      minHeight: "715px",
                     }}
                     key={cbetClass.Id}
                     className="mb-5"
@@ -1064,31 +1064,6 @@ class ClassAdmin extends React.Component {
                           </Form.Group>
                         </li>
                         <li style={{ padding: "8px" }}>
-                          {cbetClass.Training.length > 0 ? (
-                            <Form.Group>
-                              <Card.Text style={{ minHeight: "104px" }}>
-                                <FaGraduationCap
-                                  size={32}
-                                  style={{ marginRight: "5px" }}
-                                />
-                                <strong>Training</strong>:{" "}
-                                {this.state.editModeClasses[index] === true ? (
-                                  <Form.Control
-                                    as="textarea"
-                                    rows={4}
-                                    required
-                                    value={this.state.editClass.Training}
-                                    onChange={(e) =>
-                                      this.onHandleEdit(e, "training")
-                                    }
-                                    style={{ width: "100%", display: "inline" }}
-                                  />
-                                ) : (
-                                  cbetClass.Training
-                                )}
-                              </Card.Text>
-                            </Form.Group>
-                          ) : null}
                           {this.state.editModeClasses[index] === true ? (
                             <ListGroup>
                               <ListGroup.Item
