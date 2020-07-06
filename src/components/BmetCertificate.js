@@ -43,7 +43,7 @@ the place for you. Visit our website to learn more!"
             <h2 className="display-5 text-uppercase">
               BIOMEDICAL EQUIPMENT TECHNICIAN (BMET) CERTIFICATE <br />
               <small className="text-muted font-weight-light">
-                25 WEEK CERTIFICATE COURSE
+                31 WEEK CERTIFICATE COURSE
               </small>
             </h2>
             <p className="lead">

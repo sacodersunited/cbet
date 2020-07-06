@@ -35,7 +35,7 @@ const InternationalStudents = (props) => (
           interested in becoming undergraduate students will be eligible for
           enrollment if they can provide scores from either the TOEFL (Test of
           English as a Foreign Language) or IELTS (International English
-          Language Testing System); and achieve a score of 17 or greater on the
+          Language Testing System); and achieve a score of 14 or greater on the
           Wonderlic Exam.
         </p>
         <p>
@@ -151,8 +151,7 @@ const InternationalStudents = (props) => (
           English is not the official language of their country of citizenship.
           Students may also submit a minimum score of 6.5 on the IELTS
           (International English Language System) examination. Students must
-          also garner a score of 14 or greater on the Wonderlic English
-          Proficiency Examination. Students are responsible for all mailing
+          also garner a score of 14 or greater on the Wonderlic Exam. Students are responsible for all mailing
           costs and proctoring fees. College of Biomedical Equipment Technology
           reserves the right to approve the proctoring arrangement.
         </p>
@@ -211,14 +210,7 @@ const InternationalStudents = (props) => (
           responsibility of the student. The College reserves the right to make
           its own determination on the amount and type of credit to be awarded
           based on the evaluations provide by these agencies. There will be no
-          mixing or matching of evaluations. The College does not issue
-          “Certificates of Acceptance” (Form I-20) to international students.
-          Students who enter the United States on a student visa (F-1) through
-          another college or university may enroll in College of Biomedical
-          Equipment Technology. However, it will be the student’s responsibility
-          to keep his/her visa status current to be eligible for the continued
-          pursuit of a College of Biomedical Equipment Technology certificate or
-          degree.
+          mixing or matching of evaluations. 
         </p>
         <h3>Application and Enrollment for International Students</h3>
         <p>

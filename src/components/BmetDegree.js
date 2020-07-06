@@ -117,9 +117,9 @@ degree"
               <p>
                 1065 Clock Hours / 60 Semester Credit Hours
                 <br />
-                60 Weeks/15 MONTHS
+                60 Weeks/15 MONTHS (full time) 
                 <br />
-                (full time) 120 Weeks/30 MONTHS (part-time)
+                120 Weeks/30 MONTHS (part-time)
               </p>
             </Col>
           </Fade>
