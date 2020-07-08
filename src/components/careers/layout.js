@@ -68,7 +68,7 @@ export default function CareersLayout({
           />
         ) : (
           <img
-            src="https://i.picsum.photos/id/1067/1440/300.jpg"
+            src="https://picsum.photos/id/1067/1400/300"
             alt="nature"
             style={{ objectFit: "cover", width: "100%" }}
           />
