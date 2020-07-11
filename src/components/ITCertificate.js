@@ -11,7 +11,7 @@ import Img from "gatsby-image"
 import Fade from "react-reveal/Fade"
 import Slide from "react-reveal/Slide"
 import { Link } from "gatsby"
-import StudentCatalog from "../documents/CBET Course Catalog_Volume XVI_May 22, 2020.pdf"
+import StudentCatalog from "../documents/CBET Course Catalog_Volume XVII_7.9.20.pdf"
 import styled from "styled-components"
 
 const ProgramDetail = styled.div`
