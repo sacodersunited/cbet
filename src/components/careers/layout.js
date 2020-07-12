@@ -8,6 +8,7 @@ import useJobsBG from "../../hooks/use-jobs-bg"
 import Moment from "react-moment"
 import { FaFrown } from "react-icons/fa"
 import { formatDate } from "../../utils/utility"
+import ExternshipAgreement from "../../documents/CBET Externship Agreement.pdf"
 
 export default function CareersLayout({
   children,
@@ -142,15 +143,36 @@ export default function CareersLayout({
               <section id="externship">
                 <h1 className="text-uppercase">Externships </h1>
                 <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Repellendus autem ea numquam iste, vitae dignissimos officia
-                  velit. Magnam, eveniet, sapiente commodi laudantium eum soluta
-                  itaque totam optio eligendi delectus unde!
+                  The College of Biomedical Equipment Technology partners with
+                  leaders in the healthcare industry to develop and deliver
+                  supervised, hands-on, training opportunities for students
+                  completing the AAS degree program. There are many advantages
+                  to providing externship site and supervisory support to
+                  biomedical equipment technicians, including gaining access to
+                  qualified technicians ready to go to work. To learn more,
+                  e-mail the college director at{" "}
+                  <a href="mailto:rgonzales@cbet.edu">rgonzales@cbet.edu</a> or
+                  call{" "}
+                  <a href="tel:+18448799043" rel="nofollow">
+                    844-879-9043
+                  </a>{" "}
+                  .
                 </p>
-                <Button className="text-uppercase">Sign Up</Button>{" "}
-                <Button className="text-uppercase" variant="outline-primary">
-                  Info Paper
-                </Button>
+                <p>
+                  ___I have attached the externship agreement document for the
+                  link.
+                </p>
+                <a href="mailto:rgonzales@cbet.edu,mortega@cbet.edu">
+                  <Button className="text-uppercase">Sign Up</Button>
+                </a>
+                <a href={ExternshipAgreement}>
+                  <Button
+                    className="text-uppercase ml-3"
+                    variant="outline-primary"
+                  >
+                    Externship Agreement
+                  </Button>
+                </a>
               </section>
             </Col>
 
