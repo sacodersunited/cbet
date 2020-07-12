@@ -15,6 +15,7 @@ import BackgroundGraphicHeader from "./BackgroundGraphicHeader"
 import NonHeaderBackgroundHeader from "./NonHeaderBackgroundHeader"
 import hollisScholarship from "../documents/Hollis Merit Scholarship_AAS and CERT.pdf"
 import bassukScholarship from "../documents/First Sergeant Warren Bassuk Memorial Scholarship_AAS and CERT.pdf"
+import CovidDoc from "../documents/CBET.COVID.pdf"
 
 const blueStyles = {
   backgroundColor: "#2c3e50",
@@ -33,6 +34,22 @@ const FinanceAssistance = (props) => (
 
     <NonHeaderBackgroundHeader bgStyle={blueStyles} page="blue-med-bg.jpg">
       <Container>
+        <Row className="mb-5">
+          <Col md={7}>
+            <Card>
+              <Card.Body>
+                <Card.Title>COVID FLEXIBILITIES</Card.Title>
+                <Card.Text>
+                  Special Notice Concerning the Global COVID-19 Pandemic.
+                  <br />
+                  <a href={CovidDoc}>
+                    <Button className="mt-3">Learn More</Button>
+                  </a>
+                </Card.Text>
+              </Card.Body>
+            </Card>
+          </Col>
+        </Row>
         <Row className="mb-5">
           <Col md={7}>
             <Card>
