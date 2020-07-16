@@ -73,7 +73,7 @@ const Header = (props) => {
                   className="dropdown-item"
                   activeClassName="active"
                 >
-                  Military Financial Assistance
+                  Veteran Education Benefits
                 </Link>
               </NavDropdown>
               <Link

@@ -16,7 +16,7 @@ import Slide from "react-reveal/Slide"
 import VideoCarousel from "../components/VideoCarousel"
 import { FaRegEnvelope } from "react-icons/fa"
 import BMETVid from "../video/cbetCert-SD.mp4"
-import StudentCatalog from "../documents/CBET Course Catalog_Volume XVI_May 22, 2020.pdf"
+import StudentCatalog from "../documents/CBET Course Catalog_Volume XVII_7.9.20.pdf"
 
 const ProgramDetail = styled.div`
   padding: 46px 0 46px 40px;
@@ -43,7 +43,7 @@ the place for you. Visit our website to learn more!"
             <h2 className="display-5 text-uppercase">
               BIOMEDICAL EQUIPMENT TECHNICIAN (BMET) CERTIFICATE <br />
               <small className="text-muted font-weight-light">
-                25 WEEK CERTIFICATE COURSE
+                31 WEEK CERTIFICATE COURSE
               </small>
             </h2>
             <p className="lead">

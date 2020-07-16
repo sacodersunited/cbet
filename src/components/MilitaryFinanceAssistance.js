@@ -14,7 +14,7 @@ import Fade from "react-reveal/Fade"
 import styled from "styled-components"
 import { FaCheckSquare } from "react-icons/fa"
 import SEO from "../components/seo"
-import CourseCatalog from "../documents/CBET Course Catalog_Volume XVI_May 22, 2020.pdf"
+import CourseCatalog from "../documents/CBET Course Catalog_Volume XVII_7.9.20.pdf"
 import EnrollmentApplication from "../documents/CBET Enrollment Application.pdf"
 import BackgroundGraphicHeader from "./BackgroundGraphicHeader"
 import NonHeaderBackgroundHeader from "./NonHeaderBackgroundHeader"
@@ -57,15 +57,16 @@ const MilitaryFinanceAssistance = (props) => (
               <em>Veterans Community</em>
             </h2>
           </Fade>
+          <p>Active Service Members and Veterans.</p>
           <p>
-            Active Service Members and Veterans All applicable policies and
-            procedures governing VA education benefits are approved by the Texas
-            Veteran’s Commission (TVC). The TVC, acting as the SAA, approves
-            facilities. Veterans may qualify for a variety of military and
-            veteran benefits programs to finance their training. Applicants must
-            complete the Veterans On-Line Application (VONAPP) to begin to
-            receive the benefit unless indicated differently. More information
-            about VA education benefits is available at
+            All applicable policies and procedures governing VA education
+            benefits are approved by the Texas Veteran’s Commission (TVC). The
+            TVC, acting as the SAA, approves facilities. Veterans may qualify
+            for a variety of military and veteran benefits programs to finance
+            their training. Applicants must complete the Veterans On-Line
+            Application (VONAPP) to begin to receive the benefit unless
+            indicated differently. More information about VA education benefits
+            is available at
             <a href="http://www.benefits.va.gov/gibill">
               http://www.benefits.va.gov/gibill
             </a>

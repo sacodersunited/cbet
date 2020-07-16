@@ -3,11 +3,12 @@ import { Link } from "gatsby"
 import { Container, Row, Col, Image, Navbar } from "react-bootstrap"
 import styled from "styled-components"
 import { FaFacebookF, FaLinkedinIn, FaUserLock } from "react-icons/fa"
+import { navigate } from "@reach/router"
 import Logo from "../../src/images/logo/bmet-seal.png"
-import CourseCatalog from "../documents/CBET Course Catalog_Volume XVI_May 22, 2020.pdf"
+import CourseCatalog from "../documents/CBET Course Catalog_Volume XVII_7.9.20.pdf"
 import CourseCalendar from "../documents/CBET _Academic_Calendar_2020-2021_04152020.pdf"
 import PrivacyStatement from "../documents/Privacy Policy_Update.pdf"
-import { navigate } from "@reach/router"
+import StudentPolicy from "../documents/NOTICE STUDENT COMPLAINT POLICY 7.10.20.pdf"
 
 const DivLink = styled.div`
   &:hover {
@@ -78,6 +79,9 @@ const Footer = () => (
             </a>
             <a href={PrivacyStatement} className="d-block text-light mb-3">
               Privacy Statement
+            </a>
+            <a href={StudentPolicy} className="d-block text-light mb-3">
+              TWC Student Compliant Policy
             </a>
           </Col>
           <Col md={2}>
