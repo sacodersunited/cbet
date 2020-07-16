@@ -32,8 +32,23 @@ const Schedule = () => {
               <Button style={{ marginTop: "20px" }}>Contact Us</Button>
             </a>
             <a href={StudentComplaintPolicy}>
-              <Button variant="outline-primary" style={{ marginTop: "20px", marginLeft: "10px" }}>
-                Student Complaint Policy
+              <Button
+                variant="outline-primary"
+                style={{ marginTop: "20px", marginLeft: "10px" }}
+              >
+                TWC Student Compliant Policy
+              </Button>
+            </a>
+            <a
+              target="_blank"
+              rel="noreferrer"
+              href="https://www.nc-sara.org/student-complaints"
+            >
+              <Button
+                variant="outline-primary"
+                style={{ marginTop: "20px", marginLeft: "10px" }}
+              >
+                SARA Student Complaint
               </Button>
             </a>
           </Col>

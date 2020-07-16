@@ -81,7 +81,7 @@ const Footer = () => (
               Privacy Statement
             </a>
             <a href={StudentPolicy} className="d-block text-light mb-3">
-              Student Complaint Policy
+              TWC Student Compliant Policy
             </a>
           </Col>
           <Col md={2}>
