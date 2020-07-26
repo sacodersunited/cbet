@@ -8,6 +8,7 @@ import useJobsBG from "../../hooks/use-jobs-bg"
 import Moment from "react-moment"
 import { FaFrown } from "react-icons/fa"
 import { formatDate } from "../../utils/utility"
+import externshipDoc from "../../documents/Externship Document_July 2020.pdf"
 
 export default function CareersLayout({
   children,
@@ -141,16 +142,66 @@ export default function CareersLayout({
             <Col md={6}>
               <section id="externship">
                 <h1 className="text-uppercase">Externships </h1>
+                <blockquote>
+                  <p>
+                    <i>
+                      “The healthcare technology management industry is facing a
+                      human resources crisis. Statistics show that 60% of the
+                      current workforce is over 52 years of age. At the same
+                      time, we are watching HTM educational programs close their
+                      doors. The need for skilled talent is being felt
+                      everywhere.”
+                    </i>
+                  </p>
+                </blockquote>
+                <h2>
+                  Association for the Advancement of Medical Instrumentation
+                </h2>
                 <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Repellendus autem ea numquam iste, vitae dignissimos officia
-                  velit. Magnam, eveniet, sapiente commodi laudantium eum soluta
-                  itaque totam optio eligendi delectus unde!
+                  The mission of the College of Biomedical Equipment Technology
+                  is to reverse this trend by providing Healthcare Technology
+                  Management (HTM) education, training, and career services
+                  consistent with the evolving needs of employers in the
+                  healthcare industry. Critical to the success of our 100%
+                  Online education program is the willingness of our industry
+                  partners to support our work by providing “on-the-job
+                  training” through externships and other OJT training
+                  opportunities.
                 </p>
-                <Button className="text-uppercase">Sign Up</Button>{" "}
-                <Button className="text-uppercase" variant="outline-primary">
-                  Info Paper
-                </Button>
+                <p>
+                  Students participating in CBET sponsored externships earn
+                  college credit toward their AAS degree and gain access to
+                  seasoned professionals and mentors. Externships bridge the gap
+                  between the formal education students receive Online and the
+                  hands-on training and skills validation necessary to succeed
+                  as a Biomedical Equipment Technician in an increasingly
+                  technical vocation.{" "}
+                </p>
+                <p>
+                  Employers serving as OJT providers promote the healthcare
+                  industry by supporting the training, mentorship, and
+                  development of the next generation of HTM professionals. By
+                  supporting educational programs such as ours, employers gain
+                  access to qualified candidates and participate in
+                  standardizing best practices and procedures aimed at
+                  cross-training and developing the future healthcare workforce.{" "}
+                </p>
+                <p>
+                  To learn more about becoming an externship provider and to
+                  gain access to our valuable student candidates contact Manuel
+                  Ortega at{" "}
+                  <a href="mailto:mortega@cbet.edu">mortega@cbet.edu</a> or
+                  Scott McKnight at
+                  <a href="mailto:smcknight@cbet.edu">smcknight@cbet.edu</a>
+                </p>
+                <a href="mailto:mortega@cbet.edu?&bcc=smcknight@cbet.edu">
+                  <Button className="text-uppercase">Sign Up</Button>
+                </a>
+                <a href={externshipDoc}>
+                  <Button className="text-uppercase" variant="outline-primary">
+                    Info Paper
+                  </Button>
+                </a>
               </section>
             </Col>
 
