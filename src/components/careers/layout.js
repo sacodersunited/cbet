@@ -191,14 +191,18 @@ export default function CareersLayout({
                   gain access to our valuable student candidates contact Manuel
                   Ortega at{" "}
                   <a href="mailto:mortega@cbet.edu">mortega@cbet.edu</a> or
-                  Scott McKnight at
+                  Scott McKnight at{" "}
                   <a href="mailto:smcknight@cbet.edu">smcknight@cbet.edu</a>
                 </p>
                 <a href="mailto:mortega@cbet.edu?&bcc=smcknight@cbet.edu">
                   <Button className="text-uppercase">Sign Up</Button>
                 </a>
                 <a href={externshipDoc}>
-                  <Button className="text-uppercase" variant="outline-primary">
+                  <Button
+                    className="text-uppercase"
+                    variant="outline-primary"
+                    style={{ marginLeft: "5px" }}
+                  >
                     Info Paper
                   </Button>
                 </a>
