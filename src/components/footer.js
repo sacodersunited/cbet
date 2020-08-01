@@ -27,8 +27,6 @@ const FooterSection = styled.footer`
   padding: 96px 0;
 `
 
-// TODO: Add links as we build these pages
-
 const Footer = () => (
   <>
     <FooterSection className="bg-dark">
@@ -74,6 +72,7 @@ const Footer = () => (
             >
               Provide Website Feedback
             </a>
+            {/* TODO: Add link */}
             <a className="d-block text-light mb-3" disabled>
               Accessibility Statement
             </a>
@@ -90,7 +89,7 @@ const Footer = () => (
               rel="noopener noreferrer"
               className="d-block text-light mb-3"
               href="https://www.facebook.com/CBETCOLLEGE/"
-              aria-label="College of Biomedical Equipment Technology on facebook"
+              aria-label="College of Biomedical Equipment Technology on Facebook"
             >
               <FaFacebookF
                 className="mr-3"
@@ -104,7 +103,7 @@ const Footer = () => (
               rel="noopener noreferrer"
               className="d-block text-light mb-3"
               href="https://www.linkedin.com/company/cbetcollege/"
-              aria-label="College of Biomedical Equipment Technology on linkedin"
+              aria-label="College of Biomedical Equipment Technology on LinkedIn"
             >
               <FaLinkedinIn
                 className="mr-3"
@@ -128,27 +127,6 @@ const Footer = () => (
               />
               Admin Portal
             </a>
-            {/* {isAuthenticated() === true && user !== null ? (
-                <>
-                  <Link
-                    to="/admin"
-                    className="nav-link"
-                    style={{ color: "aqua" }}
-                  >
-                    {user.name}
-                  </Link>
-                  <a
-                    href="#logout"
-                    onClick={e => {
-                      logout()
-                      e.preventDefault()
-                    }}
-                    className="nav-link"
-                  >
-                    Log Out
-                  </a>
-                </>
-              ) : null} */}
           </Col>
           <Col md={2}>
             <p>

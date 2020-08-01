@@ -1,0 +1,16 @@
+version: "3"
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile.prod
+    container_name: cbet-prod
+    ports:
+      - "9000:9000"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=production
+      - GATSBY_WEBPACK_PUBLICPATH=/
+      - PRODUCTION=true

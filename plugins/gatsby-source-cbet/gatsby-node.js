@@ -1,7 +1,38 @@
 const fetch = require("node-fetch")
-// const queryString = require("query-string")
 
-exports.sourceNodes = (
+const apiRequest = {
+  GETCBETCLASSSES: `https://cbetclasses.azurewebsites.net/api/GetCbetClasses?code=`,
+  GETCBETCONTENT: `https://cbetdata.azurewebsites.net/api/GetCbetContent?code=`,
+}
+
+const apiRequestType = {
+  cbetclasses: "classes",
+  cbetcontent: "content",
+}
+
+async function getCbetData(getRequestType, cbetcode) {
+  const options = {
+    method: "GET",
+    credentials: "include",
+  }
+
+  let getRequest = ""
+  switch (getRequestType) {
+    case apiRequestType.cbetclasses:
+      getRequest = apiRequest.GETCBETCLASSSES + cbetcode
+      break
+    case apiRequestType.cbetcontent:
+      getRequest = apiRequest.GETCBETCONTENT + cbetcode
+      break
+    default:
+      getRequest = ""
+  }
+
+  const apiData = await (await fetch(getRequest, options)).json()
+  return apiData
+}
+
+exports.sourceNodes = async (
   { actions, createNodeId, createContentDigest },
   configOptions
 ) => {
@@ -26,23 +57,42 @@ exports.sourceNodes = (
     return nodeData
   }
 
-  const apiUrl = `https://cbetclasses.azurewebsites.net/api/GetCbetClasses?code=${
-    configOptions.code
-  }`
+  const processCbetContent = cbetContent => {
+    const nodeId = createNodeId(`cbet-content-${cbetContent.Id}`)
+    const nodeContent = JSON.stringify(cbetContent)
+    const nodeData = Object.assign({}, cbetContent, {
+      id: nodeId,
+      parent: null,
+      children: [],
+      internal: {
+        type: `cbetContent`,
+        content: nodeContent,
+        contentDigest: createContentDigest(cbetContent),
+      },
+    })
+    return nodeData
+  }
 
-  // Gatsby expects sourceNodes to return a promise
-  return (
-    // Fetch a response from the apiUrl
-    fetch(apiUrl)
-      // Parse the response as JSON
-      .then(response => response.json())
-      // Process the JSON data into a node
-      .then(data => {
-        data.forEach(classCbet => {
-          const nodeData = processCbetClass(classCbet)
-          createNode(nodeData)
-        })
-        return
-      })
+  const classesData = await getCbetData(
+    apiRequestType.cbetclasses,
+    configOptions.code
   )
+  const contentData = await getCbetData(
+    apiRequestType.cbetcontent,
+    configOptions.appid
+  )
+
+  classesData.forEach(item => {
+    const nodeData = processCbetClass(item)
+
+    createNode(nodeData)
+  })
+
+  contentData.forEach(item => {
+    const nodeData = processCbetContent(item)
+
+    createNode(nodeData)
+  })
+
+  return
 }

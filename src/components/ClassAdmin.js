@@ -123,16 +123,6 @@ class ClassAdmin extends React.Component {
     this.buildCbetSite = this.buildCbetSite.bind(this)
   }
 
-  componentDidMount() {
-    // if (isEmpty(this.props.user)) {
-    //   this.GetClasses().then(() => {
-    //     this.setState({
-    //       editModeClasses: this.state.classes.map(elem => false),
-    //     })
-    //   })
-    // }
-  }
-
   onClickActiveAdd(e) {
     let newAddClass = this.state.newClass
 

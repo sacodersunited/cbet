@@ -1,3 +1,32 @@
+const MonthDays = { FullMonth: 31, Thirty: 30, NonLeapYear: 28, LeapYear: 29 }
+Object.freeze(MonthDays)
+
+export function formatDate(date, withTime, withSlashes) {
+  const monthNames = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ]
+  const dateF = new Date(date)
+  const day = dateF.getDate()
+  const monthIndex = dateF.getMonth()
+  // console.log("##date in formatDAte", dateF, "monthIndex", monthIndex)
+  const year = dateF.getFullYear()
+  const time = dateF.toLocaleTimeString()
+  if (withTime) return `${monthIndex + 1}/${day}/${year} ${time}`
+  if (withSlashes) return `${monthIndex + 1}/${day}/${year}`
+  return `${day} ${monthNames[monthIndex]} ${year}`
+}
+
 export const isEmpty = obj => {
   for (var key in obj) {
     if (obj.hasOwnProperty(key)) return false
@@ -51,73 +80,6 @@ export const ToStartDate = dt => {
   return month_names[month_index] + " " + day + ", " + year
 }
 
-export const TestimonialsData = [
-  {
-    id: 0,
-    name: "Emmanuel E",
-    type: "BMET Degree",
-    state: "Africa",
-    date: "Sep 2019",
-    comment: `My experience in the College of Biomedical Equipment Technology, has been absolutely incredible. I‘ve been constantly amazed by the kindness, familial mutuality, and camaraderie that I‘ve encountered so far. I‘ve had the pleasure of meeting and learning from great mentors, working with great scholars. Studying in CBET is for me a dream come true, because it gives me a perfect opportunity to learn what I exactly want to pursue. The lecturers are not only friendly but also with whopping industry experiences, so that we can learn from their amazing experiences. The staff members also care about the future career of students. good relationship with co students, flexible nature of programme and the ability to study when and where it suits me, all online! The teaching is great and course structure is nice and easy to follow. I would recommend CBET to anyone who wants to study and work at the same time.`,
-  },
-  {
-    id: 1,
-    name: "Beena N",
-    type: "BMET Certificate",
-    state: "Texas",
-    date: "May 2019",
-    comment: `"I have had a couple of struggles that led me to the course and keep me anchored. The course, the instructors and definitely, Mr. Gonzales and Mr. Bassuk, have been strong supporters, motivators, and just plain helpful. CBET is not your traditional tech school. The staff really cares about each and every person's success and strives with them to attain it. Thankful and Grateful."`,
-  },
-  {
-    id: 2,
-    name: "Ann R.",
-    type: "BMET Degree",
-    state: "Pennsylvania",
-    date: "April 2019 ",
-    comment: `"I just started at CBET in January, so far it has been exactly what I was looking for. The classes are informative and meaningful and the instructors are eager to help you succeed."`,
-  },
-  {
-    id: 3,
-    name: "Kyle B.",
-    type: "BMET Degree",
-    state: "Minnesota",
-    date: "April 2019 ",
-    comment: `"Made my move for my final and last career change. It is very rare to find an online accredited biomed college recognized by the industry. They have been nothing but upfront, great communication, email’s almost replied immediately and more than willing to work with my situation financially and my busy schedule since I will be working full time."`,
-  },
-  {
-    id: 4,
-    name: "Joseph B.",
-    type: "BMET Degree",
-    state: "Georgia",
-    date: "March 2019 ",
-    comment: `"This school was exactly what I needed coming out of the military, the classes are great, the instructors are fantastic, overall one of the best school experiences I've had. Thank you CBET for helping to get me back into the civilian workforce."`,
-  },
-  {
-    id: 5,
-    name: "Curtis F.",
-    type: "BMET Certificate",
-    state: "Georgia",
-    date: "March 2019 ",
-    comment: `"The most amazing thing about the CBET culture is how welcoming, both the faculty and fellow students are to new students. There is much more than excellent academics being taught here. The program far exceeded my expectations and has gone above and beyond in helping me to increase my understanding of the Healthcare Technology Management industry, as well as unparalleled tenacity in employment assistance to get you employment in the field. The instructors are great-well informed, experienced, personable, with a teaching style that not only passes along a great deal of information in relatively short period of time, but did so with a sense of humor and perspective which made everyone in the class – regardless of their skill level, feel at ease and looking forward to the next session. Lastly, in my opinion an outstanding vocational experience in a field that is only going up!"`,
-  },
-  {
-    id: 6,
-    name: "Muhammad",
-    type: "BMET Certificate",
-    state: "Pakistan",
-    date: "March 2020 ",
-    comment: `“My name is Muhammad and I am from Pakistan. I was working in the Biomedical Field for 7 years when I came to USA 3 years ago. I had completed my bachelors and masters in Biomedical, which was enough for me to work in the Biomedical field back home. However, It was extremely hard to find a job in my field here in United States. Specially, when I have 3 years of gap in my experience. At some point, I had the option of changing my field or seek additional training and education. I decided to study Healthcare Technology Management again and chose the College of Biomedical Equipment Technology’s 6 month certificate program.  I am grateful I made this decision and chose this college.  The leadership team and instructional staff provided a first class education and guided me towards a new career with a highly reputable biomedical company in Dallas, Texas.”`,
-  },
-  {
-    id: 7,
-    name: "Matt",
-    type: "BMET Certificate",
-    state: "California",
-    date: "March 2019 ",
-    comment: `“CBET (College of Biomedical Tech) has been exactly what I was looking for. The education you receive is concise and direct for becoming a Biomedical Engineer or Technician. I have taken the certification course and it has led me to get a Biomedical position with a County hospital in my hometown. CBET is a strong name in the Biomed industry both the college and the certification. It opens doors for people looking to advance their individual careers or just starting out. The staff and administration is incredibly focused on our education needs and treat you like your more part of a team and not just instructing you. I 100% fully recommend CBET to anyone around the globe. Military, Private citizen, etc.”`,
-  },
-]
-
 // https://stackoverflow.com/questions/52583277/get-user-city-and-country-in-react-native
 export const getLocationToAddress = location => {
   const locationToFind = `${location.latitude},${location.longitude}`
@@ -157,4 +119,49 @@ export const getLocationToAddress = location => {
     .catch(e => {
       console.log(e)
     })
+}
+
+export function isLeapYear(yearSelected) {
+  const isLeapYearMade = yearSelected % 4 === 0
+  const AndEvenDivisible = yearSelected % 100 !== 0
+  const OrEvenDiv100 = yearSelected % 400 === 0
+
+  console.log("isLeapYear", isLeapYearMade)
+
+  const isItEvenLeapYear = (isLeapYearMade && AndEvenDivisible) || OrEvenDiv100
+  return isItEvenLeapYear
+}
+
+export function calculateDays(month, yearSelected) {
+  let daysArrayLength = 31
+
+  if (month === "" || yearSelected === "") {
+    return daysArrayLength
+  }
+
+  if (
+    month === "01" ||
+    month === "03" ||
+    month === "05" ||
+    month === "07" ||
+    month === "08" ||
+    month === "10" ||
+    month === "12"
+  ) {
+    // these are 31 days
+    daysArrayLength = MonthDays.FullMonth
+  } else if (month === "02" && isLeapYear(yearSelected) === true) {
+    daysArrayLength = MonthDays.LeapYear
+  } else if (month === "02") {
+    daysArrayLength = MonthDays.NonLeapYear
+  } else if (
+    month === "04" ||
+    month === "06" ||
+    month === "09" ||
+    month === "11"
+  ) {
+    daysArrayLength = MonthDays.Thirty
+  }
+
+  return daysArrayLength
 }

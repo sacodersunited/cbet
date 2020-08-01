@@ -8,7 +8,6 @@ import AcademicCalendar from "../documents/CBET _Academic_Calendar_2020-2021_041
 import StudentComplaintPolicy from "../documents/NOTICE STUDENT COMPLAINT POLICY 7.10.20.pdf"
 
 const Schedule = () => {
-  // const user = getProfile()
   const user = null
   return (
     <Layout>
