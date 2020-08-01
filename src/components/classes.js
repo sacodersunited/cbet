@@ -8,7 +8,7 @@ const ClassesSection = styled.section`
   padding: 96px 0;
 `
 
-const Classes = props => (
+const Classes = (props) => (
   <ClassesSection>
     <Container>
       <h2 className="mb-5" style={{ textTransform: "uppercase" }}>
@@ -23,12 +23,15 @@ const Classes = props => (
           school"
           />
           <Card.Body>
-            <Card.Title>BMET Degree</Card.Title>
+            <Card.Title>
+              Associate of Applied Science Degree in Biomedical Equipment
+              Technology – IDL
+            </Card.Title>
             <Card.Text>
-              The BMET Degree in Biomedical Equipment Technology is an
-              interactive distance learning program designed to prepare the
-              student to seek a variety of entry-level positions in the
-              healthcare technology and management field.
+              The Associate of Applied Science Degree in Biomedical Equipment
+              Technology – IDL is an interactive distance learning program
+              designed to prepare the student to seek a variety of entry-level
+              positions in the healthcare technology and management field.
             </Card.Text>
             <Link to="/bmet-degree">
               <Button className="mt-1 text-uppercase" variant="primary" block>
@@ -45,8 +48,8 @@ const Classes = props => (
           school"
           />
           <Card.Body>
-            <Card.Title>BMET Certificate</Card.Title>
-            <Card.Text style={{ minHeight: "215px" }}>
+            <Card.Title>Biomedical Equipment Technician Certificate</Card.Title>
+            <Card.Text style={{ minHeight: "240px" }}>
               The Biomedical Equipment Technician Certificate program provides a
               comprehensive, overview of the biomedical equipment and healthcare
               technology management industry.
@@ -67,7 +70,7 @@ const Classes = props => (
           />
           <Card.Body>
             <Card.Title>IT & Networking</Card.Title>
-            <Card.Text style={{ minHeight: "215px" }}>
+            <Card.Text style={{ minHeight: "240px" }}>
               This program is designed to help students prepare for the CompTIA
               A+ and CompTIA Network+ Certification Exam.
             </Card.Text>
@@ -87,7 +90,7 @@ const Classes = props => (
           />
           <Card.Body>
             <Card.Title>Specialty Programs</Card.Title>
-            <Card.Text style={{ minHeight: "215px" }}>
+            <Card.Text style={{ minHeight: "240px" }}>
               The Specialty Program is a custom program geared for your specific
               needs.
             </Card.Text>

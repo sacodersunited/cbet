@@ -3,11 +3,12 @@ import { Link } from "gatsby"
 import { Container, Row, Col, Image, Navbar } from "react-bootstrap"
 import styled from "styled-components"
 import { FaFacebookF, FaLinkedinIn, FaUserLock } from "react-icons/fa"
+import { navigate } from "@reach/router"
 import Logo from "../../src/images/logo/bmet-seal.png"
-import CourseCatalog from "../../src/documents/CBET Course Catalog_Volume XVI_October 2019-2020.pdf"
+import CourseCatalog from "../documents/CBET Course Catalog_Volume XVII_7.9.20.pdf"
 import CourseCalendar from "../documents/CBET _Academic_Calendar_2020-2021_04152020.pdf"
 import PrivacyStatement from "../documents/Privacy Policy_Update.pdf"
-import { navigate } from "@reach/router"
+import StudentPolicy from "../documents/NOTICE STUDENT COMPLAINT POLICY 7.10.20.pdf"
 
 const DivLink = styled.div`
   &:hover {
@@ -78,6 +79,9 @@ const Footer = () => (
             <a href={PrivacyStatement} className="d-block text-light mb-3">
               Privacy Statement
             </a>
+            <a href={StudentPolicy} className="d-block text-light mb-3">
+              TWC Student Compliant Policy
+            </a>
           </Col>
           <Col md={2}>
             <a
@@ -107,7 +111,13 @@ const Footer = () => (
               />
               LinkedIn
             </a>
-            {/* <Link to="/admin" className="d-block text-light mb-3">
+            <a
+              className="d-block text-light mb-3"
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://epic-admin-ac3d99.netlify.app/"
+              aria-label="College of Biomedical Equipment Technology"
+            >
               <FaUserLock
                 style={{
                   verticalAlign: "text-bottom",
@@ -116,7 +126,7 @@ const Footer = () => (
                 }}
               />
               Admin Portal
-            </Link> */}
+            </a>
           </Col>
           <Col md={2}>
             <p>
@@ -127,8 +137,8 @@ const Footer = () => (
             <a className="d-block text-light" href="tel:+12102331102">
               (210) 233-1102
             </a>
-            <a className="d-block text-light" href="tel:+18668669027">
-              (866) 866-9027
+            <a className="d-block text-light" href="tel:+18448799043">
+              (844) 879-9043
             </a>
             <a className="d-block text-light" href="mailto:webmaster@cbet.edu">
               webmaster@cbet.edu

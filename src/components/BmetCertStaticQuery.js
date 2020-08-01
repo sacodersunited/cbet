@@ -20,7 +20,7 @@ const BmetCertStaticQuery = props => (
             }
           }
         }
-        bIsham: file(relativePath: { eq: "team/brentIsham2.jpg" }) {
+        agillins: file(relativePath: { eq: "team/agillins.jpg" }) {
           childImageSharp {
             fluid(maxWidth: 800, quality: 100) {
               ...GatsbyImageSharpFluid_withWebp

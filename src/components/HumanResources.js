@@ -6,7 +6,7 @@ import { FaRegEnvelope, FaTag } from "react-icons/fa"
 import EmploymentApp from "../../src/documents/CBET Employment Application_7.8.2019.pdf"
 import EmployeeHandbook from "../../src/documents/CBET EMPLOYEE HANDBOOK _ July 2019.pdf"
 
-const HumanResources = props => (
+const HumanResources = (props) => (
   <Container className="mb-5">
     <Row className="mb-3">
       <Col md={7}>
@@ -40,7 +40,7 @@ const HumanResources = props => (
                 <br />
                 <a href="tel:+12106020084">M: 210.602.0084</a>
                 <br />
-                <a href="tel:+18668669027">O: 866.866.9027</a>
+                <a href="tel:+18448799043">O: 844.879.9043</a>
               </Col>
             </Row>
             <Row>
