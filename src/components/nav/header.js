@@ -74,13 +74,6 @@ const Header = (props) => {
               >
                 Schedule
               </Link>
-              <Link
-                to="/admissions"
-                className="nav-link"
-                activeClassName="active"
-              >
-                Admissions
-              </Link>
               <NavDropdown title="Students" id="student-dropdown">
                 <Link
                   to="/financial-assistance"
@@ -104,7 +97,7 @@ const Header = (props) => {
                   Careers
                 </Link>
                 <a
-                  href="https://cittx.instructure.com/"
+                  href="https://cbet.instructure.com/"
                   target="_blank"
                   className="dropdown-item"
                   rel="noopener noreferrer"

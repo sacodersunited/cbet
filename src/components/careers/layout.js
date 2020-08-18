@@ -206,6 +206,14 @@ export default function CareersLayout({
                     Info Paper
                   </Button>
                 </a>
+                <p>
+                  For more information on careers in Biomedical Equipment Repair
+                  click here to visit the O*NET OnLine: Summary Report for:
+                  49-9062.00 Medical Equipment Repairers
+                  <a href="https://www.onetonline.org/link/summary/49-9062.00">
+                    https://www.onetonline.org/link/summary/49-9062.00
+                  </a>
+                </p>
               </section>
             </Col>
 
