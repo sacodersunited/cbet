@@ -49,7 +49,7 @@ const Footer = () => (
               Human Resources
             </Link>
 
-            <a className="d-block text-light mb-3" href={CourseCatalog}>
+            <a className="d-block text-light mb-3" href="/course-catalog">
               Course Catalog
             </a>
             <a

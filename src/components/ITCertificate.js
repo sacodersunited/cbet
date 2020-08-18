@@ -41,7 +41,7 @@ const itCert = (props) => (
               <Link to="/admissions">
                 <Button className="text-uppercase mr-3"> Apply Today</Button>
               </Link>
-              <Button variant="outline-primary" href={StudentCatalog}>
+              <Button variant="outline-primary" href="/course-catalog">
                 Course Catalog
               </Button>
             </ButtonToolbar>

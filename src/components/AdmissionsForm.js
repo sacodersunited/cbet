@@ -40,7 +40,7 @@ export default function AdmissionsForm() {
                   <b>Phone:</b> (210) 233-1102
                 </li>
                 <li>
-                  <b>Toll-Free:</b> (866) 866-9027
+                  <b>Toll-Free:</b> (844) 879-9043
                 </li>
                 <li>
                   <b>E-mail:</b>{" "}
