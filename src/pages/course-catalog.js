@@ -16,7 +16,7 @@ const Faq = () => (
   <Layout>
     <SEO title="Faq" />
     <BackgroundGraphicHeader
-      title="College of Biomedical Equipment Technology"
+      title="College of Biomedical Equipment Technology - Course Catalog"
       bgFullImageName="bmet-logo3.jpg"
     />
 
@@ -26,7 +26,7 @@ const Faq = () => (
           title="Cbet Catalog"
           src="https://cdn.flipsnack.com/widget/v2/widget.html?hash=fxu8o9jug"
           width="100%"
-          height="480"
+          height="900"
           seamless="seamless"
           scrolling="no"
           frameBorder="0"

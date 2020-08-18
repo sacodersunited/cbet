@@ -110,7 +110,7 @@ const Header = (props) => {
               </Link>
             </Nav>
             <Nav className="timer-nav">
-              <Navbar.Text className="mr-2 text-white">
+              <Navbar.Text className="mr-2 text-danger">
                 {new Date(enrollmentDeadline) >= new Date() ? (
                   <>
                     <span>Enrollment Deadline: </span>{" "}
