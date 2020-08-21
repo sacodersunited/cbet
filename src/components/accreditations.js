@@ -23,7 +23,10 @@ const Accreditations = (props) => (
           <p>
             CBET is Accredited by the Accrediting Council for Continuing
             Education & Training (ACCET). ACCET is listed by the U.S. Department
-            of Education as a nationally recognized accrediting agency.
+            of Education as a nationally recognized accrediting agency. The
+            College of Biomedical Equipment Technology has been approved to
+            participate in the National Council for State Authorization
+            Reciprocity Agreements.
           </p>
         </Col>
         <Col md={7}>
@@ -88,6 +91,22 @@ const Accreditations = (props) => (
                     margin: "0 auto",
                   }}
                   alt="tx higher education board"
+                />
+              </a>
+            </Col>
+            <Col md={3} style={{ alignSelf: "center", textAlign: "center" }}>
+              <a
+                rel="noopener noreferrer"
+                target="_blank"
+                href="https://www.nc-sara.org "
+              >
+                <Img
+                  fluid={props.images.ncLogo.childImageSharp.fluid}
+                  style={{
+                    maxWidth: "242px",
+                    margin: "0 auto",
+                  }}
+                  alt="NC Sara Seal"
                 />
               </a>
             </Col>

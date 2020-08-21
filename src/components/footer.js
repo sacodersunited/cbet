@@ -9,6 +9,7 @@ import CourseCatalog from "../documents/CBET Course Catalog_Volume XVIII_7.20.20
 import CourseCalendar from "../documents/CBET _Academic_Calendar_2020-2021_04152020.pdf"
 import PrivacyStatement from "../documents/Privacy Policy_Update.pdf"
 import StudentPolicy from "../documents/NOTICE STUDENT COMPLAINT POLICY 7.10.20.pdf"
+import NerpaPolicy from "../documents/NOTIFICATION OF RIGHTS UNDER FERPA FOR POSTSECONDARY INSTITUTIONS.pdf"
 
 const DivLink = styled.div`
   &:hover {
@@ -81,6 +82,9 @@ const Footer = () => (
             </a>
             <a href={StudentPolicy} className="d-block text-light mb-3">
               TWC Student Compliant Policy
+            </a>
+            <a href={NerpaPolicy} className="d-block text-light mb-3">
+              FERPA Notice
             </a>
           </Col>
           <Col md={2}>
