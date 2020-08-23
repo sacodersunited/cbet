@@ -57,7 +57,7 @@ const Footer = () => (
               className="d-block text-light mb-3"
               href="mailto:registrar@cbet.edu?Subject=Transcript%20Request"
             >
-              Transcripts
+              Transcript Requests
             </a>
             <DivLink
               className="d-block text-light mb-3"
