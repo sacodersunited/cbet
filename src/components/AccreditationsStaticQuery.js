@@ -27,9 +27,16 @@ const AccreditationsStaticQuery = () => (
             }
           }
         }
+        ncLogo: file(relativePath: { eq: "NC_SARA_Seal.png" }) {
+          childImageSharp {
+            fluid(maxHeight: 180, quality: 100) {
+              ...GatsbyImageSharpFluid_withWebp
+            }
+          }
+        }
       }
     `}
-    render={data => <Accreditations images={data} />}
+    render={(data) => <Accreditations images={data} />}
   />
 )
 export default AccreditationsStaticQuery
