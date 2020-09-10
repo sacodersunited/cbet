@@ -1027,7 +1027,12 @@ class ClassAdmin extends React.Component {
                       </Card.Text>
                     </Card.Footer>
                     <Card.Body>
-                      <ul style={{ listStyle: "none", padding: "15px" }}>
+                      <ul
+                        style={{
+                          listStyle: "none",
+                          padding: cbetClass.Format.length > 70 ? "" : "15px",
+                        }}
+                      >
                         <li style={{ padding: "8px" }}>
                           <Form.Group>
                             <Card.Text style={{ minHeight: "56px" }}>
@@ -1053,7 +1058,7 @@ class ClassAdmin extends React.Component {
                             </Card.Text>
                           </Form.Group>
                         </li>
-                        <li style={{ padding: "8px" }}>
+                        {/* <li style={{ padding: "8px" }}>
                           {this.state.editModeClasses[index] === true ? (
                             <ListGroup>
                               <ListGroup.Item
@@ -1081,7 +1086,7 @@ class ClassAdmin extends React.Component {
                               </ListGroup.Item>
                             </ListGroup>
                           ) : null}
-                        </li>
+                        </li> */}
                       </ul>
 
                       {(() => {
