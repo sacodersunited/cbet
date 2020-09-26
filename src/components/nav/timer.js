@@ -35,14 +35,14 @@ export default function Timer({ enrollmentEndDate }) {
     }
 
     timerComponents.push(
-      <span>
+      <span key={timeLeft[interval] + interval}>
         {timeLeft[interval]} {interval}{" "}
       </span>
     )
   })
 
   if (timerComponents.length) return timerComponents
-  return <span className>Time is up. Please register next semester.</span>
+  return <span className>Contact us to register today. New Enrollment period begins next week.</span>
 }
 
 Timer.propTypes = {

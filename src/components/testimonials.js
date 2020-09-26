@@ -46,7 +46,7 @@ const Testimonials = () => {
 
         <Slider ref={refSlick} {...settings}>
           {testimonials.map((testimonial, index) => (
-            <Card id={testimonial.id} style={{ maxWidth: "380.41px" }}>
+            <Card id={testimonial.id} style={{ maxWidth: "380.41px" }} key={testimonial.id}>
               <Img
                 fluid={testimonial.image.childImageSharp.fluid}
                 alt="biomedical technology school /biomedical college /biomedical training
