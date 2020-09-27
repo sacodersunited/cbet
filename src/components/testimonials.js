@@ -46,13 +46,13 @@ const Testimonials = () => {
 
         <Slider ref={refSlick} {...settings}>
           {testimonials.map((testimonial, index) => (
-            <Card id={testimonial.id} style={{ maxWidth: "380.41px" }}>
+            <Card id={testimonial.id} style={{ maxWidth: "380.41px", height: "60em"}} key={testimonial.id}>
               <Img
                 fluid={testimonial.image.childImageSharp.fluid}
                 alt="biomedical technology school /biomedical college /biomedical training
           /online biomedical college /Online biomedical training /online biomedical technology
           school"
-                style={{ minHeight: "320px" }}
+                style={{ minHeight: "25em" }}
               />
               <Card.Body>
                 <Card.Title>{testimonial.name}</Card.Title>
@@ -65,7 +65,7 @@ const Testimonials = () => {
                 <Card.Text className="mt-0 mb-3 font-italic">
                   {testimonial.state}
                 </Card.Text>
-                <Card.Text style={{ minHeight: "300px", maxWidth: "330px" }}>
+                <Card.Text style={{ height: "18.750em", maxWidth: "330px", overflow: "auto" }}>
                   {testimonial.comment}
                 </Card.Text>
               </Card.Body>

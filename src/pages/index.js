@@ -28,7 +28,7 @@ function CovidAlert() {
           <Alert.Link
             className="alert-link"
             target="_blank"
-            without
+            without="true"
             rel="noreferrer"
             href="https://www.cdc.gov/coronavirus/2019-ncov/index.html"
           >

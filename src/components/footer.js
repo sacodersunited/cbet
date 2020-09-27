@@ -5,7 +5,7 @@ import styled from "styled-components"
 import { FaFacebookF, FaLinkedinIn, FaUserLock } from "react-icons/fa"
 import { navigate } from "@reach/router"
 import Logo from "../../src/images/logo/bmet-seal.png"
-import CourseCalendar from "../documents/CBET _Academic_Calendar_2020-2021_04152020.pdf"
+import AcademicCalendar from "../documents/CBET_Academic_Calendar_2020-2021_08112020.pdf"
 import PrivacyStatement from "../documents/Privacy Policy_Update.pdf"
 import StudentPolicy from "../documents/NOTICE STUDENT COMPLAINT POLICY 7.10.20.pdf"
 import NerpaPolicy from "../documents/NOTIFICATION OF RIGHTS UNDER FERPA FOR POSTSECONDARY INSTITUTIONS.pdf"
@@ -42,7 +42,7 @@ const Footer = () => (
             />
           </Col>
           <Col md={2}>
-            <a href={CourseCalendar} className="d-block text-light mb-3">
+            <a href={AcademicCalendar} className="d-block text-light mb-3">
               Academic Calendar
             </a>
             <Link className="d-block text-light mb-3" to="/human-resources">
