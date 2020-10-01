@@ -183,30 +183,27 @@ const Team = props => (
               Larry Nguyen{" "}
               <em className="text-muted ml-1">CEO, Summit Imagery</em>{" "}
             </ListGroup.Item>
+
             <ListGroup.Item>
-              Brent Irwin{" "}
-              <em className="text-muted ml-1">HTM and Cyber Security Expert</em>
+            Danielle McGeary{" "}
+              <em className="text-muted ml-1">Vice President, Healthcare Technology Management, AAMI</em>{" "}
             </ListGroup.Item>
+
             <ListGroup.Item>
-              Courtney Nanny{" "}
-              <em className="text-muted ml-1">
-                National Compliance Manager, CHI National
-              </em>
+            Preston Wilson{" "}
+              <em className="text-muted ml-1">Director of Facilities Management, Citizens Medical Center</em>{" "}
             </ListGroup.Item>
+
             <ListGroup.Item>
-              Jeffrey Smoot{" "}
-              <em className="text-muted ml-1">
-                DCOmP Sci, Technology Career Institute
-              </em>
+            Robert Bundick{" "}
+              <em className="text-muted ml-1">Director of HTM and Biomedical Engineering, ProHealth Care</em>{" "}
             </ListGroup.Item>
+
             <ListGroup.Item>
-              Bob McGhin{" "}
-              <em className="text-muted ml-1">PHD, Environmental Science</em>
+            Aaron Predum{" "}
+              <em className="text-muted ml-1">Director of Biomedical Engineering, Hawaii Pacific Health</em>{" "}
             </ListGroup.Item>
-            <ListGroup.Item>
-              Cherie Brzozowski{" "}
-              <em className="text-muted ml-1">Citizens Medical Center</em>
-            </ListGroup.Item>
+            
           </ListGroup>
         </Col>
       </Row>
