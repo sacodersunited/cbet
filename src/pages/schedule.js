@@ -4,7 +4,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import CbetClassesStaticQuery from "../components/CbetClassesStaticQuery"
 import { Container, Row, Col, Button } from "react-bootstrap"
-import AcademicCalendar from "../documents/CBET_2020-2021_Academic_Calendar_v92420.pdf"
+import AcademicCalendar from "../documents/2020 - 2024 Academic Calendar.pdf"
 import StudentComplaintPolicy from "../documents/NOTICE STUDENT COMPLAINT POLICY 7.10.20.pdf"
 
 const Schedule = () => {
