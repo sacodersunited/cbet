@@ -18,9 +18,13 @@ const FancyForm = styled.div`
 `
 
 export default function AdmissionsForm() {
-  UseScript(
-    "https://cbet.quickschools.com/sms/es/application?divId=application-form"
-  )
+  if (typeof window !== "undefined") {
+    if (typeof document !== `undefined`) {
+      UseScript(
+        "https://cbet.quickschools.com/sms/es/application?divId=application-form"
+      )
+    }
+  }
 
   return (
     <>
@@ -50,7 +54,7 @@ export default function AdmissionsForm() {
                   <b>Phone:</b> (210) 233-1102
                 </li>
                 <li>
-                  <b>Toll-Free:</b> (866) 866-9027
+                  <b>Toll-Free:</b> (844) 879-9043
                 </li>
                 <li>
                   <b>E-mail:</b>{" "}

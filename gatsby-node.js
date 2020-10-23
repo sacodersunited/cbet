@@ -1,4 +1,6 @@
 // ./gatsby-node.js
+const path = require("path")
+
 const createPages = ({ graphql, actions: { createPage } }, type) =>
   new Promise((resolve, reject) => {
     if (type === "CbetContent") {
@@ -15,7 +17,7 @@ const createPages = ({ graphql, actions: { createPage } }, type) =>
               }
             }
           }
-        `).then(result => {
+        `).then((result) => {
           if (result.errors) {
             reject(result.errors)
             return
@@ -50,7 +52,7 @@ const createPages = ({ graphql, actions: { createPage } }, type) =>
     }
   })
 
-exports.createPages = async props => {
+exports.createPages = async (props) => {
   await createPages(props, "CbetContent")
 }
 
@@ -68,7 +70,12 @@ exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
       module: {
         rules: [
           {
-            test: /auth0-js/,
+            test: /msal/,
+            include: path.resolve(__dirname, "node_modules/msal/dist"),
+            use: loaders.null(),
+          },
+          {
+            test: /suneditor-react/,
             use: loaders.null(),
           },
         ],

@@ -12,7 +12,7 @@ import { UseScript } from "../../hooks/use-script"
 // future terms for 2020
 let enrollmentDeadline = "2020-08-03"
 // let enrollmentDeadline = "2020-09-14"
-// let enrollmentDeadline = "2020-11-02"
+let enrollmentDeadline = "2020-11-02"
 // let enrollmentDeadline = "2020-12-28"
 
 const StyledNavDropdown = styled(NavDropdown)`
@@ -24,22 +24,15 @@ const StyledNavDropdown = styled(NavDropdown)`
   }
 `
 
-const FancyForm = styled.div`
-  .qsform button {
-    color: #fff;
-    background-color: #007bff;
-    border-color: #007bff;
-    &:hover {
-      color: #fff;
-      background-color: #0069d9;
-      border-color: #0062cc;
+const Header = (props) => {
+  if (typeof window !== "undefined") {
+    if (typeof document !== `undefined`) {
+      !props.isAdmission &&
+        UseScript(
+          "https://cbet.quickschools.com/sms/es/enquiry?divId=enquiry-form"
+        )
     }
   }
-`
-
-const Header = (props) => {
-  !props.isAdmission &&
-    UseScript("https://cbet.quickschools.com/sms/es/enquiry?divId=enquiry-form")
 
   return (
     <>
@@ -82,13 +75,6 @@ const Header = (props) => {
               >
                 Schedule
               </Link>
-              <Link
-                to="/admissions"
-                className="nav-link"
-                activeClassName="active"
-              >
-                Admissions
-              </Link>
               <NavDropdown title="Students" id="student-dropdown">
                 <Link
                   to="/financial-assistance"
@@ -112,7 +98,7 @@ const Header = (props) => {
                   Careers
                 </Link>
                 <a
-                  href="https://cittx.instructure.com/"
+                  href="https://cbet.instructure.com/"
                   target="_blank"
                   className="dropdown-item"
                   rel="noopener noreferrer"
@@ -125,7 +111,7 @@ const Header = (props) => {
               </Link>
             </Nav>
             <Nav className="timer-nav">
-              <Navbar.Text className="mr-2 text-white">
+              <Navbar.Text className="mr-2 text-danger">
                 {new Date(enrollmentDeadline) >= new Date() ? (
                   <>
                     <span>Enrollment Deadline: </span>{" "}

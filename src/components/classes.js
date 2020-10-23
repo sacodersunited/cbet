@@ -8,7 +8,19 @@ const ClassesSection = styled.section`
   padding: 96px 0;
 `
 
-const Classes = props => (
+const CardTitle = styled(Card.Title)`
+    @media(min-width: 35em){
+      min-height: 5em;
+    }
+`
+
+const CardText = styled(Card.Text)`
+  @media(min-width: 35em){
+    min-height: 15em;
+  }
+`
+
+const Classes = (props) => (
   <ClassesSection>
     <Container>
       <h2 className="mb-5" style={{ textTransform: "uppercase" }}>
@@ -23,12 +35,15 @@ const Classes = props => (
           school"
           />
           <Card.Body>
-            <Card.Title>BMET Degree</Card.Title>
+            <CardTitle>
+              Associate of Applied Science Degree in Biomedical Equipment
+              Technology – IDL
+            </CardTitle>
             <Card.Text>
-              The BMET Degree in Biomedical Equipment Technology is an
-              interactive distance learning program designed to prepare the
-              student to seek a variety of entry-level positions in the
-              healthcare technology and management field.
+              The Associate of Applied Science Degree in Biomedical Equipment
+              Technology – IDL is an interactive distance learning program
+              designed to prepare the student to seek a variety of entry-level
+              positions in the healthcare technology and management field.
             </Card.Text>
             <Link to="/bmet-degree">
               <Button className="mt-1 text-uppercase" variant="primary" block>
@@ -45,12 +60,12 @@ const Classes = props => (
           school"
           />
           <Card.Body>
-            <Card.Title>BMET Certificate</Card.Title>
-            <Card.Text style={{ minHeight: "215px" }}>
+            <CardTitle>Biomedical Equipment Technician Certificate</CardTitle>
+            <CardText>
               The Biomedical Equipment Technician Certificate program provides a
               comprehensive, overview of the biomedical equipment and healthcare
               technology management industry.
-            </Card.Text>
+            </CardText>
             <Link to="/bmet-certificate">
               <Button className="mt-1 text-uppercase" variant="primary" block>
                 Learn More
@@ -66,11 +81,11 @@ const Classes = props => (
           school"
           />
           <Card.Body>
-            <Card.Title>IT & Networking</Card.Title>
-            <Card.Text style={{ minHeight: "215px" }}>
+            <CardTitle>IT & Networking</CardTitle>
+            <CardText>
               This program is designed to help students prepare for the CompTIA
               A+ and CompTIA Network+ Certification Exam.
-            </Card.Text>
+            </CardText>
             <Link to="/it-certificate">
               <Button className="mt-1 text-uppercase" variant="primary" block>
                 Learn More
@@ -86,11 +101,11 @@ const Classes = props => (
           school"
           />
           <Card.Body>
-            <Card.Title>Specialty Programs</Card.Title>
-            <Card.Text style={{ minHeight: "215px" }}>
+            <CardTitle>Specialty Programs</CardTitle>
+            <CardText>
               The Specialty Program is a custom program geared for your specific
               needs.
-            </Card.Text>
+            </CardText>
             <Button
               className="mt-1 text-uppercase"
               variant="primary"

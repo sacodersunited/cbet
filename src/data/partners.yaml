@@ -114,3 +114,13 @@
   link: http://www.workforceoutcomes.com
   img: logos/Wellness4Warriors Image.jpeg
   colWidth: "2"
+- hihtm:
+  name: HTM Associates
+  link: https://www.hihtm.com
+  img: logos/hiHtmLogo.png
+  colWidth: "3"
+- tennovaClarksville:
+  name: Tennova Clarksville
+  link: https://www.tennovaclarksville.com/
+  img: logos/TennovaLogoHoriz_Color.jpg
+  colWidth: "3"

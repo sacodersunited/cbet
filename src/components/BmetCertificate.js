@@ -16,6 +16,7 @@ import Slide from "react-reveal/Slide"
 import VideoCarousel from "../components/VideoCarousel"
 import { FaRegEnvelope } from "react-icons/fa"
 import BMETVid from "../video/cbetCert-SD.mp4"
+import StudentCatalog from "../documents/CBET Course Catalog_Volume XVIII_7.20.20.pdf"
 
 const ProgramDetail = styled.div`
   padding: 46px 0 46px 40px;
@@ -30,7 +31,7 @@ looking to get your BMET certificate? College of Biomedical Equipment Technology
 the place for you. Visit our website to learn more!"
     />
     <VideoCarousel
-      title="BMET Certificate"
+      title=" Biomedical Equipment Technician Certificate"
       descr="The Biomedical Equipment Technician Certificate program provides a comprehensive, overview of the biomedical equipment and healthcare technology management industry."
       vidSrc={BMETVid}
     />
@@ -40,54 +41,49 @@ the place for you. Visit our website to learn more!"
         <Col md={7}>
           <Fade left>
             <h2 className="display-5 text-uppercase">
-              BIOMEDICAL EQUIPMENT TECHNICIAN (BMET) <br />
+              BIOMEDICAL EQUIPMENT TECHNICIAN (BMET) CERTIFICATE <br />
               <small className="text-muted font-weight-light">
-                25 WEEK CERTIFICATE COURSE
+                31 WEEK CERTIFICATE COURSE
               </small>
             </h2>
             <p className="lead">
-              The Biomedical Equipment Technician (BMET) certificate program is
-              a 25-week intensive academic program delivering theoretical
-              instruction via online interactive distance learning. Students
-              enrolled in the certificate program are not required to
-              participate in an externship. Our training system provides
-              interactive instruction through our Canvas Learning Management
-              System and includes online meetings via Zoom® Video Conferencing.
-              Classes completed as part of the BMET Certificate course are
-              transferable to the BMET AAS Degree Program.
+              The Biomedical Equipment Technician Certificate program provides a
+              comprehensive overview of the biomedical equipment and healthcare
+              technology management industry. Students study hardware, software,
+              and troubleshooting for medical devices. Training includes basic
+              electronics, schematics, pneumatics, hydraulics, customer service
+              skills, environmental of care, EOC training, data management
+              systems, and general biomedical equipment troubleshooting.
+              Students garner the skills and working knowledge to perform
+              medical equipment maintenance services characterized by repair or
+              module replacement; repair of general medical equipment
+              malfunctions; adjustment of medical equipment utilizing standard
+              and special-purpose tools and electronic test equipment; conduct
+              preventive maintenance checks and services; and conduct
+              calibration, verification, certification, and electrical safety
+              tests.
             </p>
             <ButtonToolbar>
               <Link to="/admissions">
                 <Button className="text-uppercase mr-3"> Apply Today</Button>
               </Link>
-              <Link to="/catalog">
-                <Button variant="outline-primary">Course Catalog</Button>
-              </Link>
+              <Button variant="outline-primary" href="/course-catalog">
+                Course Catalog
+              </Button>
             </ButtonToolbar>
           </Fade>
         </Col>
         <Col md={4}>
           <Card>
             <Img
-              fluid={props.images.bIsham.childImageSharp.fluid}
+              fluid={props.images.agillins.childImageSharp.fluid}
               alt="biomedical equipment technology
             degree online /biomedical training degree /biomedical training degree online /BMET
             degree"
             />
             <Card.Body>
-              <Card.Title>Brent Isham</Card.Title>
-              <Card.Text>
-                Welcome to the College of Biomedical Equipment Technology’s
-                Certificate Program. My name is Brent Isham, I am the senior
-                Math and Electronics instructor. Before joining the college in
-                2018, I taught Algebra, Geometry, and Pre-Calculus for a high
-                school in San Antonio, Texas. I have a B.S. in Mathematics from
-                the University of Texas at San Antonio and an A.A.S. in
-                Electronics Engineering Technology from ITT Technical Institute.
-                I am looking forward to assisting you along your journey to
-                complete your education and advance your career as a biomedical
-                equipment technician.
-              </Card.Text>
+              <Card.Title>Anntonett Gillins</Card.Title>
+              <Card.Text/>
               <FaRegEnvelope />{" "}
               <a
                 target="_blank"
@@ -109,9 +105,12 @@ the place for you. Visit our website to learn more!"
           <Fade>
             <Col md="8">
               <h4>Program Cost</h4>
-              <p>$6,095</p>
+              <p>
+                $6,095 ($5995 Tuition, $100 Application Fee, Books and Supplies
+                are Included in Tuition)
+              </p>
               <h4>Program Length</h4>
-              <p>7.5 Months or 480 hours</p>
+              <p>31 weeks or 480 hours</p>
               <h4>Student to Teacher Ratio</h4>
               <p>30:1</p>
             </Col>
@@ -135,13 +134,11 @@ the place for you. Visit our website to learn more!"
           <Slide left>
             <h4>Course Content</h4>
             <ul>
-              <li>Medical Terminology </li>
-              <li>Basic Anatomy</li>
-              <li>Organizational Behavior in Healthcare</li>
-              <li>Introduction to Computer Office Bmet program</li>
-              <li>Introduction to Computer Networking</li>
-              <li>Introduction to Electronic Circuits</li>
-              <li>Biomedical Equipment Technology</li>
+              <li>Medical Terminology & Anatomy</li>
+              <li>Electronics I</li>
+              <li>Networking Fundamentals I</li>
+              <li>Biomedical Equipment Technology I</li>
+              <li>Capstone</li>
             </ul>
           </Slide>
         </Col>
@@ -150,6 +147,45 @@ the place for you. Visit our website to learn more!"
             fluid={props.images.bmet3.childImageSharp.fluid}
             alt="A student taking a BMET certifications course"
           />
+        </Col>
+      </Row>
+      <Row>
+        <Col>
+          <h4>PROGRAM OBJECTIVES</h4>
+          <p>
+            This program equips students with skills necessary to obtain
+            entry-level jobs at hospitals, Original Equipment Manufacturers
+            (OEM) who specialize in making medical equipment, and Independent
+            Service Organizations (ISO) who source contracts for private
+            biomedical companies.
+          </p>
+
+          <h4>PERFORMANCE OBJECTIVES</h4>
+          <p>
+            The program performance objectives include repair and module
+            replacement; simple printed circuit board repair; repair of general
+            medical or optical equipment malfunctions; adjustment of medical, or
+            optical equipment utilizing common and special purpose tools;
+            testing and measuring diagnostic equipment; performing preventive
+            maintenance checks and services; conducting calibration,
+            verification, certification, and electrical safety tests.
+          </p>
+
+          <h4>CAREER OBJECTIVES</h4>
+          <p>
+            This program prepares students to work in positions, such as
+            Biomedical Equipment Technician (maintenance and repairs),
+            Specialized Equipment Field Service, and Medical Equipment &
+            Instrumentation Technician. Also, Sales, Technical Support,
+            Consulting, and Management. O*NET: 49-9062.00 / CIP Number: 15.0401
+          </p>
+
+          <h4>CREDENTIAL AWARDED UPON COMPLETION/GRADUATION</h4>
+          <p>
+            A Certificate of Completion will be awarded after the successful
+            completion of the program. The student to teacher ratio for lecture
+            and lab = 30:1
+          </p>
         </Col>
       </Row>
     </Container>

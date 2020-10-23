@@ -25,12 +25,13 @@ const Programs = () => (
                 size={24}
                 style={{ verticalAlign: "baseline" }}
               />{" "}
-              AAS Degree (BMET)
+              Associate of Applied Science Degree in Biomedical Equipment
+              Technology – IDL
             </h5>
             <p>
               <b>Associate of Applied Science Degree</b> - The Associate of
-              Applied Science Degree in Biomedical Equipment Technology is an
-              interactive distance learning program designed to prepare the
+              Applied Science Degree in Biomedical Equipment Technology – IDL is
+              an interactive distance learning program designed to prepare the
               student to seek a variety of entry-level positions in the
               healthcare technology and management field. Students undergo
               training in electronics and computer technology, with an emphasis
@@ -47,7 +48,7 @@ const Programs = () => (
           <Slide right>
             <h5 style={{ textTransform: "uppercase" }}>
               <FaRocket size={24} style={{ verticalAlign: "text-bottom" }} />{" "}
-              Certificate (BMET)
+              Biomedical Equipment Technician Certificate
             </h5>
             <p>
               <b>Certificate Program</b> – The Biomedical Equipment Technician

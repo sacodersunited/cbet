@@ -11,6 +11,7 @@ import Img from "gatsby-image"
 import Fade from "react-reveal/Fade"
 import Slide from "react-reveal/Slide"
 import { Link } from "gatsby"
+import StudentCatalog from "../documents/CBET Course Catalog_Volume XVIII_7.20.20.pdf"
 import styled from "styled-components"
 
 const ProgramDetail = styled.div`
@@ -40,9 +41,9 @@ const itCert = (props) => (
               <Link to="/admissions">
                 <Button className="text-uppercase mr-3"> Apply Today</Button>
               </Link>
-              <Link to="/catalog">
-                <Button variant="outline-primary">Course Catalog</Button>
-              </Link>
+              <Button variant="outline-primary" href="/course-catalog">
+                Course Catalog
+              </Button>
             </ButtonToolbar>
           </Fade>
         </Col>

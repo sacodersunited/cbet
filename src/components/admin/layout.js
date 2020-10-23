@@ -1,7 +1,7 @@
 import React from "react"
 import { Button } from "react-bootstrap"
-import { AzureAD, AuthenticationState } from "react-aad-msal"
 import { signInAuthProvider } from "./../authProvider"
+import { AzureAD, AuthenticationState } from "react-aad-msal"
 import {
   Container,
   Row,
@@ -98,6 +98,7 @@ export default function Layout({ title, category, clickNew, children }) {
     }
   }
 
+  // if (typeof document !== `undefined`) {
   return (
     <AzureAD provider={signInAuthProvider} forceLogin={true}>
       {({ login, logout, authenticationState, error, accountInfo }) => {
@@ -114,12 +115,12 @@ export default function Layout({ title, category, clickNew, children }) {
                   >
                     <Navbar expand="lg" variant="light" bg="light">
                       {/* <Form className="w-75" inline>
-                        <FormControl
-                          type="text"
-                          placeholder="&#x1F50D; Search for jobs, events, and posts"
-                          className="mr-sm-2 w-100"
-                        />
-                      </Form> */}
+                    <FormControl
+                      type="text"
+                      placeholder="&#x1F50D; Search for jobs, events, and posts"
+                      className="mr-sm-2 w-100"
+                    />
+                  </Form> */}
                       <Navbar.Toggle />
                       <Navbar.Collapse className="justify-content-end">
                         <NavDropdown
@@ -150,15 +151,15 @@ export default function Layout({ title, category, clickNew, children }) {
                           </Button>
                         </Col>
                         {/* <Col md={2}>
-                          <p>
-                            Filter One <FaChevronDown />
-                          </p>
-                        </Col>
-                        <Col md={2}>
-                          <p>
-                            Filter Two <FaChevronDown />
-                          </p>
-                        </Col> */}
+                      <p>
+                        Filter One <FaChevronDown />
+                      </p>
+                    </Col>
+                    <Col md={2}>
+                      <p>
+                        Filter Two <FaChevronDown />
+                      </p>
+                    </Col> */}
                       </Row>
                     </Container>
                     {children}
@@ -196,4 +197,7 @@ export default function Layout({ title, category, clickNew, children }) {
       }}
     </AzureAD>
   )
+  // } else {
+  //   return ""
+  // }
 }

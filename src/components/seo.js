@@ -35,14 +35,6 @@ function SEO({ description, lang, meta, keywords, title }) {
       }}
       title={title}
       titleTemplate={title}
-      // script={[
-      //   {
-      //     src:
-      //       "https://cbet.quickschools.com/sms/es/enquiry?divId=enquiry-form",
-      //     type: "text/javascript",
-      //     async: true,
-      //   },
-      // ]}
       link={[
         {
           rel: "stylesheet",
