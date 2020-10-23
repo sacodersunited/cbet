@@ -10,7 +10,7 @@ import { UseScript } from "../../hooks/use-script"
 
 // let enrollmentDeadline = "2020-06-22"
 // future terms for 2020
-// let enrollmentDeadline = "2020-08-03"
+let enrollmentDeadline = "2020-08-03"
 // let enrollmentDeadline = "2020-09-14"
 let enrollmentDeadline = "2020-11-02"
 // let enrollmentDeadline = "2020-12-28"
@@ -33,6 +33,7 @@ const Header = (props) => {
         )
     }
   }
+
   return (
     <>
       <Navbar bg="dark" variant="dark" expand="lg">
@@ -139,14 +140,14 @@ const Header = (props) => {
                   </p>
                 </div>
 
-                <div
+                <FancyForm
                   id="enquiry-form"
                   style={{ padding: "10px 40px", minWidth: "500px" }}
                 >
                   <p className="lead">
                     Find out how CBET can help you succeed with your future
                   </p>
-                </div>
+                </FancyForm>
               </StyledNavDropdown>
             </Nav>
           </Navbar.Collapse>

@@ -2,6 +2,20 @@ import React from "react"
 import { Container, Button, Col, Row } from "react-bootstrap"
 import BackgroundGraphicHeader from "./BackgroundGraphicHeader"
 import { UseScript } from "../hooks/use-script"
+import styled from "styled-components"
+
+const FancyForm = styled.div`
+  .qsform button {
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+    &:hover {
+      color: #fff;
+      background-color: #0069d9;
+      border-color: #0062cc;
+    }
+  }
+`
 
 export default function AdmissionsForm() {
   if (typeof window !== "undefined") {
@@ -21,7 +35,7 @@ export default function AdmissionsForm() {
       <Container className="mb-5">
         <Row className="mb-3">
           <Col md={6}>
-            <div id="application-form" />
+            <FancyForm id="application-form" />
           </Col>
           <Col md={6}>
             <div style={{ marginLeft: "0px" }}>
@@ -50,7 +64,7 @@ export default function AdmissionsForm() {
                 </li>
                 <li>
                   <a href="mailto:admissiondept@cbet.edu">
-                    <Button>Contact Us</Button>
+                    <Button variant="outline-primary">Contact Us</Button>
                   </a>
                 </li>
               </ul>
