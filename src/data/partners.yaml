@@ -124,6 +124,11 @@
   link: https://www.tennovaclarksville.com/
   img: logos/TennovaLogoHoriz_Color.jpg
   colWidth: "3"
+- med:
+  name: Medical Equipment Doctor
+  link: https://www.medequipdoc.com/
+  img: logos/med.jpg
+  colWidth: "2"
 - HMS:
   name: HMS
   link: https://www.hmshealth.com
