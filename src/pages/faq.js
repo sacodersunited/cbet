@@ -77,9 +77,11 @@ const Faq = () => (
             <Col sm={6}>
               <strong>A5</strong> – CBET is accredited by the Accrediting
               Council for Continuing Education and Training (
-              <a href="https://www.ACCET.ORG">www.ACCET.ORG</a>). To learn more
-              about transferability of credits please review the college
-              catalog.
+              <a href="https://www.accet.org" target="_blank" rel="noreferrer">
+                www.accet.org
+              </a>
+              ). To learn more about transferability of credits please review
+              the college catalog.
             </Col>
           </Row>
           <Row style={{ marginBottom: "15px" }}>

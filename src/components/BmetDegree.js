@@ -16,7 +16,7 @@ import Slide from "react-reveal/Slide"
 import VideoCarousel from "../components/VideoCarousel"
 import { FaRegEnvelope } from "react-icons/fa"
 import BMETVid from "../video/cbetDegree-SD.mp4"
-import StudentCatalog from "../documents/CBET Course Catalog_Volume XVII_7.9.20.pdf"
+import StudentCatalog from "../documents/CBET Course Catalog_Volume XVIII_7.20.20.pdf"
 
 const ProgramDetail = styled.div`
   padding: 46px 0 46px 40px;
@@ -62,7 +62,7 @@ Technology. Visit our website to apply today!"
               <Link to="/admissions">
                 <Button className="text-uppercase mr-3"> Apply Today</Button>
               </Link>
-              <Button variant="outline-primary" href={StudentCatalog}>
+              <Button variant="outline-primary" href="/course-catalog">
                 Course Catalog
               </Button>
             </ButtonToolbar>
