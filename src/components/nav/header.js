@@ -8,12 +8,16 @@ import styled from "styled-components"
 import Moment from "react-moment"
 import { UseScript } from "../../hooks/use-script"
 
-// let enrollmentDeadline = "2020-06-22"
-// future terms for 2020
-let enrollmentDeadline = "2020-08-03"
-// let enrollmentDeadline = "2020-09-14"
-let enrollmentDeadline = "2020-11-02"
-// let enrollmentDeadline = "2020-12-28"
+// future terms for 2021
+const enrollmentDeadline = "2020-12-28"
+// const enrollmentDeadline = "2021-02-08"
+// const enrollmentDeadline = "2021-03-22"
+// const enrollmentDeadline = "2021-05-03"
+// const enrollmentDeadline = "2021-06-14"
+// const enrollmentDeadline = "2021-08-02"
+// const enrollmentDeadline = "2021-09-13"
+// const enrollmentDeadline = "2021-10-25"
+// const enrollmentDeadline = "2021-12-19"
 
 const StyledNavDropdown = styled(NavDropdown)`
   border: 1px solid white;

@@ -15,7 +15,7 @@ import Fade from "react-reveal/Fade"
 import Slide from "react-reveal/Slide"
 import VideoCarousel from "../components/VideoCarousel"
 import { FaRegEnvelope } from "react-icons/fa"
-import BMETVid from "../video/cbetCert-SD.mp4"
+import BMETVid from "../video/cbet-cert.mp4"
 import StudentCatalog from "../documents/CBET Course Catalog_Volume XVIII_7.20.20.pdf"
 
 const ProgramDetail = styled.div`
@@ -83,7 +83,7 @@ the place for you. Visit our website to learn more!"
             />
             <Card.Body>
               <Card.Title>Anntonett Gillins</Card.Title>
-              <Card.Text/>
+              <Card.Text />
               <FaRegEnvelope />{" "}
               <a
                 target="_blank"
