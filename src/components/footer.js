@@ -51,7 +51,7 @@ const Footer = () => (
 
             <a className="d-block text-light mb-3" href="/course-catalog">
               Course Catalog
-            </a>
+            </Link>
             <a
               className="d-block text-light mb-3"
               href="mailto:registrar@cbet.edu?Subject=Transcript%20Request"
