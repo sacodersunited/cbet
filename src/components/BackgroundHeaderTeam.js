@@ -8,7 +8,7 @@ import Fade from "react-reveal/Fade"
 const ValuesBG = styled.section`
   background-color: #2c3e50;
   background: linear-gradient(90deg, #1cb5e0 0%, #000851 100%);
-  background-image: url(${props => props.imgsrc || null});
+  background-image: url(${(props) => props.imgsrc || null});
   background-size: cover;
   color: whitesmoke;
 `
@@ -26,7 +26,7 @@ const BackgroundHeaderTeam = () => (
         }
       }
     `}
-    render={data => {
+    render={(data) => {
       const imageData = data.desktop.childImageSharp.fluid
       return (
         <ValuesBG>
@@ -50,14 +50,14 @@ const BackgroundHeaderTeam = () => (
                     </p>
                   </Fade>
                   <h5>
-                    1. Committed to Delivering a World-Class Education on Demand
+                    1. Committed to Delivering the Highest Quality Education
                   </h5>
                   <p>
                     We are committed to providing world-class education,
                     training, and career services in an online format,
-                    emphasizing applied instruction focused on state of the art
-                    equipment, led by skilled faculty with real-world
-                    experience.
+                    emphasizing applied instruction focused on both general and
+                    advanced biomedical equipment, led by skilled faculty with
+                    real-world experience.
                   </p>
                   <h5>
                     2. Committed to Lifelong Learning and the Professional
