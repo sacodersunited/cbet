@@ -15,7 +15,7 @@ import Fade from "react-reveal/Fade"
 import Slide from "react-reveal/Slide"
 import VideoCarousel from "../components/VideoCarousel"
 import { FaRegEnvelope } from "react-icons/fa"
-import BMETVid from "../video/cbetCert-SD.mp4"
+import BMETVid from "../video/cbet-cert.mp4"
 import StudentCatalog from "../documents/CBET Course Catalog_Volume XVIII_7.20.20.pdf"
 
 const ProgramDetail = styled.div`
@@ -83,18 +83,7 @@ the place for you. Visit our website to learn more!"
             />
             <Card.Body>
               <Card.Title>Anntonett Gillins</Card.Title>
-              {/* <Card.Text>
-                Welcome to the College of Biomedical Equipment Technology’s
-                Biomedical Equipment Technician Certificate Program. My name is
-                Brent Isham, I am the senior Math and Electronics instructor.
-                Before joining the college in 2018, I taught Algebra, Geometry,
-                and Pre-Calculus for a high school in San Antonio, Texas. I have
-                a B.S. in Mathematics from the University of Texas at San
-                Antonio and an A.A.S. in Electronics Engineering Technology from
-                ITT Technical Institute. I am looking forward to assisting you
-                along your journey to complete your education and advance your
-                career as a biomedical equipment technician.
-              </Card.Text> */}
+              <Card.Text />
               <FaRegEnvelope />{" "}
               <a
                 target="_blank"
@@ -145,14 +134,11 @@ the place for you. Visit our website to learn more!"
           <Slide left>
             <h4>Course Content</h4>
             <ul>
-              <li>Medical Terminology </li>
-              <li>Basic Anatomy</li>
-              <li>Organizational Behavior in Healthcare</li>
-              <li>Introduction to Computer Office Bmet program</li>
-              <li>Introduction to Computer Networking</li>
-              <li>Introduction to Electronic Circuits</li>
-              <li>Biomedical Equipment Technology</li>
-              <li>Externship/Capstone</li>
+              <li>Medical Terminology & Anatomy</li>
+              <li>Electronics I</li>
+              <li>Networking Fundamentals I</li>
+              <li>Biomedical Equipment Technology I</li>
+              <li>Capstone</li>
             </ul>
           </Slide>
         </Col>

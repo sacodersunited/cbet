@@ -8,6 +8,18 @@ const ClassesSection = styled.section`
   padding: 96px 0;
 `
 
+const CardTitle = styled(Card.Title)`
+    @media(min-width: 35em){
+      min-height: 5em;
+    }
+`
+
+const CardText = styled(Card.Text)`
+  @media(min-width: 35em){
+    min-height: 15em;
+  }
+`
+
 const Classes = (props) => (
   <ClassesSection>
     <Container>
@@ -23,10 +35,10 @@ const Classes = (props) => (
           school"
           />
           <Card.Body>
-            <Card.Title>
+            <CardTitle>
               Associate of Applied Science Degree in Biomedical Equipment
               Technology – IDL
-            </Card.Title>
+            </CardTitle>
             <Card.Text>
               The Associate of Applied Science Degree in Biomedical Equipment
               Technology – IDL is an interactive distance learning program
@@ -48,12 +60,12 @@ const Classes = (props) => (
           school"
           />
           <Card.Body>
-            <Card.Title>Biomedical Equipment Technician Certificate</Card.Title>
-            <Card.Text style={{ minHeight: "240px" }}>
+            <CardTitle>Biomedical Equipment Technician Certificate</CardTitle>
+            <CardText>
               The Biomedical Equipment Technician Certificate program provides a
               comprehensive, overview of the biomedical equipment and healthcare
               technology management industry.
-            </Card.Text>
+            </CardText>
             <Link to="/bmet-certificate">
               <Button className="mt-1 text-uppercase" variant="primary" block>
                 Learn More
@@ -69,11 +81,11 @@ const Classes = (props) => (
           school"
           />
           <Card.Body>
-            <Card.Title>IT & Networking</Card.Title>
-            <Card.Text style={{ minHeight: "240px" }}>
+            <CardTitle>IT & Networking</CardTitle>
+            <CardText>
               This program is designed to help students prepare for the CompTIA
               A+ and CompTIA Network+ Certification Exam.
-            </Card.Text>
+            </CardText>
             <Link to="/it-certificate">
               <Button className="mt-1 text-uppercase" variant="primary" block>
                 Learn More
@@ -89,11 +101,11 @@ const Classes = (props) => (
           school"
           />
           <Card.Body>
-            <Card.Title>Specialty Programs</Card.Title>
-            <Card.Text style={{ minHeight: "240px" }}>
+            <CardTitle>Specialty Programs</CardTitle>
+            <CardText>
               The Specialty Program is a custom program geared for your specific
               needs.
-            </Card.Text>
+            </CardText>
             <Button
               className="mt-1 text-uppercase"
               variant="primary"

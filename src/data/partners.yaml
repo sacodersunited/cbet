@@ -124,3 +124,18 @@
   link: https://www.tennovaclarksville.com/
   img: logos/TennovaLogoHoriz_Color.jpg
   colWidth: "3"
+- med:
+  name: Medical Equipment Doctor
+  link: https://www.medequipdoc.com/
+  img: logos/med.jpg
+  colWidth: "2"
+- HMS:
+  name: HMS
+  link: https://www.hmshealth.com
+  img: logos/HMS Logo.png
+  colWidth: "2"
+- Black Bear:
+  name: Black Bear
+  link: https://www.blackbear.tech
+  img: logos/Black Bear Logo.png
+  colWidth: "3"
