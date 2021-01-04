@@ -12,7 +12,7 @@ import { UseScript } from "../../hooks/use-script"
 // future terms for 2020
 // let enrollmentDeadline = "2020-08-03"
 // let enrollmentDeadline = "2020-09-14"
-let enrollmentDeadline = "2020-11-02"
+let enrollmentDeadline = "2021-02-08"
 // let enrollmentDeadline = "2020-12-28"
 
 const StyledNavDropdown = styled(NavDropdown)`
