@@ -8,9 +8,11 @@ import styled from "styled-components"
 import Moment from "react-moment"
 import { UseScript } from "../../hooks/use-script"
 
-// future terms for 2021
-const enrollmentDeadline = "2020-12-28"
-// const enrollmentDeadline = "2021-02-08"
+// let enrollmentDeadline = "2020-06-22"
+// future terms for 2020
+// let enrollmentDeadline = "2020-08-03"
+// let enrollmentDeadline = "2020-09-14"
+const enrollmentDeadline = "2021-02-08"
 // const enrollmentDeadline = "2021-03-22"
 // const enrollmentDeadline = "2021-05-03"
 // const enrollmentDeadline = "2021-06-14"
