@@ -144,3 +144,8 @@
   link: https://www.cheyenneregional.org/careers/job-list/allied-health/
   img: logos/CheyenneRegionalLogo.png
   colWidth: "3"
+- TMG:
+  name: TMG
+  link: https://themccgroup.com
+  img: logos/tmg.png
+  colWidth: "3"
