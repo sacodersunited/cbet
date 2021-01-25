@@ -156,6 +156,7 @@ const Footer = () => (
     <Navbar bg="dark" variant="dark">
       <Navbar.Brand href="https://sacodersunited.com" style={{ color: "grey" }}>
         &copy;{"sacodersunited"}
+        <div className="AuthorizeNetSeal" />
       </Navbar.Brand>
     </Navbar>
   </>

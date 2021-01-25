@@ -90,7 +90,12 @@ function SEO({ description, lang, meta, keywords, title }) {
             : []
         )
         .concat(meta)}
-    />
+    >
+      <script>
+        var ANS_customer_id="99ab4f3f-9725-46ec-8c74-e9e512ba8d79";
+      </script>
+      <script src="https://verify.authorize.net/anetseal/seal.js" />
+    </Helmet>
   )
 }
 
