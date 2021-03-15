@@ -1,6 +1,6 @@
 import React from "react"
 import LayoutDetail from "../components/layoutDetail"
-import { UseScript } from "../../hooks/use-script"
+import { UseScript } from "../hooks/use-script"
 
 const PurdueCrcst = (props) => {
   if (typeof window !== "undefined") {
