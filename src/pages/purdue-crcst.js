@@ -1,5 +1,5 @@
 import React from "react"
-import LayoutDetail from "../components/layoutDetail"
+import Layout from "../components/layout"
 import { UseScript } from "../hooks/use-script"
 
 const PurdueCrcst = (props) => {
@@ -9,7 +9,7 @@ const PurdueCrcst = (props) => {
     }
   }
   return (
-    <LayoutDetail>
+    <Layout>
       <iframe
         id="typeform-full"
         title="typeformfull"
@@ -19,7 +19,7 @@ const PurdueCrcst = (props) => {
         allow="camera; microphone; autoplay; encrypted-media;"
         src="https://form.typeform.com/to/zoUUeneK?typeform-medium=embed-snippet"
       ></iframe>
-    </LayoutDetail>
+    </Layout>
   )
 }
 
