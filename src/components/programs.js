@@ -55,17 +55,17 @@ const Programs = () => (
               Certificate program provides a comprehensive, overview of the
               biomedical equipment and healthcare technology management
               industry. Students study hardware, software, and troubleshooting
-              for medical devices. Training includes basic electronics,
-              schematics, pneumatics, hydraulics, customer service skills,
-              environmental of care, EOC training, data management systems, and
-              general biomedical equipment troubleshooting. Students garner the
-              skills and working knowledge to perform medical equipment
-              maintenance services characterized by repair or module
-              replacement; repair of general medical equipment malfunctions;
-              adjustment of medical equipment utilizing common and special
-              purpose tools and electronic test equipment; conduct preventive
-              maintenance checks and services; and conduct calibration,
-              verification, certification and electrical safety tests.
+              for medical devices. Students will apply skills acquired
+              throughout their coursework in basic electronics, schematics,
+              pneumatics, hydraulics, customer service, environment of care
+              (EOC), and troubleshooting. Students garner the skills and working
+              knowledge to perform medical equipment maintenance services
+              characterized by repair or module replacement; repair of general
+              medical equipment malfunctions; adjustment of medical equipment
+              utilizing common and special purpose tools and electronic test
+              equipment; conduct preventive maintenance checks and services; and
+              conduct calibration, verification, certification and electrical
+              safety tests.
             </p>
           </Slide>
         </Col>
