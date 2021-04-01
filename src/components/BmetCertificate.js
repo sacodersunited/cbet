@@ -50,18 +50,17 @@ the place for you. Visit our website to learn more!"
               The Biomedical Equipment Technician Certificate program provides a
               comprehensive overview of the biomedical equipment and healthcare
               technology management industry. Students study hardware, software,
-              and troubleshooting for medical devices. Training includes basic
-              electronics, schematics, pneumatics, hydraulics, customer service
-              skills, environmental of care, EOC training, data management
-              systems, and general biomedical equipment troubleshooting.
-              Students garner the skills and working knowledge to perform
-              medical equipment maintenance services characterized by repair or
-              module replacement; repair of general medical equipment
-              malfunctions; adjustment of medical equipment utilizing standard
-              and special-purpose tools and electronic test equipment; conduct
-              preventive maintenance checks and services; and conduct
-              calibration, verification, certification, and electrical safety
-              tests.
+              and troubleshooting for medical devices. Students will apply
+              skills acquired throughout their coursework in basic electronics,
+              schematics, pneumatics, hydraulics, customer service, environment
+              of care (EOC), and troubleshooting. Students garner the skills and
+              working knowledge to perform medical equipment maintenance
+              services characterized by repair or module replacement; repair of
+              general medical equipment malfunctions; adjustment of medical
+              equipment utilizing standard and special-purpose tools and
+              electronic test equipment; conduct preventive maintenance checks
+              and services; and conduct calibration, verification,
+              certification, and electrical safety tests.
             </p>
             <ButtonToolbar>
               <Link to="/admissions">
@@ -106,11 +105,12 @@ the place for you. Visit our website to learn more!"
             <Col md="8">
               <h4>Program Cost</h4>
               <p>
-                $6,095 ($5995 Tuition, $100 Application Fee, Books and Supplies
+                $9,298 ($9198 Tuition, $100 Application Fee, Books and Supplies
                 are Included in Tuition)
               </p>
               <h4>Program Length</h4>
-              <p>31 weeks or 480 hours</p>
+              <p className="mb-0">24 Weeks Full Time / 48 Weeks Part Time</p>
+              <p className="mt-0 mb-2">405 Clock Hours / 24.0 Semester Credits</p>
               <h4>Student to Teacher Ratio</h4>
               <p>30:1</p>
             </Col>
