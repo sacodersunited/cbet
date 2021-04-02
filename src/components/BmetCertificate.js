@@ -43,7 +43,7 @@ the place for you. Visit our website to learn more!"
             <h2 className="display-5 text-uppercase">
               BIOMEDICAL EQUIPMENT TECHNICIAN (BMET) CERTIFICATE <br />
               <small className="text-muted font-weight-light">
-                31 WEEK CERTIFICATE COURSE
+                24 / 48 Week Certificate Course
               </small>
             </h2>
             <p className="lead">
@@ -110,7 +110,9 @@ the place for you. Visit our website to learn more!"
               </p>
               <h4>Program Length</h4>
               <p className="mb-0">24 Weeks Full Time / 48 Weeks Part Time</p>
-              <p className="mt-0 mb-2">405 Clock Hours / 24.0 Semester Credits</p>
+              <p className="mt-0 mb-2">
+                405 Clock Hours / 24.0 Semester Credits
+              </p>
               <h4>Student to Teacher Ratio</h4>
               <p>30:1</p>
             </Col>
