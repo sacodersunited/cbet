@@ -53,7 +53,7 @@ const BackgroundHeaderTeam = () => (
                     1. Committed to Delivering the Highest Quality Education
                   </h5>
                   <p>
-                    We are committed to providing world-class education,
+                    We are committed to providing exceptional education,
                     training, and career services in an online format,
                     emphasizing applied instruction focused on both general and
                     advanced biomedical equipment, led by skilled faculty with
