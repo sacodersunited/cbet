@@ -175,7 +175,7 @@ degree"
               <li>Networking Fundamentals I</li>
               <li>Introduction to Mechanical Systems</li>
               <li>Electronics I</li>
-              <li>Healthcare Technology Management I</li>
+              <li>Healthcare Technology Management</li>
             </ul>
           </Slide>
         </Col>
@@ -185,8 +185,8 @@ degree"
           <Slide left>
             <h4>Core Component II</h4>
             <ul>
-              <li>Healthcare Technology Management II</li>
-              <li>Healthcare Technology Management III</li>
+              <li>Troubleshooting Theory and Methodology</li>
+              <li>Intro to Infection Control</li>
               <li>Networking Fundamentals II</li>
               <li>Biomedical Equipment I</li>
               <li>Biomedical Equipment II</li>

@@ -9,13 +9,13 @@ const ClassesSection = styled.section`
 `
 
 const CardTitle = styled(Card.Title)`
-    @media(min-width: 35em){
-      min-height: 5em;
-    }
+  @media (min-width: 35em) {
+    min-height: 5em;
+  }
 `
 
 const CardText = styled(Card.Text)`
-  @media(min-width: 35em){
+  @media (min-width: 35em) {
     min-height: 15em;
   }
 `
@@ -39,7 +39,7 @@ const Classes = (props) => (
               Associate of Applied Science Degree in Biomedical Equipment
               Technology – IDL
             </CardTitle>
-            <Card.Text>
+            <Card.Text style={{ marginBottom: "40px" }}>
               The Associate of Applied Science Degree in Biomedical Equipment
               Technology – IDL is an interactive distance learning program
               designed to prepare the student to seek a variety of entry-level

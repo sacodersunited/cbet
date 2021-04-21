@@ -43,7 +43,7 @@ the place for you. Visit our website to learn more!"
             <h2 className="display-5 text-uppercase">
               BIOMEDICAL EQUIPMENT TECHNICIAN (BMET) CERTIFICATE <br />
               <small className="text-muted font-weight-light">
-                31 WEEK Certificate Course
+                24 / 48 WEEK CERTIFICATE COURSE
               </small>
             </h2>
             <p className="lead">
@@ -137,9 +137,12 @@ the place for you. Visit our website to learn more!"
             <h4>Course Content</h4>
             <ul>
               <li>Medical Terminology & Anatomy</li>
+              <li>Everyday Mathematics</li>
               <li>Electronics I</li>
               <li>Networking Fundamentals I</li>
               <li>Biomedical Equipment Technology I</li>
+              <li>Troubleshooting Theory and Methodology</li>
+              <li>Professional Development</li>
               <li>Capstone</li>
             </ul>
           </Slide>
