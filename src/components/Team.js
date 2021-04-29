@@ -7,7 +7,7 @@ import Fade from "react-reveal/Fade"
 import BackgroundHeaderTeam from "./BackgroundHeaderTeam"
 import AboutUsGraphicBackground from "./BackgroundGraphicHeader"
 
-const Team = props => (
+const Team = (props) => (
   <>
     <SEO title="About" />
     <AboutUsGraphicBackground
@@ -21,14 +21,15 @@ const Team = props => (
             <h2 className="display-5 text-uppercase">Our Team</h2>
             <p>
               The College of Biomedical Equipment Technology (CBET) is a
-              <b> majority Veteran owned and operated</b> private college offering
-              Biomedical Equipment Technician (BMET) and Healthcare Technology
-              Management (HTM) training at the certificate and associates degree
-              levels. Our leadership team is comprised of individuals with
-              decades of experience in the healthcare industry and education.
-              Similarly, our instructional staff is comprised of industry
-              experts and award-winning educators dedicated to providing quality
-              education, training, and career services to our students.
+              <b> majority Veteran owned and operated</b> private college
+              offering Biomedical Equipment Technician (BMET) and Healthcare
+              Technology Management (HTM) training at the certificate and
+              associates degree levels. Our leadership team is comprised of
+              individuals with decades of experience in the healthcare industry
+              and education. Similarly, our instructional staff is comprised of
+              industry experts and award-winning educators dedicated to
+              providing quality education, training, and career services to our
+              students.
             </p>
           </Fade>
         </Col>
@@ -39,9 +40,9 @@ const Team = props => (
           <Card style={{ width: "18rem" }}>
             <Img fluid={props.images.bBassuk.childImageSharp.fluid} />
             <Card.Body style={{ minHeight: "210px" }}>
-              <Card.Title>William "Bill" Bassuk, MBA</Card.Title>
+              <Card.Title>William "Bill" Bassuk, MBA, CHOP-B, CHTM</Card.Title>
               <Card.Subtitle className="mb-2 text-muted">
-                President and CEO
+                Chairman and CEO, HTM Global
               </Card.Subtitle>
               <Row className="mb-3">
                 <Col>
@@ -84,9 +85,9 @@ const Team = props => (
           <Card style={{ width: "18rem" }}>
             <Img fluid={props.images.rGonzalez.childImageSharp.fluid} />
             <Card.Body style={{ minHeight: "210px" }}>
-              <Card.Title>Richard "Monty" Gonzales, MA</Card.Title>
+              <Card.Title>Richard "Monty" Gonzales, Ed.D</Card.Title>
               <Card.Subtitle className="mb-2 text-muted">
-                College Director
+                President
               </Card.Subtitle>
               <Row className="mb-3">
                 <Col>
@@ -171,6 +172,52 @@ const Team = props => (
             </Card.Body>
           </Card>
         </Col>
+
+        <Col md={3}>
+          <Card style={{ width: "18rem" }}>
+            <div style={{ backgroundColor: "black", minHeight: "358px" }} />
+            <Card.Body style={{ minHeight: "210px" }}>
+              <Card.Title>Matt Bassuk, MBA, MAGL</Card.Title>
+              <Card.Subtitle className="mb-2 text-muted">
+                Director of Learning Technologies
+              </Card.Subtitle>
+              <Row className="mb-3">
+                <Col>
+                  <FaTag /> Governing Board
+                  <br />
+                  <FaRegEnvelope />{" "}
+                  <a
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="mailto:mbassuk@cer-technology.com"
+                  >
+                    mbassuk@cer-technology.com
+                  </a>
+                </Col>
+              </Row>
+              <Row>
+                <Col xs={2}>
+                  <a
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="https://www.facebook.com/CBETCOLLEGE/"
+                  >
+                    <FaFacebook size="20px" />
+                  </a>
+                </Col>
+                {/* <Col xs={2}>
+                  <a
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="https://www.linkedin.com/in/scott-mcknight-350292b/"
+                  >
+                    <FaLinkedin size="20px" />
+                  </a>
+                </Col> */}
+              </Row>
+            </Card.Body>
+          </Card>
+        </Col>
       </Row>
 
       <Row className="mb-5">
@@ -185,25 +232,32 @@ const Team = props => (
             </ListGroup.Item>
 
             <ListGroup.Item>
-            Danielle McGeary{" "}
-              <em className="text-muted ml-1">Vice President, Healthcare Technology Management, AAMI</em>{" "}
+              Danielle McGeary{" "}
+              <em className="text-muted ml-1">
+                Vice President, Healthcare Technology Management, AAMI
+              </em>{" "}
             </ListGroup.Item>
 
             <ListGroup.Item>
-            Preston Wilson{" "}
-              <em className="text-muted ml-1">Director of Facilities Management, Citizens Medical Center</em>{" "}
+              Preston Wilson{" "}
+              <em className="text-muted ml-1">
+                Director of Facilities Management, Citizens Medical Center
+              </em>{" "}
             </ListGroup.Item>
 
             <ListGroup.Item>
-            Robert Bundick{" "}
-              <em className="text-muted ml-1">Director of HTM and Biomedical Engineering, ProHealth Care</em>{" "}
+              Robert Bundick{" "}
+              <em className="text-muted ml-1">
+                Director of HTM and Biomedical Engineering, ProHealth Care
+              </em>{" "}
             </ListGroup.Item>
 
             <ListGroup.Item>
-            Aaron Predum{" "}
-              <em className="text-muted ml-1">Director of Biomedical Engineering, Hawaii Pacific Health</em>{" "}
+              Aaron Predum{" "}
+              <em className="text-muted ml-1">
+                Director of Biomedical Engineering, Hawaii Pacific Health
+              </em>{" "}
             </ListGroup.Item>
-            
           </ListGroup>
         </Col>
       </Row>
