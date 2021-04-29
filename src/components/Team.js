@@ -189,9 +189,9 @@ const Team = (props) => (
                   <a
                     target="_blank"
                     rel="noopener noreferrer"
-                    href="mailto:mbassuk@cer-technology.com"
+                    href="mailto:mbassuk@cbet.edu"
                   >
-                    mbassuk@cer-technology.com
+                    mbassuk@cbet.edu
                   </a>
                 </Col>
               </Row>
