@@ -24,6 +24,12 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `./src/data/`,
+      },
+    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
@@ -59,13 +65,6 @@ module.exports = {
         appid: config.cbetContentCode,
       },
     },
-    `gatsby-plugin-netlify-cache`,
     `gatsby-transformer-yaml`,
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: `./src/data/`,
-      },
-    },
   ],
 }

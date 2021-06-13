@@ -10,7 +10,7 @@ import { formatDate } from "../utils/utility"
 const today = new Date()
 
 //eslint-disable-next-line
-export default ({ data }) => {
+function Blog({ data }) {
   const authContent = useCbetAuth()
   const [cbetContent, setCbetContent] = useState([])
 
@@ -91,3 +91,4 @@ export const query = graphql`
     }
   }
 `
+export default Blog
