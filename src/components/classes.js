@@ -10,13 +10,13 @@ const ClassesSection = styled.section`
 
 const CardTitle = styled(Card.Title)`
   @media (min-width: 35em) {
-    min-height: 5em;
+    min-height: 3em;
   }
 `
 
 const CardText = styled(Card.Text)`
   @media (min-width: 35em) {
-    min-height: 15em;
+    min-height: 7.5em;
   }
 `
 
@@ -73,49 +73,8 @@ const Classes = (props) => (
             </Link>
           </Card.Body>
         </Card>
-        <Card>
-          <Img
-            fluid={props.images.itnetworkprograms.childImageSharp.fluid}
-            alt="biomedical technology school /biomedical college /biomedical training
-          /online biomedical college /Online biomedical training /online biomedical technology
-          school"
-          />
-          <Card.Body>
-            <CardTitle>IT & Networking</CardTitle>
-            <CardText>
-              This program is designed to help students prepare for the CompTIA
-              A+ and CompTIA Network+ Certification Exam.
-            </CardText>
-            <Link to="/it-certificate">
-              <Button className="mt-1 text-uppercase" variant="primary" block>
-                Learn More
-              </Button>
-            </Link>
-          </Card.Body>
-        </Card>
-        <Card>
-          <Img
-            fluid={props.images.specialtyprograms.childImageSharp.fluid}
-            alt="biomedical technology school /biomedical college /biomedical training
-          /online biomedical college /Online biomedical training /online biomedical technology
-          school"
-          />
-          <Card.Body>
-            <CardTitle>Specialty Programs</CardTitle>
-            <CardText>
-              The Specialty Program is a custom program geared for your specific
-              needs.
-            </CardText>
-            <Button
-              className="mt-1 text-uppercase"
-              variant="primary"
-              block
-              href="mailto:rgonzales@cbet.edu?Subject=Specialty%20Program"
-            >
-              Learn More
-            </Button>
-          </Card.Body>
-        </Card>
+
+       
       </CardDeck>
     </Container>
   </ClassesSection>

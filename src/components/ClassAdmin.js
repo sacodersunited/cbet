@@ -163,20 +163,7 @@ class ClassAdmin extends React.Component {
             "Biomedical Service Company Practicum and/or Hospital Co-op."
 
           break
-        case "A_plus":
-          program.Title = "A Plus"
-          program.Format = "Complete 16 online hours weekly."
-          program.Training =
-            "Biomedical Service Company Practicum and/or Hospital Co-op."
 
-          break
-        case "N_plus":
-          program.Title = "N Plus"
-          program.Format = "Complete 16 online hours weekly."
-          program.Training =
-            "Biomedical Service Company Practicum and/or Hospital Co-op."
-
-          break
         default:
           return null
       }
@@ -643,8 +630,6 @@ class ClassAdmin extends React.Component {
                 >
                   <Dropdown.Item eventKey="1">BMET</Dropdown.Item>
                   <Dropdown.Item eventKey="2">Cert</Dropdown.Item>
-                  <Dropdown.Item eventKey="3">A_plus</Dropdown.Item>
-                  <Dropdown.Item eventKey="4">N_plus</Dropdown.Item>
                 </DropdownButton>
                 <h4 style={{ display: "inline" }}>
                   <Badge variant="dark" style={{ marginTop: "5px" }}>
@@ -871,27 +856,7 @@ class ClassAdmin extends React.Component {
                               style={{ minHeight: "207px", height: "207px" }}
                             />
                           )
-                        case "A_plus":
-                          return (
-                            <Img
-                              fluid={
-                                this.props.images.tech.childImageSharp.fluid
-                              }
-                              className="rounded"
-                              style={{ minHeight: "207px", height: "207px" }}
-                            />
-                          )
-                        case "N_plus":
-                          return (
-                            <Img
-                              fluid={
-                                this.props.images.specialty.childImageSharp
-                                  .fluid
-                              }
-                              className="rounded"
-                              style={{ minHeight: "207px", height: "207px" }}
-                            />
-                          )
+
                         default:
                           return (
                             <Img
@@ -930,8 +895,6 @@ class ClassAdmin extends React.Component {
                           >
                             <Dropdown.Item eventKey="1">BMET</Dropdown.Item>
                             <Dropdown.Item eventKey="2">Cert</Dropdown.Item>
-                            <Dropdown.Item eventKey="3">A_plus</Dropdown.Item>
-                            <Dropdown.Item eventKey="4">N_plus</Dropdown.Item>
                           </DropdownButton>
                           <h4 style={{ display: "inline" }}>
                             <Badge
@@ -1123,31 +1086,7 @@ class ClassAdmin extends React.Component {
                                 </Button> */}
                               </Link>
                             )
-                          case "A_plus":
-                            return (
-                              <Link to="/it-certificate">
-                                {/* <Button
-                                  variant="primary"
-                                  size="sm"
-                                  disabled={
-                                    this.state.editModeClasses[index] === true
-                                      ? true
-                                      : false
-                                  }
-                                >
-                                  Learn More
-                                </Button> */}
-                              </Link>
-                            )
-                          case "N_plus":
-                            return (
-                              <div
-                                style={{
-                                  display: "inline-block",
-                                  height: "26.3px",
-                                }}
-                              ></div>
-                            )
+
                           default:
                             return (
                               <Link to="/bmet-degree">

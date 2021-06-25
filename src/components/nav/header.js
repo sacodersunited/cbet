@@ -68,10 +68,6 @@ const Header = (props) => {
                 <Link className="dropdown-item" to="/bmet-degree">
                   BMET Degree
                 </Link>
-                <NavDropdown.Divider />
-                <Link className="dropdown-item" to="/it-certificate">
-                  IT / Networking
-                </Link>
               </NavDropdown>
               <Link
                 to="/schedule"

@@ -2,7 +2,7 @@ import React from "react"
 import { StaticQuery, graphql } from "gatsby"
 import Classes from "./classes"
 
-const HomeClassesStaticQuery = props => (
+const HomeClassesStaticQuery = (props) => (
   <StaticQuery
     query={graphql`
       {
@@ -20,23 +20,9 @@ const HomeClassesStaticQuery = props => (
             }
           }
         }
-        itnetworkprograms: file(relativePath: { eq: "itNetworkPrograms.jpg" }) {
-          childImageSharp {
-            fluid(maxHeight: 253, quality: 100) {
-              ...GatsbyImageSharpFluid_withWebp
-            }
-          }
-        }
-        specialtyprograms: file(relativePath: { eq: "specialtyPrograms.jpg" }) {
-          childImageSharp {
-            fluid(maxHeight: 253, quality: 100) {
-              ...GatsbyImageSharpFluid_withWebp
-            }
-          }
-        }
       }
     `}
-    render={data => <Classes images={data} />}
+    render={(data) => <Classes images={data} />}
   />
 )
 export default HomeClassesStaticQuery
