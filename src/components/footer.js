@@ -28,7 +28,7 @@ const FooterSection = styled.footer`
 `
 
 const Footer = () => (
-  <>
+  <React.Fragment>
     <FooterSection className="bg-dark">
       <Container>
         <Row>
@@ -158,7 +158,7 @@ const Footer = () => (
         &copy;{"sacodersunited"}
       </Navbar.Brand>
     </Navbar>
-  </>
+  </React.Fragment>
 )
 
 export default Footer

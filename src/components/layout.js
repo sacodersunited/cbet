@@ -18,13 +18,13 @@ const Layout = ({ children, isAdmission }) => (
         }
       }
     `}
-    render={data => (
-      <>
+    render={(data) => (
+      <React.Fragment>
         <Header images={data} isAdmission={isAdmission} />
         <main>{children}</main>
         <AccreditationsStaticQuery />
         <Footer />
-      </>
+      </React.Fragment>
     )}
   />
 )

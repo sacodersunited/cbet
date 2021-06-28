@@ -2,7 +2,7 @@ import React from "react"
 import { StaticQuery, graphql } from "gatsby"
 import ClassAdmin from "./ClassAdmin"
 
-const CbetClassesStaticQuery = props => (
+const CbetClassesStaticQuery = (props) => (
   <StaticQuery
     query={graphql`
       query cbetClasses {
@@ -40,23 +40,9 @@ const CbetClassesStaticQuery = props => (
             }
           }
         }
-        tech: file(relativePath: { eq: "itNetworkPrograms.jpg" }) {
-          childImageSharp {
-            fluid(quality: 100) {
-              ...GatsbyImageSharpFluid_withWebp
-            }
-          }
-        }
-        specialty: file(relativePath: { eq: "specialtyPrograms.jpg" }) {
-          childImageSharp {
-            fluid(quality: 100) {
-              ...GatsbyImageSharpFluid_withWebp
-            }
-          }
-        }
       }
     `}
-    render={data => (
+    render={(data) => (
       <ClassAdmin
         user={props.user}
         code={data.site.siteMetadata.codeFunc}

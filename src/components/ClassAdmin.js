@@ -21,7 +21,6 @@ import {
   FaEdit,
   FaPlus,
   FaTrashAlt,
-  FaGraduationCap,
   FaCloudversify,
   FaRegCalendarAlt,
   FaMinus,
@@ -163,20 +162,7 @@ class ClassAdmin extends React.Component {
             "Biomedical Service Company Practicum and/or Hospital Co-op."
 
           break
-        case "A_plus":
-          program.Title = "A Plus"
-          program.Format = "Complete 16 online hours weekly."
-          program.Training =
-            "Biomedical Service Company Practicum and/or Hospital Co-op."
 
-          break
-        case "N_plus":
-          program.Title = "N Plus"
-          program.Format = "Complete 16 online hours weekly."
-          program.Training =
-            "Biomedical Service Company Practicum and/or Hospital Co-op."
-
-          break
         default:
           return null
       }
@@ -573,6 +559,15 @@ class ClassAdmin extends React.Component {
       )
     }
 
+    let newClasses = this.state.classes.filter((cbetClass) => {
+      console.log("class", cbetClass)
+      if (cbetClass.Id === 9 || cbetClass.Id === 1) {
+        return cbetClass
+      }
+      return null
+    })
+
+
     return (
       <Container>
         <h1 style={{ marginTop: "50px", marginBottom: "50px" }}>
@@ -643,8 +638,6 @@ class ClassAdmin extends React.Component {
                 >
                   <Dropdown.Item eventKey="1">BMET</Dropdown.Item>
                   <Dropdown.Item eventKey="2">Cert</Dropdown.Item>
-                  <Dropdown.Item eventKey="3">A_plus</Dropdown.Item>
-                  <Dropdown.Item eventKey="4">N_plus</Dropdown.Item>
                 </DropdownButton>
                 <h4 style={{ display: "inline" }}>
                   <Badge variant="dark" style={{ marginTop: "5px" }}>
@@ -774,7 +767,7 @@ class ClassAdmin extends React.Component {
 
         <Row>
           {/* All Classes from Azure, Map over all */}
-          {this.state.classes.map((cbetClass, index) => {
+          {newClasses.map((cbetClass, index) => {
             if (cbetClass.IsActive || isEmpty(this.props.user) === false) {
               return (
                 <Col md={3} key={cbetClass.Id + index}>
@@ -871,27 +864,7 @@ class ClassAdmin extends React.Component {
                               style={{ minHeight: "207px", height: "207px" }}
                             />
                           )
-                        case "A_plus":
-                          return (
-                            <Img
-                              fluid={
-                                this.props.images.tech.childImageSharp.fluid
-                              }
-                              className="rounded"
-                              style={{ minHeight: "207px", height: "207px" }}
-                            />
-                          )
-                        case "N_plus":
-                          return (
-                            <Img
-                              fluid={
-                                this.props.images.specialty.childImageSharp
-                                  .fluid
-                              }
-                              className="rounded"
-                              style={{ minHeight: "207px", height: "207px" }}
-                            />
-                          )
+
                         default:
                           return (
                             <Img
@@ -930,8 +903,6 @@ class ClassAdmin extends React.Component {
                           >
                             <Dropdown.Item eventKey="1">BMET</Dropdown.Item>
                             <Dropdown.Item eventKey="2">Cert</Dropdown.Item>
-                            <Dropdown.Item eventKey="3">A_plus</Dropdown.Item>
-                            <Dropdown.Item eventKey="4">N_plus</Dropdown.Item>
                           </DropdownButton>
                           <h4 style={{ display: "inline" }}>
                             <Badge
@@ -1058,96 +1029,15 @@ class ClassAdmin extends React.Component {
                             </Card.Text>
                           </Form.Group>
                         </li>
-                        {/* <li style={{ padding: "8px" }}>
-                          {this.state.editModeClasses[index] === true ? (
-                            <ListGroup>
-                              <ListGroup.Item
-                                variant={
-                                  this.state.editClass.IsActive
-                                    ? "success"
-                                    : "danger"
-                                }
-                              >
-                                <Form.Check
-                                  type="checkbox"
-                                  label={
-                                    this.state.editClass.IsActive
-                                      ? "Active"
-                                      : "Disabled"
-                                  }
-                                  size="lg"
-                                  checked={
-                                    this.state.editClass.IsActive === true
-                                      ? true
-                                      : false
-                                  }
-                                  onClick={(e) => this.onClickActive(e)}
-                                />
-                              </ListGroup.Item>
-                            </ListGroup>
-                          ) : null}
-                        </li> */}
                       </ul>
 
                       {(() => {
                         switch (cbetClass.ProgramSelected) {
                           case "BMET":
-                            return (
-                              <Link to="/bmet-degree">
-                                {/* <Button
-                                  variant="primary"
-                                  size="sm"
-                                  disabled={
-                                    this.state.editModeClasses[index] === true
-                                      ? true
-                                      : false
-                                  }
-                                >
-                                  Learn More
-                                </Button> */}
-                              </Link>
-                            )
+                            return <Link to="/bmet-degree"></Link>
                           case "Cert":
-                            return (
-                              <Link to="/bmet-certificate">
-                                {/* <Button
-                                  variant="primary"
-                                  size="sm"
-                                  disabled={
-                                    this.state.editModeClasses[index] === true
-                                      ? true
-                                      : false
-                                  }
-                                >
-                                  Learn More
-                                </Button> */}
-                              </Link>
-                            )
-                          case "A_plus":
-                            return (
-                              <Link to="/it-certificate">
-                                {/* <Button
-                                  variant="primary"
-                                  size="sm"
-                                  disabled={
-                                    this.state.editModeClasses[index] === true
-                                      ? true
-                                      : false
-                                  }
-                                >
-                                  Learn More
-                                </Button> */}
-                              </Link>
-                            )
-                          case "N_plus":
-                            return (
-                              <div
-                                style={{
-                                  display: "inline-block",
-                                  height: "26.3px",
-                                }}
-                              ></div>
-                            )
+                            return <Link to="/bmet-certificate"></Link>
+
                           default:
                             return (
                               <Link to="/bmet-degree">
