@@ -1,7 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
 import { Container, Button, CardDeck, Card } from "react-bootstrap"
-import styled from "styled-components"
+import styled from "@emotion/styled"
 import Img from "gatsby-image"
 
 const ClassesSection = styled.section`
@@ -73,8 +73,6 @@ const Classes = (props) => (
             </Link>
           </Card.Body>
         </Card>
-
-       
       </CardDeck>
     </Container>
   </ClassesSection>

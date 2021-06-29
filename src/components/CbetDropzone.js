@@ -5,7 +5,7 @@ import dropzone from "../images/drops/DropZone.png"
 import dropzone_Active from "../images/drops/DropZone Active.png"
 import dropzone_Complete from "../images/drops/DropZone Complete.png"
 import dropzone_Uploading from "../images/drops/DropZone Uploading.png"
-import styled from "styled-components"
+import styled from "@emotion/styled"
 import { FaSpinner } from "react-icons/fa/index"
 
 const SpinSpinner = styled(FaSpinner)`
@@ -24,7 +24,7 @@ const SpinSpinner = styled(FaSpinner)`
 
 export default function CbetDropzone(props) {
   const [isUploading, setIsUploading] = useState(false)
-  const onDrop = useCallback(acceptedFiles => {
+  const onDrop = useCallback((acceptedFiles) => {
     // Do something with the files
     if (acceptedFiles.length === 0) {
       return

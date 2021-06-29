@@ -10,20 +10,19 @@ import {
   Card,
   ButtonToolbar,
 } from "react-bootstrap"
-import styled from "styled-components"
+import styled from "@emotion/styled"
 import Fade from "react-reveal/Fade"
 import Slide from "react-reveal/Slide"
 import VideoCarousel from "../components/VideoCarousel"
 import { FaRegEnvelope } from "react-icons/fa"
 import BMETVid from "../video/cbet-cert.mp4"
-import StudentCatalog from "../documents/CBET Course Catalog_Volume XVIII_7.20.20.pdf"
 
 const ProgramDetail = styled.div`
   padding: 46px 0 46px 40px;
   color: white;
 `
 const BmetCertificate = (props) => (
-  <>
+  <React.Fragment>
     <SEO
       title="Biomedical Training Certification Online"
       description="Are you
@@ -63,7 +62,7 @@ the place for you. Visit our website to learn more!"
               certification, and electrical safety tests.
             </p>
             <ButtonToolbar>
-              <Link to="/admissions">
+              <Link to="/cert-application">
                 <Button className="text-uppercase mr-3"> Apply Today</Button>
               </Link>
               <Button variant="outline-primary" href="/course-catalog">
@@ -194,7 +193,7 @@ the place for you. Visit our website to learn more!"
         </Col>
       </Row>
     </Container>
-  </>
+  </React.Fragment>
 )
 
 export default BmetCertificate

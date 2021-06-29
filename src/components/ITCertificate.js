@@ -11,8 +11,7 @@ import Img from "gatsby-image"
 import Fade from "react-reveal/Fade"
 import Slide from "react-reveal/Slide"
 import { Link } from "gatsby"
-import StudentCatalog from "../documents/CBET Course Catalog_Volume XVIII_7.20.20.pdf"
-import styled from "styled-components"
+import styled from "@emotion/styled"
 
 const ProgramDetail = styled.div`
   padding: 46px 0 46px 40px;

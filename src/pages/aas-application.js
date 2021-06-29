@@ -1,29 +1,31 @@
 import React from "react"
 import { Container, Button, Col, Row } from "react-bootstrap"
-import BackgroundGraphicHeader from "./BackgroundGraphicHeader"
-import { UseScript } from "../hooks/use-script"
+import Iframe from "react-iframe"
+import BackgroundGraphicHeader from "../components/BackgroundGraphicHeader"
+import Layout from "../components/layout"
 
-export default function AdmissionsForm() {
-  if (typeof window !== "undefined") {
-    if (typeof document !== `undefined`) {
-      UseScript(
-        "https://cbet.quickschools.com/sms/es/application?divId=application-form"
-      )
-    }
-  }
-
+function AASApplication() {
   return (
-    <>
+    <Layout>
       <BackgroundGraphicHeader
         title="College of Biomedical Equipment Technology"
         bgFullImageName="bmet-logo3.jpg"
       ></BackgroundGraphicHeader>
-      <Container className="mb-5">
+      <Container className="mb-5" fluid>
         <Row className="mb-3">
-          <Col md={6}>
-            <div id="application-form" />
+          <Col md={12}>
+            <h2>
+              AAS Application <small>Please complete form below</small>
+            </h2>
+            <Iframe
+              url="https://bio-web.scansoftware.com/cafeweb/tapestry?page=AAS%20Application"
+              width="100%"
+              height="1000px"
+              display="initial"
+              position="relative"
+            />
           </Col>
-          <Col md={6}>
+          <Col md={4}>
             <div style={{ marginLeft: "0px" }}>
               <h1 className="text-dark" style={{ opacity: "1.0" }}>
                 Enrollment
@@ -58,6 +60,8 @@ export default function AdmissionsForm() {
           </Col>
         </Row>
       </Container>
-    </>
+    </Layout>
   )
 }
+
+export default AASApplication

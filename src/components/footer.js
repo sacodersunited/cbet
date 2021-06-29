@@ -1,7 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
 import { Container, Row, Col, Image, Navbar } from "react-bootstrap"
-import styled from "styled-components"
+import styled from "@emotion/styled"
 import { FaFacebookF, FaLinkedinIn, FaUserLock } from "react-icons/fa"
 import { navigate } from "@reach/router"
 import Logo from "../../src/images/logo/bmet-seal.png"

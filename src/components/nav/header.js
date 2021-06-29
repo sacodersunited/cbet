@@ -4,9 +4,10 @@ import React from "react"
 import { Container, Navbar, Nav, NavDropdown } from "react-bootstrap"
 import Img from "gatsby-image"
 import Timer from "./timer"
-import styled from "styled-components"
+import styled from "@emotion/styled"
 import Moment from "react-moment"
-import { UseScript } from "../../hooks/use-script"
+import Iframe from "react-iframe"
+import { css } from "@emotion/react"
 
 // let enrollmentDeadline = "2020-06-22"
 // future terms for 2020
@@ -31,16 +32,8 @@ const StyledNavDropdown = styled(NavDropdown)`
 `
 
 const Header = (props) => {
-  if (typeof window !== "undefined") {
-    if (typeof document !== `undefined`) {
-      !props.isAdmission &&
-        UseScript(
-          "https://cbet.quickschools.com/sms/es/enquiry?divId=enquiry-form"
-        )
-    }
-  }
   return (
-    <>
+    <React.Fragment>
       <Navbar bg="dark" variant="dark" expand="lg">
         <Container fluid>
           <Link
@@ -142,19 +135,28 @@ const Header = (props) => {
                 </div>
 
                 <div
-                  id="enquiry-form"
-                  style={{ padding: "10px 40px", minWidth: "500px" }}
+                  css={css`
+                    padding: 0 40px;
+                    max-width: 600px;
+                  `}
                 >
                   <p className="lead">
                     Find out how CBET can help you succeed with your future
                   </p>
+                  <Iframe
+                    url="https://bio-web.scansoftware.com/cafeweb/tapestry?page=Inquiry"
+                    width="100%"
+                    height="400px"
+                    display="initial"
+                    position="relative"
+                  />
                 </div>
               </StyledNavDropdown>
             </Nav>
           </Navbar.Collapse>
         </Container>
       </Navbar>
-    </>
+    </React.Fragment>
   )
 }
 

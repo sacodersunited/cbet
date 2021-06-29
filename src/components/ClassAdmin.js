@@ -33,7 +33,7 @@ import Img from "gatsby-image"
 // Uncomment in Local dev
 // import cbetClasses from "../classes/classes.json"
 import "react-datepicker/dist/react-datepicker.css"
-import styled from "styled-components"
+import styled from "@emotion/styled"
 
 const CardTitle = styled.section`
   min-height: 90px;
@@ -566,7 +566,6 @@ class ClassAdmin extends React.Component {
       }
       return null
     })
-
 
     return (
       <Container>

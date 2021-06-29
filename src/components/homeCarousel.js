@@ -1,7 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
 import { Carousel, Button, Col, Row } from "react-bootstrap"
-import styled from "styled-components"
+import styled from "@emotion/styled"
 import Img from "gatsby-image"
 
 const CarouselH1 = styled.h1`

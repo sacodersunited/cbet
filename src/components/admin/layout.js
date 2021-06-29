@@ -15,7 +15,7 @@ import {
 // import { FaChevronDown } from "react-icons/fa"
 import { Link } from "gatsby"
 import { navigate } from "@reach/router"
-import styled from "styled-components"
+import styled from "@emotion/styled"
 
 const StyledLink = styled(Link)`
   &.active {
