@@ -136,8 +136,14 @@ const Header = (props) => {
 
                 <div
                   css={css`
-                    padding: 0 40px;
-                    max-width: 600px;
+                    /* mobile */
+                    padding: 10px 5px;
+                    max-width: 400px;
+                    /* desktop */
+                    @media (min-width: 35em) {
+                      padding: 0 20px;
+                      min-width: 400px;
+                    }
                   `}
                 >
                   <p className="lead">
