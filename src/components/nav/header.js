@@ -142,7 +142,7 @@ const Header = (props) => {
                     /* desktop */
                     @media (min-width: 35em) {
                       padding: 0 20px;
-                      min-width: 400px;
+                      min-width: 460px;
                     }
                   `}
                 >
@@ -152,7 +152,7 @@ const Header = (props) => {
                   <Iframe
                     url="https://bio-web.scansoftware.com/cafeweb/tapestry?page=Inquiry"
                     width="100%"
-                    height="400px"
+                    height="540px"
                     display="initial"
                     position="relative"
                   />
