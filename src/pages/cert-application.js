@@ -1,10 +1,30 @@
 import React from "react"
-import { Container, Button, Col, Row } from "react-bootstrap"
-import Iframe from "react-iframe"
+import {
+  Container,
+  Button,
+  Col,
+  Row,
+  Form,
+  DropdownButton,
+  Dropdown,
+} from "react-bootstrap"
 import BackgroundGraphicHeader from "../components/BackgroundGraphicHeader"
 import Layout from "../components/layout"
 
 function certApplication() {
+  const onDropDownProgram = (e) => {
+    console.log("E:", e.target.text)
+    if (e.target.text && window && e.target.text === "BMET Cert") {
+      window.location =
+        "https://bio-web.scansoftware.com/cafeweb/tapestry?page=CERT%20Application"
+    }
+
+    if (e.target.text && window && e.target.text === "BMET AAS Degree") {
+      window.location =
+        "https://bio-web.scansoftware.com/cafeweb/tapestry?page=AAS%20Application"
+    }
+  }
+
   return (
     <Layout>
       <BackgroundGraphicHeader
@@ -13,20 +33,25 @@ function certApplication() {
       ></BackgroundGraphicHeader>
       <Container className="mb-5" fluid>
         <Row className="mb-3">
-          <Col md={12}>
-            <h2>
-              BMET Certificate Application{" "}
-              <small>Please complete form below</small>
-            </h2>
-            <Iframe
-              url="https://bio-web.scansoftware.com/cafeweb/tapestry?page=CERT%20Application"
-              width="100%"
-              height="1000px"
-              display="initial"
-              position="relative"
-            />
+          <Col md={6}>
+            <h2>BMET Certificate Application</h2>
+            <br />
+            <Form.Group>
+              {/* <Form.Label>Program of interest</Form.Label> */}
+              <DropdownButton
+                id="dropdown-programofinterest-button"
+                title="Select one"
+                drop="right"
+                variant="outline-primary"
+                onClick={(e) => onDropDownProgram(e)}
+                key="programOfInterest1"
+              >
+                <Dropdown.Item eventKey="1">BMET AAS Degree</Dropdown.Item>
+                <Dropdown.Item eventKey="2">BMET Cert</Dropdown.Item>
+              </DropdownButton>
+            </Form.Group>
           </Col>
-          <Col md={4}>
+          <Col md={6}>
             <div style={{ marginLeft: "0px" }}>
               <h1 className="text-dark" style={{ opacity: "1.0" }}>
                 Enrollment

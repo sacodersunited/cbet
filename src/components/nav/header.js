@@ -6,7 +6,6 @@ import Img from "gatsby-image"
 import Timer from "./timer"
 import styled from "@emotion/styled"
 import Moment from "react-moment"
-import Iframe from "react-iframe"
 import { css } from "@emotion/react"
 
 // let enrollmentDeadline = "2020-06-22"
