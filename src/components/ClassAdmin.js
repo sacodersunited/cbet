@@ -7,22 +7,11 @@ import {
   Card,
   Row,
   Col,
-  Alert,
   Spinner,
-  DropdownButton,
-  Dropdown,
-  Badge,
 } from "react-bootstrap"
-import { FaCloudversify, FaRegCalendarAlt, FaRegThumbsUp } from "react-icons/fa"
-import DatePicker from "react-datepicker"
+import { FaCloudversify, FaRegCalendarAlt } from "react-icons/fa"
 import { Link } from "gatsby"
 import Img from "gatsby-image"
-import "react-datepicker/dist/react-datepicker.css"
-import styled from "@emotion/styled"
-
-const CardTitle = styled.section`
-  min-height: 90px;
-`
 
 class ClassAdmin extends React.Component {
   constructor(props) {
@@ -31,7 +20,6 @@ class ClassAdmin extends React.Component {
     const newCbetClassesStaticQuery = props.cbetClasses.map((cbet) => {
       return cbet.node
     })
-    // console.log("newCBET", newCbetClassesStaticQuery)
 
     this.state = {
       classes: newCbetClassesStaticQuery, // main classes pulled in from azure db
