@@ -1,7 +1,7 @@
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
-import { Container, Navbar, Nav, NavDropdown } from "react-bootstrap"
+import { Container, Navbar, Nav, NavDropdown, Button } from "react-bootstrap"
 import Img from "gatsby-image"
 import Timer from "./timer"
 import styled from "@emotion/styled"
@@ -149,13 +149,10 @@ const Header = (props) => {
                   <p className="lead">
                     Find out how CBET can help you succeed with your future
                   </p>
-                  <Iframe
-                    url="https://bio-web.scansoftware.com/cafeweb/tapestry?page=Inquiry"
-                    width="100%"
-                    height="540px"
-                    display="initial"
-                    position="relative"
-                  />
+
+                  <a href="https://bio-web.scansoftware.com/cafeweb/tapestry?page=Inquiry">
+                    <Button>Apply Now</Button>
+                  </a>
                 </div>
               </StyledNavDropdown>
             </Nav>
