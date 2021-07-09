@@ -1,5 +1,4 @@
 import React from "react"
-import { Link } from "gatsby"
 import SEO from "../components/seo"
 import Img from "gatsby-image"
 import {
@@ -59,9 +58,13 @@ function BmetDegree(props) {
               </p>
 
               <ButtonToolbar>
-                <Link to="/aas-application">
+                <a
+                  href="https://bio-web.scansoftware.com/cafeweb/tapestry?page=AAS%20Application"
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   <Button className="text-uppercase mr-3"> Apply Today</Button>
-                </Link>
+                </a>
                 <Button variant="outline-primary" href="/course-catalog">
                   Course Catalog
                 </Button>

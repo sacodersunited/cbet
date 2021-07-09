@@ -149,8 +149,12 @@ const Header = (props) => {
                     Find out how CBET can help you succeed with your future
                   </p>
 
-                  <a href="https://bio-web.scansoftware.com/cafeweb/tapestry?page=Inquiry">
-                    <Button>Apply Now</Button>
+                  <a
+                    href="https://bio-web.scansoftware.com/cafeweb/tapestry?page=Inquiry"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <Button>Learn More</Button>
                   </a>
                 </div>
               </StyledNavDropdown>
