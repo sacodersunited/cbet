@@ -74,7 +74,7 @@ const Footer = () => (
             </a>
 
             <Link
-              to="/accessability-statement/"
+              to="/accessibility-statement/"
               className="d-block text-light mb-3"
             >
               Accessibility Statement
