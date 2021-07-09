@@ -8,6 +8,9 @@ import {
   Button,
   Card,
   ButtonToolbar,
+  Form,
+  Dropdown,
+  DropdownButton,
 } from "react-bootstrap"
 import styled from "@emotion/styled"
 import Fade from "react-reveal/Fade"
@@ -21,6 +24,24 @@ const ProgramDetail = styled.div`
   color: white;
 `
 function BmetDegree(props) {
+  function onDropdownSelect(e) {
+    if (e.target.text && e.target.text === "BMET Degree") {
+      if (window) {
+        window.open(
+          "https://bio-web.scansoftware.com/cafeweb/tapestry?page=AAS%20Application",
+          "_blank"
+        )
+      }
+    } else if (e.target.text && e.target.text === "BMET Certificate") {
+      if (window) {
+        window.open(
+          "https://bio-web.scansoftware.com/cafeweb/tapestry?page=CERT%20Application",
+          "_blank"
+        )
+      }
+    }
+  }
+
   return (
     <React.Fragment>
       <SEO
@@ -57,14 +78,29 @@ function BmetDegree(props) {
                 positions in the field.
               </p>
 
+              <Form.Group>
+                <Form.Label>Apply Today</Form.Label>
+                <DropdownButton
+                  id="dropdown-bmet-select"
+                  title="Select Program"
+                  drop="right"
+                  variant="outline-primary"
+                  onClick={(e) => onDropdownSelect(e)}
+                  key="bmetselect"
+                >
+                  <Dropdown.Item eventKey="1">BMET Degree</Dropdown.Item>
+                  <Dropdown.Item eventKey="2">BMET Certificate</Dropdown.Item>
+                </DropdownButton>
+              </Form.Group>
+
               <ButtonToolbar>
-                <a
+                {/* <a
                   href="https://bio-web.scansoftware.com/cafeweb/tapestry?page=AAS%20Application"
                   target="_blank"
                   rel="noreferrer"
                 >
                   <Button className="text-uppercase mr-3"> Apply Today</Button>
-                </a>
+                </a> */}
                 <Button variant="outline-primary" href="/course-catalog">
                   Course Catalog
                 </Button>
