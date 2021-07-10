@@ -82,7 +82,7 @@ function BmetDegree(props) {
                 <Form.Label>Apply Today</Form.Label>
                 <DropdownButton
                   id="dropdown-bmet-select"
-                  title="Apply"
+                  title="Apply Today"
                   drop="right"
                   variant="outline-primary"
                   onClick={(e) => onDropdownSelect(e)}
