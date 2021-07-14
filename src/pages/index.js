@@ -5,10 +5,8 @@ import SEO from "../components/seo"
 import { Link } from "gatsby"
 import HomeCarouselStaticQuery from "../components/HomeCarouselStaticQuery"
 import Programs from "../components/programs"
-// import Classes from "../components/classes"
 import TestimonialStaticQuery from "../components/TestimonialStaticQuery"
 import HomeClassesStaticQuery from "../components/HomeClassesStaticQuery"
-// import Testimonials from "../components/testimonials"
 import { Alert, Button } from "react-bootstrap"
 
 function CovidAlert() {

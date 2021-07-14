@@ -39,12 +39,7 @@ module.exports = {
       },
     },
     `gatsby-plugin-offline`,
-    {
-      resolve: `gatsby-plugin-styled-components`,
-      options: {
-        displayName: false,
-      },
-    },
+    `gatsby-plugin-emotion`,
     {
       resolve: "gatsby-plugin-google-analytics",
       options: {

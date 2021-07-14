@@ -1,12 +1,12 @@
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
-import { Container, Navbar, Nav, NavDropdown } from "react-bootstrap"
+import { Container, Navbar, Nav, NavDropdown, Button } from "react-bootstrap"
 import Img from "gatsby-image"
 import Timer from "./timer"
-import styled from "styled-components"
+import styled from "@emotion/styled"
 import Moment from "react-moment"
-import { UseScript } from "../../hooks/use-script"
+import { css } from "@emotion/react"
 
 // let enrollmentDeadline = "2020-06-22"
 // future terms for 2020
@@ -31,16 +31,8 @@ const StyledNavDropdown = styled(NavDropdown)`
 `
 
 const Header = (props) => {
-  if (typeof window !== "undefined") {
-    if (typeof document !== `undefined`) {
-      !props.isAdmission &&
-        UseScript(
-          "https://cbet.quickschools.com/sms/es/enquiry?divId=enquiry-form"
-        )
-    }
-  }
   return (
-    <>
+    <React.Fragment>
       <Navbar bg="dark" variant="dark" expand="lg">
         <Container fluid>
           <Link
@@ -142,19 +134,35 @@ const Header = (props) => {
                 </div>
 
                 <div
-                  id="enquiry-form"
-                  style={{ padding: "10px 40px", minWidth: "500px" }}
+                  css={css`
+                    /* mobile */
+                    padding: 10px 5px;
+                    max-width: 400px;
+                    /* desktop */
+                    @media (min-width: 35em) {
+                      padding: 0 20px;
+                      min-width: 460px;
+                    }
+                  `}
                 >
                   <p className="lead">
                     Find out how CBET can help you succeed with your future
                   </p>
+
+                  <a
+                    href="https://bio-web.scansoftware.com/cafeweb/tapestry?page=Inquiry"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <Button>Learn More</Button>
+                  </a>
                 </div>
               </StyledNavDropdown>
             </Nav>
           </Navbar.Collapse>
         </Container>
       </Navbar>
-    </>
+    </React.Fragment>
   )
 }
 

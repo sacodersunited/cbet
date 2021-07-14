@@ -1,17 +1,9 @@
 import React from "react"
 import { Link } from "gatsby"
 import Img from "gatsby-image"
-import {
-  Container,
-  Row,
-  Col,
-  Button,
-  Card,
-  ListGroup,
-  ListGroupItem,
-} from "react-bootstrap"
+import { Container, Row, Col, Button, Card } from "react-bootstrap"
 import Fade from "react-reveal/Fade"
-import styled from "styled-components"
+import styled from "@emotion/styled"
 import { FaCheckSquare } from "react-icons/fa"
 import SEO from "../components/seo"
 import CourseCatalog from "../documents/CBET Course Catalog_Volume XVIII_7.20.20.pdf"

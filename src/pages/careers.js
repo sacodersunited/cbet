@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react"
-// import Slide from "react-reveal/Slide"
 import { FaFrown } from "react-icons/fa"
 import Layout from "../components/careers/layout"
 import SEO from "../components/seo"
@@ -17,13 +16,13 @@ export default function Careers() {
     fetch(
       `https://cbetdata.azurewebsites.net/api/GetCbetContent?code=${authContent}`
     )
-      .then(response => response.json()) // parse JSON from request
-      .then(resultData => {
+      .then((response) => response.json()) // parse JSON from request
+      .then((resultData) => {
         setCbetContent(resultData)
       })
   }, [])
 
-  const jobs = cbetContent.filter(content => {
+  const jobs = cbetContent.filter((content) => {
     const newEndDate = new Date(formatDate(content.EndDate, true))
     if (
       today < newEndDate &&
@@ -48,7 +47,7 @@ export default function Careers() {
       <section id="hot-jobs">
         <h1 className="text-uppercase mb-5">Hot Jobs</h1>
         {jobs.length > 0 ? (
-          jobs.map(job => <JobDetail key={job.Id} job={job} />)
+          jobs.map((job) => <JobDetail key={job.Id} job={job} />)
         ) : (
           <p>
             <FaFrown color="goldenrod" /> Sorry no jobs. Please check back soon.

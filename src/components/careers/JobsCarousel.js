@@ -1,7 +1,7 @@
 import React from "react"
 import { Carousel, Container, Card, Button, Badge } from "react-bootstrap"
 import Img from "gatsby-image"
-import styled from "styled-components"
+import styled from "@emotion/styled"
 import PropTypes from "prop-types"
 import Moment from "react-moment"
 

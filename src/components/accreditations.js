@@ -1,7 +1,7 @@
 import React from "react"
 import { Container, Row, Col, Image } from "react-bootstrap"
 import Img from "gatsby-image"
-import styled from "styled-components"
+import styled from "@emotion/styled"
 import AccImg from "../images/accet.svg"
 import Pulse from "react-reveal/Pulse"
 import Fade from "react-reveal/Fade"

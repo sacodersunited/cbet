@@ -49,11 +49,6 @@
   link: https://www.cybertexas.org
   img: logos/logo-cyberTexas.png
   colWidth: "3"
-- charney:
-  name: Charney & Associates
-  link: https://nscharney.com/
-  img: logos/charney-logo.png
-  colWidth: "3"
 - memHermann:
   name: Memorial Hermann
   link: http://www.memorialhermann.org/
@@ -138,4 +133,14 @@
   name: TMG
   link: https://themccgroup.com
   img: logos/tmg.png
+  colWidth: "3"
+- CharterCollege:
+  name: Charter College
+  link: https://www.chartercollege.edu/
+  img: logos/Charter College Logo JPEG.jpg
+  colWidth: "3"
+- MIS:
+  name: MIS
+  link: https://medicalimaginggroup.com/
+  img: logos/cropped-Square-Logo3-270x270.png
   colWidth: "3"

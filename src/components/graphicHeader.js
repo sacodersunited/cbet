@@ -1,9 +1,9 @@
 import React from "react"
 import { Container, Jumbotron, Button } from "react-bootstrap"
-import styled from "styled-components"
+import styled from "@emotion/styled"
 
 const GraphicJumbotron = styled(Jumbotron)`
-  background-image: url(${props => props.imgsrc || null});
+  background-image: url(${(props) => props.imgsrc || null});
   border-radius: 0 !important;
   background-size: cover;
   min-height: 240px;

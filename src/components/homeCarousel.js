@@ -1,7 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
 import { Carousel, Button, Col, Row } from "react-bootstrap"
-import styled from "styled-components"
+import styled from "@emotion/styled"
 import Img from "gatsby-image"
 
 const CarouselH1 = styled.h1`
@@ -52,9 +52,9 @@ const HomeCarousel = (props) => (
           <Carousel.Caption style={{ textAlign: "left" }}>
             <CarouselH1>College of Biomedical Equipment Technology</CarouselH1>
             <p>Building the Future Healthcare Technology Workforce</p>
-            <Link to="/admissions">
-              <Button className="text-uppercase">Apply Today</Button>
-            </Link>
+            <a href="https://bio-web.scansoftware.com/cafeweb/tapestry?page=Inquiry">
+              <Button className="text-uppercase">Learn More</Button>
+            </a>
           </Carousel.Caption>
         </Col>
       </Row>
@@ -72,9 +72,9 @@ const HomeCarousel = (props) => (
           <Carousel.Caption style={{ textAlign: "left" }}>
             <CarouselH1>College of Biomedical Equipment Technology</CarouselH1>
             <p>Building the Future Healthcare Technology Workforce</p>
-            <Link to="/admissions">
-              <Button className="text-uppercase">Apply Today</Button>
-            </Link>
+            <a href="https://bio-web.scansoftware.com/cafeweb/tapestry?page=Inquiry">
+              <Button className="text-uppercase">Learn More</Button>
+            </a>
           </Carousel.Caption>
         </Col>
       </Row>
@@ -94,9 +94,9 @@ const HomeCarousel = (props) => (
           <Carousel.Caption style={{ textAlign: "left" }}>
             <CarouselH1>College of Biomedical Equipment Technology</CarouselH1>
             <p>Building the Future Healthcare Technology Workforce</p>
-            <Link to="/admissions">
-              <Button className="text-uppercase">Apply Today</Button>
-            </Link>
+            <a href="https://bio-web.scansoftware.com/cafeweb/tapestry?page=Inquiry">
+              <Button className="text-uppercase">Learn More</Button>
+            </a>
           </Carousel.Caption>
         </Col>
       </Row>

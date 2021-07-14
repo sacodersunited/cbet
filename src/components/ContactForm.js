@@ -37,7 +37,6 @@ class ContactForm extends React.Component {
     }
 
     this.getLocationToAddress = this.getLocationToAddress.bind(this)
-    this.getLocation = this.getLocation.bind(this)
     this.onDropdownHearAboutUs = this.onDropdownHearAboutUs.bind(this)
     this.onDropdownProgram = this.onDropdownProgram.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -156,7 +155,7 @@ class ContactForm extends React.Component {
           "Content-Type": "application/x-www-form-urlencoded",
         },
       }
-    ).then(response => {
+    ).then((response) => {
       if (!response.ok) {
         throw Error("Network request failed")
       }
@@ -213,22 +212,14 @@ class ContactForm extends React.Component {
     }
   }
 
-  getLocation() {
-    // if (navigator.geolocation) {
-    //   navigator.geolocation.getCurrentPosition(position => {
-    //     this.getLocationToAddress(position.coords)
-    //   })
-    // }
-  }
-
   // https://stackoverflow.com/questions/52583277/get-user-city-and-country-in-react-native
   getLocationToAddress(location) {
     const locationToFind = `${location.latitude},${location.longitude}`
     const url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${locationToFind}&sensor=true&key=${this.props.mapkey}`
 
     fetch(url)
-      .then(resp => resp.json())
-      .then(result => {
+      .then((resp) => resp.json())
+      .then((result) => {
         const { results } = result
 
         if (results) {
@@ -257,7 +248,7 @@ class ContactForm extends React.Component {
           }
         }
       })
-      .catch(e => {
+      .catch((e) => {
         console.log(e)
       })
   }
@@ -275,7 +266,7 @@ class ContactForm extends React.Component {
               </p>
               <Form
                 validated={this.state.validated}
-                onSubmit={e => this.handleSubmit(e)}
+                onSubmit={(e) => this.handleSubmit(e)}
               >
                 <Form.Group controlId="validationCustom01">
                   <Form.Label>First name</Form.Label>
@@ -284,7 +275,7 @@ class ContactForm extends React.Component {
                     type="text"
                     placeholder="First name"
                     value={this.state.contactForm.firstName}
-                    onChange={e => this.onChangeForm(e)}
+                    onChange={(e) => this.onChangeForm(e)}
                   />
                   <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                 </Form.Group>
@@ -295,7 +286,7 @@ class ContactForm extends React.Component {
                     type="text"
                     placeholder="Last name"
                     value={this.state.contactForm.lastName}
-                    onChange={e => this.onChangeForm(e)}
+                    onChange={(e) => this.onChangeForm(e)}
                   />
                   <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                 </Form.Group>
@@ -306,9 +297,9 @@ class ContactForm extends React.Component {
                       {...this.props}
                       mask="(999) 999-9999"
                       maskChar=" "
-                      onChange={e => this.onChangeForm(e)}
+                      onChange={(e) => this.onChangeForm(e)}
                     >
-                      {inputProps => (
+                      {(inputProps) => (
                         <Form.Control
                           {...inputProps}
                           type="tel"
@@ -328,7 +319,7 @@ class ContactForm extends React.Component {
                     type="email"
                     placeholder="Email"
                     value={this.state.contactForm.email}
-                    onChange={e => this.onChangeForm(e)}
+                    onChange={(e) => this.onChangeForm(e)}
                   />
                   <Form.Control.Feedback type="invalid">
                     Please enter a valid Email.
@@ -342,7 +333,7 @@ class ContactForm extends React.Component {
                     placeholder="Country"
                     required
                     value={this.state.contactForm.country}
-                    onChange={e => this.onChangeForm(e)}
+                    onChange={(e) => this.onChangeForm(e)}
                   />
                   <Form.Control.Feedback type="invalid">
                     Please provide a valid country.
@@ -355,7 +346,7 @@ class ContactForm extends React.Component {
                     placeholder="City"
                     required
                     value={this.state.contactForm.city}
-                    onChange={e => this.onChangeForm(e)}
+                    onChange={(e) => this.onChangeForm(e)}
                   />
                   <Form.Control.Feedback type="invalid">
                     Please provide a valid city.
@@ -368,7 +359,7 @@ class ContactForm extends React.Component {
                     placeholder="State"
                     required
                     value={this.state.contactForm.state}
-                    onChange={e => this.onChangeForm(e)}
+                    onChange={(e) => this.onChangeForm(e)}
                   />
                   <Form.Control.Feedback type="invalid">
                     Please provide a valid state.
@@ -381,7 +372,7 @@ class ContactForm extends React.Component {
                     title="Select one"
                     drop="right"
                     variant="outline-primary"
-                    onClick={e => this.onDropdownHearAboutUs(e)}
+                    onClick={(e) => this.onDropdownHearAboutUs(e)}
                     key="hearAboutUs1"
                   >
                     <Dropdown.Item eventKey="1">AAMI School List</Dropdown.Item>
@@ -402,7 +393,7 @@ class ContactForm extends React.Component {
                     type="text"
                     placeholder="hear about us"
                     value={this.state.contactForm.hearAbout}
-                    onChange={e => this.onChangeForm(e)}
+                    onChange={(e) => this.onChangeForm(e)}
                     required
                     disabled
                   />
@@ -414,7 +405,7 @@ class ContactForm extends React.Component {
                     title="Select one"
                     drop="right"
                     variant="outline-primary"
-                    onClick={e => this.onDropdownProgram(e)}
+                    onClick={(e) => this.onDropdownProgram(e)}
                     key="programOfInterest1"
                   >
                     <Dropdown.Item eventKey="1">BMET Degree</Dropdown.Item>
@@ -438,7 +429,7 @@ class ContactForm extends React.Component {
                     label="Would you like to receive a call back?"
                     feedback="You must agree before submitting."
                     checked={this.state.contactForm.callback}
-                    onChange={e => {
+                    onChange={(e) => {
                       const conForm = this.state.contactForm
                       conForm.callback = !conForm.callback
                       this.setState({ contactForm: conForm })
@@ -450,7 +441,7 @@ class ContactForm extends React.Component {
                   <Form.Control
                     as="textarea"
                     value={this.state.contactForm.comments}
-                    onChange={e => this.onChangeForm(e)}
+                    onChange={(e) => this.onChangeForm(e)}
                     placeholder="comments here"
                   />
                 </Form.Group>

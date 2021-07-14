@@ -69,13 +69,6 @@ const PartnersStaticQuery = () => (
             }
           }
         }
-        charney: file(relativePath: { eq: "charney-logo.png" }) {
-          childImageSharp {
-            fluid(maxHeight: 600, quality: 100) {
-              ...GatsbyImageSharpFluid_withWebp
-            }
-          }
-        }
         memHermann: file(relativePath: { eq: "memorial-hermann-logo.jpg" }) {
           childImageSharp {
             fluid(maxHeight: 600, quality: 100) {
@@ -122,9 +115,27 @@ const PartnersStaticQuery = () => (
             }
           }
         }
+
+        CharterCollege: file(
+          relativePath: { eq: "Charter College Logo JPEG.jpg" }
+        ) {
+          childImageSharp {
+            fluid(maxHeight: 600, quality: 100) {
+              ...GatsbyImageSharpFluid_withWebp
+            }
+          }
+        }
+
+        MIS: file(relativePath: { eq: "cropped-Square-Logo3-270x270.png" }) {
+          childImageSharp {
+            fluid(maxHeight: 600, quality: 100) {
+              ...GatsbyImageSharpFluid_withWebp
+            }
+          }
+        }
       }
     `}
-    render={data => <Partners images={data} />}
+    render={(data) => <Partners images={data} />}
   />
 )
 export default PartnersStaticQuery

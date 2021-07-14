@@ -1,11 +1,10 @@
 import React from "react"
-import { Row, Col, Image } from "react-bootstrap"
+import { Row, Col } from "react-bootstrap"
 import Fade from "react-reveal/Fade"
 import Img from "gatsby-image"
-import TFCDoc from "../documents/TFCoverviewForStudents.CIT.pdf"
 import "../classes/cbet.css"
 
-const Partners = props => (
+const Partners = (props) => (
   <Row>
     <Col md={4}>
       <Fade left cascade>
@@ -26,7 +25,7 @@ const Partners = props => (
     </Col>
     <Col md={7}>
       <Row>
-        {props.images.allPartnersYaml.nodes.map(partner => (
+        {props.images.allPartnersYaml.nodes.map((partner) => (
           <Col
             className="mb-1"
             md={partner.colWidth}

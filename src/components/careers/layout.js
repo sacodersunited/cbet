@@ -1,5 +1,4 @@
 import React from "react"
-import PropTypes from "prop-types"
 import { Link } from "gatsby"
 import Layout from "../layout"
 import { Container, Col, Row, Button, Image, Badge } from "react-bootstrap"

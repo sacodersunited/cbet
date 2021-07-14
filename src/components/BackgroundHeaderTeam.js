@@ -1,7 +1,7 @@
 import React from "react"
 import { graphql, StaticQuery } from "gatsby"
 import { Container, Row, Col } from "react-bootstrap"
-import styled from "styled-components"
+import styled from "@emotion/styled"
 import BackgroundImage from "gatsby-background-image"
 import Fade from "react-reveal/Fade"
 
