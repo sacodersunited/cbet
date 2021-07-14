@@ -84,7 +84,7 @@ the place for you. Visit our website to learn more!"
               </p>
             </Fade>
             <Form.Group>
-              <Form.Label>Apply Today</Form.Label>
+              {/* <Form.Label>Apply Today</Form.Label> */}
               <DropdownButton
                 id="dropdown-bmet-select"
                 title="Apply Today"

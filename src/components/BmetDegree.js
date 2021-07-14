@@ -77,35 +77,34 @@ function BmetDegree(props) {
                 to think critically in preparation for taking on leadership
                 positions in the field.
               </p>
+            </Fade>
+            <Form.Group>
+              {/* <Form.Label>Apply Today</Form.Label> */}
+              <DropdownButton
+                id="dropdown-bmet-selectDegree"
+                title="Apply Today"
+                drop="right"
+                variant="outline-primary"
+                onClick={(e) => onDropdownSelect(e)}
+                key="bmetselect"
+              >
+                <Dropdown.Item eventKey="1">BMET Degree</Dropdown.Item>
+                <Dropdown.Item eventKey="2">BMET Certificate</Dropdown.Item>
+              </DropdownButton>
+            </Form.Group>
 
-              <Form.Group>
-                <Form.Label>Apply Today</Form.Label>
-                <DropdownButton
-                  id="dropdown-bmet-select"
-                  title="Apply Today"
-                  drop="right"
-                  variant="outline-primary"
-                  onClick={(e) => onDropdownSelect(e)}
-                  key="bmetselect"
-                >
-                  <Dropdown.Item eventKey="1">BMET Degree</Dropdown.Item>
-                  <Dropdown.Item eventKey="2">BMET Certificate</Dropdown.Item>
-                </DropdownButton>
-              </Form.Group>
-
-              <ButtonToolbar>
-                {/* <a
+            <ButtonToolbar>
+              {/* <a
                   href="https://bio-web.scansoftware.com/cafeweb/tapestry?page=AAS%20Application"
                   target="_blank"
                   rel="noreferrer"
                 >
                   <Button className="text-uppercase mr-3"> Apply Today</Button>
                 </a> */}
-                <Button variant="outline-primary" href="/course-catalog">
-                  Course Catalog
-                </Button>
-              </ButtonToolbar>
-            </Fade>
+              <Button variant="outline-primary" href="/course-catalog">
+                Course Catalog
+              </Button>
+            </ButtonToolbar>
           </Col>
           <Col md={4}>
             <Card>
