@@ -27,14 +27,14 @@ export function formatDate(date, withTime, withSlashes) {
   return `${day} ${monthNames[monthIndex]} ${year}`
 }
 
-export const isEmpty = obj => {
+export const isEmpty = (obj) => {
   for (var key in obj) {
     if (obj.hasOwnProperty(key)) return false
   }
   return true
 }
 
-export const ToShortDate = dt => {
+export const ToShortDate = (dt) => {
   var month_names = [
     "Jan",
     "Feb",
@@ -57,7 +57,7 @@ export const ToShortDate = dt => {
   return month_names[month_index] + " " + day
 }
 
-export const ToStartDate = dt => {
+export const ToStartDate = (dt) => {
   var month_names = [
     "Jan",
     "Feb",
@@ -81,13 +81,13 @@ export const ToStartDate = dt => {
 }
 
 // https://stackoverflow.com/questions/52583277/get-user-city-and-country-in-react-native
-export const getLocationToAddress = location => {
+export const getLocationToAddress = (location) => {
   const locationToFind = `${location.latitude},${location.longitude}`
   const url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${locationToFind}&sensor=true&key=${this.props.mapkey}`
 
   fetch(url)
-    .then(resp => resp.json())
-    .then(result => {
+    .then((resp) => resp.json())
+    .then((result) => {
       const { results } = result
 
       if (results) {
@@ -116,7 +116,7 @@ export const getLocationToAddress = location => {
         }
       }
     })
-    .catch(e => {
+    .catch((e) => {
       console.log(e)
     })
 }
@@ -125,8 +125,6 @@ export function isLeapYear(yearSelected) {
   const isLeapYearMade = yearSelected % 4 === 0
   const AndEvenDivisible = yearSelected % 100 !== 0
   const OrEvenDiv100 = yearSelected % 400 === 0
-
-  console.log("isLeapYear", isLeapYearMade)
 
   const isItEvenLeapYear = (isLeapYearMade && AndEvenDivisible) || OrEvenDiv100
   return isItEvenLeapYear

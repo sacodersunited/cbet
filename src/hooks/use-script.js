@@ -4,7 +4,6 @@ import { useEffect } from "react"
 
 export const UseScript = (url) => {
   useEffect(() => {
-    console.log("rendering")
     if (typeof document !== `undefined`) {
       const script = document.createElement("script")
 

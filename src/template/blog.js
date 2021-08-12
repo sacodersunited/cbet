@@ -15,7 +15,6 @@ export default ({ data }) => {
   const [cbetContent, setCbetContent] = useState([])
 
   useEffect(() => {
-    // get data from GitHub api
     fetch(
       `https://cbetdata.azurewebsites.net/api/GetCbetContent?code=${authContent}`
     )

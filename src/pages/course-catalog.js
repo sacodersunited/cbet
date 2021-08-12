@@ -1,11 +1,7 @@
 import React from "react"
-import Tab from "react-bootstrap/Tab"
-import Row from "react-bootstrap/Row"
-import Col from "react-bootstrap/Col"
-import Fade from "react-reveal"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import styled from "styled-components"
+import styled from "@emotion/styled"
 import BackgroundGraphicHeader from "../components/BackgroundGraphicHeader"
 
 const FaqContainer = styled.div`

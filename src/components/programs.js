@@ -1,6 +1,6 @@
 import React from "react"
-import { Container, Row, Col, Button } from "react-bootstrap"
-import styled from "styled-components"
+import { Container, Row, Col } from "react-bootstrap"
+import styled from "@emotion/styled"
 import { FaBriefcaseMedical, FaRocket } from "react-icons/fa"
 import Slide from "react-reveal/Slide"
 
