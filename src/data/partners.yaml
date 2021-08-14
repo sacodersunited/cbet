@@ -54,6 +54,11 @@
   link: http://www.memorialhermann.org/
   img: logos/memorial-hermann-logo.jpg
   colWidth: "3"
+- skillNet:
+  name: SkillNet
+  link: https://skillnet.net/
+  img: logos/Skillnet_Partner.png
+  colWidth: "3"
 - vyaire:
   name: Vyaire Medical
   link: https://www.vyaire.com/
