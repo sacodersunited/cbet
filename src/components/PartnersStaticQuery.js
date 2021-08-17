@@ -20,13 +20,15 @@ const PartnersStaticQuery = () => (
             }
           }
         }
-        tfclogo: file(relativePath: { eq: "tfc_logo.png" }) {
+
+        MIS: file(relativePath: { eq: "cropped-Square-Logo3-270x270.png" }) {
           childImageSharp {
             fluid(maxHeight: 600, quality: 100) {
               ...GatsbyImageSharpFluid_withWebp
             }
           }
         }
+        
         stephens: file(relativePath: { eq: "si-recruiting.png" }) {
           childImageSharp {
             fluid(maxHeight: 600, quality: 100) {
@@ -76,6 +78,7 @@ const PartnersStaticQuery = () => (
             }
           }
         }
+
         cyberTexas: file(relativePath: { eq: "logo-cyberTexas.png" }) {
           childImageSharp {
             fluid(maxHeight: 600, quality: 100) {
@@ -126,7 +129,7 @@ const PartnersStaticQuery = () => (
           }
         }
 
-        MIS: file(relativePath: { eq: "cropped-Square-Logo3-270x270.png" }) {
+        tfclogo: file(relativePath: { eq: "tfc_logo.png" }) {
           childImageSharp {
             fluid(maxHeight: 600, quality: 100) {
               ...GatsbyImageSharpFluid_withWebp
