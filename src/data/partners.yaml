@@ -9,10 +9,10 @@
   link: https://1technation.com/
   img: logos/TechNation_logo.png
   colWidth: "3"
-- tfc:
-  name: TFC
-  link: https://www.tfcstudentinfo.com
-  img: logos/tfc_logo.png
+- MIS:
+  name: MIS
+  link: https://medicalimaginggroup.com/
+  img: logos/cropped-Square-Logo3-270x270.png
   colWidth: "3"
 - siRecruiting:
   name: Stephens International Recruiting
@@ -144,8 +144,8 @@
   link: https://www.chartercollege.edu/
   img: logos/Charter College Logo JPEG.jpg
   colWidth: "3"
-- MIS:
-  name: MIS
-  link: https://medicalimaginggroup.com/
-  img: logos/cropped-Square-Logo3-270x270.png
+- tfc:
+  name: TFC
+  link: https://www.tfcstudentinfo.com
+  img: logos/tfc_logo.png
   colWidth: "3"
