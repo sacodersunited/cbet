@@ -258,6 +258,16 @@ const Team = (props) => (
                 Director of Biomedical Engineering, Hawaii Pacific Health
               </em>{" "}
             </ListGroup.Item>
+
+            <ListGroup.Item>
+              Robert Smothers{" "}
+              <em className="text-muted ml-1">Colorado Association of Biomedical Equipment Technology</em>{" "}
+            </ListGroup.Item>
+
+            <ListGroup.Item>
+              Dr. Donna Rice{" "}
+              <em className="text-muted ml-1">Professor, North Central University</em>{" "}
+            </ListGroup.Item>
           </ListGroup>
         </Col>
       </Row>
