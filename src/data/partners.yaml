@@ -14,10 +14,10 @@
   link: https://medicalimaginggroup.com/
   img: logos/cropped-Square-Logo3-270x270.png
   colWidth: "3"
-- siRecruiting:
-  name: Stephens International Recruiting
-  link: https://www.bmets-usa.com/
-  img: logos/si-recruiting.png
+- skillNet:
+  name: SkillNet
+  link: https://skillnet.net/
+  img: logos/Skillnet_Partner.png
   colWidth: "3"
 - cer:
   name: CER Technology
@@ -28,11 +28,6 @@
   name: Summit Imaging
   link: https://www.mysummitimaging.com/
   img: logos/summit-logo.jpg
-  colWidth: "3"
-- nbcChambers:
-  name: New Braunfels Chamber
-  link: https://www.chamberinnewbraunfels.com/
-  img: logos/NBChambers-logo.png
   colWidth: "3"
 - chihealth:
   name: Catholic Health Initiatives
@@ -54,11 +49,6 @@
   link: http://www.memorialhermann.org/
   img: logos/memorial-hermann-logo.jpg
   colWidth: "3"
-- skillNet:
-  name: SkillNet
-  link: https://skillnet.net/
-  img: logos/Skillnet_Partner.png
-  colWidth: "3"
 - vyaire:
   name: Vyaire Medical
   link: https://www.vyaire.com/
@@ -74,11 +64,6 @@
   link: http://imedbiomedical.com/
   img: logos/iMed-Biomedical.png
   colWidth: "4"
-- miracosta:
-  name: MiraCosta College
-  link: http://www.miracosta.edu/
-  img: logos/mira-costa-college.png
-  colWidth: "2"
 - army:
   name: U.S. army
   link: https://goarmy.com
@@ -148,4 +133,39 @@
   name: TFC
   link: https://www.tfcstudentinfo.com
   img: logos/tfc_logo.png
+  colWidth: "3"
+- cabmet: 
+  name: Colorado Association of Biomedical Equipment Technicians
+  link: https://www.cabmet.org/
+  img: logos/CABMET.png
+  colWidth: "2"
+- purdue:
+  name: Purdue Global University
+  link: https://www.purdueglobal.edu/
+  img: logos/Purdue.png
+  colWidth: "3" 
+- hph:
+  name: Hawaii Pacific Health
+  link: https://www.hawaiipacifichealth.org/
+  img: logos/HPH.png
+  colWidth: "2"
+- bsw: 
+  name: Baylor Scott and White
+  link: https://www.bswhealth.com/
+  img: logos/BSW.jpg
+  colWidth: "3"
+- cfbs: 
+  name: Central Florida Biomedical Society
+  link: https://www.cflbiomedsociety.org/
+  img: logos/CFBS.jpg
+  colWidth: "3"
+- ohioHtm:
+  name: Ohio HTM
+  link: http://www.htma-oh.org/
+  img: logos/HTMA OH.png
+  colWidth: "3"
+- tradeUp:
+  name: Trade Up
+  link: https://www.wetradeup.com/
+  img: logos/tradeup-logo.png
   colWidth: "3"

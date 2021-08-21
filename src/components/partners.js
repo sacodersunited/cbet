@@ -32,6 +32,7 @@ const Partners = (props) => (
             style={{ alignSelf: "center", textAlign: "center" }}
             key={partner.name}
           >
+          {console.log(partner.name)}
             <a href={partner.link} target="_blank" rel="noopener noreferrer">
               <Img
                 fluid={partner.img.childImageSharp.fluid}
