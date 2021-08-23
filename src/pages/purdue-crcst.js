@@ -21,10 +21,11 @@ const PurdueCrcst = (props) => {
               id="typeform-full"
               title="typeformfull"
               width="100%"
-              height="100%"
+              height="800px"
               frameborder="0"
               allow="camera; microphone; autoplay; encrypted-media;"
               src="https://form.typeform.com/to/zoUUeneK?typeform-medium=embed-snippet"
+              style={{ marginTop: "5px" }}
             ></iframe>
           </Col>
         </Row>
