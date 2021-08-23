@@ -102,6 +102,14 @@ const Header = (props) => {
               <Link to="/faq" className="nav-link" activeClassName="active">
                 FAQs
               </Link>
+              <Link
+                  to="https://bio-web.scansoftware.com/cafeweb/tapestry?page=Inquiry"
+                  className="nav-link"
+                  rel="noopener noreferrer"
+                >
+                  Apply Now
+              </Link>
+
             </Nav>
             <Nav className="timer-nav">
               <Navbar.Text className="mr-2 text-danger">
@@ -151,7 +159,7 @@ const Header = (props) => {
 
                   <a
                     href="https://bio-web.scansoftware.com/cafeweb/tapestry?page=Inquiry"
-                    target="_blank"
+                    target="_self"
                     rel="noreferrer"
                   >
                     <Button>Learn More</Button>

@@ -13,6 +13,7 @@ const PartnersStaticQuery = () => (
             }
           }
         }
+
         technation: file(relativePath: { eq: "TechNation_logo.png" }) {
           childImageSharp {
             fluid(maxHeight: 600, quality: 100) {
@@ -29,13 +30,6 @@ const PartnersStaticQuery = () => (
           }
         }
         
-        stephens: file(relativePath: { eq: "si-recruiting.png" }) {
-          childImageSharp {
-            fluid(maxHeight: 600, quality: 100) {
-              ...GatsbyImageSharpFluid_withWebp
-            }
-          }
-        }
         cerlogo: file(relativePath: { eq: "cer-logo.png" }) {
           childImageSharp {
             fluid(maxHeight: 600, quality: 100) {
@@ -43,13 +37,7 @@ const PartnersStaticQuery = () => (
             }
           }
         }
-        nbchambers: file(relativePath: { eq: "NBChambers-logo.png" }) {
-          childImageSharp {
-            fluid(maxHeight: 600, quality: 100) {
-              ...GatsbyImageSharpFluid_withWebp
-            }
-          }
-        }
+
         chihealth: file(relativePath: { eq: "chi-health.jpg" }) {
           childImageSharp {
             fluid(maxHeight: 600, quality: 100) {
@@ -58,13 +46,6 @@ const PartnersStaticQuery = () => (
           }
         }
         citizens: file(relativePath: { eq: "citizens.png" }) {
-          childImageSharp {
-            fluid(maxHeight: 600, quality: 100) {
-              ...GatsbyImageSharpFluid_withWebp
-            }
-          }
-        }
-        miracosta: file(relativePath: { eq: "mira-costa-college.png" }) {
           childImageSharp {
             fluid(maxHeight: 600, quality: 100) {
               ...GatsbyImageSharpFluid_withWebp
@@ -129,13 +110,63 @@ const PartnersStaticQuery = () => (
           }
         }
 
-        tfclogo: file(relativePath: { eq: "tfc_logo.png" }) {
+        cabmet: file(relativePath: { eq: "CABMET.png" }) {
           childImageSharp {
             fluid(maxHeight: 600, quality: 100) {
               ...GatsbyImageSharpFluid_withWebp
             }
           }
         }
+        
+        purdue: file(relativePath: { eq: "Purdue.png" }) {
+          childImageSharp {
+            fluid(maxHeight: 600, quality: 100) {
+              ...GatsbyImageSharpFluid_withWebp
+            }
+          }
+        }
+
+        hph: file(relativePath: { eq: "HPH.png" }) {
+          childImageSharp {
+            fluid(maxHeight: 600, quality: 100) {
+              ...GatsbyImageSharpFluid_withWebp
+            }
+          }
+        }
+        
+        bsw: file(relativePath: { eq: "BSW.jpg" }) {
+          childImageSharp {
+            fluid(maxHeight: 600, quality: 100) {
+              ...GatsbyImageSharpFluid_withWebp
+            }
+          }
+        }
+
+        cfbs: file(relativePath: { eq: "CFBS.jpg" }) {
+          childImageSharp {
+            fluid(maxHeight: 600, quality: 100) {
+              ...GatsbyImageSharpFluid_withWebp
+            }
+          }
+        }
+
+
+        ohioHtm: file(relativePath: { eq: "HTMA OH.png" }) {
+          childImageSharp {
+            fluid(maxHeight: 600, quality: 100) {
+              ...GatsbyImageSharpFluid_withWebp
+            }
+          }
+        }
+
+        tradeUp: file(relativePath: { eq: "tradeup-logo.png" }) {
+          childImageSharp {
+            fluid(maxHeight: 600, quality: 100) {
+              ...GatsbyImageSharpFluid_withWebp
+            }
+          }
+        }
+
       }
     `}
     render={(data) => <Partners images={data} />}
