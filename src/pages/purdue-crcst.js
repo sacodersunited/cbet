@@ -32,3 +32,5 @@ const PurdueCrcst = (props) => {
     </Layout>
   )
   }
+
+  export default PurdueCrcst
