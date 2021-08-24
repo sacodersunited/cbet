@@ -102,14 +102,22 @@ const Header = (props) => {
               <Link to="/faq" className="nav-link" activeClassName="active">
                 FAQs
               </Link>
-              <Link
-                  to="https://bio-web.scansoftware.com/cafeweb/tapestry?page=Inquiry"
-                  className="nav-link"
+              <NavDropdown title="Apply Now" id="applynow">            
+                <Link
+                  to="https://bio-web.scansoftware.com/cafeweb/tapestry?page=AAS%20Application"
+                  className="dropdown-item"
                   rel="noopener noreferrer"
                 >
-                  Apply Now
-              </Link>
-
+                    BMET Degree
+                </Link>
+                <Link
+                  to="https://bio-web.scansoftware.com/cafeweb/tapestry?page=CERT%20Application"
+                  className="dropdown-item"
+                  rel="noopener noreferrer"
+                >
+                    BMET Certificate
+                </Link>
+              </NavDropdown>
             </Nav>
             <Nav className="timer-nav">
               <Navbar.Text className="mr-2 text-danger">

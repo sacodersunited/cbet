@@ -24,14 +24,14 @@ const ProgramDetail = styled.div`
 `
 function BmetCertificate(props) {
   function onDropdownSelect(e) {
-    if (e.target.text && e.target.text === "BMET Degree") {
+    if (e.target.text === "BMET Degree") {
       if (window) {
         window.open(
           "https://bio-web.scansoftware.com/cafeweb/tapestry?page=AAS%20Application",
           "_blank"
         )
       }
-    } else if (e.target.text && e.target.text === "BMET Certificate") {
+    } else if (e.target.text === "BMET Certificate") {
       if (window) {
         window.open(
           "https://bio-web.scansoftware.com/cafeweb/tapestry?page=CERT%20Application",
