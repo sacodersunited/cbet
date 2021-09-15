@@ -164,8 +164,8 @@
   link: http://www.htma-oh.org/
   img: logos/HTMA OH.png
   colWidth: "3"
-- tradeUp:
-  name: Trade Up
-  link: https://www.wetradeup.com/
-  img: logos/tradeup-logo.png
+- assetServices: 
+  name: Asset Services
+  link: https://assetservices.com/Sectors/Healthcare 
+  img: logos/Asset_Services_Final-Artwork.png
   colWidth: "3"

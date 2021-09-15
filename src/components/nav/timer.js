@@ -42,7 +42,7 @@ export default function Timer({ enrollmentEndDate }) {
   })
 
   if (timerComponents.length) return timerComponents
-  return <span className>Contact us to register today. New Enrollment period begins next week.</span>
+  return <span>Contact us to register today. New Enrollment period begins next week.</span>
 }
 
 Timer.propTypes = {
