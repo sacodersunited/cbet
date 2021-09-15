@@ -159,13 +159,13 @@ const PartnersStaticQuery = () => (
           }
         }
 
-        tradeUp: file(relativePath: { eq: "tradeup-logo.png" }) {
+        assetServices: file((relativePath: { eq: "Asset_Services_Final-Artwork.png" }) {
           childImageSharp {
             fluid(maxHeight: 600, quality: 100) {
               ...GatsbyImageSharpFluid_withWebp
             }
           }
-        }
+        })
 
       }
     `}
