@@ -34,10 +34,10 @@
   link: https://www.chihealth.com/
   img: logos/chi-health.jpg
   colWidth: "3"
-- citizens:
-  name: Citizens Medical Center
-  link: https://citizensmedicalcenter.org/
-  img: logos/citizens.png
+- CharterCollege:
+  name: Charter College
+  link: https://www.chartercollege.edu/
+  img: logos/Charter College Logo JPEG.jpg
   colWidth: "3"
 - cyberTexas:
   name: Cyber Texas Foundation
@@ -124,10 +124,10 @@
   link: https://themccgroup.com
   img: logos/tmg.png
   colWidth: "3"
-- CharterCollege:
-  name: Charter College
-  link: https://www.chartercollege.edu/
-  img: logos/Charter College Logo JPEG.jpg
+- citizens:
+  name: Citizens Medical Center
+  link: https://citizensmedicalcenter.org/
+  img: logos/citizens.png
   colWidth: "3"
 - tfc:
   name: TFC
