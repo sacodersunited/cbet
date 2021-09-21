@@ -7,9 +7,9 @@ import Timer from "./timer"
 import styled from "@emotion/styled"
 import Moment from "react-moment"
 import { css } from "@emotion/react"
-
+import { UseScript } from "../../hooks/use-script"
 // let enrollmentDeadline = "2020-06-22"
-// future terms for 2020
+// future terms for 2021
 // let enrollmentDeadline = "2020-08-03"
 // let enrollmentDeadline = "2020-09-14"
 // const enrollmentDeadline = "2021-02-08"
@@ -31,6 +31,8 @@ const StyledNavDropdown = styled(NavDropdown)`
 `
 
 const Header = (props) => {
+  UseScript("//embed.typeform.com/next/embed.js")
+
   return (
     <React.Fragment>
       <Navbar bg="dark" variant="dark" expand="lg">
@@ -165,9 +167,10 @@ const Header = (props) => {
                     Find out how CBET can help you succeed with your future
                   </p>
 
-                  <Link to="/inquiry-form">
-                    <Button>Learn More</Button>
-                  </Link>
+                  <div
+                    data-tf-widget="YKOHKJGE"
+                    style={{ width: "100%", height: "400px" }}
+                  />
                 </div>
               </StyledNavDropdown>
             </Nav>
