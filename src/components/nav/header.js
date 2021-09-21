@@ -17,8 +17,8 @@ import { css } from "@emotion/react"
 // const enrollmentDeadline = "2021-05-03"
 // const enrollmentDeadline = "2021-06-14"
 // const enrollmentDeadline = "2021-08-02"
-const enrollmentDeadline = "2021-09-13"
-// const enrollmentDeadline = "2021-10-25"
+// const enrollmentDeadline = "2021-09-13"
+const enrollmentDeadline = "2021-10-25"
 // const enrollmentDeadline = "2021-12-19"
 
 const StyledNavDropdown = styled(NavDropdown)`
