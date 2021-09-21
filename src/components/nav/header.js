@@ -102,20 +102,20 @@ const Header = (props) => {
               <Link to="/faq" className="nav-link" activeClassName="active">
                 FAQs
               </Link>
-              <NavDropdown title="Apply Now" id="applynow">            
+              <NavDropdown title="Apply Now" id="applynow">
                 <Link
                   to="https://bio-web.scansoftware.com/cafeweb/tapestry?page=AAS%20Application"
                   className="dropdown-item"
                   rel="noopener noreferrer"
                 >
-                    BMET Degree
+                  BMET Degree
                 </Link>
                 <Link
                   to="https://bio-web.scansoftware.com/cafeweb/tapestry?page=CERT%20Application"
                   className="dropdown-item"
                   rel="noopener noreferrer"
                 >
-                    BMET Certificate
+                  BMET Certificate
                 </Link>
               </NavDropdown>
             </Nav>
@@ -165,13 +165,9 @@ const Header = (props) => {
                     Find out how CBET can help you succeed with your future
                   </p>
 
-                  <a
-                    href="https://bio-web.scansoftware.com/cafeweb/tapestry?page=Inquiry"
-                    target="_self"
-                    rel="noreferrer"
-                  >
+                  <Link to="/inquiry-form">
                     <Button>Learn More</Button>
-                  </a>
+                  </Link>
                 </div>
               </StyledNavDropdown>
             </Nav>
