@@ -7,7 +7,8 @@ import Timer from "./timer"
 import styled from "@emotion/styled"
 import Moment from "react-moment"
 import { css } from "@emotion/react"
-import { UseScript } from "../../hooks/use-script"
+import { PopupButton } from '@typeform/embed-react'
+
 // let enrollmentDeadline = "2020-06-22"
 // future terms for 2021
 // let enrollmentDeadline = "2020-08-03"
@@ -21,17 +22,7 @@ import { UseScript } from "../../hooks/use-script"
 const enrollmentDeadline = "2021-10-25"
 // const enrollmentDeadline = "2021-12-19"
 
-const StyledNavDropdown = styled(NavDropdown)`
-  border: 1px solid white;
-  border-radius: 0.25rem;
-  .dropdown-menu {
-    padding: 0;
-    padding-bottom: 20px;
-  }
-`
-
 const Header = (props) => {
-  UseScript("//embed.typeform.com/next/embed.js")
 
   return (
     <React.Fragment>
@@ -131,49 +122,10 @@ const Header = (props) => {
 
                 <Timer enrollmentEndDate={enrollmentDeadline} key="navbar" />
               </Navbar.Text>
-
-              <StyledNavDropdown
-                className="dropleft"
-                title="Start Now"
-                id="drop-form"
-                renderMenuOnMount
-              >
-                <div className="container px-5 py-3 bg-primary text-white">
-                  <h5>
-                    Enrollment Deadline is{" "}
-                    <Moment format="MMM DD">{enrollmentDeadline}</Moment>
-                  </h5>
-                  <p>
-                    <Timer
-                      enrollmentEndDate={enrollmentDeadline}
-                      key="dropdown"
-                    />
-                  </p>
-                </div>
-
-                <div
-                  css={css`
-                    /* mobile */
-                    padding: 10px 5px;
-                    max-width: 400px;
-                    /* desktop */
-                    @media (min-width: 35em) {
-                      padding: 0 20px;
-                      min-width: 460px;
-                    }
-                  `}
-                >
-                  <p className="lead">
-                    Complete this short webform to speak with an Admissions
-                    Counselor
-                  </p>
-
-                  <div
-                    data-tf-widget="YKOHKJGE"
-                    style={{ width: "100%", height: "1000px" }}
-                  />
-                </div>
-              </StyledNavDropdown>
+              <PopupButton id="YKOHKJGE" style={{ fontSize: 16 }} className="btn btn-outline-light">
+                 Start Now
+              </PopupButton>
+             
             </Nav>
           </Navbar.Collapse>
         </Container>
