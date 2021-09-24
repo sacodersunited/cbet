@@ -168,7 +168,8 @@ const Header = (props) => {
                   {/* This is 2/3s option */}
                   <Widget
                     id="YKOHKJGE"
-                    style={{ width: "100%", height: "800px" }}
+                    style={{ width: "100%", height: "820px" }}
+                    hideFooter={true}
                   />
                 </div>
               </StyledNavDropdown>
