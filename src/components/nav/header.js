@@ -162,12 +162,13 @@ const Header = (props) => {
                   `}
                 >
                   <p className="lead">
-                    Find out how CBET can help you succeed with your future
+                    Complete this short webform to speak with an Admissions
+                    Counselor
                   </p>
-                  {/* This is awful */}
+                  {/* This is 2/3s option */}
                   <Widget
                     id="YKOHKJGE"
-                    style={{ width: "100%", height: "1300px" }}
+                    style={{ width: "100%", height: "800px" }}
                   />
                 </div>
               </StyledNavDropdown>
