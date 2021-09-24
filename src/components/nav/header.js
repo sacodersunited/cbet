@@ -7,7 +7,7 @@ import Timer from "./timer"
 import styled from "@emotion/styled"
 import Moment from "react-moment"
 import { css } from "@emotion/react"
-import { PopupButton } from '@typeform/embed-react'
+import { Widget } from "@typeform/embed-react"
 
 // let enrollmentDeadline = "2020-06-22"
 // future terms for 2021
@@ -22,8 +22,16 @@ import { PopupButton } from '@typeform/embed-react'
 const enrollmentDeadline = "2021-10-25"
 // const enrollmentDeadline = "2021-12-19"
 
-const Header = (props) => {
+const StyledNavDropdown = styled(NavDropdown)`
+  border: 1px solid white;
+  border-radius: 0.25rem;
+  .dropdown-menu {
+    padding: 0;
+    padding-bottom: 20px;
+  }
+`
 
+const Header = (props) => {
   return (
     <React.Fragment>
       <Navbar bg="dark" variant="dark" expand="lg">
@@ -122,10 +130,47 @@ const Header = (props) => {
 
                 <Timer enrollmentEndDate={enrollmentDeadline} key="navbar" />
               </Navbar.Text>
-              <PopupButton id="YKOHKJGE" style={{ fontSize: 16 }} className="btn btn-outline-light">
-                 Start Now
-              </PopupButton>
-             
+              <StyledNavDropdown
+                className="dropleft"
+                title="Start Now"
+                id="drop-form"
+                renderMenuOnMount
+              >
+                <div className="container px-5 py-3 bg-primary text-white">
+                  <h5>
+                    Enrollment Deadline is{" "}
+                    <Moment format="MMM DD">{enrollmentDeadline}</Moment>
+                  </h5>
+                  <p>
+                    <Timer
+                      enrollmentEndDate={enrollmentDeadline}
+                      key="dropdown"
+                    />
+                  </p>
+                </div>
+
+                <div
+                  css={css`
+                    /* mobile */
+                    padding: 10px 5px;
+                    max-width: 400px;
+                    /* desktop */
+                    @media (min-width: 35em) {
+                      padding: 0 20px;
+                      min-width: 460px;
+                    }
+                  `}
+                >
+                  <p className="lead">
+                    Find out how CBET can help you succeed with your future
+                  </p>
+                  {/* This is awful */}
+                  <Widget
+                    id="YKOHKJGE"
+                    style={{ width: "100%", height: "1300px" }}
+                  />
+                </div>
+              </StyledNavDropdown>
             </Nav>
           </Navbar.Collapse>
         </Container>
