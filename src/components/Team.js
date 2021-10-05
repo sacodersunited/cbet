@@ -277,10 +277,7 @@ const Team = (props) => (
           <Fade left>
             <h2 className="display-5 text-uppercase">MISSION STATEMENT</h2>
             <p>
-              The College of Biomedical Equipment Technology’s (CBET) mission is
-              to provide Healthcare Technology Management (HTM) education,
-              training and career services consistent with the evolving needs of
-              employers in the healthcare industry.
+            The College of Biomedical Equipment Technology provides innovative and relevant Healthcare Technology Management, Compliance, and Imaging education, training, and career services to prepare our students to meet the evolving needs of employers in the healthcare Industry.
             </p>
           </Fade>
         </Col>
