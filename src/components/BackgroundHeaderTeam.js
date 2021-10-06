@@ -98,6 +98,10 @@ const BackgroundHeaderTeam = () => (
                     instruction. At the College of Biomedical Equipment
                     Technology, our word is our bond.
                   </p>
+                  <h5>6. Committed to Quality Benchmarks</h5>
+                  <p>
+                  CBET utilizes the Principles of Ethics for ACCET Accredited Institutions as a baseline from which to measure our commitment to providing and/or ensuring: high quality and effective programs; non-discriminatory practices in our employment and enrollment practices; ethical and clearly stated advertising, admission, and enrollment procedures; effective student services to ensure the successful retention, graduation, and employability of students and graduates; student satisfaction; the ethical administration of all financial aspects of our institution; voluntary self-regulation and self-improvement; our commitment to community and industry involvement and participation; the provision of essential skills to support a productive workforce in our fields; and the promotion of continuing education and training programs of the highest quality and integrity. 
+                  </p>
                 </Col>
               </Row>
             </Container>

@@ -1,6 +1,4 @@
 import React from "react"
-import { Link } from "gatsby"
-import Img from "gatsby-image"
 import {
   Container,
   Row,
@@ -15,7 +13,7 @@ import BackgroundGraphicHeader from "./BackgroundGraphicHeader"
 import NonHeaderBackgroundHeader from "./NonHeaderBackgroundHeader"
 import hollisScholarship from "../documents/Hollis Merit Scholarship_AAS and CERT.pdf"
 import bassukScholarship from "../documents/First Sergeant Warren Bassuk Memorial Scholarship_AAS and CERT.pdf"
-import CovidDoc from "../documents/CBET.COVID.pdf"
+import CovidFlex from "../documents/COVID.Flexibilities.Statement_10.05.2021.pdf"
 
 const blueStyles = {
   backgroundColor: "#2c3e50",
@@ -42,7 +40,7 @@ const FinanceAssistance = (props) => (
                 <Card.Text>
                   Special Notice Concerning the Global COVID-19 Pandemic.
                   <br />
-                  <a href={CovidDoc}>
+                  <a href={CovidFlex}>
                     <Button className="mt-3">Learn More</Button>
                   </a>
                 </Card.Text>

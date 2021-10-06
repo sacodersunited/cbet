@@ -1,7 +1,7 @@
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
-import { Container, Navbar, Nav, NavDropdown, Button } from "react-bootstrap"
+import { Container, Navbar, Nav, NavDropdown } from "react-bootstrap"
 import Img from "gatsby-image"
 import Timer from "./timer"
 import styled from "@emotion/styled"
@@ -98,6 +98,14 @@ const Header = (props) => {
                   rel="noopener noreferrer"
                 >
                   Canvas
+                </a>
+                <a
+                  href="https://cbet.skillnet.net/"
+                  target="_blank"
+                  className="dropdown-item"
+                  rel="noopener noreferrer"
+                >
+                  CBET SkillNet
                 </a>
               </NavDropdown>
               <Link to="/faq" className="nav-link" activeClassName="active">
