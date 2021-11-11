@@ -92,6 +92,7 @@ const Accreditations = (props) => (
               alt="Dept of Consumer Affairs"
               link="https://www.bppe.ca.gov/"
             />
+            <Accreditor img={props.images.hireVetsLogo.childImageSharp.fluid} alt="HIREVets.gov HIRE Vets Medallion Program - Recognizing employers who HIRE veterans - version 5" link="https://www.hirevets.gov" />
           </Row>
         </Col>
       </Row>

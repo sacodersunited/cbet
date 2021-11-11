@@ -43,6 +43,13 @@ const AccreditationsStaticQuery = () => (
             }
           }
         }
+        hireVetsLogo: file(relativePath: { eq: "HireVets.png" }) {
+          childImageSharp {
+            fluid(maxHeight: 128, quality: 100) {
+              ...GatsbyImageSharpFluid_withWebp
+            }
+          }
+        }
       }
     `}
     render={(data) => <Accreditations images={data} />}
