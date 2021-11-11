@@ -1,5 +1,5 @@
 import React from "react"
-import { Container, Row, Col } from "react-bootstrap"
+import { Container, Row, Col, Alert } from "react-bootstrap"
 import Layout from "../components/layout"
 
 const PurdueCrcst = (props) => {
@@ -8,16 +8,20 @@ const PurdueCrcst = (props) => {
       <Container className="mb-5">
         <Row>
           <Col md={12}>
-            <iframe
-              id="typeform-full"
-              title="typeformfull"
-              width="100%"
-              height="800px"
-              frameborder="0"
-              allow="camera; microphone; autoplay; encrypted-media;"
-              src="https://form.typeform.com/to/zoUUeneK?typeform-medium=embed-snippet"
-              style={{ marginTop: "5px" }}
-            ></iframe>
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <Alert variant="danger" dismissible>
+              <div className="container">
+                <Alert.Heading>
+                  Special Notice Concerning the Global COVID-19 Pandemic
+                </Alert.Heading>
+                  Due to the impact of COVID-19, we have temporarily suspended our CRCST Externship Program. Please contact a Purdue Global advisor for additional information and support.
+              </div>
+            </Alert>
           </Col>
         </Row>
       </Container>
