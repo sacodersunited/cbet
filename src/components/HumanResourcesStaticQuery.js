@@ -2,11 +2,11 @@ import React from "react"
 import { StaticQuery, graphql } from "gatsby"
 import HumanResources from "../components/HumanResources"
 
-const HumanResourcesStaticQuery = props => (
+const HumanResourcesStaticQuery = (props) => (
   <StaticQuery
     query={graphql`
       {
-        lisa: file(relativePath: { eq: "team/lGonzales.jpg" }) {
+        hr: file(relativePath: { eq: "team/julissa-garibay.jpeg" }) {
           childImageSharp {
             fluid(maxHeight: 286, maxWidth: 286, quality: 100) {
               ...GatsbyImageSharpFluid_withWebp
@@ -15,7 +15,7 @@ const HumanResourcesStaticQuery = props => (
         }
       }
     `}
-    render={data => <HumanResources images={data} />}
+    render={(data) => <HumanResources images={data} />}
   />
 )
 export default HumanResourcesStaticQuery

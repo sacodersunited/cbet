@@ -6,6 +6,13 @@ import { FaRegEnvelope, FaTag } from "react-icons/fa"
 import EmploymentApp from "../../src/documents/CBET Employment Application_7.8.2019.pdf"
 import EmployeeHandbook from "../../src/documents/CBET EMPLOYEE HANDBOOK _ July 2019.pdf"
 
+const hrPerson = {
+  name: "Julissa Garibay",
+  title: "Human Resources",
+  email: "jgaribay@cbet.edu",
+  phone: "844.879.9043",
+}
+
 const HumanResources = (props) => (
   <Container className="mb-5">
     <Row className="mb-3">
@@ -19,12 +26,14 @@ const HumanResources = (props) => (
     <Row className="mb-5">
       <Col md={4}>
         <Card style={{ width: "18rem" }}>
-          <Img fluid={props.images.lisa.childImageSharp.fluid} />
-
+          <Img
+            fluid={props.images.hr.childImageSharp.fluid}
+            alt="Human Resources profile"
+          />
           <Card.Body>
-            <Card.Title>Lisa Gonzales</Card.Title>
+            <Card.Title>{hrPerson.name}</Card.Title>
             <Card.Subtitle className="mb-2 text-muted">
-              Human Resources
+              {hrPerson.title}
             </Card.Subtitle>
             <Row className="mb-3">
               <Col>
@@ -33,14 +42,12 @@ const HumanResources = (props) => (
                 <a
                   target="_blank"
                   rel="noopener noreferrer"
-                  href="mailto:lgonzales@cbet.edu"
+                  href={`mailto:${hrPerson.email}`}
                 >
-                  lgonzales@cbet.edu
+                  {hrPerson.email}
                 </a>
                 <br />
-                <a href="tel:+12106020084">M: 210.602.0084</a>
-                <br />
-                <a href="tel:+18448799043">O: 844.879.9043</a>
+                <a href={`tel:+1${hrPerson.phone}`}>M: {hrPerson.phone}</a>
               </Col>
             </Row>
             <Row>
