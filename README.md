@@ -8,15 +8,11 @@
   College of Biomedical Equipment Technology
 </h1>
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/963e2ebf-4de0-462b-871a-46f5a6d09834/deploy-status)](https://app.netlify.com/sites/dazzling-darwin-78f815/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/7cc04f87-32be-47ce-95a4-fe6722fc4fa6/deploy-status)](https://app.netlify.com/sites/epic-perlman-3ad72c/deploys)
 
 Kick off your project with this default boilerplate. This starter ships with the main Gatsby configuration files you might need to get up and running blazing fast with the blazing fast app generator for React.
 
 _Have another more specific idea? You may want to check out our vibrant collection of [official and community-created starters](https://www.gatsbyjs.org/docs/gatsby-starters/)._
-
-## Staging Server
-
-[Netlify Staging Site](https://dazzling-darwin-78f815.netlify.com/)
 
 1.  **Create a Gatsby site.**
 
@@ -27,7 +23,7 @@ _Have another more specific idea? You may want to check out our vibrant collecti
     gatsby new my-default-starter https://github.com/gatsbyjs/gatsby-starter-default
     ```
 
-1.  **Start developing.**
+2.  **Start developing.**
 
     Navigate into your new site’s directory and start it up.
 
@@ -36,7 +32,7 @@ _Have another more specific idea? You may want to check out our vibrant collecti
     gatsby develop
     ```
 
-1.  **Open the source code and start editing!**
+3.  **Open the source code and start editing!**
 
     Your site is now running at `http://localhost:8000`!
 
@@ -50,13 +46,13 @@ _Have another more specific idea? You may want to check out our vibrant collecti
 
 1. Build the container and run it - `docker-compose up --build`.
 
-1. Then open browser and code. 
+1. Then open browser and code.
 
 1. When done using the container run the command `CTRL-C` twice.
 
 1. If you make any dependency changes like `npm install <packagename>` to the project then make sure and run `docker-compose up --build` again to rebuild the container.
 
-** Check your images periodically and remove any unused images created for this container.
+\*\* Check your images periodically and remove any unused images created for this container.
 
 ## 🧐 How to run testing in Cypress/Applitools.
 
