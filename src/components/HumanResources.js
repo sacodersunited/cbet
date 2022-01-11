@@ -74,9 +74,11 @@ const HumanResources = (props) => (
           CBET is one of the only online biomedical colleges in the United
           States and strives to educate men and women who will become Biomedical
           Equipment Technicians (BMET) and Healthcare Technology Managers (HTM).
-          Our mission is to provide Healthcare Technology Management (HTM)
-          education, training, and career services consistent with the evolving
-          needs of employers in the healthcare industry.
+          <br />
+          The College of Biomedical Equipment Technology provides innovative and
+          relevant Healthcare Technology Management, Compliance, and Imaging
+          education, training, and career services to prepare our students to
+          meet the evolving needs of employers in the healthcare Industry.
         </p>
         <p>
           The College is 100% Veteran owned and operated and offers a variety of
