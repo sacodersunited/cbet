@@ -20,7 +20,7 @@ import { Widget } from "@typeform/embed-react"
 // const enrollmentDeadline = "2021-08-02"
 // const enrollmentDeadline = "2021-09-13"
 // const enrollmentDeadline = "2021-10-25"
-const enrollmentDeadline = "2022-02-17"
+const enrollmentDeadline = "2022-02-07"
 
 const StyledNavDropdown = styled(NavDropdown)`
   border: 1px solid white;
