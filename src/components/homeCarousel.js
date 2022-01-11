@@ -10,6 +10,9 @@ const CarouselH1 = styled.h1`
   }
 `
 
+const mission =
+  "The College of Biomedical Equipment Technology provides innovative and relevant Healthcare Technology Management, Compliance, and Imaging education, training, and career services to prepare our students to meet the evolving needs of employers in the healthcare Industry."
+
 const HomeCarousel = (props) => (
   <Carousel pauseonhover="true">
     <Carousel.Item>
@@ -25,11 +28,7 @@ const HomeCarousel = (props) => (
         <Col md={8}>
           <Carousel.Caption style={{ textAlign: "left" }}>
             <CarouselH1>College of Biomedical Equipment Technology</CarouselH1>
-            <p>
-              Our mission is to provide Healthcare Technology Management (HTM)
-              education, training and career services consistent with the
-              evolving needs of employers in the healthcare industry.
-            </p>
+            <p>{mission}</p>
             <Link to="/about">
               <Button className="text-uppercase">Learn More</Button>
             </Link>
