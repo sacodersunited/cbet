@@ -188,7 +188,7 @@ export default function CareersLayout({
                 </p>
                 <p>
                   To learn more about becoming an externship provider and to
-                  gain access to our valuable student candidates contact Code
+                  gain access to our valuable student candidates contact Cody
                   Brummet at{" "}
                   <a href="mailto:cbrummet@cbet.edu">cbrummet@cbet.edu</a> or
                   Scott McKnight at{" "}
