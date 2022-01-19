@@ -51,9 +51,9 @@ const HomeCarousel = (props) => (
           <Carousel.Caption style={{ textAlign: "left" }}>
             <CarouselH1>College of Biomedical Equipment Technology</CarouselH1>
             <p>Building the Future Healthcare Technology Workforce</p>
-            <a href="https://bio-web.scansoftware.com/cafeweb/tapestry?page=Inquiry">
+            <Link to="/about">
               <Button className="text-uppercase">Learn More</Button>
-            </a>
+            </Link>
           </Carousel.Caption>
         </Col>
       </Row>
@@ -71,15 +71,16 @@ const HomeCarousel = (props) => (
           <Carousel.Caption style={{ textAlign: "left" }}>
             <CarouselH1>College of Biomedical Equipment Technology</CarouselH1>
             <p>Building the Future Healthcare Technology Workforce</p>
-            <a href="https://bio-web.scansoftware.com/cafeweb/tapestry?page=Inquiry">
+            <Link to="/about">
               <Button className="text-uppercase">Learn More</Button>
-            </a>
+            </Link>
           </Carousel.Caption>
         </Col>
       </Row>
     </Carousel.Item>
 
-    <Carousel.Item>
+    {/* Removed one slide per issue #365 */}
+    {/* <Carousel.Item>
       <Img
         fluid={props.images.fourth.childImageSharp.fluid}
         style={{ minHeight: "449px" }}
@@ -99,7 +100,7 @@ const HomeCarousel = (props) => (
           </Carousel.Caption>
         </Col>
       </Row>
-    </Carousel.Item>
+    </Carousel.Item> */}
   </Carousel>
 )
 

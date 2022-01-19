@@ -188,13 +188,13 @@ export default function CareersLayout({
                 </p>
                 <p>
                   To learn more about becoming an externship provider and to
-                  gain access to our valuable student candidates contact Manuel
-                  Ortega at{" "}
-                  <a href="mailto:mortega@cbet.edu">mortega@cbet.edu</a> or
+                  gain access to our valuable student candidates contact Cody
+                  Brummet at{" "}
+                  <a href="mailto:cbrummet@cbet.edu">cbrummet@cbet.edu</a> or
                   Scott McKnight at{" "}
                   <a href="mailto:smcknight@cbet.edu">smcknight@cbet.edu</a>
                 </p>
-                <a href="mailto:mortega@cbet.edu?&bcc=smcknight@cbet.edu">
+                <a href="mailto:cbrummet@cbet.edu?&bcc=smcknight@cbet.edu">
                   <Button className="text-uppercase">Sign Up</Button>
                 </a>
                 <a href={externshipDoc}>
