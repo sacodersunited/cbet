@@ -1,5 +1,4 @@
 import React from "react"
-import { Link } from "gatsby"
 import { Carousel, Button, Col, Row } from "react-bootstrap"
 import styled from "@emotion/styled"
 import Img from "gatsby-image"
@@ -29,9 +28,9 @@ const HomeCarousel = (props) => (
           <Carousel.Caption style={{ textAlign: "left" }}>
             <CarouselH1>College of Biomedical Equipment Technology</CarouselH1>
             <p>{mission}</p>
-            <Link to="/about">
+            <a href="https://w7ler1bdyy8.typeform.com/to/YKOHKJGE">
               <Button className="text-uppercase">Learn More</Button>
-            </Link>
+            </a>
           </Carousel.Caption>
         </Col>
       </Row>
@@ -51,9 +50,9 @@ const HomeCarousel = (props) => (
           <Carousel.Caption style={{ textAlign: "left" }}>
             <CarouselH1>College of Biomedical Equipment Technology</CarouselH1>
             <p>Building the Future Healthcare Technology Workforce</p>
-            <Link to="/about">
+            <a href="https://w7ler1bdyy8.typeform.com/to/YKOHKJGE">
               <Button className="text-uppercase">Learn More</Button>
-            </Link>
+            </a>
           </Carousel.Caption>
         </Col>
       </Row>
@@ -71,36 +70,13 @@ const HomeCarousel = (props) => (
           <Carousel.Caption style={{ textAlign: "left" }}>
             <CarouselH1>College of Biomedical Equipment Technology</CarouselH1>
             <p>Building the Future Healthcare Technology Workforce</p>
-            <Link to="/about">
-              <Button className="text-uppercase">Learn More</Button>
-            </Link>
-          </Carousel.Caption>
-        </Col>
-      </Row>
-    </Carousel.Item>
-
-    {/* Removed one slide per issue #365 */}
-    {/* <Carousel.Item>
-      <Img
-        fluid={props.images.fourth.childImageSharp.fluid}
-        style={{ minHeight: "449px" }}
-        className="d-block w-100"
-        alt="biomedical technology school
-          /biomedical college /biomedical training /online biomedical college /Online biomedical
-          training /online biomedical technology school"
-      />
-      <Row>
-        <Col md={8}>
-          <Carousel.Caption style={{ textAlign: "left" }}>
-            <CarouselH1>College of Biomedical Equipment Technology</CarouselH1>
-            <p>Building the Future Healthcare Technology Workforce</p>
-            <a href="https://bio-web.scansoftware.com/cafeweb/tapestry?page=Inquiry">
+            <a href="https://w7ler1bdyy8.typeform.com/to/YKOHKJGE">
               <Button className="text-uppercase">Learn More</Button>
             </a>
           </Carousel.Caption>
         </Col>
       </Row>
-    </Carousel.Item> */}
+    </Carousel.Item>
   </Carousel>
 )
 
