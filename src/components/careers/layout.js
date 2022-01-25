@@ -46,9 +46,15 @@ export default function CareersLayout({
         new Date(formatDate(b.StartDate, true))
     )
 
-  const blogPosts = cbetContent.filter(
-    (content) => content.CategoryName === "Blog" && content.Status === true
-  )
+  const blogPosts = cbetContent
+    .filter(
+      (content) => content.CategoryName === "Blog" && content.Status === true
+    )
+    .sort(
+      (b, a) =>
+        new Date(formatDate(a.StartDate, true)) -
+        new Date(formatDate(b.StartDate, true))
+    )
 
   function createMarkup(html) {
     return { __html: html }

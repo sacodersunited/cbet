@@ -1,21 +1,13 @@
 import React from "react"
 import Img from "gatsby-image"
 import SEO from "../components/seo"
-import {
-  Container,
-  Row,
-  Col,
-  Button,
-  Card,
-  Form,
-  DropdownButton,
-  Dropdown,
-} from "react-bootstrap"
+import { Container, Row, Col, Button, Card } from "react-bootstrap"
 import styled from "@emotion/styled"
 import Fade from "react-reveal/Fade"
 import Slide from "react-reveal/Slide"
 import VideoCarousel from "../components/VideoCarousel"
 import { FaRegEnvelope } from "react-icons/fa"
+import { Link } from "gatsby"
 import BMETVid from "../video/cbet-cert.mp4"
 
 const ProgramDetail = styled.div`
@@ -23,24 +15,6 @@ const ProgramDetail = styled.div`
   color: white;
 `
 function BmetCertificate(props) {
-  function onDropdownSelect(e) {
-    if (e.target.text === "BMET Degree") {
-      if (window) {
-        window.open(
-          "https://bio-web.scansoftware.com/cafeweb/tapestry?page=AAS%20Application",
-          "_blank"
-        )
-      }
-    } else if (e.target.text === "BMET Certificate") {
-      if (window) {
-        window.open(
-          "https://bio-web.scansoftware.com/cafeweb/tapestry?page=CERT%20Application",
-          "_blank"
-        )
-      }
-    }
-  }
-
   return (
     <React.Fragment>
       <SEO
@@ -83,24 +57,15 @@ the place for you. Visit our website to learn more!"
                 electrical safety tests.
               </p>
             </Fade>
-            <Form.Group>
-              {/* <Form.Label>Apply Today</Form.Label> */}
-              <DropdownButton
-                id="dropdown-bmet-select"
-                title="Apply Today"
-                drop="right"
-                variant="outline-primary"
-                onClick={(e) => onDropdownSelect(e)}
-                key="bmetselect"
-              >
-                <Dropdown.Item eventKey="1">BMET Degree</Dropdown.Item>
-                <Dropdown.Item eventKey="2">BMET Certificate</Dropdown.Item>
-              </DropdownButton>
-            </Form.Group>
-
-            <Button variant="outline-primary" href="/course-catalog">
-              Course Catalog
-            </Button>
+            <Link to="/application">
+              <Button title="Apply Today">Apply Today</Button>
+            </Link>
+            <br />
+            <Link to="/course-catalog">
+              <Button className="mt-2" variant="outline-primary">
+                Course Catalog
+              </Button>
+            </Link>
           </Col>
           <Col md={4}>
             <Card>

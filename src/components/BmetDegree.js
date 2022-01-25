@@ -17,6 +17,7 @@ import Fade from "react-reveal/Fade"
 import Slide from "react-reveal/Slide"
 import VideoCarousel from "../components/VideoCarousel"
 import { FaRegEnvelope } from "react-icons/fa"
+import { Link } from "gatsby"
 import BMETVid from "../video/cbetDegree-SD.mp4"
 
 const ProgramDetail = styled.div`
@@ -24,24 +25,6 @@ const ProgramDetail = styled.div`
   color: white;
 `
 function BmetDegree(props) {
-  function onDropdownSelect(e) {
-    if (e.target.text && e.target.text === "BMET Degree") {
-      if (window) {
-        window.open(
-          "https://bio-web.scansoftware.com/cafeweb/tapestry?page=AAS%20Application",
-          "_blank"
-        )
-      }
-    } else if (e.target.text && e.target.text === "BMET Certificate") {
-      if (window) {
-        window.open(
-          "https://bio-web.scansoftware.com/cafeweb/tapestry?page=CERT%20Application",
-          "_blank"
-        )
-      }
-    }
-  }
-
   return (
     <React.Fragment>
       <SEO
@@ -78,33 +61,15 @@ function BmetDegree(props) {
                 positions in the field.
               </p>
             </Fade>
-            <Form.Group>
-              {/* <Form.Label>Apply Today</Form.Label> */}
-              <DropdownButton
-                id="dropdown-bmet-selectDegree"
-                title="Apply Today"
-                drop="right"
-                variant="outline-primary"
-                onClick={(e) => onDropdownSelect(e)}
-                key="bmetselect"
-              >
-                <Dropdown.Item eventKey="1">BMET Degree</Dropdown.Item>
-                <Dropdown.Item eventKey="2">BMET Certificate</Dropdown.Item>
-              </DropdownButton>
-            </Form.Group>
-
-            <ButtonToolbar>
-              {/* <a
-                  href="https://bio-web.scansoftware.com/cafeweb/tapestry?page=AAS%20Application"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <Button className="text-uppercase mr-3"> Apply Today</Button>
-                </a> */}
-              <Button variant="outline-primary" href="/course-catalog">
+            <Link to="/application">
+              <Button title="Apply Today">Apply Today</Button>
+            </Link>
+            <br />
+            <Link to="/course-catalog">
+              <Button className="mt-2" variant="outline-primary">
                 Course Catalog
               </Button>
-            </ButtonToolbar>
+            </Link>
           </Col>
           <Col md={4}>
             <Card>
