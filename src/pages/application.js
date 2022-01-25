@@ -13,9 +13,18 @@ export default function Application() {
         <h1 className="m-5">Admissions Application</h1>
         <Widget id="U728qZwy" style={{ width: "100%" }} height={800} />
         <p className="mt-5">
-          Click <a href={pdfApplication}>here</a> to download a PDF application
-          and submit to{" "}
-          <a href="mailto:admissiondept@cbet.edu">admissiondept@cbet.edu</a>
+          Click{" "}
+          <a href={pdfApplication} target="_blank" rel="noreferrer">
+            here
+          </a>{" "}
+          to download a PDF application and submit to{" "}
+          <a
+            href="mailto:admissiondept@cbet.edu"
+            target="_blank"
+            rel="noreferrer"
+          >
+            admissiondept@cbet.edu
+          </a>
         </p>
       </Container>
     </Layout>
