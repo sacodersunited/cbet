@@ -5,7 +5,7 @@ import SEO from "../components/seo"
 import { Link } from "gatsby"
 import HomeCarouselStaticQuery from "../components/HomeCarouselStaticQuery"
 import Programs from "../components/programs"
-import TestimonialStaticQuery from "../components/TestimonialStaticQuery"
+import Testimonials from "../components/testimonials"
 import HomeClassesStaticQuery from "../components/HomeClassesStaticQuery"
 import { Alert, Button } from "react-bootstrap"
 
@@ -54,7 +54,7 @@ const IndexPage = () => (
     <Slide right>
       <HomeClassesStaticQuery />
     </Slide>
-    <TestimonialStaticQuery />
+    <Testimonials />
   </Layout>
 )
 
