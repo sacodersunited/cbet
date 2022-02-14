@@ -35,7 +35,7 @@ const Partners = (props) => (
             <a href={partner.link} target="_blank" rel="noopener noreferrer">
               <Img
                 fluid={partner.img.childImageSharp.fluid}
-                alt={partner.name}
+                alt={`${partner.name} logo`}
               />
             </a>
           </Col>

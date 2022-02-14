@@ -9,18 +9,14 @@ import Moment from "react-moment"
 import { css } from "@emotion/react"
 import { Widget } from "@typeform/embed-react"
 
-// let enrollmentDeadline = "2020-06-22"
-// future terms for 2021
-// let enrollmentDeadline = "2020-08-03"
-// let enrollmentDeadline = "2020-09-14"
-// const enrollmentDeadline = "2021-02-08"
-// const enrollmentDeadline = "2021-03-22"
-// const enrollmentDeadline = "2021-05-03"
-// const enrollmentDeadline = "2021-06-14"
-// const enrollmentDeadline = "2021-08-02"
-// const enrollmentDeadline = "2021-09-13"
-// const enrollmentDeadline = "2021-10-25"
+// enrollment deadlines for 2022
 const enrollmentDeadline = "2022-02-07"
+// const enrollmentDeadline = "2022-03-21"
+// const enrollmentDeadline = "2022-05-23"
+// const enrollmentDeadline = "2022-06-13"
+// const enrollmentDeadline = "2022-08-01"
+// const enrollmentDeadline = "2022-09-12"
+// const enrollmentDeadline = "2022-10-24"
 
 const StyledNavDropdown = styled(NavDropdown)`
   border: 1px solid white;
