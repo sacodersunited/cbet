@@ -23,10 +23,7 @@ export default function Careers() {
   }, [])
 
   const jobs = cbetContent.filter((content) => {
-    if (
-      content.Category === 1 &&
-      content.Status === true
-    ) {
+    if (content.Category === 1 && content.Status === true) {
       return content
     }
 

@@ -31,6 +31,17 @@ export default function JobDetail({ job }) {
           </Badge>
         </FlexRow>
       </a>
+      <div>
+        {job.Location === "" ? null : (
+          <p>
+            <span style={{ fontWeight: "bold", marginRight: "5px" }}>
+              Location:
+            </span>
+            {job.Location}
+          </p>
+        )}
+      </div>
+
       <div dangerouslySetInnerHTML={{ __html: job.Description }}></div>
       <hr className="mt-5 mb-5" />
     </>
