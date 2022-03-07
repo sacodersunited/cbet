@@ -17,7 +17,7 @@ const Schedule = () => {
           <Col md={7}>
             <p>
               For more information, download our entire{" "}
-              <em>(2020-2021) Academic Calendar</em>.
+              <em>(2020-2024) Academic Calendar</em>.
             </p>
             <Button href={AcademicCalendar} variant="outline-primary">
               Academic Calendar

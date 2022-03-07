@@ -104,6 +104,24 @@ const Header = (props) => {
                   CBET SkillNet
                 </a>
               </NavDropdown>
+              <NavDropdown title="Transcripts" id="transcript-dropdown">
+                <a
+                  href="https://www.parchment.com/u/registration/44694200/institution"
+                  target="_blank"
+                  className="dropdown-item"
+                  rel="noopener noreferrer"
+                >
+                  Official Transcripts
+                </a>
+                <a
+                  href="https://cbet.skillnet.net/"
+                  target="_blank"
+                  className="dropdown-item"
+                  rel="noopener noreferrer"
+                >
+                  Unoffical Transcripts
+                </a>
+              </NavDropdown>
               <Link to="/faq" className="nav-link" activeClassName="active">
                 FAQs
               </Link>
