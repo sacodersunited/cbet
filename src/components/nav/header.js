@@ -57,6 +57,14 @@ const Header = (props) => {
                 <Link className="dropdown-item" to="/bmet-degree">
                   BMET Degree
                 </Link>
+                <a
+                  href="https://www.theimagingacademy.com/"
+                  target="_blank"
+                  className="dropdown-item"
+                  rel="noopener noreferrer"
+                >
+                  Imaging Academy{" "}
+                </a>
               </NavDropdown>
               <Link
                 to="/schedule"
@@ -114,7 +122,7 @@ const Header = (props) => {
                   Official Transcripts
                 </a>
                 <a
-                  href="https://cbet.skillnet.net/"
+                  href="mailto:registrar@cbet.edu"
                   target="_blank"
                   className="dropdown-item"
                   rel="noopener noreferrer"
