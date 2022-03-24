@@ -81,7 +81,7 @@ export default function Team(props) {
             <ListGroup>
               <ListGroup.Item>
                 Larry Nguyen{" "}
-                <em className="text-muted ml-1">CEO, Summit Imagery</em>{" "}
+                <em className="text-muted ml-1">CEO, Summit Imaging</em>{" "}
               </ListGroup.Item>
 
               <ListGroup.Item>
@@ -134,7 +134,11 @@ export default function Team(props) {
             <Fade left>
               <h2 className="display-5 text-uppercase">MISSION STATEMENT</h2>
               <p>
-              The College of Biomedical Equipment Technology provides innovative and relevant Healthcare Technology Management, Compliance, and Imaging education, training, and career services to prepare our students to meet the evolving needs of employers in the healthcare Industry.
+                The College of Biomedical Equipment Technology provides
+                innovative and relevant Healthcare Technology Management,
+                Compliance, and Imaging education, training, and career services
+                to prepare our students to meet the evolving needs of employers
+                in the healthcare Industry.
               </p>
             </Fade>
           </Col>
