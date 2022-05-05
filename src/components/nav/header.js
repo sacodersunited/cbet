@@ -74,6 +74,14 @@ const Header = (props) => {
                 Schedule
               </Link>
               <NavDropdown title="Students" id="student-dropdown">
+                <a
+                  href="https://store.aami.org/joinapi__membershiplist?id=a202E000005WjyJQAS&order=1"
+                  target="_blank"
+                  className="dropdown-item"
+                  rel="noopener noreferrer"
+                >
+                  AAMI Student Membership
+                </a>
                 <Link
                   to="/financial-assistance"
                   className="dropdown-item"
