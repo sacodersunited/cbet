@@ -32,7 +32,7 @@ export default function Team(props) {
       name: "Scott McKnight, MSM",
       role: "Director of Education",
       tag: "Governing Board",
-      email: "mcknight@cbet.edu",
+      email: "smcknight@cbet.edu",
       fb: "https://www.facebook.com/CBETCOLLEGE/",
       linkedIn: "https://www.linkedin.com/in/scott-mcknight-350292b/",
     },
