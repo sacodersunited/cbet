@@ -125,6 +125,13 @@ export default function Team(props) {
                   Professor, North Central University
                 </em>{" "}
               </ListGroup.Item>
+
+              <ListGroup.Item>
+                David Anthony{" "}
+                <em className="text-muted ml-1">
+                  Chief Operations Officer, Medical Imaging Solutions Group
+                </em>{" "}
+              </ListGroup.Item>
             </ListGroup>
           </Col>
         </Row>
