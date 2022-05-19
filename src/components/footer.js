@@ -23,13 +23,11 @@ const scholarshipLink = () => {
 
 const FooterSection = styled.footer`
   color: whitesmoke;
-  min-height: 400px;
-  padding: 96px 0;
 `
 
 const Footer = () => (
   <React.Fragment>
-    <FooterSection className="bg-dark">
+    <FooterSection className="bg-dark py-4 py-md-5">
       <Container>
         <Row>
           <Col xs={6} md={2} className="mb-3">
@@ -41,7 +39,7 @@ const Footer = () => (
               fluid
             />
           </Col>
-          <Col md={2}>
+          <Col md={2} className="mb-4 mb-md-0">
             <a href={AcademicCalendar} className="d-block text-light mb-3">
               Academic Calendar
             </a>
@@ -59,7 +57,7 @@ const Footer = () => (
               Scholarships
             </DivLink>
           </Col>
-          <Col md={2}>
+          <Col md={2} className="mb-4 mb-md-0">
             <a
               className="d-block text-light mb-3"
               href="mailto:webmaster@cbet.edu?Subject=Website%20Feedback"
@@ -83,7 +81,7 @@ const Footer = () => (
               FERPA Notice
             </a>
           </Col>
-          <Col md={2}>
+          <Col md={2} className="mb-4 mb-md-0">
             <a
               target="_blank"
               rel="noopener noreferrer"
@@ -128,7 +126,7 @@ const Footer = () => (
               Admin Portal
             </a>
           </Col>
-          <Col md={2}>
+          <Col md={2} className="mb-4 mb-md-0">
             <p>
               11550 IH-10 West <br />
               Suite 190 <br />
@@ -143,6 +141,11 @@ const Footer = () => (
             <a className="d-block text-light" href="mailto:webmaster@cbet.edu">
               webmaster@cbet.edu
             </a>
+          </Col>
+          <Col md={2} className="mb-4 mb-md-0">
+            <p>Unique Identity (UEI): FKHWAPZLDVL3</p>
+            <p>Cage Code: 8W0W9</p>
+            <p>NAICS code: 611000</p>
           </Col>
         </Row>
       </Container>
