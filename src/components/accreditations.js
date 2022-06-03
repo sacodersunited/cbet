@@ -40,7 +40,11 @@ const Accreditations = (props) => (
       <Row className="mb-5">
         <Col md={4}>
           <Fade left cascade>
-            <h2 style={{ textTransform: "uppercase" }}>Accreditations</h2>
+            <h2 style={{ textTransform: "uppercase" }}>
+              Accreditation
+              <br />
+              and Licensure
+            </h2>
           </Fade>
           <p>
             The College of Biomedical Equipment Technology is accredited by the
@@ -92,7 +96,11 @@ const Accreditations = (props) => (
               alt="Dept of Consumer Affairs"
               link="https://www.bppe.ca.gov/"
             />
-            <Accreditor img={props.images.hireVetsLogo.childImageSharp.fluid} alt="HIREVets.gov HIRE Vets Medallion Program - Recognizing employers who HIRE veterans - version 5" link="https://www.hirevets.gov" />
+            <Accreditor
+              img={props.images.hireVetsLogo.childImageSharp.fluid}
+              alt="HIREVets.gov HIRE Vets Medallion Program - Recognizing employers who HIRE veterans - version 5"
+              link="https://www.hirevets.gov"
+            />
           </Row>
         </Col>
       </Row>
