@@ -65,7 +65,7 @@ const Accreditations = (props) => (
                 >
                   <Image
                     src={AccImg}
-                    alt="accrediting council for continuining education and training"
+                    alt="accrediting council for continuing education and training"
                     fluid
                   />
                 </a>
