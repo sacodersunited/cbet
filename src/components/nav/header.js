@@ -10,11 +10,7 @@ import { css } from "@emotion/react"
 import { Widget } from "@typeform/embed-react"
 
 // enrollment deadlines for 2022
-const enrollmentDeadline = "2022-06-13"
-// const enrollmentDeadline = "2022-03-21"
-// const enrollmentDeadline = "2022-05-23"
-// const enrollmentDeadline = "2022-06-13"
-// const enrollmentDeadline = "2022-08-01"
+const enrollmentDeadline = "2022-08-01"
 // const enrollmentDeadline = "2022-09-12"
 // const enrollmentDeadline = "2022-10-24"
 

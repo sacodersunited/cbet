@@ -63,7 +63,7 @@ export default function CareersLayout({
   return (
     <Layout>
       <>
-        {!noCarousel && featuredJobs.length > 0 ? (
+        {/* {!noCarousel && featuredJobs.length > 0 ? (
           <JobsCarousel jobs={featuredJobs} bgImages={carouselBgImages} />
         ) : // default banner image for blog posts
         blogHeader ? (
@@ -79,7 +79,7 @@ export default function CareersLayout({
             alt="nature"
             style={{ objectFit: "cover", width: "100%" }}
           />
-        )}
+        )} */}
 
         <Container className="mt-5">
           <Row>
@@ -89,7 +89,7 @@ export default function CareersLayout({
                 <section id="events">
                   <h2>Events</h2>
                   <hr />
-                  {events.length > 0 ? (
+                  {/* {events.length > 0 ? (
                     events.map((event) => (
                       <div key={event.Id}>
                         <Badge variant="primary" style={{ height: "20px" }}>
@@ -111,12 +111,12 @@ export default function CareersLayout({
                     <p>
                       <FaFrown color="goldenrod" /> Sorry no events.
                     </p>
-                  )}
+                  )} */}
                 </section>
                 <section id="blog" className="mt-5">
                   <h2>Latest Posts</h2>
                   <hr />
-                  {blogPosts.length > 0
+                  {/* {blogPosts.length > 0
                     ? blogPosts.map((post) => {
                         return (
                           <div key={post.Id}>
@@ -138,7 +138,7 @@ export default function CareersLayout({
                           </div>
                         )
                       })
-                    : null}
+                    : null} */}
                 </section>
               </aside>
             </Col>
