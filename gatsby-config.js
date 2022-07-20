@@ -47,13 +47,13 @@ module.exports = {
         head: true,
       },
     },
-    {
-      resolve: "gatsby-source-cbet",
-      options: {
-        code: config.GATSBY_code,
-        appid: config.cbetContentCode,
-      },
-    },
+    // {
+    //   resolve: "gatsby-source-cbet",
+    //   options: {
+    //     code: config.GATSBY_code,
+    //     appid: config.cbetContentCode,
+    //   },
+    // },
     `gatsby-plugin-netlify-cache`,
     `gatsby-transformer-yaml`,
     {

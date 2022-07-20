@@ -1,15 +1,16 @@
 import React from "react"
 import { StaticQuery, graphql } from "gatsby"
 import ClassAdmin from "./ClassAdmin"
+// import classes from '../classes/classes.json'
 
 const CbetClassesStaticQuery = (props) => (
   <StaticQuery
     query={graphql`
       query cbetClasses {
-        allCbetClass {
+        allClassesYaml {
           edges {
             node {
-              Id
+              id
               Title
               Format
               Training
@@ -46,7 +47,7 @@ const CbetClassesStaticQuery = (props) => (
       <ClassAdmin
         user={props.user}
         code={data.site.siteMetadata.codeFunc}
-        cbetClasses={data.allCbetClass.edges}
+        cbetClasses={data.allClassesYaml.edges}
         images={data}
       />
     )}

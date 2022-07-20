@@ -36,13 +36,6 @@ class ClassAdmin extends React.Component {
       )
     }
 
-    let newClasses = this.state.classes.filter((cbetClass) => {
-      if (cbetClass.Id === 9 || cbetClass.Id === 1) {
-        return cbetClass
-      }
-      return null
-    })
-
     return (
       <Container>
         <h1 style={{ marginTop: "50px", marginBottom: "50px" }}>
@@ -51,10 +44,10 @@ class ClassAdmin extends React.Component {
 
         <Row>
           {/* All Classes from Azure, Map over all */}
-          {newClasses.map((cbetClass, index) => {
+          {this.state.classes.map((cbetClass, index) => {
             if (cbetClass.IsActive || isEmpty(this.props.user) === false) {
               return (
-                <Col md={6} key={cbetClass.Id + index}>
+                <Col md={6} key={cbetClass.id + index}>
                   <Card
                     border={cbetClass.IsActive ? "primary" : "light"}
                     bg={cbetClass.IsActive === false ? "secondary" : ""}
