@@ -2,7 +2,7 @@ import React from "react"
 import { StaticQuery, graphql } from "gatsby"
 import Partners from "./partners"
 
-const PartnersStaticQuery = () => (
+const ParntersYamlQuery = () => (
   <StaticQuery
     query={graphql`
       {
@@ -22,7 +22,7 @@ const PartnersStaticQuery = () => (
         }
       }
     `}
-    render={data => <Partners images={data} />}
+    render={(data) => <Partners images={data} />}
   />
 )
-export default PartnersStaticQuery
+export default ParntersYamlQuery

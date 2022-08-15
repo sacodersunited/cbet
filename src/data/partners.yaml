@@ -174,3 +174,13 @@
   link: https://assetservices.com/Sectors/Healthcare
   img: logos/Asset_Services_Final-Artwork.png
   colWidth: "3"
+- xmsLogo:
+  name: XMS Biomedical
+  link: https://safesurgeries.org/
+  img: logos/xms logo.jpg
+  colWidth: "3"
+- safeLogo:
+  name: Safe Surgeries
+  link: http://www.xmsbiomed.com/
+  img: logos/Safe Logo.png
+  colWidth: "3"
