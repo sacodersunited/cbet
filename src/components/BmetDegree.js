@@ -196,7 +196,6 @@ function BmetDegree(props) {
                 <li>Electronics II</li>
                 <li>Advanced Medical Equipment Systems</li>
                 <li>Biomedical Database Fundamentals</li>
-                <li>Externship</li>
               </ul>
             </Slide>
           </Col>
@@ -244,7 +243,7 @@ function BmetDegree(props) {
           <p>
             Upon completion of all requirements, the student will be awarded an
             Associate of Applied Science degree. Student to Teacher Ratio for
-            lecture and lab = 30:1, Externship = 1:1
+            lecture and lab = 30:1
           </p>
         </Row>
       </Container>
