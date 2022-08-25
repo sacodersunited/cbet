@@ -184,7 +184,8 @@
   link: http://www.xmsbiomed.com/
   img: logos/Safe Logo.png
   colWidth: "3"
-- dentalWhale: 
+- dentalWhale:
   name: Dental Whale
   link: https://www.dentalwhale.com/
   img: logos/DentalWhaleLogo.png
+  colWidth: "3"
