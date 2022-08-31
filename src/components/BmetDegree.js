@@ -1,17 +1,7 @@
 import React from "react"
 import SEO from "../components/seo"
 import Img from "gatsby-image"
-import {
-  Container,
-  Row,
-  Col,
-  Button,
-  Card,
-  ButtonToolbar,
-  Form,
-  Dropdown,
-  DropdownButton,
-} from "react-bootstrap"
+import { Container, Row, Col, Button, Card } from "react-bootstrap"
 import styled from "@emotion/styled"
 import Fade from "react-reveal/Fade"
 import Slide from "react-reveal/Slide"
@@ -112,10 +102,7 @@ function BmetDegree(props) {
             <Fade>
               <Col md="8">
                 <h4>Program Cost</h4>
-                <p>
-                  $23,095 ($22,995 Tuition, $100 Application Fee, Books and
-                  Supplies are Included in Tuition)
-                </p>
+                <p>$23,095 ($22,995 Tuition, $100 Application Fee)</p>
                 <h4>Program Length</h4>
                 <p>
                   1065 Clock Hours / 60 Semester Credit Hours

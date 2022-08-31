@@ -99,10 +99,7 @@ the place for you. Visit our website to learn more!"
             <Fade>
               <Col md="8">
                 <h4>Program Cost</h4>
-                <p>
-                  $9,298 ($9198 Tuition, $100 Application Fee, Books and
-                  Supplies are Included in Tuition)
-                </p>
+                <p>$9,298 ($9198 Tuition, $100 Application Fee)</p>
                 <h4>Program Length</h4>
                 <p className="mb-0">24 Weeks Full Time / 48 Weeks Part Time</p>
                 <p className="mt-0 mb-2">
