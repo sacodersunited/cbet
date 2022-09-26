@@ -17,7 +17,7 @@ class ClassAdmin extends React.Component {
   constructor(props) {
     super(props)
 
-    const newCbetClassesStaticQuery = props.cbetClasses.map((cbet) => {
+    const newCbetClassesStaticQuery = props.map((cbet) => {
       return cbet.node
     })
 
