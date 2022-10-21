@@ -30,7 +30,7 @@ export default function Team(props) {
     {
       img: props.images.sMcknight.childImageSharp.fluid,
       name: "Scott McKnight, MSM",
-      role: "Director of Education",
+      role: "Vice-President and Chief Financial Officer",
       tag: "Governing Board",
       email: "smcknight@cbet.edu",
       fb: "https://www.facebook.com/CBETCOLLEGE/",
