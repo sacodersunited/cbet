@@ -108,7 +108,7 @@ export default function Team(props) {
               <ListGroup.Item>
                 Aaron Predum{" "}
                 <em className="text-muted ml-1">
-                  Director of Biomedical Engineering, Hawaii Pacific Health
+                  IS – VP, Clinical Engineering, MedStar Health
                 </em>{" "}
               </ListGroup.Item>
 
