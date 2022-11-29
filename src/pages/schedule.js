@@ -3,7 +3,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import CbetClassesStaticQuery from "../components/CbetClassesStaticQuery"
 import { Container, Row, Col, Button } from "react-bootstrap"
-import AcademicCalendar from "../documents/2020 - 2024 Academic Calendar 110520.pdf"
+import AcademicCalendar from "../documents/2022-2027 Academic Calendar 11222022.pdf"
 import StudentComplaintPolicy from "../documents/NOTICE STUDENT COMPLAINT POLICY 7.10.20.pdf"
 
 const Schedule = () => {
@@ -17,7 +17,7 @@ const Schedule = () => {
           <Col md={7}>
             <p>
               For more information, download our entire{" "}
-              <em>(2020-2024) Academic Calendar</em>.
+              <em>(2022-2027) Academic Calendar</em>.
             </p>
             <Button href={AcademicCalendar} variant="outline-primary">
               Academic Calendar

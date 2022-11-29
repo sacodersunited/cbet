@@ -1,17 +1,9 @@
 import React from "react"
-import { isEmpty, ToShortDate, ToStartDate } from "../utils/utility"
-import {
-  Form,
-  Container,
-  Button,
-  Card,
-  Row,
-  Col,
-  Spinner,
-} from "react-bootstrap"
+import { isEmpty } from "../utils/utility"
+import { Form, Container, Card, Row, Col, Spinner } from "react-bootstrap"
 import { FaCloudversify, FaRegCalendarAlt } from "react-icons/fa"
-import { Link } from "gatsby"
 import Img from "gatsby-image"
+import Moment from "react-moment"
 
 class ClassAdmin extends React.Component {
   constructor(props) {
@@ -43,7 +35,6 @@ class ClassAdmin extends React.Component {
         </h1>
 
         <Row>
-          {/* All Classes from Azure, Map over all */}
           {this.state.classes.map((cbetClass, index) => {
             if (cbetClass.IsActive || isEmpty(this.props.user) === false) {
               return (
@@ -125,7 +116,13 @@ class ClassAdmin extends React.Component {
                             marginBottom: "5px",
                           }}
                         />
-                        {ToStartDate(new Date(cbetClass.StartDate))}
+                        <Moment format="MMM DD YYYY">
+                          {cbetClass.StartDate}
+                        </Moment>
+                        {" - "}
+                        <Moment format="MMM DD YYYY">
+                          {cbetClass.EndDate}
+                        </Moment>
                       </Card.Text>
                     </Card.Body>
                     <Card.Footer style={{ background: "#004085" }}>
@@ -133,7 +130,9 @@ class ClassAdmin extends React.Component {
                         style={{ color: "white", textAlign: "center" }}
                       >
                         Registration Deadline{" "}
-                        {ToShortDate(new Date(cbetClass.RegistrationCloseDate))}
+                        <Moment format="MMM DD YYYY">
+                          {cbetClass.RegistrationCloseDate}
+                        </Moment>
                       </Card.Text>
                     </Card.Footer>
                     <Card.Body>
@@ -155,27 +154,6 @@ class ClassAdmin extends React.Component {
                           </Form.Group>
                         </li>
                       </ul>
-                      {(() => {
-                        switch (cbetClass.ProgramSelected) {
-                          case "BMET":
-                            return <Link to="/bmet-degree"></Link>
-                          case "Cert":
-                            return <Link to="/bmet-certificate"></Link>
-
-                          default:
-                            return (
-                              <Link to="/bmet-degree">
-                                <Button
-                                  variant="primary"
-                                  size="sm"
-                                  disabled={false}
-                                >
-                                  Learn More
-                                </Button>
-                              </Link>
-                            )
-                        }
-                      })()}
                     </Card.Body>
                   </Card>
                 </Col>
