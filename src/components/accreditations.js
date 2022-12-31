@@ -19,8 +19,10 @@ const Accreditor = ({ img, link, alt }) => (
       <Img
         fluid={img}
         style={{
-          maxWidth: "242px",
+          width: "60%",
           margin: "0 auto",
+          aspectRatio: 3 / 2,
+          objectFit: "contain",
         }}
         alt={alt}
       />
