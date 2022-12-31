@@ -35,6 +35,12 @@ const Partners = (props) => (
             <a href={partner.link} target="_blank" rel="noopener noreferrer">
               <Img
                 fluid={partner.img.childImageSharp.fluid}
+                style={{
+                  width: "70%",
+                  margin: "0 auto",
+                  aspectRatio: 3 / 2,
+                  objectFit: "contain",
+                }}
                 alt={`${partner.name} logo`}
               />
             </a>
