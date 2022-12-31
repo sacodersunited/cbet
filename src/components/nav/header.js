@@ -9,9 +9,16 @@ import Moment from "react-moment"
 import { css } from "@emotion/react"
 import { Widget } from "@typeform/embed-react"
 
-// enrollment deadlines for 2022
-// const enrollmentDeadline = "2022-09-12"
-const enrollmentDeadline = "2022-12-26"
+// enrollment deadlines for 2023
+// NOTE: Also update the `src/data/classes.yaml` file
+// const enrollmentDeadline = "2023-03-20"
+// const enrollmentDeadline = "2023-05-01"
+// const enrollmentDeadline = "2023-06-12"
+// const enrollmentDeadline = "2023-07-31"
+// const enrollmentDeadline = "2023-09-11"
+// const enrollmentDeadline = "2023-10-23"
+// const enrollmentDeadline = "2023-12-17"
+const enrollmentDeadline = "2023-02-06"
 
 const StyledNavDropdown = styled(NavDropdown)`
   border: 1px solid white;
