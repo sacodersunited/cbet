@@ -4,17 +4,17 @@
   Title: BMET Certificate Program
   Format: Complete 16 hours weekly
   Training: Biomedical Service Company Practicum and/or Hospital Co-op.
-  StartDate: 2023-03-27
-  EndDate: 2023-05-07
-  RegistrationCloseDate: 2023-03-20
+  StartDate: 2023-03-28
+  EndDate: 2023-05-08
+  RegistrationCloseDate: 2023-03-21
   ProgramSelected: Cert
   IsActive: true
 - bmetaas:
   Title: BMET AAS - IDL Program
   Format: Complete 2 Full-Time courses every 6 weeks and 1 Part-time course every 6 weeks
   Training: Biomedical Service Company Practicum and/or Hospital Co-op.
-  StartDate: 2023-03-27
-  EndDate: 2023-05-07
-  RegistrationCloseDate: 2023-03-20
+  StartDate: 2023-03-28
+  EndDate: 2023-05-08
+  RegistrationCloseDate: 2023-03-21
   ProgramSelected: BMET
   IsActive: true
