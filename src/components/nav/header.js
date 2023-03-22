@@ -18,7 +18,7 @@ import { Widget } from "@typeform/embed-react"
 // const enrollmentDeadline = "2023-09-11"
 // const enrollmentDeadline = "2023-10-23"
 // const enrollmentDeadline = "2023-12-17"
-const enrollmentDeadline = "2023-03-20"
+const enrollmentDeadline = "2023-05-01" //spring 2
 
 const StyledNavDropdown = styled(NavDropdown)`
   border: 1px solid white;
