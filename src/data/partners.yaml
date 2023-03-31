@@ -189,3 +189,13 @@
   link: https://www.dentalwhale.com/
   img: logos/DentalWhaleLogo.png
   colWidth: "3"
+- probo:
+  name: Probo
+  link: https://www.probomedical.com/contact-us/
+  img: logos/probo.png
+  colWidth: "3"
+- agiliti:
+  name: Agiliti
+  link: https://www.agilitihealth.com/
+  img: logos/agility.jpg
+  colWidth: "3"
