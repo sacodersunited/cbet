@@ -5,8 +5,8 @@
   "version": "1.12.1",
   "author": "SA Coders United <support@sacodersunited.com>",
   "dependencies": {
-    "@emotion/react": "^11.10.5",
-    "@emotion/styled": "^11.10.5",
+    "@emotion/react": "^11.10.6",
+    "@emotion/styled": "^11.10.6",
     "@typeform/embed-react": "^1.21.0",
     "bootstrap": "^4.6.2",
     "dotenv": "^8.6.0",
@@ -40,8 +40,8 @@
     "@applitools/eyes-cypress": "github:applitools/eyes-cypress",
     "@testing-library/cypress": "^6.0.1",
     "cypress-axe": "^0.8.2",
-    "prettier": "^2.8.1",
-    "start-server-and-test": "^1.15.2"
+    "prettier": "^2.8.8",
+    "start-server-and-test": "^1.15.4"
   },
   "keywords": [
     "gatsby"
