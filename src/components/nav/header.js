@@ -1,35 +1,17 @@
-import { Link } from "gatsby"
-import PropTypes from "prop-types"
 import React from "react"
+import { Link } from "gatsby"
 import { Container, Navbar, Nav, NavDropdown } from "react-bootstrap"
 import Img from "gatsby-image"
 import Timer from "./timer"
 import styled from "@emotion/styled"
 import Moment from "react-moment"
-import { css } from "@emotion/react"
 import { Widget } from "@typeform/embed-react"
 
-// enrollment deadlines for 2023
-// NOTE: Also update the `src/data/classes.yaml` file
-// const enrollmentDeadline = "2023-03-20"
-// const enrollmentDeadline = "2023-05-01"
-// const enrollmentDeadline = "2023-06-12"
-// const enrollmentDeadline = "2023-07-31"
-// const enrollmentDeadline = "2023-09-11"
-// const enrollmentDeadline = "2023-10-23"
-// const enrollmentDeadline = "2023-12-17"
-const enrollmentDeadline = "2023-05-01" //spring 2
+export const Header = (props) => {
+  // enrollment deadlines for 2023
+  // NOTE: Also update the `src/data/classes.yaml` file
+  const enrollmentDeadline = "2023-05-01" //spring 2
 
-const StyledNavDropdown = styled(NavDropdown)`
-  border: 1px solid white;
-  border-radius: 0.25rem;
-  .dropdown-menu {
-    padding: 0;
-    padding-bottom: 20px;
-  }
-`
-
-const Header = (props) => {
   return (
     <React.Fragment>
       <Navbar bg="dark" variant="dark" expand="lg">
@@ -97,13 +79,6 @@ const Header = (props) => {
                   activeClassName="active"
                 >
                   Intl Students
-                </Link>
-                <Link
-                  to="/careers"
-                  className="dropdown-item"
-                  activeClassName="active"
-                >
-                  Careers
                 </Link>
                 <a
                   href="https://cbet.instructure.com/"
@@ -180,18 +155,7 @@ const Header = (props) => {
                   </p>
                 </div>
 
-                <div
-                  css={css`
-                    /* mobile */
-                    padding: 10px 5px;
-                    max-width: 400px;
-                    /* desktop */
-                    @media (min-width: 35em) {
-                      padding: 0 20px;
-                      min-width: 460px;
-                    }
-                  `}
-                >
+                <FormWrapper>
                   <p className="lead">
                     Complete this short webform to speak with an Admissions
                     Counselor
@@ -203,7 +167,7 @@ const Header = (props) => {
                     hideFooter={true}
                     height="900"
                   />
-                </div>
+                </FormWrapper>
               </StyledNavDropdown>
             </Nav>
           </Navbar.Collapse>
@@ -213,12 +177,23 @@ const Header = (props) => {
   )
 }
 
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-}
-
-Header.defaultProps = {
-  siteTitle: ``,
-}
-
 export default Header
+
+const StyledNavDropdown = styled(NavDropdown)`
+  border: 1px solid white;
+  border-radius: 0.25rem;
+  .dropdown-menu {
+    padding: 0;
+    padding-bottom: 20px;
+  }
+`
+const FormWrapper = styled.div`
+  /* mobile */
+  padding: 10px 5px;
+  max-width: 400px;
+  /* desktop */
+  @media (min-width: 35em) {
+    padding: 0 20px;
+    min-width: 460px;
+  }
+`
