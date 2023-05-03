@@ -10,7 +10,7 @@ import { Widget } from "@typeform/embed-react"
 export const Header = (props) => {
   // enrollment deadlines for 2023
   // NOTE: Also update the `src/data/classes.yaml` file
-  const enrollmentDeadline = "2023-05-01" //spring 2
+  const enrollmentDeadline = "2023-06-12" //summer 1 2023
 
   return (
     <React.Fragment>
